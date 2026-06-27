@@ -857,7 +857,7 @@ await fetchLeaderboard();
           <div className="mt-4 p-4 border rounded-xl">
             <h2 className="font-bold">🎯 Daily Quest</h2>
             <p>{dailyProgress >= 5 ? "✅" : "⬜"} Trả lời đúng 5 câu ({dailyProgress}/5)</p>
-            <p>{xp >= 100 ? "✅" : "⬜"} Kiếm 100 XP ({xp}/100)</p>
+            <p>{xp >= 100 ? "✅" : "⬜"} Kiếm 100 Điểm ({xp}/100)</p>
 
             {dailyProgress >= 5 && !dailyRewardClaimed && (
               <button
