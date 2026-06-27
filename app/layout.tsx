@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -11,6 +12,11 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+// Thêm đoạn này vào file app/layout.tsx của bạn
+export const viewport = {
+  width: 750, // Ép điện thoại hiểu độ rộng màn hình là 750px để tự động thu nhỏ game lại vừa khít
+};
 
 export const metadata: Metadata = {
   title: "Create Next App",
