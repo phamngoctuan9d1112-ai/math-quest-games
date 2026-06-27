@@ -85,7 +85,7 @@ export default function AchievementList({
                 <div className="text-right">
 
                   <div className="font-bold text-lg">
-                    {a.xpRequired} XP
+                    {a.xpRequired} Điểm
                   </div>
 
                   {unlocked ? (
@@ -122,7 +122,7 @@ export default function AchievementList({
 
                 <p className="text-right mt-2 text-sm">
 
-                  {Math.min(xp, a.xpRequired)} / {a.xpRequired} XP
+                  {Math.min(xp, a.xpRequired)} / {a.xpRequired} Điểm
 
                 </p>
 

@@ -31,7 +31,7 @@ export default function SubMap({ worldId, currentProgress, onSelectNode, onBack 
             ⬅ Trở Về
           </button>
           <h2 className="text-md font-black uppercase text-[#5c3a21]">
-            🗺️ Bản Đồ Ải {worldId}
+            🗺️ Bản Đồ Chặng {worldId}
           </h2>
           <div className="w-12"></div>
         </div>
