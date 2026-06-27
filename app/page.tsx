@@ -567,7 +567,7 @@ transition
                         </div>
 
                         <div className="font-bold text-blue-600">
-                            {user.xp} XP
+                            {user.xp} Điểm
                         </div>
                     </div>
                 ))}

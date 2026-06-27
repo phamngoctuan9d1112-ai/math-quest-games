@@ -185,12 +185,10 @@ export default function WorldSelect({
     <div className="text-center">
 
         <h1 className="text-6xl font-bold">
-            🌎 Math Quest
+               🌎 Math Quest
         </h1>
 
-        <p className="text-2xl">
-            Toán THPT qua trò chơi
-        </p>
+        
 
     </div>
 
