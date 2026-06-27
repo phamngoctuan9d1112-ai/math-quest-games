@@ -91,7 +91,7 @@ export default function StartScreen({
 
               <div>🌍 Mỗi World gồm 3 chặng, vượt qua Boss để mở khóa World mới.</div>
 
-              <div>🏆 Tăng XP để lên Level và mở khóa Thành tích.</div>
+              <div>🏆 Tăng Điểm để lên Level và mở khóa Thành tích.</div>
 
               <div>🎓 Chế độ Luyện Thi THPT gồm 50 câu hỏi ngẫu nhiên.</div>
 

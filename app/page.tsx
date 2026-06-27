@@ -730,7 +730,7 @@ transition
     return (
       <main className="min-h-screen flex flex-col items-center justify-center gap-4">
         <h1 className="text-5xl font-bold">💀 Game Over</h1>
-        <p>⭐ XP: {xp}</p>
+        <p>⭐ Điểm : {xp}</p>
         <p>🪙 Coin: {coins}</p>
         <button onClick={() => { setCurrent(0); setHearts(3); setSelectedWorld(null); setSelectedSubMap(null); setCurrentSubNode(null); }} className="bg-red-500 text-white px-6 py-3 rounded-xl">
           Chơi lại

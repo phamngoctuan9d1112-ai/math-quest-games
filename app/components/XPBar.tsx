@@ -17,7 +17,7 @@ export default function XPBar({ xp }: Props) {
       </div>
 
       <p className="mt-2 text-center">
-        {xp % 50}/50 XP
+        {xp % 50}/50 Điểm
       </p>
     </div>
   );
