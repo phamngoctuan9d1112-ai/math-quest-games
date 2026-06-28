@@ -11,7 +11,7 @@ import AchievementList from "./components/AchievementList";
 import { achievements } from "./data/achievements";
 import { bosses } from "./data/bosses";
 import { getWorlds } from "./data/worlds";
-import { worldQuestions } from "./data/questions";
+import { propositionQuestions } from "./data/questions";
 import Shop from "./components/Shop";
 import StartScreen from "./components/StartScreen";
 import Inventory from "./components/Inventory";
@@ -68,6 +68,16 @@ const [currentBoss, setCurrentBoss] = useState<Boss | null>(null);
   const [showAchievements, setShowAchievements] = useState(false);
   const [dailyProgress, setDailyProgress] = useState<number>(0);
 
+  // State lưu kết quả chọn Đúng/Sai cho 4 ý của Chặng 2. Ví dụ: { a: "Đúng", b: "Sai" }
+const [tfAnswers, setTfAnswers] = useState<Record<string, "Đúng" | "Sai">>({});
+
+// State lưu chữ người dùng nhập vào ô văn bản ở Chặng 3
+const [shortAnswer, setShortAnswer] = useState<string>("");
+
+// State kiểm soát việc hiển thị/ẩn bảng giải thích chi tiết ở Chặng 3
+const [showExplanation, setShowExplanation] = useState<boolean>(false);
+
+
   const [myRank, setMyRank] = useState<number>(0);
   
   // Đã sửa Type cho biến Auth
@@ -106,15 +116,19 @@ const [leaderboard, setLeaderboard] = useState<any[]>([]);
   if (level >= 30) rank = "👑 Huyền Thoại";
 
   const questions = (() => {
+
+
     if (shuffledQuestions.length > 0) return shuffledQuestions; 
     if (!selectedWorld || selectedWorld === -1 || currentSubNode === null) return [];
-    const worldData = worldQuestions[selectedWorld as keyof typeof worldQuestions] as any;
+    const worldData = propositionQuestions [selectedWorld as keyof typeof propositionQuestions] as any;
+    console.log("worldData", worldData);
     if (!worldData) return [];
     if (currentSubNode === 1) return worldData.stage1 || [];
     if (currentSubNode === 2) return worldData.stage2 || [];
     if (currentSubNode === 3) return worldData.stage3 || [];
     return [];
   })();
+  
 
   async function updateXP(newXP: number) {
   const {
@@ -150,7 +164,7 @@ async function updateCoins(newCoins: number) {
     .eq("id", user.id);
 }
 
-  const question = current < questions.length ? questions[current] : null;
+  const question = (current < questions.length ? questions[current] : null) as any;
 
   // ==========================================
   // 3. TẤT CẢ USE EFFECT (Không được đặt dưới if return)
@@ -415,6 +429,82 @@ await fetchLeaderboard();
       setCurrent(nextIndex);
     }
   }
+  // HÀM XỬ LÝ NỘP BÀI CHẶNG 2: ĐÚNG / SAI
+  const checkTrueFalseAnswer = () => {
+    if (!question?.subQuestions) return;
+    let correctCount = 0;
+    question.subQuestions.forEach((sub: any) => {
+      if (tfAnswers[sub.label] === sub.correctAnswer) correctCount++;
+    });
+
+    let scoreMultiplier = 0;
+    if (correctCount === 1) scoreMultiplier = 0.10;
+    if (correctCount === 2) scoreMultiplier = 0.25;
+    if (correctCount === 3) scoreMultiplier = 0.50;
+    if (correctCount === 4) scoreMultiplier = 1.00;
+
+    if (scoreMultiplier > 0) {
+      setCorrectAnswers((prev) => prev + 1);
+      setXp((prev) => prev + Math.round(15 * scoreMultiplier));
+      let reward = Math.round(10 * scoreMultiplier);
+      if (pet === "🐶") reward += 1;
+      if (pet === "🐱") reward += 2;
+      if (pet === "🐉") reward += 5;
+      setCoins((prev) => prev + reward);
+      setMessage(`🎉 Đúng ${correctCount}/4 ý! Thưởng ${scoreMultiplier * 100}%.`);
+    } else {
+      setHearts((prev) => Math.max(0, prev - 1));
+      setMessage("❌ Sai cả 4 ý!");
+    }
+
+    setTimeout(() => {
+      setMessage("");
+      setTfAnswers({});
+      const nextIndex = current + 1;
+      if (nextIndex >= questions.length) {
+        setCurrentSubNode(null);
+        setSelectedWorld(null);
+        setCurrent(0);
+      } else {
+        setCurrent(nextIndex);
+      }
+    }, 2000);
+  };
+
+  // HÀM XỬ LÝ NỘP BÀI CHẶNG 3: TỰ LUẬN NGẮN
+  const checkShortAnswer = () => {
+    const userAns = shortAnswer.trim().toLowerCase();
+    const correctAns = String(question?.answer).trim().toLowerCase();
+
+    if (userAns === correctAns) {
+      setCorrectAnswers((prev) => prev + 1);
+      setXp((prev) => prev + 20);
+      let reward = 15;
+      if (pet === "🐶") reward += 1;
+      if (pet === "🐱") reward += 2;
+      if (pet === "🐉") reward += 5;
+      setCoins((prev) => prev + reward);
+      setMessage("✅ Chính xác! +2 điểm.");
+    } else {
+      setHearts((prev) => Math.max(0, prev - 1));
+      setMessage("❌ Chưa chính xác!");
+    }
+    setShowExplanation(true);
+  };
+
+  const handleNextShortQuestion = () => {
+    setShowExplanation(false);
+    setShortAnswer("");
+    setMessage("");
+    const nextIndex = current + 1;
+    if (nextIndex >= questions.length) {
+      setCurrentSubNode(null);
+      setSelectedWorld(null);
+      setCurrent(0);
+    } else {
+      setCurrent(nextIndex);
+    }
+  };
 
  // ==========================================
   // 5. GIAO DIỆN (Điều kiện hiển thị render)
@@ -707,7 +797,7 @@ transition
 }}
             onExam={() => {
               const allQuestions: any[] = [];
-              Object.values(worldQuestions).forEach((world: any) => {
+              Object.values(propositionQuestions).forEach((world: any) => {
                 if (world.stage1) allQuestions.push(...world.stage1);
                 if (world.stage2) allQuestions.push(...world.stage2);
                 if (world.stage3) allQuestions.push(...world.stage3);
@@ -801,7 +891,7 @@ await fetchLeaderboard();
                         setGameCompleted(true);
                       } else {
                         const nextWorld = selectedWorld + 1;
-                        if (nextWorld <= Object.keys(worldQuestions).length) {
+                        if (nextWorld <= Object.keys(propositionQuestions).length) {
                           setUnlockedWorlds(prev => [...new Set([...prev, nextWorld])]);
                           setNewWorldUnlocked(nextWorld);
                         }
@@ -899,21 +989,104 @@ await fetchLeaderboard();
           <div className="bg-green-500 h-4 rounded-full transition-all" style={{ width: `${questions.length > 0 ? ((current + 1) / questions.length) * 100 : 0}%` }} />
         </div>
 
-        <h2 className="text-2xl text-center mt-6">
-          {question?.question}
-        </h2>
+       {/* Phần hiển thị nội dung câu hỏi chính */}
+<h2 className="text-xl md:text-2xl text-center mt-6 font-bold text-slate-800">
+  {question?.question}
+</h2>
 
-        <div className="grid gap-3 mt-6">
-          {question?.options?.map((option: string | number) => (
-            <button
-              key={String(option)}
-              onClick={() => checkAnswer(option)}
-              className="bg-blue-500 hover:bg-blue-600 active:scale-95 transition text-white py-4 rounded-2xl font-bold text-xl shadow-lg"
-            >
-              {option}
-            </button>
-          ))}
+{/* ---------------- CHẶNG 1: GIAO DIỆN TRẮC NGHIỆM ---------------- */}
+{currentSubNode === 1 && (
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
+    {question?.options?.map((option: string | number) => (
+      <button
+        key={String(option)}
+        onClick={() => checkAnswer(option)} // Gọi hàm trắc nghiệm cũ của bạn
+        className="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white py-4 px-4 rounded-xl font-bold transition shadow-md text-lg"
+      >
+        {option}
+      </button>
+    ))}
+  </div>
+)}
+
+{/* ---------------- CHẶNG 2: GIAO DIỆN ĐÚNG / SAI ĐA NHÁNH ---------------- */}
+{currentSubNode === 2 && (
+  <div className="mt-6 space-y-4">
+    {question?.subQuestions?.map((sub: any) => (
+      <div key={sub.label} className="p-3 bg-slate-50 border border-slate-200 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <span className="text-slate-700 text-base">
+          <strong className="text-indigo-600 font-bold">{sub.label}</strong> {sub.text}
+        </span>
+        
+        {/* Cặp nút Đúng / Sai cho từng ý */}
+        <div className="flex gap-2 w-full sm:w-auto">
+          <button
+            onClick={() => setTfAnswers(prev => ({ ...prev, [sub.label]: "Đúng" }))}
+            className={`flex-1 sm:flex-none px-4 py-2 rounded-lg font-bold border transition text-sm ${tfAnswers[sub.label] === "Đúng" ? "bg-green-500 text-white border-green-600" : "bg-white text-slate-700 border-slate-300 hover:bg-slate-50"}`}
+          >
+            Đúng
+          </button>
+          <button
+            onClick={() => setTfAnswers(prev => ({ ...prev, [sub.label]: "Sai" }))}
+            className={`flex-1 sm:flex-none px-4 py-2 rounded-lg font-bold border transition text-sm ${tfAnswers[sub.label] === "Sai" ? "bg-red-500 text-white border-red-600" : "bg-white text-slate-700 border-slate-300 hover:bg-slate-50"}`}
+          >
+            Sai
+          </button>
         </div>
+      </div>
+    ))}
+
+    {/* Nút nộp bài, chỉ sáng lên khi người chơi tích đủ đáp án cho cả 4 ý a,b,c,d */}
+    <button
+      onClick={checkTrueFalseAnswer}
+      disabled={Object.keys(tfAnswers).length < (question?.subQuestions?.length || 4)}
+      className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-not-allowed text-white py-3 rounded-xl font-bold mt-4 shadow-md transition text-lg"
+    >
+      Nộp bài Đọc / Sai
+    </button>
+  </div>
+)}
+
+{/* ---------------- CHẶNG 3: GIAO DIỆN TRẢ LỜI NGẮN + LỜI GIẢI ---------------- */}
+{currentSubNode === 3 && (
+  <div className="mt-6 space-y-4">
+    {!showExplanation ? (
+      // Khung nhập câu trả lời tự luận ngắn
+      <>
+        <input
+          type="text"
+          value={shortAnswer}
+          onChange={(e) => setShortAnswer(e.target.value)}
+          placeholder="Nhập đáp án số hoặc từ ngắn vào đây..."
+          className="w-full border-2 border-slate-300 rounded-xl p-4 text-center text-xl font-bold focus:border-blue-500 outline-none text-black bg-slate-50 shadow-inner"
+        />
+        <button
+          onClick={checkShortAnswer}
+          disabled={!shortAnswer.trim()}
+          className="w-full bg-emerald-600 hover:bg-emerald-700 disabled:bg-slate-200 disabled:text-slate-400 text-white py-4 rounded-xl font-bold text-lg shadow-md transition"
+        >
+          Kiểm tra đáp án
+        </button>
+      </>
+    ) : (
+      // Khung hiển thị phần Giải thích chi tiết sau khi người chơi bấm nộp bài
+      <div className="bg-amber-50 border-2 border-amber-200 p-5 rounded-2xl space-y-3 animate-fade-in text-left">
+        <h3 className="font-bold text-amber-800 text-lg flex items-center gap-2">
+          💡 Lời giải chi tiết:
+        </h3>
+        <p className="text-slate-700 leading-relaxed whitespace-pre-line font-medium text-base">
+          {question?.explanation}
+        </p>
+        <button
+          onClick={handleNextShortQuestion}
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold text-lg transition mt-4 shadow-md"
+        >
+          Tiếp tục sang câu kế tiếp ➡️
+        </button>
+      </div>
+    )}
+  </div>
+)}
       </div>
     </main>
   );

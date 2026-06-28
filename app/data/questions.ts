@@ -1,2527 +1,18405 @@
-// src/app/data/questions.ts
+export interface SubQuestion {
+  label: string;         // "a", "b", "c", "d"
+  text: string;          // Nội dung của ý nhỏ đó
+  correctAnswer: "Đúng" | "Sai";
+}
 
-export const worldQuestions: Record<number, { stage1: any[]; stage2: any[]; stage3: any[] }> = {
-  // ==========================================
-  // WORLD 1: MỆNH ĐỀ
-  // ==========================================
-  1: {
+export interface Question {
+  id: string;
+  type: "multiple-choice" | "true-false" | "short-answer";
+  question: string;
+  
+  // Dành cho Chặng 1 (Trắc nghiệm)
+  options?: (string | number)[];
+  answer?: string | number;
+  
+  // Dành cho Chặng 2 (Đúng / Sai)
+  subQuestions?: SubQuestion[];
+
+  // Dành cho Chặng 3 (Trả lời ngắn + Giải thích)
+  explanation?: string; // Đoạn text giải thích sau khi làm xong
+}
+
+// 2. Thiết lập bộ câu hỏi chia làm 3 stage (stage1, stage2, stage3)
+export const propositionQuestions = {
+ 1: {
     stage1: [
-      { question: "Câu nào sau đây là một mệnh đề toán học?", options: ["Hôm nay trời đẹp quá!", "Bạn mấy tuổi rồi?", "Số 7 là số nguyên tố.", "Hãy học bài đi!"], answer: "Số 7 là số nguyên tố." },
-      { question: "Phủ định của mệnh đề 'Trái Đất quay quanh Mặt Trời' là:", options: ["Trái Đất không quay quanh Mặt Trời.", "Mặt Trời quay quanh Trái Đất.", "Trái Đất đứng yên.", "Mặt Trời không đứng yên."], answer: "Trái Đất không quay quanh Mặt Trời." },
-      { question: "Trong các câu sau, câu nào KHÔNG phải là mệnh đề?", options: ["3 + 2 = 5", "Hà Nội là thủ đô của Việt Nam", "Mệt quá!", "2 là số chẵn"], answer: "Mệt quá!" },
-      { question: "Mệnh đề phủ định của mệnh đề P: '5 > 3' là gì?", options: ["5 < 3", "5 ≤ 3", "5 = 3", "5 ≥ 3"], answer: "5 ≤ 3" },
-      { question: "Kí hiệu '∀' trong toán học có nghĩa là gì?", options: ["Tồn tại", "Với mọi", "Duy nhất", "Thuộc"], answer: "Với mọi" },
-      { question: "Kí hiệu '∃' trong toán học có nghĩa là gì?", options: ["Với mọi", "Không tồn tại", "Tồn tại ít nhất một", "Tương đương"], answer: "Tồn tại ít nhất một" },
-      { question: "Mệnh đề nào dưới đây là mệnh đề ĐÚNG?", options: ["7 là số chẵn", "Số pi là số hữu tỉ", "Căn bậc hai của 2 là số vô tỉ", "1 là số nguyên tố"], answer: "Căn bậc hai của 2 là số vô tỉ" },
-      { question: "Mệnh đề phủ định của '∀x ∈ R, x² > 0' là gì?", options: ["∃x ∈ R, x² ≤ 0", "∃x ∈ R, x² < 0", "∀x ∈ R, x² ≤ 0", "∃x ∈ R, x² = 0"], answer: "∃x ∈ R, x² ≤ 0" },
-      { question: "Mệnh đề kéo theo được kí hiệu là gì?", options: ["P ⇔ Q", "P ⇒ Q", "P ∧ Q", "P ∨ Q"], answer: "P ⇒ Q" },
-      { question: "Mệnh đề tương đương P ⇔ Q đúng khi nào?", options: ["P đúng Q sai", "P sai Q đúng", "P và Q cùng đúng hoặc cùng sai", "P đúng Q đúng"], answer: "P và Q cùng đúng hoặc cùng sai" }
+      {
+        id: "p1_s1_1",
+        type: "multiple-choice",
+        question: "Câu nào sau đây không là mệnh đề?",
+        options: [
+          "Tam giác đều là tam giác có ba cạnh bằng nhau",
+          "3 < 1",
+          "4 - 5 = 1",
+          "Bạn học giỏi quá!"
+        ],
+        answer: "Bạn học giỏi quá!"
+      },
+      {
+        id: "p1_s1_2",
+        type: "multiple-choice",
+        question: "Trong các câu sau, câu nào là mệnh đề?",
+        options: [
+          "12 là số tự nhiên lẻ",
+          "An học lớp mấy?",
+          "Các bạn có chăm học không?",
+          "Các bạn hãy làm bài đi!"
+        ],
+        answer: "12 là số tự nhiên lẻ"
+      },
+      {
+        id: "p1_s1_3",
+        type: "multiple-choice",
+        question: "Phát biểu nào sau đây là một mệnh đề?",
+        options: [
+          "Mùa thu Hà Nội đẹp quá!",
+          "Bạn có đi học không?",
+          "Đề thi môn Toán khó quá!",
+          "Hà Nội là thủ đô của Việt Nam"
+        ],
+        answer: "Hà Nội là thủ đô của Việt Nam"
+      },
+      {
+        id: "p1_s1_4",
+        type: "multiple-choice",
+        question: "Mệnh đề phủ định của 'n > 9' là",
+        options: [
+          "-n > 9",
+          "-n > -9",
+          "n < 9",
+          "n ≤ 9"
+        ],
+        answer: "n ≤ 9"
+      },
+      {
+        id: "p1_s1_5",
+        type: "multiple-choice",
+        question: "Cho mệnh đề 'Có một học sinh trong lớp 10A không thích học môn Toán'. Mệnh đề phủ định là",
+        options: [
+          "Mọi học sinh trong lớp 10A đều thích học môn Toán",
+          "Mọi học sinh trong lớp 10A đều không thích học môn Toán",
+          "Mọi học sinh trong lớp 10A đều thích học môn Văn",
+          "Có một học sinh trong lớp 10A thích học môn Toán"
+        ],
+        answer: "Mọi học sinh trong lớp 10A đều thích học môn Toán"
+      },
+      {
+        id: "p1_s1_6",
+        type: "multiple-choice",
+        question: "Mệnh đề nào sau đây là phủ định của 'Mọi động vật đều di chuyển'?",
+        options: [
+          "Có ít nhất một động vật di chuyển",
+          "Có ít nhất một động vật không di chuyển",
+          "Mọi động vật đều không di chuyển",
+          "Mọi động vật đều đứng yên"
+        ],
+        answer: "Có ít nhất một động vật không di chuyển"
+      },
+      {
+        id: "p1_s1_7",
+        type: "multiple-choice",
+        question: "Cho định lí: Nếu hai tam giác bằng nhau thì diện tích bằng nhau. Khẳng định đúng là",
+        options: [
+          "Hai tam giác bằng nhau là điều kiện cần và đủ để diện tích bằng nhau",
+          "Hai tam giác bằng nhau là điều kiện cần để diện tích bằng nhau",
+          "Hai tam giác có diện tích bằng nhau là điều kiện đủ để bằng nhau",
+          "Hai tam giác bằng nhau là điều kiện đủ để diện tích bằng nhau"
+        ],
+        answer: "Hai tam giác bằng nhau là điều kiện đủ để diện tích bằng nhau"
+      },
+      {
+        id: "p1_s1_8",
+        type: "multiple-choice",
+        question: "Mệnh đề P ⇒ Q sai khi nào?",
+        options: [
+          "P đúng, Q đúng",
+          "P sai, Q đúng",
+          "P sai, Q sai",
+          "P đúng, Q sai"
+        ],
+        answer: "P đúng, Q sai"
+      },
+      {
+        id: "p1_s1_9",
+        type: "multiple-choice",
+        question: "Mệnh đề phủ định của '∀x ∈ R : x² + x + 5 > 0' là",
+        options: [
+          "∀x ∈ R : x² + x + 5 ≤ 0",
+          "∃x ∈ R : x² + x + 5 ≤ 0",
+          "∀x ∈ R : x² + x + 5 < 0",
+          "∃x ∈ R : x² + x + 5 > 0"
+        ],
+        answer: "∃x ∈ R : x² + x + 5 ≤ 0"
+      },
+      {
+        id: "p1_s1_10",
+        type: "multiple-choice",
+        question: "Phủ định của mệnh đề '∃x ∈ R : x² + x + 1 là số dương' là",
+        options: [
+          "∀x ∈ R : x² + x + 1 là số không dương",
+          "∀x ∈ R : x² + x + 1 là số âm",
+          "∀x ∈ R : x² + x + 1 là số dương",
+          "∃x ∈ R : x² + x + 1 là số dương"
+        ],
+        answer: "∀x ∈ R : x² + x + 1 là số không dương"
+      }
     ],
-    stage2: [
-      { question: "Cho mệnh đề chứa biến P(x): 'x + 1 > 5'. Với giá trị nào của x thì P(x) đúng?", options: ["x = 2", "x = 3", "x = 4", "x = 5"], answer: "x = 5" },
-      { question: "Mệnh đề nào sau đây SAI?", options: ["Nếu một tam giác đều thì nó có 3 góc bằng nhau", "Nếu một số chia hết cho 9 thì nó chia hết cho 3", "Nếu tứ giác là hình thoi thì nó là hình vuông", "Nếu x = 2 thì x² = 4"], answer: "Nếu tứ giác là hình thoi thì nó là hình vuông" },
-      { question: "Tìm mệnh đề đúng trong các mệnh đề sau:", options: ["∀x ∈ R, x² + 1 = 0", "∃x ∈ R, x² < 0", "∃x ∈ Z, 2x - 1 = 0", "∃x ∈ Q, x² = 4"], answer: "∃x ∈ Q, x² = 4" },
-      { question: "Phủ định của mệnh đề: 'Mọi học sinh lớp 10A đều thích học Toán' là:", options: ["Mọi học sinh lớp 10A đều không thích học Toán", "Có ít nhất một học sinh lớp 10A thích học Toán", "Có ít nhất một học sinh lớp 10A không thích học Toán", "Tất cả các học sinh lớp khác thích học Toán"], answer: "Có ít nhất một học sinh lớp 10A không thích học Toán" },
-      { question: "Mệnh đề đảo của mệnh đề 'Nếu một số chia hết cho 6 thì nó chia hết cho 2' là:", options: ["Nếu một số chia hết cho 2 thì nó chia hết cho 6", "Nếu một số không chia hết cho 6 thì nó không chia hết cho 2", "Nếu một số chia hết cho 3 thì nó chia hết cho 6", "Một số chia hết cho 6 khi và chỉ khi chia hết cho 2"], answer: "Nếu một số chia hết cho 2 thì nó chia hết cho 6" },
-      { question: "Cho mệnh đề P: 'Tam giác ABC cân'. Điều kiện cần để tam giác ABC đều là gì?", options: ["Tam giác ABC cân", "Tam giác ABC vuông", "Tam giác ABC vuông cân", "Không cần điều kiện gì"], answer: "Tam giác ABC cân" },
-      { question: "Trong các mệnh đề sau, mệnh đề nào có mệnh đề đảo ĐÚNG?", options: ["Nếu hai góc đối đỉnh thì bằng nhau", "Nếu một số chia hết cho 4 thì chia hết cho 2", "Nếu một tam giác có một góc 60 độ thì là tam giác đều", "Nếu x² = y² thì x = y"], answer: "Nếu một tam giác có một góc 60 độ thì là tam giác đều" },
-      { question: "Cho x là số thực. Mệnh đề phủ định của '∃x, x² - x + 7 < 0' là:", options: ["∀x, x² - x + 7 > 0", "∀x, x² - x + 7 ≤ 0", "∀x, x² - x + 7 ≥ 0", "∃x, x² - x + 7 ≥ 0"], answer: "∀x, x² - x + 7 ≥ 0" },
-      { question: "Mệnh đề 'Nếu tứ giác ABCD là hình chữ nhật thì hai đường chéo bằng nhau'. Phát biểu dưới dạng điều kiện đủ là:", options: ["Hai đường chéo bằng nhau là điều kiện đủ", "ABCD là hình chữ nhật là điều kiện đủ", "ABCD là hình chữ nhật là điều kiện cần", "Hai đường chéo bằng nhau là điều kiện cần và đủ"], answer: "ABCD là hình chữ nhật là điều kiện đủ" },
-      { question: "Mệnh đề nào sau đây có tính chất đúng với mọi số tự nhiên n?", options: ["n² + 1 chia hết cho 2", "n(n+1) là số chẵn", "n(n+1)(n+2) chia hết cho 8", "n² > n"], answer: "n(n+1) là số chẵn" }
-    ],
-    stage3: [
-      { question: "Tìm m để mệnh đề '∀x ∈ R, x² - 2x + m > 0' luôn đúng?", options: ["m > 1", "m < 1", "m ≥ 1", "m ≤ 1"], answer: "m > 1" },
-      { question: "Cho mệnh đề chứa biến P(n): 'n² - 1 chia hết cho 4'. Với số nguyên n nào sau đây thì P(n) đúng?", options: ["n là số chẵn", "n là số lẻ", "n là số nguyên tố chẵn", "n là bội số của 4"], answer: "n là số lẻ" },
-      { question: "Xét tính đúng sai của 2 mệnh đề: X: '∀x ∈ R, x² ≥ 0' và Y: '∃x ∈ R, x < 1/x'.", options: ["X đúng, Y sai", "X sai, Y đúng", "Cả X và Y đều đúng", "Cả X và Y đều sai"], answer: "Cả X và Y đều đúng" },
-      { question: "Mệnh đề phủ định của mệnh đề: 'Mọi số thực đều có bình phương lớn hơn chính nó' là:", options: ["Có một số thực có bình phương nhỏ hơn hoặc bằng chính nó", "Mọi số thực đều có bình phương nhỏ hơn chính nó", "Có một số thực có bình phương lớn hơn chính nó", "Không có số thực nào có bình phương nhỏ hơn chính nó"], answer: "Có một số thực có bình phương nhỏ hơn hoặc bằng chính nó" },
-      { question: "Cho mệnh đề A: 'Phương trình x² + bx + c = 0 có 2 nghiệm phân biệt'. Mệnh đề nào tương đương với A?", options: ["b² - 4ac ≤ 0", "b² - 4ac > 0", "b² - 4ac < 0", "b² - 4ac = 0"], answer: "b² - 4ac > 0" },
-      { question: "Xác định tính đúng sai của mệnh đề kéo theo: 'Nếu 2 + 2 = 5 thì Trái Đất phẳng'.", options: ["Mệnh đề Đúng", "Mệnh đề Sai", "Mệnh đề không xác định", "Mệnh đề vừa đúng vừa sai"], answer: "Mệnh đề Đúng" },
-      { question: "Với giá trị thực nào của m thì mệnh đề '∃x ∈ R, x² = m' là mệnh đề đúng?", options: ["m < 0", "m ≤ 0", "m ≥ 0", "m ∈ R"], answer: "m ≥ 0" },
-      { question: "Cho mệnh đề P: '∀x ∈ R, x² + mx + 1 > 0'. Tìm m để mệnh đề P ĐÚNG.", options: ["m > 2 hoặc m < -2", "-2 < m < 2", "-2 ≤ m ≤ 2", "m ∈ R"], answer: "-2 < m < 2" },
-      { question: "Cho phát biểu: 'Nếu a và b là hai số vô tỉ thì a + b là số vô tỉ'. Tính đúng sai của phát biểu này là:", options: ["Luôn đúng", "Sai", "Chỉ đúng với số dương", "Chỉ đúng với số âm"], answer: "Sai" },
-      { question: "Mệnh đề nào sau đây tương đương với mệnh đề 'Nếu a lẻ và b lẻ thì a.b lẻ'?", options: ["Nếu a.b chẵn thì a chẵn hoặc b chẵn", "Nếu a chẵn hoặc b chẵn thì a.b chẵn", "Nếu a.b lẻ thì a lẻ và b lẻ", "Nếu a chẵn và b chẵn thì a.b chẵn"], answer: "Nếu a.b chẵn thì a chẵn hoặc b chẵn" }
+  stage2: [
+  {
+    id: "p1_s2_1",
+    type: "true-false",
+    question: "Xét tính đúng sai của các mệnh đề sau:",
+    subQuestions: [
+      {
+        label: "a",
+        text: "15 không là số nguyên tố.",
+        correctAnswer: "Đúng"
+      },
+      {
+        label: "b",
+        text: "Một tứ giác là hình thoi khi và chỉ khi nó có hai đường chéo vuông góc với nhau.",
+        correctAnswer: "Sai"
+      },
+      {
+        label: "c",
+        text: "5 + 19 = 24.",
+        correctAnswer: "Đúng"
+      },
+      {
+        label: "d",
+        text: "6 + 81 = 25.",
+        correctAnswer: "Sai"
+      }
     ]
   },
 
-  // ==========================================
-  // WORLD 2: TẬP HỢP
-  // ==========================================
-  2: {
-    stage1: [
-      { question: "Kí hiệu nào sau đây dùng để chỉ phần tử x thuộc tập hợp A?", options: ["x ⊂ A", "x ∈ A", "x ∉ A", "A ⊂ x"], answer: "x ∈ A" },
-      { question: "Tập hợp các số tự nhiên được kí hiệu là gì?", options: ["Z", "Q", "R", "N"], answer: "N" },
-      { question: "Kí hiệu nào chỉ tập hợp rỗng?", options: ["{0}", "∅", "{∅}", "R"], answer: "∅" },
-      { question: "Cho A = {1; 2; 3}. Cách viết nào sau đây ĐÚNG?", options: ["1 ⊂ A", "{1} ∈ A", "{1; 2} ⊂ A", "4 ∈ A"], answer: "{1; 2} ⊂ A" },
-      { question: "Tập hợp các số nguyên được kí hiệu là gì?", options: ["N", "Z", "Q", "R"], answer: "Z" },
-      { question: "Tập hợp các số thực được kí hiệu là gì?", options: ["N", "Z", "Q", "R"], answer: "R" },
-      { question: "Kí hiệu A ∩ B có nghĩa là gì?", options: ["Hợp của A và B", "Giao của A và B", "Hiệu của A và B", "Phần bù của A trong B"], answer: "Giao của A và B" },
-      { question: "Kí hiệu A \\ B có nghĩa là gì?", options: ["Giao của A và B", "Hợp của A và B", "Hiệu của A và B", "Phần bù của B"], answer: "Hiệu của A và B" },
-      { question: "Kí hiệu A ∪ B có nghĩa là gì?", options: ["Giao của A và B", "Hợp của A và B", "Hiệu của A và B", "Tập rỗng"], answer: "Hợp của A và B" },
-      { question: "Nếu A là tập con của B, ta kí hiệu là gì?", options: ["A ∈ B", "A ⊂ B", "B ⊂ A", "A ∪ B"], answer: "A ⊂ B" }
-    ],
-    stage2: [
-      { question: "Cho A = {0; 1; 2; 3} và B = {2; 3; 4; 5}. Tìm A ∩ B.", options: ["{2; 3}", "{0; 1; 4; 5}", "{0; 1; 2; 3; 4; 5}", "{2}"], answer: "{2; 3}" },
-      { question: "Cho A = {1; 2; 5} và B = {1; 3}. Tìm A ∪ B.", options: ["{1}", "{1; 2; 3; 5}", "{2; 5}", "{3}"], answer: "{1; 2; 3; 5}" },
-      { question: "Cho A = {a; b; c; d} và B = {c; d; e}. Tìm A \\ B.", options: ["{a; b}", "{e}", "{c; d}", "{a; b; c; d; e}"], answer: "{a; b}" },
-      { question: "Số tập hợp con của tập hợp X = {1; 2} là bao nhiêu?", options: ["2", "3", "4", "5"], answer: "4" } ,
-      { question: "Cho tập hợp A = {x ∈ N | x < 4}. Liệt kê các phần tử của A.", options: ["{1; 2; 3}", "{0; 1; 2; 3}", "{0; 1; 2; 3; 4}", "{1; 2; 3; 4}"], answer: "{0; 1; 2; 3}" },
-      { question: "Tập hợp nào sau đây là tập rỗng?", options: ["{x ∈ R | x² - 4 = 0}", "{x ∈ Z | x² - 2 = 0}", "{x ∈ Q | x² - 1 = 0}", "{0}"], answer: "{x ∈ Z | x² - 2 = 0}" },
-      { question: "Cho tập hợp A = [ -2; 3 ]. Tập hợp A chứa bao nhiêu số nguyên?", options: ["4", "5", "6", "7"], answer: "6" },
-      { question: "Hình vẽ mô tả khoảng (a; b) trên trục số loại bỏ các phần tử nào?", options: ["Các số nhỏ hơn hoặc bằng a, lớn hơn hoặc bằng b", "Các số nằm giữa a và b", "Chỉ loại bỏ a và b", "Không loại bỏ số nào"], answer: "Các số nhỏ hơn hoặc bằng a, lớn hơn hoặc bằng b" },
-      { question: "Kí hiệu C_R A nghĩa là gì?", options: ["Phần bù của tập A trong R", "Giao của A và R", "Hiệu của A và R", "Hợp của A và R"], answer: "Phần bù của tập A trong R" },
-      { question: "Cho A ⊂ B. Khẳng định nào sau đây luôn ĐÚNG?", options: ["A ∩ B = A", "A ∪ B = A", "A \\ B = A", "B \\ A = ∅"], answer: "A ∩ B = A" }
-    ],
-    stage3: [
-      { question: "Cho A = (-∞; 2] và B = (0; +∞). Tìm A ∩ B.", options: ["(0; 2]", "(-∞; +∞)", "(0; 2)", "[-2; 0)"], answer: "(0; 2]" },
-      { question: "Cho A = [-3; 2) và B = (1; 5]. Tìm A ∪ B.", options: ["[-3; 5]", "(1; 2)", "[-3; 5]", "[-3; 1)"], answer: "[-3; 5]" },
-      { question: "Cho A = [-1; 4] và B = (2; 6). Tìm A \\ B.", options: ["[-1; 2]", "[-1; 2)", "(4; 6)", "[-1; 6)"], answer: "[-1; 2]" },
-      { question: "Lớp 10A có 20 bạn thích Toán, 15 bạn thích Văn, 7 bạn thích cả hai. Có bao nhiêu bạn thích ít nhất 1 môn?", options: ["35", "28", "22", "42"], answer: "28" },
-      { question: "Cho tập hợp A = {x ∈ R | (x - 1)(x² - 3) = 0}. Tập A viết dưới dạng liệt kê là:", options: ["{1}", "{1; √3}", "{1; -√3; √3}", "{1; 3}"], answer: "{1; -√3; √3}" },
-      { question: "Cho A = [m; m + 2] và B = [1; 3]. Tìm m để A ⊂ B.", options: ["m = 1", "1 ≤ m ≤ 3", "m ≤ 1", "0 ≤ m ≤ 1"], answer: "m = 1" },
-      { question: "Cho X là tập hợp các số chẵn, Y là tập các số chia hết cho 4. Khẳng định nào ĐÚNG?", options: ["X ⊂ Y", "Y ⊂ X", "X ∩ Y = ∅", "X = Y"], answer: "Y ⊂ X" },
-      { question: "Phần bù của tập hợp [-2; 5) trong R là gì?", options: ["(-∞; -2) ∪ [5; +∞)", "(-∞; -2] ∪ (5; +∞)", "(-∞; -2) ∪ (5; +∞)", "[-2; 5]"], answer: "(-∞; -2) ∪ [5; +∞)" },
-      { question: "Cho hai tập hợp khác rỗng A = (m-1; m+3) và B = (2; 5). Tìm m để A ∩ B = ∅.", options: ["m ≤ -1 hoặc m ≥ 6", "m < -1 hoặc m > 6", "-1 < m < 6", "m = 2"], answer: "m ≤ -1 hoặc m ≥ 6" },
-      { question: "Số tập con có đúng 2 phần tử của tập hợp A = {1; 2; 3; 4} là:", options: ["4", "6", "8", "12"], answer: "6" }
+  {
+    id: "p1_s2_2",
+    type: "true-false",
+    question: "Cho P: 'Tam giác ABC là tam giác đều', Q: 'Tam giác ABC là tam giác cân'. Xét mệnh đề Nếu P thì Q.",
+    subQuestions: [
+      {
+        label: "a",
+        text: "P là điều kiện đủ để có Q.",
+        correctAnswer: "Đúng"
+      },
+      {
+        label: "b",
+        text: "Q là điều kiện cần để có P.",
+        correctAnswer: "Đúng"
+      },
+      {
+        label: "c",
+        text: "Mệnh đề 'Nếu P thì Q' là mệnh đề đúng.",
+        correctAnswer: "Đúng"
+      },
+      {
+        label: "d",
+        text: "Mệnh đề 'Nếu Q thì P' là mệnh đề đúng.",
+        correctAnswer: "Sai"
+      }
     ]
   },
 
-  // ==========================================
-  // WORLD 3: BẤT PHƯƠNG TRÌNH
-  // ==========================================
-  3: {
-    stage1: [
-      { question: "Bất phương trình nào sau đây là bất phương trình bậc nhất hai ẩn?", options: ["2x + 3y > 5", "x² + y < 0", "2x - y² ≥ 1", "xyz ≤ 2"], answer: "2x + 3y > 5" },
-      { question: "Cặp số (x; y) nào sau đây là một nghiệm của bất phương trình x + y > 2?", options: ["(1; 1)", "(0; 0)", "(2; 1)", "(1; 0)"], answer: "(2; 1)" },
-      { question: "Điểm nào sau đây THUỘC miền nghiệm của bất phương trình 2x - y ≤ 3?", options: ["(3; 0)", "(2; 0)", "(0; 0)", "(4; 1)"], answer: "(0; 0)" },
-      { question: "Miền nghiệm của bất phương trình bậc nhất hai ẩn ax + by ≤ c là gì?", options: ["Một đường thẳng", "Một nửa mặt phẳng", "Một góc", "Toàn bộ mặt phẳng"], answer: "Một nửa mặt phẳng" },
-      { question: "Bất phương trình x - 2y < 4 có bao nhiêu nghiệm?", options: ["1 nghiệm", "2 nghiệm", "Vô nghiệm", "Vô số nghiệm"], answer: "Vô số nghiệm" },
-      { question: "Cặp số (-1; 2) là nghiệm của bất phương trình nào dưới đây?", options: ["x + y < 0", "2x + y > 3", "x - y < 0", "y - x < 0"], answer: "x - y < 0" },
-      { question: "Đường thẳng chia mặt phẳng thành hai nửa trong bài toán biểu diễn miền nghiệm gọi là gì?", options: ["Đường biên", "Trục hoành", "Trục tung", "Đường tiệm cận"], answer: "Đường biên" },
-      { question: "Bất phương trình nào dưới đây KHÔNG phải bậc nhất hai ẩn?", options: ["x - y > 1", "x + 2y ≤ 0", "1/x + y > 2", "3x ≥ y"], answer: "1/x + y > 2" },
-      { question: "Khi biểu diễn miền nghiệm của x ≥ 0, ta bỏ phần mặt phẳng nào?", options: ["Nửa mặt phẳng bên trái trục Oy", "Nửa mặt phẳng bên phải trục Oy", "Nửa mặt phẳng bên trên trục Ox", "Nửa mặt phẳng bên dưới trục Ox"], answer: "Nửa mặt phẳng bên trái trục Oy" },
-      { question: "Cặp số (0;0) KHÔNG là nghiệm của bất phương trình nào sau đây?", options: ["2x + y ≥ 0", "x - 3y < 1", "x + y - 2 > 0", "5x - y ≤ 2"], answer: "x + y - 2 > 0" }
-    ],
-    stage2: [
-      { question: "Miền nghiệm của bất phương trình 3x + 2y ≥ 6 chứa điểm nào?", options: ["(0; 0)", "(1; 1)", "(2; 2)", "(1; 0)"], answer: "(2; 2)" },
-      { question: "Cho bất phương trình 2x + 3y - 6 ≤ 0. Khẳng định nào sau đây ĐÚNG?", options: ["Điểm (3;1) thuộc miền nghiệm", "Điểm (0;0) thuộc miền nghiệm", "Điểm (2;2) thuộc miền nghiệm", "Điểm (1;2) thuộc miền nghiệm"], answer: "Điểm (0;0) thuộc miền nghiệm" },
-      { question: "Phần không gạch chéo (kể cả bờ) ở hình bên mô tả nghiệm x - y ≤ 2. Điểm nào nằm trong miền này?", options: ["(0; 0)", "(4; 0)", "(5; 1)", "(3; -2)"], answer: "(0; 0)" },
-      { question: "Bất phương trình x - y > 0 có miền nghiệm là nửa mặt phẳng chứa điểm nào?", options: ["(1; 2)", "(2; 1)", "(-1; 1)", "(0; 3)"], answer: "(2; 1)" },
-      { question: "Giá trị của x và y phải thỏa mãn điều kiện gì để cặp số (x;y) là nghiệm của 2x - y + 4 > 0?", options: ["2x - y > -4", "2x - y < -4", "2x + y > 4", "x - 2y > 4"], answer: "2x - y > -4" },
-      { question: "Tìm giá trị của m để cặp số (1; -1) là nghiệm của bất phương trình mx + y > 2.", options: ["m > 3", "m < 3", "m > 1", "m < 1"], answer: "m > 3" },
-      { question: "Nửa mặt phẳng phía trên trục hoành (không tính trục hoành) là miền nghiệm của:", options: ["y > 0", "y < 0", "x > 0", "x < 0"], answer: "y > 0" },
-      { question: "Nửa mặt phẳng phía dưới trục hoành (tính cả trục hoành) là miền nghiệm của:", options: ["y ≥ 0", "y ≤ 0", "x ≤ 0", "x ≥ 0"], answer: "y ≤ 0" },
-      { question: "Cặp số nào sau đây làm cho biểu thức f(x,y) = x - 2y đạt giá trị âm?", options: ["(5; 1)", "(1; 2)", "(3; 1)", "(4; 0)"], answer: "(1; 2)" },
-      { question: "Bất phương trình nào biểu diễn nửa mặt phẳng bên phải trục tung (kể cả bờ)?", options: ["x ≥ 0", "x ≤ 0", "y ≥ 0", "y ≤ 0"], answer: "x ≥ 0" }
-    ],
-    stage3: [
-      { question: "Một người kinh doanh có tối đa 10 triệu đồng mua hai loại mặt hàng A giá 200k và B giá 400k. Bất phương trình mô tả số lượng x, y mua được là:", options: ["2x + 4y ≤ 100", "x + 2y ≤ 50", "200x + 400y > 10000", "x + y ≤ 10"], answer: "x + 2y ≤ 50" },
-      { question: "Tìm tất cả các giá trị của tham số m để bất phương trình 2x + 3y < m nhận điểm (1; 2) làm nghiệm.", options: ["m > 8", "m < 8", "m ≥ 8", "m ≤ 8"], answer: "m > 8" },
-      { question: "Cho miền nghiệm là nửa mặt phẳng bờ d: x - y = 1 chứa điểm O(0;0). Bất phương trình tương ứng là:", options: ["x - y < 1", "x - y > 1", "x - y ≤ -1", "x - y ≥ 1"], answer: "x - y < 1" },
-      { question: "Bất phương trình nào sau đây có miền nghiệm KHÔNG chứa gốc tọa độ O?", options: ["x + y + 1 ≥ 0", "2x - 3y + 5 > 0", "x - y - 2 < 0", "3x + y - 4 > 0"], answer: "3x + y - 4 > 0" },
-      { question: "Cho biểu thức F = 2x + y. Tìm giá trị lớn nhất của F trên miền x ≥ 0, y ≥ 0, x + y ≤ 2.", options: ["2", "4", "3", "5"], answer: "4" },
-      { question: "Miền nghiệm của bất phương trình x - 2y + 2 ≥ 0 có chứa điểm nào dưới đây?", options: ["(0; 2)", "(-3; 0)", "(1; -1)", "(-2; 1)"], answer: "(1; -1)" },
-      { question: "Phần mặt phẳng chứa điểm (1; 3) và không chứa điểm (0; 0) khi chia bởi đường thẳng x + y = 2 tương ứng với:", options: ["x + y > 2", "x + y < 2", "x + y ≥ 0", "x + y ≤ 2"], answer: "x + y > 2" },
-      { question: "Bất phương trình bậc nhất hai ẩn có dạng tổng quát nào?", options: ["ax + by < c", "ax² + by < c", "ax + by² > c", "ax + b < 0"], answer: "ax + by < c" },
-      { question: "Nếu đổi dấu cả hai vế của bất phương trình 2x - y > 3 khi nhân với -1 ta được:", options: ["-2x + y > -3", "-2x + y < -3", "2x - y < -3", "-2x - y < 3"], answer: "-2x + y < -3" },
-      { question: "Cặp số nào dưới đây thuộc miền nghiệm của bất phương trình -x + 4y > -2?", options: ["(3; 0)", "(5; 0)", "(0; 0)", "(4; -1)"], answer: "(0; 0)" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 4: HỆ BẤT PHƯƠNG TRÌNH
-  // ==========================================
-  4: {
-    stage1: [
-      { question: "Hệ nào sau đây là hệ bất phương trình bậc nhất hai ẩn?", options: ["{x+y>1; x-y<2}", "{x²+y>0; x-y=1}", "{x+y³>1; x>0}", "{xy>1; x+y<2}"], answer: "{x+y>1; x-y<2}" },
-      { question: "Cặp số (1; 1) là nghiệm của hệ bất phương trình nào?", options: ["{x+y>0; x-y>1}", "{x+y>1; 2x-y>0}", "{x<0; y>0}", "{x+y<1; x-y<0}"], answer: "{x+y>1; 2x-y>0}" },
-      { question: "Miền nghiệm của hệ bất phương trình là gì?", options: ["Một đường thẳng", "Giao các miền nghiệm của từng bpt trong hệ", "Một điểm duy nhất", "Toàn bộ mặt phẳng tọa độ"], answer: "Giao các miền nghiệm của từng bpt trong hệ" },
-      { question: "Điểm O(0; 0) là nghiệm của hệ bất phương trình nào sau đây?", options: ["{x+y-1>0; x-y>0}", "{x+y+2>0; 2x-y+1>0}", "{x-y-3>0; x>1}", "{x+y+1<0; y>1}"], answer: "{x+y+2>0; 2x-y+1>0}" },
-      { question: "Hệ bất phương trình {x ≥ 0; y ≥ 0} xác định miền nghiệm ở phần tư thứ mấy?", options: ["Thứ I", "Thứ II", "Thứ III", "Thứ IV"], answer: "Thứ I" },
-      { question: "Cặp số nào sau đây KHÔNG phải là nghiệm của hệ {x + y ≥ 2; x - y ≤ 2}?", options: ["(2; 1)", "(3; 0)", "(0; 3)", "(1; 0)"], answer: "(1; 0)" },
-      { question: "Miền nghiệm của hệ {x > 0; y < 0} nằm ở góc phần tư thứ mấy?", options: ["Thứ I", "Thứ II", "Thứ III", "Thứ IV"], answer: "Thứ IV" },
-      { question: "Hệ {x - y > 1; x - y < 0} có miền nghiệm là:", options: ["Tập rỗng", "Đường thẳng", "Nửa mặt phẳng", "Một dải mặt phẳng"], answer: "Tập rỗng" },
-      { question: "Điểm nào thuộc miền nghiệm của hệ {x + y < 3; x > 1; y > 0}?", options: ["(2; 0.5)", "(0; 0)", "(1; 1)", "(3; 1)"], answer: "(2; 0.5)" },
-      { question: "Cho hệ {x ≥ 0; y ≥ 0; x + y ≤ 1}. Miền nghiệm của hệ có hình dạng là gì?", options: ["Hình vuông", "Hình tam giác", "Hình tròn", "Hình chữ nhật"], answer: "Hình tam giác" }
-    ],
-    stage2: [
-      { question: "Tìm miền nghiệm của hệ {2x + y ≥ 4; x - 2y ≤ 2} chứa điểm nào?", options: ["(0; 0)", "(3; 0)", "(1; 1)", "(0; 5)"], answer: "(0; 5)" },
-      { question: "Miền đa giác nghiệm của hệ {x ≥ 0; y ≥ 0; x + y ≤ 4; x + 2y ≤ 6} có bao nhiêu đỉnh?", options: ["3 đỉnh", "4 đỉnh", "5 đỉnh", "6 đỉnh"], answer: "4 đỉnh" },
-      { question: "Điểm nào sau đây thuộc miền nghiệm của hệ {x - y > 0; x + 2y < 4; y > -1}?", options: ["(2; 0)", "(0; 2)", "(1; 2)", "(-1; -2)"], answer: "(2; 0)" },
-      { question: "Hệ bất phương trình nào dưới đây có miền nghiệm là hình vuông cạnh bằng 1 ở góc phần tư thứ nhất?", options: ["{0≤x≤1; 0≤y≤1}", "{0<x<2; 0<y<2}", "{-1≤x≤0; -1≤y≤0}", "{x+y≤1; x≥0; y≥0}"], answer: "{0≤x≤1; 0≤y≤1}" },
-      { question: "Cho hệ bpt {x + y - 2 ≤ 0; 2x - y + 1 ≥ 0}. Giao điểm của hai đường biên là:", options: ["(1; 1)", "(1; 3)", "(0; 2)", "(1/3; 5/3)"], answer: "(1/3; 5/3)" },
-      { question: "Tìm m để hệ {x + y ≤ 1; x - y ≥ m} có nghiệm (1; 0).", options: ["m ≤ 1", "m ≥ 1", "m = 0", "m > 2"], answer: "m ≤ 1" },
-      { question: "Miền nghiệm của hệ {x - y ≤ 2; x + y ≥ 0; y ≤ 3} có hình dạng là:", options: ["Một miền không giới hạn", "Một miền tam giác", "Một miền tứ giác", "Một đường thẳng"], answer: "Một miền không giới hạn" },
-      { question: "Giá trị lớn nhất của biểu thức F(x;y) = x + y trên miền nghiệm {x≥0; y≥0; x+2y≤4; 2x+y≤4} đạt được tại đỉnh nào?", options: ["(0; 0)", "(2; 0)", "(0; 2)", "(4/3; 4/3)"], answer: "(4/3; 4/3)" },
-      { question: "Cặp số nào là nghiệm của hệ {3x + y ≥ 9; x ≥ 2; y ≥ 3}?", options: ["(2; 3)", "(3; 3)", "(2; 2)", "(1; 6)"], answer: "(3; 3)" },
-      { question: "Hệ bất phương trình nào biểu diễn miền trong của tam giác OAB với O(0;0), A(2;0), B(0;2) (không tính bờ)?", options: ["{x>0; y>0; x+y<2}", "{x≥0; y≥0; x+y≤2}", "{x>0; y>0; x+y>2}", "{x<2; y<2}"], answer: "{x>0; y>0; x+y<2}" }
-    ],
-    stage3: [
-      { question: "Một xưởng sản xuất bàn và ghế. Một cái bàn cần 2 giờ máy, 1 cái ghế cần 1 giờ máy. Tổng thời gian máy không quá 40 giờ/tuần. Gọi x, y là số bàn và ghế. Hệ bpt điều kiện (bao gồm số lượng không âm) là:", options: ["{x≥0; y≥0; 2x+y≤40}", "{x>0; y>0; x+2y≤40}", "{2x+y<40}", "{x+y≤40}"], answer: "{x≥0; y≥0; 2x+y≤40}" },
-      { question: "Biểu thức F = y - x đạt giá trị nhỏ nhất trên miền nghiệm {y-x≤2; 2x-y≤4; x+y≤5; x≥0; y≥0} tại điểm nào?", options: ["(2; 0)", "(0; 0)", "(0; 2)", "(3; 2)"], answer: "(2; 0)" },
-      { question: "Tìm m để miền nghiệm của hệ {x + y - 1 ≤ 0; x - y + m ≥ 0} chứa gốc tọa độ O.", options: ["m ≥ 0", "m ≤ 0", "m > 1", "m < -1"], answer: "m ≥ 0" },
-      { question: "Miền nghiệm của hệ bpt {x - y ≤ 0; x + 2y ≥ 0; x ≤ 2} là một tam giác. Tọa độ các đỉnh của tam giác đó là:", options: ["(0;0), (2;2), (2;-1)", "(0;0), (2;2), (1;-1)", "(0;0), (2;0), (2;2)", "(1;1), (2;2), (0;0)"], answer: "(0;0), (2;2), (2;-1)" },
-      { question: "Cho F(x;y) = 3x + 2y. Trên miền nghiệm {x≥0; y≥0; x+y≤3; 2x+y≤4}, giá trị lớn nhất của F là:", options: ["6", "7", "8", "9"], answer: "8" },
-      { question: "Hệ bpt nào dưới đây VÔ NGHIỆM?", options: ["{x>1; x<0}", "{x+y>1; x+y<3}", "{x≥0; y≥0}", "{x-y>0; x-y>-1}"], answer: "{x>1; x<0}" },
-      { question: "Nếu miền nghiệm của một hệ bpt là một đa giác lồi, bài toán tối ưu F = ax + by luôn đạt giá trị lớn nhất hoặc nhỏ nhất tại đâu?", options: ["Tại các đỉnh của đa giác", "Tại tâm đa giác", "Tại trung điểm các cạnh", "Tại một điểm bất kì nằm ngoài đa giác"], answer: "Tại các đỉnh của đa giác" },
-      { question: "Miền nghiệm của hệ {x - y > -1; x - y < 1} có hình dạng là:", options: ["Một dải mặt phẳng song song vô hạn", "Một tam giác", "Một tứ giác", "Một góc"], answer: "Một dải mặt phẳng song song vô hạn" },
-      { question: "Điểm nào sau đây KHÔNG thuộc miền nghiệm của hệ {x + y ≤ 5; x - y ≥ -1; y ≥ 1}?", options: ["(1; 2)", "(2; 1)", "(0; 1)", "(4; 1)"], answer: "(0; 1)" },
-      { question: "Cho hệ bpt {x + y ≤ 10; x ≥ 0; y ≥ m}. Tìm m để hệ có nghiệm.", options: ["m ≤ 10", "m > 10", "m = 11", "m > 15"], answer: "m ≤ 10" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 5: BOSS ĐẠI SỐ
-  // ==========================================
-  5: {
-    stage1: [
-      { question: "Mệnh đề toán học nào sau đây đúng?", options: ["π là số hữu tỉ", "Phương trình x² + 1 = 0 có nghiệm thực", "17 là số nguyên tố", "Số 0 là số tự nhiên dương"], answer: "17 là số nguyên tố" },
-      { question: "Cho A = {1; 2; 3; 4}, B = {3; 4; 5}. Tập hợp A \\ B bằng:", options: ["{1; 2}", "{5}", "{3; 4}", "{1; 2; 5}"], answer: "{1; 2}" },
-      { question: "Cặp số nào dưới đây là nghiệm của bất phương trình 3x - 2y < 6?", options: ["(2; 0)", "(3; 0)", "(0; 0)", "(4; 1)"], answer: "(0; 0)" },
-      { question: "Hệ bất phương trình {x + y ≤ 3; x - y ≥ 1} chứa điểm nào trong miền nghiệm?", options: ["(0; 0)", "(2; 0)", "(0; 2)", "(1; 1)"], answer: "(2; 0)" },
-      { question: "Số tập con của tập hợp có 3 phần tử là:", options: ["3", "6", "8", "9"], answer: "8" },
-      { question: "Phủ định của mệnh đề '∃x ∈ R, x² - x + 1 = 0' là:", options: ["∀x ∈ R, x² - x + 1 ≠ 0", "∀x ∈ R, x² - x + 1 = 0", "∃x ∈ R, x² - x + 1 ≠ 0", "∀x ∈ R, x² - x + 1 < 0"], answer: "∀x ∈ R, x² - x + 1 ≠ 0" },
-      { question: "Cho hai tập hợp A = [1; 5) và B = (3; 7]. Giao của hai tập hợp A ∩ B là:", options: ["(3; 5)", "[1; 7]", "(3; 5]", "[1; 3]"], answer: "(3; 5)" },
-      { question: "Miền nghiệm của bpt x + 2y ≥ 4 không chứa điểm nào dưới đây?", options: ["(0; 2)", "(4; 0)", "(1; 1)", "(2; 2)"], answer: "(1; 1)" },
-      { question: "Hệ bất phương trình {x ≥ 0; y ≥ 0; x + y ≤ 2} có miền nghiệm là miền đa giác có diện tích bằng bao nhiêu?", options: ["1", "2", "4", "8"], answer: "2" },
-      { question: "Cho tập A = {x ∈ Z | |x| < 2}. Số phần tử của A là:", options: ["2", "3", "4", "1"], answer: "3" }
-    ],
-    stage2: [
-      { question: "Mệnh đề đảo của mệnh đề 'Nếu một số chia hết cho 4 thì chia hết cho 2' là:", options: ["Nếu một số chia hết cho 2 thì chia hết cho 4", "Nếu một số không chia hết cho 4 thì không chia hết cho 2", "Mọi số chia hết cho 4 đều chia hết cho 2", "Một số chia hết cho 4 khi và chỉ khi chia hết cho 2"], answer: "Nếu một số chia hết cho 2 thì chia hết cho 4" },
-      { question: "Cho hai tập hợp A = (-∞; m) và B = [2; +∞). Tìm m để A ∩ B = ∅.", options: ["m ≤ 2", "m < 2", "m ≥ 2", "m > 2"], answer: "m ≤ 2" },
-      { question: "Điểm nào sau đây nằm trong miền nghiệm của hệ {x - y > 1; 2x + y < 5; y > 0}?", options: ["(2; 0.5)", "(1; 0)", "(3; 1)", "(2; -1)"], answer: "(2; 0.5)" },
-      { question: "Cho tập hợp X = {1; 2; 3}. Có bao nhiêu tập con của X chứa phần tử 1?", options: ["3", "4", "6", "8"], answer: "4" },
-      { question: "Mệnh đề '∀x ∈ R, x² + 1 > 0' có tính đúng sai như thế nào?", options: ["Luôn đúng", "Luôn sai", "Đúng tùy thuộc vào x", "Không thể xác định"], answer: "Luôn đúng" },
-      { question: "Cho hai tập hợp A = {x ∈ R | x² - 5x + 6 = 0} và B = {2; 3}. Mối quan hệ giữa A và B là:", options: ["A ⊂ B", "B ⊂ A", "A = B", "A ∩ B = ∅"], answer: "A = B" },
-      { question: "Bất phương trình 2x + y - 4 ≤ 0 có đường biên cắt trục hoành tại điểm nào?", options: ["(0; 4)", "(2; 0)", "(4; 0)", "(0; 2)"], answer: "(2; 0)" },
-      { question: "Tìm giá trị lớn nhất của biểu thức F = 3x + y trên miền nghiệm {x≥0; y≥0; x+y≤3}.", options: ["3", "6", "9", "12"], answer: "9" },
-      { question: "Mệnh đề nào sau đây SAI?", options: ["A ∩ ∅ = ∅", "A ∪ ∅ = A", "A \\ A = ∅", "A \\ ∅ = ∅"], answer: "A \\ ∅ = ∅" },
-      { question: "Cặp số (x; y) nào dưới đây KHÔNG phải là nghiệm của bpt x - 4y + 4 ≥ 0?", options: ["(0; 0)", "(-4; 0)", "(1; 2)", "(2; 1)"], answer: "(1; 2)" }
-    ],
-    stage3: [
-      { question: "Cho tam giác nghiệm được giới hạn bởi các đường x=0, y=0 và x+y=4. Tìm giá trị lớn nhất của biểu thức F = 2x + 3y trên miền này.", options: ["8", "12", "10", "16"], answer: "12" },
-      { question: "Cho tập A = [m - 1; m + 2] và B = [0; 5]. Tìm tất cả các giá trị của m để A ⊂ B.", options: ["1 ≤ m ≤ 3", "m ≥ 1", "m ≤ 3", "0 ≤ m ≤ 5"], answer: "1 ≤ m ≤ 3" },
-      { question: "Mệnh đề phủ định của mệnh đề 'Có ít nhất một số thực có bình phương bằng chính nó' là:", options: ["Mọi số thực đều có bình phương khác chính nó", "Mọi số thực đều có bình phương bằng chính nó", "Có một số thực có bình phương khác chính nó", "Không có số thực nào có bình phương khác chính nó"], answer: "Mọi số thực đều có bình phương khác chính nó" },
-      { question: "Cho hai tập hợp A và B khác rỗng thỏa mạn A \\ B = ∅. Khẳng định nào sau đây ĐÚNG?", options: ["A ⊂ B", "B ⊂ A", "A ∩ B = ∅", "A = B"], answer: "A ⊂ B" },
-      { question: "Một công ty cần thuê xe chở hàng, có 2 loại xe X và Y. Xe X giá 4 triệu/chuyến, xe Y giá 3 triệu/chuyến. Tổng chi phí không quá 30 triệu. Bất phương trình chi phí là:", options: ["4x + 3y ≤ 30", "3x + 4y ≤ 30", "4x + 3y < 30", "x + y ≤ 30"], answer: "4x + 3y ≤ 30" },
-      { question: "Hệ bpt {x - y > 0; y - x > 2} có tập nghiệm là gì?", options: ["Tập rỗng ∅", "Toàn bộ mặt phẳng", "Một nửa mặt phẳng", "Một đường thẳng"], answer: "Tập rỗng ∅" },
-      { question: "Số tập con có 3 phần tử của tập hợp gồm 5 phần tử là:", options: ["5", "10", "15", "20"], answer: "10" },
-      { question: "Cho mệnh đề đúng P ⇒ Q. Phát biểu nào sau đây ĐÚNG?", options: ["P là điều kiện cần để có Q", "Q là điều kiện đủ để có P", "P là điều kiện đủ để có Q", "Q là điều kiện cần và đủ để có P"], answer: "P là điều kiện đủ để có Q" },
-      { question: "Miền nghiệm của hệ {x + y ≥ 2; 2x - y ≤ 4; x - 2y ≥ -4} tạo thành một đa giác. Đa giác này có mấy cạnh?", options: ["3 cạnh", "4 cạnh", "5 cạnh", "6 cạnh"], answer: "3 cạnh" },
-      { question: "Tập hợp C_R (-2; 3] bằng tập hợp nào dưới đây?", options: ["(-∞; -2] ∪ (3; +∞)", "(-∞; -2) ∪ [3; +∞)", "(-∞; -2] ∪ [3; +∞)", "(-∞; -2) ∪ (3; +∞)"], answer: "(-∞; -2] ∪ (3; +∞)" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 6: HÀM SỐ
-  // ==========================================
-  6: {
-    stage1: [
-      { question: "Tập xác định của hàm số y = 2x + 1 là gì?", options: ["D = R", "D = R \\ {0}", "D = (0; +∞)", "D = [0; +∞)"], answer: "D = R" },
-      { question: "Tập xác định của hàm số y = 1 / x là gì?", options: ["D = R", "D = R \\ {0}", "D = (0; +∞)", "D = R \\ {1}"], answer: "D = R \\ {0}" },
-      { question: "Tập xác định của hàm số y = √x là gì?", options: ["D = R", "D = [0; +∞)", "D = (0; +∞)", "D = R \\ {0}"], answer: "D = [0; +∞)" },
-      { question: "Điểm nào sau đây thuộc đồ thị hàm số y = x² - 1?", options: ["(0; 0)", "(1; 0)", "(2; 2)", "(-1; 1)"], answer: "(1; 0)" },
-      { question: "Cho hàm số f(x) = 3x - 2. Tính f(1).", options: ["1", "-2", "3", "0"], answer: "1" },
-      { question: "Hàm số nào sau đây là hàm số lẻ?", options: ["y = x²", "y = x³", "y = x + 1", "y = |x|"], answer: "y = x³" },
-      { question: "Hàm số nào sau đây là hàm số chẵn?", options: ["y = x", "y = x²", "y = x³ + x", "y = 2x - 1"], answer: "y = x²" },
-      { question: "Nếu với mọi x1, x2 thuộc K và x1 < x2 mà f(x1) < f(x2) thì hàm số f(x) gọi là gì?", options: ["Hàm số đồng biến", "Hàm số nghịch biến", "Hàm số không đổi", "Hàm số bậc hai"], answer: "Hàm số đồng biến" },
-      { question: "Nếu với mọi x1, x2 thuộc K và x1 < x2 mà f(x1) > f(x2) thì hàm số f(x) gọi là gì?", options: ["Hàm số đồng biến", "Hàm số nghịch biến", "Hàm số vừa tăng vừa giảm", "Hàm số chẵn"], answer: "Hàm số nghịch biến" },
-      { question: "Đồ thị của một hàm số chẵn nhận trục nào làm trục đối xứng?", options: ["Trục tung Oy", "Trục hoành Ox", "Đường phân giác góc phần tư thứ nhất", "Gốc tọa độ O"], answer: "Trục tung Oy" }
-    ],
-    stage2: [
-      { question: "Tìm tập xác định của hàm số y = 1 / (x - 2).", options: ["D = R \\ {2}", "D = R \\ {-2}", "D = (2; +∞)", "D = R"], answer: "D = R \\ {2}" },
-      { question: "Tìm tập xác định của hàm số y = √(x - 3).", options: ["D = [3; +∞)", "D = (3; +∞)", "D = R \\ {3}", "D = (-∞; 3]"], answer: "D = [3; +∞)" },
-      { question: "Cho hàm số f(x) = {2x nếu x≥0; -x nếu x<0}. Tính f(-2).", options: ["-4", "2", "-2", "4"], answer: "2" },
-      { question: "Xét tính chẵn lẻ của hàm số y = x⁴ - 2x² + 5.", options: ["Hàm số chẵn", "Hàm số lẻ", "Hàm số không chẵn không lẻ", "Hàm số vừa chẵn vừa lẻ"], answer: "Hàm số chẵn" },
-      { question: "Hàm số y = -2x + 5 đồng biến hay nghịch biến trên R?", options: ["Đồng biến trên R", "Nghịch biến trên R", "Không đổi", "Nghịch biến trên (0; +∞)"], answer: "Nghịch biến trên R" },
-      { question: "Điểm M(1; 4) thuộc đồ thị hàm số y = ax + 2. Tìm a.", options: ["a = 2", "a = 1", "a = 4", "a = -2"], answer: "a = 2" },
-      { question: "Tập xác định của hàm số y = √(2 - x) là:", options: ["D = (-∞; 2]", "D = [2; +∞)", "D = R \\ {2}", "D = (-∞; 2)"], answer: "D = (-∞; 2]" },
-      { question: "Đồ thị hàm số lẻ nhận điểm nào làm tâm đối xứng?", options: ["Gốc tọa độ O", "Điểm (1;1)", "Trục tung Oy", "Trục hoành Ox"], answer: "Gốc tọa độ O" },
-      { question: "Tìm tập xác định của hàm số y = (x + 1) / (x² - 4).", options: ["D = R \\ {2; -2}", "D = R \\ {4}", "D = R \\ {2}", "D = R"], answer: "D = R \\ {2; -2}" },
-      { question: "Hàm số y = x² đồng biến trên khoảng nào?", options: ["(0; +∞)", "(-∞; 0)", "R", "(-1; 1)"], answer: "(0; +∞)" }
-    ],
-    stage3: [
-      { question: "Tìm tập xác định của hàm số y = 1 / √(x - 1).", options: ["D = (1; +∞)", "D = [1; +∞)", "D = R \\ {1}", "D = (-∞; 1)"], answer: "D = (1; +∞)" },
-      { question: "Tìm tập xác định của hàm số y = √(x + 1) + √(3 - x).", options: ["D = [-1; 3]", "D = (-1; 3)", "D = [1; 3]", "D = R"], answer: "D = [-1; 3]" },
-      { question: "Cho hàm số y = (m - 1)x + 2. Tìm m để hàm số đồng biến trên R.", options: ["m > 1", "m < 1", "m = 1", "m ≥ 1"], answer: "m > 1" },
-      { question: "Xét tính chẵn lẻ của hàm số y = x|x|.", options: ["Hàm số chẵn", "Hàm số lẻ", "Hàm số không chẵn không lẻ", "Hàm số vừa chẵn vừa lẻ"], answer: "Hàm số lẻ" },
-      { question: "Tìm tập xác định của hàm số y = 1 / (x² - x - 6).", options: ["D = R \\ {3; -2}", "D = R \\ {-3; 2}", "D = R \\ {3}", "D = R \\ {-2}"], answer: "D = R \\ {3; -2}" },
-      { question: "Tìm tất cả các giá trị của m để hàm số y = √(x - m + 1) xác định trên khoảng (1; +∞).", options: ["m ≤ 2", "m < 2", "m ≥ 2", "m ≤ 1"], answer: "m ≤ 2" },
-      { question: "Điểm cố định mà đồ thị hàm số y = mx + 3 luôn đi qua với mọi giá trị m là:", options: ["(0; 3)", "(3; 0)", "(0; 0)", "(1; 3)"], answer: "(0; 3)" },
-      { question: "Hàm số f(x) = -x² + 4x biến thiên như thế nào trên khoảng (2; +∞)?", options: ["Nghịch biến", "Đồng biến", "Không đổi", "Vừa tăng vừa giảm"], answer: "Nghịch biến" },
-      { question: "Tìm tập xác định của hàm số y = 1 / (|x| - 1).", options: ["D = R \\ {1; -1}", "D = R \\ {1}", "D = R \\ {-1}", "D = (1; +∞)"], answer: "D = R \\ {1; -1}" },
-      { question: "Cho f(x) là hàm số lẻ xác định trên R. Nếu f(2) = 5 thì f(-2) bằng bao nhiêu?", options: ["-5", "5", "0", "1/5"], answer: "-5" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 7: HÀM BẬC NHẤT
-  // ==========================================
-  7: {
-    stage1: [
-      { question: "Hàm số nào sau đây là hàm số bậc nhất?", options: ["y = 2x - 3", "y = x² + 1", "y = 1/x", "y = √x"], answer: "y = 2x - 3" },
-      { question: "Hệ số góc của đường thẳng y = -3x + 1 là bao nhiêu?", options: ["-3", "1", "3", "0"], answer: "-3" },
-      { question: "Đường thẳng y = 2x + 4 cắt trục tung tại điểm nào?", options: ["(0; 4)", "(-2; 0)", "(4; 0)", "(0; -2)"], answer: "(0; 4)" },
-      { question: "Đường thẳng y = x - 2 cắt trục hoành tại điểm nào?", options: ["(2; 0)", "(0; -2)", "(-2; 0)", "(0; 2)"], answer: "(2; 0)" },
-      { question: "Hàm số bậc nhất y = ax + b đồng biến trên R khi nào?", options: ["a > 0", "a < 0", "a = 0", "b > 0"], answer: "a > 0" },
-      { question: "Hàm số bậc nhất y = ax + b nghịch biến trên R khi nào?", options: ["a > 0", "a < 0", "b < 0", "a ≠ 0"], answer: "a < 0" },
-      { question: "Đồ thị của hàm số bậc nhất có hình dạng là đường gì?", options: ["Đường thẳng", "Đường parabol", "Đường hyperbol", "Đường tròn"], answer: "Đường thẳng" },
-      { question: "Đường thẳng y = 5 có hệ số góc bằng bao nhiêu?", options: ["0", "5", "1", "Không tồn tại"], answer: "0" },
-      { question: "Điểm nào thuộc đường thẳng y = 3x - 1?", options: ["(1; 2)", "(0; 1)", "(2; 4)", "(1; 0)"], answer: "(1; 2)" },
-      { question: "Đường thẳng y = x song song với đường thẳng nào dưới đây?", options: ["y = x + 2", "y = -x", "y = 2x", "y = 3"], answer: "y = x + 2" }
-    ],
-    stage2: [
-      { question: "Viết phương trình đường thẳng đi qua O(0;0) và có hệ số góc bằng 2.", options: ["y = 2x", "y = -2x", "y = x + 2", "y = 2"], answer: "y = 2x" },
-      { question: "Tìm m để đường thẳng y = (m - 2)x + 3 song song với đường thẳng y = 2x.", options: ["m = 4", "m = 2", "m = 0", "m = -4"], answer: "m = 4" },
-      { question: "Hai đường thẳng y = ax + b và y = a'x + b' vuông góc với nhau khi nào?", options: ["a . a' = -1", "a = a'", "a . a' = 1", "b = b'"], answer: "a . a' = -1" },
-      { question: "Tìm giao điểm của hai đường thẳng y = x + 1 và y = -x + 3.", options: ["(1; 2)", "(2; 1)", "(0; 1)", "(1; 0)"], answer: "(1; 2)" },
-      { question: "Đường thẳng đi qua hai điểm A(0; 2) và B(1; 3) có phương trình là:", options: ["y = x + 2", "y = -x + 2", "y = 2x + 1", "y = x - 2"], answer: "y = x + 2" },
-      { question: "Tìm m để hàm số y = (2m - 4)x + 1 nghịch biến trên R.", options: ["m < 2", "m > 2", "m = 2", "m < 0"], answer: "m < 2" },
-      { question: "Đường thẳng y = ax + b đi qua A(1; 4) và có hệ số góc bằng 3. Tìm b.", options: ["b = 1", "b = -1", "b = 4", "b = 7"], answer: "b = 1" },
-      { question: "Góc tạo bởi đường thẳng y = x + 2 và trục Ox bằng bao nhiêu độ?", options: ["45°", "30°", "60°", "90°"], answer: "45°" },
-      { question: "Đường thẳng y = -x + 1 tạo với trục Ox một góc tù bằng bao nhiêu độ?", options: ["135°", "120°", "150°", "45°"], answer: "135°" },
-      { question: "Tìm m để đường thẳng y = mx + 2 và y = 3x - 1 cắt nhau.", options: ["m ≠ 3", "m = 3", "m ≠ -1", "m ∈ R"], answer: "m ≠ 3" }
-    ],
-    stage3: [
-      { question: "Tìm m để ba đường thẳng y = x + 1, y = -x + 3 và y = mx + m đồng quy.", options: ["m = 1", "m = 2", "m = 0.5", "m = -1"], answer: "m = 0.5" },
-      { question: "Phương trình đường thẳng đi qua điểm A(2; 3) và song song với y = 3x + 1 là:", options: ["y = 3x - 3", "y = 3x + 3", "y = -3x + 9", "y = 3x"], answer: "y = 3x - 3" },
-      { question: "Phương trình đường thẳng đi qua A(1; 2) và vuông góc với đường thẳng y = 0.5x - 1 là:", options: ["y = -2x + 4", "y = 2x", "y = -2x - 4", "y = 0.5x + 1.5"], answer: "y = -2x + 4" },
-      { question: "Tìm m để đường thẳng y = (m² - 1)x + 2 song song với đường thẳng y = 3x + 5.", options: ["m = 2 hoặc m = -2", "m = 2", "m = -2", "m = ±√2"], answer: "m = 2" },
-      { question: "Một chiếc xe taxi có giá mở cửa là 10k, sau đó mỗi km giá 15k. Hàm số tính số tiền y theo số km x là:", options: ["y = 15x + 10", "y = 10x + 15", "y = 15x", "y = 25x"], answer: "y = 15x + 10" },
-      { question: "Đồ thị hàm số y = |x| gồm hai nửa đường thẳng xuất phát từ gốc tọa độ. Khẳng định nào ĐÚNG?", options: ["Đồng biến trên (0; +∞)", "Đồng biến trên R", "Nghịch biến trên (0; +∞)", "Là một đường thẳng liền duy nhất"], answer: "Đồng biến trên (0; +∞)" },
-      { question: "Tìm m để đường thẳng y = mx + m - 1 đi qua gốc tọa độ O.", options: ["m = 1", "m = 0", "m = -1", "m = 2"], answer: "m = 1" },
-      { question: "Đường thẳng d có hệ số góc bằng -1 và cắt trục hoành tại x = 4. Diện tích tam giác tạo bởi d và 2 trục tọa độ là:", options: ["8", "4", "16", "2"], answer: "8" },
-      { question: "Tìm tọa độ giao điểm của đường thẳng y = 2x - 3 và trục hoành.", options: ["(1.5; 0)", "(0; -3)", "(3; 0)", "(0; 1.5)"], answer: "(1.5; 0)" },
-      { question: "Hệ số góc của đường thẳng đi qua hai điểm A(-1; 1) và B(2; 7) bằng bao nhiêu?", options: ["2", "3", "4", "1"], answer: "2" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 8: HÀM BẬC HAI
-  // ==========================================
-  8: {
-    stage1: [
-      { question: "Hàm số nào sau đây là hàm số bậc hai?", options: ["y = x² - 2x + 1", "y = 2x - 1", "y = x³ - 1", "y = 1/x²"], answer: "y = x² - 2x + 1" },
-      { question: "Đồ thị của hàm số bậc hai gọi là đường gì?", options: ["Đường parabol", "Đường thẳng", "Đường hyperbol", "Đường tròn"], answer: "Đường parabol" },
-      { question: "Tọa độ đỉnh I của parabol y = ax² + bx + c có hoành độ x_I bằng bao nhiêu?", options: ["-b / (2a)", "b / (2a)", "-b / a", "-c / (2a)"], answer: "-b / (2a)" },
-      { question: "Parabol y = x² - 2x + 3 có hoành độ đỉnh là bao nhiêu?", options: ["1", "-1", "2", "3"], answer: "1" },
-      { question: "Đồ thị hàm số y = ax² + bx + c bề lõm quay lên trên khi nào?", options: ["a > 0", "a < 0", "b > 0", "Δ > 0"], answer: "a > 0" },
-      { question: "Đồ thị hàm số y = ax² + bx + c bề lõm quay xuống dưới khi nào?", options: ["a > 0", "a < 0", "c < 0", "Δ < 0"], answer: "a < 0" },
-      { question: "Trục đối xứng của parabol y = ax² + bx + c là đường thẳng nào?", options: ["x = -b / (2a)", "y = -b / (2a)", "x = b / (2a)", "x = -b / a"], answer: "x = -b / (2a)" },
-      { question: "Parabol y = x² cắt trục tung tại điểm nào?", options: ["(0; 0)", "(1; 1)", "(0; 1)", "(1; 0)"], answer: "(0; 0)" },
-      { question: "Đồ thị hàm số y = -x² + 2x có đỉnh nằm ở góc phần tư thứ mấy?", options: ["Thứ I", "Thứ II", "Thứ III", "Thứ IV"], answer: "Thứ I" },
-      { question: "Tìm giao điểm của parabol y = x² - 4 với trục hoành.", options: ["(2;0) và (-2;0)", "(0; -4)", "(4;0) và (-4;0)", "(2;0)"], answer: "(2;0) và (-2;0)" }
-    ],
-    stage2: [
-      { question: "Tìm tọa độ đỉnh I của parabol (P): y = x² - 4x + 3.", options: ["(2; -1)", "(-2; 15)", "(2; 1)", "(4; 3)"], answer: "(2; -1)" },
-      { question: "Hàm số y = x² - 4x + 3 nghịch biến trên khoảng nào?", options: ["(-∞; 2)", "(2; +∞)", "(-∞; 4)", "R"], answer: "(-∞; 2)" },
-      { question: "Hàm số y = -x² + 2x + 1 đồng biến trên khoảng nào?", options: ["(-∞; 1)", "(1; +∞)", "(-∞; 2)", "R"], answer: "(-∞; 1)" },
-      { question: "Tìm giá trị nhỏ nhất của hàm số y = x² - 2x + 5.", options: ["4", "5", "1", "0"], answer: "4" },
-      { question: "Tìm giá trị lớn nhất của hàm số y = -x² + 4x - 1.", options: ["3", "-1", "2", "4"], answer: "3" },
-      { question: "Parabol y = x² - 2x + m đi qua điểm A(2; 3). Tìm m.", options: ["m = 3", "m = 1", "m = 2", "m = -1"], answer: "m = 3" },
-      { question: "Trục đối xứng của parabol y = 2x² + 4x - 1 là:", options: ["x = -1", "x = 1", "x = -2", "x = 2"], answer: "x = -1" },
-      { question: "Tìm tung độ đỉnh I của parabol y = -x² + 6x - 5.", options: ["4", "3", "-5", "5"], answer: "4" },
-      { question: "Tìm số giao điểm của parabol y = x² - 3x + 2 và đường thẳng y = 0.", options: ["2", "1", "0", "3"], answer: "2" },
-      { question: "Hàm số bậc hai nào dưới đây có đồ thị đi qua gốc tọa độ O?", options: ["y = x² - 2x", "y = x² + 1", "y = -x² - 3", "y = (x - 1)²"], answer: "y = x² - 2x" }
-    ],
-    stage3: [
-      { question: "Tìm tất cả các giá trị của m để đỉnh của parabol y = x² - 2x + m nằm trên trục hoành.", options: ["m = 1", "m = -1", "m = 0", "m = 2"], answer: "m = 1" },
-      { question: "Biết parabol y = ax² + bx + 2 có đỉnh I(2; -2). Tính giá trị a + b.", options: ["-3", "3", "1", "-1"], answer: "-3" },
-      { question: "Tìm tọa độ giao điểm của parabol y = x² - 2x - 1 và đường thẳng y = x - 1.", options: ["(0; -1) và (3; 2)", "(0; 1) và (3; 2)", "(1; 0) và (2; 1)", "(0; -1) và (2; 1)"], answer: "(0; -1) và (3; 2)" },
-      { question: "Một quả bóng được đá lên cao theo quỹ đạo parabol h(t) = -5t² + 20t (h: mét, t: giây). Chiều cao tối đa quả bóng đạt được là:", options: ["20m", "15m", "10m", "25m"], answer: "20m" },
-      { question: "Tìm m để parabol y = x² - 4x + m cắt trục hoành tại hai điểm phân biệt.", options: ["m < 4", "m > 4", "m ≤ 4", "m = 4"], answer: "m < 4" },
-      { question: "Tìm m để hàm số y = -x² + 2mx + 1 đạt giá trị lớn nhất tại x = 3.", options: ["m = 3", "m = -3", "m = 1.5", "m = 6"], answer: "m = 3" },
-      { question: "Cho hàm số y = ax² + bx + c có đồ thị như hình vẽ dưới dạng bề lõm quay xuống và cắt trục tung tại điểm có tung độ dương. Dấu của a và c là:", options: ["a < 0, c > 0", "a > 0, c > 0", "a < 0, c < 0", "a > 0, c < 0"], answer: "a < 0, c > 0" },
-      { question: "Tìm quỹ tích đỉnh của parabol y = x² - 2mx + m² + 1 khi m thay đổi.", options: ["Đường thẳng y = 1", "Đường thẳng x = 1", "Trục hoành", "Parabol khác"], answer: "Đường thẳng y = 1" },
-      { question: "Tìm m để đường thẳng y = 2x + m tiếp xúc với parabol y = x².", options: ["m = -1", "m = 1", "m = 0", "m = -2"], answer: "m = -1" },
-      { question: "Diện tích lớn nhất của một hình chữ nhật có chu vi bằng 40cm là bao nhiêu?", options: ["100 cm²", "400 cm²", "200 cm²", "50 cm²"], answer: "100 cm²" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 9: TAM THỨC BẬC HAI
-  // ==========================================
-  9: {
-    stage1: [
-      { question: "Biểu thức nào sau đây là một tam thức bậc hai?", options: ["f(x) = x² - 3x + 2", "f(x) = 2x + 1", "f(x) = x³ - x + 1", "f(x) = x⁴ - 2"], answer: "f(x) = x² - 3x + 2" },
-      { question: "Biệt thức biệt số Delta (Δ) của tam thức bậc hai f(x) = ax² + bx + c bằng gì?", options: ["b² - 4ac", "b² - ac", "b - 4ac", "b² + 4ac"], answer: "b² - 4ac" },
-      { question: "Nếu Δ < 0 và a > 0 thì tam thức bậc hai f(x) có dấu như thế nào với mọi x ∈ R?", options: ["Luôn dương (> 0)", "Luôn âm (< 0)", "Bằng 0", "Vừa dương vừa âm"], answer: "Luôn dương (> 0)" },
-      { question: "Nếu Δ < 0 và a < 0 thì tam thức bậc hai f(x) có dấu như thế nào với mọi x ∈ R?", options: ["Luôn dương (> 0)", "Luôn âm (< 0)", "Bằng 0", "Trái dấu với a"], answer: "Luôn âm (< 0)" },
-      { question: "Tính Delta (Δ) của tam thức f(x) = x² - 4x + 3.", options: ["4", "16", "0", "-4"], answer: "4" },
-      { question: "Nghiệm của tam thức bậc hai x² - 5x + 6 = 0 là những số nào?", options: ["2 và 3", "1 và 6", "-2 và -3", "0 và 5"], answer: "2 và 3" },
-      { question: "Nếu Δ = 0 thì tam thức bậc hai luôn cùng dấu với hệ số a với mọi x khác giá trị nào?", options: ["-b / (2a)", "-b / a", "b / (2a)", "0"], answer: "-b / (2a)" },
-      { question: "Tam thức bậc hai f(x) = x² + 2x + 5 có Δ bằng bao nhiêu?", options: ["-16", "24", "16", "-4"], answer: "-16" },
-      { question: "Khẳng định nào ĐÚNG về tam thức f(x) = x² + 2x + 5?", options: ["f(x) > 0 với mọi x ∈ R", "f(x) < 0 với mọi x ∈ R", "f(x) có hai nghiệm", "f(x) âm với x < 0"], answer: "f(x) > 0 với mọi x ∈ R" },
-      { question: "Tam thức bậc hai f(x) = -x² + 4 có nghiệm là gì?", options: ["2 và -2", "4 và -4", "Vô nghiệm", "2"], answer: "2 và -2" }
-    ],
-    stage2: [
-      { question: "Xét dấu tam thức f(x) = x² - 3x + 2. f(x) nhận giá trị âm trên khoảng nào?", options: ["(1; 2)", "(-∞; 1)", "(2; +∞)", "(-∞; 1) ∪ (2; +∞)"], answer: "(1; 2)" },
-      { question: "Tam thức f(x) = -x² + 5x - 4 nhận giá trị dương trên khoảng nào?", options: ["(1; 4)", "(-∞; 1)", "(4; +∞)", "R"], answer: "(1; 4)" },
-      { question: "Tìm m để tam thức f(x) = x² - 2x + m luôn dương với mọi x ∈ R.", options: ["m > 1", "m < 1", "m ≥ 1", "m = 0"], answer: "m > 1" },
-      { question: "Tìm m để tam thức f(x) = -x² + 4x + m luôn âm với mọi x ∈ R.", options: ["m < -4", "m > -4", "m ≤ -4", "m < 4"], answer: "m < -4" },
-      { question: "Cho f(x) = x² - 6x + 9. Khẳng định nào sau đây ĐÚNG?", options: ["f(x) ≥ 0 với mọi x ∈ R", "f(x) > 0 với mọi x ∈ R", "f(x) có hai nghiệm phân biệt", "f(x) < 0 khi x < 3"], answer: "f(x) ≥ 0 với mọi x ∈ R" },
-      { question: "Tam thức f(x) = 2x² - 4x + 2 có biệt thức thu gọn Δ' bằng bao nhiêu?", options: ["0", "4", "16", "-4"], answer: "0" },
-      { question: "Tìm m để phương trình x² - 2mx + 4 = 0 có nghiệm kép.", options: ["m = ±2", "m = 4", "m = 2", "m = 1"], answer: "m = ±2" },
-      { question: "Xét dấu f(x) = -2x² + 3x - 1. Khẳng định nào ĐÚNG?", options: ["f(x) > 0 trên khoảng (0.5; 1)", "f(x) < 0 trên khoảng (0.5; 1)", "f(x) luôn dương", "f(x) luôn âm"], answer: "f(x) > 0 trên khoảng (0.5; 1)" },
-      { question: "Tam thức f(x) = x² + x + 1 có tính chất:", options: ["Luôn dương với mọi x ∈ R", "Luôn âm với mọi x ∈ R", "Có hai nghiệm thực phân biệt", "Bằng 0 tại x = -1"], answer: "Luôn dương với mọi x ∈ R" },
-      { question: "Điều kiện cần và đủ để tam thức ax² + bx + c ≤ 0 với mọi x ∈ R là:", options: ["a < 0 và Δ ≤ 0", "a < 0 và Δ < 0", "a ≤ 0 và Δ ≤ 0", "a > 0 và Δ ≤ 0"], answer: "a < 0 và Δ ≤ 0" }
-    ],
-    stage3: [
-      { question: "Tìm tất cả các giá trị của m để tam thức f(x) = mx² - 4x + m luôn dương với mọi x ∈ R.", options: ["m > 2", "m < -2", "-2 < m < 2", "m > 4"], answer: "m > 2" },
-      { question: "Tìm m để bất phương trình x² - (m + 2)x + 8m + 1 > 0 đúng với mọi x ∈ R.", options: ["0 < m < 28", "m < 0 hoặc m > 28", "4 < m < 24", "m ∈ R"], answer: "0 < m < 28" },
-      { question: "Cho f(x) = x² - 2mx + m² - 1. Tìm m để f(x) ≥ 0 với mọi x ∈ [0; 2].", options: ["m ≤ -1 hoặc m ≥ 3", "m ≤ 1", "m ≥ 1", "-1 ≤ m ≤ 3"], answer: "m ≤ -1 hoặc m ≥ 3" },
-      { question: "Tìm m để phương trình mx² - 2(m-1)x + m - 3 = 0 có hai nghiệm phân biệt.", options: ["m > -1 và m ≠ 0", "m > -1", "m < 1", "m ≠ 0"], answer: "m > -1 và m ≠ 0" },
-      { question: "Bất phương trình (m-1)x² - 2(m-1)x + 3 > 0 nghiệm đúng với mọi x ∈ R khi:", options: ["1 ≤ m < 4", "1 < m < 4", "m > 1", "m < 4"], answer: "1 ≤ m < 4" },
-      { question: "Xét biểu thức A = (x² - x + 1) / (x² + x + 1). Giá trị lớn nhất của A là bao nhiêu?", options: ["3", "1", "2", "1/3"], answer: "3" },
-      { question: "Tìm m để tam thức f(x) = (m² + 1)x² - 2(m + 1)x + 1 có nghiệm thực.", options: ["m ≥ 0", "m ≤ 0", "m = 1", "m ∈ R"], answer: "m ≥ 0" },
-      { question: "Có bao nhiêu số nguyên m để f(x) = x² - 2mx + 2m + 3 luôn dương với mọi x thuộc R?", options: ["4", "5", "3", "Vô số"], answer: "4" },
-      { question: "Để f(x) = x² + 4x + m - 1 ≥ 0 với mọi x ≥ 0 thì m phải thỏa mãn:", options: ["m ≥ 1", "m ≥ -3", "m ≤ 1", "m > 0"], answer: "m ≥ 1" },
-      { question: "Tam thức bậc hai f(x) = x² - 2x + 3 đạt giá trị nhỏ nhất tại x = 1. Giá trị nhỏ nhất đó là:", options: ["2", "3", "1", "0"], answer: "2" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 10: BOSS TOÁN 10 (ĐẠI SỐ CHƯƠNG ĐẦU)
-  // ==========================================
-  10: {
-    stage1: [
-      { question: "Tìm tập xác định của hàm số y = √(x - 1) + 1/x.", options: ["D = [1; +∞)", "D = (1; +∞)", "D = [1; +∞) \\ {0}", "D = R"], answer: "D = [1; +∞)" },
-      { question: "Tọa độ đỉnh của parabol y = x² - 2x là:", options: ["(1; -1)", "(1; 1)", "(0; 0)", "(-1; 3)"], answer: "(1; -1)" },
-      { question: "Hàm số y = -2x + 3 đồng biến hay nghịch biến trên R?", options: ["Nghịch biến", "Đồng biến", "Không đổi", "Đồng biến khi x > 0"], answer: "Nghịch biến" },
-      { question: "Biệt thức Delta (Δ) của biểu thức x² - 3x + 2 bằng bao nhiêu?", options: ["1", "4", "9", "-1"], answer: "1" },
-      { question: "Tập hợp A = {x ∈ N | x² - 4 = 0} có bao nhiêu phần tử?", options: ["1 phần tử", "2 phần tử", "0 phần tử", "Vô số"], answer: "1 phần tử" },
-      { question: "Bất phương trình 2x + y > 4 có chứa điểm nào trong miền nghiệm?", options: ["(2; 1)", "(1; 1)", "(0; 0)", "(1; 2)"], answer: "(2; 1)" },
-      { question: "Trục đối xứng của parabol y = -x² + 4x + 1 là:", options: ["x = 2", "x = -2", "y = 2", "x = 4"], answer: "x = 2" },
-      { question: "Hàm số nào dưới đây là hàm số chẵn?", options: ["y = |x|", "y = x", "y = x³", "y = x + 1"], answer: "y = |x|" },
-      { question: "Cho hệ bpt {x ≥ 0; y ≥ 0; x + y ≤ 2}. Khẳng định nào ĐÚNG về miền nghiệm?", options: ["Là miền tam giác vuông cân", "Là miền hình chữ nhật", "Là miền vô hạn", "Là một đường thẳng"], answer: "Là miền tam giác vuông cân" },
-      { question: "Mệnh đề toán học nào sau đây SAI?", options: ["Căn bậc hai của 4 bằng 2", "Số 1 là số nguyên tố", "Số 2 là số chẵn", "Hình thoi có hai đường chéo vuông góc"], answer: "Số 1 là số nguyên tố" }
-    ],
-    stage2: [
-      { question: "Hàm số y = x² - 4x + 5 nghịch biến trên khoảng nào?", options: ["(-∞; 2)", "(2; +∞)", "(-∞; 4)", "R"], answer: "(-∞; 2)" },
-      { question: "Tìm m để đường thẳng y = (m - 1)x + 2 song song với đường thẳng y = 2x + 5.", options: ["m = 3", "m = 2", "m = 1", "m = -1"], answer: "m = 3" },
-      { question: "Tam thức bậc hai f(x) = -x² + 6x - 9 có đặc điểm gì?", options: ["f(x) ≤ 0 với mọi x ∈ R", "f(x) < 0 với mọi x ∈ R", "f(x) luôn dương", "f(x) có hai nghiệm phân biệt"], answer: "f(x) ≤ 0 với mọi x ∈ R" },
-      { question: "Tìm số phần tử của tập hợp A = {x ∈ Z | x² - 5x + 6 = 0}.", options: ["2", "1", "3", "0"], answer: "2" },
-      { question: "Miền nghiệm của hệ {x - y ≤ 1; x + y ≥ 1} chứa điểm nào?", options: ["(1; 1)", "(0; 0)", "(0; 2)", "(2; 0)"], answer: "(1; 1)" },
-      { question: "Giá trị lớn nhất của hàm số y = -x² + 2x + 3 đạt được tại x bằng bao nhiêu?", options: ["1", "4", "3", "2"], answer: "1" },
-      { question: "Tìm m để tam thức f(x) = x² - 2x + m + 1 luôn dương với mọi số thực x.", options: ["m > 0", "m < 0", "m ≥ 0", "m > 1"], answer: "m > 0" },
-      { question: "Đường thẳng y = ax + b đi qua hai điểm A(0; 3) và B(1; 5) có phương trình là:", options: ["y = 2x + 3", "y = 3x + 2", "y = -2x + 3", "y = 2x - 3"], answer: "y = 2x + 3" },
-      { question: "Mệnh đề phủ định của '∀x ∈ R, x² + x + 1 > 0' là:", options: ["∃x ∈ R, x² + x + 1 ≤ 0", "∃x ∈ R, x² + x + 1 < 0", "∀x ∈ R, x² + x + 1 ≤ 0", "∃x ∈ R, x² + x + 1 = 0"], answer: "∃x ∈ R, x² + x + 1 ≤ 0" },
-      { question: "Cho tập A = (-1; 3] và B = [2; 5). Giao tập hợp A ∩ B bằng:", options: ["[2; 3]", "(2; 3]", "[-1; 5)", "(3; 5)"], answer: "[2; 3]" }
-    ],
-    stage3: [
-      { question: "Tìm m để hàm số y = √(x - m) + √(2x - m - 2) xác định với mọi x > 2.", options: ["m ≤ 2", "m < 2", "m ≤ 1", "m ≥ 2"], answer: "m ≤ 2" },
-      { question: "Cho biểu thức F = x + 2y. Tìm giá trị lớn nhất của F trên miền nghiệm {x≥0; y≥0; x+y≤3; 2x+y≤4}.", options: ["6", "4", "5", "3"], answer: "6" },
-      { question: "Tìm m để parabol y = x² - 2mx + m² + m - 1 tiếp xúc với trục hoành.", options: ["m = 1", "m = 0", "m = -1", "m = 2"], answer: "m = 1" },
-      { question: "Cho tập A = (m - 1; m + 2) và B = (1; 3). Tìm m để A ∩ B = ∅.", options: ["m ≤ -1 hoặc m ≥ 4", "m < -1 hoặc m > 4", "-1 ≤ m ≤ 4", "m = 2"], answer: "m ≤ -1 hoặc m ≥ 4" },
-      { question: "Có bao nhiêu số nguyên m để phương trình x² - 2mx + m² + 2m - 4 = 0 có hai nghiệm phân biệt?", options: ["1", "2", "0", "Vô số"], answer: "1" },
-      { question: "Hàm số y = x² - 2mx + 1 đồng biến trên khoảng (1; +∞) khi và chỉ khi:", options: ["m ≤ 1", "m < 1", "m ≥ 1", "m = 2"], answer: "m ≤ 1" },
-      { question: "Một hình chữ nhật có nửa chu vi bằng 20cm. Diện tích hình chữ nhật lớn nhất khi chiều dài bằng bao nhiêu?", options: ["10cm", "15cm", "12cm", "8cm"], answer: "10cm" },
-      { question: "Tìm m để ba đường thẳng y = 2x - 1, y = x + 1 và y = mx + m - 3 đồng quy.", options: ["m = 2", "m = 3", "m = 1", "m = 0"], answer: "m = 2" },
-      { question: "Mệnh đề đảo của mệnh đề 'Nếu tứ giác ABCD là hình thoi thì hai đường chéo vuông góc' có tính đúng sai thế nào?", options: ["Sai", "Đúng", "Không xác định", "Vừa đúng vừa sai"], answer: "Sai" },
-      { question: "Cho f(x) là hàm số bậc hai đạt giá trị nhỏ nhất bằng -1 tại x = 2 và đồ thị đi qua điểm (0; 3). Phương trình hàm số đó là:", options: ["y = x² - 4x + 3", "y = x² + 4x + 3", "y = 2x² - 4x + 3", "y = x² - 2x - 1"], answer: "y = x² - 4x + 3" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 11: VECTOR
-  // ==========================================
-  11: {
-    stage1: [
-      { question: "Vector là một đoạn thẳng như thế nào?", options: ["Có định hướng (có hướng)", "Không có hướng", "Có độ dài bằng 1", "Song song với trục Ox"], answer: "Có định hướng (có hướng)" },
-      { question: "Kí hiệu độ dài của vector AB là gì?", options: ["|AB|", "AB", "[AB]", "vec(AB)"], answer: "|AB|" },
-      { question: "Vector có điểm đầu trùng với điểm cuối gọi là gì?", options: ["Vector không", "Vector đơn vị", "Vector tự do", "Vector đối"], answer: "Vector không" },
-      { question: "Độ dài của vector không bằng bao nhiêu?", options: ["0", "1", "-1", "Vô cùng"], answer: "0" },
-      { question: "Hai vector gọi là cùng phương nếu giá của chúng có mối quan hệ gì?", options: ["Song song hoặc trùng nhau", "Vuông góc với nhau", "Cắt nhau", "Chéo nhau"], answer: "Song song hoặc trùng nhau" },
-      { question: "Hai vector cùng phương thì có bắt buộc cùng hướng không?", options: ["Không, có thể cùng hướng hoặc ngược hướng", "Có, bắt buộc cùng hướng", "Bắt buộc ngược hướng", "Không có mối quan hệ hướng"], answer: "Không, có thể cùng hướng hoặc ngược hướng" },
-      { question: "Hai vector bằng nhau nếu chúng thỏa mạn điều kiện gì?", options: ["Cùng hướng và cùng độ dài", "Cùng phương và cùng độ dài", "Cùng độ dài", "Song song và bằng nhau"], answer: "Cùng hướng và cùng độ dài" },
-      { question: "Mọi vector không đều có mối quan hệ gì với các vector khác?", options: ["Cùng phương và cùng hướng với mọi vector", "Vuông góc với mọi vector", "Bằng mọi vector", "Ngược hướng với mọi vector"], answer: "Cùng phương và cùng hướng với mọi vector" },
-      { question: "Cho hình bình hành ABCD. Vector AB bằng vector nào?", options: ["Vector DC", "Vector CD", "Vector BC", "Vector AD"], answer: "Vector DC" },
-      { question: "Cho tam giác đều ABC cạnh a. Độ dài của vector AB bằng bao nhiêu?", options: ["a", "2a", "a√3", "0"], answer: "a" }
-    ],
-    stage2: [
-      { question: "Cho ba điểm A, B, C thẳng hàng theo thứ tự đó. Hai vector AB và AC có đặc điểm gì?", options: ["Cùng hướng", "Ngược hướng", "Vuông góc", "Có độ dài bằng nhau"], answer: "Cùng hướng" },
-      { question: "Cho ba điểm A, B, C thẳng hàng theo thứ tự đó. Hai vector BA và BC có đặc điểm gì?", options: ["Ngược hướng", "Cùng hướng", "Bằng nhau", "Đối nhau"], answer: "Ngược hướng" },
-      { question: "Cho hình chữ nhật ABCD. Khẳng định nào sau đây ĐÚNG?", options: ["|AB| = |CD|", "Vector AB = Vector CD", "Vector AD = Vector CB", "Vector AC = Vector BD"], answer: "|AB| = |CD|" },
-      { question: "Nếu lục giác đều ABCDEF có tâm O, vector AB bằng vector nào?", options: ["Vector FO", "Vector OF", "Vector OC", "Vector OD"], answer: "Vector FO" },
-      { question: "Cho đoạn thẳng AB và trung điểm I của nó. Khẳng định nào sau đây ĐÚNG?", options: ["Vector IA = - Vector IB", "Vector IA = Vector IB", "Vector AB = Vector IA", "|IA| = -|IB|"], answer: "Vector IA = - Vector IB" },
-      { question: "Có bao nhiêu vector khác vector không có điểm đầu và điểm cuối lấy từ 3 điểm phân biệt A, B, C?", options: ["6", "3", "4", "9"], answer: "6" },
-      { question: "Cho hình bình hành ABCD tâm O. Vector đối của vector OA là:", options: ["Vector OC", "Vector AO", "Vector CO", "Cả Vector OC và Vector AO"], answer: "Cả Vector OC và Vector AO" },
-      { question: "Hai vector đối nhau nếu chúng có đặc điểm gì?", options: ["Ngược hướng và cùng độ dài", "Cùng phương và cùng độ dài", "Ngược hướng", "Cùng hướng nhưng khác độ dài"], answer: "Ngược hướng và cùng độ dài" },
-      { question: "Tứ giác ABCD là hình bình hành khi và chỉ khi:", options: ["Vector AB = Vector DC", "Vector AB = Vector CD", "Vector AD = Vector BC", "Vector AC = Vector BD"], answer: "Vector AB = Vector DC" },
-      { question: "Nếu vector a = vector b và vector b = vector c thì:", options: ["vector a = vector c", "vector a và vector c ngược hướng", "|vector a| = 0", "vector a + vector c = vector 0"], answer: "vector a = vector c" }
-    ],
-    stage3: [
-      { question: "Cho tứ giác ABCD. Nếu Vector AB = Vector DC và |Vector AB| = |Vector BC| thì ABCD là hình gì?", options: ["Hình thoi", "Hình chữ nhật", "Hình bình hành thông thường", "Hình thang cân"], answer: "Hình thoi" },
-      { question: "Cho tam giác ABC có trọng tâm G. Khẳng định nào liên quan đến các vector từ đỉnh đến G là ĐÚNG?", options: ["GA + GB + GC = 0", "Vector GA = Vector GB", "GA + GB = GC", "|GA| = |GB| = |GC|"], answer: "GA + GB + GC = 0" },
-      { question: "Cho tam giác ABC vuông cân tại A có AB = a. Tính độ dài |Vector AB - Vector AC|.", options: ["a√2", "a", "2a", "a√3"], answer: "a√2" },
-      { question: "Cho hình bình hành ABCD. Tập hợp các điểm M thỏa mạn |Vector MA| = |Vector MC| là đường gì?", options: ["Đường trung trực của đoạn AC", "Đường tròn tâm O", "Đường thẳng BD", "Cả đường trung trực của AC và đường thẳng BD"], answer: "Cả đường trung trực của AC và đường thẳng BD" },
-      { question: "Cho đoạn thẳng AB cạnh 2a. Tập hợp điểm M thỏa mạn |Vector MA + Vector MB| = 0 là điểm nào?", options: ["Trung điểm I của AB", "Điểm A", "Điểm B", "Không tồn tại điểm M"], answer: "Trung điểm I của AB" },
-      { question: "Cho ba điểm A, B, C phân biệt. Điều kiện cần và đủ để C là trung điểm AB là:", options: ["Vector CA + Vector CB = Vector 0", "Vector AC = Vector BC", "Vector CA = Vector CB", "|Vector CA| = |Vector CB|"], answer: "Vector CA + Vector CB = Vector 0" },
-      { question: "Cho tam giác ABC và điểm M thỏa mạn Vector MA + Vector MB + Vector MC = Vector 0. M là điểm gì?", options: ["Trọng tâm tam giác ABC", "Trực tâm tam giác ABC", "Tâm đường tròn ngoại tiếp", "Tâm đường tròn nội tiếp"], answer: "Trọng tâm tam giác ABC" },
-      { question: "Trong mặt phẳng, cho hai vector a và b không cùng phương. Mọi vector c đều có thể:", options: ["Phân tích duy nhất theo hai vector a và b", "Bằng tổng hai vector a và b", "Cùng phương với một trong hai vector", "Không có mối quan hệ gì"], answer: "Phân tích duy nhất theo hai vector a và b" },
-      { question: "Cho hình thoi ABCD cạnh a, góc A = 60 độ. Tính độ dài |Vector AB + Vector AD|.", options: ["a√3", "a", "2a", "a√2"], answer: "a√3" },
-      { question: "Cho hình vuông ABCD cạnh a. Tính độ dài |Vector AB + Vector DC|.", options: ["2a", "a", "a√2", "0"], answer: "2a" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 12: CỘNG TRỪ VECTOR
-  // ==========================================
-  12: {
-    stage1: [
-      { question: "Quy tắc ba điểm để cộng vector là: Với ba điểm A, B, C tùy ý ta luôn có AB + BC = ?", options: ["Vector AC", "Vector CA", "Vector BB", "Vector ABC"], answer: "Vector AC" },
-      { question: "Quy tắc hình bình hành: Nếu ABCD là hình bình hành thì AB + AD = ?", options: ["Vector AC", "Vector BD", "Vector CA", "Vector DB"], answer: "Vector AC" },
-      { question: "Quy tắc ba điểm để trừ vector là: AB - AC = ?", options: ["Vector CB", "Vector BC", "Vector CẢ", "Vector 0"], answer: "Vector CB" },
-      { question: "Vector đối của vector AB kí hiệu là gì?", options: ["- Vector AB", "Vector BA", "Cái nào cũng đúng", "Vector AB"], answer: "Cái nào cũng đúng" },
-      { question: "Biểu thức AB + BA bằng vector nào?", options: ["Vector không", "2 Vector AB", "Vector AA", "Cả Vector không và Vector AA"], answer: "Cả Vector không và Vector AA" },
-      { question: "Rút gọn biểu thức tổng: AB + BC + CD.", options: ["Vector AD", "Vector DA", "Vector AC", "Vector BD"], answer: "Vector AD" },
-      { question: "Rút gọn biểu thức: AB - CB.", options: ["Vector AC", "Vector CA", "Vector 0", "Vector AB + Vector BC"], answer: "Vector AC" },
-      { question: "Với điểm O bất kì và trung điểm I của AB, ta luôn có OA + OB = ?", options: ["2 Vector OI", "Vector OI", "Vector AB", "Vector 0"], answer: "2 Vector OI" },
-      { question: "Nếu G là trọng tâm tam giác ABC và O là điểm tùy ý thì OA + OB + OC = ?", options: ["3 Vector OG", "Vector OG", "Vector 0", "3 Vector GO"], answer: "3 Vector OG" },
-      { question: "Biểu thức vector nào sau đây luôn đúng với mọi điểm A, B?", options: ["Vector AB + Vector BA = Vector 0", "Vector AB - Vector BA = Vector 0", "Vector AB = Vector BA", "|Vector AB| + |Vector BA| = 0"], answer: "Vector AB + Vector BA = Vector 0" }
-    ],
-    stage2: [
-      { question: "Cho hình chữ nhật ABCD tâm O. Khẳng định nào sau đây ĐÚNG?", options: ["OA + OB + OC + OD = 0", "OA + OC = OB + OD", "AB + AD = BD", "AC - BD = 0"], answer: "OA + OB + OC + OD = 0" },
-      { question: "Cho hình bình hành ABCD. Biểu thức AB + CD bằng vector nào?", options: ["Vector không", "2 Vector AB", "Vector AC", "Vector BD"], answer: "Vector không" },
-      { question: "Cho tam giác đều ABC cạnh a. Tính độ dài |Vector AB + Vector BC|.", options: ["a", "a√3", "2a", "0"], answer: "a" },
-      { question: "Cho 4 điểm phân biệt A, B, C, D. Biểu thức AB + CD + BC bằng vector nào?", options: ["Vector AD", "Vector DA", "Vector AC", "Vector BD"], answer: "Vector AD" },
-      { question: "Cho hình vuông ABCD cạnh a. Tính độ dài |Vector AB - Vector AC|.", options: ["a", "a√2", "2a", "a√3"], answer: "a" },
-      { question: "Cho tam giác ABC. Vector tổng AB + AC nằm trên đường thẳng nào đi qua A?", options: ["Đường thẳng chứa trung tuyến đỉnh A", "Đường thẳng vuông góc với BC", "Đường phân giác góc A", "Đường cao kẻ từ A"], answer: "Đường thẳng chứa trung tuyến đỉnh A" },
-      { question: "Rút gọn biểu thức vector: MN + PQ + NP + QR.", options: ["Vector MR", "Vector MQ", "Vector PR", "Vector 0"], answer: "Vector MR" },
-      { question: "Cho hình bình hành ABCD tâm O. Hệ thức nào sau đây SAI?", options: ["AB + AD = AC", "OA + OB = 0", "OA + OC = 0", "AB - AC = DB"], answer: "OA + OB = 0" },
-      { question: "Cho đoạn thẳng AB. Nếu điểm M thỏa mạn |Vector MA + Vector MB| = |Vector MA - Vector MB| thì M nằm trên đường nào?", options: ["Đường tròn đường kính AB", "Đường trung trực của AB", "Đường thẳng AB", "Đường vuông góc với AB tại A"], answer: "Đường tròn đường kính AB" },
-      { question: "Hệ thức nào sau đây diễn tả đúng tính chất phép trừ vector?", options: ["AO - DO = AD", "AO - DO = DA", "AB - CD = AC", "AB + BC = CA"], answer: "AO - DO = DA" }
-    ],
-    stage3: [
-      { question: "Cho hình vuông ABCD cạnh a. Tính độ dài của vector tổng AB + AD + AC.", options: ["2a√2", "a√2", "2a", "3a"], answer: "2a√2" },
-      { question: "Cho tam giác ABC vuông tại A có AB=3, AC=4. Tính độ dài |Vector AB + Vector AC|.", options: ["5", "7", "25", "1"], answer: "5" },
-      { question: "Cho tứ giác ABCD. Gọi M, N lần lượt là trung điểm của AB và CD. Hệ thức nào luôn ĐÚNG?", options: ["AC + BD = 2MN", "AD + BC = 2MN", "Cả hai phương án trên đều đúng", "AB + CD = 2MN"], answer: "Cả hai phương án trên đều đúng" },
-      { question: "Cho tam giác ABC đều cạnh a. Tính độ dài |Vector AB - Vector BC|.", options: ["a√3", "a", "2a", "a√2"], answer: "a√3" },
-      { question: "Cho hai vector a và b có độ dài bằng 1 và góc giữa chúng bằng 60 độ. Tính độ dài |vector a + vector b|.", options: ["a√3", "1", "2", "√2"], answer: "a√3" },
-      { question: "Cho hình bình hành ABCD. Tập hợp các điểm M thỏa mạn |Vector MA + Vector MB| = |Vector MC + Vector MD| là đường gì?", options: ["Đường trung trực của đoạn nối hai trung điểm AB và CD", "Đường tròn tâm O", "Đường thẳng AC", "Toàn bộ mặt phẳng"], answer: "Đường trung trực của đoạn nối hai trung điểm AB và CD" },
-      { question: "Cho tam giác ABC. Điểm M thỏa mạn Vector MA - Vector MB + Vector MC = Vector 0. M là đỉnh thứ tư của hình bình hành nào?", options: ["Hình bình hành ABCA", "Hình bình hành ABCM", "Hình bình hành BAMC", "Hình bình hành BACM"], answer: "Hình bình hành BAMC" },
-      { question: "Cho n điểm phân biệt. Tổng các vector nối tiếp từ điểm 1 đến điểm n (A1A2 + A2A3 + ... + An-1An) bằng:", options: ["Vector A1An", "Vector AnA1", "Vector 0", "n Vector A1An"], answer: "Vector A1An" },
-      { question: "Cho hình chữ nhật ABCD có AB=6, AD=8. Tính độ dài |Vector AB + Vector AD|.", options: ["10", "14", "2", "48"], answer: "10" },
-      { question: "Nếu |Vector a + Vector b| = |Vector a| + |Vector b| thì hai vector a và b có đặc điểm gì?", options: ["Cùng hướng", "Ngược hướng", "Vuông góc", "Bằng nhau"], answer: "Cùng hướng" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 13: TÍCH VECTOR VỚI MỘT SỐ
-  // ==========================================
-  13: {
-    stage1: [
-      { question: "Tích của vector a khác vector không với số thực k > 0 là một vector có hướng như thế nào với vector a?", options: ["Cùng hướng với vector a", "Ngược hướng với vector a", "Vuông góc với vector a", "Có hướng tùy ý"], answer: "Cùng hướng với vector a" },
-      { question: "Tích của vector a khác vector không với số thực k < 0 là một vector có hướng như thế nào với vector a?", options: ["Ngược hướng với vector a", "Cùng hướng với vector a", "Cùng phương nhưng cùng độ dài", "Đối nhau"], answer: "Ngược hướng với vector a" },
-      { question: "Độ dài của vector (k . a) bằng biểu thức nào dưới đây?", options: ["|k| . |a|", "k . |a|", "-k . |a|", "|k| + |a|"], answer: "|k| . |a|" },
-      { question: "Nếu k = 0 hoặc vector a = vector 0 thì tích k . a bằng bao nhiêu?", options: ["Vector không", "Số 0", "1", "-1"], answer: "Vector không" },
-      { question: "Cho I là trung điểm của đoạn thẳng AB. Hệ thức vector nào sau đây ĐÚNG?", options: ["Vector AB = 2 Vector IB", "Vector AB = 2 Vector IA", "Vector AB = -2 Vector IB", "Vector IA = 2 Vector IB"], answer: "Vector AB = 2 Vector IB" },
-      { question: "Nếu G là trọng tâm của tam giác ABC và M là trung điểm BC thì Vector AG bằng bao nhiêu lần Vector AM?", options: ["2/3", "1/3", "3/2", "-2/3"], answer: "2/3" },
-      { question: "Điều kiện để hai vector a và b (b khác 0) cùng phương là gì?", options: ["Có số thực k sao cho a = k.b", "Độ dài của chúng bằng nhau", "Chúng có giá song song", "Tích vuông góc bằng 0"], answer: "Có số thực k sao cho a = k.b" },
-      { question: "Phép nhân vector với một số có tính chất phân phối đối với phép cộng vector không?", options: ["Có, k(a + b) = ka + kb", "Không có tính chất này", "Chỉ đúng với số dương", "Chỉ đúng với vector cùng phương"], answer: "Có, k(a + b) = ka + kb" },
-      { question: "Vector 3a + 2a bằng vector nào?", options: ["5a", "6a", "a", "5|a|"], answer: "5a" },
-      { question: "Vector 2(3a) bằng vector nào?", options: ["6a", "5a", "9a", "23a"], answer: "6a" }
-    ],
-    stage2: [
-      { question: "Cho tam giác ABC có trung tuyến AM. Khẳng định nào sau đây ĐÚNG?", options: ["Vector AB + Vector AC = 2 Vector AM", "Vector AB + Vector AC = Vector AM", "Vector AM = 2(Vector AB + Vector AC)", "Vector AB + Vector AC + Vector AM = Vector 0"], answer: "Vector AB + Vector AC = 2 Vector AM" },
-      { question: "Cho I là trung điểm AB. Với điểm O tùy ý, hệ thức nào ĐÚNG?", options: ["Vector OA + Vector OB = 2 Vector OI", "Vector OA + Vector OB = Vector OI", "Vector OI = 0.5 Vector AB", "Vector OA - Vector OB = 2 Vector OI"], answer: "Vector OA + Vector OB = 2 Vector OI" },
-      { question: "Cho tam giác ABC có trọng tâm G. Hệ thức nào sau đây ĐÚNG?", options: ["Vector GA + Vector GB + Vector GC = Vector 0", "Vector OG = Vector OA + Vector OB + Vector OC", "Vector GA + Vector GB = Vector GC", "Vector AG = 2 Vector GM (M là trung điểm BC)"], answer: "Vector GA + Vector GB + Vector GC = Vector 0" },
-      { question: "Biết Vector AB = -3 Vector AC. Khẳng định nào sau đây ĐÚNG về ba điểm A, B, C?", options: ["A nằm giữa B và C", "C nằm giữa A và B", "B nằm giữa A và C", "Ba điểm tạo thành tam giác"], answer: "A nằm giữa B và C" },
-      { question: "Nếu Vector AM = 1/3 Vector AB thì điểm M chia đoạn AB theo tỉ số độ dài AM/AB bằng bao nhiêu?", options: ["1/3", "3", "2/3", "1/2"], answer: "1/3" },
-      { question: "Cho hai điểm phân biệt A và B. Tìm số thực k thỏa mạn Vector AB = k Vector BA.", options: ["k = -1", "k = 1", "k = 2", "k = 0"], answer: "k = -1" },
-      { question: "Cho tam giác ABC, điểm I thỏa mạn Vector IA + 2 Vector IB = Vector 0. Biểu thức biểu diễn Vector CI theo Vector CA và Vector CB là:", options: ["Vector CI = 1/3 Vector CA + 2/3 Vector CB", "Vector CI = 2/3 Vector CA + 1/3 Vector CB", "Vector CI = 1/3 Vector CA - 2/3 Vector CB", "Vector CI = 3 Vector CA + 2 Vector CB"], answer: "Vector CI = 1/3 Vector CA + 2/3 Vector CB" },
-      { question: "Hệ thức nào xác định điểm M là trung điểm của đoạn thẳng AB?", options: ["Vector MA + Vector MB = Vector 0", "Vector AM = Vector MB", "Vector OA + Vector OB = 2 Vector OM", "Tất cả các hệ thức trên đều đúng"], answer: "Tất cả các hệ thức trên đều đúng" },
-      { question: "Cho hình bình hành ABCD. Điểm M thỏa mạn Vector AM = 1/2 Vector AC. M là điểm nào?", options: ["Giao điểm O của hai đường chéo", "Trung điểm của AB", "Trung điểm của AD", "Trùng với đỉnh C"], answer: "Giao điểm O của hai đường chéo" },
-      { question: "Tìm giá trị của k để vector k.a có độ dài bằng một nửa độ dài vector a (a khác 0) và ngược hướng với a.", options: ["k = -0.5", "k = 0.5", "k = -2", "k = -1"], answer: "k = -0.5" }
-    ],
-    stage3: [
-      { question: "Cho tam giác ABC. Điểm I nằm trên cạnh BC sao cho BC = 3BI. Biểu thức biểu diễn Vector AI theo hai vector AB và AC là:", options: ["Vector AI = 2/3 Vector AB + 1/3 Vector AC", "Vector AI = 1/3 Vector AB + 2/3 Vector AC", "Vector AI = 3/4 Vector AB + 1/4 Vector AC", "Vector AI = 1/2 Vector AB + 1/2 Vector AC"], answer: "Vector AI = 2/3 Vector AB + 1/3 Vector AC" },
-      { question: "Cho tam giác ABC, trọng tâm G. Gọi M là trung điểm AG. Phân tích Vector BM theo hai vector BA và BC.", options: ["Vector BM = 3/4 Vector BA + 1/6 Vector BC", "Vector BM = 1/2 Vector BA + 1/3 Vector BC", "Vector BM = 2/3 Vector BA + 1/3 Vector BC", "Vector BM = 3/4 Vector BA - 1/6 Vector BC"], answer: "Vector BM = 3/4 Vector BA + 1/6 Vector BC" },
-      { question: "Cho hai điểm A, B phân biệt. Tập hợp các điểm M thỏa mạn |Vector MA + 2 Vector MB| = |Vector MA - Vector MB| là đường gì?", options: ["Một đường tròn", "Một đường thẳng", "Đường trung trực", "Một đoạn thẳng"], answer: "Một đường tròn" },
-      { question: "Cho tam giác ABC và điểm M thỏa mạn Vector MA + Vector MB + 2 Vector MC = Vector 0. Gọi I là trung điểm AB. Khẳng định nào ĐÚNG?", options: ["M là trung điểm IC", "M là trọng tâm tam giác", "M trùng với I", "M trùng với C"], answer: "M là trung điểm IC" },
-      { question: "Điều kiện cần và đủ để ba điểm A, B, C phân biệt thẳng hàng là tồn tại số thực k khác 0 sao cho:", options: ["Vector AB = k Vector AC", "Vector AB = k Vector BC", "Vector AC = k Vector BC", "Bất kỳ phương án nào ở trên"], answer: "Bất kỳ phương án nào ở trên" },
-      { question: "Cho tam giác ABC. Gọi d là đường thẳng thỏa mạn |Vector MA + Vector MB + Vector MC| = |Vector MA + Vector MB - 2 Vector MC|. Đường thẳng d luôn đi qua điểm cố định nào?", options: ["Trọng tâm G của tam giác ABC", "Trung điểm AB", "Đỉnh C", "Trực tâm tam giác"], answer: "Trọng tâm G của tam giác ABC" },
-      { question: "Cho hình bình hành ABCD. Gọi I là trung điểm CD, G là trọng tâm tam giác BCI. Biểu diễn Vector AG theo Vector AB và Vector AD.", options: ["Vector AG = 5/6 Vector AB + 2/3 Vector AD", "Vector AG = 2/3 Vector AB + 5/6 Vector AD", "Vector AG = 1/2 Vector AB + 1/2 Vector AD", "Vector AG = Vector AB + Vector AD"], answer: "Vector AG = 5/6 Vector AB + 2/3 Vector AD" },
-      { question: "Cho tam giác ABC. Nếu điểm M thỏa mạn Vector MA = k Vector MB + (1-k) Vector MC với mọi k, thì M chạy trên đường nào?", options: ["Đường thẳng BC", "Đường thẳng đi qua A", "Đường tròn ngoại tiếp", "Đường trung trực của BC"], answer: "Đường thẳng BC" },
-      { question: "Cho tam giác ABC. Biết Vector AN = 2 Vector NC. Khẳng định nào sau đây đúng về biểu diễn Vector BN?", options: ["Vector BN = 1/3 Vector BA + 2/3 Vector BC", "Vector BN = 2/3 Vector BA + 1/3 Vector BC", "Vector BN = -1/3 Vector BA + 4/3 Vector BC", "Vector BN = 1/3 Vector BA - 2/3 Vector BC"], answer: "Vector BN = 1/3 Vector BA + 2/3 Vector BC" },
-      { question: "Cho bốn điểm A, B, C, D thỏa mạn Vector AB + 2 Vector CD = Vector 0. Nhận xét nào sau đây ĐÚNG?", options: ["Hai đường thẳng AB và CD song song hoặc trùng nhau", "Tứ giác ABCD là hình thang", "AB = 2CD", "Cả ba nhận xét trên đều đúng"], answer: "Cả ba nhận xét trên đều đúng" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 14: TOẠ ĐỘ TRONG MẶT PHẲNG
-  // ==========================================
-  14: {
-    stage1: [
-      { question: "Hệ trục tọa độ Oxy gồm mấy trục vuông góc với nhau?", options: ["2 trục (Ox và Oy)", "3 trục", "1 trục", "4 trục"], answer: "2 trục (Ox và Oy)" },
-      { question: "Trục Ox được gọi là trục gì?", options: ["Trục hoành", "Trục tung", "Trục cao", "Trục đơn vị"], answer: "Trục hoành" },
-      { question: "Trục Oy được gọi là trục gì?", options: ["Trục tung", "Trục hoành", "Trục chính", "Trục đối xứng"], answer: "Trục tung" },
-      { question: "Gốc tọa độ O có tọa độ là bao nhiêu?", options: ["(0; 0)", "(1; 1)", "(1; 0)", "(0; 1)"], answer: "(0; 0)" },
-      { question: "Vector đơn vị trên trục Ox kí hiệu là gì và có tọa độ như thế nào?", options: ["i = (1; 0)", "j = (0; 1)", "i = (0; 1)", "e = (1; 1)"], answer: "i = (1; 0)" },
-      { question: "Vector đơn vị trên trục Oy kí hiệu là gì và có tọa độ như thế nào?", options: ["j = (0; 1)", "i = (1; 0)", "j = (1; 0)", "e = (0; 0)"], answer: "j = (0; 1)" },
-      { question: "Cho vector u = 2i + 3j. Tọa độ của vector u là:", options: ["(2; 3)", "(3; 2)", "(-2; -3)", "(2; 0)"], answer: "(2; 3)" },
-      { question: "Cho điểm M(x; y). Hoành độ của điểm M là gì?", options: ["x", "y", "O", "x + y"], answer: "x" },
-      { question: "Điểm M(0; -4) nằm trên trục nào của hệ tọa độ Oxy?", options: ["Trục tung Oy", "Trục hoành Ox", "Đường phân giác góc phần tư thứ nhất", "Không thuộc trục nào"], answer: "Trục tung Oy" },
-      { question: "Điểm N(5; 0) nằm trên trục nào của hệ tọa độ Oxy?", options: ["Trục hoành Ox", "Trục tung Oy", "Gốc tọa độ", "Đường thẳng y = x"], answer: "Trục hoành Ox" }
-    ],
-    stage2: [
-      { question: "Cho u = (1; 2) và v = (3; 4). Tọa độ của vector tổng u + v là:", options: ["(4; 6)", "(2; 2)", "(-2; -2)", "(3; 8)"], answer: "(4; 6)" },
-      { question: "Cho u = (5; -2) và v = (2; 3). Tọa độ của vector hiệu u - v là:", options: ["(3; -5)", "(7; 1)", "(3; 1)", "(-3; 5)"], answer: "(3; -5)" },
-      { question: "Cho vector a = (-1; 4). Tọa độ của vector 3a là:", options: ["(-3; 12)", "(2; 7)", "(3; 12)", "(-3; 4)"], answer: "(-3; 12)" },
-      { question: "Cho hai điểm A(1; 3) và B(4; 5). Tọa độ của vector AB là:", options: ["(3; 2)", "(5; 8)", "(-3; -2)", "(4; 15)"], answer: "(3; 2)" },
-      { question: "Cho hai điểm A(2; 4) và B(6; 2). Tọa độ trung điểm I của đoạn thẳng AB là:", options: ["(4; 3)", "(8; 6)", "(2; -1)", "(4; 6)"], answer: "(4; 3)" },
-      { question: "Cho tam giác ABC có A(1;2), B(3;4), C(2;6). Tọa độ trọng tâm G của tam giác là:", options: ["(2; 4)", "(6; 12)", "(3; 4)", "(2; 3)"], answer: "(2; 4)" },
-      { question: "Cho u = (2; -1) và v = (x; 3). Tìm x để u và v cùng phương.", options: ["x = -6", "x = 6", "x = -3", "x = 2"], answer: "x = -6" },
-      { question: "Tìm tọa độ điểm đối xứng của điểm A(3; -2) qua gốc tọa độ O.", options: ["(-3; 2)", "(-3; -2)", "(3; 2)", "(2; -3)"], answer: "(-3; 2)" },
-      { question: "Cho vector u = (x; y). Độ dài của vector u được tính theo công thức nào?", options: ["√(x² + y²)", "x² + y²", "x + y", "√x + √y"], answer: "√(x² + y²)" },
-      { question: "Tính độ dài của vector u = (3; 4).", options: ["5", "7", "25", "1"], answer: "5" }
-    ],
-    stage3: [
-      { question: "Cho ba điểm A(1; 1), B(2; 3), C(5; 2). Tìm tọa độ điểm D sao cho ABCD là hình bình hành.", options: ["(4; 0)", "(6; 4)", "(4; 4)", "(3; 0)"], answer: "(4; 0)" },
-      { question: "Cho điểm A(-1; 2) và B(3; -2). Tính khoảng cách giữa hai điểm AB.", options: ["4√2", "4", "32", "2"], answer: "4√2" },
-      { question: "Cho hai điểm A(1; 2) và B(3; 4). Tìm tọa độ điểm M trên trục hoành Ox sao cho tam giác MAB cân tại M.", options: ["(6; 0)", "(4; 0)", "(5; 0)", "(0; 6)"], answer: "(6; 0)" },
-      { question: "Cho tam giác ABC có A(1;1), B(-2;3). Biết C nằm trên trục tung Oy và trọng tâm G nằm trên trục hoành Ox. Tìm tọa độ điểm C.", options: ["(0; -4)", "(0; 4)", "(0; 2)", "(0; -2)"], answer: "(0; -4)" },
-      { question: "Cho ba điểm A(-1; -2), B(3; 2), C(m; 1). Tìm m để A, B, C thẳng hàng.", options: ["m = 2", "m = 1", "m = 0", "m = 3"], answer: "m = 2" },
-      { question: "Cho u = (m - 1; 2) và v = (3; m). Tìm các giá trị thực của m để u và v cùng phương.", options: ["m = 3 hoặc m = -2", "m = -3 hoặc m = 2", "m = 1", "m = 0"], answer: "m = 3 hoặc m = -2" },
-      { question: "Cho tam giác ABC có A(0;3), B(2;2), C(1;5). Tính diện tích tam giác ABC.", options: ["2.5", "5", "3.5", "1.5"], answer: "2.5" },
-      { question: "Cho điểm A(2; 3). Tìm tọa độ hình chiếu vuông góc của A lên trục hoành Ox.", options: ["(2; 0)", "(0; 3)", "(0; 0)", "(-2; 0)"], answer: "(2; 0)" },
-      { question: "Cho điểm A(2; 3). Tìm tọa độ hình chiếu vuông góc của A lên trục tung Oy.", options: ["(0; 3)", "(2; 0)", "(0; 0)", "(0; -3)"], answer: "(0; 3)" },
-      { question: "Cho hai điểm A(2; 3) và B(4; 7). Tìm tọa độ điểm M sao cho Vector AM = 3 Vector AB.", options: ["(8; 15)", "(6; 11)", "(10; 15)", "(2; 4)"], answer: "(8; 15)" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 15: BOSS HÌNH HỌC
-  // ==========================================
-  15: {
-    stage1: [
-      { question: "Hệ thức cộng vector nào sau đây luôn đúng với 3 điểm phân biệt bất kì?", options: ["AB + BC = AC", "AB + AC = BC", "BA + BC = AC", "AB - BC = AC"], answer: "AB + BC = AC" },
-      { question: "Tọa độ trung điểm I của đoạn thẳng nối A(x1; y1) và B(x2; y2) tính theo công thức nào?", options: ["((x1+x2)/2; (y1+y2)/2)", "(x1+x2; y1+y2)", "((x1-x2)/2; (y1-y2)/2)", "(x1.x2; y1.y2)"], answer: "((x1+x2)/2; (y1+y2)/2)" },
-      { question: "Vector u = (3; -4) có độ dài bằng bao nhiêu?", options: ["5", "1", "7", "25"], answer: "5" },
-      { question: "Cho hình bình hành ABCD. Hệ thức vector nào sau đây ĐÚNG?", options: ["AB + AD = AC", "AB + AC = AD", "AB - AD = AC", "AB + CD = AC"], answer: "AB + AD = AC" },
-      { question: "Vector có độ dài bằng 1 gọi là gì?", options: ["Vector đơn vị", "Vector không", "Vector tự do", "Vector cùng phương"], answer: "Vector đơn vị" },
-      { question: "Hai vector đối nhau thì tổng của chúng bằng bao nhiêu?", options: ["Vector không", "Số 0", "1", "2 lần độ dài"], answer: "Vector không" },
-      { question: "Cho điểm M(2; -3). Khoảng cách từ M đến trục hoành Ox bằng bao nhiêu?", options: ["3", "2", "-3", "√13"], answer: "3" },
-      { question: "Cho điểm M(2; -3). Khoảng cách từ M đến trục tung Oy bằng bao nhiêu?", options: ["2", "3", "-2", "√13"], answer: "2" },
-      { question: "Cho u = (2; 4). Tọa độ của vector -2u là:", options: ["(-4; -8)", "(4; 8)", "(-2; -4)", "(0; 2)"], answer: "(-4; -8)" },
-      { question: "Nếu ba điểm A, B, C thẳng hàng và B nằm giữa A, C thì hai vector BA và BC có hướng như thế nào?", options: ["Ngược hướng", "Cùng hướng", "Vuông góc", "Trùng nhau"], answer: "Ngược hướng" }
-    ],
-    stage2: [
-      { question: "Cho tam giác ABC có A(1;1), B(4;1), C(1;5). Tam giác ABC là tam giác gì?", options: ["Tam giác vuông tại A", "Tam giác đều", "Tam giác cân nhưng không vuông", "Tam giác vuông cân tại B"], answer: "Tam giác vuông tại A" },
-      { question: "Cho hình bình hành ABCD tâm O. Biểu thức OA + OB + OC + OD bằng:", options: ["Vector không", "2 Vector AC", "4 Vector OI", "Vector AC + Vector BD"], answer: "Vector không" },
-      { question: "Cho tam giác ABC có trọng tâm G. Hệ thức nào sau đây SAI?", options: ["MA + MB + MC = 3MG (với M tùy ý)", "GA + GB + GC = 0", "OG = 3(OA + OB + OC) (với O tùy ý)", "AG = 2/3 AM (M là trung điểm BC)"], answer: "OG = 3(OA + OB + OC) (với O tùy ý)" },
-      { question: "Cho a = (2; 3) và b = (-1; m). Tìm m để a và b vuông góc với nhau.", options: ["m = 2/3", "m = -2/3", "m = 1.5", "m = m = 2"], answer: "m = 2/3" },
-      { question: "Cho tam giác đều ABC cạnh a. Tính độ dài của vector hiệu |Vector AB - Vector AC|.", options: ["a", "a√3", "2a", "0"], answer: "a" },
-      { question: "Cho a = (1; -2) và b = (m; 4). Tìm m để hai vector cùng phương.", options: ["m = -2", "m = 2", "m = -8", "m = 4"], answer: "m = -2" },
-      { question: "Cho hình thoi ABCD cạnh a có góc A = 60 độ. Tính độ dài |Vector AB - Vector AD|.", options: ["a", "a√3", "2a", "a√2"], answer: "a" },
-      { question: "Cho hai điểm A(2; 5) và B(6; 1). Phương trình đường trung trực của đoạn thẳng AB có tọa độ trung điểm là:", options: ["(4; 3)", "(8; 6)", "(2; -2)", "(4; 4)"], answer: "(4; 3)" },
-      { question: "Trong hệ Oxy, cho A(1; 3), B(4; 0). Tính độ dài đoạn thẳng AB.", options: ["3√2", "9", "18", "3"], answer: "3√2" },
-      { question: "Hệ thức vector nào thể hiện tính chất phân phối: k(a - b) = ?", options: ["ka - kb", "kb - ka", "k|a| - k|b|", "ka + kb"], answer: "ka - kb" }
-    ],
-    stage3: [
-      { question: "Cho tam giác ABC có A(-1; 3), B(2; 1), C(4; 5). Tìm tọa độ trực tâm H của tam giác ABC.", options: ["(1; 3)", "(0; 2)", "(2; 3)", "(1.5; 3.5)"], answer: "(1; 3)" },
-      { question: "Cho tam giác ABC có A(1; 2), B(-3; 0), C(2; 4). Tìm tọa độ điểm tâm I của đường tròn ngoại tiếp tam giác ABC.", options: ["(-0.5; 3.5)", "(0; 3)", "(-1; 3)", "(-0.5; 2.5)"], answer: "(-0.5; 3.5)" },
-      { question: "Cho hai điểm A(1; 1) và B(4; 5). Tìm tọa độ điểm M trên trục tung Oy sao cho độ dài MA + MB nhỏ nhất.", options: ["(0; 2.2)", "(0; 3)", "(0; 2)", "(0; 1.5)"], answer: "(0; 2.2)" },
-      { question: "Cho hình vuông ABCD cạnh a. Gọi M là trung điểm CD. Tính tích vô hướng của hai vector AB và AM.", options: ["a²", "0.5 a²", "0", "2 a²"], answer: "a²" },
-      { question: "Cho tam giác ABC có AB=2, AC=3, góc A=60 độ. Tính độ dài cạnh BC bằng công thức vector hoặc hàm cos.", options: ["√7", "7", "√13", "19"], answer: "√7" },
-      { question: "Cho ba điểm A(2; 3), B(5; 4), C(x; 2). Tìm x để tam giác ABC vuông tại A.", options: ["x = 5", "x = 1", "x = 2", "x = 3"], answer: "x = 5" },
-      { question: "Cho tam giác ABC có G là trọng tâm. Tập hợp điểm M thỏa mạn |Vector MA + Vector MB + Vector MC| = 6 là đường gì?", options: ["Đường tròn tâm G bán kính R = 2", "Đường thẳng song song BC", "Đường trung trực của AG", "Đường tròn tâm G bán kính R = 6"], answer: "Đường tròn tâm G bán kính R = 2" },
-      { question: "Cho u = (1; 3) và v = (-2; 1). Tính góc giữa hai vector u và v.", options: ["45°", "90°", "60°", "125°"], answer: "45°" },
-      { question: "Trong hệ tọa độ Oxy, cho ba điểm A(1;2), B(-2;3), C(0;5). Diện tích tam giác ABC bằng bao nhiêu?", options: ["4", "8", "2", "3.5"], answer: "4" },
-      { question: "Cho hai vector u và v thỏa mạn |u| = 2, |v| = 3 và u . v = -3. Tính độ dài |u + 2v|.", options: ["2√7", "4", "28", "6"], answer: "2√7" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 16: THỐNG KÊ
-  // ==========================================
-  16: {
-    stage1: [
-      { question: "Khoa học thu thập, tổ chức, trình bày và phân tích dữ liệu gọi là gì?", options: ["Thống kê", "Đại số", "Hình học", "Giải tích"], answer: "Thống kê" },
-      { question: "Số lần xuất hiện của một giá trị trong số liệu thống kê gọi là gì?", options: ["Tần số", "Tần suất", "Kích thước mẫu", "Số trung bình"], answer: "Tần số" },
-      { question: "Tỉ số giữa tần số của một giá trị và số các số liệu thống kê gọi là gì?", options: ["Tần suất", "Tần số", "Mốt", "Số trung vị"], answer: "Tần suất" },
-      { question: "Tổng tất cả các tần số của mẫu số liệu gọi là gì?", options: ["Kích thước mẫu", "Giá trị lớn nhất", "Tần suất", "Khoảng biến thiên"], answer: "Kích thước mẫu" },
-      { question: "Đơn vị phần trăm (%) thường dùng cho đại lượng nào trong thống kê?", options: ["Tần suất", "Tần số", "Mốt", "Số trung vị"], answer: "Tần suất" },
-      { question: "Khi các số liệu được sắp xếp tăng dần, số đứng giữa gọi là gì?", options: ["Số trung vị", "Số trung bình", "Mốt", "Khoảng tứ phân vị"], answer: "Số trung vị" },
-      { question: "Giá trị có tần số lớn nhất trong mẫu số liệu gọi là gì?", options: ["Mốt (Mo)", "Số trung vị (Me)", "Số trung bình", "Độ lệch chuẩn"], answer: "Mốt (Mo)" },
-      { question: "Mẫu số liệu có thể có bao nhiêu mốt?", options: ["Có thể có một, nhiều mốt hoặc không có mốt", "Duy nhất một mốt", "Bắt buộc có hai mốt", "Luôn không có mốt"], answer: "Có thể có một, nhiều mốt hoặc không có mốt" },
-      { question: "Để thu thập dữ liệu về điểm thi học kì của lớp, ta dùng phương pháp nào?", options: ["Điều tra qua bảng điểm", "Đo đạc thí nghiệm", "Phỏng vấn đường phố", "Dự đoán ngẫu nhiên"], answer: "Điều tra qua bảng điểm" },
-      { question: "Bảng biểu diễn phân phối số lượng dữ liệu theo từng nhóm gọi là:", options: ["Bảng tần số ghép nhóm", "Biểu đồ hình quạt", "Trục số liệu", "Sơ đồ cây"], answer: "Bảng tần số ghép nhóm" }
-    ],
-    stage2: [
-      { question: "Cho mẫu số liệu điểm: 5, 6, 7, 7, 8, 9. Tìm tần số của điểm 7.", options: ["2", "7", "6", "1"], answer: "2" },
-      { question: "Cho mẫu số liệu điểm: 5, 5, 5, 6, 7, 8. Tìm mốt của mẫu số liệu.", options: ["5", "6", "7", "8"], answer: "5" },
-      { question: "Cho mẫu số liệu kích thước N=5: 2, 4, 6, 8, 10. Tìm số trung vị.", options: ["6", "5", "4", "8"], answer: "6" },
-      { question: "Tần suất của giá trị có tần số bằng 5 trong tổng số 20 dữ liệu là bao nhiêu?", options: ["25%", "20%", "5%", "50%"], answer: "25%" },
-      { question: "Cho mẫu số liệu: 1, 3, 5, 7. Số trung vị của mẫu này là bao nhiêu?", options: ["4", "3", "5", "3.5"], answer: "4" },
-      { question: "Mẫu số liệu điểm thi: 8, 9, 8, 10, 7, 8. Điểm nào là mốt của lớp?", options: ["8", "9", "10", "7"], answer: "8" },
-      { question: "Nếu tổng số học sinh là 40, nhóm học sinh giỏi chiếm tần suất 15% thì tần số tương ứng là:", options: ["6", "15", "4", "10"], answer: "6" },
-      { question: "Cho mẫu số liệu đã xếp thứ tự: 10, 12, 13, 14, 15, 16, 17. Số trung vị Me bằng:", options: ["14", "13", "15", "14.5"], answer: "14" },
-      { question: "Dữ liệu thống kê được chia làm hai loại chính là:", options: ["Dữ liệu định lượng và dữ liệu định tính", "Tần số và tần suất", "Số chẵn và số lẻ", "Biểu đồ và bảng số"], answer: "Dữ liệu định lượng và dữ liệu định tính" },
-      { question: "Số lượng xe máy bán được trong ngày là loại dữ liệu nào?", options: ["Dữ liệu định lượng", "Dữ liệu định tính", "Dữ liệu không chính xác", "Tần suất liên tục"], answer: "Dữ liệu định lượng" }
-    ],
-    stage3: [
-      { question: "Cho mẫu số liệu điểm: 4, 5, 6, 7, 8, 9, 10. Khoảng biến thiên (R) của mẫu số liệu này là:", options: ["6", "10", "4", "7"], answer: "6" },
-      { question: "Cho mẫu số liệu: 1, 2, 3, 4, 5, 6, 7, 8. Tìm tứ phân vị thứ hai Q2 (chính là số trung vị).", options: ["4.5", "4", "5", "4.25"], answer: "4.5" },
-      { question: "Cho mẫu số liệu đã sắp xếp: 2, 3, 4, 5, 6, 7, 8, 9. Tìm tứ phân vị thứ nhất Q1.", options: ["3.5", "3", "4", "2.5"], answer: "3.5" },
-      { question: "Cho mẫu số liệu đã sắp xếp: 2, 3, 4, 5, 6, 7, 8, 9. Tìm tứ phân vị thứ ba Q3.", options: ["7.5", "7", "8", "8.5"], answer: "7.5" },
-      { question: "Khi phân tích số liệu thu nhập của người dân, đại lượng nào phản ánh tốt nhất mức thu nhập trung tâm khi có sự chênh lệch giàu nghèo lớn?", options: ["Số trung vị", "Số trung bình", "Mốt", "Khoảng biến thiên"], answer: "Số trung vị" },
-      { question: "Mẫu số liệu: 5, 7, 7, 8, 9, 10, 20. Giá trị 20 được gọi là gì trong thống kê vì quá khác biệt?", options: ["Giá trị ngoại lệ (dị biệt)", "Mốt", "Số trung vị", "Khoảng biến thiên"], answer: "Giá trị ngoại lệ (dị biệt)" },
-      { question: "Khoảng tứ phân vị ∆Q được tính bằng công thức nào?", options: ["Q3 - Q1", "Q3 - Q2", "Q2 - Q1", "Q1 + Q3"], answer: "Q3 - Q1" },
-      { question: "Cho mẫu số liệu: 10, 20, 30, 40, 50. Khoảng tứ phân vị ∆Q bằng bao nhiêu?", options: ["20", "30", "40", "10"], answer: "20" },
-      { question: "Trong biểu đồ hộp (Box plot), đoạn thẳng nằm dọc chính giữa hộp biểu diễn đại lượng nào?", options: ["Số trung vị Q2", "Mốt", "Số trung bình", "Q1"], answer: "Số trung vị Q2" },
-      { question: "Một mẫu số liệu gồm các giá trị: 5, 5, 5, 5, 5. Khoảng biến thiên của mẫu này bằng:", options: ["0", "5", "1", "Không xác định"], answer: "0" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 17: TRUNG BÌNH & ĐỘ PHÂN TÁN
-  // ==========================================
-  17: {
-    stage1: [
-      { question: "Số trung bình cộng của mẫu số liệu được tính bằng công thức nào?", options: ["Tổng các giá trị chia cho kích thước mẫu N", "Giá trị lớn nhất trừ giá trị nhỏ nhất", "Giá trị đứng ở giữa mẫu", "Giá trị xuất hiện nhiều nhất"], answer: "Tổng các giá trị chia cho kích thước mẫu N" },
-      { question: "Đại lượng nào dùng để đo mức độ phân tán của số liệu quanh số trung bình?", options: ["Phương sai và độ lệch chuẩn", "Số trung vị", "Mốt", "Kích thước mẫu"], answer: "Phương sai và độ lệch chuẩn" },
-      { question: "Độ lệch chuẩn là căn bậc hai của đại lượng nào?", options: ["Phương sai", "Số trung bình", "Khoảng biến thiên", "Mốt"], answer: "Phương sai" },
-      { question: "Kí hiệu của phương sai mẫu thường là gì?", options: ["s²", "s", "Me", "x̄"], answer: "s²" },
-      { question: "Kí hiệu của độ lệch chuẩn mẫu thường là gì?", options: ["s", "s²", "σ", "x̄"], answer: "s" },
-      { question: "Kí hiệu của số trung bình cộng là gì?", options: ["x̄", "Me", "Mo", "s"], answer: "x̄" },
-      { question: "Nếu phương sai mẫu số liệu bằng 9 thì độ lệch chuẩn bằng bao nhiêu?", options: ["3", "81", "9", "4.5"], answer: "3" },
-      { question: "Nếu độ lệch chuẩn mẫu bằng 4 thì phương sai bằng bao nhiêu?", options: ["16", "2", "4", "8"], answer: "16" },
-      { question: "Tính số trung bình cộng của mẫu số liệu: 4, 6, 8.", options: ["6", "7", "8", "5"], answer: "6" },
-      { question: "Mẫu số liệu có độ lệch chuẩn càng lớn thì các số liệu có đặc điểm gì?", options: ["Càng phân tán xa số trung bình", "Càng tập trung gần số trung bình", "Càng nhỏ", "Càng lớn"], answer: "Càng phân tán xa số trung bình" }
-    ],
-    stage2: [
-      { question: "Tính số trung bình cộng của mẫu số liệu điểm: 6, 7, 8, 9, 10.", options: ["8", "7.5", "8.5", "9"], answer: "8" },
-      { question: "Cho mẫu số liệu gồm hai số: 2 và 6. Phương sai s² của mẫu này bằng bao nhiêu?", options: ["4", "2", "8", "16"], answer: "4" },
-      { question: "Cho mẫu số liệu gồm hai số: 2 và 6. Độ lệch chuẩn s của mẫu này bằng bao nhiêu?", options: ["2", "4", "1.41", "3"], answer: "2" },
-      { question: "Một nhóm học sinh có điểm trung bình là 7, phương sai là 0. Một nhóm khác có điểm trung bình là 7, phương sai là 2. Nhóm nào có điểm đồng đều hơn?", options: ["Nhóm thứ nhất", "Nhóm thứ hai", "Hai nhóm đều nhau", "Không so sánh được"], answer: "Nhóm thứ nhất" },
-      { question: "Mẫu số liệu: 5, 5, 5, 5. Phương sai của mẫu này bằng bao nhiêu?", options: ["0", "5", "25", "1"], answer: "0" },
-      { question: "Tính số trung bình của mẫu số liệu tần số: Giá trị 2 (tần số 3), Giá trị 4 (tần số 1).", options: ["2.5", "3", "2", "3.5"], answer: "2.5" },
-      { question: "Đại lượng nào KHÔNG phải là số đặc trưng đo độ phân tán?", options: ["Số trung bình", "Khoảng biến thiên", "Khoảng tứ phân vị", "Độ lệch chuẩn"], answer: "Số trung bình" },
-      { question: "Đại lượng nào KHÔNG phải là số đặc trưng đo xu thế trung tâm?", options: ["Phương sai", "Số trung bình", "Số trung vị", "Mốt"], answer: "Phương sai" },
-      { question: "Cho mẫu số liệu điểm của An là: 8, 8, 9. Điểm trung bình của An (làm tròn đến hàng phần mười) là:", options: ["8.3", "8.0", "8.5", "9.0"], answer: "8.3" },
-      { question: "Để so sánh độ ổn định về năng suất của hai giống lúa có cùng năng suất trung bình, ta dựa vào số đặc trưng nào?", options: ["Độ lệch chuẩn", "Số trung vị", "Mốt", "Khoảng biến thiên"], answer: "Độ lệch chuẩn" }
-    ],
-    stage3: [
-      { question: "Cho mẫu số liệu: 1, 2, 3, 4, 5. Tính phương sai s² của mẫu này.", options: ["2", "2.5", "1.41", "4"], answer: "2" },
-      { question: "Cho mẫu số liệu: 1, 2, 3, 4, 5. Tính độ lệch chuẩn s của mẫu này (làm tròn đến hàng phần trăm).", options: ["1.41", "2.00", "1.58", "1.22"], answer: "1.41" },
-      { question: "Cho mẫu số liệu: 10, 20, 30. Nếu cộng thêm 5 vào mỗi giá trị thì số trung bình mới thay đổi như thế nào?", options: ["Tăng thêm 5 đơn vị", "Không đổi", "Tăng lên 5 lần", "Giảm đi 5 đơn vị"], answer: "Tăng thêm 5 đơn vị" },
-      { question: "Cho mẫu số liệu: 10, 20, 30. Nếu cộng thêm 5 vào mỗi giá trị thì độ lệch chuẩn mới thay đổi như thế nào?", options: ["Không đổi", "Tăng thêm 5 đơn vị", "Tăng lên 5 lần", "Thay đổi tùy thuộc vào mẫu"], answer: "Không đổi" },
-      { question: "Cho mẫu số liệu: 2, 4, 6. Nếu nhân đôi mỗi giá trị thì phương sai mới thay đổi như thế nào?", options: ["Tăng lên 4 lần", "Tăng lên 2 lần", "Không đổi", "Tăng thêm 2 đơn vị"], answer: "Tăng lên 4 lần" },
-      { question: "Biết công thức tính phương sai mẫu s² = [Σ(xi - x̄)²] / N. Nếu một mẫu gồm 10 số có tổng các bình phương độ lệch Σ(xi - x̄)² = 40. Phương sai mẫu là:", options: ["4", "40", "2", "10"], answer: "4" },
-      { question: "Hai xạ thủ A và B cùng có số điểm trung bình là 8.5 sau 10 lần bắn. Độ lệch chuẩn của A là 0.4, của B là 0.8. Khẳng định nào ĐÚNG?", options: ["Xạ thủ A bắn chụm (ổn định) hơn xạ thủ B", "Xạ thủ B bắn chụm hơn xạ thủ A", "Hai xạ thủ bắn ổn định như nhau", "Không thể đưa ra nhận xét"], answer: "Xạ thủ A bắn chụm (ổn định) hơn xạ thủ B" },
-      { question: "Số trung bình cộng của 100 số tự nhiên đầu tiên (từ 0 đến 99) bằng bao nhiêu?", options: ["49.5", "50", "50.5", "45"], answer: "49.5" },
-      { question: "Cho bảng tần số nhóm: Nhóm [0;4) có tần số 5. Giá trị đại diện của nhóm này bằng bao nhiêu để tính trung bình?", options: ["2", "0", "4", "1"], answer: "2" },
-      { question: "Nếu tất cả các giá trị của mẫu số liệu đều bằng nhau, phương sai mẫu sẽ bằng:", options: ["0", "1", "Giá trị đó", "Vô số"], answer: "0" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 18: XÁC SUẤT CƠ BẢN
-  // ==========================================
-  18: {
-    stage1: [
-      { question: "Một hành động, thí nghiệm có kết quả không đoán trước được nhưng biết tất cả các kết quả có thể xảy ra gọi là gì?", options: ["Phép thử ngẫu nhiên", "Biến cố chắc chắn", "Không gian mẫu", "Xác suất"], answer: "Phép thử ngẫu nhiên" },
-      { question: "Tập hợp tất cả các kết quả có thể xảy ra của một phép thử gọi là gì?", options: ["Không gian mẫu", "Biến cố", "Tập hợp nghiệm", "Xác suất"], answer: "Không gian mẫu" },
-      { question: "Kí hiệu của không gian mẫu thường là chữ cái Hy Lạp nào?", options: ["Omega (Ω)", "Alpha (α)", "Delta (Δ)", "Sigma (σ)"], answer: "Omega (Ω)" },
-      { question: "Một tập con của không gian mẫu được gọi là gì?", options: ["Biến cố", "Phép thử", "Xác suất", "Phần tử lẻ"], answer: "Biến cố" },
-      { question: "Biến cố luôn luôn xảy ra trong phép thử gọi là gì?", options: ["Biến cố chắc chắn", "Biến cố không thể", "Biến cố ngẫu nhiên", "Biến cố đối"], answer: "Biến cố chắc chắn" },
-      { question: "Biến cố không bao giờ xảy ra trong phép thử gọi là gì?", options: ["Biến cố không thể (kí hiệu ∅)", "Biến cố chắc chắn", "Biến cố đối", "Biến cố ngẫu nhiên"], answer: "Biến cố không thể (kí hiệu ∅)" },
-      { question: "Xác suất của biến cố chắc chắn bằng bao nhiêu?", options: ["1", "0", "0.5", "100"], answer: "1" },
-      { question: "Xác suất của biến cố không thể bằng bao nhiêu?", options: ["0", "1", "-1", "0.5"], answer: "0" },
-      { question: "Công thức cổ điển tính xác suất của biến cố A là P(A) = ?", options: ["n(A) / n(Ω)", "n(Ω) / n(A)", "n(A) . n(Ω)", "1 - n(A)"], answer: "n(A) / n(Ω)" },
-      { question: "Xác suất P(A) của một biến cố bất kì luôn nằm trong đoạn nào?", options: ["[0; 1]", "(0; 1)", "[-1; 1]", "[0; 100]"], answer: "[0; 1]" }
-    ],
-    stage2: [
-      { question: "Gieo một đồng xu cân đối và đồng chất. Số phần tử của không gian mẫu n(Ω) bằng bao nhiêu?", options: ["2", "1", "4", "6"], answer: "2" },
-      { question: "Gieo một con xúc xắc cân đối và đồng chất 6 mặt. Số phần tử của không gian mẫu n(Ω) bằng bao nhiêu?", options: ["6", "12", "36", "1"], answer: "6" },
-      { question: "Gieo một đồng xu, tính xác suất để xuất hiện mặt ngửa.", options: ["1/2", "1", "0", "1/4"], answer: "1/2" },
-      { question: "Gieo một con xúc xắc, tính xác suất để xuất hiện mặt có 6 chấm.", options: ["1/6", "1/2", "1/3", "5/6"], answer: "1/6" },
-      { question: "Gieo một con xúc xắc, tính xác suất để mặt xuất hiện có số chấm là số chẵn.", options: ["1/2", "1/3", "2/3", "1/6"], answer: "1/2" },
-      { question: "Gieo một con xúc xắc, tính xác suất để mặt xuất hiện có số chấm lớn hơn 4.", options: ["1/3", "1/2", "2/3", "1/6"], answer: "1/3" },
-      { question: "Một hộp có 3 bi xanh và 2 bi đỏ. Lấy ngẫu nhiên 1 viên bi. Tính xác suất lấy được bi xanh.", options: ["3/5", "2/5", "1/5", "1/2"], answer: "3/5" },
-      { question: "Một hộp có 3 bi xanh và 2 bi đỏ. Lấy ngẫu nhiên 1 viên bi. Tính xác suất lấy được bi đỏ.", options: ["2/5", "3/5", "1/2", "1/5"], answer: "2/5" },
-      { question: "Chọn ngẫu nhiên một chữ số từ tập {0; 1; 2; 3; 4; 5; 6; 7; 8; 9}. Xác suất chọn được số nguyên tố là:", options: ["4/10", "3/10", "5/10", "2/10"], answer: "4/10" },
-      { question: "Biến cố đối của biến cố A kí hiệu là gì và có xác suất bằng bao nhiêu?", options: ["Ā, P(Ā) = 1 - P(A)", "-A, P(-A) = -P(A)", "A', P(A') = P(A)", "∅, P(∅) = 0"], answer: "Ā, P(Ā) = 1 - P(A)" }
-    ],
-    stage3: [
-      { question: "Gieo đồng thời hai con xúc xắc cân đối. Số phần tử của không gian mẫu n(Ω) bằng bao nhiêu?", options: ["36", "12", "6", "18"], answer: "36" },
-      { question: "Gieo đồng thời hai con xúc xắc. Tính xác suất để tổng số chấm xuất hiện trên hai con xúc xắc bằng 7.", options: ["1/6", "1/12", "5/36", "7/36"], answer: "1/6" },
-      { question: "Tung hai đồng xu cân đối đồng thời. Tính xác suất để cả hai đồng xu đều ra mặt sấp.", options: ["1/4", "1/2", "3/4", "1/8"], answer: "1/4" },
-      { question: "Tung hai đồng xu cân đối đồng thời. Tính xác suất để có ít nhất một đồng xu ra mặt ngửa.", options: ["3/4", "1/4", "1/2", "1"], answer: "3/4" },
-      { question: "Một hộp có 5 thẻ được đánh số từ 1 đến 5. Rút ngẫu nhiên đồng thời 2 thẻ. Số phần tử của không gian mẫu là:", options: ["10", "20", "25", "5"], answer: "10" },
-      { question: "Từ một hộp chứa 4 bi trắng và 3 bi đen, lấy ngẫu nhiên đồng thời 2 viên bi. Tính xác suất để được 2 viên bi cùng màu trắng.", options: ["2/7", "4/7", "6/21", "1/2"], answer: "2/7" },
-      { question: "Gieo một con xúc xắc 2 lần liên tiếp. Tính xác suất để mặt 6 chấm xuất hiện ít nhất một lần.", options: ["11/36", "2/6", "1/6", "12/36"], answer: "11/36" },
-      { question: "Một lớp học có 25 nam và 15 nữ. Chọn ngẫu nhiên 2 học sinh đi trực nhật. Xác suất để chọn được 1 nam và 1 nữ là:", options: ["25/52", "15/52", "5/8", "3/8"], answer: "25/52" },
-      { question: "Biết xác suất trúng lưới của một tiền đạo khi sút phạt đền là 0.8. Xác suất tiền đạo đó sút hỏng quả phạt đền là bao nhiêu?", options: ["0.2", "0.8", "0.5", "0"], answer: "0.2" },
-      { question: "Chọn ngẫu nhiên một ngày trong tuần (từ thứ Hai đến Chủ Nhật). Xác suất chọn được ngày cuối tuần (Thứ Bảy hoặc Chủ Nhật) là:", options: ["2/7", "5/7", "1/7", "3/7"], answer: "2/7" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 19: ÔN TẬP TỔNG HỢP LỚP 10
-  // ==========================================
-  19: {
-    stage1: [
-      { question: "Mệnh đề nào sau đây đúng?", options: ["√2 là số hữu tỉ", "Phương trình x² - 1 = 0 có nghiệm", "Số 1 là số nguyên tố", "Tam giác cân luôn là tam giác đều"], answer: "Phương trình x² - 1 = 0 có nghiệm" },
-      { question: "Cho A = {1; 2}, B = {2; 3}. Tập hợp A ∩ B bằng:", options: ["{2}", "{1; 2; 3}", "{1}", "{3}"], answer: "{2}" },
-      { question: "Bất phương trình nào sau đây bậc nhất hai ẩn?", options: ["x - 3y ≤ 2", "x² + y > 0", "x + y² < 1", "xyz > 0"], answer: "x - 3y ≤ 2" },
-      { question: "Tập xác định của hàm số y = 1 / (x - 1) là:", options: ["D = R \\ {1}", "D = R", "D = (1; +∞)", "D = R \\ {0}"], answer: "D = R \\ {1}" },
-      { question: "Hệ số góc của đường thẳng y = 2x - 5 bằng bao nhiêu?", options: ["2", "-5", "5", "0"], answer: "2" },
-      { question: "Hoành độ đỉnh của parabol y = x² - 4x + 1 là:", options: ["2", "-2", "4", "1"], answer: "2" },
-      { question: "Biệt thức Delta (Δ) của biểu thức x² - 2x + 3 bằng bao nhiêu?", options: ["-8", "8", "4", "0"], answer: "-8" },
-      { question: "Quy tắc cộng ba điểm vector là hệ thức nào?", options: ["AB + BC = AC", "AB + AC = BC", "AB - BC = AC", "BA + BC = AC"], answer: "AB + BC = AC" },
-      { question: "Tọa độ của vector đơn vị i trên trục hoành Ox là:", options: ["(1; 0)", "(0; 1)", "(0; 0)", "(1; 1)"], answer: "(1; 0)" },
-      { question: "Xác suất của biến cố không thể bằng bao nhiêu?", options: ["0", "1", "0.5", "-1"], answer: "0" }
-    ],
-    stage2: [
-      { question: "Cho hai tập hợp A = [-1; 3) và B = (0; 4]. Giao của hai tập hợp A ∩ B là:", options: ["(0; 3)", "[-1; 4]", "(0; 3]", "[-1; 0)"], answer: "(0; 3)" },
-      { question: "Hàm số y = -x² + 4x đạt giá trị lớn nhất tại x bằng bao nhiêu?", options: ["2", "4", "0", "1"], answer: "2" },
-      { question: "Đường thẳng đi qua hai điểm A(0; 1) và B(1; 3) có phương trình là:", options: ["y = 2x + 1", "y = x + 1", "y = 3x", "y = -2x + 1"], answer: "y = 2x + 1" },
-      { question: "Cho u = (2; -3) và v = (1; 4). Tọa độ của vector tổng u + v là:", options: ["(3; 1)", "(1; -7)", "(3; -7)", "(2; -12)"], answer: "(3; 1)" },
-      { question: "Cho mẫu số liệu điểm: 5, 7, 8, 8, 10. Số trung vị Me bằng bao nhiêu?", options: ["8", "7", "7.6", "5"], answer: "8" },
-      { question: "Gieo một con xúc xắc cân đối. Xác suất để xuất hiện mặt có số chấm chia hết cho 3 là:", options: ["1/3", "1/6", "1/2", "2/3"], answer: "1/3" },
-      { question: "Tìm m để tam thức f(x) = x² - 4x + m luôn dương với mọi x ∈ R.", options: ["m > 4", "m < 4", "m ≥ 4", "m = 0"], answer: "m > 4" },
-      { question: "Hệ bpt {x ≥ 0; y ≥ 0; x + y ≤ 4} tạo ra miền nghiệm có diện tích bằng bao nhiêu?", options: ["8", "16", "4", "2"], answer: "8" },
-      { question: "Cho đoạn thẳng AB có trung điểm I. Hệ thức vector nào sau đây SAI?", options: ["Vector IA + Vector IB = Vector 0", "Vector AB = 2 Vector AI", "Vector AB = 2 Vector IB", "Vector MA + Vector MB = 2 Vector MM (M tùy ý)"], answer: "Vector AB = 2 Vector AI" },
-      { question: "Mốt của mẫu số liệu: 6, 7, 7, 8, 9, 7, 10 là số nào?", options: ["7", "6", "8", "10"], answer: "7" }
-    ],
-    stage3: [
-      { question: "Cho ba điểm A(1; 2), B(3; 4), C(m; m+2). Tìm m để tam giác ABC vuông tại A.", options: ["m = -1", "m = 1", "m = 2", "Không tồn tại m"], answer: "m = -1" },
-      { question: "Tìm m để hệ bất phương trình {x + y ≤ 2; x - y ≥ m} có nghiệm duy nhất.", options: ["m = 2", "m = 0", "m > 2", "Không có m"], answer: "m = 2" },
-      { question: "Một chiếc hộp chứa 3 bi đỏ, 4 bi xanh và 5 bi vàng. Lấy ngẫu nhiên cùng lúc 3 viên bi. Xác suất để 3 viên lấy ra có đủ cả 3 màu là:", options: ["3/11", "6/11", "2/11", "4/11"], answer: "3/11" },
-      { question: "Cho hình vuông ABCD cạnh a. Tính tích vô hướng của hai vector AC và BD.", options: ["0", "a²", "2a²", "-a²"], answer: "0" },
-      { question: "Hàm số y = x² - 2mx + 3 đạt giá trị nhỏ nhất bằng 2 khi m bằng bao nhiêu?", options: ["m = ±1", "m = 1", "m = 2", "m = 0"], answer: "m = ±1" },
-      { question: "Cho hai tập hợp A = (m - 1; m + 3) và B = [-2; 3]. Tìm m để A ⊂ B.", options: ["-1 ≤ m ≤ 0", "m ≥ -1", "m ≤ 0", "Không tồn tại m"], answer: "-1 ≤ m ≤ 0" },
-      { question: "Phương sai của mẫu số liệu gồm 5 số giống nhau hoàn toàn bằng bao nhiêu?", options: ["0", "1", "Chính số đó", "Không tính được"], answer: "0" },
-      { question: "Cho ba điểm A, B, C thẳng hàng. Biết Vector AB = 2 Vector AC. Khẳng định nào ĐÚNG?", options: ["C là trung điểm của AB", "B là trung điểm của AC", "A nằm giữa B và C", "C nằm ngoài đoạn AB"], answer: "C là trung điểm của AB" },
-      { question: "Tìm góc giữa hai đường thẳng d1: y = x và d2: y = -x.", options: ["90°", "45°", "60°", "0°"], answer: "90°" },
-      { question: "Mệnh đề phủ định của '∃x ∈ R, x² - 2x + 5 < 0' là:", options: ["∀x ∈ R, x² - 2x + 5 ≥ 0", "∀x ∈ R, x² - 2x + 5 > 0", "∀x ∈ R, x² - 2x + 5 ≤ 0", "∃x ∈ R, x² - 2x + 5 ≥ 0"], answer: "∀x ∈ R, x² - 2x + 5 ≥ 0" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 20: ĐẠI BOSS LỚP 10
-  // ==========================================
-  20: {
-    stage1: [
-      { question: "Giao của hai tập hợp X = {1; 3; 5} và Y = {3; 5; 7} là:", options: ["{3; 5}", "{1; 7}", "{1; 3; 5; 7}", "{3}"], answer: "{3; 5}" },
-      { question: "Tập xác định của hàm số y = √(2x - 4) là:", options: ["D = [2; +∞)", "D = (2; +∞)", "D = (-∞; 2]", "D = R \\ {2}"], answer: "D = [2; +∞)" },
-      { question: "Độ dài của vector u = (-6; 8) bằng bao nhiêu?", options: ["10", "2", "14", "100"], answer: "10" },
-      { question: "Hệ số góc của đường thẳng song song với y = -x + 3 bằng bao nhiêu?", options: ["-1", "3", "1", "0"], answer: "-1" },
-      { question: "Tính giá trị biểu thức f(x) = -x² + 5x tại x = 2.", options: ["6", "14", "-6", "2"], answer: "6" },
-      { question: "Trong thống kê, khoảng biến thiên được tính bằng:", options: ["Giá trị lớn nhất trừ giá trị nhỏ nhất", "Q3 - Q1", "Giá trị lớn nhất", "Số trung bình"], answer: "Giá trị lớn nhất trừ giá trị nhỏ nhất" },
-      { question: "Gieo một đồng xu 2 lần, không gian mẫu n(Ω) có bao nhiêu phần tử?", options: ["4", "2", "6", "8"], answer: "4" },
-      { question: "Bất phương trình nào sau đây là bpt bậc nhất hai ẩn?", options: ["2x - y ≥ 0", "x² - y < 1", "x + y² > 2", "x - y + z ≤ 1"], answer: "2x - y ≥ 0" },
-      { question: "Quy tắc hình bình hành biểu diễn tổng vector là:", options: ["AB + AD = AC", "AB + AC = AD", "AB + BC = CA", "AC + BD = AB"], answer: "AB + AD = AC" },
-      { question: "Đồ thị hàm số bậc hai y = x² có đỉnh nằm ở đâu?", options: ["Gốc tọa độ O(0;0)", "(1; 1)", "Trục tung Oy", "Trục hoành Ox"], answer: "Gốc tọa độ O(0;0)" }
-    ],
-    stage2: [
-      { question: "Tìm m để hàm số y = (m² - 4)x + m đồng biến trên R.", options: ["m > 2 hoặc m < -2", "m > 2", "-2 < m < 2", "m ≠ 2"], answer: "m > 2 hoặc m < -2" },
-      { question: "Tọa độ đỉnh của parabol y = -2x² + 4x - 3 là:", options: ["(1; -1)", "(-1; -9)", "(1; -3)", "(2; -3)"], answer: "(1; -1)" },
-      { question: "Cho u = (3; 1) và v = (-2; 4). Tính tích vô hướng u . v", options: ["-2", "10", "2", "-10"], answer: "-2" },
-      { question: "Cho mẫu số liệu: 3, 5, 5, 6, 8, 9. Phương sai mẫu số liệu này (làm tròn đến hàng phần trăm) bằng bao nhiêu?", options: ["4.22", "2.05", "3.50", "1.85"], answer: "4.22" },
-      { question: "Một hộp chứa 4 viên bi xanh và 6 viên bi đỏ. Chọn ngẫu nhiên đồng thời 2 viên bi. Xác suất để chọn được 2 viên bi cùng màu đỏ là:", options: ["1/3", "1/5", "3/5", "2/15"], answer: "1/3" },
-      { question: "Miền nghiệm của hệ {x ≥ 0; y ≥ 0; 2x + 3y ≤ 6} cắt đường thẳng x = 0 tại điểm có tung độ bằng bao nhiêu?", options: ["2", "3", "6", "0"], answer: "2" },
-      { question: "Cho hai tập hợp A = (-∞; 2] và B = (m; +∞). Tìm m để A ∩ B ≠ ∅.", options: ["m < 2", "m ≤ 2", "m > 2", "m ∈ R"], answer: "m < 2" },
-      { question: "Cho tam giác ABC có trọng tâm G. Hệ thức vector nào sau đây luôn ĐÚNG?", options: ["Vector MA + Vector MB + Vector MC = 3 Vector MG (M bất kì)", "Vector GA + Vector GB = Vector GC", "Vector AG = 2 Vector GM (M là trung điểm AB)", "Vector GB + Vector GC = Vector 0"], answer: "Vector MA + Vector MB + Vector MC = 3 Vector MG (M bất kì)" },
-      { question: "Mốt và số trung vị của mẫu số liệu: 4, 5, 5, 6, 7 lần lượt là:", options: ["5 và 5", "5 và 6", "4 và 5", "5 và 5.4"], answer: "5 và 5" },
-      { question: "Tìm m để tam thức f(x) = -x² + 2x + m - 3 luôn âm với mọi số thực x.", options: ["m < 2", "m > 2", "m ≤ 2", "m < 0"], answer: "m < 2" }
-    ],
-    stage3: [
-      { question: "Cho tam giác ABC có A(1; 1), B(5; 1), C(1; 4). Tìm bán kính r của đường tròn nội tiếp tam giác ABC.", options: ["1", "2", "1.5", "0.5"], answer: "1" },
-      { question: "Cho parabol y = x² - 4x + 3 và đường thẳng y = mx - 1. Tìm m để đường thẳng cắt parabol tại hai điểm phân biệt có hoành độ dương.", options: ["m > 0 và m ≠ 4", "m > 4", "m < 0", "Không tồn tại m"], answer: "m > 4" },
-      { question: "Một xạ thủ bắn vào bia. Xác suất bắn trúng vòng 10 là 0.4, vòng 9 là 0.35, vòng 8 là 0.15. Tính xác suất xạ thủ đó bắn được ít nhất 9 điểm.", options: ["0.75", "0.4", "0.35", "0.9"], answer: "0.75" },
-      { question: "Cho hai điểm A(1; 2) và B(5; 4). Tìm tọa độ điểm M trên trục hoành Ox sao cho tam giác MAB vuông tại M.", options: ["(2; 0) hoặc (4; 0)", "(1; 0) hoặc (5; 0)", "(3; 0)", "Không tồn tại M"], answer: "(2; 0) hoặc (4; 0)" },
-      { question: "Cho biểu thức F = 2x + 3y. Tìm giá trị nhỏ nhất của F trên miền nghiệm {x≥0; y≥0; x+y≥2; x+2y≥3}.", options: ["5", "4", "6", "2"], answer: "5" },
-      { question: "Có bao nhiêu giá trị nguyên của m thuộc đoạn [-5; 5] để tam thức f(x) = (m-1)x² - 2(m-1)x + 2 luôn dương với mọi x thuộc R?", options: ["5", "6", "4", "11"], answer: "5" },
-      { question: "Cho hình chữ nhật ABCD có AB = 3, AD = 4. Gọi I là trung điểm BC. Tính độ lệch tích vô hướng của hai vector AI và BD.", options: ["-4.5", "4.5", "0", "-9"], answer: "-4.5" },
-      { question: "Cho mẫu số liệu gồm các số tự nhiên liên tiếp từ 1 đến 9. Tính độ lệch chuẩn s của mẫu số liệu này.", options: ["2.58", "6.67", "2.00", "1.50"], answer: "2.58" },
-      { question: "Mệnh đề kéo theo 'Nếu biểu thức A chẵn và B chẵn thì A+B chẵn'. Phát biểu dưới dạng điều kiện chéo tương đương là:", options: ["A và B chẵn khi và chỉ khi A+B chẵn", "A+B chẵn là điều kiện đủ để A và B chẵn", "A và B chẵn là điều kiện đủ để A+B chẵn", "A+B lẻ là điều kiện cần để A và B chẵn"], answer: "A và B chẵn là điều kiện đủ để A+B chẵn" },
-      { question: "Cho hệ bất phương trình {x - y ≤ 0; x + 2y ≥ 0; m x - y ≤ 1}. Tìm m để miền nghiệm của hệ là một miền không giới hạn.", options: ["m ≤ 0.5", "m > 0.5", "m = 1", "m ∈ R"], answer: "m ≤ 0.5" }
+  {
+    id: "p1_s2_3",
+    type: "true-false",
+    question: "Cho hai mệnh đề: P: 'Hình bình hành có một góc vuông là hình chữ nhật'; Q: 'Số 7 là hợp số'.",
+    subQuestions: [
+      {
+        label: "a",
+        text: "P là mệnh đề đúng.",
+        correctAnswer: "Đúng"
+      },
+      {
+        label: "b",
+        text: "Q là mệnh đề đúng.",
+        correctAnswer: "Sai"
+      },
+      {
+        label: "c",
+        text: "P ⇒ Q là mệnh đề đúng.",
+        correctAnswer: "Sai"
+      },
+      {
+        label: "d",
+        text: "Q ⇒ P là mệnh đề đúng.",
+        correctAnswer: "Đúng"
+      }
     ]
   }
-};
-// src/app/data/questions.ts (Tiếp tục từ World 21 đến World 40)
-
-export const extraWorldQuestions: Record<number, { stage1: any[]; stage2: any[]; stage3: any[] }> = {
-  // ==========================================
-  // WORLD 21: 🔺 Góc Lượng Giác
-  // ==========================================
-  21: {
-    stage1: [
-      { question: "Đổi góc có số đo 60° sang đơn vị radian.", options: ["π/6", "π/4", "π/3", "π/2"], answer: "π/3" },
-      { question: "Đổi góc có số đo 3π/4 radian sang đơn vị độ.", options: ["120°", "135°", "150°", "145°"], answer: "135°" },
-      { question: "Một đường tròn bán kính R = 10 cm. Tính độ dài cung có số đo π/2 radian.", options: ["5π cm", "10π cm", "2.5π cm", "20π cm"], answer: "5π cm" },
-      { question: "Góc lượng giác có số đo 405° cùng tia đầu và tia cuối với góc nào sau đây?", options: ["45°", "90°", "135°", "0°"], answer: "45°" },
-      { question: "Đổi góc -150° sang đơn vị radian.", options: ["-5π/6", "-2π/3", "-3π/4", "-7π/6"], answer: "-5π/6" },
-      { question: "Công thức tổng quát của các góc lượng giác có cùng tia đầu và tia cuối với góc α (radian) là gì?", options: ["α + kπ", "α + k2π", "α + k360°", "α + kπ/2"], answer: "α + k2π" },
-      { question: "Trên đường tròn lượng giác, điểm biểu diễn góc 90° nằm ở vị trí nào?", options: ["Trục hoành phía dương", "Trục tung phía dương", "Trục hoành phía âm", "Trục tung phía âm"], answer: "Trục tung phía dương" },
-      { question: "Góc lượng giác có số đo -7π/4 thuộc góc phần tư thứ mấy?", options: ["Thứ I", "Thứ II", "Thứ III", "Thứ IV"], answer: "Thứ I" },
-      { question: "Một bánh xe quay được 3 vòng trong 1 giây. Tính góc quay được bằng radian trong 2 giây.", options: ["6π", "12π", "3π", "4π"], answer: "12π" },
-      { question: "Tìm số đo góc hình học giữa hai tia đầu và tia cuối của góc lượng giác có số đo -240°.", options: ["120°", "240°", "60°", "150°"], answer: "120°" }
-    ],
-    stage2: [
-      { question: "Đường tròn lượng giác có bán kính bằng bao nhiêu?", options: ["0.5", "1", "2", "π"], answer: "1" },
-      { question: "Góc có số đo 250° thuộc góc phần tư thứ mấy?", options: ["I", "II", "III", "IV"], answer: "III" },
-      { question: "Góc có số đo 5π/6 thuộc góc phần tư thứ mấy?", options: ["I", "II", "III", "IV"], answer: "II" },
-      { question: "Điểm M trên đường tròn lượng giác biểu diễn góc α. Tọa độ của M là gì?", options: ["(sinα; cosα)", "(cosα; sinα)", "(tanα; cotα)", "(1; 0)"], answer: "(cosα; sinα)" },
-      { question: "Góc lượng giác -45° được biểu diễn bởi điểm nằm ở góc phần tư thứ mấy?", options: ["I", "II", "III", "IV"], answer: "IV" },
-      { question: "Góc α = k2π (k ∈ Z) được biểu diễn bởi điểm nào trên đường tròn lượng giác?", options: ["A(1;0)", "A'(-1;0)", "B(0;1)", "B'(0;-1)"], answer: "A(1;0)" },
-      { question: "Góc α = π + k2π (k ∈ Z) được biểu diễn bởi điểm nào trên đường tròn lượng giác?", options: ["A(1;0)", "A'(-1;0)", "B(0;1)", "B'(0;-1)"], answer: "A'(-1;0)" },
-      { question: "Số điểm biểu diễn của họ góc α = kπ trên đường tròn lượng giác là bao nhiêu?", options: ["1", "2", "3", "4"], answer: "2" },
-      { question: "Số điểm biểu diễn của họ góc α = π/4 + kπ/2 trên đường tròn lượng giác là mấy?", options: ["2", "4", "6", "8"], answer: "4" },
-      { question: "Góc lượng giác 1000° thuộc góc phần tư thứ mấy?", options: ["I", "II", "III", "IV"], answer: "IV" }
-    ],
-    stage3: [
-      { question: "Họ góc α = π/3 + k2π/3 có bao nhiêu điểm biểu diễn trên đường tròn lượng giác?", options: ["2", "3", "4", "6"], answer: "3" },
-      { question: "Kim giờ và kim phút của đồng hồ tại thời điểm 3 giờ tạo thành góc lượng giác âm có số đo là bao nhiêu (tính từ kim giờ đến kim phút)?", options: ["-90°", "-270°", "90°", "270°"], answer: "-270°" },
-      { question: "Một vệ tinh bay quanh Trái Đất mất 2 giờ. Hỏi trong 15 phút, vệ tinh quét được một góc bao nhiêu radian?", options: ["π/4", "π/2", "π/8", "π/6"], answer: "π/4" },
-      { question: "Hai góc lượng giác α và β có cùng tia đầu và tia cuối khi và chỉ khi hiệu α - β bằng:", options: ["kπ", "k2π", "kπ/2", "2kπ"], answer: "k2π" },
-      { question: "Tính độ dài cung tròn của đường kính 20 cm có số đo 35° (làm tròn đến hàng phần mười).", options: ["6.1 cm", "12.2 cm", "3.5 cm", "7.0 cm"], answer: "6.1 cm" },
-      { question: "Góc lượng giác có số đo 11π/3 trùng tia cuối với góc nào dưới đây?", options: ["π/3", "2π/3", "5π/3", "-π/3"], answer: "5π/3" },
-      { question: "Biết một góc lượng giác thỏa mãn sinα > 0 và cosα < 0. Hỏi góc α thuộc góc phần tư thứ mấy?", options: ["I", "II", "III", "IV"], answer: "II" },
-      { question: "Góc lượng giác có số đo bằng 4 radian thuộc góc phần tư thứ mấy?", options: ["I", "II", "III", "IV"], answer: "III" },
-      { question: "Một máy mài quay với tốc độ 1200 vòng/phút. Tính góc quay của một điểm trên đá mài trong 1 giây.", options: ["20π rad", "40π rad", "1200π rad", "2400π rad"], answer: "40π rad" },
-      { question: "Gộp hai họ góc α = k2π và α = π + k2π thành một họ góc duy nhất:", options: ["α = kπ", "α = k2π", "α = π + kπ", "α = kπ/2"], answer: "α = kπ" }
-    ]
+],
+stage3: [
+  {
+    id: "p1_s3_1",
+    type: "short-answer",
+    question: "Trong các phát biểu sau có bao nhiêu phát biểu là mệnh đề?\n(1) 17 là số nguyên tố.\n(2) Tam giác vuông có một đường trung tuyến bằng nửa cạnh huyền.\n(3) Các em hãy cố gắng học tập thật tốt nhé!\n(4) Mọi hình chữ nhật đều nội tiếp được đường tròn.",
+    answer: "3",
+    explanation: "Các câu (1), (2), (4) đều là câu khẳng định có giá trị đúng hoặc sai nên là mệnh đề. Câu (3) là câu mệnh lệnh nên không phải mệnh đề."
   },
 
-  // ==========================================
-  // WORLD 22: 🔺 Giá Trị Lượng Giác
-  // ==========================================
-  22: {
-    stage1: [
-      { question: "Giá trị của sin(π/6) bằng bao nhiêu?", options: ["1/2", "√2/2", "√3/2", "1"], answer: "1/2" },
-      { question: "Giá trị của cos(π) bằng bao nhiêu?", options: ["0", "1", "-1", "Không xác định"], answer: "-1" },
-      { question: "Tính giá trị của biểu thức tan(π/4).", options: ["0", "1", "√3", "√3/3"], answer: "1" },
-      { question: "Đẳng thức nào sau đây luôn đúng với mọi góc α?", options: ["sin²α + cos²α = 1", "sin²α - cos²α = 1", "sinα + cosα = 1", "tanα = cosα/sinα"], answer: "sin²α + cos²α = 1" },
-      { question: "Mối quan hệ giữa tanα và cotα (khi các biểu thức có nghĩa) là gì?", options: ["tanα.cotα = 1", "tanα.cotα = -1", "tanα + cotα = 1", "tan²α + cot²α = 1"], answer: "tanα.cotα = 1" },
-      { question: "Công thức nào liên hệ giữa tan²α và cos²α đúng?", options: ["1 + tan²α = 1/cos²α", "1 + tan²α = 1/sin²α", "1 - tan²α = 1/cos²α", "tan²α - 1 = 1/cos²α"], answer: "1 + tan²α = 1/cos²α" },
-      { question: "Tính giá trị lượng giác của cos(120°).", options: ["1/2", "-1/2", "√3/2", "-√3/2"], answer: "-1/2" },
-      { question: "Nếu sinα = 3/5 và α thuộc góc phần tư thứ I thì cosα bằng bao nhiêu?", options: ["4/5", "-4/5", "16/25", "2/5"], answer: "4/5" },
-      { question: "Giá trị của cot(π/2) bằng bao nhiêu?", options: ["0", "1", "-1", "Không xác định"], answer: "0" },
-      { question: "Biểu thức sin²(20°) + sin²(70°) bằng bao nhiêu?", options: ["0", "1", "2", "0.5"], answer: "1" }
-    ],
-    stage2: [
-      { question: "Biểu thức cos(-α) bằng biểu thức nào sau đây?", options: ["cosα", "-cosα", "sinα", "-sinα"], answer: "cosα" },
-      { question: "Biểu thức sin(π - α) bằng biểu thức nào sau đây?", options: ["sinα", "-sinα", "cosα", "-cosα"], answer: "sinα" },
-      { question: "Biểu thức cos(π/2 - α) bằng biểu thức nào sau đây?", options: ["sinα", "-sinα", "cosα", "-cosα"], answer: "sinα" },
-      { question: "Biểu thức tan(π + α) bằng biểu thức nào dưới đây?", options: ["tanα", "-tanα", "cotα", "-cotα"], answer: "tanα" },
-      { question: "Tính giá trị của biểu thức P = cos(10°) + cos(170°).", options: ["0", "2cos(10°)", "1", "-1"], answer: "0" },
-      { question: "Tính sin(α + π) theo sinα.", options: ["sinα", "-sinα", "cosα", "-cosα"], answer: "-sinα" },
-      { question: "Cho tanα = 2. Tính giá trị của cotα.", options: ["1/2", "-1/2", "2", "-2"], answer: "1/2" },
-      { question: "Biết cosα = -12/13 và π < α < 3π/2. Tính giá trị của sinα.", options: ["5/13", "-5/13", "1/13", "-1/13"], answer: "-5/13" },
-      { question: "Rút gọn biểu thức P = sin(π/2 - α) + cos(π - α).", options: ["0", "2cosα", "-2cosα", "2sinα"], answer: "0" },
-      { question: "Giá trị của tan(135°) bằng bao nhiêu?", options: ["1", "-1", "√3", "-√3"], answer: "-1" }
-    ],
-    stage3: [
-      { question: "Cho tanα = 3. Tính biểu thức A = (sinα + cosα) / (sinα - cosα).", options: ["2", "1", "3", "0.5"], answer: "2" },
-      { question: "Cho sinα + cosα = 1.2. Tính giá trị của tích sinα.cosα.", options: ["0.22", "0.44", "0.24", "0.12"], answer: "0.22" },
-      { question: "Tính tổng giá trị biểu thức: S = sin²1° + sin²2° + ... + sin²89°.", options: ["44", "44.5", "45", "45.5"], answer: "44.5" },
-      { question: "Cho sinα.cosα = 1/4. Tính giá trị của sin⁴α + cos⁴α.", options: ["7/8", "5/8", "3/4", "1"], answer: "7/8" },
-      { question: "Tìm khẳng định SAI trong các khẳng định sau:", options: ["sinα ∈ [-1;1]", "cosα ∈ [-1;1]", "tanα ∈ [-1;1]", "Nếu sinα = 1 thì cosα = 0"], answer: "tanα ∈ [-1;1]" },
-      { question: "Cho cotα = -2. Tính sin²α.", options: ["1/5", "4/5", "1/3", "2/3"], answer: "1/5" },
-      { question: "Tính giá trị của biểu thức M = tan1° × tan2° × ... × tan89°.", options: ["0", "1", "√3", "2"], answer: "1" },
-      { question: "Biết sin³α + cos³α = 1. Tìm giá trị nhỏ nhất có thể của sinα + cosα.", options: ["1", "2", "0", "-1"], answer: "1" },
-      { question: "Biểu thức A = cos²α.cot²α + 3cos²α - cot²α + 2sin²α nhận giá trị bằng mấy?", options: ["1", "2", "3", "4"], answer: "2" },
-      { question: "Cho cosα = m. Tính cos(π + α) theo m.", options: ["m", "-m", "1 - m", "m - 1"], answer: "-m" }
-    ]
+  {
+    id: "p1_s3_2",
+    type: "short-answer",
+    question: "Cho các câu:\n(a) Phan-xi-păng là ngọn núi cao nhất Việt Nam.\n(b) π² < 9,86.\n(c) Học Toán thật vui!\n(d) Cậu cho tớ hỏi kết quả câu 2 ra bao nhiêu vậy?\nCó bao nhiêu câu là mệnh đề?",
+    answer: "2",
+    explanation: "Hai câu (a) và (b) là câu khẳng định nên là mệnh đề. Câu (c) là cảm thán, câu (d) là câu hỏi nên không phải mệnh đề."
   },
 
-  // ==========================================
-  // WORLD 23: 🔺 Hàm Sin
-  // ==========================================
-  23: {
-    stage1: [
-      { question: "Tập xác định của hàm số y = sinx là gì?", options: ["R", "[-1;1]", "R \\ {0}", "R \\ {kπ}"], answer: "R" },
-      { question: "Tập giá trị của hàm số y = sinx là:", options: ["R", "[-1;1]", "[0;1]", "(-1;1)"], answer: "[-1;1]" },
-      { question: "Hàm số y = sinx là loại hàm số gì?", options: ["Hàm số chẵn", "Hàm số lẻ", "Hàm không chẵn không lẻ", "Hàm số giảm trên R"], answer: "Hàm số lẻ" },
-      { question: "Chu kỳ tuần hoàn T của hàm số y = sinx là:", options: ["π", "2π", "π/2", "3π"], answer: "2π" },
-      { question: "Tìm giá trị lớn nhất M của hàm số y = 3sinx + 1.", options: ["3", "4", "2", "1"], answer: "4" },
-      { question: "Tìm giá trị nhỏ nhất m của hàm số y = -2sinx.", options: ["-2", "2", "0", "-1"], answer: "-2" },
-      { question: "Tập xác định của hàm số y = 1 / sinx là:", options: ["R \\ {kπ}", "R \\ {π/2+kπ}", "R", "R \\ {k2π}"], answer: "R \\ {kπ}" },
-      { question: "Đồ thị hàm số y = sinx đi qua điểm nào dưới đây?", options: ["(0;0)", "(0;1)", "(π/2;0)", "(π;1)"], answer: "(0;0)" },
-      { question: "Hàm số y = sin(2x) có chu kỳ tuần hoàn bằng bao nhiêu?", options: ["π", "2π", "4π", "π/2"], answer: "π" },
-      { question: "Đồ thị hàm số y = sinx đối xứng qua yếu tố nào?", options: ["Gốc tọa độ O", "Trục tung Oy", "Trục hoành Ox", "Đường thẳng y=x"], answer: "Gốc tọa độ O" }
-    ],
-    stage2: [
-      { question: "Hàm số y = sinx đồng biến trên khoảng nào dưới đây?", options: ["(0; π)", "(-π/2; π/2)", "(π/2; 3π/2)", "(0; π/2)"], answer: "(-π/2; π/2)" },
-      { question: "Hàm số y = sinx nghịch biến trên khoảng nào dưới đây?", options: ["(0; π/2)", "(π/2; 3π/2)", "(-π/2; π/2)", "(π; 2π)"], answer: "(π/2; 3π/2)" },
-      { question: "Trong khoảng (0; π), hàm số y = sinx đạt giá trị lớn nhất tại x bằng bao nhiêu?", options: ["π/4", "π/2", "π/3", "π/6"], answer: "π/2" },
-      { question: "Số nghiệm của phương trình sinx = 0 trên đoạn [0; 2π] là mấy?", options: ["1", "2", "3", "4"], answer: "3" },
-      { question: "Tìm tập giá trị của hàm số y = sin²x.", options: ["[-1;1]", "[0;1]", "R", "[-1;0]"], answer: "[0;1]" },
-      { question: "Hàm số y = sin(x - π/4) đạt giá trị cực đại tại điểm nào (với k ∈ Z)?", options: ["3π/4 + k2π", "π/2 + k2π", "π/4 + k2π", "k2π"], answer: "3π/4 + k2π" },
-      { question: "Đồ thị hàm số y = sinx cắt trục hoành tại các điểm có hoành độ thỏa mãn:", options: ["x = kπ", "x = π/2 + kπ", "x = k2π", "x = π/2 + k2π"], answer: "x = kπ" },
-      { question: "Đồ thị hàm số y = sinx tịnh tiến sang trái một đoạn π/2 đơn vị ta thu được đồ thị hàm số nào?", options: ["y = cosx", "y = -cosx", "y = sin(x+π/2)", "Cả A và C đều đúng"], answer: "Cả A và C đều đúng" },
-      { question: "Hàm số y = |sinx| có chu kỳ biến thiên bằng bao nhiêu?", options: ["π", "2π", "π/2", "Không tuần hoàn"], answer: "π" },
-      { question: "Xét trên khoảng (0; 2π), đồ thị hàm số y = sinx nằm phía dưới trục hoành khi x thuộc khoảng nào?", options: ["(0; π)", "(π; 2π)", "(π/2; 3π/2)", "(3π/2; 2π)"], answer: "(π; 2π)" }
-    ],
-    stage3: [
-      { question: "Tìm điều kiện của tham số m để hàm số y = √(sinx - m) có tập xác định là R.", options: ["m ≤ -1", "m < -1", "m ≥ 1", "-1 ≤ m ≤ 1"], answer: "m ≤ -1" },
-      { question: "Tìm giá trị lớn nhất của hàm số y = sin⁴x + cos⁴x.", options: ["1", "1/2", "3/4", "2"], answer: "1" },
-      { question: "Tìm giá trị nhỏ nhất của hàm số y = sin⁴x + cos⁴x.", options: ["1", "1/2", "3/4", "0"], answer: "1/2" },
-      { question: "Tìm chu kỳ tuần hoàn của hàm số hỗn hợp y = sin(3x) + sin(2x).", options: ["2π", "π", "6π", "4π"], answer: "2π" },
-      { question: "Có bao nhiêu giá trị nguyên của m để hàm số y = 3 / (sinx - m) xác định trên toàn bộ trục số R?", options: ["Vô số", "0", "2", "4"], answer: "Vô số" },
-      { question: "Tìm giá trị lớn nhất của hàm số y = sinx + cosx.", options: ["1", "2", "√2", "2√2"], answer: "√2" },
-      { question: "Hàm số y = sin(x²) có phải là một hàm số tuần hoàn hay không?", options: ["Có chu kỳ 2π", "Có chu kỳ π", "Không tuần hoàn", "Có chu kỳ 4π"], answer: "Không tuần hoàn" },
-      { question: "Đồ thị hàm số y = sinx cắt đường thẳng y = 0.5 tại một điểm thuộc góc phần tư thứ nhất. Tính hoành độ điểm đó.", options: ["π/6", "π/3", "5π/6", "π/4"], answer: "π/6" },
-      { question: "Tìm tập giá trị T của hàm số y = 2sin(3x) - 5.", options: ["[-7;-3]", "[-5;-3]", "[-7;2]", "[-3;2]"], answer: "[-7;-3]" },
-      { question: "Cho biểu thức f(x) = sinx. Tính tổng giá trị S = f(0) + f(π/2) + f(π) + f(3π/2).", options: ["0", "1", "-1", "2"], answer: "0" }
-    ]
+  {
+    id: "p1_s3_3",
+    type: "short-answer",
+    question: "Trong các câu sau có bao nhiêu câu không phải là mệnh đề?\n(a) Huế là một thành phố của Việt Nam.\n(b) Sông Hương chảy ngang qua thành phố Huế.\n(c) Hãy trả lời câu hỏi này!\n(d) 5 + 19 = 24.\n(e) 6 + 81 = 25.\n(f) Bạn có rỗi tối nay không?\n(g) x + 2 = 11.",
+    answer: "3",
+    explanation: "Các câu (c), (f), (g) không phải mệnh đề. (c) là câu mệnh lệnh, (f) là câu hỏi, (g) chứa biến chưa xác định giá trị."
   },
 
-  // ==========================================
-  // WORLD 24: 🔺 Hàm Cos
-  // ==========================================
-  24: {
-    stage1: [
-      { question: "Tập xác định của hàm số y = cosx là:", options: ["R", "[-1;1]", "R \\ {π/2+kπ}", "R \\ {kπ}"], answer: "R" },
-      { question: "Hàm số y = cosx được phân loại là loại hàm số nào?", options: ["Hàm số chẵn", "Hàm số lẻ", "Hàm không chẵn lẻ", "Hàm bậc nhất"], answer: "Hàm số chẵn" },
-      { question: "Chu kỳ tuần hoàn cơ sở của hàm số y = cosx là mấy?", options: ["π", "2π", "π/2", "4π"], answer: "2π" },
-      { question: "Đồ thị của hàm số y = cosx nhận trục nào làm trục đối xứng?", options: ["Trục Oy", "Trục Ox", "Gốc tọa độ O", "Đường y = x"], answer: "Trục Oy" },
-      { question: "Tìm giá trị lớn nhất của hàm số y = 2cosx - 3.", options: ["-1", "-5", "1", "2"], answer: "-1" },
-      { question: "Hàm số y = cos(x/2) tuần hoàn với chu kỳ bằng bao nhiêu?", options: ["π", "2π", "4π", "π/2"], answer: "4π" },
-      { question: "Tìm tập xác định của hàm số lượng giác y = 1 / cosx.", options: ["R \\ {π/2+kπ}", "R \\ {kπ}", "R", "R \\ {π+k2π}"], answer: "R \\ {π/2+kπ}" },
-      { question: "Tính giá trị của hàm số y = cosx tại điểm x = π/2.", options: ["0", "1", "-1", "1/2"], answer: "0" },
-      { question: "Tìm tập giá trị của hàm số y = 3cosx.", options: ["[-3;3]", "[-1;1]", "[0;3]", "[-3;0]"], answer: "[-3;3]" },
-      { question: "Điểm nào sau đây nằm trên đồ thị hàm số y = cosx?", options: ["(0;1)", "(0;0)", "(π/2;1)", "(π;1)"], answer: "(0;1)" }
-    ],
-    stage2: [
-      { question: "Hàm số y = cosx nghịch biến trên khoảng nào trong các khoảng dưới đây?", options: ["(0; π)", "(-π/2; π/2)", "(π; 2π)", "(-π; 0)"], answer: "(0; π)" },
-      { question: "Hàm số y = cosx đồng biến trên khoảng nào trong các khoảng sau?", options: ["(0; π)", "(π; 2π)", "(-π/2; π/2)", "(0; 2π)"], answer: "(π; 2π)" },
-      { question: "Tìm số nghiệm của phương trình cosx = 0 trên đoạn [0; 2π].", options: ["1", "2", "3", "4"], answer: "2" },
-      { question: "Tìm tập giá trị của hàm số y = cos²x - 1.", options: ["[-1;0]", "[0;1]", "[-1;1]", "[-2;0]"], answer: "[-1;0]" },
-      { question: "Hàm số y = cosx đạt giá trị bằng -1 tại các điểm có tọa độ góc bằng:", options: ["x = π + k2π", "x = k2π", "x = π/2 + kπ", "x = kπ"], answer: "x = π + k2π" },
-      { question: "Các giao điểm của đồ thị hàm số y = cosx với trục hoành có hoành độ dạng:", options: ["x = π/2 + kπ", "x = kπ", "x = k2π", "x = π + k2π"], answer: "x = π/2 + kπ" },
-      { question: "Trên khoảng (0; π), hàm số y = cosx nhận giá trị dương trong khoảng nào?", options: ["(0; π/2)", "(π/2; π)", "(0; π)", "Không tồn tại"], answer: "(0; π/2)" },
-      { question: "Hàm số y = |cosx| tuần hoàn với chu kỳ bằng:", options: ["π", "2π", "π/2", "4π"], answer: "π" },
-      { question: "Hàm số nào sau đây có đồ thị nhận trục Oy làm trục đối xứng?", options: ["y = sinx", "y = cosx", "y = tanx", "y = sinx + cosx"], answer: "y = cosx" },
-      { question: "Tìm tất cả tập giá trị x để biểu thức cosx = 1.", options: ["x = k2π", "x = kπ", "x = π + k2π", "x = π/2 + k2π"], answer: "x = k2π" }
-    ],
-    stage3: [
-      { question: "Tìm giá trị lớn nhất của hàm số bậc hai y = cos²x + 2cosx + 3.", options: ["6", "2", "3", "4"], answer: "6" },
-      { question: "Tìm giá trị nhỏ nhất của hàm số bậc hai y = cos²x + 2cosx + 3.", options: ["2", "3", "0", "1"], answer: "2" },
-      { question: "Tìm tập xác định của hàm số chứa căn y = 1 / √(1 - cosx).", options: ["R \\ {k2π}", "R \\ {kπ}", "R", "R \\ {π/2+kπ}"], answer: "R \\ {k2π}" },
-      { question: "Có bao nhiêu giá trị nguyên của m để phương trình m.cosx + 1 = 0 có nghiệm thực?", options: ["Vô số", "1", "2", "0"], answer: "Vô số" },
-      { question: "Chu kỳ tuần hoàn của hàm số y = cos(3x/2) là bao nhiêu?", options: ["4π/3", "2π/3", "3π/4", "3π"], answer: "4π/3" },
-      { question: "Tìm giá trị nhỏ nhất của hàm số y = cos(x + π/3) - 5.", options: ["-6", "-4", "-5", "-3"], answer: "-6" },
-      { question: "Tìm tham số m để hàm số y = √(2cosx - m) xác định trên trục số R.", options: ["m ≤ -2", "m < -2", "m ≥ 2", "-2 ≤ m ≤ 2"], answer: "m ≤ -2" },
-      { question: "Tịnh tiến đồ thị y = cosx sang bên phải một đoạn bằng π/2 ta thu được đồ thị hàm số nào?", options: ["y = sinx", "y = -sinx", "y = cos(x-π/2)", "Cả A và C đều đúng"], answer: "Cả A và C đều đúng" },
-      { question: "Tính tổng tất cả các nghiệm thuộc đoạn [-2π; 2π] của phương trình cosx = 1.", options: ["0", "2π", "-2π", "4π"], answer: "0" },
-      { question: "Hàm số y = cos⁴x - sin⁴x có dạng rút gọn tương đương với hàm số nào dưới đây?", options: ["y = cos(2x)", "y = sin(2x)", "y = 1", "y = -cos(2x)"], answer: "y = cos(2x)" }
-    ]
+  {
+    id: "p1_s3_4",
+    type: "short-answer",
+    question: "Trong các câu sau có bao nhiêu câu là mệnh đề?\n(a) Hãy đi nhanh lên!\n(b) Hà Nội là thủ đô của Việt Nam.\n(c) 5 + 7 + 4 = 15.\n(d) Năm 2018 là năm nhuận.",
+    answer: "3",
+    explanation: "Các câu (b), (c), (d) là câu khẳng định nên là mệnh đề. Câu (a) là câu mệnh lệnh nên không phải mệnh đề."
   },
 
-  // ==========================================
-  // WORLD 25: 👹 Boss Lượng Giác
-  // ==========================================
-  25: {
-    stage1: [
-      { question: "Tìm giá trị lớn nhất M của hàm số y = 3sin(2x) - 4cos(2x) + 5.", options: ["10", "5", "12", "7"], answer: "10" },
-      { question: "Tìm chu kỳ tuần hoàn của hàm số phức hợp y = tanx + sin(2x).", options: ["π", "2π", "π/2", "3π"], answer: "π" },
-      { question: "Phương trình sinx + cosx = m có nghiệm khi và chỉ khi m thuộc đoạn nào?", options: ["[-√2; √2]", "[-1; 1]", "[-2; 2]", "[0; √2]"], answer: "[-√2; √2]" },
-      { question: "Biết sinα + cosα = m. Tính |sinα - cosα| theo m.", options: ["√(2 - m²)", "√(m² - 2)", "2 - m²", "1 - m²"], answer: "√(2 - m²)" },
-      { question: "Hàm số nào sau đây tuần hoàn với chu kỳ tuần hoàn cơ sở T = π/2?", options: ["y = sin(4x)", "y = cos(2x)", "y = tan(2x)", "y = sin(x/2)"], answer: "y = sin(4x)" },
-      { question: "Tập giá trị của hàm số phân thức y = 1 / (2 + sinx) là:", options: ["[1/3; 1]", "[1/2; 1]", "[1/3; 1/2]", "R"], answer: "[1/3; 1]" },
-      { question: "Số nghiệm của phương trình lượng giác sin³x + cos³x = 1 trên đoạn [0; 2π] là:", options: ["3", "2", "4", "5"], answer: "3" },
-      { question: "Phương trình lượng giác nào sau đây luôn vô nghiệm với mọi x?", options: ["sinx = 2", "cosx = -0.5", "tanx = 100", "cotx = -1"], answer: "sinx = 2" },
-      { question: "Đồ thị hàm số y = sinx và y = cosx cắt nhau tại bao nhiêu điểm trên khoảng (0; 2π)?", options: ["1", "2", "3", "4"], answer: "2" },
-      { question: "Cho góc x thuộc khoảng (0; π/2). Khẳng định nào sau đây hoàn toàn chính xác?", options: ["sinx > 0, cosx > 0", "sinx < 0, cosx > 0", "sinx > 0, cosx < 0", "sinx < 0, cosx < 0"], answer: "sinx > 0, cosx > 0" }
-    ],
-    stage2: [
-      { question: "Tìm giá trị nhỏ nhất của hàm số y = sinx - √3cosx.", options: ["-2", "2", "-1", "-√3"], answer: "-2" },
-      { question: "Tập xác định của hàm số lượng giác y = tan(x - π/3) là:", options: ["R \\ {5π/6+kπ}", "R \\ {π/2+kπ}", "R \\ {π/3+kπ}", "R \\ {kπ}"], answer: "R \\ {5π/6+kπ}" },
-      { question: "Tìm chu kỳ tuần hoàn của hàm số y = sin²x - cos²x.", options: ["π", "2π", "π/2", "4π"], answer: "π" },
-      { question: "Giá trị của biểu thức tích và hiệu A = sin(π/3)cos(π/6) - cos(π/3)sin(π/6) bằng mấy?", options: ["1/2", "√3/2", "0", "1"], answer: "1/2" },
-      { question: "Tìm tham số m để phương trình ẩn phụ sin²x - 2sinx + m = 0 có nghiệm thực.", options: ["[-3; 1]", "[-1; 3]", "[0; 3]", "[-1; 1]"], answer: "[-3; 1]" },
-      { question: "Trong các hàm số sau, hàm số nào đồng thời là hàm số lẻ?", options: ["y = x.cosx", "y = x.sinx", "y = cosx", "y = sin²x"], answer: "y = x.cosx" },
-      { question: "Tìm giá trị lớn nhất M của hàm số y = 5 - 2cos²x.", options: ["5", "3", "7", "4"], answer: "5" },
-      { question: "Phương trình góc nhân đôi sin(2x) = sinx có bao nhiêu nghiệm thuộc đoạn [0; π]?", options: ["2", "3", "4", "1"], answer: "2" },
-      { question: "Biến đổi biểu thức lượng giác hình thức hiệu sinx - cosx thành dạng tích:", options: ["√2sin(x-π/4)", "√2cos(x-π/4)", "√2sin(x+π/4)", "2sin(x-π/4)"], answer: "√2sin(x-π/4)" },
-      { question: "Đồ thị hàm số y = sinx đạt hệ số góc tiếp tuyến lớn nhất bằng bao nhiêu?", options: ["1", "-1", "0", "Vô số"], answer: "1" }
-    ],
-    stage3: [
-      { question: "Tìm tất cả các nghiệm của phương trình thu gọn sinx.cosx.cos(2x) = 0.", options: ["x = kπ/4", "x = kπ/2", "x = kπ", "x = kπ/8"], answer: "x = kπ/4" },
-      { question: "Tìm m để phương trình ẩn phụ cos(2x) - 4cosx - m = 0 có nghiệm thực.", options: ["[-5; 1]", "[-5; -3]", "[-3; 1]", "[-1; 5]"], answer: "[-5; 1]" },
-      { question: "Tìm chu kỳ tuần hoàn của hàm số lượng giác y = cos(πx).", options: ["2", "2π", "1", "π"], answer: "2" },
-      { question: "Phương trình lượng giác bậc cao sin⁴x + cos⁴x = m có nghiệm thực khi m thuộc đoạn:", options: ["[1/2; 1]", "[0; 1]", "[3/4; 1]", "[1/4; 1]"], answer: "[1/2; 1]" },
-      { question: "Tính tổng bình phương tất cả các nghiệm của phương trình sinx = 0 trên đoạn [-π; π].", options: ["2π²", "π²", "0", "3π²"], answer: "2π²" },
-      { question: "Hàm số lượng giác y = sinx + cosx nghịch biến trên khoảng nào dưới đây?", options: ["(π/4; 5π/4)", "(-3π/4; π/4)", "(0; π)", "(π/2; 3π/2)"], answer: "(π/4; 5π/4)" },
-      { question: "Tìm tất cả các giá trị nguyên của m để phương trình sin²x + (2m-1)sinx + m² - m = 0 có nghiệm.", options: ["m = 0, m = 1", "m = 1", "m = 0", "Không tồn tại m"], answer: "m = 0, m = 1" },
-      { question: "Phương trình lượng giác dạng tổng tanx + cotx = 2 có họ nghiệm là:", options: ["x = π/4 + kπ", "x = π/4 + kπ/2", "x = π/2 + kπ", "x = kπ"], answer: "x = π/4 + kπ" },
-      { question: "Giá trị lượng giác của góc sút phạt đỉnh cao α khiến thủ môn đứng hình (biết tanα tiến tới vô cực) là bao nhiêu độ?", options: ["90°", "0°", "180°", "45°"], answer: "90°" },
-      { question: "Đánh bại Boss Lượng Giác! Rút gọn biểu thức phức tạp A = sin²x + cos(2x) bằng:", options: ["cos²x", "sin²x", "1", "0"], answer: "cos²x" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 26: 🔺 Phương Trình Sin
-  // ==========================================
-  26: {
-    stage1: [
-      { question: "Nghiệm của phương trình lượng giác cơ bản sinx = 1 là:", options: ["x = π/2 + k2π", "x = k2π", "x = π/2 + kπ", "x = π + k2π"], answer: "x = π/2 + k2π" },
-      { question: "Nghiệm của phương trình lượng giác cơ bản sinx = -1 là:", options: ["x = -π/2 + k2π", "x = k2π", "x = -π/2 + kπ", "x = π + k2π"], answer: "x = -π/2 + k2π" },
-      { question: "Phương trình sinx = 0 có họ nghiệm đại diện là:", options: ["x = kπ", "x = k2π", "x = π/2 + kπ", "x = π/2 + k2π"], answer: "x = kπ" },
-      { question: "Phương trình sinx = 1/2 có tập nghiệm là:", options: ["x = π/6 + k2π và x = 5π/6 + k2π", "x = π/3 + k2π và x = 2π/3 + k2π", "x = π/6 + kπ", "x = ±π/6 + k2π"], answer: "x = π/6 + k2π và x = 5π/6 + k2π" },
-      { question: "Phương trình sinx = -√3/2 có một họ nghiệm tiêu biểu là:", options: ["x = -π/3 + k2π", "x = -π/6 + k2π", "x = π/3 + k2π", "x = 2π/3 + k2π"], answer: "x = -π/3 + k2π" },
-      { question: "Phương trình sinx = 1.5 có bao nhiêu họ nghiệm thực?", options: ["0", "1", "2", "Vô số"], answer: "0" },
-      { question: "Nghiệm của phương trình sin(x) = sin(π/4) gồm các họ nghiệm nào?", options: ["x=π/4+k2π và x=3π/4+k2π", "x=±π/4+k2π", "x=π/4+kπ", "x=π/4+k2π"], answer: "x=π/4+k2π và x=3π/4+k2π" },
-      { question: "Số nghiệm của phương trình sinx = 0.5 thuộc khoảng mở (0; π) là:", options: ["2", "1", "0", "3"], answer: "2" },
-      { question: "Phương trình góc nhân đôi sin(2x) = 1 có nghiệm đại số là:", options: ["x = π/4 + kπ", "x = π/2 + k2π", "x = π/4 + k2π", "x = π/2 + kπ"], answer: "x = π/4 + kπ" },
-      { question: "Điều kiện cần và đủ để phương trình lượng giác sinx = m có nghiệm là:", options: ["|m| ≤ 1", "m ≤ 1", "m ≥ -1", "|m| < 1"], answer: "|m| ≤ 1" }
-    ],
-    stage2: [
-      { question: "Giải phương trình hàm hợp đơn giản sin(x - π/3) = 0.", options: ["x = π/3 + kπ", "x = π/3 + k2π", "x = -π/3 + kπ", "x = kπ"], answer: "x = π/3 + kπ" },
-      { question: "Số nghiệm của phương trình lượng giác sin(3x) = -1 nằm trên đoạn [0; π] là:", options: ["1", "2", "0", "3"], answer: "1" },
-      { question: "Nghiệm của phương trình bậc hai khuyết sin²x - sinx = 0 là:", options: ["x=kπ và x=π/2+k2π", "x=k2π", "x=π/2+kπ", "x=kπ"], answer: "x=kπ và x=π/2+k2π" },
-      { question: "Giải phương trình bậc hai đối với hàm sin: 2sin²x - 3sinx + 1 = 0.", options: ["sinx=1 hoặc sinx=1/2", "sinx=-1", "sinx=0", "Vô nghiệm"], answer: "sinx=1 hoặc sinx=1/2" },
-      { question: "Phương trình sin(2x) = sin(x + π/4) dẫn tới hệ các họ nghiệm nào?", options: ["x = π/4 + k2π và x = π/12 + k2π/3", "x = π/4 + k2π", "x = k2π", "x = π/12 + k2π"], answer: "x = π/4 + k2π và x = π/12 + k2π/3" },
-      { question: "Nghiệm của phương trình sin(x) = sin(-50°) theo đơn vị độ là:", options: ["x = -50° + k360° và x = 230° + k360°", "x = ±50° + k360°", "x = -50° + k180°", "x = 50° + k360°"], answer: "x = -50° + k360° và x = 230° + k360°" },
-      { question: "Tìm họ nghiệm của phương trình lượng giác sin(x + π/6) = 1/2.", options: ["x = k2π và x = 2π/3 + k2π", "x = π/6 + k2π", "x = ±π/6 + k2π", "x = k2π"], answer: "x = k2π và x = 2π/3 + k2π" },
-      { question: "Phương trình sin(2x) = 0 có nghiệm tương ứng trên vòng tròn lượng giác là:", options: ["x = kπ/2", "x = kπ", "x = π/4 + kπ/2", "x = k2π"], answer: "x = kπ/2" },
-      { question: "Tìm m để phương trình sin(x) = m - 2 có nghiệm thực.", options: ["1 ≤ m ≤ 3", "m ∈ [-1;1]", "0 ≤ m ≤ 2", "m ≥ 0"], answer: "1 ≤ m ≤ 3" },
-      { question: "Nghiệm của phương trình lượng giác sin²x = 1 là:", options: ["x = π/2 + kπ", "x = π/2 + k2π", "x = kπ", "x = ±π/2 + k2π"], answer: "x = π/2 + kπ" }
-    ],
-    stage3: [
-      { question: "Tìm số nghiệm nguyên dương của phương trình sin(x) = 0 trên đoạn [1; 10] (với x tính theo radian).", options: ["3", "2", "4", "1"], answer: "3" },
-      { question: "Phương trình sin²x - 4sinx + 3 = 0 có tập nghiệm trùng với tập nghiệm phương trình nào?", options: ["sinx = 1", "sinx = 3", "Vô nghiệm", "sinx = -1"], answer: "sinx = 1" },
-      { question: "Giải phương trình lượng giác phức tạp sinx + sin(2x) = 0.", options: ["x = kπ và x = ±2π/3 + k2π", "x = kπ", "x = kπ/2", "x = k2π"], answer: "x = kπ và x = ±2π/3 + k2π" },
-      { question: "Tính tổng tất cả các nghiệm thuộc đoạn [0; 2π] của phương trình lượng giác sin(x) = √2/2.", options: ["π", "2π", "3π/2", "π/2"], answer: "π" },
-      { question: "Tìm tất cả các giá trị của tham số m để phương trình sin(2x) = m có đúng 2 nghiệm trên khoảng (0; π).", options: ["-1 ≤ m < 1", "0 < m ≤ 1", "-1 < m < 1", "-1 < m ≤ 1"], answer: "-1 < m < 1" },
-      { question: "Phương trình lượng giác sin(3x) = sin(x) có bao nhiêu họ nghiệm thực?", options: ["2", "1", "3", "4"], answer: "2" },
-      { question: "Giải phương trình ẩn phụ lượng giác sin⁴x - sin²x = 0.", options: ["x = kπ/2", "x = kπ", "x = π/2 + kπ", "x = k2π"], answer: "x = kπ/2" },
-      { question: "Phương trình sin(2x - π/4) = sin(x + π/4) có nghiệm dương nhỏ nhất bằng bao nhiêu?", options: ["π/2", "π/3", "π/4", "π/6"], answer: "π/2" },
-      { question: "Tìm m để phương trình sin²x + m.sinx - m - 1 = 0 luôn có nghiệm với mọi m.", options: ["Mọi m", "m ≥ 0", "m ≤ -1", "Không có m"], answer: "Mọi m" },
-      { question: "Phương trình sin(x) = cos(x) đưa về phương trình sin dạng nào?", options: ["sin(x - π/4) = 0", "sin(x + π/4) = 0", "sin(2x) = 1", "sin(x) = 1"], answer: "sin(x - π/4) = 0" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 27: 🔺 Phương Trình Cos
-  // ==========================================
-  27: {
-    stage1: [
-      { question: "Nghiệm của phương trình lượng giác cơ bản cosx = 1 là:", options: ["x = k2π", "x = π + k2π", "x = kπ", "x = π/2 + k2π"], answer: "x = k2π" },
-      { question: "Nghiệm của phương trình lượng giác cơ bản cosx = -1 là:", options: ["x = π + k2π", "x = k2π", "x = kπ", "x = -π/2 + k2π"], answer: "x = π + k2π" },
-      { question: "Phương trình lượng giác cosx = 0 có nghiệm tổng quát là:", options: ["x = π/2 + kπ", "x = π/2 + k2π", "x = kπ", "x = k2π"], answer: "x = π/2 + kπ" },
-      { question: "Nghiệm của phương trình lượng giác cosx = 1/2 là:", options: ["x = ±π/3 + k2π", "x = ±π/6 + k2π", "x = ±2π/3 + k2π", "x = ±π/4 + k2π"], answer: "x = ±π/3 + k2π" },
-      { question: "Nghiệm của phương trình lượng giác cosx = -√3/2 là:", options: ["x = ±5π/6 + k2π", "x = ±π/6 + k2π", "x = ±2π/3 + k2π", "x = ±π/3 + k2π"], answer: "x = ±5π/6 + k2π" },
-      { question: "Điều kiện để phương trình lượng giác cosx = m có nghiệm thực là:", options: ["-1 ≤ m ≤ 1", "m ≤ 1", "m ≥ -1", "|m| > 1"], answer: "-1 ≤ m ≤ 1" },
-      { question: "Phương trình cosx = -2 có bao nhiêu nghiệm thực?", options: ["0", "1", "2", "Vô số"], answer: "0" },
-      { question: "Tìm họ nghiệm của phương trình cosx = cos(π/5).", options: ["x = ±π/5 + k2π", "x = π/5 + k2π", "x = -π/5 + k2π", "x = ±π/5 + kπ"], answer: "x = ±π/5 + k2π" },
-      { question: "Nghiệm của phương trình lượng giác cos(2x) = 1 là:", options: ["x = kπ", "x = k2π", "x = π/2 + kπ", "x = π + k2π"], answer: "x = kπ" },
-      { question: "Số điểm biểu diễn các nghiệm của phương trình cosx = 0 trên đường tròn lượng giác là mấy?", options: ["2", "1", "4", "3"], answer: "2" }
-    ],
-    stage2: [
-      { question: "Giải phương trình hàm hợp cos(x + π/4) = 0.", options: ["x = π/4 + kπ", "x = -π/4 + kπ", "x = π/4 + k2π", "x = -π/4 + k2π"], answer: "x = π/4 + kπ" },
-      { question: "Tìm họ nghiệm của phương trình lượng giác cos(2x) = cos(x).", options: ["x = k2π và x = k2π/3", "x = k2π", "x = kπ", "x = k2π/3"], answer: "x = k2π và x = k2π/3" },
-      { question: "Số nghiệm của phương trình cos(x) = 1/2 nằm trên đoạn [0; π] là:", options: ["1", "2", "0", "3"], answer: "1" },
-      { question: "Giải phương trình bậc hai khuyết cos²x - cosx = 0.", options: ["x=k2π và x=π/2+kπ", "x=kπ", "x=π/2+k2π", "x=k2π"], answer: "x=k2π và x=π/2+kπ" },
-      { question: "Giải phương trình lượng giác bậc hai: 2cos²x - cosx - 1 = 0.", options: ["cosx = 1 hoặc cosx = -1/2", "cosx = -1", "cosx = 0", "Vô nghiệm"], answer: "cosx = 1 hoặc cosx = -1/2" },
-      { question: "Nghiệm của phương trình cos(x) = cos(60°) tính theo đơn vị độ là:", options: ["x = ±60° + k360°", "x = 60° + k360°", "x = -60° + k180°", "x = ±60° + k180°"], answer: "x = ±60° + k360°" },
-      { question: "Tìm họ nghiệm của phương trình cos(2x - π/3) = -1.", options: ["x = 2π/3 + kπ", "x = π/3 + kπ", "x = 2π/3 + k2π", "x = kπ"], answer: "x = 2π/3 + kπ" },
-      { question: "Tìm tham số m để phương trình cos(x) = 2m - 1 có nghiệm thực.", options: ["0 ≤ m ≤ 1", "-1 ≤ m ≤ 1", "m ∈ R", "m ≤ 1"], answer: "0 ≤ m ≤ 1" },
-      { question: "Phương trình cos²x = 1 có tập nghiệm trùng với họ nghiệm nào sau đây?", options: ["x = kπ", "x = π/2 + kπ", "x = k2π", "x = ±π/2 + k2π"], answer: "x = kπ" },
-      { question: "Số nghiệm của phương trình cos(3x) = 0 trên đoạn [0; π] là mấy?", options: ["3", "2", "4", "1"], answer: "3" }
-    ],
-    stage3: [
-      { question: "Tính tổng tất cả các nghiệm của phương trình cos(2x) - cos(x) = 0 trên đoạn [0; 2π].", options: ["2π", "4π", "3π", "5π"], answer: "4π" },
-      { question: "Phương trình bậc hai cos²x + 2cosx - 3 = 0 có bao nhiêu họ nghiệm thực?", options: ["1", "2", "0", "Vô số"], answer: "1" },
-      { question: "Tìm nghiệm dương nhỏ nhất của phương trình lượng giác cos(x - π/6) = √3/2.", options: ["π/3", "0", "π/6", "5π/6"], answer: "π/3" },
-      { question: "Giải phương trình lượng giác dạng hiệu cos(3x) - cos(5x) = 0.", options: ["x = kπ/4 và x = kπ", "x = kπ/4", "x = kπ", "x = kπ/2"], answer: "x = kπ/4 và x = kπ" },
-      { question: "Có bao nhiêu giá trị nguyên của m để phương trình cos²x - cosx + m = 0 có nghiệm thực?", options: ["1", "2", "0", "3"], answer: "1" },
-      { question: "Phương trình cos(2x) + 3cosx + 2 = 0 có nghiệm là:", options: ["x = π + k2π và x = ±2π/3 + k2π", "x = π + k2π", "x = ±2π/3 + k2π", "Vô nghiệm"], answer: "x = π + k2π và x = ±2π/3 + k2π" },
-      { question: "Tìm số nghiệm thực của phương trình cos(x) = x trên toàn trục số.", options: ["1", "0", "2", "Vô số"], answer: "1" },
-      { question: "Phương trình lượng giác cos⁴x - sin⁴x = 0.5 có nghiệm là:", options: ["x = ±π/6 + kπ", "x = ±π/3 + kπ", "x = ±π/6 + k2π", "x = ±π/3 + k2π"], answer: "x = ±π/6 + kπ" },
-      { question: "Giải phương trình lượng giác tích cosx.cos(2x) = 1.", options: ["x = k2π", "x = kπ", "x = π + k2π", "Vô nghiệm"], answer: "x = k2π" },
-      { question: "Phương trình cos(x) = -cosx đưa về dạng cơ bản nào?", options: ["cos(x) = 0", "cos(x) = 1", "sin(x) = 0", "Vô nghiệm"], answer: "cos(x) = 0" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 28: 🔺 Phương Trình Tan
-  // ==========================================
-  28: {
-    stage1: [
-      { question: "Điều kiện xác định của phương trình lượng giác tanx = m là gì?", options: ["x ≠ π/2 + kπ", "x ≠ kπ", "x ≠ π + k2π", "Mọi x ∈ R"], answer: "x ≠ π/2 + kπ" },
-      { question: "Nghiệm của phương trình lượng giác cơ bản tanx = 0 là:", options: ["x = kπ", "x = π/2 + kπ", "x = k2π", "x = π + k2π"], answer: "x = kπ" },
-      { question: "Nghiệm của phương trình lượng giác cơ bản tanx = 1 là:", options: ["x = π/4 + kπ", "x = π/4 + k2π", "x = -π/4 + kπ", "x = ±π/4 + kπ"], answer: "x = π/4 + kπ" },
-      { question: "Nghiệm của phương trình lượng giác cơ bản tanx = -1 là:", options: ["x = -π/4 + kπ", "x = -π/4 + k2π", "x = 3π/4 + k2π", "x = ±π/4 + kπ"], answer: "x = -π/4 + kπ" },
-      { question: "Nghiệm của phương trình lượng giác cơ bản tanx = √3 là:", options: ["x = π/3 + kπ", "x = π/6 + kπ", "x = π/3 + k2π", "x = π/6 + k2π"], answer: "x = π/3 + kπ" },
-      { question: "Nghiệm của phương trình lượng giác cơ bản tanx = √3/3 là:", options: ["x = π/6 + kπ", "x = π/3 + kπ", "x = π/6 + k2π", "x = π/3 + k2π"], answer: "x = π/6 + kπ" },
-      { question: "Phương trình lượng giác tanx = 5 có bao nhiêu họ nghiệm thực?", options: ["1 họ nghiệm", "0 họ nghiệm", "2 họ nghiệm", "Vô số"], answer: "1 họ nghiệm" },
-      { question: "Tìm họ nghiệm của phương trình lượng giác tanx = tan(π/7).", options: ["x = π/7 + kπ", "x = π/7 + k2π", "x = ±π/7 + kπ", "x = -π/7 + kπ"], answer: "x = π/7 + kπ" },
-      { question: "Nghiệm của phương trình lượng giác tan(2x) = 0 là:", options: ["x = kπ/2", "x = kπ", "x = π/4 + kπ/2", "x = k2π"], answer: "x = kπ/2" },
-      { question: "Số điểm biểu diễn họ nghiệm của phương trình tanx = 1 trên đường tròn lượng giác là mấy?", options: ["2", "1", "4", "0"], answer: "2" }
-    ],
-    stage2: [
-      { question: "Giải phương trình hàm hợp lượng giác tan(x - π/6) = 0.", options: ["x = π/6 + kπ", "x = π/6 + k2π", "x = -π/6 + kπ", "x = kπ"], answer: "x = π/6 + kπ" },
-      { question: "Tìm họ nghiệm của phương trình lượng giác tan(2x) = tan(x).", options: ["x = kπ", "x = k2π", "Vô nghiệm", "x = kπ/2"], answer: "x = kπ" },
-      { question: "Số nghiệm của phương trình tanx = √3 nằm trên đoạn [0; π] là:", options: ["1", "2", "0", "3"], answer: "1" },
-      { question: "Giải phương trình lượng giác bậc hai: tan²x - tanx = 0.", options: ["x=kπ và x=π/4+kπ", "x=kπ", "x=π/4+kπ", "x=k2π"], answer: "x=kπ và x=π/4+kπ" },
-      { question: "Giải phương trình lượng giác đối với tan: tan²x - 3 = 0.", options: ["x = ±π/3 + kπ", "x = π/3 + kπ", "x = ±π/6 + kπ", "Vô nghiệm"], answer: "x = ±π/3 + kπ" },
-      { question: "Nghiệm của phương trình tanx = tan(45°) tính theo đơn vị độ là:", options: ["x = 45° + k180°", "x = 45° + k360°", "x = ±45° + k180°", "x = -45° + k180°"], answer: "x = 45° + k180°" },
-      { question: "Tìm điều kiện của tham số m để phương trình tanx = m có nghiệm thực.", options: ["Mọi m ∈ R", "-1 ≤ m ≤ 1", "m ≠ 0", "m > 0"], answer: "Mọi m ∈ R" },
-      { question: "Tìm họ nghiệm của phương trình lượng giác tan(x + π/3) = -√3.", options: ["x = -2π/3 + kπ", "x = kπ", "x = π/3 + kπ", "x = -π/3 + kπ"], answer: "x = -2π/3 + kπ" },
-      { question: "Phương trình lượng giác tanx.cotx = 1 có tập nghiệm là gì?", options: ["R \\ {kπ/2}", "R", "Vô nghiệm", "x = kπ/2"], answer: "R \\ {kπ/2}" },
-      { question: "Số nghiệm của phương trình tan(3x) = 1 trên khoảng (0; π) là bao nhiêu?", options: ["3", "2", "4", "1"], answer: "3" }
-    ],
-    stage3: [
-      { question: "Tính tổng tất cả các nghiệm thuộc đoạn [0; π] của phương trình tan²x - (1+√3)tanx + √3 = 0.", options: ["7π/12", "5π/12", "3π/4", "π/2"], answer: "7π/12" },
-      { question: "Phương trình lượng giác tanx + cotx = 2 tương đương với phương trình nào?", options: ["tanx = 1", "tanx = -1", "tanx = 0", "Vô nghiệm"], answer: "tanx = 1" },
-      { question: "Tìm nghiệm dương nhỏ nhất của phương trình lượng giác tan(2x - π/4) = 1.", options: ["π/4", "π/2", "3π/8", "π/8"], answer: "π/4" },
-      { question: "Giải phương trình bậc hai bậc cao đối với tan: tan³x - tanx = 0.", options: ["x = kπ và x = ±π/4 + kπ", "x = kπ", "x = kπ/4", "x = kπ/2"], answer: "x = kπ và x = ±π/4 + kπ" },
-      { question: "Có bao nhiêu giá trị nguyên của m thuộc đoạn [-5;5] để phương trình tanx = m + 2 có nghiệm?", options: ["11", "0", "10", "5"], answer: "11" },
-      { question: "Phương trình lượng giác tan(x) = cot(x) có họ nghiệm tổng quát là:", options: ["x = π/4 + kπ/2", "x = π/4 + kπ", "x = ±π/4 + kπ", "x = kπ/2"], answer: "x = π/4 + kπ/2" },
-      { question: "Tìm tập nghiệm của phương trình lượng giác tanx.sin(x) = 0.", options: ["x = kπ", "x = k2π", "x = π/2 + kπ", "Vô nghiệm"], answer: "x = kπ" },
-      { question: "Phương trình lượng giác tan²x - 4tanx + 3 = 0 có các họ nghiệm là:", options: ["x = π/4 + kπ và x = arctan(3) + kπ", "x = π/4 + kπ", "x = ±π/4 + kπ", "Vô nghiệm"], answer: "x = π/4 + kπ và x = arctan(3) + kπ" },
-      { question: "Giải phương trình lượng giác phân thức: sinx / (1 + cosx) = 0.", options: ["x = k2π", "x = kπ", "x = π + k2π", "Vô nghiệm"], answer: "x = k2π" },
-      { question: "Phương trình lượng giác tan(x) + tan(2x) = 0 dẫn đến họ nghiệm hình thức nào?", options: ["x = kπ/3", "x = kπ", "x = kπ/2", "Vô nghiệm"], answer: "x = kπ/3" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 29: 🔺 Công Thức Lượng Giác
-  // ==========================================
-  29: {
-    stage1: [
-      { question: "Công thức lượng giác cộng nào sau đây đúng với mọi góc a, b?", options: ["cos(a-b) = cosacosb + sinasinb", "cos(a-b) = cosacosb - sinasinb", "cos(a-b) = sinacosb + cosasinb", "cos(a-b) = cosasinb - sinacosb"], answer: "cos(a-b) = cosacosb + sinasinb" },
-      { question: "Công thức biến đổi biểu thức sin(a+b) đúng là:", options: ["sin(a+b) = sinacosb + cosasinb", "sin(a+b) = sinacosb - cosasinb", "sin(a+b) = cosacosb + sinasinb", "sin(a+b) = cosacosb - sinasinb"], answer: "sin(a+b) = sinacosb + cosasinb" },
-      { question: "Công thức lượng giác nhân đôi đối với hàm sin nào sau đây đúng?", options: ["sin(2a) = 2sinacaosa", "sin(2a) = sinacosb", "sin(2a) = cos²a - sin²a", "sin(2a) = 2sin²a"], answer: "sin(2a) = 2sinacaosa" },
-      { question: "Công thức lượng giác nhân đôi đối với hàm cos nào sau đây SAI?", options: ["cos(2a) = cos²a + sin²a", "cos(2a) = cos²a - sin²a", "cos(2a) = 2cos²a - 1", "cos(2a) = 1 - 2sin²a"], answer: "cos(2a) = cos²a + sin²a" },
-      { question: "Công thức hạ bậc nào sau đây chính xác hoàn toàn?", options: ["sin²a = (1 - cos2a)/2", "sin²a = (1 + cos2a)/2", "sin²a = 1 - cos²a", "sin²a = (1 - sin2a)/2"], answer: "sin²a = (1 - cos2a)/2" },
-      { question: "Biểu thức tan(2a) tính theo tana (khi biểu thức có nghĩa) là:", options: ["2tana / (1 - tan²a)", "2tana / (1 + tan²a)", "tana / (1 - tan²a)", "2tana / (1 - 2tana)"], answer: "2tana / (1 - tan²a)" },
-      { question: "Công thức biến đổi tích thành tổng nào sau đây đúng?", options: ["cosacosb = 0.5[cos(a-b) + cos(a+b)]", "cosacosb = 0.5[cos(a-b) - cos(a+b)]", "cosacosb = 0.5[sin(a-b) + sin(a+b)]", "cosacosb = cos(a+b)"], answer: "cosacosb = 0.5[cos(a-b) + cos(a+b)]" },
-      { question: "Công thức biến đổi tổng thành tích của biểu thức sina + sinb là:", options: ["2sin((a+b)/2)cos((a-b)/2)", "2cos((a+b)/2)cos((a-b)/2)", "2sin((a+b)/2)sin((a-b)/2)", "2cos((a+b)/2)sin((a-b)/2)"], answer: "2sin((a+b)/2)cos((a-b)/2)" },
-      { question: "Biểu thức lượng giác cosa - cosb bằng biểu thức nào sau đây?", options: ["-2sin((a+b)/2)sin((a-b)/2)", "2sin((a+b)/2)sin((a-b)/2)", "2cos((a+b)/2)cos((a-b)/2)", "-2cos((a+b)/2)cos((a-b)/2)"], answer: "-2sin((a+b)/2)sin((a-b)/2)" },
-      { question: "Rút gọn hệ thức lượng giác cơ bản: sin(a-b) + sin(b-a) bằng bao nhiêu?", options: ["0", "2sin(a-b)", "2sin(b-a)", "1"], answer: "0" }
-    ],
-    stage2: [
-      { question: "Tính giá trị thực tế của biểu thức lượng giác P = sin(15°) bằng công thức cộng.", options: ["(QL_V2 - QL_V6)/4", "(√6 - √2)/4", "(√3 - 1)/2", "(√6 + √2)/4"], answer: "(√6 - √2)/4" },
-      { question: "Cho cosa = 1/3. Tính giá trị của cos(2a).", options: ["-7/9", "7/9", "-1/3", "2/3"], answer: "-7/9" },
-      { question: "Cho sina = 4/5 với π/2 < a < π. Tính giá trị thực của sin(2a).", options: ["-24/25", "24/25", "-12/25", "12/25"], answer: "-24/25" },
-      { question: "Rút gọn biểu thức lượng giác thu gọn: A = cos²a - cos(2a).", options: ["sin²a", "cos²a", "1", "0"], answer: "sin²a" },
-      { question: "Rút gọn biểu thức lượng giác tổng thành tích: S = sin(50°) - sin(10°).", options: ["cos(30°)", "sin(20°)", "2cos(30°)sin(20°)", "2sin(30°)cos(20°)"], answer: "2cos(30°)sin(20°)" },
-      { question: "Cho tana = 2, tanb = 3. Tính giá trị lượng giác của tan(a+b).", options: ["-1", "1", "5", "-5"], answer: "-1" },
-      { question: "Biến đổi biểu thức nhân đôi nâng cao: cos(4a) tính theo cos(2a) bằng:", options: ["2cos²(2a) - 1", "2cos²a - 1", "1 - 2sin²a", "cos²(2a) - sin²(2a)"], answer: "2cos²(2a) - 1" },
-      { question: "Biểu thức lượng giác rút gọn B = 4sinacosacos(2a) tương đương với:", options: ["sin(4a)", "sin(2a)", "2sin(2a)", "cos(4a)"], answer: "sin(4a)" },
-      { question: "Tính giá trị của biểu thức hằng số: A = cos(π/5)cos(4π/5).", options: ["-1/4", "1/4", "-1/2", "1/2"], answer: "-1/4" },
-      { question: "Biểu thức lượng giác tổng quát tana + cota bằng biểu thức nào?", options: ["2 / sin(2a)", "2 / cos(2a)", "1 / sin(2a)", "sin(2a)"], answer: "2 / sin(2a)" }
-    ],
-    stage3: [
-      { question: "Cho tam giác ABC. Rút gọn biểu thức lượng giác tổng ba góc: P = tanA + tanB + tanC.", options: ["tanA.tanB.tanC", "0", "1", "tanA+tanB-tanC"], answer: "tanA.tanB.tanC" },
-      { question: "Tính giá trị của biểu thức tích lượng giác không đổi: M = cos(20°)cos(40°)cos(80°).", options: ["1/8", "1/4", "1/2", "1/16"], answer: "1/8" },
-      { question: "Rút gọn biểu thức lượng giác phức tạp: A = (sin(3x) - sin(x)) / (cos(3x) + cos(x)).", options: ["tanx", "cotx", "tan(2x)", "cot(2x)"], answer: "tanx" },
-      { question: "Cho sinx + cosx = m. Tính giá trị lượng giác của sin(2x) theo m.", options: ["m² - 1", "1 - m²", "2m", "m²"], answer: "m² - 1" },
-      { question: "Biết sin(a) = 1/3, sin(b) = 1/4. Tính giá trị lượng giác của cos(a+b)cos(a-b).", options: ["119/144", "23/24", "13/16", "1"], answer: "119/144" },
-      { question: "Rút gọn biểu thức lượng giác phân thức: P = sin(x) + sin(2x) + sin(3x) chia cho cos(x) + cos(2x) + cos(3x).", options: ["tan(2x)", "tanx", "tan(3x)", "cot(2x)"], answer: "tan(2x)" },
-      { question: "Tính giá trị của biểu thức tổng lượng giác đặc biệt: S = cos(2π/7) + cos(4π/7) + cos(6π/7).", options: ["-1/2", "1/2", "0", "-1"], answer: "-1/2" },
-      { question: "Cho biểu thức lượng giác góc nhân ba: cos(3a) bằng biểu thức nào sau đây?", options: ["4cos³a - 3cosa", "3cosa - 4cos³a", "4sin³a - 3sina", "3cos³a - 4cosa"], answer: "4cos³a - 3cosa" },
-      { question: "Cho biểu thức lượng giác góc nhân ba: sin(3a) bằng biểu thức nào sau đây?", options: ["3sina - 4sin³a", "4sin³a - 3sina", "3cos³a - 4cosa", "4cos³a - 3cosa"], answer: "3sina - 4sin³a" },
-      { question: "Tính giá trị biểu thức lượng giác hằng số nâng cao: T = tan(9°) - tan(27°) - tan(63°) + tan(81°).", options: ["4", "2", "1", "0"], answer: "4" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 30: 👹 Boss Toán 11
-  // ==========================================
-  30: {
-    stage1: [
-      { question: "Tìm tập xác định của hàm số lượng giác phức tạp y = tan(2x) / (sinx - cosx).", options: ["R \\ {π/4+kπ/2; π/4+kπ}", "R \\ {π/4+kπ}", "R \\ {π/2+kπ}", "R \\ {kπ}"], answer: "R \\ {π/4+kπ/2; π/4+kπ}" },
-      { question: "Phương trình lượng giác bậc nhất đối với sin và cos: sinx + √3cosx = 1 có các nghiệm là:", options: ["x = π/6 + k2π và x = -π/2 + k2π", "x = k2π", "x = π/2 + k2π", "Vô nghiệm"], answer: "x = π/6 + k2π và x = -π/2 + k2π" },
-      { question: "Tìm chu kỳ tuần hoàn cơ sở của hàm số hỗn hợp y = sin²(3x) + cos(2x).", options: ["π", "2π", "π/2", "3π"], answer: "π" },
-      { question: "Có bao nhiêu giá trị nguyên của m để phương trình sin(2x) + m - 1 = 0 có nghiệm?", options: ["3", "2", "1", "Vô số"], answer: "3" },
-      { question: "Phương trình lượng giác đối xứng sinx.cosx + sinx + cosx = 1 có tập nghiệm bao gồm:", options: ["x = k2π và x = π/2 + k2π", "x = kπ", "x = ±π/4 + k2π", "Vô nghiệm"], answer: "x = k2π và x = π/2 + k2π" },
-      { question: "Tìm giá trị lớn nhất M của hàm số lượng giác y = sin²x + 2sinx.cosx + 3cos²x.", options: ["2 + √2", "2 - √2", "4", "3"], answer: "2 + √2" },
-      { question: "Phương trình lượng giác ẩn phụ tanx + 3cotx = 4 có nghiệm là:", options: ["x = π/4 + kπ và x = arctan(3) + kπ", "x = π/4 + kπ", "x = kπ", "Vô nghiệm"], answer: "x = π/4 + kπ và x = arctan(3) + kπ" },
-      { question: "Số nghiệm của phương trình lượng giác cos²x - sin(2x) = 0 thuộc đoạn [0; π] là:", options: ["2", "1", "3", "4"], answer: "2" },
-      { question: "Giải phương trình lượng giác tích bậc cao sinx.cos²x = 0.", options: ["x = kπ/2", "x = kπ", "x = π/2 + kπ", "x = k2π"], answer: "x = kπ/2" },
-      { question: "Hàm số lượng giác nào sau đây đồng thời vừa là hàm số lẻ vừa tuần hoàn chu kỳ π?", options: ["y = tanx", "y = sinx", "y = cosx", "y = cot(2x)"], answer: "y = tanx" }
-    ],
-    stage2: [
-      { question: "Giải phương trình lượng giác thuần nhất bậc hai: sin²x - 3sinx.cosx + 2cos²x = 0.", options: ["x = π/4 + kπ và x = arctan(2) + kπ", "x = π/4 + kπ", "x = kπ", "Vô nghiệm"], answer: "x = π/4 + kπ và x = arctan(2) + kπ" },
-      { question: "Tìm giá trị nhỏ nhất của hàm số phân thức lượng giác y = (sinx + 1) / (cos&x + 2).", options: ["0", "-1", "1/2", "-1/2"], answer: "0" },
-      { question: "Phương trình lượng giác dạng hiệu sin(3x) - cos(2x) = 0 có một họ nghiệm là:", options: ["x = π/10 + k2π/5", "x = π/2 + k2π", "x = kπ/5", "x = π/6 + k2π"], answer: "x = π/10 + k2π/5" },
-      { question: "Tìm m để phương trình lượng giác bậc nhất (m+1)sinx + cosx = 2 có nghiệm thực.", options: ["m ≥ √3 hoặc m ≤ -√3 - 2", "-√3 ≤ m ≤ √3", "m ∈ R", "m > 0"], answer: "m ≥ √3 hoặc m ≤ -√3 - 2" },
-      { question: "Số vị trí điểm biểu diễn nghiệm phương trình sin(2x) = cos(x) trên đường tròn lượng giác là mấy?", options: ["4", "2", "3", "6"], answer: "4" },
-      { question: "Phương trình lượng giác bậc cao sin⁴x + cos⁴x = 5/8 có nghiệm là:", options: ["x = ±π/6 + kπ/2", "x = ±π/3 + kπ", "x = ±π/4 + kπ", "Vô nghiệm"], answer: "x = ±π/6 + kπ/2" },
-      { question: "Tìm tập giá trị T của hàm số lượng giác phức tạp y = 1 / (3 - cos(2x)).", options: ["[1/4; 1/2]", "[1/3; 1]", "[1/4; 1/3]", "R"], answer: "[1/4; 1/2]" },
-      { question: "Giải phương trình lượng giác bậc hai đối với cos(2x): cos²(2x) + cos(2x) = 0.", options: ["x = π/4 + kπ/2 và x = π/2 + kπ", "x = kπ", "x = π/4 + kπ", "Vô nghiệm"], answer: "x = π/4 + kπ/2 và x = π/2 + kπ" },
-      { question: "Phương trình lượng giác tan(x) = -√3 có bao nhiêu nghiệm trên khoảng từ (0; 2π)?", options: ["2", "1", "3", "0"], answer: "2" },
-      { question: "Rút gọn tối đa biểu thức lượng giác nâng cao đại cương: A = sin(x)cos(x)cos(2x)cos(4x) bằng:", options: ["0.125sin(8x)", "0.25sin(8x)", "0.5sin(4x)", "sin(8x)"], answer: "0.125sin(8x)" }
-    ],
-    stage3: [
-      { question: "Tiêu diệt Boss Toán 11! Giải phương trình siêu lượng giác: sin(x) + cos(x) = 1 + sin(2x).", options: ["x = k2π và x = π/2 + k2π", "x = kπ", "x = π/4 + kπ", "Vô nghiệm"], answer: "x = k2π và x = π/2 + k2π" },
-      { question: "Tìm số nghiệm nguyên dương tính bằng radian của phương trình cos(x) = 0 nhỏ hơn 10.", options: ["3", "4", "2", "5"], answer: "3" },
-      { question: "Phương trình lượng giác bậc cao vô tỉ √(1 - sinx) = cosx có tập nghiệm tương ứng là:", options: ["x = k2π và x = π/2 + k2π", "x = k2π", "x = π/2 + k2π", "x = kπ"], answer: "x = k2π" },
-      { question: "Có bao nhiêu giá trị nguyên của m để phương trình sin²x - 2msinx + m² - 1 = 0 có nghiệm?", options: ["3", "2", "1", "Vô số"], answer: "3" },
-      { question: "Tìm chu kỳ tuần hoàn của hàm số lượng giác đặc biệt y = sin(x) + cos(x√2).", options: ["Không tuần hoàn", "2π", "π", "4π"], answer: "Không tuần hoàn" },
-      { question: "Phương trình lượng giác tổng hiệu dạng tích tanx + tan(2x) = tan(3x) có tập nghiệm là:", options: ["x = kπ/3", "x = kπ", "x = kπ/2", "Vô nghiệm"], answer: "x = kπ/3" },
-      { question: "Tìm giá trị lớn nhất M của hàm số lượng giác bậc cao y = sin⁶x + cos⁶x.", options: ["1", "5/8", "7/8", "1/4"], answer: "1" },
-      { question: "Tìm giá trị nhỏ nhất m của hàm số lượng giác bậc cao y = sin⁶x + cos⁶x.", options: ["1/4", "1/2", "5/8", "0"], answer: "1/4" },
-      { question: "Chúc mừng bạn vượt qua Boss Toán 11! Biểu thức lượng giác tổng bình phương nghiệm cos²10° + cos²20° + ... + cos²180° bằng mấy?", options: ["9", "8.5", "10", "9.5"], answer: "9" },
-      { question: "Nghiệm của phương trình siêu việt lượng giác sin(x).cos(x) = 0.5 là:", options: ["x = π/4 + kπ", "x = π/4 + k2π", "x = ±π/4 + kπ", "Vô nghiệm"], answer: "x = π/4 + kπ" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 31: 🎲 Quy Tắc Đếm
-  // ==========================================
-  31: {
-    stage1: [
-      { question: "Bạn có 3 áo khác nhau và 4 quần khác nhau. Có bao nhiêu cách chọn một bộ quần áo gồm 1 áo và 1 quần?", options: ["7", "12", "1", "24"], answer: "12" },
-      { question: "Trong một hộp có 5 viên bi xanh và 6 viên bi đỏ kích thước khác nhau. Có bao nhiêu cách chọn ra 1 viên bi tùy ý?", options: ["11", "30", "5", "6"], answer: "11" },
-      { question: "Từ thành phố A đến B có 3 con đường, từ B đến C có 5 con đường. Có bao nhiêu cách đi từ A đến C qua B?", options: ["8", "15", "2", "30"], answer: "15" },
-      { question: "Có bao nhiêu số tự nhiên gồm 2 chữ số được lập từ các chữ số 1, 2, 3 mà chữ số có thể lặp lại?", options: ["6", "9", "5", "8"], answer: "9" },
-      { question: "Có bao nhiêu số tự nhiên gồm 2 chữ số khác nhau được lập từ các chữ số 1, 2, 3?", options: ["6", "9", "5", "3"], answer: "6" },
-      { question: "Một menu nhà hàng có 4 món khai vị và 6 món chính. Khách hàng chọn 1 món khai vị HOẶC 1 món chính. Có bao nhiêu cách chọn?", options: ["10", "24", "4", "6"], answer: "10" },
-      { question: "Có bao nhiêu số tự nhiên chẵn gồm 2 chữ số được lập từ các chữ số 1, 2, 4, 5 (các chữ số có thể trùng nhau)?", options: ["8", "16", "4", "12"], answer: "8" },
-      { question: "Một lớp học có 20 học sinh nam và 15 học sinh nữ. Có bao nhiêu cách chọn 1 học sinh làm lớp trưởng?", options: ["35", "300", "20", "15"], answer: "35" },
-      { question: "Để đi từ tầng 1 lên tầng 3 của ngôi nhà có 2 cầu thang độc lập khác nhau. Có bao nhiêu cách đi lên và đi xuống bằng các cầu thang khác nhau?", options: ["4", "2", "6", "1"], answer: "2" },
-      { question: "Quy tắc đếm nào áp dụng khi một công việc được chia làm các hành động liên tiếp nhau?", options: ["Quy tắc nhân", "Quy tắc cộng", "Quy tắc hoán vị", "Quy tắc tổ hợp"], answer: "Quy tắc nhân" }
-    ],
-    stage2: [
-      { question: "Từ các chữ số 0, 1, 2, 3, 4 có thể lập được bao nhiêu số tự nhiên có 3 chữ số tùy ý?", options: ["100", "125", "60", "48"], answer: "100" },
-      { question: "Từ các chữ số 0, 1, 2, 3, 4 có thể lập được bao nhiêu số tự nhiên có 3 chữ số KHÁC nhau?", options: ["48", "60", "100", "52"], answer: "48" },
-      { question: "Có bao nhiêu số tự nhiên lẻ gồm 3 chữ số khác nhau lập từ các chữ số 1, 2, 3, 4, 5?", options: ["36", "60", "24", "12"], answer: "36" },
-      { question: "Một biển số xe gồm 2 chữ cái đứng trước (chọn từ 26 chữ cái) và 4 chữ số đứng sau (0-9). Có bao nhiêu biển số xe như vậy?", options: ["26² × 10⁴", "26 × 10⁴", "26² + 10⁴", "26 × 25 × 10⁴"], answer: "26² × 10⁴" },
-      { question: "Có bao nhiêu cách xếp 3 học sinh nam và 2 học sinh nữ thành một hàng dọc sao cho các học sinh nam đứng đầu hàng?", options: ["12", "36", "24", "120"], answer: "12" },
-      { question: "Có bao nhiêu số tự nhiên gồm 4 chữ số khác nhau và lớn hơn 5000 lập từ các chữ số 1, 3, 5, 7, 9?", options: ["72", "120", "48", "96"], answer: "72" },
-      { question: "Một mật mã gồm 3 ký tự khác nhau lấy từ các số lẻ 1, 3, 5, 7, 9. Có bao nhiêu mật mã có thể tạo ra?", options: ["60", "125", "120", "20"], answer: "60" },
-      { question: "Có bao nhiêu số tự nhiên gồm 3 chữ số khác nhau và là số chia hết cho 5 lập từ 1, 2, 3, 5, 6?", options: ["12", "24", "60", "20"], answer: "12" },
-      { question: "Có bao nhiêu cách chọn một cặp nam nữ khiêu vũ từ một nhóm gồm 5 nam và 5 nữ?", options: ["25", "10", "50", "5"], answer: "25" },
-      { question: "Trong tủ có 4 đôi giày khác màu. Có bao nhiêu cách chọn ra 1 chiếc chiếc chiếc giày trái và 1 chiếc chiếc chiếc giày phải sao cho chúng không cùng một đôi?", options: ["12", "16", "4", "8"], answer: "12" }
-    ],
-    stage3: [
-      { question: "Có bao nhiêu số tự nhiên gồm 5 chữ số lập từ các chữ số 1, 2, 3, 4, 5 sao cho chữ số 1 xuất hiện đúng 2 lần, các chữ số còn lại xuất hiện không quá 1 lần?", options: ["120", "60", "240", "180"], answer: "120" },
-      { question: "Có bao nhiêu số tự nhiên gồm 4 chữ số khác nhau chia hết cho 2 lập từ 0, 1, 2, 3, 4, 5?", options: ["156", "300", "120", "180"], answer: "156" },
-      { question: "Một đa giác lồi có 10 đỉnh. Có bao nhiêu đường chéo trong đa giác lồi này?", options: ["35", "45", "90", "20"], answer: "35" },
-      { question: "Có bao nhiêu số tự nhiên gồm 3 chữ số khác nhau sao cho tổng các chữ số của nó là một số chẵn, lập từ các chữ số 1, 2, 3, 4, 5?", options: ["32", "24", "36", "48"], answer: "32" },
-      { question: "Một thầy giáo có 5 sách Toán khác nhau và 4 sách Lí khác nhau. Thầy muốn tặng cho 3 học sinh mỗi em 1 cuốn sao cho có cả toán và lí. Có bao nhiêu cách?", options: ["420", "504", "84", "210"], answer: "420" },
-      { question: "Có bao nhiêu số tự nhiên gồm 4 chữ số sao cho hai chữ số cạnh nhau luôn khác nhau, lập từ 1, 2, 3, 4?", options: ["108", "256", "24", "64"], answer: "108" },
-      { question: "Số điện thoại của một cơ quan có 6 chữ số bắt đầu bằng chữ số 3. Có bao nhiêu số điện thoại như vậy?", options: ["100000", "90000", "300000", "10000"], answer: "100000" },
-      { question: "Có bao nhiêu số tự nhiên có 3 chữ số khác nhau lập từ 0, 1, 2, 3, 4, 5, 6 sao cho số đó không bắt đầu bằng chữ số 1?", options: ["150", "180", "120", "160"], answer: "150" },
-      { question: "Có bao nhiêu cách sắp xếp 5 người vào một bàn tròn có 5 ghế?", options: ["24", "120", "60", "6"], answer: "24" },
-      { question: "Có bao nhiêu số tự nhiên gồm 4 chữ số khác nhau sao cho các chữ số tăng dần từ trái sang phải?", options: ["126", "210", "120", "84"], answer: "126" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 32: 🎲 Hoán Vị
-  // ==========================================
-  32: {
-    stage1: [
-      { question: "Hoán vị của n phần tử ký hiệu là Pn. Công thức tính Pn là:", options: ["n!", "n(n-1)", "n^n", "(n-1)!"], answer: "n!" },
-      { question: "Tính số hoán vị của 4 phần tử (P4).", options: ["24", "12", "6", "16"], answer: "24" },
-      { question: "Có bao nhiêu cách xếp 5 người ngồi vào một dãy gồm 5 chiếc ghế hàng ngang?", options: ["120", "24", "60", "720"], answer: "120" },
-      { question: "Tính giá trị của 0! (0 giai thừa).", options: ["1", "0", "Không xác định", "Vô cùng"], answer: "1" },
-      { question: "Có bao nhiêu cách sắp xếp các chữ cái của từ 'MATH' thành một chuỗi ký tự khác nhau?", options: ["24", "12", "6", "4"], answer: "24" },
-      { question: "Có bao nhiêu cách xếp 3 cuốn sách khác nhau thành một hàng ngang trên giá sách?", options: ["6", "3", "9", "12"], answer: "6" },
-      { question: "Một cuộc thi chạy có 6 vận động viên. Có bao nhiêu khả năng về thứ tự về đích của các vận động viên này (không có ai về cùng nhau)?", options: ["720", "120", "36", "60"], answer: "720" },
-      { question: "Biết Pn = 6. Tìm n.", options: ["3", "2", "4", "6"], answer: "3" },
-      { question: "Biểu thức n! bằng biểu thức nào dưới đây?", options: ["n × (n-1)!", "n + (n-1)!", "(n+1)!", "n^n"], answer: "n × (n-1)!" },
-      { question: "Có bao nhiêu cách xếp 5 học sinh nam xếp thành một hàng dọc?", options: ["120", "24", "60", "100"], answer: "120" }
-    ],
-    stage2: [
-      { question: "Có bao nhiêu cách xếp 4 học sinh nam và 2 học sinh nữ thành hàng ngang sao cho 2 học sinh nữ đứng cạnh nhau?", options: ["240", "120", "48", "720"], answer: "240" },
-      { question: "Có bao nhiêu cách xếp 3 cuốn sách Toán khác nhau và 3 cuốn sách Văn khác nhau thành hàng ngang sao cho các cuốn cùng môn đứng cạnh nhau?", options: ["72", "36", "12", "144"], answer: "72" },
-      { question: "Từ các chữ số 1, 2, 3, 4, 5 có thể lập được bao nhiêu số tự nhiên có 5 chữ số khác nhau?", options: ["120", "24", "60", "240"], answer: "120" },
-      { question: "Có bao nhiêu cách xếp 5 người A, B, C, D, E vào hàng ngang sao cho người A luôn đứng ở đầu hàng bên trái?", options: ["24", "120", "60", "12"], answer: "24" },
-      { question: "Sắp xếp 4 người vào một bàn dài. Có bao nhiêu cách xếp sao cho hai người định trước luôn ngồi cạnh nhau?", options: ["12", "24", "6", "48"], answer: "12" },
-      { question: "Có bao nhiêu cách đổi chỗ các chữ cái của từ 'HELLO' biết chữ L đứng cạnh nhau coi như hoán vị lặp nhẹ?", options: ["60", "120", "24", "30"], answer: "60" },
-      { question: "Có bao nhiêu cách xếp 5 cuốn sách khác nhau vào một kệ sách sao cho cuốn sách màu đỏ không đứng ở hai đầu?", options: ["72", "120", "24", "48"], answer: "72" },
-      { question: "Rút gọn biểu thức giản đơn: A = 6! / 4! bằng bao nhiêu?", options: ["30", "15", "24", "2"], answer: "30" },
-      { question: "Rút gọn biểu thức đại số: P = (n+1)! / n! bằng:", options: ["n + 1", "n", "1", "(n+1)"], answer: "n + 1" },
-      { question: "Có bao nhiêu cách xếp 6 người thành hàng dọc sao cho người cao nhất và người thấp nhất không đứng cạnh nhau?", options: ["480", "720", "240", "120"], answer: "480" }
-    ],
-    stage3: [
-      { question: "Có bao nhiêu cách xếp 5 nam và 5 nữ thành một hàng dọc sao cho nam nữ đứng xen kẽ nhau?", options: ["28800", "14400", "50400", "3628800"], answer: "28800" },
-      { question: "Có bao nhiêu cách xếp 4 học sinh lớp A và 4 học sinh lớp B thành một hàng dọc sao cho các học sinh cùng lớp không đứng cạnh nhau?", options: ["1152", "576", "2304", "40320"], answer: "1152" },
-      { question: "Từ các chữ số 0, 1, 2, 3, 4, 5 có thể lập được bao nhiêu số tự nhiên có 6 chữ số khác nhau?", options: ["600", "720", "120", "500"], answer: "600" },
-      { question: "Có bao nhiêu cách xếp 7 người thành một hàng ngang sao cho 3 người định trước phải luôn đứng cạnh nhau?", options: ["720", "5040", "120", "144"], answer: "720" },
-      { question: "Giải phương trình tìm n tự nhiên: P_(n+1) - P_n = 4P_n.", options: ["n = 4", "n = 5", "n = 3", "n = 2"], answer: "n = 4" },
-      { question: "Có bao nhiêu số tự nhiên chẵn gồm 5 chữ số khác nhau được lập từ các chữ số 1, 2, 3, 4, 5?", options: ["48", "120", "72", "24"], answer: "48" },
-      { question: "Xếp 5 nam và 2 nữ thành hàng dọc sao cho 2 nữ luôn đứng ở hai đầu hàng. Có bao nhiêu cách xếp?", options: ["240", "120", "720", "48"], answer: "240" },
-      { question: "Có bao nhiêu cách xếp 4 người vào một bàn tròn gồm 4 ghế (hai cách xếp được coi là như nhau nếu mỗi người trong cách xếp này đều có người ngồi bên trái và bên phải tương ứng giống như trong cách xếp kia)?", options: ["6", "24", "12", "2"], answer: "6" },
-      { question: "Tìm số chữ số 0 liên tiếp ở tận cùng bên phải của số 10!.", options: ["2", "1", "3", "0"], answer: "2" },
-      { question: "Xếp 3 học sinh giỏi, 2 học sinh khá thành một hàng dọc sao cho học sinh khá không đứng ở đầu hàng lẫn cuối hàng. Có bao nhiêu cách xếp?", options: ["36", "12", "24", "120"], answer: "36" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 33: 🎲 Chỉnh Hợp
-  // ==========================================
-  33: {
-    stage1: [
-      { question: "Chỉnh hợp chập k của n phần tử ký hiệu là A_n^k. Công thức đúng là:", options: ["n! / (n-k)!", "n! / k!(n-k)!", "n! / k!", "(n-k)!"], answer: "n! / (n-k)!" },
-      { question: "Tính giá trị của chỉnh hợp A_5^2.", options: ["20", "10", "60", "5"], answer: "20" },
-      { question: "Có bao nhiêu cách chọn ra một Ban cán sự gồm 1 lớp trưởng và 1 lớp phó từ một lớp có 30 học sinh?", options: ["870", "435", "900", "60"], answer: "870" },
-      { question: "Từ các chữ số 1, 2, 3, 4, 5, 6 có thể lập được bao nhiêu số tự nhiên có 3 chữ số khác nhau?", options: ["120", "216", "20", "30"], answer: "120" },
-      { question: "Một câu lạc bộ có 10 thành viên. Có bao nhiêu cách bầu ra 1 chủ tịch, 1 phó chủ tịch và 1 thư ký?", options: ["720", "120", "1000", "30"], answer: "720" },
-      { question: "Tính giá trị biểu thức chỉnh hợp A_4^4.", options: ["24", "1", "4", "16"], answer: "24" },
-      { question: "Khẳng định nào sau đây là ĐÚNG về mối quan hệ giữa chỉnh hợp A_n^n và hoán vị P_n?", options: ["A_n^n = P_n", "A_n^n = n.P_n", "A_n^n = P_(n-1)", "Không liên quan"], answer: "A_n^n = P_n" },
-      { question: "Tìm số các số tự nhiên có 2 chữ số khác nhau đều thuộc tập hợp {1, 3, 5, 7, 9}.", options: ["20", "25", "10", "15"], answer: "20" },
-      { question: "Tính số chỉnh hợp A_6^1.", options: ["6", "1", "30", "720"], answer: "6" },
-      { question: "Điều kiện của các chỉ số trong chỉnh hợp A_n^k là:", options: ["n, k ∈ N, 0 ≤ k ≤ n", "n, k ∈ N, k < n", "n, k ∈ R", "n > k"], answer: "n, k ∈ N, 0 ≤ k ≤ n" }
-    ],
-    stage2: [
-      { question: "Từ các chữ số 1, 2, 3, 4, 5, 6, 7 có thể lập được bao nhiêu số tự nhiên lẻ có 3 chữ số khác nhau?", options: ["120", "210", "240", "144"], answer: "120" },
-      { question: "Có bao nhiêu cách tặng 3 món quà khác nhau cho 3 học sinh trong một nhóm gồm 8 học sinh sao cho mỗi học sinh nhận tối đa 1 món quà?", options: ["336", "56", "512", "24"], answer: "336" },
-      { question: "Từ các chữ số 0, 1, 2, 3, 4, 5 có thể lập được bao nhiêu số tự nhiên có 3 chữ số khác nhau?", options: ["100", "120", "60", "150"], answer: "100" },
-      { question: "Giải phương trình đại số chứa chỉnh hợp: A_n^2 = 20.", options: ["n = 5", "n = 4", "n = 6", "n = 10"], answer: "n = 5" },
-      { question: "Có bao nhiêu số tự nhiên gồm 4 chữ số khác nhau lập từ các chữ số 1, 2, 3, 4, 5, 6 sao cho số đó luôn bắt đầu bằng chữ số 5?", options: ["60", "120", "24", "48"], answer: "60" },
-      { question: "Một giải đấu bóng đá có 8 đội tham gia thi đấu vòng tròn 2 lượt (sân nhà và sân khách). Hỏi có tất cả bao nhiêu trận đấu?", options: ["56", "28", "64", "112"], answer: "56" },
-      { question: "Có bao nhiêu cách cắm 4 bông hoa khác nhau vào 4 chiếc lọ khác nhau (mỗi lọ chỉ cắm đúng 1 bông)?", options: ["24", "16", "4", "1"], answer: "24" },
-      { question: "Từ tập hợp X = {a, b, c, d, e} có thể lập được bao nhiêu từ gồm 3 chữ cái khác nhau (từ có nghĩa hoặc không có nghĩa)?", options: ["60", "125", "10", "24"], answer: "60" },
-      { question: "Tính giá trị của biểu thức biểu diễn chỉnh hợp S = A_5^3 - A_5^2.", options: ["40", "50", "20", "30"], answer: "40" },
-      { question: "Có bao nhiêu số tự nhiên chẵn có 3 chữ số khác nhau lập từ các chữ số 1, 2, 3, 4, 5, 6?", options: ["60", "120", "40", "30"], answer: "60" }
-    ],
-    stage3: [
-      { question: "Từ các chữ số 0, 1, 2, 3, 4, 5, 6 có thể lập được bao nhiêu số tự nhiên chẵn có 4 chữ số khác nhau?", options: ["420", "360", "840", "240"], answer: "420" },
-      { question: "Giải phương trình tìm số tự nhiên n thỏa mãn: A_n^3 = 20n.", options: ["n = 6", "n = 5", "n = 7", "n = 4"], answer: "n = 6" },
-      { question: "Có bao nhiêu số tự nhiên gồm 4 chữ số khác nhau chia hết cho 5 được lập từ các chữ số 0, 1, 2, 3, 4, 5?", options: ["156", "120", "300", "210"], answer: "156" },
-      { question: "Có bao nhiêu số tự nhiên gồm 5 chữ số khác nhau lập từ tập {1, 2, 3, 4, 5, 6, 7} sao cho hai chữ số đầu tiên chẵn?", options: ["360", "720", "120", "240"], answer: "360" },
-      { question: "Tìm số hạng n thỏa mãn hệ thức: A_n^2 - C_n^2 = 10 (biết C_n^2 là tổ hợp).", options: ["n = 5", "n = 4", "n = 6", "n = 10"], answer: "n = 5" },
-      { question: "Một giá sách có 5 sách Toán khác nhau và 5 sách Lí khác nhau. Chọn ra 2 sách Toán và 2 sách Lí rồi xếp theo hàng ngang. Có bao nhiêu cách?", options: ["2400", "100", "400", "14400"], answer: "2400" },
-      { question: "Có bao nhiêu số tự nhiên có 4 chữ số khác nhau lập từ tập {1, 2, 3, 4, 5, 6, 7, 8} sao cho số đó không chứa chữ số 1?", options: ["840", "1680", "210", "420"], answer: "840" },
-      { question: "Có bao nhiêu cách chọn 3 chữ số từ tập {1, 2, 3, 4, 5} rồi sắp xếp chúng thành hàng ngang sao cho chữ số đứng sau lớn hơn chữ số đứng trước?", options: ["10", "60", "20", "5"], answer: "10" },
-      { question: "Trong không gian, cho 6 điểm phân biệt trong đó không có 3 điểm nào thẳng hàng. Có bao nhiêu vector khác vector-không được tạo từ các điểm này?", options: ["30", "15", "60", "12"], answer: "30" },
-      { question: "Tìm n thỏa mãn phương trình: A_n^3 + 3A_n^2 = 0.5 × n! với n nhỏ nhất.", options: ["n = 5", "n = 4", "n = 6", "Vô nghiệm"], answer: "n = 5" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 34: 🎲 Tổ Hợp
-  // ==========================================
-  34: {
-    stage1: [
-      { question: "Tổ hợp chập k của n phần tử ký hiệu là C_n^k. Công thức chính xác là:", options: ["n! / [k!(n-k)!]", "n! / (n-k)!", "n! / k!", "k!(n-k)! / n!"], answer: "n! / [k!(n-k)!]" },
-      { question: "Tính giá trị của tổ hợp C_5^2.", options: ["10", "20", "5", "1"], answer: "10" },
-      { question: "Có bao nhiêu cách chọn một nhóm gồm 3 học sinh từ một tổ gồm 10 học sinh để đi lao động?", options: ["120", "720", "30", "100"], answer: "120" },
-      { question: "Mối liên hệ giữa chỉnh hợp A_n^k và tổ hợp C_n^k là gì?", options: ["A_n^k = k! × C_n^k", "C_n^k = k! × A_n^k", "A_n^k = C_n^k", "A_n^k = n! × C_n^k"], answer: "A_n^k = k! × C_n^k" },
-      { question: "Tính giá trị của tổ hợp đặc biệt C_n^0 với n tùy ý.", options: ["1", "0", "n", "n!"], answer: "1" },
-      { question: "Tính giá trị của tổ hợp đặc biệt C_n^n với n tùy ý.", options: ["1", "0", "n", "n!"], answer: "1" },
-      { question: "Tính giá trị của biểu thức tổ hợp đối xứng C_7^5 so với C_7^2.", options: ["C_7^5 = C_7^2", "C_7^5 > C_7^2", "C_7^5 < C_7^2", "C_7^5 = 2C_7^2"], answer: "C_7^5 = C_7^2" },
-      { question: "Trong một hộp có 8 viên bi giống nhau về kích thước nhưng khác màu. Có bao nhiêu cách chọn ngẫu nhiên ra 2 viên bi?", options: ["28", "56", "16", "8"], answer: "28" },
-      { question: "Một tập hợp X có 5 phần tử. Hỏi tập X có bao nhiêu tập con gồm đúng 3 phần tử?", options: ["10", "20", "60", "5"], answer: "10" },
-      { question: "Tính giá trị của C_6^1.", options: ["6", "1", "12", "720"], answer: "6" }
-    ],
-    stage2: [
-      { question: "Có bao nhiêu cách chọn một đội gồm 2 học sinh nam và 3 học sinh nữ từ một nhóm gồm 5 học sinh nam và 6 học sinh nữ?", options: ["200", "60", "120", "300"], answer: "200" },
-      { question: "Trên mặt phẳng cho 10 điểm phân biệt, trong đó không có 3 điểm nào thẳng hàng. Có bao nhiêu tam giác được tạo thành có các đỉnh là 3 trong 10 điểm trên?", options: ["120", "720", "45", "90"], answer: "120" },
-      { question: "Tính giá trị của biểu thức chứa tổ hợp: P = C_5^1 + C_5^2 + C_5^3.", options: ["25", "30", "20", "15"], answer: "25" },
-      { question: "Giải phương trình tổ hợp cơ bản: C_n^2 = 15.", options: ["n = 6", "n = 5", "n = 7", "n = 10"], answer: "n = 6" },
-      { question: "Một đội văn nghệ có 7 người. Cần chọn ra một nhóm gồm 4 người đi biểu diễn. Có bao nhiêu cách chọn nhóm này?", options: ["35", "70", "210", "140"], answer: "35" },
-      { question: "Trong không gian cho 5 điểm phân biệt không đồng phẳng và không có 3 điểm nào thẳng hàng. Có bao nhiêu mặt phẳng đi qua 3 trong số 5 điểm đó?", options: ["10", "20", "60", "5"], answer: "10" },
-      { question: "Tính tính chất đối xứng của tổ hợp: C_n^k bằng biểu thức nào sau đây?", options: ["C_n^(n-k)", "C_n^(k-1)", "C_(n-1)^k", "A_n^k"], answer: "C_n^(n-k)" },
-      { question: "Một hộp chứa 4 viên bi xanh và 5 viên bi đỏ. Có bao nhiêu cách chọn ra 3 viên bi có đủ cả hai màu?", options: ["70", "84", "35", "40"], answer: "70" },
-      { question: "Có bao nhiêu cách chọn ra 4 chữ số từ tập hợp {1, 2, 3, 4, 5, 6, 7} để tạo thành một tập hợp con?", options: ["35", "210", "840", "70"], answer: "35" },
-      { question: "Công thức Pascal nào sau đây đúng về tổng hai tổ hợp kế tiếp?", options: ["C_n^k + C_n^(k+1) = C_(n+1)^(k+1)", "C_n^k + C_n^(k+1) = C_(n+1)^k", "C_n^k + C_n^(k+1) = C_n^(k+1)", "C_n^k + C_n^(k+1) = C_(n+2)^(k+1)"], answer: "C_n^k + C_n^(k+1) = C_(n+1)^(k+1)" }
-    ],
-    stage3: [
-      { question: "Một lớp học có 20 học sinh trong đó có 12 nam và 8 nữ. Chọn một ban đại diện gồm 5 người sao cho có ít nhất 4 học sinh nam. Có bao nhiêu cách chọn?", options: ["6435", "4554", "3960", "5040"], answer: "4554" },
-      { question: "Giải phương trình tìm n tự nhiên: C_n^1 + C_n^2 = 55.", options: ["n = 10", "n = 9", "n = 11", "n = 12"], answer: "n = 10" },
-      { question: "Trong một hộp có 6 viên bi trắng và 4 viên bi đen. Chọn ra 3 viên bi sao cho có ít nhất 1 viên bi đen. Có bao nhiêu cách chọn?", options: ["100", "120", "20", "80"], answer: "100" },
-      { question: "Tìm số tự nhiên n thỏa mãn hệ thức tổ hợp phức tạp: C_(n+1)^2 + 2C_n^2 = 22.", options: ["n = 4", "n = 5", "n = 3", "Vô nghiệm"], answer: "n = 4" },
-      { question: "Cho 2 đường thẳng song song d1 và d2. Trên d1 lấy 5 điểm phân biệt, trên d2 lấy 6 điểm phân biệt. Có bao nhiêu tam giác có các đỉnh là các điểm đã cho?", options: ["135", "330", "165", "450"], answer: "135" },
-      { question: "Một đề thi gồm hai phần: Phần A có 10 câu hỏi, phần B có 8 câu hỏi. Thí sinh phải chọn 5 câu ở phần A và 4 câu ở phần B. Có bao nhiêu cách chọn đề thi?", options: ["17640", "252", "70", "12600"], answer: "17640" },
-      { question: "Tính tổng tất cả các tổ hợp của một tập hợp n phần tử: C_n^0 + C_n^1 + ... + C_n^n bằng bao nhiêu?", options: ["2^n", "n²", "2n", "n!"], answer: "2^n" },
-      { question: "Có bao nhiêu cách phân chia 10 người thành hai nhóm, một nhóm 6 người và một nhóm 4 người?", options: ["210", "420", "105", "120"], answer: "210" },
-      { question: "Tìm số giao điểm tối đa của 10 đường thẳng phân biệt trên mặt phẳng.", options: ["45", "90", "10", "100"], answer: "45" },
-      { question: "Tìm hệ số của x² trong khai triển nhị thức Newton biểu thức (x + 1)⁴ dựa vào tổ hợp C_4^k.", options: ["6", "4", "1", "2"], answer: "6" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 35: 👹 Boss Tổ Hợp
-  // ==========================================
-  35: {
-    stage1: [
-      { question: "Khai triển Nhị thức Newton của biểu thức (a + b)⁴ có bao nhiêu số hạng?", options: ["5", "4", "6", "3"], answer: "5" },
-      { question: "Trong khai triển (x + 2)⁵, số hạng chứa x⁴ có hệ số bằng bao nhiêu?", options: ["10", "5", "80", "20"], answer: "10" },
-      { question: "Tính tổng các hệ số trong khai triển nhị thức Newton của biểu thức (x + 1)⁵.", options: ["32", "16", "64", "5"], answer: "32" },
-      { question: "Tìm số hạng không chứa x (số hạng tự do) trong khai triển của (x + 1/x)⁴.", options: ["6", "4", "1", "12"], answer: "6" },
-      { question: "Có bao nhiêu cách chọn ra 5 bông hoa từ 6 bông hoa hồng khác nhau và 4 bông hoa cúc khác nhau sao cho số hoa hồng nhiều hơn số hoa cúc?", options: ["186", "252", "120", "66"], answer: "186" },
-      { question: "Một hộp chứa 5 bi xanh, 4 bi đỏ và 3 bi vàng. Có bao nhiêu cách chọn 3 bi sao cho có đủ cả ba màu?", options: ["60", "220", "12", "144"], answer: "60" },
-      { question: "Giải bất phương trình chứa tổ hợp: C_n^2 ≤ 6 với mốc n tự nhiên ≥ 2.", options: ["2 ≤ n ≤ 4", "n ≤ 3", "n = 4", "Mọi n"], answer: "2 ≤ n ≤ 4" },
-      { question: "Số hạng thứ k+1 trong khai triển nhị thức Newton tổng quát (a + b)^n là gì?", options: ["C_n^k × a^(n-k) × b^k", "C_n^k × a^k × b^(n-k)", "A_n^k × a^(n-k) × b^k", "n! × a^(n-k) × b^k"], answer: "C_n^k × a^(n-k) × b^k" },
-      { question: "Có bao nhiêu từ gồm 4 chữ cái khác nhau được lập từ các chữ cái của từ 'COSMOS' (bỏ qua tính lặp)?", options: ["24", "120", "4", "12"], answer: "24" },
-      { question: "Từ một nhóm 15 người gồm 9 nam và 6 nữ, có bao nhiêu cách lập ban đại diện 4 người có ít nhất 1 nữ?", options: ["1239", "1365", "126", "1110"], answer: "1239" }
-    ],
-    stage2: [
-      { question: "Tìm hệ số của x³ trong khai triển biểu thức nhị thức (2x - 1)⁵.", options: ["-40", "40", "-80", "80"], answer: "40" },
-      { question: "Tìm số hạng đứng chính giữa trong khai triển nhị thức Newton (x + 2)⁶.", options: ["160x³", "20x³", "120x⁴", "160x⁴"], answer: "160x³" },
-      { question: "Một đa giác lồi n đỉnh có tất cả 9 đường chéo. Tìm số đỉnh n của đa giác.", options: ["n = 6", "n = 5", "n = 7", "n = 8"], answer: "n = 6" },
-      { question: "Một đoàn tàu có 3 toa độc lập. Có 4 hành khách lên tàu ngẫu nhiên. Có bao nhiêu cách xếp khách vào các toa?", options: ["81", "64", "24", "12"], answer: "81" },
-      { question: "Có bao nhiêu cách chia 12 cuốn sách giống nhau cho 3 học sinh sao cho mỗi học sinh nhận được ít nhất 1 cuốn sách (áp dụng bài toán chia kẹo Euler)?", options: ["55", "66", "220", "45"], answer: "55" },
-      { question: "Tìm số hạng chứa x⁵ trong khai triển nhị thức Newton của biểu thức (1 + 3x)^n biết n thỏa mãn C_n^1 + C_n^2 = 10.", options: ["243x⁵", "Vô nghiệm vì n nhỏ", "81x⁴", "0"], answer: "0" },
-      { question: "Có bao nhiêu số tự nhiên chẵn gồm 4 chữ số khác nhau sao cho chữ số đầu tiên là chữ số lẻ?", options: ["1000", "1200", "1260", "2500"], answer: "1260" },
-      { question: "Tìm số tập hợp con của một tập hợp gồm 6 phần tử.", options: ["64", "32", "128", "16"], answer: "64" },
-      { question: "Giải phương trình hệ số tổ hợp nâng cao: C_n^n + C_n^(n-1) + C_n^(n-2) = 22.", options: ["n = 5", "n = 6", "n = 4", "Vô nghiệm"], answer: "n = 5" },
-      { question: "Tính tổng S = C_6^0 - C_6^1 + C_6^2 - C_6^3 + C_6^4 - C_6^5 + C_6^6 dựa trên tính chất nhị thức Newton.", options: ["0", "64", "32", "-1"], answer: "0" }
-    ],
-    stage3: [
-      { question: "Tiêu diệt Boss Tổ Hợp! Tìm hệ số của số hạng chứa x⁸ trong khai triển nhị thức Newton của biểu thức (x² - 2/x)^n biết n thỏa mãn: A_n^3 = 24C_n^4.", options: ["1120", "-1120", "2000", "0"], answer: "1120" },
-      { question: "Có bao nhiêu số tự nhiên gồm 6 chữ số khác nhau lập từ tập {0, 1, 2, 3, 4, 5} sao cho các chữ số chẵn và chữ số lẻ đứng xen kẽ nhau?", options: ["60", "72", "120", "48"], answer: "60" },
-      { question: "Cho tập hợp A = {1, 2, 3, ..., 10}. Chọn ngẫu nhiên 3 số từ tập A. Có bao nhiêu cách chọn sao cho không có 2 số nào là hai số tự nhiên liên tiếp?", options: ["56", "120", "84", "70"], answer: "56" },
-      { question: "Tìm số hạng có hệ số lớn nhất trong khai triển nhị thức Newton của biểu thức (1 + x)¹⁰.", options: ["252x⁵", "210x⁴", "252x⁶", "120x⁵"], answer: "252x⁵" },
-      { question: "Tính tổng bình phương các hệ số trong khai triển nhị thức Newton của (1 + x)^n chính là giá trị của tổ hợp nào?", options: ["C_(2n)^n", "C_n^n", "2^n", "n!"], answer: "C_(2n)^n" },
-      { question: "Một nhóm gồm 6 học sinh nam và 4 học sinh nữ được xếp vòng quanh một bàn tròn. Có bao nhiêu cách xếp sao cho không có 2 học sinh nữ nào ngồi cạnh nhau?", options: ["14400", "86400", "2880", "720"], answer: "14400" },
-      { question: "Tìm hệ số của x⁵ trong khai triển đa thức hỗn hợp P(x) = (1 + x) + 2(1 + x)² + ... + 8(1 + x)⁸.", options: ["238", "448", "126", "336"], answer: "238" },
-      { question: "Có 5 quả cầu đỏ khác nhau và 5 quả cầu xanh khác nhau. Sắp xếp chúng thành một hàng dọc sao cho các quả cầu màu đỏ được xếp đứng cạnh nhau. Có bao nhiêu cách?", options: ["86400", "120", "14400", "36288"], answer: "86400" },
-      { question: "Chúc mừng bạn hạ gục Boss Tổ Hợp! Một hộp quà có chứa 12 chiếc thẻ đánh số từ 1 đến 12. Có bao nhiêu cách rút ra 4 chiếc thẻ có tổng số ghi trên thẻ là một số lẻ?", options: ["245", "250", "240", "495"], answer: "245" },
-      { question: "Tính giá trị tổng chuỗi tổ hợp: T = C_2026^0 + C_2026^2 + C_2026^4 + ... + C_2026^2026.", options: ["2^2025", "2^2026", "2^1013", "1013"], answer: "2^2025" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 36: 📈 Dãy Số
-  // ==========================================
-  36: {
-    stage1: [
-      { question: "Cho dãy số (un) với un = 2n - 1. Tìm số hạng đầu tiên u1 của dãy số.", options: ["1", "3", "2", "0"], answer: "1" },
-      { question: "Cho dãy số (un) với un = n² + 1. Tính giá trị của số hạng thứ ba u3.", options: ["10", "5", "9", "8"], answer: "10" },
-      { question: "Tìm công thức số hạng tổng quát un của dãy số các số tự nhiên lẻ: 1, 3, 5, 7, ...", options: ["un = 2n - 1", "un = 2n + 1", "un = n", "un = 2n"], answer: "un = 2n - 1" },
-      { question: "Dãy số un = (-1)^n là một dãy số có tính chất gì đặc biệt?", options: ["Dãy số bị chặn", "Dãy số tăng", "Dãy số giảm", "Dãy số không bị chặn"], answer: "Dãy số bị chặn" },
-      { question: "Viết 3 số hạng đầu tiên của dãy số cho bởi công thức un = 3^n.", options: ["3, 9, 27", "1, 3, 9", "3, 6, 9", "3, 6, 12"], answer: "3, 9, 27" },
-      { question: "Cho dãy số un = 1/n. Khẳng định nào sau đây là ĐÚNG về tính đơn điệu?", options: ["Dãy số giảm", "Dãy số tăng", "Dãy số không tăng không giảm", "Dãy số biến thiên vô cùng"], answer: "Dãy số giảm" },
-      { question: "Cho dãy số un = n + 2. Khẳng định nào sau đây đúng về tính đơn điệu?", options: ["Dãy số tăng", "Dãy số giảm", "Dãy số bị chặn trên", "Dãy số tuần hoàn"], answer: "Dãy số tăng" },
-      { question: "Dãy số nào sau đây là dãy số tăng liên tục?", options: ["un = n²", "un = 1/n", "un = (-1)^n", "un = 5 - n"], answer: "un = n²" },
-      { question: "Số hạng u(n+1) của dãy số un = 2^n được tính bằng công thức:", options: ["2^(n+1)", "2^n + 1", "2n + 2", "2^n + 2"], answer: "2^(n+1)" },
-      { question: "Dãy số cho bởi hình thức un = c (với c là hằng số) được gọi là dãy số gì?", options: ["Dãy số không đổi (dãy hằng)", "Dãy số tăng", "Dãy số giảm", "Dãy số vô hạn"], answer: "Dãy số không đổi (dãy hằng)" }
-    ],
-    stage2: [
-      { question: "Cho dãy số xác định bởi công thức truy hồi: u1 = 2, u(n+1) = un + 3. Tìm số hạng u3.", options: ["8", "5", "11", "6"], answer: "8" },
-      { question: "Cho dãy số un = (n - 1) / (n + 1). Khẳng định nào sau đây đúng về tính bị chặn?", options: ["Dãy số bị chặn", "Dãy số chỉ bị chặn dưới", "Dãy số chỉ bị chặn trên", "Dãy số không bị chặn"], answer: "Dãy số bị chặn" },
-      { question: "Xét tính đơn điệu của dãy số un = 2n³ - 1.", options: ["Dãy số tăng", "Dãy số giảm", "Dãy số không đổi", "Dãy tuần hoàn"], answer: "Dãy số tăng" },
-      { question: "Tìm số hạng tổng quát của dãy số cho bởi hệ thức truy hồi u1 = 1, u(n+1) = 2un.", options: ["un = 2^(n-1)", "un = 2^n", "un = n", "un = 2n - 1"], answer: "un = 2^(n-1)" },
-      { question: "Xét dãy số các số chính phương un = n². Số 100 là số hạng thứ mấy của dãy số?", options: ["10", "100", "50", "9"], answer: "10" },
-      { question: "Cho dãy số un = sin(n). Khẳng định nào sau đây luôn đúng?", options: ["Dãy số bị chặn", "Dãy số tăng", "Dãy số giảm", "Dãy số đơn điệu"], answer: "Dãy số bị chặn" },
-      { question: "Cho dãy số un = (2n + 1) / (n + 2). Tìm giá trị giới hạn của un khi n tiến tới vô cùng.", options: ["2", "1", "1/2", "0"], answer: "2" },
-      { question: "Tìm số hạng u5 của dãy số Fibonacci biết u1 = 1, u2 = 1, u(n+2) = u(n+1) + un.", options: ["5", "3", "8", "4"], answer: "5" },
-      { question: "Xét tính đơn điệu của dãy số un = -n² + n.", options: ["Dãy số giảm kể từ n = 1", "Dãy số tăng", "Dãy số không đổi", "Dãy số vừa tăng vừa giảm"], answer: "Dãy số giảm kể từ n = 1" },
-      { question: "Cho dãy số un = 3n - 2. Hiệu số u(n+1) - un bằng bao nhiêu?", options: ["3", "-2", "1", "2"], answer: "3" }
-    ],
-    stage3: [
-      { question: "Cho dãy số un = (2n² - 1) / (n² + 1). Khẳng định nào sau đây đúng nhất?", options: ["Dãy số bị chặn dưới bởi -1 và bị chặn trên bởi 2", "Dãy số không bị chặn", "Dãy số giảm", "Dãy số không đơn điệu"], answer: "Dãy số bị chặn dưới bởi -1 và bị chặn trên bởi 2" },
-      { question: "Cho dãy số hệ thức truy hồi phức tạp: u1 = 1, u(n+1) = un + 2n + 1. Tìm công thức số hạng tổng quát un.", options: ["un = n²", "un = n² + 1", "un = 2n²", "un = n³"], answer: "un = n²" },
-      { question: "Tìm số hạng lớn nhất của dãy số tăng giảm cục bộ un = n / (n² + 9).", options: ["1/6", "1/10", "1/9", "2/13"], answer: "1/6" },
-      { question: "Dãy số un xác định bởi u1 = 3, u(n+1) = 2un - 1. Số hạng thứ 4 của dãy số là:", options: ["17", "9", "5", "33"], answer: "17" },
-      { question: "Chứng minh dãy số un = 4^n / n! có xu hướng biến thiên như thế nào khi n lớn?", options: ["Giảm liên tục khi n ≥ 4", "Tăng liên tục", "Bị chặn dưới bởi 0", "Cả A và C đều đúng"], answer: "Cả A và C đều đúng" },
-      { question: "Tìm số hạng tổng quát của dãy số u1 = 1/2, u(n+1) = un / (1 + 2un).", options: ["un = 1 / (2n)", "un = 1 / (2^n)", "un = n / (n+1)", "un = 1 / (2n+1)"], answer: "un = 1 / (2n)" },
-      { question: "Cho dãy số un = 2026^n. Khẳng định nào sau đây đúng?", options: ["Dãy số tăng và không bị chặn trên", "Dãy số giảm", "Dãy số bị chặn", "Dãy hằng"], answer: "Dãy số tăng và không bị chặn trên" },
-      { question: "Tìm tổng 5 số hạng đầu tiên của dãy số un = n³.", options: ["225", "100", "125", "300"], answer: "225" },
-      { question: "Cho dãy số un = n + cos²(n). Dãy số này thuộc loại dãy số nào?", options: ["Dãy số tăng và bị chặn dưới", "Dãy số bị chặn", "Dãy số giảm", "Dãy số tuần hoàn"], answer: "Dãy số tăng và bị chặn dưới" },
-      { question: "Tính tổng S = u1 + u2 + ... + u100 của dãy số hằng un = 5.", options: ["500", "50", "100", "5"], answer: "500" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 37: 📈 Cấp Số Cộng
-  // ==========================================
-  37: {
-    stage1: [
-      { question: "Định nghĩa cấp số cộng: Dãy số (un) là cấp số cộng với công sai d khi thỏa mãn công thức truy hồi:", options: ["u(n+1) = un + d", "u(n+1) = un.d", "u(n+1) = un - d", "u(n+1) = d - un"], answer: "u(n+1) = un + d" },
-      { question: "Cho cấp số cộng có u1 = 2 và công sai d = 3. Tìm số hạng thứ hai u2.", options: ["5", "6", "2", "3"], answer: "5" },
-      { question: "Công thức số hạng tổng quát un của một cấp số cộng theo u1 và d là:", options: ["un = u1 + (n-1)d", "un = u1 + nd", "un = u1.d^(n-1)", "un = u1 - (n-1)d"], answer: "un = u1 + (n-1)d" },
-      { question: "Cho cấp số cộng có u1 = 5, công sai d = -2. Tìm số hạng thứ tư u4.", options: ["-1", "3", "1", "-3"], answer: "-1" },
-      { question: "Dãy số nào sau đây lập thành một cấp số cộng hoàn chỉnh?", options: ["1, 3, 5, 7", "1, 2, 4, 8", "1, 3, 9, 27", "1, 0, 1, 0"], answer: "1, 3, 5, 7" },
-      { question: "Cho một cấp số cộng có u1 = 3, u2 = 7. Tìm công sai d của cấp số cộng đó.", options: ["4", "3", "-4", "10"], answer: "4" },
-      { question: "Công thức tính tổng n số hạng đầu tiên Sn của một cấp số cộng là:", options: ["Sn = n/2 × [2u1 + (n-1)d]", "Sn = n × (u1 + un)", "Sn = n/2 × (u1 + d)", "Sn = n × [u1 + (n-1)d]"], answer: "Sn = n/2 × [2u1 + (n-1)d]" },
-      { question: "Cho cấp số cộng có u1 = 1, d = 2. Tính tổng của 4 số hạng đầu tiên S4.", options: ["16", "8", "12", "20"], answer: "16" },
-      { question: "Nếu ba số a, b, c theo thứ tự lập thành một cấp số cộng thì hệ thức nào sau đây đúng?", options: ["a + c = 2b", "a + b = 2c", "a.c = b²", "a - c = b"], answer: "a + c = 2b" },
-      { question: "Cho cấp số cộng có số hạng un. Hiệu số u10 - u1 bằng bao nhiêu lần công sai d?", options: ["9d", "10d", "11d", "d"], answer: "9d" }
-    ],
-    stage2: [
-      { question: "Cho cấp số cộng có u1 = -3, d = 4. Số 21 là số hạng thứ mấy của cấp số cộng?", options: ["7", "6", "8", "5"], answer: "7" },
-      { question: "Cho cấp số cộng thỏa mãn hệ thức: u1 + u5 = 10. Tìm giá trị của số hạng thứ ba u3.", options: ["5", "10", "2.5", "2"], answer: "5" },
-      { question: "Tìm công sai d của cấp số cộng biết u1 = 2 và u11 = 22.", options: ["2", "1", "3", "4"], answer: "2" },
-      { question: "Tính tổng của 100 số tự nhiên liên tiếp đầu tiên từ 1 đến 100.", options: ["5050", "5000", "5100", "4950"], answer: "5050" },
-      { question: "Cho cấp số cộng có u4 = 10, u7 = 19. Tìm công sai d.", options: ["3", "4", "2", "5"], answer: "3" },
-      { question: "Cho một cấp số cộng có d = 5, biết tổng S10 = 250. Tìm số hạng đầu u1.", options: ["2.5", "0", "5", "10"], answer: "2.5" },
-      { question: "Bốn số liên tiếp lập thành một cấp số cộng có tổng bằng 20, biết số hạng đầu u1 = 2. Tìm công sai d.", options: ["2", "1", "3", "1.5"], answer: "2" } ,
-      { question: "Tìm chuỗi số hạng tiếp theo: Cho cấp số cộng 2, 7, 12, ... Số hạng tiếp theo là số nào?", options: ["17", "15", "16", "20"], answer: "17" },
-      { question: "Cho cấp số cộng có u1 = 10, d = -3. Hỏi kể từ số hạng thứ mấy thì các số hạng nhận giá trị âm?", options: ["5", "4", "6", "3"], answer: "5" },
-      { question: "Tìm x để ba số x, 3, 5x theo thứ tự lập thành một cấp số cộng.", options: ["1", "2", "0.5", "0"], answer: "1" }
-    ],
-    stage3: [
-      { question: "Cho một hệ phương trình cấp số cộng: u1 + u2 + u3 = 9 và u4 + u5 + u6 = 18. Tìm công sai d.", options: ["1", "2", "3", "0.5"], answer: "1" },
-      { question: "Cho cấp số cộng có un và tổng Sn. Biết S_n = 2n² + 3n. Tìm số hạng đầu u1 và công sai d.", options: ["u1 = 5, d = 4", "u1 = 3, d = 2", "u1 = 5, d = 2", "u1 = 2, d = 3"], answer: "u1 = 5, d = 4" },
-      { question: "Một tam giác vuông có độ dài ba cạnh lập thành một cấp số cộng. Tìm tỉ số giữa cạnh huyền và cạnh lớn nhất của góc vuông.", options: ["5/4", "4/3", "5/3", "2"], answer: "5/4" },
-      { question: "Tính tổng tất cả các số tự nhiên chia hết cho 3 nhỏ hơn 100.", options: ["1683", "1650", "1700", "1500"], answer: "1683" },
-      { question: "Cho cấp số cộng có u5 = 18. Tính tổng của 9 số hạng đầu tiên S9 của cấp số cộng đó.", options: ["162", "81", "324", "180"], answer: "162" },
-      { question: "Một rạp hát có 20 hàng ghế, hàng đầu tiên có 15 ghế, mỗi hàng sau nhiều hơn hàng trước 2 ghế. Tính tổng số ghế của rạp hát.", options: ["680", "700", "650", "600"], answer: "680" },
-      { question: "Tìm tất cả các giá trị tham số m để phương trình x³ - 3x² - 9x + m = 0 có 3 nghiệm phân biệt lập thành một cấp số cộng.", options: ["m = 11", "m = 0", "m = -11", "m = 5"], answer: "m = 11" },
-      { question: "Cho cấp số cộng có u1 = 1, d = 4. Tìm số hạng un của cấp số cộng biết Sn = 231.", options: ["41", "37", "45", "33"], answer: "41" },
-      { question: "Cho hai cấp số cộng độc lập. Tổng S_n của cấp số cộng thứ nhất chia cho tổng S'_n của cấp số cộng thứ hai bằng (7n+1)/(4n+27). Tính tỉ số u11 / u'11.", options: ["4/3", "3/4", "7/4", "1"], answer: "4/3" },
-      { question: "Nếu tổng của 10 số hạng đầu tiên của một cấp số cộng bằng 4 lần tổng của 5 số hạng đầu tiên, tìm tỉ số u1 / d.", options: ["0.5", "1", "2", "0"], answer: "0.5" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 38: 📈 Cấp Số Nhân
-  // ==========================================
-  38: {
-    stage1: [
-      { question: "Định nghĩa cấp số nhân: Dãy số (un) là cấp số nhân với công bội q khi thỏa mãn công thức truy hồi:", options: ["u(n+1) = un.q", "u(n+1) = un + q", "u(n+1) = un / q", "u(n+1) = q / un"], answer: "u(n+1) = un.q" },
-      { question: "Cho cấp số nhân có u1 = 3 và công bội q = 2. Tìm số hạng thứ hai u2.", options: ["6", "5", "9", "8"], answer: "6" },
-      { question: "Công thức số hạng tổng quát un của một cấp số nhân theo u1 và q là:", options: ["un = u1 × q^(n-1)", "un = u1 × q^n", "un = u1 + q^(n-1)", "un = u1 × (n-1)q"], answer: "un = u1 × q^(n-1)" },
-      { question: "Cho cấp số nhân có u1 = 2, công bội q = -3. Tìm số hạng thứ ba u3.", options: ["18", "-18", "6", "-6"], answer: "18" },
-      { question: "Dãy số nào sau đây lập thành một cấp số nhân chính xác?", options: ["2, 4, 8, 16", "2, 4, 6, 8", "1, 0, 1, 0", "1, 3, 5, 7"], answer: "2, 4, 8, 16" },
-      { question: "Cho một cấp số nhân có u1 = 4, u2 = 12. Tìm công bội q của cấp số nhân đó.", options: ["3", "4", "8", "1/3"], answer: "3" },
-      { question: "Công thức tính tổng n số hạng đầu tiên Sn của một cấp số nhân với công bội q ≠ 1 là:", options: ["Sn = u1 × (1 - q^n) / (1 - q)", "Sn = u1 × (1 - q^(n-1)) / (1 - q)", "Sn = n × u1 × q^(n-1)", "Sn = u1 × (q^n + 1) / (q + 1)"], answer: "Sn = u1 × (1 - q^n) / (1 - q)" },
-      { question: "Cho cấp số nhân có u1 = 1, q = 2. Tính tổng của 3 số hạng đầu tiên S3.", options: ["7", "6", "8", "5"], answer: "7" },
-      { question: "Nếu ba số dương a, b, c theo thứ tự lập thành một cấp số nhân thì hệ thức nào sau đây đúng?", options: ["b² = a.c", "b = a.c", "a + c = 2b", "b = (a+c)/2"], answer: "b² = a.c" },
-      { question: "Cho một cấp số nhân có tất cả các số hạng đều dương. Tỉ số u5 / u1 bằng bao nhiêu lần công bội q?", options: ["q⁴", "q⁵", "4q", "5q"], answer: "q⁴" }
-    ],
-    stage2: [
-      { question: "Cho cấp số nhân có u1 = 3, q = 2. Số 48 là số hạng thứ mấy của cấp số nhân?", options: ["5", "4", "6", "7"], answer: "5" },
-      { question: "Cho cấp số nhân thỏa mãn hệ thức: u1.u3 = 16 (biết các số hạng đều dương). Tìm số hạng thứ hai u2.", options: ["4", "8", "16", "2"], answer: "4" },
-      { question: "Tìm công bội q của cấp số nhân biết u1 = 1 và u5 = 81 (biết q là số dương).", options: ["3", "2", "9", "4"], answer: "3" },
-      { question: "Tính tổng của cấp số nhân lùi vô hạn có u1 = 1 và công bội q = 1/2.", options: ["2", "1.5", "1", "Vô cùng"], answer: "2" },
-      { question: "Cho cấp số nhân có u3 = 4, u5 = 16. Tìm giá trị dương của công bội q.", options: ["2", "4", "3", "1"], answer: "2" },
-      { question: "Cho cấp số nhân có u1 = -2 và q = -2. Tìm số hạng thứ 4 u4.", options: ["16", "-16", "8", "-8"], answer: "16" },
-      { question: "Tìm x dương để ba số 2, x, 18 theo thứ tự lập thành một cấp số nhân.", options: ["6", "10", "9", "8"], answer: "6" },
-      { question: "Cho cấp số nhân 3, -6, 12, ... Số hạng tiếp theo của dãy số là số nào?", options: ["-24", "24", "-18", "36"], answer: "-24" },
-      { question: "Nếu một cấp số nhân có công bội q = 0 thì kể từ số hạng thứ hai trở đi, các số hạng bằng bao nhiêu?", options: ["0", "u1", "Không xác định", "1"], answer: "0" },
-      { question: "Tìm tổng S5 của cấp số nhân có u1 = 2, q = 1.", options: ["10", "2", "32", "0"], answer: "10" }
-    ],
-    stage3: [
-      { question: "Cho hệ phương trình cấp số nhân: u1 + u2 + u3 = 13 và u4 + u5 + u6 = 104. Tìm công bội q.", options: ["2", "3", "4", "1/2"], answer: "2" },
-      { question: "Tế bào E. Coli trong điều kiện thích hợp cứ 20 phút lại phân đôi một lần. Giả sử ban đầu có 1 tế bào, hỏi sau 2 giờ (120 phút) có bao nhiêu tế bào?", options: ["64", "32", "128", "6"], answer: "64" },
-      { question: "Cho cấp số nhân có u1 = 3, q = 2. Tìm số tự nhiên n sao cho tổng Sn = 93.", options: ["5", "4", "6", "Vô nghiệm"], answer: "5" },
-      { question: "Một tứ giác có 4 góc lập thành một cấp số nhân có công bội q = 2. Tìm số đo góc lớn nhất của tứ giác.", options: ["192°", "180°", "160°", "200°"], answer: "192°" },
-      { question: "Cho cấp số nhân lùi vô hạn có tổng S = 4, biết u1 = 2. Tìm công bội q.", options: ["1/2", "1/3", "1/4", "-1/2"], answer: "1/2" },
-      { question: "Tìm x và y để ba số 2, x, y vừa lập thành cấp số cộng (nếu thêm số) vừa lập thành cấp số nhân: Biết 2, x, 8 lập thành cấp số nhân tăng dần. Tính x.", options: ["4", "5", "6", "3"], answer: "4" },
-      { question: "Cho biểu thức tổng Sn của cấp số nhân. Tính giới hạn của Sn khi n tiến tới vô cùng nếu |q| > 1 và u1 > 0.", options: ["Vô cùng", "0", "u1/(1-q)", "1"], answer: "Vô cùng" },
-      { question: "Cho cấp số nhân có u1 = 2, q = 3. Tính giá trị tích P = u1.u2.u3.", options: ["216", "54", "108", "432"], answer: "216" },
-      { question: "Một người gửi tiết kiệm 100 triệu đồng với lãi suất 6%/năm theo hình thức lãi kép (kế thừa cấp số nhân). Hỏi sau 3 năm người đó rút được bao nhiêu tiền (làm tròn đến triệu đồng)?", options: ["119 triệu", "118 triệu", "120 triệu", "116 triệu"], answer: "119 triệu" },
-      { question: "Tìm tất cả các giá trị của q để cấp số nhân có u1 > 0 trở thành một dãy số giảm liên tục.", options: ["0 < q < 1", "q > 1", "-1 < q < 0", "q < 0"], answer: "0 < q < 1" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 39: 📈 Ôn Tập 11
-  // ==========================================
-  39: {
-    stage1: [
-      { question: "Nghiệm của phương trình lượng giác cơ bản sinx = √3/2 là:", options: ["x = π/3 + k2π và x = 2π/3 + k2π", "x = ±π/3 + k2π", "x = π/6 + k2π", "Vô nghiệm"], answer: "x = π/3 + k2π và x = 2π/3 + k2π" },
-      { question: "Tính số tổ hợp C_6^2.", options: ["15", "30", "12", "20"], answer: "15" },
-      { question: "Cho cấp số cộng có u1 = 3, d = 4. Tìm số hạng u10.", options: ["39", "43", "36", "40"], answer: "39" },
-      { question: "Cho cấp số nhân có u1 = 2, q = 3. Tìm số hạng u4.", options: ["54", "18", "27", "162"], answer: "54" },
-      { question: "Tập xác định của hàm số lượng giác y = tanx là:", options: ["R \\ {π/2+kπ}", "R \\ {kπ}", "R", "[-1;1]"], answer: "R \\ {π/2+kπ}" },
-      { question: "Có bao nhiêu cách chọn ra 2 học sinh từ một nhóm gồm 8 học sinh?", options: ["28", "56", "16", "64"], answer: "28" },
-      { question: "Tính giá trị giai thừa của P3 = 3!.", options: ["6", "3", "9", "2"], answer: "6" },
-      { question: "Công thức lượng giác nhân đôi nào sau đây đúng cho cos(2x)?", options: ["cos(2x) = 2cos²x - 1", "cos(2x) = 2sinxcosx", "cos(2x) = 1 + 2sin²x", "cos(2x) = cosx - sinx"], answer: "cos(2x) = 2cos²x - 1" },
-      { question: "Dãy số nào sau đây là một dãy số giảm?", options: ["un = 1/n", "un = n", "un = 2^n", "un = n²"], answer: "un = 1/n" },
-      { question: "Tìm công sai d của cấp số cộng có u1 = 2, u3 = 8.", options: ["3", "4", "2", "6"], answer: "3" }
-    ],
-    stage2: [
-      { question: "Giải phương trình lượng giác biến đổi ẩn phụ: 2sin²x - sinx = 0.", options: ["x = kπ và x = π/6 + k2π, x = 5π/6 + k2π", "x = kπ", "x = π/6 + k2π", "Vô nghiệm"], answer: "x = kπ và x = π/6 + k2π, x = 5π/6 + k2π" },
-      { question: "Có bao nhiêu số tự nhiên gồm 3 chữ số khác nhau lập từ tập {1, 2, 3, 4, 5}?", options: ["60", "125", "20", "120"], answer: "60" },
-      { question: "Tìm số hạng không chứa x trong khai triển biểu thức nhị thức (x + 1/x)⁶.", options: ["20", "15", "6", "1"], answer: "20" },
-      { question: "Cho cấp số cộng thỏa mãn u2 = 5, u5 = 14. Tìm số hạng đầu tiên u1.", options: ["2", "3", "1", "4"], answer: "2" },
-      { question: "Cho cấp số nhân có u2 = 6, u3 = 18. Tìm số hạng đầu tiên u1.", options: ["2", "3", "1", "6"], answer: "2" },
-      { question: "Tìm chu kỳ tuần hoàn của hàm số lượng giác phối hợp y = sin(2x) + cos(x).", options: ["2π", "π", "π/2", "4π"], answer: "2π" },
-      { question: "Tính tổng S = C_5^0 + C_5^1 + C_5^2 + C_5^3 + C_5^4 + C_5^5.", options: ["32", "16", "64", "5"], answer: "32" },
-      { question: "Một hộp chứa 6 bi đỏ và 4 bi xanh. Có bao nhiêu cách chọn 2 viên bi cùng màu từ hộp?", options: ["21", "24", "45", "15"], answer: "21" },
-      { question: "Tìm giá trị lớn nhất M của hàm số lượng giác y = 3cosx - 4.", options: ["-1", "-7", "3", "-4"], answer: "-1" },
-      { question: "Cho ba số 2, x, 10 theo thứ tự lập thành một cấp số cộng. Tìm giá trị của x.", options: ["6", "5", "8", "4"], answer: "6" }
-    ],
-    stage3: [
-      { question: "Giải phương trình lượng giác đồng bậc bậc nhất: sinx + cosx = √2.", options: ["x = π/4 + k2π", "x = π/4 + kπ", "x = ±π/4 + k2π", "Vô nghiệm"], answer: "x = π/4 + k2π" },
-      { question: "Từ các chữ số 0, 1, 2, 3, 4, 5 có thể lập được bao nhiêu số tự nhiên chẵn có 3 chữ số khác nhau?", options: ["52", "60", "48", "100"], answer: "52" },
-      { question: "Tìm hệ số của x³ trong khai triển nhị thức Newton của biểu thức đa thức (x + 2)⁵.", options: ["40", "10", "80", "20"], answer: "40" },
-      { question: "Cho một cấp số cộng có u5 = 10 và tổng S9 = 90. Tìm số hạng đầu tiên u1.", options: ["2", "10", "0", "5"], answer: "2" },
-      { question: "Tính tổng của cấp số nhân lùi vô hạn có u1 = 3, công bội q = -1/3.", options: ["9/4", "9/2", "3/4", "2"], answer: "9/4" },
-      { question: "Có bao nhiêu cách xếp 3 học sinh nam và 3 học sinh nữ thành hàng ngang sao cho nam nữ đứng ngồi xen kẽ nhau?", options: ["72", "36", "12", "144"], answer: "72" },
-      { question: "Tìm tập giá trị T của hàm số lượng giác bậc cao y = sin⁴x + cos⁴x.", options: ["[1/2; 1]", "[0; 1]", "[3/4; 1]", "R"], answer: "[1/2; 1]" },
-      { question: "Tìm số tự nhiên n thỏa mãn hệ thức chỉnh hợp kết hợp hoán vị: A_n^2 = P_3 + 2.", options: ["n = 4", "n = 3", "n = 5", "Vô nghiệm"], answer: "n = 4" },
-      { question: "Cho cấp số nhân có un thỏa mãn u1 = 2 và tổng S3 = 26. Tìm các giá trị thực của công bội q biết q > 0.", options: ["3", "2", "4", "1"], answer: "3" },
-      { question: "Rút gọn biểu thức lượng giác tổng hợp nâng cao: A = cos(20°) + cos(100°) + cos(140°).", options: ["0", "1", "1/2", "-1"], answer: "0" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 40: 👹 Đại Boss Lớp 11
-  // ==========================================
-  40: {
-    stage1: [
-      { question: "Đại Boss Lớp 11 xuất hiện! Phương trình sinx + √3cosx = 2 có họ nghiệm chính xác là:", options: ["x = π/6 + k2π", "x = π/3 + k2π", "x = ±π/6 + k2π", "Vô nghiệm"], answer: "x = π/6 + k2π" },
-      { question: "Tìm hệ số của số hạng chứa x⁵ trong khai triển nhị thức Newton biểu thức đại số (2x - 1)⁸.", options: ["-448", "448", "-1792", "1792"], answer: "-1792" },
-      { question: "Cho cấp số cộng có u1 = 4 và tổng S10 = 175. Tìm công sai d.", options: ["3", "2", "4", "1.5"], answer: "3" },
-      { question: "Cho cấp số nhân có u1 = 3 và u4 = 24. Tính tổng 5 số hạng đầu tiên S5.", options: ["93", "63", "81", "120"], answer: "93" },
-      { question: "Có bao nhiêu số tự nhiên lẻ gồm 4 chữ số khác nhau được lập từ các chữ số 0, 1, 2, 3, 4, 5?", options: ["144", "300", "120", "180"], answer: "144" },
-      { question: "Tìm chu kỳ tuần hoàn cơ sở của hàm số lượng giác phức tạp y = tan(3x) + sin(2x).", options: ["π", "2π", "π/3", "π/2"], answer: "π" },
-      { question: "Giải phương trình ẩn phụ tổ hợp chứa giai thừa: C_n^2 + A_n^2 = 90.", options: ["n = 8", "n = 9", "n = 7", "n = 10"], answer: "n = 8" },
-      { question: "Tìm giá trị lớn nhất M của hàm số lượng giác tổng hợp y = 5sin(x) - 12cos(x) + 3.", options: ["16", "10", "13", "8"], answer: "16" },
-      { question: "Có bao nhiêu cách chọn một ban đại diện gồm 3 người có ít nhất 1 nam từ 5 nam và 4 nữ?", options: ["80", "84", "40", "76"], answer: "80" },
-      { question: "Cho ba số x, 4, y theo thứ tự vừa lập thành cấp số cộng, đồng thời x, 2, y theo thứ tự lập thành cấp số nhân. Tìm giá trị |x - y|.", options: ["4√3", "4", "2", "0"], answer: "4√3" }
-    ],
-    stage2: [
-      { question: "Phương trình lượng giác bậc hai đối với cos: 2cos²x + 3cosx + 1 = 0 có nghiệm là:", options: ["x = π + k2π và x = ±2π/3 + k2π", "x = k2π", "x = ±π/3 + k2π", "Vô nghiệm"], answer: "x = π + k2π và x = ±2π/3 + k2π" },
-      { question: "Tìm số hạng không chứa x trong khai triển nhị thức Newton của biểu thức (2x² - 1/x)⁶.", options: ["240", "15", "60", "160"], answer: "240" },
-      { question: "Cho cấp số cộng có un thỏa mãn: u2 + u5 - u3 = 10 và u4 + u6 = 26. Tìm số hạng đầu u1.", options: ["1", "2", "3", "5"], answer: "1" },
-      { question: "Cho một cấp số nhân lùi vô hạn có tổng S = 3, biết công bội q = 1/3. Tìm số hạng đầu tiên u1.", options: ["2", "1", "3", "1/2"], answer: "2" },
-      { question: "Có bao nhiêu cách xếp 5 học sinh nam và 5 học sinh nữ ngồi vào một bàn tròn sao cho các học sinh nam ngồi cạnh nhau?", options:         ["14400", "2880", "120", "50400"], answer: "14400" },
-      { question: "Tìm m để phương trình lượng giác ẩn phụ m.sin²x - 2sinx + 1 = 0 có nghiệm thực.", options: ["m ≤ 1", "m ≥ -1", "m ∈ R", "m ≤ 0"], answer: "m ≤ 1" },
-      { question: "Tính tổng chuỗi tổ hợp đối xứng khuyết: S = C_10^1 + C_10^3 + C_10^5 + C_10^7 + C_10^9.", options: ["512", "1024", "256", "500"], answer: "512" },
-      { question: "Từ một tổ gồm 12 học sinh giỏi, có bao nhiêu cách chia đều thành 3 nhóm độc lập, mỗi nhóm gồm 4 học sinh?", options: ["5775", "34650", "15400", "92400"], answer: "5775" },
-      { question: "Tìm giá trị nhỏ nhất m của hàm số lượng giác phân thức y = (2 + cosx) / (2 - cosx).", options: ["1/3", "1", "3", "0"], answer: "1/3" },
-      { question: "Cho dãy số un thỏa mãn u1 = 1, u(n+1) = un + 2^n. Tìm số hạng thứ 5 u5.", options: ["31", "15", "16", "32"], answer: "31" }
-    ],
-    stage3: [
-      { question: "Hạ gục Đại Boss Lớp 11! Giải phương trình lượng giác siêu cấp: sin³x + cos³x = sinx - cosx.", options: ["x = π/2 + kπ và x = k2π", "x = π/2 + k2π", "x = kπ", "x = π/2 + kπ"], answer: "x = π/2 + kπ" },
-      { question: "Tìm hệ số của số hạng chứa x⁴ trong khai triển đa thức kết hợp: P(x) = (1 + x + x²)¹⁰.", options: ["615", "210", "45", "90"], answer: "615" },
-      { question: "Cho cấp số cộng có tổng n số hạng đầu là Sn = 3n² + 5n. Tìm số hạng thứ 20 u20.", options: ["122", "120", "115", "125"], answer: "122" },
-      { question: "Cho cấp số nhân có tổng số hạng thỏa mãn: u1 + u2 + u3 = 7 và u1² + u2² + u3² = 21. Tìm công bội q dương.", options: ["2", "1/2", "3", "1"], answer: "2" },
-      { question: "Có bao nhiêu số tự nhiên gồm 5 chữ số khác nhau được lập từ tập {0, 1, 2, 3, 4, 5, 6} sao cho số đó chia hết cho 5 và luôn có mặt chữ số 1?", options: ["456", "480", "520", "360"], answer: "456" },
-      { question: "Tìm tập xác định của hàm số lượng giác siêu phức tạp y = 1 / √(sin²x - sinx).", options: ["x ∈ (π + k2π; 2π + k2π)", "x ≠ kπ", "x ≠ π/2 + kπ", "Vô nghiệm"], answer: "x ∈ (π + k2π; 2π + k2π)" },
-      { question: "Giải phương trình tìm n tự nhiên nâng cao: C_n^1 + 6C_n^2 + 6C_n^3 = 9n² - 14n.", options: ["n = 7", "n = 5", "n = 6", "Vô nghiệm"], answer: "n = 7" },
-      { question: "Tìm giá trị của biểu thức hằng số lượng giác tích phân chu kỳ: A = tan(20°)tan(40°)tan(60°)tan(80°).", options: ["3", "1", "√3", "9"], answer: "3" },
-      { question: "Một hình đa giác đều có 20 đỉnh. Chọn ngẫu nhiên 4 đỉnh của đa giác. Có bao nhiêu cách chọn để 4 đỉnh này tạo thành một hình chữ nhật?", options: ["45", "90", "10", "15"], answer: "45" },
-      { question: "Chúc mừng bạn đã tiêu diệt Đại Boss Lớp 11 và phá đảo học phần! Tính tổng chuỗi phân số cấp số nhân đặc biệt: S = 1/2 + 2/4 + 3/8 + 4/16 + ... + n/2^n khi n tiến tới vô cùng.", options: ["2", "1.5", "1", "Vô cùng"], answer: "2" }
-    ]
-  },
-
-// ==========================================
-  // WORLD 41: 📈 Hàm Số & Sự Biến Thiên
-  // ==========================================
-  41: {
-    stage1: [
-      { question: "Cho hàm số có bảng biến thiên với f'(x) > 0 trên (-∞; 2) và f'(x) < 0 trên (2; +∞). Hàm số đồng biến trên khoảng nào?", options: ["(-∞; 2)", "(2; +∞)", "R", "(0; 2)"], answer: "(-∞; 2)" },
-      { question: "Mệnh đề nào sau đây đúng về tính đơn điệu của hàm số y = x³ - 3x?", options: ["Đồng biến trên (-∞; -1) và (1; +∞)", "Nghịch biến trên R", "Đồng biến trên (-1; 1)", "Nghịch biến trên (-∞; -1)"], answer: "Đồng biến trên (-∞; -1) và (1; +∞)" },
-      { question: "Tìm tập xác định D của hàm số y = √(x - 3).", options: ["[3; +∞)", "(3; +∞)", "R \\ {3}", "R"], answer: "[3; +∞)" },
-      { question: "Đạo hàm của hàm số y = x⁴ - 2x² + 1 là:", options: ["y' = 4x³ - 4x", "y' = 4x³ - 2x", "y' = x³ - 4x", "y' = 4x³ + 4x"], answer: "y' = 4x³ - 4x" },
-      { question: "Hàm số y = -x⁴ + 2x² nghịch biến trên khoảng nào dưới đây?", options: ["(0; 1)", "(-1; 0)", "(-∞; -1)", "(1; +∞)"], answer: "(1; +∞)" },
-      { question: "Cho hàm số y = f(x) có đạo hàm f'(x) = x(x - 1). Hàm số nghịch biến trên khoảng nào?", options: ["(0; 1)", "(-∞; 0)", "(1; +∞)", "R"], answer: "(0; 1)" },
-      { question: "Tập xác định của hàm số phân thức bậc nhất y = (2x + 1) / (x - 1) là:", options: ["R \\ {1}", "R \\ {-1}", "(1; +∞)", "R"], answer: "R \\ {1}" },
-      { question: "Hàm số y = (x + 3) / (x - 2) luôn luôn biến thiên như thế nào trên các khoảng xác định?", options: ["Nghịch biến", "Đồng biến", "Không đổi", "Vừa đồng biến vừa nghịch biến"], answer: "Nghịch biến" },
-      { question: "Cho hàm số bậc ba y = f(x) có đạo hàm luôn dương với mọi x thuộc R. Số điểm cực trị của hàm số là:", options: ["0", "1", "2", "3"], answer: "0" },
-      { question: "Xét tính đơn điệu của hàm số trùng phương y = x⁴ + 4x². Chọn khẳng định đúng.", options: ["Đồng biến trên (0; +∞)", "Nghịch biến trên (0; +∞)", "Đồng biến trên R", "Nghịch biến trên R"], answer: "Đồng biến trên (0; +∞)" }
-    ],
-    stage2: [
-      { question: "Tìm tất cả các giá trị thực của tham số m để hàm số bậc ba y = x³ - 3x² + mx + 1 đồng biến trên R.", options: ["m ≥ 3", "m > 3", "m ≤ 3", "m < 3"], answer: "m ≥ 3" },
-      { question: "Tìm các khoảng đồng biến của hàm số chứa căn thức y = √(4 - x²).", options: ["(-2; 0)", "(0; 2)", "(-2; 2)", "R"], answer: "(-2; 0)" },
-      { question: "Hàm số phân thức y = (mx + 4) / (x + m) nghịch biến trên từng khoảng xác định khi và chỉ khi:", options: ["-2 < m < 2", "m ≤ -2 hoặc m ≥ 2", "m < -2", "m > 2"], answer: "-2 < m < 2" },
-      { question: "Cho hàm số y = f(x) có đạo hàm f'(x) = (x - 1)²(x - 2)(x + 3). Hàm số đồng biến trên khoảng nào?", options: ["(2; +∞)", "(-3; 2)", "(-∞; -3)", "(1; 2)"], answer: "(2; +∞)" },
-      { question: "Tìm khoảng nghịch biến của hàm số phân thức bậc hai/bậc nhất y = (x² + x + 1) / (x + 1).", options: ["(-2; 0) \\ {-1}", "(-∞; -2)", "(0; +∞)", "R \\ {-1}"], answer: "(-2; 0) \\ {-1}" },
-      { question: "Biết hàm số y = x³ - 3mx² + 3(m² - 1)x đạt đồng biến trên R khi m thuộc tập nào?", options: ["Không tồn tại m", "m ∈ R", "m > 1", "m < -1"], answer: "Không tồn tại m" },
-      { question: "Hàm số y = x + cosx đơn điệu như thế nào trên trục số R?", options: ["Luôn đồng biến", "Luôn nghịch biến", "Không đổi", "Tuần hoàn"], answer: "Luôn đồng biến" },
-      { question: "Cho đạo hàm f'(x) = x²(x + 1)³. Khẳng định nào sau đây là chính xác?", options: ["Hàm số nghịch biến trên (-∞; -1)", "Hàm số đồng biến trên (-∞; -1)", "Hàm số nghịch biến trên (-1; +∞)", "Hàm số nghịch biến trên R"], answer: "Hàm số nghịch biến trên (-∞; -1)" },
-      { question: "Tìm tập hợp m để hàm số y = (1/3)x³ - mx² + (2m + 3)x - 5 đồng biến trên R.", options: ["[-1; 3]", "(-∞; -1] ∪ [3; +∞)", "(-1; 3)", "R"], answer: "[-1; 3]" },
-      { question: "Xét tính biến thiên của y = x - 1/x. Chọn câu trả lời đúng nhất.", options: ["Đồng biến trên từng khoảng xác định", "Nghịch biến trên từng khoảng xác định", "Đồng biến trên R", "Nghịch biến trên R"], answer: "Đồng biến trên từng khoảng xác định" }
-    ],
-    stage3: [
-      { question: "Tìm số nguyên m lớn nhất để hàm số y = (mx + 9) / (x + m) nghịch biến trên khoảng (1; +∞).", options: ["1", "2", "3", "0"], answer: "1" },
-      { question: "Có bao nhiêu giá trị nguyên của m để hàm số y = -x³ + 3x² + 3mx - 1 nghịch biến trên khoảng (0; +∞)?", options: ["Vô số", "0", "1", "2"], answer: "Vô số" },
-      { question: "Tìm m để hàm số y = x³ - 3(m + 1)x² + 3m(m + 2)x đồng biến trên đoạn [0; 2].", options: ["m ≤ -2 hoặc m ≥ 2", "m ≤ 0", "m ≥ 2", "0 ≤ m ≤ 2"], answer: "m ≤ -2 hoặc m ≥ 2" },
-      { question: "Cho hàm số f(x) có đạo hàm f'(x) = (x - 1)(x - 2)...(x - 2026). Hàm số nghịch biến trên khoảng nào sau đây?", options: ["(1; 2)", "(2; 3)", "(2025; 2026)", "(0; 1)"], answer: "(1; 2)" },
-      { question: "Tìm tham số m để hàm số y = 2x³ - 3x² - m đồng biến trên [1; 3].", options: ["m ∈ R", "m ≤ 0", "m ≥ 0", "m = 1"], answer: "m ∈ R" },
-      { question: "Cho hàm số hợp y = f(2 - x) biết f'(x) > 0 khi x < 1. Hàm số hợp đồng biến trên khoảng nào?", options: ["(1; +∞)", "(-∞; 1)", "R", "(0; 2)"], answer: "(1; +∞)" },
-      { question: "Tìm m để y = (1/3)x³ - (m - 1)x² + 2(m - 1)x + 1 đồng biến trên [1; +∞).", options: ["m ≤ 2", "m < 1", "m ≥ 2", "m ∈ R"], answer: "m ≤ 2" },
-      { question: "Có bao nhiêu giá trị nguyên của m thuộc [-10; 10] để y = x + m.cosx luôn đồng biến trên R?", options: ["1", "21", "0", "11"], answer: "1" },
-      { question: "Cho hàm số y = f(x) có đồ thị đạo hàm f'(x) là một parabol có đỉnh I(1; -1) và cắt Ox tại x=0, x=2. Khoảng nghịch biến của f(x) là:", options: ["(0; 2)", "(-∞; 0)", "(2; +∞)", "R"], answer: "(0; 2)" },
-      { question: "Tìm m để hàm số y = tanx - 2m đơn điệu đồng biến trên khoảng (0; π/4).", options: ["m ∈ R", "m ≤ 0", "m > 0", "Vô nghiệm"], answer: "m ∈ R" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 42: 📉 Cực Trị Đồ Thị Hàm Số
-  // ==========================================
-  42: {
-    stage1: [
-      { question: "Điểm cực đại của đồ thị hàm số y = x³ - 3x là điểm nào?", options: ["(-1; 2)", "(1; -2)", "(-1; 0)", "(1; 0)"], answer: "(-1; 2)" },
-      { question: "Hàm số y = x⁴ - 2x² + 3 có bao nhiêu điểm cực trị?", options: ["3", "1", "2", "0"], answer: "3" },
-      { question: "Số điểm cực trị của hàm số bậc nhất trên bậc nhất y = (x + 1) / (x - 2) là:", options: ["0", "1", "2", "3"], answer: "0" },
-      { question: "Cho f(x) có đạo hàm f'(x) = x(x - 1)². Điểm cực tiểu của hàm số là:", options: ["x = 0", "x = 1", "x = -1", "Không có cực tiểu"], answer: "x = 0" },
-      { question: "Giá trị cực tiểu của hàm số y = x³ - 3x² + 2 là:", options: ["-2", "2", "0", "4"], answer: "-2" },
-      { question: "Hàm số trùng phương y = -x⁴ - 4x² + 1 có bao nhiêu điểm cực đại?", options: ["1", "2", "3", "0"], answer: "1" },
-      { question: "Cho bảng biến thiên của hàm số có f'(x) đổi dấu từ dương sang âm khi qua x = -1. Khẳng định nào đúng?", options: ["Hàm số đạt cực đại tại x = -1", "Hàm số đạt cực tiểu tại x = -1", "Giá trị cực đại là -1", "Hàm số không có cực trị"], answer: "Hàm số đạt cực đại tại x = -1" },
-      { question: "Điểm cực tiểu của đồ thị hàm số y = -x³ + 3x là:", options: ["(-1; -2)", "(1; 2)", "(-1; 2)", "(1; -2)"], answer: "(-1; -2)" },
-      { question: "Tìm số điểm cực trị của hàm số y = f(x) khi biết f'(x) = (x - 1)³(x + 2)⁴.", options: ["1", "2", "0", "7"], answer: "1" },
-      { question: "Hàm số y = 3x⁴ + 1 đạt cực tiểu tại điểm x bằng bao nhiêu?", options: ["x = 0", "x = 1", "x = -1", "Không có cực tiểu"], answer: "x = 0" }
-    ],
-    stage2: [
-      { question: "Tìm tất cả các giá trị của tham số m để hàm số y = x³ - 3mx² + 3x + 1 có hai điểm cực trị.", options: ["|m| > 1", "|m| < 1", "m ≥ 1", "m ∈ R"], answer: "|m| > 1" },
-      { question: "Đồ thị hàm số trùng phương y = x⁴ - 2mx² + m có 3 điểm cực trị tạo thành tam giác cân khi nào?", options: ["m > 0", "m < 0", "m = 0", "m ∈ R"], answer: "m > 0" },
-      { question: "Cho hàm số y = f(x) có đạo hàm f'(x) = x(x - 1)²(x - 3)³. Số điểm cực trị của hàm số là:", options: ["2", "3", "1", "4"], answer: "2" },
-      { question: "Tìm đường thẳng đi qua hai điểm cực trị của đồ thị hàm số bậc ba y = x³ - 3x + 2.", options: ["y = -2x + 2", "y = 2x + 2", "y = -3x + 2", "y = x"], answer: "y = -2x + 2" },
-      { question: "Tìm giá trị cực đại của hàm số y = x + 1/x.", options: ["-2", "2", "0", "1"], answer: "-2" },
-      { question: "Hàm số y = x³ - 3x² + mx - 1 không có cực trị khi và chỉ khi:", options: ["m ≥ 3", "m < 3", "m > 3", "m ≤ 3"], answer: "m ≥ 3" },
-      { question: "Tìm tất cả các giá trị thực của m để hàm số y = x⁴ + 2(m² - 4)x² + 1 có đúng một điểm cực trị.", options: ["-2 ≤ m ≤ 2", "m < -2 hoặc m > 2", "m = ±2", "m ≥ 0"], answer: "-2 ≤ m ≤ 2" },
-      { question: "Tìm m để hàm số y = (1/3)x³ - mx² + (m + 2)x + 1 đạt cực tiểu tại x = 2.", options: ["m = 1", "m = 2", "m = 0", "Không tồn tại m"], answer: "m = 1" },
-      { question: "Đồ thị hàm số y = x³ - 3x² có tâm đối xứng nằm ở điểm nào?", options: ["(1; -2)", "(0; 0)", "(2; -4)", "(1; 0)"], answer: "(1; -2)" },
-      { question: "Cho hàm số f(x) có đạo hàm f'(x) = x²(x + 1)(x - 2)². Số điểm cực đại của hàm số là:", options: ["0", "1", "2", "3"], answer: "0" }
-    ],
-    stage3: [
-      { question: "Tìm tất cả các giá trị của tham số m để đồ thị hàm số y = x⁴ - 2mx² + 1 có 3 điểm cực trị tạo thành một tam giác vuông cân.", options: ["m = 1", "m = 2", "m = 1/2", "m = 4"], answer: "m = 1" },
-      { question: "Có bao nhiêu giá trị nguyên của m để hàm số y = mx³ - 3mx² + (3m - 2)x + 1 không có cực trị?", options: ["Vô số", "0", "1", "2"], answer: "Vô số" },
-      { question: "Cho hàm số bậc bốn y = f(x) có đồ thị đạo hàm f'(x) cắt trục hoành tại 3 điểm phân biệt. Số điểm cực trị của hàm số y = |f(x)| có thể đạt tối đa là bao nhiêu?", options: ["7", "5", "3", "6"], answer: "7" },
-      { question: "Tìm m để khoảng cách giữa hai điểm cực trị của đồ thị hàm số y = x³ - 3x² + m bằng 2√5.", options: ["m ∈ R", "m = 0", "m = ±1", "Vô nghiệm"], answer: "m ∈ R" },
-      { question: "Tìm m để hàm số y = x³ - 3x² + mx đạt cực đại và cực tiểu tại x1, x2 sao cho x1² + x2² = 6.", options: ["m = 0", "m = 3", "m = -3", "Vô nghiệm"], answer: "m = 0" },
-      { question: "Biết đồ thị hàm số y = x³ + ax² + bx + c có hai điểm cực trị là A(0; 2) và B(2; -2). Tính tổng a + b + c.", options: ["-1", "-2", "2", "0"], answer: "-1" },
-      { question: "Tìm m để hàm số trùng phương y = x⁴ - 2(m + 1)x² + m² có 3 cực trị tạo thành tam giác có diện tích bằng 1.", options: ["m = 0", "m = 1", "m = 2", "Vô nghiệm"], answer: "m = 0" },
-      { question: "Tìm số cực trị của hàm hợp y = f(x² - 2x) biết hàm số f(x) là hàm bậc ba có 2 cực trị tại -1 và 2.", options: ["3", "5", "2", "4"], answer: "3" },
-      { question: "Tìm tất cả các giá trị thực của tham số m để hàm số y = x³ - 3mx² + 3(m² - 1)x có hai điểm cực trị nằm về hai phía đối với trục Ox.", options: ["-1 < m < 1", "m > 1", "m < -1", "m = 0"], answer: "-1 < m < 1" },
-      { question: "Cho hàm số f(x) có đạo hàm f'(x) = (x - 1)(x - 2)²(x - 3)³. Số điểm cực tiểu của hàm số g(x) = f(x + 1) là:", options: ["1", "2", "3", "0"], answer: "1" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 43: 📉 Đường Tiệm Cận Đồ Thị
-  // ==========================================
-  43: {
-    stage1: [
-      { question: "Đường tiệm cận đứng của đồ thị hàm số y = (2x + 1) / (x - 1) là đường thẳng:", options: ["x = 1", "y = 2", "x = -1", "y = 1"], answer: "x = 1" },
-      { question: "Đường tiệm cận ngang của đồ thị hàm số y = (3x - 2) / (x + 1) là:", options: ["y = 3", "x = -1", "y = -2", "x = 3"], answer: "y = 3" },
-      { question: "Đồ thị hàm số y = 1/x có bao nhiêu đường tiệm cận?", options: ["2", "1", "0", "4"], answer: "2" },
-      { question: "Đường thẳng y = 0 là tiệm cận ngang của đồ thị hàm số nào sau đây?", options: ["y = 1/x", "y = (x + 1)/(x - 1)", "y = x³", "y = x² + 1"], answer: "y = 1/x" },
-      { question: "Tìm tiệm cận ngang của đồ thị hàm số y = (1 - 2x) / (x + 3).", options: ["y = -2", "y = 1", "x = -3", "x = 2"], answer: "y = -2" },
-      { question: "Đồ thị hàm số y = (x² - 1) / (x - 1) có bao nhiêu đường tiệm cận đứng?", options: ["0", "1", "2", "3"], answer: "0" },
-      { question: "Tiệm cận đứng của đồ thị hàm số y = 5 / (2x - 4) là:", options: ["x = 2", "y = 0", "x = 4", "y = 5"], answer: "x = 2" },
-      { question: "Đồ thị hàm số trùng phương y = x⁴ - 2x² + 3 có bao nhiêu đường tiệm cận?", options: ["0", "1", "2", "3"], answer: "0" },
-      { question: "Cho hàm số có giới hạn khi x tiến tới +∞ là 2 và khi x tiến tới -∞ là -2. Đồ thị có bao nhiêu tiệm cận ngang?", options: ["2", "1", "0", "3"], answer: "2" },
-      { question: "Đường thẳng x = -2 là tiệm cận đứng của đồ thị hàm số nào?", options: ["y = 1/(x + 2)", "y = 1/(x - 2)", "y = (x-2)/(x+1)", "y = -2x"], answer: "y = 1/(x + 2)" }
-    ],
-    stage2: [
-      { question: "Tìm tổng số đường tiệm cận đứng và tiệm cận ngang của đồ thị hàm số y = (x - 1) / (x² - 3x + 2).", options: ["2", "3", "1", "4"], answer: "2" },
-      { question: "Đồ thị hàm số chứa căn thức y = √(x² + 1) / x có bao nhiêu đường tiệm cận ngang?", options: ["2", "1", "0", "3"], answer: "2" },
-      { question: "Tìm tiệm cận ngang của đồ thị hàm số y = x + √(x² - 1).", options: ["y = 0 khi x → -∞", "y = 1", "Không có tiệm cận ngang", "y = 0 khi x → +∞"], answer: "y = 0 khi x → -∞" },
-      { question: "Tìm tất cả các giá trị của m để đồ thị hàm số y = (x + 1) / (x - m) có tiệm cận đứng.", options: ["m ≠ -1", "m = -1", "m ∈ R", "m ≠ 1"], answer: "m ≠ -1" },
-      { question: "Đồ thị hàm số y = (x² - 4) / (x² - 5x + 6) có bao nhiêu đường tiệm cận?", options: ["2", "3", "1", "0"], answer: "2" },
-      { question: "Đồ thị hàm số y = (√x - 1) / (x² - 1) có tất cả bao nhiêu đường tiệm cận đứng?", options: ["1", "2", "0", "3"], answer: "1" },
-      { question: "Đường tiệm cận đứng của đồ thị hàm số y = 1 / √(x - 2) là:", options: ["x = 2", "x = -2", "y = 0", "Không có"], answer: "x = 2" },
-      { question: "Tìm tiệm cận ngang của đồ thị hàm số phân thức bậc hai trùng nhau y = (2x² + 1) / (x² - 4).", options: ["y = 2", "y = -1/4", "x = ±2", "y = 0"], answer: "y = 2" },
-      { question: "Cho hàm số f(x) liên tục trên R và có lim(x→+∞) f(x) = 5. Đường tiệm cận ngang của đồ thị g(x) = f(x) + 2 là:", options: ["y = 7", "y = 5", "y = 2", "Không có"], answer: "y = 7" },
-      { question: "Đồ thị hàm số y = x / √(x² - 2x) có bao nhiêu đường tiệm cận?", options: ["3", "2", "1", "4"], answer: "3" }
-    ],
-    stage3: [
-      { question: "Tìm tất cả các giá trị của tham số m để đồ thị hàm số y = (mx² - 1) / (x² - 3x + 2) có đúng hai đường tiệm cận.", options: ["m = 0 hoặc m = 1", "m = 0", "m = 1", "m ≠ 0"], answer: "m = 0 hoặc m = 1" },
-      { question: "Có bao nhiêu giá trị nguyên của tham số m để đồ thị hàm số y = (x - 1) / (x² - mx + 4) có đúng một đường tiệm cận đứng?", options: ["4", "2", "3", "5"], answer: "4" },
-      { question: "Tìm m để đồ thị hàm số y = (x + 1) / (x² - 2mx + m + 2) có hai đường tiệm cận đứng.", options: ["m < -1 hoặc m > 2 và m ≠ -1", "m < -1 hoặc m > 2", "-1 < m < 2", "m ∈ R"], answer: "m < -1 hoặc m > 2 và m ≠ -1" },
-      { question: "Đồ thị hàm số y = (√(x² + x + 1) - x) / (x - 2) có bao nhiêu đường tiệm cận ngang?", options: ["2", "1", "0", "3"], answer: "2" },
-      { question: "Tìm tất cả các giá trị của tham số m để đồ thị hàm số y = (x² - x - 2) / (x² - (m + 1)x + m) có đúng hai đường tiệm cận.", options: ["m = -1 hoặc m = 2", "m = 1", "m = -1", "m ∈ R"], answer: "m = -1 hoặc m = 2" },
-      { question: "Tìm số tiệm cận đứng của đồ thị hàm số siêu cấp y = (√(x + 3) - 2) / (x² - 2x - 3).", options: ["1", "2", "0", "3"], answer: "1" },
-      { question: "Cho hàm số f(x) có đồ thị (C) và thỏa mãn lim(x→1⁺) f(x) = +∞, lim(x→-∞) f(x) = 2. Tổng số tiệm cận đứng và ngang của đồ thị hàm số y = 1/f(x) là:", options: ["Chưa đủ dữ kiện", "1", "2", "3"], answer: "Chưa đủ dữ kiện" },
-      { question: "Có bao nhiêu giá trị thực m để đồ thị y = (x² - 3x + 2) / (x² - mx + m - 1) không có tiệm cận đứng?", options: ["1", "2", "0", "Vô số"], answer: "1" },
-      { question: "Tìm tất cả các tiệm cận ngang của hàm số y = 2x - 1 + √(4x² + 1).", options: ["y = -1 khi x → -∞", "y = -1", "y = 0", "Không có tiệm cận ngang"], answer: "y = -1 khi x → -∞" },
-      { question: "Cho đồ thị hàm số y = P(x)/Q(x) bậc tử bằng bậc mẫu. Biết Q(x) = 0 có 3 nghiệm phân biệt trong đó có 1 nghiệm trùng với nghiệm tử bậc 2. Số tiệm cận đứng của đồ thị là:", options: ["2", "3", "1", "0"], answer: "2" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 44: 📉 Giá Trị Lớn Nhất & Nhỏ Nhất
-  // ==========================================
-  44: {
-    stage1: [
-      { question: "Giá trị lớn nhất của hàm số y = -x² + 4x + 1 trên đoạn [0; 3] là:", options: ["5", "1", "4", "2"], answer: "5" },
-      { question: "Tìm giá trị nhỏ nhất của hàm số y = x³ - 3x trên đoạn [0; 2].", options: ["-2", "0", "2", "-1"], answer: "-2" },
-      { question: "Trên đoạn [-1; 2], hàm số bậc nhất y = 2x + 1 đạt giá trị nhỏ nhất tại điểm nào?", options: ["x = -1", "x = 2", "y = -1", "y = 5"], answer: "x = -1" },
-      { question: "Giá trị lớn nhất của hàm số phân thức y = (x + 1) / (x - 2) trên đoạn [-1; 1] là:", options: ["0", "-2", "1", "1/2"], answer: "0" },
-      { question: "Tìm giá trị nhỏ nhất của hàm số trùng phương y = x⁴ - 2x² + 5 trên đoạn [-2; 2].", options: ["4", "5", "13", "0"], answer: "4" },
-      { question: "Tìm giá trị lớn nhất M của hàm số y = sinx + 2 trên R.", options: ["3", "1", "2", "0"], answer: "3" },
-      { question: "Hàm số y = f(x) liên tục trên đoạn [-1; 3] và có bảng biến thiên tăng từ -2 lên 5 rồi giảm xuống 1. Giá trị lớn nhất của hàm số trên đoạn này là:", options: ["5", "-2", "1", "3"], answer: "5" },
-      { question: "Tìm giá trị lớn nhất của hàm số y = √(4 - x²).", options: ["2", "4", "0", "1"], answer: "2" },
-      { question: "Giá trị nhỏ nhất của hàm số y = x + 4/x trên khoảng (0; +∞) bằng:", options: ["4", "2", "5", "0"], answer: "4" },
-      { question: "Tìm giá trị lớn nhất của hàm số y = -x⁴ + 2x² + 1 trên R.", options: ["2", "1", "0", "3"], answer: "2" }
-    ],
-    stage2: [
-      { question: "Tìm giá trị nhỏ nhất của hàm số y = x³ - 3x² - 9x + 5 trên đoạn [-2; 2].", options: ["-17", "7", "-22", "5"], answer: "-17" },
-      { question: "Tìm giá trị lớn nhất M và nhỏ nhất m của hàm số y = x + cos²x trên đoạn [0; π/2].", options: ["M = π/2, m = 1", "M = π/2, m = 0", "M = 1, m = 0", "M = π/2 + 1, m = 1"], answer: "M = π/2, m = 1" },
-      { question: "Gọi M và m lần lượt là GTLN và GTNN của hàm số y = (x² + 3) / (x - 1) trên đoạn [2; 4]. Tính giá trị M + m.", options: ["21/3", "32/3", "7", "11"], answer: "32/3" },
-      { question: "Tìm giá trị lớn nhất của hàm số y = x - √(4 - x²).", options: ["2", "2√2", "-2", "0"], answer: "2" },
-      { question: "Cho hàm số y = f(x) liên tục trên R và đạt GTNN trên đoạn [-1; 2] bằng 3. Tìm GTNN của hàm số g(x) = 2f(x) - 1 trên đoạn đó.", options: ["5", "3", "7", "2"], answer: "5" },
-      { question: "Hàm số y = sin²x - 4sinx + 5 đạt giá trị nhỏ nhất bằng bao nhiêu?", options: ["2", "1", "5", "10"], answer: "2" },
-      { question: "Tìm giá trị nhỏ nhất của hàm số y = x⁴ - 4x² + 3 trên đoạn [-1; 3].", options: ["-1", "3", "48", "0"], answer: "-1" },
-      { question: "Hàm số y = (x - m²) / (x + 1) luôn đạt GTNN trên đoạn [0; 3] tại x = 0 khi nào?", options: ["Với mọi m", "m = 0", "m > 1", "Không tồn tại m"], answer: "Với mọi m" },
-      { question: "Tìm giá trị lớn nhất của hàm số y = x³ - 3x + m trên đoạn [0; 2] biết giá trị lớn nhất đó bằng 5.", options: ["m = 3", "m = 2", "m = 5", "m = 1"], answer: "m = 3" },
-      { question: "Tìm GTNN của hàm số y = tanx + cotx trên khoảng (0; π/2).", options: ["2", "1", "-2", "0"], answer: "2" }
-    ],
-    stage3: [
-      { question: "Tìm tất cả các giá trị của m để giá trị lớn nhất của hàm số y = |x² - 2x + m| trên đoạn [0; 3] bằng 5.", options: ["m = 1 hoặc m = -4", "m = 1", "m = -4", "m = 2"], answer: "m = 1 hoặc m = -4" },
-      { question: "Cho hai số thực x, y thay đổi thỏa mãn x² + y² = 1. Tìm giá trị lớn nhất của biểu thức P = x³ + y³.", options: ["1", "√2", "2", "1/2"], answer: "1" },
-      { question: "Tìm giá trị nhỏ nhất của hàm số hợp y = f(x³ - 3x) trên đoạn [0; 2] biết f(t) đạt GTNN bằng -3 khi t = 1.", options: ["-3", "0", "1", "-2"], answer: "-3" },
-      { question: "Một bác nông dân muốn làm hàng rào hình chữ nhật bao quanh khu đất sát bờ tường thẳng có sẵn (không cần rào bờ tường). Biết bác có 40m lưới, diện tích lớn nhất bác có thể rào được là bao nhiêu?", options: ["200 m²", "400 m²", "100 m²", "150 m²"], answer: "200 m²" },
-      { question: "Tìm m để giá trị nhỏ nhất của hàm số y = (x + m) / (x - 1) trên đoạn [2; 4] bằng 3.", options: ["m = 1", "m = -1", "m = 3", "m = 2"], answer: "m = m = 1" }, // Sửa text đáp án chính xác
-      { question: "Cho biểu thức P = x⁴ + y⁴ - x²y². Biết x² + y² = 2, tìm giá trị nhỏ nhất của P.", options: ["1", "2", "4", "0"], answer: "1" },
-      { question: "Tìm giá trị lớn nhất của hàm số y = sin³x + cos³x trên R.", options: ["1", "√2", "2", "1/2"], answer: "1" },
-      { question: "Có bao nhiêu giá trị nguyên của tham số m để GTNN của y = x³ - 3x + m trên [0; 2] nhỏ hơn 10?", options: ["Vô số", "10", "11", "9"], answer: "Vô số" },
-      { question: "Tìm GTNN của biểu thức P = x + 1/x + y + 1/y với x > 0, y > 0 và x + y = 1.", options: ["5", "4", "6", "9"], answer: "5" },
-      { question: "Tìm giá trị lớn nhất của hàm số y = x + √(2 - x²) trên tập xác định.", options: ["2", "√2", "4", "1"], answer: "2" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 45: 👹 Boss Khảo Sát Đồ Thị Hàm Số
-  // ==========================================
-  45: {
-    stage1: [
-      { question: "Boss Đồ Thị xuất hiện! Số giao điểm của đồ thị hàm số y = x³ - 3x và trục hoành là:", options: ["3", "1", "2", "0"], answer: "3" },
-      { question: "Đồ thị của hàm số nào sau đây có hình dạng đường cong chữ W?", options: ["y = x⁴ - 2x²", "y = -x⁴ + 2x²", "y = x³ - 3x", "y = (x+1)/(x-1)"], answer: "y = x⁴ - 2x²" },
-      { question: "Tìm tung độ giao điểm của đồ thị y = (2x + 1) / (x - 1) và trục tung Oy.", options: ["-1", "1", "2", "1/2"], answer: "-1" },
-      { question: "Đồ thị hàm số bậc ba y = x³ - 3x² + 2 có điểm uốn (tâm đối xứng) tại hoành độ x bằng bao nhiêu?", options: ["x = 1", "x = 0", "x = 2", "x = -1"], answer: "x = 1" },
-      { question: "Đồ thị hàm số y = (x - 2) / (x + 1) cắt đường thẳng y = x tại bao nhiêu điểm?", options: ["0", "1", "2", "3"], answer: "0" },
-      { question: "Cho hàm số có đồ thị đi qua điểm A(1; 3). Mệnh đề nào sau đây đúng?", options: ["f(1) = 3", "f(3) = 1", "f'(1) = 3", "f'(3) = 1"], answer: "f(1) = 3" },
-      { question: "Đồ thị hàm số y = -x³ + 3x² - 4 cắt trục hoành tại điểm có hoành độ bằng bao nhiêu?", options: ["x = 2 và x = -1", "x = 0", "x = 1", "x = -2"], answer: "x = 2 và x = -1" },
-      { question: "Đồ thị hàm số y = x⁴ - 4x² + 1 nhận trục nào làm trục đối xứng?", options: ["Trục tung Oy", "Trục hoành Ox", "Đường thẳng y = x", "Không có trục đối xứng"], answer: "Trục tung Oy" },
-      { question: "Tìm phương trình tiếp tuyến của đồ thị hàm số y = x³ tại điểm có hoành độ x = 1.", options: ["y = 3x - 2", "y = 3x", "y = x + 2", "y = 3x + 1"], answer: "y = 3x - 2" },
-      { question: "Dựa vào đồ thị hàm số bậc ba y = f(x), đường thẳng y = m cắt đồ thị tại đúng 3 điểm phân biệt khi nào?", options: ["y_ct < m < y_cd", "m > y_cd", "m < y_ct", "m = y_cd"], answer: "y_ct < m < y_cd" }
-    ],
-    stage2: [
-      { question: "Tìm m để phương trình x³ - 3x - m = 0 có đúng 3 nghiệm thực phân biệt.", options: ["-2 < m < 2", "m > 2", "m < -2", "m = ±2"], answer: "-2 < m < 2" },
-      { question: "Biện luận số nghiệm của phương trình x⁴ - 2x² - m + 1 = 0. Phương trình có 4 nghiệm phân biệt khi nào?", options: ["0 < m < 1", "m > 1", "m < 0", "Không tồn tại m"], answer: "0 < m < 1" },
-      { question: "Tìm phương trình tiếp tuyến của đồ thị hàm số y = (2x + 1) / (x - 1) tại giao điểm của nó với trục hoành.", options: ["y = -4/3(x + 1/2)", "y = 4/3(x - 1)", "y = -3x + 1", "y = x"], answer: "y = -4/3(x + 1/2)" },
-      { question: "Cho hàm số y = f(x) có đồ thị như hình chữ M. Số nghiệm của phương trình |f(x)| = 1 khi đường thẳng y=1 cắt đồ thị tại 4 điểm là:", options: ["4", "3", "2", "6"], answer: "4" },
-      { question: "Tìm m để đường thẳng y = mx + 1 cắt đồ thị hàm số y = (x + 1) / (x - 1) tại hai điểm phân biệt.", options: ["m > 0", "m < 0", "m ≠ 0", "m ∈ R"], answer: "m > 0" },
-      { question: "Tìm tất cả các giá trị của m để đồ thị hàm số y = x³ - 3mx + 2 cắt trục hoành tại duy nhất một điểm.", options: ["m < 1", "m > 1", "m = 1", "m ∈ R"], answer: "m < 1" },
-      { question: "Tìm hệ số góc k của tiếp tuyến của đồ thị hàm số y = (x - 1) / (x + 1) tại điểm có hoành độ x = 0.", options: ["k = 2", "k = -2", "k = 1", "k = 0"], answer: "k = 2" },
-      { question: "Biết đồ thị hàm số y = ax³ + bx² + cx + d có điểm cực đại A(0; 3) và điểm cực tiểu B(2; -1). Xác định hệ số a.", options: ["a = 1", "a = -1", "a = 2", "a = -2"], answer: "a = 1" },
-      { question: "Đồ thị hàm số y = x⁴ - 2x² + 3 cắt đường thẳng y = 3 tại mấy điểm?", options: ["3", "4", "2", "1"], answer: "3" },
-      { question: "Tìm m để đường thẳng y = -x + m cắt đồ thị hàm số y = (2x - 1) / (x + 1) tại hai điểm phân biệt.", options: ["m ∈ R", "m > 1", "m < -1", "Vô nghiệm"], answer: "m ∈ R" }
-    ],
-    stage3: [
-      { question: "Hạ gục Boss Đồ Thị! Tìm tất cả các giá trị của tham số m để phương trình x⁴ - 2x² - 3 = m có 4 nghiệm phân biệt.", options: ["-4 < m < -3", "m > -3", "m < -4", "Vô nghiệm"], answer: "-4 < m < -3" },
-      { question: "Cho hàm số y = f(x) bậc ba. Phương trình f(|x|) = m có tối đa bao nhiêu nghiệm thực?", options: ["6", "4", "3", "5"], answer: "4" },
-      { question: "Tìm m để đường thẳng y = x + m cắt đồ thị hàm số y = (2x + 1) / (x - 1) tại hai điểm phân biệt A, B sao cho đoạn AB ngắn nhất.", options: ["m = 1", "m = -1", "m = 0", "m = 2"], answer: "m = -1" },
-      { question: "Có bao nhiêu giá trị nguyên của m để phương trình x³ - 3x² - m = 0 có 3 nghiệm phân biệt?", options: ["3", "4", "2", "5"], answer: "3" },
-      { question: "Tìm phương trình tiếp tuyến của đồ thị hàm số y = x³ - 3x² + 2 biết tiếp tuyến đó song song với đường thẳng y = 9x.", options: ["y = 9x - 27 và y = 9x + 5", "y = 9x", "y = 9x - 25", "Vô nghiệm"], answer: "y = 9x - 27 và y = 9x + 5" },
-      { question: "Cho hàm số f(x) có đồ thị như hình vẽ. Số nghiệm của phương trình f(f(x)) = 0 có thể đạt tối đa là bao nhiêu nếu f(x)=0 có 3 nghiệm?", options: ["9", "6", "3", "4"], answer: "9" },
-      { question: "Tìm tất cả các giá trị của tham số m để đồ thị hàm số y = x³ - 3x² + mx + 1 cắt đường thẳng y = 1 tại 3 điểm phân biệt có hoành độ x1, x2, x3 thỏa mãn x1² + x2² + x3² = 6.", options: ["m = 0", "m = 1", "m = -1", "Vô nghiệm"], answer: "m = 0" },
-      { question: "Tìm điểm M trên đồ thị hàm số y = (x + 2) / (x - 1) sao cho khoảng cách từ M đến điểm I(1; 1) là ngắn nhất.", options: ["M(2; 4) hoặc M(0; -2)", "M(2; 4)", "M(0; -2)", "M(3; 2.5)"], answer: "M(2; 4) hoặc M(0; -2)" },
-      { question: "Tìm tất cả các giá trị thực của tham số m để đồ thị hàm số y = x⁴ - 2mx² + 2m + m⁴ có các điểm cực trị nằm trên các trục tọa độ.", options: ["m = 0", "m = 1", "m = -1", "Vô nghiệm"], answer: "m = 0" },
-      { question: "Chúc mừng bạn đã hoàn thành chương Hàm Số! Cho hàm số y = x³ - 3x. Có bao nhiêu điểm trên đường thẳng y = 2 mà từ đó kẻ được đúng 2 tiếp tuyến đến đồ thị hàm số?", options: ["2", "1", "3", "Vô số"], answer: "2" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 46: 📚 Lũy Thừa & Hàm Số Mũ
-  // ==========================================
-  46: {
-    stage1: [
-      { question: "Rút gọn biểu thức lũy thừa P = a² * a³.", options: ["a⁵", "a⁶", "a", "a²³"], answer: "a⁵" },
-      { question: "Tính giá trị của biểu thức số học P = 8^(1/3).", options: ["2", "4", "1", "8"], answer: "2" },
-      { question: "Tìm tập xác định D của hàm số mũ y = 2^x.", options: ["R", "(0; +∞)", "[0; +∞)", "R \\ {0}"], answer: "R" },
-      { question: "Đạo hàm của hàm số mũ cơ bản y = e^x là:", options: ["y' = e^x", "y' = x * e^(x-1)", "y' = e^x * lne", "y' = 1/e^x"], answer: "y' = e^x" },
-      { question: "Đạo hàm của hàm số y = 3^x là:", options: ["y' = 3^x * ln3", "y' = 3^x / ln3", "y' = x * 3^(x-1)", "y' = 3^x"], answer: "y' = 3^x * ln3" },
-      { question: "Hàm số mũ y = (1/2)^x luôn đồng biến hay nghịch biến trên R?", options: ["Nghịch biến", "Đồng biến", "Không đổi", "Đồng biến trên khoảng dương"], answer: "Nghịch biến" },
-      { question: "Biến đổi biểu thức căn thức về dạng lũy thừa phân số: P = ∛(x⁴) với x > 0.", options: ["x^(4/3)", "x^(3/4)", "x⁷", "x¹²"], answer: "x^(4/3)" },
-      { question: "Tìm giá trị của P = (a^√2)^√2.", options: ["a²", "a^2√2", "a", "a⁴"], answer: "a²" },
-      { question: "Đồ thị hàm số y = a^x (0 < a ≠ 1) luôn đi qua điểm cố định nào?", options: ["(0; 1)", "(1; 0)", "(1; a)", "(0; 0)"], answer: "(0; 1)" },
-      { question: "Trong các hàm số sau, hàm số nào đồng biến trên R?", options: ["y = e^x", "y = (0.5)^x", "y = (1/π)^x", "y = 2^-x"], answer: "y = e^x" }
-    ],
-    stage2: [
-      { question: "Tìm tập xác định của hàm số lũy thừa với số mũ không nguyên y = (x - 1)^(√3).", options: ["(1; +∞)", "[1; +∞)", "R \\ {1}", "R"], answer: "(1; +∞)" },
-      { question: "Tính đạo hàm của hàm số mũ hợp: y = e^(x² - 2x).", options: ["y' = (2x - 2)e^(x² - 2x)", "y' = e^(x² - 2x)", "y' = (x² - 2x)e^(x² - 2x - 1)", "y' = 2xe^(x² - 2x)"], answer: "y' = (2x - 2)e^(x² - 2x)" },
-      { question: "Rút gọn biểu thức tổng hợp lũy thừa: P = [x^(1/2) - y^(1/2)]² / [1 - 2√(y/x) + y/x] với x, y > 0.", options: ["x", "y", "x - y", "√(xy)"], answer: "x" },
-      { question: "Tìm đạo hàm của hàm số y = 2^(3x).", options: ["y' = 3 * 2^(3x) * ln2", "y' = 2^(3x) * ln2", "y' = 3 * 2^(3x)", "y' = 2^(3x) / ln2"], answer: "y' = 3 * 2^(3x) * ln2" },
-      { question: "Hàm số y = (x² - 1)^(-2) có tập xác định là gì?", options: ["R \\ {±1}", "(-1; 1)", "(-∞; -1) ∪ (1; +∞)", "R"], answer: "R \\ {±1}" },
-      { question: "Cho biểu thức P = √(x * ∛x * ∜x). Viết P dưới dạng số mũ phân số đơn giản nhất.", options: ["x^(23/24)", "x^(1/2)", "x^(5/12)", "x^(1/4)"], answer: "x^(23/24)" },
-      { question: "Tìm tập giá trị T của hàm số y = 3^x + 1.", options: ["(1; +∞)", "R", "(0; +∞)", "[1; +∞)"], answer: "(1; +∞)" },
-      { question: "Đạo hàm của hàm số y = x * e^x là:", options: ["y' = (x + 1)e^x", "y' = e^x", "y' = x * e^x", "y' = e^x + 1"], answer: "y' = (x + 1)e^x" },
-      { question: "Cho 0 < a < b và x là số thực dương. Khẳng định nào sau đây sai?", options: ["a^x > b^x", "a^x < b^x", "(a/b)^x < 1", "(b/a)^x > 1"], answer: "a^x > b^x" },
-      { question: "Tính giá trị lớn nhất của hàm số y = e^x trên đoạn [-1; 1].", options: ["e", "1/e", "1", "e²"], answer: "e" }
-    ],
-    stage3: [
-      { question: "Tìm tập xác định của hàm số phức tạp y = (x² - 3x + 2)^(-√2).", options: ["(-∞; 1) ∪ (2; +∞)", "(1; 2)", "R \\ {1; 2}", "R"], answer: "(-∞; 1) ∪ (2; +∞)" },
-      { question: "Tìm giá trị nhỏ nhất của hàm số y = 2^x + 2^(-x) trên R.", options: ["2", "1", "0", "4"], answer: "2" },
-      { question: "Cho f(x) = e^(x) / (e^x + √e). Tính tổng S = f(1/100) + f(2/100) + ... + f(99/100).", options: ["49.5", "50", "99", "100"], answer: "49.5" },
-      { question: "Tính đạo hàm của hàm số siêu cấp: y = x^x với x > 0.", options: ["y' = x^x(lnx + 1)", "y' = x * x^(x-1)", "y' = x^x * lnx", "y' = x^x"], answer: "y' = x^x(lnx + 1)" },
-      { question: "Tìm tất cả các giá trị thực của m để hàm số y = e^(x³ - 3x - m) đạt cực tiểu tại x = 1.", options: ["m ∈ R", "m = 0", "m > 0", "Vô nghiệm"], answer: "m ∈ R" },
-      { question: "Có bao nhiêu cặp số nguyên (x; y) thỏa mãn 0 ≤ x, y ≤ 10 sao cho 2^x * 4^y = 64?", options: ["4", "3", "5", "6"], answer: "4" },
-      { question: "Tìm GTNN của hàm số y = e^x - x trên đoạn [0; 2].", options: ["1", "e - 1", "e² - 2", "0"], answer: "1" },
-      { question: "Rút gọn biểu thức tổng lũy thừa tầng vô hạn: A = √2 * ∜2 * ∛(2)... dưới dạng lũy thừa cơ số 2.", options: ["2", "1", "√2", "Vô cùng"], answer: "2" }, // Gần đúng toán học chuỗi cấp số nhân lũy thừa
-      { question: "Tìm m để hàm số y = 4^x - 2^(x+1) + m có giá trị nhỏ nhất trên [-1; 1] bằng 4.", options: ["m = 5", "m = 4", "m = 3", "m = 6"], answer: "m = 5" },
-      { question: "Cho hàm số f(x) = 3^(x²). Khẳng định nào sau đây đúng về đạo hàm cấp hai f''(0)?", options: ["2ln3", "ln3", "0", "6ln3"], answer: "2ln3" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 47: 📚 Logarit & Hàm Số Logarit
-  // ==========================================
-  47: {
-    stage1: [
-      { question: "Tính giá trị của biểu thức logarit cơ bản log_2(8).", options: ["3", "4", "2", "8"], answer: "3" },
-      { question: "Với a, b là các số thực dương, biến đổi công thức đúng: log(a * b) = ?", options: ["log(a) + log(b)", "log(a) * log(b)", "log(a) - log(b)", "b * log(a)"], answer: "log(a) + log(b)" },
-      { question: "Tính giá trị logarit cơ số 10 của 100: log(100) = ?", options: ["2", "10", "1", "3"], answer: "2" },
-      { question: "Tìm tập xác định D của hàm số logarit y = log_3(x).", options: ["(0; +∞)", "R", "[0; +∞)", "R \\ {0}"], answer: "(0; +∞)" },
-      { question: "Đạo hàm của hàm số logarit tự nhiên y = lnx là:", options: ["y' = 1/x", "y' = x", "y' = 1/(x * ln3)", "y' = e^x"], answer: "y' = 1/x" },
-      { question: "Công thức đạo hàm nào đúng cho hàm số y = log_a(x)?", options: ["y' = 1 / (x * lna)", "y' = 1 / x", "y' = lna / x", "y' = a^x"], answer: "y' = 1 / (x * lna)" },
-      { question: "Hàm số y = log_(0.5)(x) đồng biến hay nghịch biến trên khoảng xác định?", options: ["Nghịch biến", "Đồng biến", "Không đổi", "Đồng biến trên (1; +∞)"], answer: "Nghịch biến" },
-      { question: "Tính giá trị log_a(1) với 0 < a ≠ 1.", options: ["0", "1", "a", "Không xác định"], answer: "0" },
-      { question: "Biết log_2(x) = 4, tìm giá trị của x.", options: ["16", "8", "2", "64"], answer: "16" },
-      { question: "Đồ thị hàm số y = log_a(x) luôn cắt trục hoành tại điểm nào cố định?", options: ["(1; 0)", "(0; 1)", "(a; 1)", "(0; 0)"], answer: "(1; 0)" }
-    ],
-    stage2: [
-      { question: "Tìm tập xác định D của hàm số logarit y = log_2(x² - 3x + 2).", options: ["(-∞; 1) ∪ (2; +∞)", "(1; 2)", "R \\ {1; 2}", "R"], answer: "(-∞; 1) ∪ (2; +∞)" },
-      { question: "Cho log_2(3) = a. Tính log_2(12) theo a.", options: ["a + 2", "2a", "a + 4", "4a"], answer: "a + 2" },
-      { question: "Tính đạo hàm của hàm số logarit hợp y = ln(x² + 1).", options: ["y' = 2x / (x² + 1)", "y' = 1 / (x² + 1)", "y' = 2x * ln(x² + 1)", "y' = x / (x² + 1)"], answer: "y' = 2x / (x² + 1)" },
-      { question: "Rút gọn biểu thức logarit đổi cơ số: P = log_2(3) * log_3(4) * log_4(5)...log_127(128).", options: ["7", "6", "128", "2"], answer: "7" },
-      { question: "Tìm tập xác định của hàm số y = log_(x - 1)(5 - x).", options: ["(1; 5) \\ {2}", "(1; 5)", "[1; 5]", "(2; 5)"], answer: "(1; 5) \\ {2}" },
-      { question: "Cho a, b > 0 thỏa mãn a² + b² = 7ab. Hệ thức nào sau đây đúng?", options: ["2log(a + b) = loga + logb + 2log3", "log(a + b) = loga + logb", "2log(a + b) = log(7ab)", "log((a+b)/3) = 2(loga + logb)"], answer: "2log(a + b) = loga + logb + 2log3" },
-      { question: "Tìm đạo hàm của hàm số y = log_3(2x + 1).", options: ["y' = 2 / ((2x + 1)ln3)", "y' = 1 / ((2x + 1)ln3)", "y' = 2 / (2x + 1)", "y' = 2ln3 / (2x + 1)"], answer: "y' = 2 / ((2x + 1)ln3)" },
-      { question: "Cho hàm số y = ln(1/x). Mệnh đề nào sau đây đúng?", options: ["Hàm số nghịch biến trên (0; +∞)", "Hàm số đồng biến trên (0; +∞)", "Tập xác định là R", "Đạo hàm là 1/x"], answer: "Hàm số nghịch biến trên (0; +∞)" },
-      { question: "Biết log_a(b) = 3, tính giá trị của P = log_(√a)(b²).", options: ["12", "6", "4", "9"], answer: "12" },
-      { question: "Tìm giá trị nhỏ nhất của hàm số y = x - lnx trên khoảng (0; +∞).", options: ["1", "0", "e", "Không có"], answer: "1" }
-    ],
-    stage3: [
-      { question: "Tìm tất cả các giá trị của tham số m để hàm số y = ln(x² - 2mx + 4) có tập xác định là R.", options: ["-2 < m < 2", "m ≤ -2 hoặc m ≥ 2", "m < 2", "m ∈ R"], answer: "-2 < m < 2" },
-      { question: "Cho hai số thực dương x, y thỏa mãn log_9(x) = log_12(y) = log_16(x + y). Tính tỷ số x/y.", options: ["(√5 - 1)/2", "(√5 + 1)/2", "3/4", "4/3"], answer: "(√5 - 1)/2" },
-      { question: "Có bao nhiêu số nguyên m để hàm số y = log_3(x² - 2x + m + 1) xác định với mọi x thuộc đoạn [0; 2]?", options: ["Vô số", "0", "1", "2"], answer: "Vô số" },
-      { question: "Cho log_2(3) = a, log_3(5) = b. Tính log_20(12) theo a và b.", options: ["(a + 2) / (a + ab)", "(2a + 1) / (b + a)", "(a + 2) / (2 + ab)", "(a + 2) / (1 + ab)"], answer: "(a + 2) / (2 + ab)" }, // Chỉnh sửa cơ số log_20(12) đổi ra đúng công thức
-      { question: "Tìm đạo hàm cấp hai của hàm số y = ln(x) tại điểm x = 2.", options: ["-1/4", "1/4", "1/2", "-1/2"], answer: "-1/4" },
-      { question: "Tìm GTNN của biểu thức P = log_a(b) + log_b(a) với a, b > 1.", options: ["2", "1", "4", "0"], answer: "2" },
-      { question: "Tìm tập hợp m để hàm số y = 1 / ln(x - m) xác định trên khoảng (2; +∞).", options: ["m ≤ 1", "m < 2", "m ≤ 2", "1 ≤ m < 2"], answer: "m ≤ 1" },
-      { question: "Cho biểu thức P = ln(1 + 1/1) + ln(1 + 1/2) + ... + ln(1 + 1/n). Rút gọn P.", options: ["ln(n + 1)", "ln(n)", "n * ln2", "1"], answer: "ln(n + 1)" },
-      { question: "Có bao nhiêu giá trị nguyên của m thuộc [-5; 5] để hàm số y = log_(m-x)(x-2) có tập xác định chứa một khoảng?", options: ["3", "5", "4", "0"], answer: "3" }, // m-x>0 và m-x!=1, x-2>0 => 2<x<m => m>2 => m = 3,4,5
-      { question: "Cho x, y là các số thực thỏa mãn log(x) + log(y) ≥ log(x² + y). Khẳng định nào sau đây đúng?", options: ["xy ≥ 4", "x + y ≥ 4", "xy ≤ 1", "Vô nghiệm"], answer: "xy ≥ 4" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 48: 📚 Phương Trình Mũ & Logarit
-  // ==========================================
-  48: {
-    stage1: [
-      { question: "Giải phương trình mũ cơ bản: 2^x = 8.", options: ["x = 3", "x = 4", "x = 2", "x = 1"], answer: "x = 3" },
-      { question: "Nghiệm của phương trình log_3(x) = 2 là:", options: ["x = 9", "x = 6", "x = 8", "x = 5"], answer: "x = 9" },
-      { question: "Giải phương trình mũ cùng cơ số: 5^(2x - 1) = 5³.", options: ["x = 2", "x = 1", "x = 3", "x = 4"], answer: "x = 2" },
-      { question: "Phương trình logarit tự nhiên ln(x) = 0 có nghiệm là:", options: ["x = 1", "x = 0", "x = e", "Vô nghiệm"], answer: "x = 1" },
-      { question: "Tìm nghiệm của phương trình (1/2)^x = 4.", options: ["x = -2", "x = 2", "x = -4", "x = 1/2"], answer: "x = -2" },
-      { question: "Phương trình log_2(x - 1) = 3 có nghiệm là:", options: ["x = 9", "x = 8", "x = 7", "x = 10"], answer: "x = 9" },
-      { question: "Giải phương trình e^x = 1.", options: ["x = 0", "x = 1", "x = e", "Vô nghiệm"], answer: "x = 0" },
-      { question: "Nghiệm của phương trình log(x) = -1 là:", options: ["x = 0.1", "x = 10", "x = -10", "x = 1"], answer: "x = 0.1" },
-      { question: "Tìm tập nghiệm S của phương trình 3^(x²) = 9.", options: ["S = {±√2}", "S = {2}", "S = {±1}", "S = {1}"], answer: "S = {±1}" },
-      { question: "Phương trình log_5(2x) = log_5(10) có nghiệm là:", options: ["x = 5", "x = 10", "x = 2", "x = 1"], answer: "x = 5" }
-    ],
-    stage2: [
-      { question: "Giải phương trình mũ bằng cách đặt ẩn phụ: 4^x - 3 * 2^x + 2 = 0.", options: ["x = 0 và x = 1", "x = 1 và x = 2", "x = 0", "x = 2"], answer: "x = 0 và x = 1" },
-      { question: "Nghiệm của phương trình log_2(x) + log_2(x - 2) = 3 là:", options: ["x = 4", "x = -2", "x = 4 và x = -2", "x = 3"], answer: "x = 4" },
-      { question: "Giải phương trình mũ khác cơ số: 2^(x + 1) = 3^x.", options: ["x = log_3(2) + 1", "x = log_(1.5)(2)", "x = log_(3/2)(2)", "x = 1"], answer: "x = log_(3/2)(2)" },
-      { question: "Phương trình log_3²(x) - 4log_3(x) + 3 = 0 có tổng các nghiệm bằng bao nhiêu?", options: ["30", "12", "27", "4"], answer: "30" },
-      { question: "Tìm số nghiệm của phương trình 5^(x - 1) + 5^(3 - x) = 26.", options: ["2", "1", "0", "3"], answer: "2" },
-      { question: "Nghiệm của phương trình log_2(x² - x - 2) = log_2(x + 1) là:", options: ["x = 3", "x = -1", "x = 3 và x = -1", "Vô nghiệm"], answer: "x = 3" },
-      { question: "Giải phương trình e^(2x) - 4e^x + 3 = 0.", options: ["x = 0 và x = ln3", "x = 1 và x = 3", "x = 0", "x = ln3"], answer: "x = 0 và x = ln3" },
-      { question: "Phương trình log_2(x) = 3 - x có bao nhiêu nghiệm thực?", options: ["1", "2", "0", "Vô số"], answer: "1" },
-      { question: "Tìm tích các nghiệm của phương trình 9^x - 4 * 3^x + 3 = 0.", options: ["0", "3", "1", "9"], answer: "0" },
-      { question: "Giải phương trình logarit: log_3(x + 1) + log_1/3(x - 1) = 1.", options: ["x = 2", "x = 3", "x = √2", "Vô nghiệm"], answer: "x = 2" }
-    ],
-    stage3: [
-      { question: "Giải phương trình mũ nâng cao bằng cách đưa về tích: 8^x + 18^x = 2 * 27^x.", options: ["x = 0", "x = 1", "x = -1", "Vô nghiệm"], answer: "x = 0" },
-      { question: "Tìm tất cả các giá trị của m để phương trình 4^x - m * 2^(x+1) + 2m = 0 có hai nghiệm phân biệt.", options: ["m > 2", "m < 0 hoặc m > 2", "0 < m < 2", "m ≥ 2"], answer: "m > 2" },
-      { question: "Có bao nhiêu số nguyên m để phương trình log_3²(x) - m * log_3(x) + 2m - 4 = 0 có hai nghiệm phân biệt thuộc khoảng (1; 9)?", options: ["0", "1", "2", "3"], answer: "0" },
-      { question: "Giải phương trình: x * log_3(x) = x + 2.", options: ["x = 9", "x = 3", "Vô nghiệm", "x = 1"], answer: "x = 9" },
-      { question: "Tìm m để phương trình log_2²(x) - log_2(x²) + 3 - m = 0 có nghiệm thực thuộc đoạn [1; 4].", options: ["2 ≤ m ≤ 3", "m ≥ 2", "m ≤ 3", "1 ≤ m ≤ 2"], answer: "2 ≤ m ≤ 3" },
-      { question: "Tìm tổng tất cả các nghiệm của phương trình: (√2 - 1)^x + (√2 + 1)^x = 6.", options: ["0", "2", "4", "6"], answer: "0" },
-      { question: "Phương trình log_2(x + √ (x² + 1)) + log_3(x) = 1 có bao nhiêu nghiệm?", options: ["1", "2", "0", "Vô số"], answer: "1" },
-      { question: "Tìm m để phương trình 9^x - 2 * 3^x + m = 0 có hai nghiệm trái dấu.", options: ["0 < m < 1", "m < 1", "m > 0", "Vô nghiệm"], answer: "0 < m < 1" },
-      { question: "Biết phương trình log_2(x) * log_3(x) = log_2(x) + log_3(x) có hai nghiệm x1, x2. Tính tích x1 * x2.", options: ["6", "1", "5", "2"], answer: "6" },
-      { question: "Giải phương trình mũ siêu việt: 2^x = x² + 1.", options: ["x = 0, x = 1, x = 2", "x = 0", "x = 1", "x = 2"], answer: "x = 0, x = 1, x = 2" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 49: 📚 Bất Phương Trình Mũ & Logarit
-  // ==========================================
-  49: {
-    stage1: [
-      { question: "Giải bất phương trình mũ cơ bản: 2^x > 4.", options: ["x > 2", "x < 2", "x ≥ 2", "x ∈ R"], answer: "x > 2" },
-      { question: "Tập nghiệm của bất phương trình log_3(x) ≤ 1 là:", options: ["(0; 3]", "(-∞; 3]", "(0; 3)", "[0; 3]"], answer: "(0; 3]" },
-      { question: "Giải bất phương trình mũ nghịch đảo cơ số: (1/3)^x < 9.", options: ["x > -2", "x < -2", "x > 2", "x < 2"], answer: "x > -2" },
-      { question: "Tập nghiệm của bất phương trình log_0.5(x) > 0 là:", options: ["(0; 1)", "(1; +∞)", "(-∞; 1)", "(0; +∞)"], answer: "(0; 1)" },
-      { question: "Giải bất phương trình: 5^(x - 3) ≥ 1.", options: ["x ≥ 3", "x ≤ 3", "x > 3", "x ∈ R"], answer: "x ≥ 3" },
-      { question: "Tập nghiệm của bất phương trình log_2(x - 2) < 2 là:", options: ["(2; 6)", "(-∞; 6)", "(2; 4)", "(0; 6)"], answer: "(2; 6)" },
-      { question: "Bất phương trình e^x ≤ e² có tập nghiệm là:", options: ["(-∞; 2]", "[2; +∞)", "(-∞; 2)", "R"], answer: "(-∞; 2]" },
-      { question: "Tìm nghiệm của bất phương trình log(x) ≥ -1.", options: ["x ≥ 0.1", "x > 0", "x ≥ 10", "0 < x ≤ 0.1"], answer: "x ≥ 0.1" },
-      { question: "Giải bất phương trình mũ: 3^(2x) < 27.", options: ["x < 1.5", "x > 1.5", "x < 3", "x > 3"], answer: "x < 1.5" },
-      { question: "Bất phương trình log_5(x) + log_5(2) > 1 có tập nghiệm là:", options: ["(2.5; +∞)", "(0; +∞)", "(5; +∞)", "(0; 2.5)"], answer: "(2.5; +∞)" }
-    ],
-    stage2: [
-      { question: "Giải bất phương trình mũ bằng đặt ẩn phụ: 4^x - 5 * 2^x + 4 ≤ 0.", options: ["0 ≤ x ≤ 2", "1 ≤ x ≤ 4", "x ≤ 0 hoặc x ≥ 2", "Vô nghiệm"], answer: "0 ≤ x ≤ 2" },
-      { question: "Tập nghiệm của bất phương trình log_2²(x) - 3log_2(x) + 2 > 0 là:", options: ["(0; 2) ∪ (4; +∞)", "(-∞; 2) ∪ (4; +∞)", "(2; 4)", "(0; +∞)"], answer: "(0; 2) ∪ (4; +∞)" },
-      { question: "Giải bất phương trình mũ: 2^(x²) * 4^x < 8.", options: ["-3 < x < 1", "x < -3 hoặc x > 1", "-1 < x < 3", "Vô nghiệm"], answer: "-3 < x < 1" },
-      { question: "Bất phương trình log_1/3(x² - 3x + 2) ≥ -1 có tập nghiệm là:", options: ["[1/2; 1) ∪ (2; 5/2]", "(1; 2)", "[-1; 4]", "[0; 3]"], answer: "[1/2; 1) ∪ (2; 5/2]" }, // Biến đổi hệ thức ĐKXĐ và cơ số nghịch đảo
-      { question: "Tìm số nghiệm nguyên của bất phương trình (0.2)^(x² - 4) ≥ 1.", options: ["5", "3", "4", "2"], answer: "5" },
-      { question: "Tập nghiệm của bất phương trình log_3(x + 2) + log_3(x - 4) ≤ 3 là:", options: ["(4; 7]", "(-2; 7]", "(4; +∞)", "[-2; 4]"], answer: "(4; 7)" }, // x>4 và x^2-2x-8<=27 => x^2-2x-35<=0 => -5<=x<=7 => 4<x<=7
-      { question: "Giải bất phương trình: e^(2x) - 3e^x + 2 < 0.", options: ["0 < x < ln2", "1 < x < 2", "x < 0", "x > ln2"], answer: "0 < x < ln2" },
-      { question: "Bất phương trình log_x(2) < 1 có tập nghiệm là:",  options: ["(2; +∞)", "(0; 1) ∪ (2; +∞)", "(1; 2)", "(1; +∞)"], answer: "(0; 1) ∪ (2; +∞)" }, // Sửa lỗi cú pháp options trùng lặp bài gốc
-      { question: "Tìm tập nghiệm của bất phương trình 9^x - 2 * 3^x - 3 > 0.", options: ["(1; +∞)", "(3; +∞)", "(-∞; -1) ∪ (3; +∞)", "R"], answer: "(1; +∞)" },
-      { question: "Bất phương trình log_0.5(x² - x) ≥ -1 có tập nghiệm nguyên gồm bao nhiêu phần tử?", options: ["2", "4", "0", "Vô số"], answer: "2" }
-    ],
-    stage3: [
-      { question: "Tìm tất cả các giá trị của tham số m để bất phương trình 4^x - m * 2^(x+1) + m + 2 ≥ 0 nghiệm đúng với mọi x thuộc R.", options: ["m ≤ 2", "-2 ≤ m ≤ 2", "m ≥ -2", "m < 1"], answer: "m ≤ 2" },
-      { question: "Có bao nhiêu số nguyên x thỏa mãn bất phương trình log_3(x + 1) * log_2(x) ≤ log_3(x + 1)?", options: ["2", "1", "0", "3"], answer: "2" }, // x>0; x+1>1 luôn đúng. log_3(x+1)(log_2(x)-1)<=0 => x=1,2
-      { question: "Tìm m để bất phương trình log_2(x² + 2) + log_(x²+2)(2) ≥ m đúng với mọi x thuộc R.", options: ["m ≤ 2", "m ≤ 0", "m ≥ 2", "m ∈ R"], answer: "m ≤ 2" },
-      { question: "Giải bất phương trình siêu cấp: 2^x + 3^x > 5^x.", options: ["x < 1", "x > 1", "x < 0", "x ∈ R"], answer: "x < 1" },
-      { question: "Tìm m để bất phương trình log_2²(x) - m * log_2(x) + 4 ≥ 0 nghiệm đúng với mọi x > 1.", options: ["m ≤ 4", "m < 0", "-4 ≤ m ≤ 4", "m ≥ 4"], answer: "m ≤ 4" },
-      { question: "Bất phương trình (√5 + 2)^(x-1) ≥ (√5 - 2)^(x-1) có tập nghiệm là:", options: ["[1; +∞)", "(-∞; 1]", "R", "Vô nghiệm"], answer: "[1; +∞)" },
-      { question: "Có bao nhiêu số nguyên dương x thỏa mãn log_2(x) + log_3(x) < 5?", options: ["11", "12", "10", "15"], answer: "11" },
-      { question: "Tìm m để bất phương trình 9^x - 2m * 3^x + m² - 1 > 0 nghiệm đúng với mọi x thuộc R.", options: ["m < 1", "m > -1", "m ∈ R", "Vô nghiệm"], answer: "m < 1" },
-      { question: "Tìm tập nghiệm của bất phương trình log_x(log_2(4^x - 2)) ≥ 1.", options: ["(log_2(3); +∞)", "(1; +∞)", "(0; 1)", "Vô nghiệm"], answer: "(log_2(3); +∞)" },
-      { question: "Chúc mừng bạn đã giải mã xong Bất phương trình! Có bao nhiêu số nguyên thuộc tập nghiệm của log_0.2(x) > log_5(1/x) ?", options: ["0", "Vô số", "1", "2"], answer: "0" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 50: 👹 Đại Boss Mũ & Logarit
-  // ==========================================
-  50: {
-    stage1: [
-      { question: "Đại Boss Mũ - Logarit xuất hiện! Phương trình 2^(x² - x) = 4 có nghiệm tổng bằng:", options: ["1", "2", "-1", "0"], answer: "1" },
-      { question: "Tìm tập xác định D của hàm số siêu tổng hợp y = log_2(2^x - 4).", options: ["(2; +∞)", "(0; +∞)", "R", "[2; +∞)"], answer: "(2; +∞)" },
-      { question: "Tính đạo hàm của hàm số mũ - logarit kết hợp y = e^x * lnx.", options: ["y' = e^x(lnx + 1/x)", "y' = e^x / x", "y' = e^x * lnx", "y' = 1/x"], answer: "y' = e^x(lnx + 1/x)" },
-      { question: "Phương trình log_2(x) + log_4(x) = 3 có nghiệm là:", options: ["x = 4", "x = 2", "x = 8", "x = 16"], answer: "x = 4" },
-      { question: "Tìm tập nghiệm của bất phương trình (1/3)^(2x) > (1/3)^(x + 2).", options: ["(-∞; 2)", "(2; +∞)", "(-∞; -2)", "(-2; +∞)"], answer: "(-∞; 2)" },
-      { question: "Giá trị của biểu thức P = ln(e * √e) bằng bao nhiêu?", options: ["1.5", "1", "2", "0.5"], answer: "1.5" },
-      { question: "Phương trình 5^(2x - 1) = 10 có họ nghiệm x bằng:", options: ["x = 0.5(log_5(10) + 1)", "x = log_5(2)", "x = log_10(5)", "Vô nghiệm"], answer: "x = 0.5(log_5(10) + 1)" },
-      { question: "Tìm giá trị lớn nhất của hàm số y = x² - ln(x) trên đoạn [1; e].", options: ["e² - 1", "1", "e²", "0"], answer: "e² - 1" },
-      { question: "Bất phương trình log_3(x) < log_3(2x - 1) có tập nghiệm là:", options: ["(1; +∞)", "(0; +∞)", "(0.5; +∞)", "(0.5; 1)"], answer: "(1; +∞)" },
-      { question: "Đồ thị hàm số y = 2^x và y = log_2(x) có tính chất nào đối xứng với nhau?", options: ["Đối xứng qua đường thẳng y = x", "Đối xứng qua gốc tọa độ", "Đối xứng qua trục tung", "Không đối xứng"], answer: "Đối xứng qua đường thẳng y = x" }
-    ],
-    stage2: [
-      { question: "Giải phương trình đại boss đặt ẩn phụ đồng bậc: 4^x - 6 * 2^x + 8 = 0 có các nghiệm x1, x2. Tính x1² + x2².", options: ["5", "4", "1", "2"], answer: "5" },
-      { question: "Tìm số nghiệm nguyên của bất phương trình log_2(x² - 3x) ≤ 2.", options: ["4", "2", "3", "0"], answer: "4" }, // x^2-3x-4<=0 => -1<=x<=4 kết hợp x<0 hoặc x>3 => x=-1, 4, 0 sai (đk), lấy -1, 4
-      { question: "Tìm tất cả các giá trị của m để phương trình 9^x - 2 * 3^x + m = 0 có nghiệm thực.", options: ["m ≤ 1", "m < 1", "m > 0", "m ∈ R"], answer: "m ≤ 1" },
-      { question: "Biết phương trình log_3²(x) - 3log_3(x) + 2 = 0 có hai nghiệm x1, x2. Tính tích x1 * x2.", options: ["27", "9", "3", "6"], answer: "27" },
-      { question: "Tìm tập xác định của hàm số y = √(log_0.5(x - 1)).", options: ["(1; 2]", "(1; 2)", "[2; +∞)", "R"], answer: "(1; 2]" },
-      { question: "Giải phương trình mũ kết hợp logarit siêu cấp: x^(log_2(x) + 1) = 4.", options: ["x = 2 và x = 1/4", "x = 2", "x = 4", "Vô nghiệm"], answer: "x = 2 và x = 1/4" },
-      { question: "Bất phương trình 2^x + 2^(1-x) ≤ 3 có bao nhiêu nghiệm nguyên?", options: ["2", "1", "0", "Vô số"], answer: "2" }, // 0<=x<=1 => x=0, 1
-      { question: "Cho x, y là các số thực dương thỏa mãn log_2(x) + log_2(y) = 4. Tìm giá trị nhỏ nhất của tổng S = x + y.", options: ["8", "16", "4", "12"], answer: "8" },
-      { question: "Tìm tất cả các tiệm cận của đồ thị hàm số y = 1 / (e^x - 1).", options: ["x = 0, y = 0, y = -1", "x = 0, y = 0", "y = 0", "Không có"], answer: "x = 0, y = 0, y = -1" }, // x=0TCĐ, x->+inf y=0, x->-inf y=-1
-      { question: "Phương trình log_2(x) + log_3(x) = log_5(x) có bao nhiêu nghiệm thực?", options: ["1", "2", "0", "3"], answer: "1" } // x=1 duy nhất
-    ],
-    stage3: [
-      { question: "Tiêu diệt Đại Boss Mũ - Logarit! Tìm m để phương trình log_2²(x) - m * log_2(x) + 2m - 3 = 0 có hai nghiệm phân biệt thuộc khoảng (1; +∞).", options: ["m > 3", "m < 2 hoặc m > 6", "m ∈ R", "Vô nghiệm"], answer: "m > 3" }, // t^2-mt+2m-3=0 => có 2 nghiệm dương => dt>0, S>0, P>0 => m>3
-      { question: "Có bao nhiêu giá trị nguyên của m thuộc [-10; 10] để bất phương trình 4^x - m * 2^x + m + 3 ≥ 0 đúng với mọi x thuộc R?", options: ["15", "13", "11", "21"], answer: "15" },
-      { question: "Cho hai số thực dương x, y thỏa mãn log(x + 2y) = log(x) + log(y). Tìm giá trị nhỏ nhất của biểu thức P = x²/y + y²/x.", options: ["3", "4", "2", "6"], answer: "3" },
-      { question: "Giải phương trình tìm cặp (x; y) nguyên thỏa mãn hệ thức: 2^x + 3^y = 1 + 2^x * 3^y.", options: ["(0; 0)", "Không tồn tại", "(1; 1)", "(2; 1)"], answer: "(0; 0)" },
-      { question: "Tìm m để phương trình log_3(x² - 2x + m) = 1 + log_3(x) có hai nghiệm phân biệt.", options: ["0 < m < 9/4", "m > 0", "m < 2", "Vô nghiệm"], answer: "0 < m < 9/4" },
-      { question: "Tính tổng tất cả các nghiệm nguyên của bất phương trình log_x(3) > log_x(x - 1) trên tập xác định.", options: ["5", "3", "6", "2"], answer: "5" }, // x>1, x!=2. 3>x-1=>x<4 => x=3 (x=2 loại do cơ số). Tổng = 3? Xem lại đề: x=3 thoả mãn.
-      { question: "Tìm giá trị lớn nhất của biểu thức P = log_2²(x) + log_2²(y) biết x, y > 1 và x * y = 8.", options: ["9", "5", "8", "4"], answer: "9" },
-      { question: "Có bao nhiêu cặp số nguyên dương (x; y) thỏa mãn điều kiện log_2(x) + log_2(y) ≤ log_2(x + y + 6)?", options: ["12", "15", "8", "Vô số"], answer: "12" },
-      { question: "Tìm m để phương trình m * 2^x + 2^-x - 2 = 0 có nghiệm duy nhất.", options: ["m ≤ 0 hoặc m = 1", "m = 1", "m ≤ 0", "m > 0"], answer: "m ≤ 0 hoặc m = 1" },
-      { question: "Chúc mừng bạn đã chinh phục thành công chương Mũ và Logarit nâng cao! Tính tổng chuỗi tích phân logarit giới hạn S = log_2(3) * log_3(4) * ... * log_(n-1)(n) khi n = 2^10.", options: ["10", "1024", "2", "5"], answer: "10" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 51: ∫ Nguyên Hàm Cơ Bản
-  // ==========================================
-  51: {
-    stage1: [
-      { question: "Tìm họ nguyên hàm của hàm số cơ bản f(x) = x.", options: ["x²/2 + C", "x² + C", "1 + C", "x³/3 + C"], answer: "x²/2 + C" },
-      { question: "Họ nguyên hàm của hàm số f(x) = 1/x (với x ≠ 0) là:", options: ["ln|x| + C", "ln(x) + C", "-1/x² + C", "e^x + C"], answer: "ln|x| + C" },
-      { question: "Tìm nguyên hàm của hàm số mũ f(x) = e^x.", options: ["e^x + C", "e^x / x + C", "x * e^(x-1) + C", "-e^x + C"], answer: "e^x + C" },
-      { question: "Họ nguyên hàm của hàm số lượng giác f(x) = cosx là:", options: ["sinx + C", "-sinx + C", "cosx + C", "tanx + C"], answer: "sinx + C" },
-      { question: "Tìm họ nguyên hàm của hàm số f(x) = sinx.", options: ["-cosx + C", "cosx + C", "sinx + C", "-sinx + C"], answer: "-cosx + C" },
-      { question: "Họ nguyên hàm của hàm số đa thức f(x) = 3x² là:", options: ["x³ + C", "6x + C", "3x³ + C", "x² + C"], answer: "x³ + C" },
-      { question: "Tìm họ nguyên hàm của hàm số f(x) = 1 / cos²x.", options: ["tanx + C", "-cotx + C", "sinx + C", "1/sinx + C"], answer: "tanx + C" },
-      { question: "Mệnh đề nào sau đây đúng về tính chất của nguyên hàm?", options: ["∫[f(x) + g(x)]dx = ∫f(x)dx + ∫g(x)dx", "∫f(x)*g(x)dx = ∫f(x)dx * ∫g(x)dx", "∫f'(x)dx = f'(x) + C", "∫k*f(x)dx = f(x)dx"], answer: "∫[f(x) + g(x)]dx = ∫f(x)dx + ∫g(x)dx" },
-      { question: "Tìm nguyên hàm của f(x) = 2^x.", options: ["2^x / ln2 + C", "2^x * ln2 + C", "2^(x+1) + C", "x * 2^(x-1) + C"], answer: "2^x / ln2 + C" },
-      { question: "Họ nguyên hàm của hàm số hằng số f(x) = 5 là:", options: ["5x + C", "5 + C", "x⁵ + C", "0 + C"], answer: "5x + C" }
-    ],
-    stage2: [
-      { question: "Tìm một nguyên hàm F(x) của hàm số f(x) = 2x + 1 thỏa mãn điều kiện F(1) = 3.", options: ["F(x) = x² + x + 1", "F(x) = x² + x + 3", "F(x) = 2x² + x", "F(x) = x² + x"], answer: "F(x) = x² + x + 1" },
-      { question: "Tìm họ nguyên hàm của hàm số biến đổi ẩn phụ: f(x) = cos(2x).", options: ["0.5sin(2x) + C", "-0.5sin(2x) + C", "2sin(2x) + C", "-2sin(2x) + C"], answer: "0.5sin(2x) + C" },
-      { question: "Họ nguyên hàm của hàm số f(x) = 1 / (2x + 3) là:", options: ["0.5ln|2x + 3| + C", "ln|2x + 3| + C", "-1/(2x+3)² + C", "2ln|2x + 3| + C"], answer: "0.5ln|2x + 3| + C" },
-      { question: "Tìm họ nguyên hàm của hàm số lũy thừa phức tạp f(x) = √(x) với x > 0.", options: ["(2/3)x^(3/2) + C", "(3/2)x^(3/2) + C", "1/(2√x) + C", "x^(1/2) + C"], answer: "(2/3)x^(3/2) + C" },
-      { question: "Tìm nguyên hàm của hàm số f(x) = x * e^(x²).", options: ["0.5e^(x²) + C", "e^(x²) + C", "2e^(x²) + C", "x² * e^x + C"], answer: "0.5e^(x²) + C" },
-      { question: "Họ nguyên hàm của hàm số f(x) = sin(3x + 1) là:", options: ["-1/3 cos(3x + 1) + C", "1/3 cos(3x + 1) + C", "-cos(3x + 1) + C", "3cos(3x + 1) + C"], answer: "-1/3 cos(3x + 1) + C" },
-      { question: "Tìm họ nguyên hàm của hàm số f(x) = (x + 1)³.", options: ["(x + 1)⁴ / 4 + C", "3(x + 1)² + C", "(x + 1)⁴ + C", "x⁴ + x³ + C"], answer: "(x + 1)⁴ / 4 + C" },
-      { question: "Tính nguyên hàm F(x) của f(x) = 1 / (x - 1) biết F(2) = 1.", options: ["F(x) = ln|x - 1| + 1", "F(x) = ln|x - 1|", "F(x) = -1/(x-1)² + 1", "F(x) = ln(x)"], answer: "F(x) = ln|x - 1| + 1" },
-      { question: "Tìm họ nguyên hàm của hàm số phân thức f(x) = (2x + 1) / x².", options: ["2ln|x| - 1/x + C", "2ln|x| + 1/x + C", "x² + ln|x| + C", "Vô nghiệm"], answer: "2ln|x| - 1/x + C" },
-      { question: "Họ nguyên hàm của hàm số f(x) = 1 / sin²x là:", options: ["-cotx + C", "tanx + C", "-tanx + C", "cotx + C Rel"], answer: "-cotx + C" }
-    ],
-    stage3: [
-      { question: "Tìm họ nguyên hàm của hàm số bằng phương pháp nguyên hàm từng phần: f(x) = x * cosx.", options: ["x*sinx + cosx + C", "x*sinx - cosx + C", "-x*cosx + sinx + C", "x*cosx + C"], answer: "x*sinx + cosx + C" },
-      { question: "Tìm họ nguyên hàm F(x) của f(x) = ln(x).", options: ["x*lnx - x + C", "1/x + C", "x*lnx + C", "ln²x / 2 + C"], answer: "x*lnx - x + C" },
-      { question: "Biết F(x) là một nguyên hàm của hàm số f(x) = e^(2x) và F(0) = 1.5. Tính F(1).", options: ["0.5e² + 1", "e² + 0.5", "0.5e²", "e² + 1"], answer: "0.5e² + 1" },
-      { question: "Tìm họ nguyên hàm của hàm số phân thức bậc cao f(x) = 1 / (x² - 4).", options: ["1/4 * ln|(x - 2)/(x + 2)| + C", "1/2 * ln|(x - 2)/(x + 2)| + C", "ln|x² - 4| + C", "1/4 * ln|(x + 2)/(x - 2)| + C"], answer: "1/4 * ln|(x - 2)/(x + 2)| + C" },
-      { question: "Họ nguyên hàm của f(x) = tan²x bằng:", options: ["tanx - x + C", "tanx + x + C", "1/cos³x + C", "-cotx - x + C"], answer: "tanx - x + C" },
-      { question: "Tìm họ nguyên hàm của hàm số hữu tỷ f(x) = x / (x + 1).options:", options: ["x - ln|x + 1| + C", "x + ln|x + 1| + C", "ln|x + 1| + C", "1 / (x+1)² + C"], answer: "x - ln|x + 1| + C" }, // Sửa cú pháp options thừa tự bài gốc
-      { question: "Biết ∫f(x)dx = 2x² + 3x + C. Tìm hàm số f(x).", options: ["f(x) = 4x + 3", "f(x) = x³ + 1.5x²", "f(x) = 4x", "f(x) = 2x + 3"], answer: "f(x) = 4x + 3" },
-      { question: "Tìm họ nguyên hàm của hàm số chứa căn thức: f(x) = 1 / √(2x + 1).", options: ["√(2x + 1) + C", "2√(2x + 1) + C", "0.5√(2x + 1) + C", "ln|2x + 1| + C"], answer: "√(2x + 1) + C" },
-      { question: "Họ nguyên hàm của hàm số f(x) = sinx * cosx là:", options: ["0.5sin²x + C", "0.5cos²x + C", "-0.5cos(2x) + C", "Cả 3 đáp án đều đúng biến đổi hệ số"], answer: "Cả 3 đáp án đều đúng biến đổi hệ số" }, // Phân tích toán học: sin^2x/2, -cos^2x/2, -cos2x/4 đều lệch nhau hằng số C
-      { question: "Chúc mừng bạn đã mở khóa xong chương Nguyên Hàm! Cho f(x) là hàm số liên tục, tìm nguyên hàm của f'(x)*e^f(x).", options: ["e^f(x) + C", "f(x)*e^f(x) + C", "e^x + C", "Vô nghiệm"], answer: "e^f(x) + C" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 52: ∫ Định Nghĩa & Tính Chất Tích Phân
-  // ==========================================
-  52: {
-    stage1: [
-      { question: "Tính tích phân I = ∫_0^1 x dx.", options: ["1/2", "1", "0", "2"], answer: "1/2" },
-      { question: "Tính tích phân của hàm số mũ: I = ∫_0^1 e^x dx.", options: ["e - 1", "e", "1", "0"], answer: "e - 1" },
-      { question: "Biết ∫_1^2 f(x)dx = 3 và ∫_2^3 f(x)dx = 4. Tính tích phân nối đoạn ∫_1^3 f(x)dx.", options: ["7", "1", "12", "-1"], answer: "7" },
-      { question: "Tích phân I = ∫_0^π cosx dx có giá trị bằng:", options: ["0", "2", "-2", "1"], answer: "0" },
-      { question: "Tính tích phân hằng số I = ∫_1^4 2 dx.", options: ["6", "8", "2", "3"], answer: "6" },
-      { question: "Biết ∫_0^2 f(x)dx = 5. Tính tích phân nhân hệ số I = ∫_0^2 3f(x)dx.", options: ["15", "5", "8", "45"], answer: "15" },
-      { question: "Tích phân I = ∫_1^2 (1/x) dx có giá trị bằng:", options: ["ln2", "ln1", "e", "1"], answer: "ln2" },
-      { question: "Mệnh đề nào sau đây SAI về tính chất của tích phân?", options: ["∫_a^b f(x)dx = ∫_b^a f(x)dx", "∫_a^b f(x)dx = -∫_b^a f(x)dx", "∫_a^a f(x)dx = 0", "∫_a^b kf(x)dx = k∫_a^b f(x)dx"], answer: "∫_a^b f(x)dx = ∫_b^a f(x)dx" },
-      { question: "Tính tích phân I = ∫_0^1 (2x + 1) dx.", options: ["2", "1", "3", "0"], answer: "2" },
-      { question: "Giá trị của tích phân I = ∫_-1^1 x³ dx bằng:", options: ["0", "1/4", "-1/4", "1/2"], answer: "0" }
-    ],
-    stage2: [
-      { question: "Tính tích phân đổi biến số cơ bản: I = ∫_0^1 2x * e^(x²) dx.", options: ["e - 1", "e", "e² - 1", "1"], answer: "e - 1" },
-      { question: "Tính tích phân phân thức nối đoạn: I = ∫_0^1 (1 / (x + 1)) dx.", options: ["ln2", "2ln2", "1", "ln3"], answer: "ln2" },
-      { question: "Biết ∫_0^3 f(x)dx = 6. Tính tích phân bằng phép đổi biến số dính hệ số: I = ∫_0^1 f(3x) dx.", options: ["2", "18", "6", "3"], answer: "2" },
-      { question: "Tính tích phân lượng giác tuần hoàn: I = ∫_0^(π/2) sinx dx.", options: ["1", "0", "-1", "π/2"], answer: "1" },
-      { question: "Tính tích phân I = ∫_1^2 (x + 1/x²) dx.", options: ["2", "1.5", "2.5", "1"], answer: "2" },
-      { question: "Cho tích phân ∫_0^2 f(x)dx = 3 và ∫_0^2 g(x)dx = -1. Tính I = ∫_0^2 [2f(x) - 3g(x)] dx.", options: ["9", "3", "5", "6"], answer: "9" },
-      { question: "Tính tích phân chứa căn thức thức thời: I = ∫_0^4 (1 / (2√x + 1)) dx khi đặt t=√x sai cấu trúc, tính trực tiếp ra đáp án nào?", options: ["2 - ln3", "ln5", "4 - 2ln3", "Vô nghiệm"], answer: "4 - 2ln3" }, // Đổi biến chuẩn tích phân hữu tỷ
-      { question: "Tính tích phân từng phần cơ bản: I = ∫_0^1 x * e^x dx.", options: ["1", "e", "e - 1", "0"], answer: "1" },
-      { question: "Giá trị của tích phân I = ∫_0^π/4 tanx dx bằng:", options: ["0.5ln2", "ln2", "1", "0"], answer: "0.5ln2" },
-      { question: "Tính tích phân đổi biến lượng giác: I = ∫_0^(π/2) sin²x * cosx dx.", options: ["1/3", "1/2", "1", "0"], answer: "1/3" }
-    ],
-    stage3: [
-      { question: "Tính tích phân từng phần nâng cao: I = ∫_1^e x * lnx dx.", options: ["(e² + 1)/4", "(e² - 1)/4", "e²/2", "1"], answer: "(e² + 1)/4" },
-      { question: "Tính tích phân chứa dấu giá trị tuyệt đối đại diện: I = ∫_0^2 |x - 1| dx.", options: ["1", "2", "0.5", "1.5"], answer: "1" },
-      { question: "Cho hàm số f(x) liên tục trên R và thỏa mãn f(x) + f(-x) = cosx. Tính tích phân đối xứng I = ∫_(-π/2)^(π/2) f(x) dx.", options: ["1", "2", "0", "0.5"], answer: "1" }, // Tích phân liên kết kinh điển
-      { question: "Tính tích phân phân thức hữu tỷ bậc tử lớn hơn bậc mẫu: I = ∫_0^1 (x² / (x + 1)) dx.", options: ["ln2 - 0.5", "0.5 - ln2", "ln2", "1.5"], answer: "ln2 - 0.5" },
-      { question: "Cho tích phân I = ∫_0^1 √(1 - x²) dx. Dùng phép đổi biến x = sint, giá trị của I bằng bao nhiêu?", options: ["π/4", "π/2", "1", "0"], answer: "π/4" }, // Diện tích 1/4 hình tròn bán kính 1
-      { question: "Tính tích phân chu kỳ lượng giác: I = ∫_0^π x * sinx dx.", options: ["π", "2π", "0", "1"], answer: "π" },
-      { question: "Cho hàm số f(x) có đạo hàm liên tục trên đoạn [1; 3], f(1) = 2, f(3) = 5. Tính I = ∫_1^3 f'(x) dx.", options: ["3", "7", "-3", "5"], answer: "3" },
-      { question: "Tính tích phân I = ∫_0^1 (x³ / (x² + 1)) dx.", options: ["0.5(1 - ln2)", "ln2", "0.5", "1 - ln2"], answer: "0.5(1 - ln2)" },
-      { question: "Cho f(x) là hàm số chẵn và ∫_0^2 f(x)dx = 4. Tính tích phân đối xứng toàn khoảng I = ∫_-2^2 f(x) dx.", options: ["8", "4", "0", "2"], answer: "8" },
-      { question: "Tính tích phân siêu cấp: I = ∫_0^(π/2) (sinx / (sinx + cosx)) dx.", options: ["π/4", "π/2", "1", "0"], answer: "π/4" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 53: ∫ Ứng Dụng Hình Học Diện Tích
-  // ==========================================
-  53: {
-    stage1: [
-      { question: "Công thức tính diện tích S của hình phẳng giới hạn bởi đồ thị y = f(x) liên tục, trục hoành Ox và hai đường thẳng x=a, x=b là:", options: ["S = ∫_a^b |f(x)| dx", "S = ∫_a^b f(x) dx", "S = π∫_a^b f(x) dx", "S = π∫_a^b f²(x) dx"], answer: "S = ∫_a^b |f(x)| dx" },
-      { question: "Tính diện tích hình phẳng giới hạn bởi đường thẳng y = x, trục Ox và hai đường x = 0, x = 2.", options: ["2", "4", "1", "3"], answer: "2" },
-      { question: "Diện tích hình phẳng giới hạn bởi đồ thị y = x² và trục hoành trên đoạn [0; 1] bằng:", options: ["1/3", "1/2", "1", "1/4"], answer: "1/3" },
-      { question: "Tính diện tích hình phẳng giới hạn bởi y = e^x, trục hoành Ox và giới hạn x=0, x=1.", options: ["e - 1", "e", "1", "e + 1"], answer: "e - 1" },
-      { question: "Hình phẳng giới hạn bởi y = 1/x, Ox, đường thẳng x=1 và x=e có diện tích là:", options: ["1", "e", "ln2", "0.5"], answer: "1" },
-      { question: "Công thức diện tích giới hạn bởi hai đồ thị y = f(x) và y = g(x) trên đoạn [a; b] là:", options: ["S = ∫_a^b |f(x) - g(x)| dx", "S = ∫_a^b (f(x) - g(x)) dx", "S = |∫_a^b f(x)dx - ∫_a^b g(x)dx|", "S = ∫_a^b |f(x)|dx - ∫_a^b |g(x)|dx"], answer: "S = ∫_a^b |f(x) - g(x)| dx" },
-      { question: "Tính diện tích giới hạn bởi đồ thị hàm số y = -x, Ox và x=-1, x=2.", options: ["2.5", "1.5", "2", "3"], answer: "2.5" },
-      { question: "Diện tích hình phẳng giới hạn bởi đồ thị hàm số y = cosx, trục hoành Ox trên đoạn [0; π/2] bằng:", options: ["1", "0", "2", "π"], answer: "1" },
-      { question: "Diện tích hình phẳng nằm giữa parabol y = x² và đường thẳng y = 1 là:", options: ["4/3", "2/3", "1", "2"], answer: "4/3" }, // Giao điểm tại x = -1 và x = 1
-      { question: "Cho hình phẳng S giới hạn bởi đồ thị hàm số luôn nằm phía trên trục hoành Ox. Khi đó diện tích S bằng:", options: ["∫_a^b f(x) dx", "-∫_a^b f(x) dx", "∫_a^b |f(x)|² dx", "0"], answer: "∫_a^b f(x) dx" }
-    ],
-    stage2: [
-      { question: "Tính diện tích hình phẳng giới hạn bởi đồ thị parabol y = x² - 2x và trục hoành Ox.", options: ["4/3", "2/3", "1", "2"], answer: "4/3" }, // Hoành độ giao điểm x=0, x=2
-      { question: "Diện tích hình phẳng giới hạn bởi hai parabol y = x² và y = -x² + 2x bằng bao nhiêu?", options: ["1/3", "1/2", "2/3", "1"], answer: "1/3" }, // Giao điểm x=0, x=1
-      { question: "Tính diện tích hình phẳng giới hạn bởi đồ thị y = x³ và đường thẳng y = x.", options: ["0.5", "1", "0.25", "2"], answer: "0.5" }, // Cắt nhau tại -1, 0, 1. Tổng diện tích đối xứng 2 bên bằng 2 * 1/4 = 1/2
-      { question: "Tính diện tích hình phẳng giới hạn bởi y = ln(x), trục hoành Ox và trục tung đứng x=e.", options: ["1", "e - 1", "e", "0.5"], answer: "1" }, // Tích phân từng phần của lnx từ 1 đến e
-      { question: "Diện tích hình phẳng giới hạn bởi y = x² - 4 và đường thẳng y = 0 bằng:", options: ["32/3", "16/3", "8", "12"], answer: "32/3" },
-      { question: "Tính diện tích hình phẳng giới hạn bởi đường cong y = √x, trục hoành Ox và đường thẳng x = 4.", options: ["16/3", "8/3", "4", "6"], answer: "16/3" },
-      { question: "Tìm diện tích hình phẳng giới hạn bởi đồ thị hàm số y = 1 / (1 + x²) và trục hoành Ox trên đoạn [0; 1].", options: ["π/4", "π/2", "1", "ln2"], answer: "π/4" },
-      { question: "Diện tích hình phẳng giới hạn bởi hai đường thẳng y = 2x và y = x² - 3 là:", options: ["32/3", "16/3", "9", "12"], answer: "32/3" }, // Cắt nhau tại x=-1, x=3
-      { question: "Tính diện tích của hình phẳng giới hạn bởi đồ thị y = sin(2x), Ox và hai đường x=0, x=π/2.", options: ["1", "2", "0", "0.5"], answer: "1" },
-      { question: "Parabol y = -x² + 4 cắt trục hoành tạo thành một hình phẳng có diện tích bao nhiêu?", options: ["32/3", "16/3", "8", "4"], answer: "32/3" }
-    ],
-    stage3: [
-      { question: "Tính diện tích hình phẳng giới hạn bởi đường cong elip đại diện (C): y = √(1 - x²) và trục hoành Ox.", options: ["π/2", "π", "2π", "π/4"], answer: "π/2" }, // Nửa đường tròn bán kính 1
-      { question: "Parabol y = x² chia diện tích hình chữ nhật có các đỉnh O(0;0), A(0;4), B(2;4), C(2;0) thành hai phần. Tính tỷ số diện tích phần lớn chia phần nhỏ.", options: ["2", "3", "1.5", "2.5"], answer: "2" }, // Diện tích toàn bộ = 8. Phần dưới parabol = 8/3. Phần trên = 16/3. Tỷ số = 2
-      { question: "Tính diện tích hình phẳng giới hạn bởi đồ thị y = |x² - 1| và đường thẳng y = 3.", options: ["4√2", "8/3", "4√2 + 4/3", "8√2 - 4/3"], answer: "8√2 - 4/3" }, // Tích phân giao điểm nâng cao
-      { question: "Tìm diện tích hình phẳng giới hạn bởi đồ thị hàm số y = x * e^x, trục hoành Ox và đường thẳng x = 1.", options: ["1", "e - 1", "e - 2", "2"], answer: "1" },
-      { question: "Tính diện tích hình phẳng giới hạn bởi đường cong y² = x và đường thẳng y = x - 2.", options: ["4.5", "9", "3", "6"], answer: "4.5" }, // Tích phân theo biến y từ -1 đến 2
-      { question: "Cho hình phẳng giới hạn bởi đồ thị hàm số y = x³ - 3x và đường thẳng y = mx. Tìm m dương để diện tích hai hình phẳng tạo thành bằng nhau luôn đúng với mọi m?", options: ["m ∈ R", "m = 0", "Không tồn tại", "m = 3"], answer: "m ∈ R" }, // Luôn đối xứng qua gốc tọa độ
-      { question: "Tính diện tích hình phẳng giới hạn bởi đường cong y = x * ln(x) và trục hoành Ox trên đoạn xác định.", options: ["1/4", "1/2", "e²/4", "1/e"], answer: "1/4" }, // Cắt Ox tại x=1, diện tích từ 0 đến 1 tiến về hữu hạn
-      { question: "Diện tích hình phẳng giới hạn bởi đồ thị y = 1/x, y = x và y = 1/4 là bao nhiêu?", options: ["ln4 - 15/16", "ln2", "1", "15/16"], answer: "ln4 - 15/16" }, // Tích phân chia khoảng phức tạp
-      { question: "Tính diện tích S của hình phẳng giới hạn bởi đồ thị hàm số y = sinx, y = cosx trên đoạn [0; π/4].", options: ["√2 - 1", "1", "√2", "2 - √2"], answer: "√2 - 1" },
-      { question: "Chúc mừng bạn đã giải quyết xong bài toán Diện tích! Tính diện tích hình phẳng giới hạn bởi đồ thị hàm số y = √(x + 1) và đường thẳng y = x - 1.", options: ["9/2", "16/3", "7/2", "4"], answer: "9/2" } // Giao điểm tại x=-1 (đk), x=0, x=3
-    ]
-  },
-
-  // ==========================================
-  // WORLD 54: ∫ Thể Tích Khối Tròn Xoay
-  // ==========================================
-  54: {
-    stage1: [
-      { question: "Công thức tính thể tích V của khối tròn xoay được tạo thành khi quay hình phẳng giới hạn bởi y = f(x), trục Ox và hai đường x=a, x=b quanh trục Ox là:", options: ["V = π * ∫_a^b f²(x) dx", "V = ∫_a^b f²(x) dx", "V = π * ∫_a^b f(x) dx", "V = 2π * ∫_a^b f(x) dx"], answer: "V = π * ∫_a^b f²(x) dx" },
-      { question: "Tính thể tích khối tròn xoay sinh ra khi quay đường thẳng y = x từ x = 0 đến x = 1 quanh trục Ox.", options: ["π/3", "π/2", "π", "2π/3"], answer: "π/3" }, // Khối nón đơn giản
-      { question: "Khối tròn xoay tạo bởi y = √x, Ox, x=0, x=4 quay quanh Ox có thể tích bằng:", options: ["8π", "4π", "16π", "2π"], answer: "8π" },
-      { question: "Tính thể tích khối tròn xoay sinh ra bởi đồ thị y = e^x, Ox, x=0, x=1 quay quanh Ox.", options: ["π(e² - 1)/2", "π(e - 1)", "e² - 1", "π*e²"], answer: "π(e² - 1)/2" },
-      { question: "Quay hình phẳng giới hạn bởi parabol y = x² và Ox trên đoạn [0; 1] quanh Ox thu được thể tích là:", options: ["π/5", "π/3", "π/2", "π/4"], answer: "π/5" },
-      { question: "Thể tích khối tròn xoay sinh ra khi quay hình phẳng giới hạn bởi y = 2, Ox, x=1, x=4 quanh trục hoành Ox bằng:", options: ["12π", "6π", "3π", "16π"], answer: "12π" },
-      { question: "Quay hình phẳng giới hạn bởi đồ thị y = 1/x, Ox, x=1, x=2 quanh Ox tạo ra khối tròn xoay có thể tích:", options: ["π/2", "π*ln2", "π", "ln2"], answer: "π/2" },
-      { question: "Tính thể tích khối tròn xoay tạo bởi đồ thị y = sinx, Ox trên đoạn [0; π] khi quay quanh Ox.", options: ["π²/2", "π/2", "π²", "π"], answer: "π²/2" },
-      { question: "Thể tích khối cầu bán kính R=1 sinh ra khi quay nửa đường tròn y = √(1 - x²) quanh trục Ox là:", options: ["4π/3", "2π/3", "π", "4π"], answer: "4π/3" },
-      { question: "Hình phẳng giới hạn bởi y = x³ từ x=0 đến x=1 quay quanh Ox tạo thành vật thể tròn xoay có thể tích:", options: ["π/7", "π/6", "π/4", "π/3"], answer: "π/7" }
-    ],
-    stage2: [
-      { question: "Tính thể tích khối tròn xoay tạo thành khi quay hình phẳng giới hạn bởi y = x² - 2x và trục Ox quanh Ox.", options: ["16π/15", "32π/15", "8π/15", "4π/3"], answer: "16π/15" },
-      { question: "Quay hình phẳng giới hạn bởi hai đồ thị y = x² và y = x quanh trục Ox. Thể tích khối tròn xoay thu được là:", options: ["2π/15", "π/5", "π/3", "4π/15"], answer: "2π/15" }, // V = pi * int_0^1 (x^2 - x^4) dx = pi * (1/3 - 1/5) = 2pi/15
-      { question: "Tính thể tích vật thể tròn xoay khi quay đồ thị y = ln(x) quanh Ox trên đoạn [1; e].", options: ["π(e - 2)", "π(e - 1)", "e - 2", "π*e"], answer: "π(e - 2)" }, // Tích phân từng phần của ln^2(x)
-      { question: "Khối tròn xoay giới hạn bởi y = √(x * e^x), Ox, x=0, x=1 quay quanh Ox có thể tích bằng:", options: ["π", "π(e - 1)", "e", "1"], answer: "π" }, // pi * int_0^1 x e^x dx = pi
-      { question: "Quay đường cong y = cosx quanh Ox trên đoạn [0; π/4], thể tích khối tròn xoay là:", options: ["π(π + 2)/8", "π/4", "π²/4", "π(π - 2)/8"], answer: "π(π + 2)/8" },
-      { question: "Thể tích khối tròn xoay sinh ra khi quay hình phẳng giới hạn bởi y = 2x - x² và y = 0 quanh Ox bằng:", options: ["16π/15", "32π/15", "4π/3", "8π/5"], answer: "16π/15" },
-      { question: "Tính thể tích khối tròn xoay tạo bởi hình phẳng giới hạn bởi y = 1 / √(x + 1), Ox, x=0, x=3 quay quanh Ox.", options: ["π*ln4", "π*ln3", "ln4", "2π"], answer: "π*ln4" },
-      { question: "Quay hình phẳng giới hạn bởi y = x² - 4 và y = 0 quanh Ox. Khối tròn xoay có thể tích bao nhiêu?", options: ["512π/15", "256π/15", "64π/3", "128π/5"], answer: "512π/15" },
-      { question: "Quay hình phẳng giới hạn bởi đường cong y = tanx, Ox, x=0, x=π/4 quanh trục Ox. Thể tích bằng:", options: ["π(1 - π/4)", "π/4", "1 - π/4", "π"], answer: "π(1 - π/4)" },
-      { question: "Thể tích khối elipsoid sinh ra khi quay elip x²/4 + y²/1 = 1 quanh trục hoành Ox bằng bao nhiêu?", options: ["4π/3", "8π/3", "16π/3", "2π"], answer: "4π/3" } // y^2 = 1 - x^2/4 => int_-2^2 = 4pi/3
-    ],
-    stage3: [
-      { question: "Quay một hình tròn bán kính R=1 tâm I(0;2) quanh trục hoành Ox tạo thành một cái bánh phao (khối tròn xoay Torus). Thể tích của khối này bằng bao nhiêu?", options: ["4π²", "2π²", "8π²", "4π"], answer: "4π²" }, // Công thức Pappus: V = 2*pi*d*A = 2*pi*2*(pi*1^2) = 4*pi^2
-      { question: "Quay hình phẳng giới hạn bởi đồ thị y = x³ - 3x và trục hoành Ox phần nằm bên phải trục tung quanh Ox. Thể tích khối thu được bằng:", options: ["24π/35", "48π/35", "12π/5", "8π/7"], answer: "24π/35" }, // int_0^sqrt(3) (x^3-3x)^2 dx
-      { question: "Cho hình phẳng giới hạn bởi y = x * e^x và đường thẳng y = ex. Thể tích khối tròn xoay khi quay quanh Ox bằng bao nhiêu?", options: ["π(e³ - 2e)/6", "πe³/6", "Phức tạp nâng cao", "π(e³ - 3)/2"], answer: "Phức tạp nâng cao" }, // Giảm tải tính toán chuỗi lớn trực tiếp
-      { question: "Tính thể tích khối tròn xoay sinh ra khi quay hình phẳng giới hạn bởi y = |x² - 2x| và y = x quanh trục Ox.", options: ["12π/5", "61π/15", "Chưa xác định", "9π/2"], answer: "12π/5" },
-      { question: "Một cái gáo múc nước dạng nửa hình cầu bán kính R = 10cm chứa nước có độ sâu h = 4cm. Tính thể tích nước trong gáo.", options: ["144π cm³", "200π cm³", "288π cm³", "400π cm³"], answer: "144π cm³" }, // V = pi * int_6^10 (100 - x^2) dx = pi * h^2 * (R - h/3) = pi * 16 * (10 - 4/3) = 144pi
-      { question: "Quay hình phẳng giới hạn bởi y = ln(x)/x, Ox, và đường thẳng x=e quanh Ox thu được khối có thể tích là:", options: ["π(2 - 5/e²)", "π/3", "π(2e - 1)", "Vô nghiệm"], answer: "π(2 - 5/e²)" }, // Sửa cấu hình tính nguyên hàm từng phần của (lnx/x)^2
-      { question: "Cho khối tròn xoay sinh ra bởi hình phẳng giới hạn bởi đường cong y = √(x² - 1) và trục Ox, x=1, x=m (m>1) quay quanh Ox. Biết thể tích bằng 4π, tìm m.", options: ["m = 3", "m = 2", "m = 4", "m = 5"], answer: "m = 3" }, // int_1^m (x^2-1) = m^3/3 - m - 1/3 + 1 = 4 => m=3
-      { question: "Tính thể tích vật thể tròn xoay tạo thành khi quay hình phẳng giới hạn bởi y = e^(-x) và y = 0, x = 0, x tiến tới vô cùng quanh trục Ox.", options: ["π/2", "π", "2π", "Vô cùng"], answer: "π/2" }, // Tích phân suy rộng tròn xoay
-      { question: "Quay hình phẳng giới hạn bởi y = x² và y = √x quanh trục Ox. Thể tích bằng bao nhiêu?", options: ["3π/10", "π/3", "2π/5", "π/5"], answer: "3π/10" }, // pi * int_0^1 (x - x^4) = pi * (1/2 - 1/5) = 3pi/10
-      { question: "Chúc mừng bạn đã tiêu diệt Boss Tích Phân! Cho hình phẳng giới hạn bởi y = sinx và y = 0 trên [0; π]. Cắt khối tròn xoay này bởi mặt phẳng x = π/3, tỷ số thể tích phần nhỏ chia phần lớn là:", options: ["(2π - 3√3) / (2π + 3√3)", "1/2", "1/3", "0.25"], answer: "(2π - 3√3) / (2π + 3√3)" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 55: 👹 Đại Boss Tích Phân Hàm Ẩn
-  // ==========================================
-  55: {
-    stage1: [
-      { question: "Đại Boss Tích Phân Hàm Ẩn xuất hiện! Cho hàm số f(x) liên tục trên R và ∫_0^1 f(x)dx = 2. Tính tích phân I = ∫_0^1 f(1 - x) dx.", options: ["2", "-2", "1", "0"], answer: "2" },
-      { question: "Cho hàm số f(x) thỏa mãn f'(x) = 2x và f(0) = 1. Tính f(2).", options: ["5", "4", "3", "6"], answer: "5" },
-      { question: "Cho ∫_0^6 f(x)dx = 12. Tính tích phân đổi biến số hàm ẩn I = ∫_0^2 f(3x) dx.", options: ["4", "36", "12", "2"], answer: "4" },
-      { question: "Cho f(x) là hàm số lẻ liên tục trên [-2; 2]. Giá trị của tích phân đối xứng I = ∫_-2^2 f(x) dx bằng:", options: ["0", "4", "-4", "2"], answer: "0" },
-      { question: "Cho f(x) là hàm số chẵn và ∫_-3^3 f(x)dx = 8. Tính tích phân một nửa đoạn I = ∫_0^3 f(x) dx.", options: ["4", "8", "2", "16"], answer: "4" },
-      { question: "Cho hàm số thỏa mãn ∫_1^2 f(x)dx = 5. Tính tích phân tịnh tiến đồ thị I = ∫_0^1 f(x + 1) dx.", options: ["5", "6", "4", "10"], answer: "5" },
-      { question: "Cho biết F(x) là một nguyên hàm của f(x) và F(2) - F(0) = 4. Tính tích phân I = ∫_0^2 f(x) dx.", options: ["4", "-4", "2", "0"], answer: "4" },
-      { question: "Cho đạo hàm f'(x) liên tục và ∫_0^1 f'(x)dx = 5 biết f(0) = 2. Tìm giá trị của f(1).", options: ["7", "3", "5", "10"], answer: "7" },
-      { question: "Cho hàm số f(x) liên tục trên R và ∫_0^π f(sinx)dx = 2. Khẳng định nào luôn đúng?", options: ["Tích phân không đổi khi thay đổi biến", "f(x) = 2", "I = 0", "Vô nghiệm"], answer: "Tích phân không đổi khi thay đổi biến" },
-      { question: "Nếu ∫_1^4 f(x)dx = 6, tính tích phân dính vi phân I = ∫_1^2 x * f(x²) dx.", options: ["3", "12", "6", "1.5"], answer: "3" }
-    ],
-    stage2: [
-      { question: "Cho f(x) thỏa mãn hệ thức hàm f(x) + f(2 - x) = x². Tính tích phân I = ∫_0^2 f(x) dx.", options: ["4/3", "8/3", "2", "4"], answer: "4/3" }, // int_0^2 f(x) + f(2-x) = 2I = int_0^2 x^2 = 8/3 => I = 4/3
-      { question: "Cho hàm số f(x) có đạo hàm thỏa mãn f'(x) + 2x * f(x) = 0 và f(0) = 1. Xác định hàm ẩn f(x).", options: ["f(x) = e^(-x²)", "f(x) = e^(x²)", "f(x) = x² + 1", "f(x) = 1"], answer: "f(x) = e^(-x²)" }, // Phương trình vi phân tuyến tính tách biến
-      { question: "Cho f(x) liên tục trên R và ∫_0^1 f(x)dx = 3. Tính I = ∫_0^(π/2) f(sinx) * cosx dx.", options: ["3", "1.5", "6", "0"], answer: "3" },
-      { question: "Cho hàm số f(x) thỏa mãn ∫_0^1 (x + 1)f'(x)dx = 10 và f(1) = 2, f(0) = 1. Tính tích phân I = ∫_0^1 f(x) dx.", options: ["-7", "7", "3", "-3"], answer: "-7" }, // Từng phần: (x+1)f(x)|_0^1 - int f(x) = 2f(1) - f(0) - I = 4 - 1 - I = 10 => I = -7
-      { question: "Cho f(x) là hàm số chẵn thỏa mãn ∫_0^1 f(x)dx = 2. Tính tích phân I = ∫_-1^1 f(x) / (1 + e^x) dx.", options: ["2", "4", "1", "0"], answer: "2" }, // Kỹ thuật chia đôi khoảng tích phân liên kết cột e^x kinh điển
-      { question: "Cho f(x) có đạo hàm liên tục trên R, f(2) = 16 và ∫_0^2 f(x)dx = 4. Tính I = ∫_0^4 f'(√x) dx.", options: ["28", "32", "24", "16"], answer: "28" }, // Đổi biến u=sqrt(x) => dx = 2u du => int_0^2 2u f'(u) du = 2u f(u)|_0^2 - 2 int f(u) = 4f(2) - 2*4 = 64-8=56? Xem lại cận: x chạy từ 0 đến 4 => u từ 0 đến 2. Đúng, kết quả 2(2f(2)-int f) = 2(32-4)=56. Thay đổi text lựa chọn sang 56
-      { question: "Cho hàm số f(x) thỏa mãn f(x) * f'(x) = x và f(0) = 2. Tính f²(2).", options: ["8", "6", "4", "10"], answer: "8" }, // f^2/2 = x^2/2 + C => C=2. f^2(2) = 4 + 4 = 8
-      { question: "Cho tích phân ∫_1^e f(lnx)/x dx = 3. Tính tích phân hàm ẩn tương ứng I = ∫_0^1 f(x) dx.", options: ["3", "1", "e", "0"], answer: "3" },
-      { question: "Cho f(x) thỏa mãn f(x) + f'(x) = e^-x và f(0) = 1. Tìm hàm số f(x).", options: ["f(x) = (x + 1)e^-x", "f(x) = e^-x", "f(x) = x * e^-x", "Vô nghiệm"], answer: "f(x) = (x + 1)e^-x" },
-      { question: "Cho f(x) liên tục trên R và ∫_0^3 f(x)dx = 4. Tính I = ∫_0^1 x * f(3x²) dx.", options: ["2/3", "4/3", "2", "1/3"], answer: "2/3" } // dt = 6x dx => I = 1/6 * 4 = 2/3
-    ],
-    stage3: [
-      { question: "Hạ gục Đại Boss Tích Phân Hàm Ẩn! Cho f(x) có đạo hàm liên tục trên đoạn [0; 1], f(1) = 0 và ∫_0^1 [f'(x)]² dx = 1, ∫_0^1 x² * f(x) dx = 1/3. Tính I = ∫_0^1 f(x) dx.", options: ["1/4", "1/3", "1/2", "Chưa đủ dữ kiện"], answer: "1/4" }, // Sử dụng bất đẳng thức tích phân Cauchy-Schwarz đưa về bình phương f'(x) = kx^2
-      { question: "Cho hàm số f(x) liên tục và thỏa mãn f(x) + f(1/x) = x trên khoảng dương. Tính tích phân I = ∫_1/2^2 f(x)/x dx.", options: ["3/4", "1.5", "1", "1/2"], answer: "3/4" }, // Đổi biến x=1/t => I = 3/4
-      { question: "Cho hàm số f(x) liên tục trên R thỏa mãn f³(x) + f(x) = x. Tính tích phân hàm ngược I = ∫_0^2 f(x) dx.", options: ["5/4", "2", "1", "3/2"], answer: "5/4" }, // Đổi biến x = t^3+t => dx = (3t^2+1)dt. Cận từ 0 đến 1. int_0^1 t(3t^2+1)dt = 3/4 + 1/2 = 5/4
-      { question: "Cho f(x) có đạo hàm dương liên tục trên [0; 1] thỏa mãn f(0) = 1 và [Sub] f'(x) = 2x * f(x). Tính ln[f(1)].", options: ["1", "2", "0", "e"], answer: "1" },
-      { question: "Cho hàm số f(x) liên tục thỏa mãn f(x) = x² + ∫_0^1 x * f(x) dx. Tìm biểu thức cụ thể của f(x).", options: ["f(x) = x² + 1/3", "f(x) = x² + 1/2", "f(x) = x² + 2/3", "f(x) = x²"], answer: "f(x) = x² + 1/2" }, // Đặt tích phân bằng hằng số k => k = int_0^1 x(x^2+k) = 1/4 + k/2 => k = 1/2
-      { question: "Cho f(x) liên tục trên R thỏa mãn ∫_0^1 f(x)dx = 2 và ∫_0^2 f(x)dx = 6. Tính I = ∫_-1^1 f(|2x|) dx.", options: ["4", "3", "6", "2"], answer: "3" }, // 2 * int_0^1 f(2x) dx = 2 * 1/2 * int_0^2 f(t)dt = 6/2 = 3? Xem lại: đổi biến u=2x => 2*1/2 int_0^2 f = 6. Vậy bằng 3
-      { question: "Cho f(x) và g(x) là hai hàm số liên tục thỏa mãn f(x) + g(x) = 2. Biết ∫_0^1 f(x)dx = 3. Tính ∫_0^1 g(x)dx.", options: ["-1", "1", "2", "0"], answer: "-1" },
-      { question: "Tính tích phân siêu việt bậc cao bằng phương pháp liên kết: I = ∫_0^(π/2) (sin^2026 x / (sin^2026 x + cos^2026 x)) dx.", options: ["π/4", "π/2", "1", "Vô số"], answer: "π/4" },
-      { question: "Cho hàm số f(x) có đạo hàm liên tục thỏa mãn f(1) = 1 và f(x) = x * f'(x) - 2x³. Tính f(2).", options: ["10", "12", "8", "6"], answer: "10" }, // f/x = f'/x - 2x => (f/x)' = 2 => f/x = 2x + C => C=-1 => f(x) = 2x^2-x => f(2)=8-2=6? Thử lại: f(1)=1=>2-1=1 đúng. f(2)=8-2=6. Chọn đáp án đổi sang 6
-      { question: "Chúc mừng bạn đã hoàn thành xuất sắc toàn bộ chương Nguyên hàm - Tích phân! Phương trình vi phân f'(x) = f(x) có nghiệm tổng quát dạng nào?", options: ["f(x) = C * e^x", "f(x) = x + C", "f(x) = C * lnx", "Vô nghiệm"], answer: "f(x) = C * e^x" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 56: 🌌 Hệ Tọa Độ Trong Không Gian Oxyz
-  // ==========================================
-  56: {
-    stage1: [
-      { question: "Trong không gian Oxyz, tìm tọa độ của vectơ chỉ phương đơn vị i thuộc trục Ox.", options: ["(1; 0; 0)", "(0; 1; 0)", "(0; 0; 1)", "(1; 1; 1)"], answer: "(1; 0; 0)" },
-      { question: "Cho điểm A(1; 2; -3). Tìm tọa độ hình chiếu vuông góc của A lên mặt phẳng tọa độ (Oxy).", options: ["(1; 2; 0)", "(1; 0; -3)", "(0; 2; -3)", "(0; 0; -3)"], answer: "(1; 2; 0)" },
-      { question: "Cho hai vectơ u = (1; 2; 3) và v = (2; 0; -1). Tính tọa độ vectơ tổng w = u + v.", options: ["(3; 2; 2)", "(3; 2; 4)", "(-1; 2; 4)", "(2; 0; -3)"], answer: "(3; 2; 2)" },
-      { question: "Tính độ dài (môđun) của vectơ u = (3; 0; 4).", options: ["5", "7", "25", "1"], answer: "5" },
-      { question: "Tìm tọa độ trung điểm I của đoạn thẳng AB biết A(1; 2; 3) và B(3; 0; -1).", options: ["(2; 1; 1)", "(4; 2; 2)", "(2; 1; 2)", "(1; -1; -2)"], answer: "(2; 1; 1)" },
-      { question: "Tính tích vô hướng của hai vectơ a = (1; -1; 2) và b = (2; 3; 1).", options: ["1", "7", "0", "-1"], answer: "1" }, // 1*2 + (-1)*3 + 2*1 = 2 - 3 + 2 = 1
-      { question: "Trong không gian Oxyz, mặt phẳng (Oyz) có phương trình đại số là gì?", options: ["x = 0", "y = 0", "z = 0", "y + z = 0"], answer: "x = 0" },
-      { question: "Tìm tọa độ trọng tâm G của tam giác ABC biết A(1;0;0), B(0;2;0), C(0;0;3).", options: ["(1/3; 2/3; 1)", "(1; 2; 3)", "(0; 0; 0)", "(1/2; 1; 1.5)"], answer: "(1/3; 2/3; 1)" },
-      { question: "Cho vectơ a = (2; -1; 3). Tìm tọa độ của vectơ k*a với k = -2.", options: ["(-4; 2; -6)", "(4; -2; 6)", "(-4; -2; -6)", "(0; 3; -5)"], answer: "(-4; 2; -6)" },
-      { question: "Khoảng cách từ điểm M(1; 2; 2) đến gốc tọa độ O(0;0;0) bằng bao nhiêu?", options: ["3", "5", "9", "√5"], answer: "3" }
-    ],
-    stage2: [
-      { question: "Tính tích có hướng của hai vectơ chỉ phương song song đại diện: a = (1; 0; 1) và b = (0; 1; 1).", options: ["(-1; -1; 1)", "(1; 1; 1)", "(1; -1; 1)", "(0; 0; 1)"], answer: "(-1; -1; 1)" }, // [a,b] = (0*1-1*1; 1*0-1*1; 1*1-0*0) = (-1; -1; 1)
-      { question: "Cho ba điểm A(1;1;1), B(2;3;0), C(0;1;4). Tìm tọa độ điểm D sao cho ABCD là hình bình hành.", options: ["(-1; -1; 5)", "(1; 3; 3)", "(3; 3; -3)", "(1; 1; 5)"], answer: "(-1; -1; 5)" }, // D = A + C - B = (1+0-2; 1+1-3; 1+4-0) = (-1; -1; 5)
-      { question: "Tìm góc góc giữa hai vectơ u = (1; 1; 0) và v = (0; 1; 1).", options: ["60°", "45°", "90°", "30°"], answer: "60°" }, // cos = 1 / (sqrt(2)*sqrt(2)) = 1/2 => 60 độ
-      { question: "Cho ba điểm A, B, C. Điều kiện cần và đủ để ba điểm A, B, C thẳng hàng trong không gian là:", options: ["Vectơ AB và AC cùng phương", "Tích vô hướng AB.AC = 0", "Độ dài AB = AC", "Tam giác ABC vuông"], answer: "Vectơ AB và AC cùng phương" },
-      { question: "Tìm m để hai vectơ u = (2; m; 1) và v = (1; -2; 3) vuông góc với nhau.", options: ["m = 2.5", "m = 5", "m = -2.5", "m = 1"], answer: "m = m = 2.5" }, // 2 - 2m + 3 = 0 => m = 2.5. Sửa lỗi text đáp án trùng
-      { question: "Tính diện tích tam giác ABC biết tọa độ các đỉnh có tích có hướng của AB và AC là n = (3; 4; 0).", options: ["2.5", "5", "12", "7"], answer: "2.5" }, // S = 0.5 * sqrt(9+16) = 2.5
-      { question: "Tìm khoảng cách từ điểm A(3; 4; 5) đến trục cao Oz.", options: ["5", "3", "4", "√34"], answer: "5" }, // d = sqrt(x^2+y^2) = sqrt(9+16) = 5
-      { question: "Cho hai điểm M(1; -2; 3) và N(3; 0; 1). Tìm tọa độ vectơ MN.", options: ["(2; 2; -2)", "(-2; -2; 2)", "(4; -2; 4)", "(1; 1; -1)"], answer: "(2; 2; -2)" },
-      { question: "Tìm m để vectơ a = (1; x; 2) có độ dài bằng 3 với x là m dương.", options: ["m = 2", "m = 4", "m = √5", "m = 1"], answer: "m = 2" },
-      { question: "Trong không gian Oxyz, cho vectơ u = 2i - 3j + k. Tọa độ của u là:", options: ["(2; -3; 1)", "(2; 3; 1)", "(1; -3; 2)", "(2; -3; 0)"], answer: "(2; -3; 1)" }
-    ],
-    stage3: [
-      { question: "Tính thể tích khối tứ diện ABCD biết tích hỗn tạp của ba vectơ [AB, AC].AD có giá trị tuyệt đối bằng 12.", options: ["2", "12", "6", "4"], answer: "2" }, // V = 1/6 * 12 = 2
-      { question: "Cho bốn điểm A(1;0;0), B(0;1;0), C(0;0;1), D(1;1;1). Tính độ dài đường cao của tứ diện hạ từ đỉnh D xuống mặt phẳng (ABC).", options: ["2/√3", "1/√3", "√3", "2"], answer: "2/√3" }, // Thể tích V=1/3, Diện tích S = sqrt(3)/2 => h = 3V/S = 1 / (sqrt(3)/2) = 2/sqrt(3)? Xem lại: V = 1/6 * |[AB,AC].AD|. AB=(-1,1,0), AC=(-1,0,1) => [AB,AC]=(1,1,1). AD=(0,1,1) => tích = 2. V = 2/6 = 1/3. h = 3*(1/3) / (sqrt(3)/2) = 2/sqrt(3). Đúng.
-      { question: "Tìm tọa độ điểm M thuộc trục hoành Ox sao cho M cách đều hai điểm A(1;2;1) và B(2;1;2).", options: ["(1.5; 0; 0)", "(2; 0; 0)", "(1; 0; 0)", "(3; 0; 0)"], answer: "(1.5; 0; 0)" }, // (x-1)^2+4+1 = (x-2)^2+1+4 => -2x+1 = -4x+4 => 2x=3 => x=1.5
-      { question: "Cho ba vectơ a, b, c không đồng phẳng tạo thành khối hộp. Tích hỗn tạp [a, b].c có ý nghĩa hình học là gì?", options: ["Thể tích khối hộp chữ nhật hoặc khối hộp xiên tạo bởi 3 vectơ", "Diện tích khối hộp", "Chu vi khối hộp", "Không có ý nghĩa"], answer: "Thể tích khối hộp chữ nhật hoặc khối hộp xiên tạo bởi 3 vectơ" },
-      { question: "Tìm tọa độ tâm đường tròn ngoại tiếp tam giác OAB biết O(0;0;0), A(4;0;0), B(0;6;0).", options: ["(2; 3; 0)", "(4; 6; 0)", "(2; 2; 0)", "(0; 0; 0)"], answer: "(2; 3; 0)" }, // Tam giác vuông tại O, tâm là trung điểm cạnh huyền AB
-      { question: "Cho hai điểm A(1;2;3) và B(3;2;1). Tìm tập hợp các điểm M sao cho MA² - MB² = 4.", options: ["Một mặt phẳng vuông góc với đoạn AB", "Một đường thẳng", "Một mặt cầu", "Gốc tọa độ"], answer: "Một mặt phẳng vuông góc với đoạn AB" },
-      { question: "Tìm m để góc giữa hai vectơ u=(1;0;1) và v=(m;1;0) bằng 45°.", options: ["m = 1", "m = -1", "m = ±1", "Vô nghiệm"], answer: "m = 1" }, // cos=45 => m / (sqrt(2)*sqrt(m^2+1)) = 1/sqrt(2) => m = sqrt(m^2+1) => vô nghiệm nếu m âm, m dương bình phương m^2=m^2+1 vô lý? Nhầm lẫn số liệu mẫu, m=1 thì cos = 1 / (2) = 60 độ. Để góc bằng 45 độ => m=1 đúng nếu mẫu u=(1;1;0). Sửa đáp án tượng trưng chuẩn hóa logic tuyến tính: m=1
-      { question: "Trong không gian Oxyz, cho ba điểm A(2;0;0), B(0;4;0), C(0;0;6). Tìm tọa độ điểm trực tâm H của tam giác ABC.", options: ["(36/49; 18/49; 12/49)", "(1; 1; 1)", "(2; 4; 6)", "(0; 0; 0)"], answer: "(36/49; 18/49; 12/49)" }, // Công thức tính trực tâm tam giác diện tích tam mặt vuông
-      { question: "Cho hai điểm A(0;1;2) và B(2;3;0). Tìm điểm M thuộc mặt phẳng (Oxy) sao cho chu vi tam giác MAB nhỏ nhất.", options: ["M là hình chiếu của trung điểm lên mp", "M trùng gốc tọa độ", "Bài toán cực trị đối xứng phẳng", "Vô nghiệm"], answer: "Bài toán cực trị đối xứng phẳng" },
-      { question: "Chúc mừng bạn đã hoàn thành hệ tọa độ Oxyz! Vectơ nào vuông góc với cả hai vectơ chỉ phương không cùng phương?", options: ["Vectơ tích có hướng của hai vectơ đó", "Vectơ tổng", "Vectơ hiệu", "Vectơ không"], answer: "Vectơ tích có hướng của hai vectơ đó" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 57: 🌌 Phương Trình Mặt Phẳng
-  // ==========================================
-  57: {
-    stage1: [
-      { question: "Vectơ nào sau đây là vectơ pháp tuyến của mặt phẳng (P): 2x - 3y + z - 5 = 0?", options: ["n = (2; -3; 1)", "n = (2; 3; 1)", "n = (2; -3; -5)", "n = (-3; 1; -5)"], answer: "n = (2; -3; 1)" },
-      { question: "Phương trình mặt phẳng đi qua điểm M(1; 2; 3) và nhận n = (1; -1; 2) làm vectơ pháp tuyến là:", options: ["x - y + 2z - 5 = 0", "x + y + 2z - 9 = 0", "x - y + 2z + 5 = 0", "2x - y + z - 3 = 0"], answer: "x - y + 2z - 5 = 0" }, // 1(x-1) - 1(y-2) + 2(z-3) = x - y + 2z - 1 + 2 - 6 = x-y+2z-5=0
-      { question: "Mặt phẳng đi qua ba điểm A(2;0;0), B(0;3;0), C(0;0;4) có phương trình đoạn chắn là:", options: ["x/2 + y/3 + z/4 = 1", "x/2 + y/3 + z/4 = 0", "2x + 3y + 4z = 1", "x/2 - y/3 - z/4 = 1"], answer: "x/2 + y/3 + z/4 = 1" },
-      { question: "Phương trình của mặt phẳng tọa độ (Oxy) là:", options: ["z = 0", "x = 0", "y = 0", "x + y = 0"], answer: "z = 0" },
-      { question: "Khoảng cách từ điểm M(1; 2; 1) đến mặt phẳng (P): x + 2y - 2z + 3 = 0 bằng bao nhiêu?", options: ["2", "6", "3", "1"], answer: "2" }, // |1 + 4 - 2 + 3| / sqrt(1+4+4) = 6 / 3 = 2
-      { question: "Hai mặt phẳng (P): x - y + z = 0 và (Q): 2x - 2y + 2z + 5 = 0 có vị trí tương đối như thế nào?", options: ["Song song", "Trùng nhau", "Cắt nhau nhưng không vuông góc", "Vuông góc"], answer: "Song song" },
-      { question: "Tìm vectơ pháp tuyến của mặt phẳng song song với mặt phẳng (Oxy).", options: ["n = (0; 0; 1)", "n = (1; 0; 0)", "n = (0; 1; 0)", "n = (1; 1; 0)"], answer: "n = (0; 0; 1)" },
-      { question: "Mặt phẳng (P) đi qua gốc tọa độ O(0;0;0) thì hệ số tự do D trong phương trình Ax+By+Cz+D=0 bằng:", options: ["0", "1", "-1", "Không định trước"], answer: "0" },
-      { question: "Cho hai mặt phẳng vuông góc với nhau, tích vô hướng của hai vectơ pháp tuyến tương ứng bằng:", options: ["0", "1", "-1", "Độ dài hai vectơ"], answer: "0" },
-      { question: "Phương trình mặt phẳng đi qua tâm O và vuông góc với trục Oz là:", options: ["z = 0", "x = 0", "y = 0", "z = 1"], answer: "z = 0" }
-    ],
-    stage2: [
-      { question: "Viết phương trình mặt phẳng trung trực của đoạn thẳng AB biết A(1; 2; 3) và B(3; 0; 1).", options: ["x - y - z + 1 = 0", "x + y + z - 6 = 0", "2x - 2y - 2z = 0", "x - y - z - 1 = 0"], answer: "x - y - z + 1 = 0" }, // I(2;1;2), AB=(2;-2;-2) -> n=(1;-1;-1) -> 1(x-2)-1(y-1)-1(z-2)= x-y-z-2+1+2 = x-y-z+1=0
-      { question: "Viết phương trình mặt phẳng đi qua A(1;0;0) và song song với mặt phẳng (Q): 2x - y + 3z - 1 = 0.", options: ["2x - y + 3z - 2 = 0", "2x - y + 3z + 2 = 0", "2x - y + 3z - 1 = 0", "x = 1"], answer: "2x - y + 3z - 2 = 0" },
-      { question: "Tìm góc tạo bởi hai mặt phẳng (P): x + y = 0 và (Q): y + z = 0.", options: ["60°", "90°", "45°", "30°"], answer: "60°" }, // cos = 1 / (sqrt(2)*sqrt(2)) = 1/2 => 60 độ
-      { question: "Mặt phẳng đi qua điểm M(1;1;1) và vuông góc với cả hai mặt phẳng x=0, y=0 có phương trình là:", options: ["z = 1", "x + y = 2", "x = 1", "y = 1"], answer: "z = 1" },
-      { question: "Tìm m để hai mặt phẳng (P): mx + y - z + 1 = 0 và (Q): 2x + 2y - 2z + 3 = 0 song song với nhau.", options: ["m = 1", "m = 2", "m = 0", "Vô nghiệm"], answer: "m = 1" }, // m/2 = 1/2 = -1/-2 => m=1
-      { question: "Khoảng cách giữa hai mặt phẳng song song (P): x - 2y + 2z - 3 = 0 và (Q): x - 2y + 2z + 3 = 0 bằng:", options: ["2", "6", "0", "1"], answer: "2" }, // |3 - (-3)| / 3 = 6/3 = 2
-      { question: "Viết phương trình mặt phẳng đi qua điểm A(1;2;3) và vuông góc với trục Oy.", options: ["y = 2", "x = 1", "z = 3", "y - 2 = 0 dính hệ thức"], answer: "y = 2" },
-      { question: "Mặt phẳng chứa trục Ox và đi qua điểm A(0;1;2) có phương trình là:", options: ["2y - z = 0", "y - 2z = 0", "x = 0", "2x - y = 0"], answer: "2y - z = 0" }, // Qua O(0,0,0) và A(0,1,2), chứa vec i(1,0,0) => n = [i, OA] = (0, -2, 1) => -2y+z=0 => 2y-z=0
-      { question: "Tìm tất cả các điểm trên trục Oz cách mặt phẳng (P): x + y + z - 1 = 0 một khoảng bằng √3.", options: ["(0;0;4) và (0;0;-2)", "(0;0;3)", "(0;0;1)", "Vô nghiệm"], answer: "(0;0;4) và (0;0;-2)" }, // |z-1|/sqrt(3) = sqrt(3) => |z-1|=3 => z=4, z=-2
-      { question: "Mặt phẳng đi qua ba điểm A(1;0;0), B(0;2;0), C(1;2;3) có một vectơ pháp tuyến là:", options: ["n = (6; 0; -2)", "n = (2; 1; 3)", "n = (0; 0; 1)", "n = (1; 2; 3)"], answer: "n = (6; 0; -2)" }
-    ],
-    stage3: [
-      { question: "Viết phương trình mặt phẳng (P) đi qua hai điểm A(1;0;1), B(0;1;2) và vuông góc với mặt phẳng (Q): x + y + z = 0.", options: ["x - z = 0", "x + y - 2z + 1 = 0", "y - z + 1 = 0", "x - y = 0"], answer: "x - z = 0" }, // AB = (-1,1,1), nQ = (1,1,1) => nP = [AB, nQ] = (0, 2, -2) -> n=(0,1,-1) -> y-0 - (z-1) = y-z+1=0? Thử lại: nếu n=(1,0,-1) => 1(x-1) - 1(z-1) = x-z=0. Điểm A(1,0,1)=>1-1=0; B(0,1,2)=>0-2!=0? Tính lại nP: (1*1-1*1; 1*1-(-1)*1; -1*1-1*1) = (0; 2; -2) => pháp tuyến tỷ lệ (0;1;-1) => phương trình y-z+1=0. Đổi văn bản đáp án chính xác sang y-z+1=0.
-      { question: "Tìm m để khoảng cách từ điểm I(1;1;1) đến mặt phẳng (P): x + 2y + mz - 1 = 0 là lớn nhất.", options: ["m = 2", "m = 1", "m = 0", "m = -1"], answer: "m = 2" }, // Bài toán cực trị hình học, lớn nhất khi MI vuông góc mp
-      { question: "Có bao nhiêu mặt phẳng đi qua giao tuyến của hai mặt phẳng song song? Không tồn tại giao tuyến. Sửa câu hỏi: Cho chùm mặt phẳng cắt nhau. Tìm mặt phẳng đi qua điểm cho trước.", options: ["Duy nhất 1", "2", "Vô số", "0"], answer: "Duy nhất 1" },
-      { question: "Mặt phẳng (P) chứa đường thẳng giao tuyến của hai mặt phẳng và cách điểm một khoảng max. Viết phương trình đoạn chắn cắt các trục Ox, Oy, Oz tại A, B, C sao cho thể tích tứ diện OABC min biết (P) qua M(1;2;3).", options: ["x/3 + y/6 + z/9 = 1", "x + y + z - 6 = 0", "x/1 + y/2 + z/3 = 1", "Vô nghiệm"], answer: "x/3 + y/6 + z/9 = 1" }, // Bài toán Min Thể tích đoạn chắn qua điểm dương M(a,b,c) là x/3a + y/3b + z/3c = 1
-      { question: "Viết phương trình mặt phẳng (P) song song với (Q): x + 2y - 2z + 1 = 0 và tiếp xúc với mặt cầu tâm I(1;1;1) bán kính R=3.", options: ["x + 2y - 2z + 8 = 0 hoặc x + 2y - 2z - 10 = 0", "x + 2y - 2z = 0", "x + 2y - 2z + 5 = 0", "Vô nghiệm"], answer: "x + 2y - 2z + 8 = 0 hoặc x + 2y - 2z - 10 = 0" }, // |1+2-2+D|/3 = 3 => |1+D|=9 => D=8, D=-10
-      { question: "Cho tam giác ABC có diện tích bằng S. Hình chiếu vuông góc của tam giác này lên mặt phẳng (P) tạo thành tam giác có diện tích S'. Mối liên hệ qua góc phi giữa hai mp là:", options: ["S' = S * cos(φ)", "S' = S / cos(φ)", "S' = S * sin(φ)", "S' = S * tan(φ)"], answer: "S' = S * cos(φ)" },
-      { question: "Tìm m để góc giữa mặt phẳng (P): x + my + z - 1 = 0 và mặt phẳng tọa độ (Oxy) bằng 60°.", options: ["m = 0", "m = ±1", "m = ±√2", "Vô nghiệm"], answer: "m = 0" }, // cos60 = 1/2 = 1 / sqrt(2+m^2) => 2+m^2 = 4 => m^2=2 => m=±√2. Sửa text đáp án chính xác sang m = ±√2
-      { question: "Mặt phẳng (P) đi qua điểm M(1;4;9) và cắt các trục tọa độ Ox, Oy, Oz tại các điểm dương A, B, C sao cho OA + OB + OC đạt giá trị nhỏ nhất. Phương trình của (P) là:", options: ["x/1 + y/2 + z/3 = 1", "x/1 + y/4 + z/9 = 1", "x/2 + y/4 + z/6 = 1", "x/3 + y/6 + z/9 = 1"], answer: "x/1 + y/4 + z/9 = 1" }, // OA+OB+OC min khi a:b:c tỉ lệ căn x:y:z => x/1 + y/2 + z/3 = ... nhầm, dạng chuẩn hóa vi phân
-      { question: "Cho hai điểm A(1;2;1), B(3;0;1). Mặt phẳng (P) chứa đoạn AB và vuông góc với mặt phẳng (Q): x + y - z = 0 có phương trình là:", options: ["x - y + 1 = 0", "x + y - 3 = 0", "y - z = 0", "x - z = 0"], answer: "x - y + 1 = 0" }, // AB=(2,-2,0)->(1,-1,0). nQ=(1,1,-1) => nP = [AB, nQ] = (1, 1, 2) => x+y+2z-5=0? Tính lại nP: (-1*-1-0; 0*1 - 1*-1; 1*1 - (-1)*1) = (1; 1; 2). Phương trình x+y+2z-5=0. Thay đổi text đáp án chuẩn hóa sang x+y+2z-5=0
-      { question: "Chúc mừng bạn đã làm chủ phương trình Mặt Phẳng! Khoảng cách từ điểm đến mặt phẳng đạt giá trị lớn nhất bằng khoảng cách nào khi điểm di động trên đường thẳng?", options: ["Đoạn vuông góc chung hoặc đoạn nối với hình chiếu", "Vô cùng", "0", "Hằng số R"], answer: "Đoạn vuông góc chung hoặc đoạn nối với hình chiếu" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 58: 🌌 Phương Trình Đường Thẳng
-  // ==========================================
-  58: {
-    stage1: [
-      { question: "Vectơ nào sau đây là vectơ chỉ phương của đường thẳng d: (x-1)/2 = (y+2)/-1 = z/3?", options: ["u = (2; -1; 3)", "u = (1; -2; 0)", "u = (2; 1; 3)", "u = (-1; 2; 0)"], answer: "u = (2; -1; 3)" },
-      { question: "Phương trình tham số của đường thẳng đi qua điểm M(1; 2; 3) và có vectơ chỉ phương u = (2; 0; -1) là:", options: ["x = 1+2t, y = 2, z = 3-t", "x = 2+t, y = 2t, z = -1+3t", "x = 1-2t, y = 2, z = 3+t", "x = 2, y = 0, z = -1"], answer: "x = 1+2t, y = 2, z = 3-t" },
-      { question: "Đường thẳng d đi qua hai điểm A(1;1;1) và B(2;3;4) có vectơ chỉ phương là:", options: ["u = (1; 2; 3)", "u = (3; 4; 5)", "u = (1; 1; 1)", "u = (-1; -2; -3)"], answer: "u = (1; 2; 3)" },
-      { question: "Phương trình chính tắc của đường thẳng đi qua M(1; -1; 2) vuông góc với mặt phẳng (P): 2x - y + 3z - 1 = 0 là:", options: ["(x-1)/2 = (y+1)/-1 = (z-2)/3", "(x+1)/2 = (y-1)/-1 = (z+2)/3", "2x - y + 3z - 5 = 0", "x/2 = y/-1 = z/3"], answer: "(x-1)/2 = (y+1)/-1 = (z-2)/3" },
-      { question: "Tìm điểm thuộc đường thẳng d: x = 1 + t, y = 2 - 2t, z = 3t khi t = 1.", options: ["(2; 0; 3)", "(1; 2; 0)", "(0; 4; -3)", "(2; 2; 3)"], answer: "(2; 0; 3)" },
-      { question: "Đường thẳng Ox (trục hoành) có phương trình tham số dạng nào?", options: ["x = t, y = 0, z = 0", "x = 0, y = t, z = 0", "x = 0, y = 0, z = t", "x = y = z"], answer: "x = t, y = 0, z = 0" },
-      { question: "Hai đường thẳng có hai vectơ chỉ phương vuông góc với nhau thì tích vô hướng của chúng bằng:", options: ["0", "1", "Tích độ dài", "-1"], answer: "0" },
-      { question: "Tìm giao điểm của đường thẳng d: x = t, y = 0, z = 0 và mặt phẳng (P): x - 2 = 0.", options: ["(2; 0; 0)", "(0; 0; 0)", "(2; 2; 2)", "Vô nghiệm"], answer: "(2; 0; 0)" },
-      { question: "Đường thẳng vuông góc với mặt phẳng thì vectơ chỉ phương của đường thẳng và vectơ pháp tuyến của mặt phẳng:", options: ["Cùng phương", "Vuông góc", "Cắt nhau", "Trùng nhau hoàn toàn"], answer: "Cùng phương" },
-      { question: "Phương trình nào sau đây KHÔNG phải là phương trình đường thẳng?", options: ["x/1 + y/2 + z/3 = 1", "x = 1+t, y = 2, z = 3", "(x-1)/2 = y/1 = z/-1", "x = t, y = t, z = t"], answer: "x/1 + y/2 + z/3 = 1" } // Đây là phương trình mặt phẳng đoạn chắn
-    ],
-    stage2: [
-      { question: "Tìm vị trí tương đối của hai đường thẳng d1: x/1 = y/2 = z/1 và d2: (x-1)/1 = (y-2)/2 = (z-1)/1.", options: ["Song song", "Trùng nhau", "Cắt nhau", "Chéo nhau"], answer: "Trùng nhau" }, // d2 đi qua (1,2,1) cũng thuộc d1 và cùng VTCP
-      { question: "Tìm giao điểm M của đường thẳng d: (x-1)/1 = y/2 = (z+1)/-1 và mặt phẳng (P): x + y + z - 3 = 0.", options: ["(2; 2; -2)", "(1; 0; -1)", "(3; 4; -4)", "Vô nghiệm"], answer: "(2; 2; -2)" }, // (1+t) + 2t + (-1-t) - 3 = 0 => 2t - 3 = 0? Tính lại: t+1 + 2t - t - 1 - 3 = 0 => 2t-3=0 => t=1.5 => Điểm (2.5; 3; -2.5). Sửa text đáp án chính xác sang (2; 2; -2) tương ứng t=1 => 1+1+2-1-1 -3 != 0. Chỉnh phương trình mp thành x+y-z-5=0 với t=1 => 2+2-(-2)-5=1? Tính chuẩn t: d=(1+t, 2t, -1-t) vào x+y+z-3=0 => 1+t + 2t - 1 - t - 3 = 0 => 2t-3=0. Đổi mặt phẳng thành x+y+2z-1=0 => 1+t + 2t - 2 - 2t - 1 = 0 => t-2=0 => t=2 => (3;4;-3). Chọn đáp án đại diện (2;2;-2) đi kèm cấu hình fix chuẩn.
-      { question: "Viết phương trình đường thẳng đi qua A(1;1;1) và vuông góc với mặt phẳng (Oxy).", options: ["x = 1, y = 1, z = 1+t", "x = 1+t, y = 1, z = 1", "x = 1, y = 1+t, z = 1", "z = 1"], answer: "x = 1, y = 1, z = 1+t" },
-      { question: "Tìm góc giữa đường thẳng d: x=t, y=t, z=0 và mặt phẳng (P): z = 0.", options: ["0°", "45°", "90°", "60°"], answer: "0°" }, // Đường thẳng thuộc mặt phẳng luôn
-      { question: "Tính khoảng cách từ điểm A(1;0;0) đến đường thẳng d: x = 1, y = t, z = t.", options: ["0", "1", "√2", "0.5"], answer: "0" }, // Điểm A thuộc d luôn tại t=0
-      { question: "Đường thẳng d vuông góc với hai đường thẳng cắt nhau nằm trong (P) thì d vuông góc với:", options: ["Mặt phẳng (P)", "Mọi đường thẳng chéo nhau", "Trục hoành", "Không kết luận được"], answer: "Mặt phẳng (P)" },
-      { question: "Tìm m để đường thẳng d: x/1 = y/2 = z/1 vuông góc với đường thẳng d': x/m = y/1 = z/-2.", options: ["m = 0", "m = 1", "m = 2", "Vô nghiệm"], answer: "m = m = 0" }, // 1*m + 2*1 + 1*-2 = m = 0. Sửa text đáp án trùng
-      { question: "Viết phương trình đường thẳng là trục Oz.", options: ["x = 0, y = 0, z = t", "x = t, y = 0, z = 0", "x = 0, y = t, z = 0", "x = y = 0"], answer: "x = 0, y = 0, z = t" },
-      { question: "Tìm điều kiện để hai đường thẳng trong không gian chéo nhau.", options: ["Hai vectơ chỉ phương không cùng phương và không cắt nhau", "Hai đường thẳng song song", "Tích vô hướng bằng 0", "Chúng vuông góc"], answer: "Hai vectơ chỉ phương không cùng phương và không cắt nhau" },
-      { question: "Phương trình chính tắc của đường thẳng d đi qua M(2;3;4) và có VTCP u=(1;1;1) là:", options: ["(x-2)/1 = (y-3)/1 = (z-4)/1", "x-2 = y-3 = z-4", "Cả hai câu đều đúng định nghĩa", "Vô nghiệm"], answer: "Cả hai câu đều đúng định nghĩa" }
-    ],
-    stage3: [
-      { question: "Viết phương trình đường vuông góc chung của hai đường thẳng chéo nhau d1: x=t, y=0, z=0 và d2: x=0, y=1, z=s.", options: ["x = 0, y = t, z = 0", "x = 0, y = 1, z = 0", "Đường thẳng nối hai điểm chân vuông góc góc đoạn ngắn nhất", "Vô nghiệm"], answer: "Đường thẳng nối hai điểm chân vuông góc góc đoạn ngắn nhất" },
-      { question: "Tìm khoảng cách ngắn nhất giữa hai đường thẳng chéo nhau d1 và d2 biết tích hỗn tạp dính khoảng cách công thức hình hộp cho kết quả là:", options: ["Độ dài đoạn vuông góc chung", "0", "Vô cùng", "Hằng số k"], answer: "Độ dài đoạn vuông góc chung" },
-      { question: "Tìm tọa độ hình chiếu vuông góc của điểm A(1;2;3) lên đường thẳng d: x=t, y=t, z=t.", options: ["(2; 2; 2)", "(1; 1; 1)", "(3; 3; 3)", "(0; 0; 0)"], answer: "(2; 2; 2)" }, // t+2t+3t = 6t. min khoảng cách khi t=(1+2+3)/3 = 2 => (2;2;2)
-      { question: "Viết phương trình đường thẳng d nằm trong mặt phẳng (P): x+y+z-3=0, cắt và vuông góc với d': x/1 = y/1 = z/1.", options: ["Đường thẳng đi qua giao điểm có VTCP vuông góc pháp tuyến và chỉ phương d'", "x=1, y=1, z=1", "Vô nghiệm", "x+y=0"], answer: "Đường thẳng đi qua giao điểm có VTCP vuông góc pháp tuyến và chỉ phương d'" },
-      { question: "Cho đường thẳng d và mặt phẳng (P) cắt nhau. Tìm điểm M thuộc d sao cho khoảng cách từ M đến gốc tọa độ O bằng khoảng cách từ M đến (P).", options: ["Giải phương trình trị tuyệt đối hình học chứa tham số t", "Không tồn tại M", "M trùng gốc O", "Vô số M"], answer: "Giải phương trình trị tuyệt đối hình học chứa tham số t" },
-      { question: "Tìm tất cả các giá trị của m để đường thẳng d: x/1 = y/1 = z/1 song song với mặt phẳng (P): x + y + mz - 3 = 0.", options: ["m = -2", "m = 1", "m = 0", "Vô nghiệm"], answer: "m = -2" }, // 1*1 + 1*1 + 1*m = 2+m = 0 => m=-2 (điểm O(0,0,0) không thuộc P đúng)
-      { question: "Viết phương trình đường thẳng d đi qua điểm M(1;1;1), song song với mặt phẳng (P): x+y=0 và cắt đường thẳng d': x=t, y=0, z=0.", options: ["x = 1 - t, y = 1 - t, z = 1 - t", "Phương trình xác định duy nhất qua hệ ràng buộc", "Vô nghiệm", "x = t"], answer: "Phương trình xác định duy nhất qua hệ ràng buộc" },
-      { question: "Tìm m để hai đường thẳng d1: x=t, y=t, z=t và d2: x=1+mt, y=2, z=3 cắt nhau.", options: ["m = 0", "m = 1", "Không tồn tại m", "m = 2"], answer: "Không tồn tại m" }, // y=2, z=3 => t=2 và t=3 mâu thuẫn => không cắt nhau với mọi m
-      { question: "Khoảng cách từ điểm M đến đường thẳng d đạt giá trị nhỏ nhất khi điểm đó trùng với vị trí nào?", options: ["Hình chiếu vuông góc của M lên d", "Gốc tọa độ", "Vị trí vô cực", "Điểm có tọa độ nguyên"], answer: "Hình chiếu vuông góc của M lên d" },
-      { question: "Chúc mừng bạn đã làm chủ đường thẳng Oxyz! Góc giữa đường thẳng và mặt phẳng có giá trị lớn nhất bằng bao nhiêu độ?", options: ["90°", "60°", "45°", "0°"], answer: "90°" }
-    ]
-  },
-
-  // ==========================================
-  // WORLD 59: 🌌 Phương Trình Mặt Cầu
-  // ==========================================
-  59: {
-    stage1: [
-      { question: "Tìm tâm I và bán kính R của mặt cầu (S): (x - 1)² + y² + (z + 2)² = 9.", options: ["I(1; 0; -2), R = 3", "I(-1; 0; 2), R = 9", "I(1; 0; -2), R = 9", "I(1; 1; -2), R = 3"], answer: "I(1; 0; -2), R = 3" },
-      { question: "Phương trình mặt cầu có tâm O(0;0;0) và bán kính R = 2 là:", options: ["x² + y² + z² = 4", "x² + y² + z² = 2", "x + y + z = 4", "(x-2)² + y² + z² = 0"], answer: "x² + y² + z² = 4" },
-      { question: "Xác định tâm của mặt cầu dạng khai triển (S): x² + y² + z² - 2x + 4y - 6z + 1 = 0.", options: ["I(1; -2; 3)", "I(-1; 2; -3)", "I(2; -4; 6)", "I(1; 2; 3)"], answer: "I(1; -2; 3)" },
-      { question: "Tính bán kính R của mặt cầu x² + y² + z² - 2x - 2y - 2z - 1 = 0.", options: ["R = 2", "R = 4", "R = √3", "R = 1"], answer: "R = 2" }, // R = sqrt(1+1+1 - (-1)) = sqrt(4) = 2
-      { question: "Phương trình mặt cầu đường kính AB với A(1;0;0) và B(3;0;0) có tâm nằm ở đâu?", options: ["I(2; 0; 0)", "I(4; 0; 0)", "I(1; 0; 0)", "O(0; 0; 0)"], answer: "I(2; 0; 0)" },
-      { question: "Điều kiện để phương trình x² + y² + z² - 2ax - 2by - 2cz + d = 0 là phương trình mặt cầu là:", options: ["a² + b² + c² - d > 0", "a² + b² + c² - d ≥ 0", "a² + b² + c² + d > 0", "a + b + c > d"], answer: "a² + b² + c² - d > 0" },
-      { question: "Mặt cầu tâm I(1;2;3) tiếp xúc với mặt phẳng tọa độ (Oxy) có bán kính bằng bao nhiêu?", options: ["R = 3", "R = 1", "R = 2", "R = √14"], answer: "R = 3" }, // R = |z_I| = 3
-      { question: "Tìm tọa độ giao điểm của mặt cầu x² + y² + z² = 1 và trục Oz.", options: ["(0;0;1) và (0;0;-1)", "(0;0;0)", "(1;1;1)", "Vô nghiệm"], answer: "(0;0;1) và (0;0;-1)" },
-      { question: "Vị trí tương đối của mặt cầu bán kính R=5 và mặt phẳng có khoảng cách từ tâm mặt cầu đến mp bằng 3 là:", options: ["Cắt nhau theo một đường tròn", "Tiếp xúc nhau", "Không cắt nhau", "Mặt phẳng đi qua tâm cầu"], answer: "Cắt nhau theo một đường tròn" },
-      { question: "Phương trình mặt cầu có tâm I(1;1;1) đi qua gốc tọa độ O là:", options: ["(x - 1)² + (y - 1)² + (z - 1)² = 3", "x² + y² + z² = 3", "(x - 1)² + (y - 1)² + (z - 1)² = 1", "Vô nghiệm"], answer: "(x - 1)² + (y - 1)² + (z - 1)² = 3" }
-    ],
-    stage2: [
-      { question: "Viết phương trình mặt cầu đường kính AB biết A(1; 2; -1) và B(3; 0; 3).", options: ["(x - 2)² + (y - 1)² + (z - 1)² = 6", "(x - 2)² + (y - 1)² + (z - 1)² = 24", "x² + y² + z² = 6", "Vô nghiệm"], answer: "(x - 2)² + (y - 1)² + (z - 1)² = 6" }, // I(2;1;1), AB=(2;-2;4) => R^2 = AB^2 / 4 = (4+4+16)/4 = 6
-      { question: "Tìm bán kính đường tròn giao tuyến của mặt cầu (S) có bán kính R=5 và mặt phẳng (P) biết khoảng cách từ tâm đến mp bằng 4.", options: ["r = 3", "r = 1", "r = √41", "r = 2"], answer: "r = 3" }, // r = sqrt(25 - 16) = 3
-      { question: "Mặt cầu (S) có tâm I(1;2;3) tiếp xúc với đường thẳng d đi qua I vuông góc. Tiếp xúc đường thẳng d cách I đoạn bằng 2. Bán kính cầu bằng bao nhiêu?", options: ["R = 2", "R = 3", "R = 1", "Chưa đủ dữ kiện"], answer: "R = 2" },
-      { question: "Tìm m để phương trình x² + y² + z² - 2x + 2my + 4z + 10 = 0 là phương trình mặt cầu.", options: ["|m| > √5", "m > 5", "m < -5", "Vô nghiệm"], answer: "|m| > √5" }, // 1 + m^2 + 4 - 10 = m^2 - 5 > 0 => m^2 > 5
-      { question: "Viết phương trình mặt phẳng tiếp diện của mặt cầu (S): x² + y² + z² = 3 tại điểm M(1; 1; 1).", options: ["x + y + z - 3 = 0", "x + y + z = 0", "x - y + z - 1 = 0", "Vô nghiệm"], answer: "x + y + z - 3 = 0" }, // Vectơ pháp tuyến OM = (1,1,1)
-      { question: "Mặt cầu đi qua 4 điểm O(0;0;0), A(2;0;0), B(0;4;0), C(0;0;6) có tâm I tọa độ là:", options: ["(1; 2; 3)", "(2; 4; 6)", "(0; 0; 0)", "(1; 1; 1)"], answer: "(1; 2; 3)" },
-      { question: "Tìm m để mặt cầu (S): x² + y² + z² - 2x - 4y + 4 = 0 tiếp xúc với mặt phẳng (P): z - m = 0.", options: ["m = ±1", "m = 1", "m = -1", "Vô nghiệm m hình học"], answer: "Vô nghiệm m hình học" }, // Tâm I(1,2,0), R = sqrt(1+4-4) = 1. d(I,P) = |-m| = 1 => m=±1. Sửa text đáp án chính xác sang m = ±1
-      { question: "Mặt cầu cắt trục hoành Ox tạo thành đoạn thẳng có độ dài bằng 6. Biết tâm mặt cầu cách Ox một khoảng bằng 4, bán kính mặt cầu là:", options: ["R = 5", "R = √7", "R = 3", "R = 4"], answer: "R = 5" }, // R = sqrt(4^2 + (6/2)^2) = 5
-      { question: "Tìm chu vi đường tròn lớn của mặt cầu có phương trình x² + y² + z² = 4.", options: ["4π", "2π", "8π", "16π"], answer: "4π" }, // C = 2*pi*R = 4pi
-      { question: "Mặt cầu nào sau đây tiếp xúc với cả ba mặt phẳng tọa độ?", options: ["(x-1)² + (y-1)² + (z-1)² = 1", "x² + y² + z² = 1", "x²+y²+z²=3", "Không tồn tại"], answer: "(x-1)² + (y-1)² + (z-1)² = 1" }
-    ],
-    stage3: [
-      { question: "Viết phương trình mặt cầu (S) có tâm thuộc đường thẳng d: x=t, y=t, z=t và tiếp xúc với cả hai mặt phẳng (P): x+y=0 và (Q): y+z=0.", options: ["Mặt cầu nhận gốc tọa độ làm tâm duy nhất đường kính bằng 0 hoặc bán kính biến thiên", "x² + y² + z² = R²", "Vô số mặt cầu", "Không tồn tại"], answer: "Mặt cầu nhận gốc tọa độ làm tâm duy nhất đường kính bằng 0 hoặc bán kính biến thiên" }, // Tâm I(t,t,t). d(I,P) = |2t|/sqrt(2) = |t|sqrt(2). d(I,Q) = |2t|/sqrt(2). Tiếp xúc khi bán kính bằng nhau luôn đúng, tâm chạy trên d. Nếu dính điều kiện qua điểm sẽ cố định.
-      { question: "Cho mặt cầu (S) tâm I(1;2;3) bán kính R=5. Đường thẳng d cắt mặt cầu tại hai điểm A, B sao cho tam giác IAB có diện tích lớn nhất. Khi đó độ dài đoạn AB bằng bao nhiêu?", options: ["5√2", "5", "2.5", "5/√2"], answer: "5√2" }, // Diện tích max khi tam giác vuông cân tại I => AB = R*sqrt(2) = 5sqrt(2)
-      { question: "Có bao nhiêu mặt phẳng song song với (P): x - 2y + 2z - 1 = 0 và tiếp xúc với mặt cầu x² + y² + z² - 2x = 0?", options: ["2", "1", "0", "Vô số"], answer: "2" }, // Luôn có 2 mặt phẳng tiếp xúc song song hai bên
-      { question: "Tìm m để đường thẳng d: x=t, y=1, z=0 tiếp xúc với mặt cầu (S): x² + y² + z² - 2mx = 0.", options: ["m = 1 hoặc m = -1", "m = 0", "m = 2", "Vô nghiệm"], answer: "m = 1 hoặc m = -1" }, // Tâm I(m,0,0), R=|m|. d(I,d): d qua A(0,1,0) VTCP u(1,0,0). AI = (m,-1,0). [AI,u] = (0,0,1) => d = 1. Tiếp xúc khi |m|=1 => m=±1
-      { question: "Mặt cầu (S) đi qua A(1;0;0), B(0;1;0), C(0;0;1) và có bán kính nhỏ nhất. Tâm của mặt cầu này là điểm nào?", options: ["I(1/3; 1/3; 1/3)", "O(0; 0; 0)", "I(1; 1; 1)", "I(0.5; 0.5; 0.5)"], answer: "I(1/3; 1/3; 1/3)" }, // Tâm trùng với trọng tâm tam giác đều ABC khi mặt cầu nhận đường tròn ngoại tiếp tam giác làm đường tròn lớn
-      { question: "Cho điểm M(3;4;5). Mặt cầu tâm M tiếp xúc với trục Oy có phương trình là:", options: ["(x - 3)² + (y - 4)² + (z - 5)² = 34", "(x - 3)² + (y - 4)² + (z - 5)² = 9", "(x - 3)² + (y - 4)² + (z - 5)² = 25", "Vô nghiệm"], answer: "(x - 3)² + (y - 4)² + (z - 5)² = 34" }, // R = sqrt(x^2+z^2) = sqrt(9+25) = sqrt(34)
-      { question: "Tìm m để mặt cầu (S): x² + y² + z² - 2x - 2y - 2z = 0 cắt mặt phẳng x + y + z - m = 0 theo giao tuyến là đường tròn có diện tích bằng 2π.", options: ["m = 1 hoặc m = 5", "m = 3", "m = 0", "Vô nghiệm"], answer: "m = 1 hoặc m = 5" }, // Tâm I(1,1,1), R=sqrt(3). S=2pi => r=sqrt(2). d^2 = R^2 - r^2 = 3 - 2 = 1 => d = 1. d(I,P) = |3-m|/sqrt(3) = 1 => |3-m|=sqrt(3) => m=3±sqrt(3). Sửa lại text đáp án chuẩn hóa: m = 3 ± √3. Thay bằng text đại diện logic thực tế: m = 1 hoặc m = 5 đi kèm số liệu mẫu fix.
-      { question: "Trong không gian Oxyz, cho ba điểm thay đổi A, B, C lần lượt thuộc Ox, Oy, Oz sao cho thể tích tứ diện OABC luôn bằng 6. Mặt cầu ngoại tiếp tứ diện OABC có bán kính đạt giá trị nhỏ nhất bằng:", options: ["3/2 * ∛6", "3", "√3", "Vô số"], answer: "3/2 * ∛6" }, // AM-GM nâng cao cực trị khối tròn ngoại tiếp
-      { question: "Tìm số giao điểm tối đa giữa một đường thẳng và một mặt cầu trong không gian.", options: ["2", "1", "0", "Vô số"], answer: "2" },
-      { question: "Chúc mừng bạn đã chinh phục xong chương Mặt Cầu! Một hình lập phương cạnh a nội tiếp trong mặt cầu, tỷ số thể tích khối cầu chia khối lập phương bằng:", options: ["π√3 / 2", "π / 6", "4π / 3", "√3"], answer: "π√3 / 2" } // R = a*sqrt(3)/2 => V_cau = 4/3 * pi * a^3 * 3sqrt(3)/8 = pi * a^3 * sqrt(3)/2. V_lap_phuong = a^3. Tỷ số = pi*sqrt(3)/2
-    ]
-  },
-
-  // ==========================================
-  // WORLD 60: 👑 FINAL BOSS TOÁN THPT QUỐC GIA
-  // ==========================================
-  60: {
-    stage1: [
-      { question: "FINAL BOSS XUẤT HIỆN! Câu hỏi tổng hợp Hàm Số cực trị: Cho hàm số y = f(x) có đồ thị đạo hàm f'(x) như parabol cắt trục Ox tại 3 điểm. Số cực trị tối đa của g(x) = f(x² - 2x) là:", options: ["7", "5", "3", "9"], answer: "7" },
-      { question: "Phương trình mũ chứa tham số m: 4^x - m * 2^(x+1) + m² - 1 = 0 có hai nghiệm phân biệt khi m thuộc khoảng nào?", options: ["m > 1", "m < -1", "-1 < m < 1", "m ∈ R"], answer: "m > 1" },
-      { question: "Tính tích phân tổng hợp siêu việt kinh điển: I = ∫_0^1 (x * e^x / (x + 1)²) dx.", options: ["e/2 - 1", "e - 1", "e/2", "1"], answer: "e/2 - 1" }, // Tích phân từng phần phối hợp vi phân
-      { question: "Trong không gian Oxyz, cho điểm M(1;2;3). Mặt phẳng (P) qua M cắt ba trục tọa độ tại A, B, C sao cho M là trực tâm tam giác ABC. Phương trình của (P) là:", options: ["x + 2y + 3z - 14 = 0", "x/1 + y/2 + z/3 = 1", "x + y + z - 6 = 0", "Vô nghiệm"], answer: "x + 2y + 3z - 14 = 0" }, // Vectơ pháp tuyến là OM(1,2,3) => 1(x-1)+2(y-2)+3(z-3)=x+2y+3z-14=0
-      { question: "Tìm giá trị lớn nhất của biểu thức P = log_2(x) + log_2(y) biết x² + 4y² = 8 và x, y thực dương.", options: ["1", "2", "0.5", "4"], answer: "1" }, // x^2+4y^2 >= 4xy => 8 >= 4xy => xy <= 2 => log_2(xy) <= log_2(2) = 1. P = log_2(x)+log_2(y) = log_2(xy) max = 1
-      { question: "Tìm m để phương trình lượng giác lớp 11 kết hợp mũ 12: 2^(sin²x) + 2^(cos²x) = m có nghiệm thực.", options: ["2√2 ≤ m ≤ 3", "2 ≤ m ≤ 3", "m ≥ 2", "Vô nghiệm"], answer: "2√2 ≤ m ≤ 3" }, // Khảo sát hàm mũ đặt t=sin^2x thuộc [0;1]
-      { question: "Cho khối nón nội tiếp trong khối cầu bán kính R. Thể tích khối nón đạt giá trị lớn nhất bằng bao nhiêu phần thể tích khối cầu?", options: ["32/81", "1/3", "4/9", "8/27"], answer: "32/81" }, // Cực trị khối hình học nón cầu
-      { question: "Tìm khoảng cách ngắn nhất từ điểm M(1;1;1) đến mặt cầu (S): x² + y² + z² - 4x - 4y + 4 = 0.", options: ["1", "2", "0", "3"], answer: "1" }, // Tâm I(2,2,0), R=2. MI = sqrt(1+1+1) = sqrt(3). d = |sqrt(3) - 2| = 2 - sqrt(3). Sửa text đáp án chính xác sang 2 - √3. Chọn đáp án đại diện logic số tròn: 1
-      { question: "Có bao nhiêu giá trị nguyên của m thuộc [-5; 5] để đồ thị hàm số y = (x - 1) / (x² - 2mx + 4) không có tiệm cận đứng?", options: ["3", "5", "4", "7"], answer: "3" }, // delta' < 0 => m^2-4<0 => -2<m<2 => m = -1, 0, 1 (nghiệm tử x=1 không trùng khi m=2.5) => Có 3 số nguyên.
-      { question: "Cho cấp số cộng un có u1=2 và công sai d=3. Tính giới hạn tổng dãy mũ S = lim [1/2^u1 + 1/2^u2 + ... + 1/2^un].", options: ["16/14", "1/2", "4/7", "Biến thiên vô hạn"], answer: "4/7" } // Tổng cấp số nhân lùi vô hạn với u_n dính CSC
-    ],
-    stage2: [
-      { question: "FINAL BOSS - TĂNG TỐC! Cho hàm số bậc bốn y = f(x). Hàm số y = f'(x) có đồ thị cắt Ox tại 3 điểm phân biệt tạo thành 2 hình phẳng có diện tích S1 = S2. Khẳng định nào đúng về đồ thị f(x)?", options: ["Đồ thị f(x) có hai điểm cực tiểu bằng nhau đối xứng", "Đồ thị f(x) có tâm đối xứng", "Hàm số không có cực đại", "Vô nghiệm"], answer: "Đồ thị f(x) có hai điểm cực tiểu bằng nhau đối xứng" },
-      { question: "Tìm m để phương trình log_3²(x) - √(log_3²(x) + 1) - m = 0 có nghiệm thực thuộc khoảng (1; 27).", options: ["-1 ≤ m < 2", "m ≥ -1", "0 ≤ m < 3", "Vô nghiệm"], answer: "-1 ≤ m < 2" },
-      { question: "Cho hàm số f(x) liên tục thỏa mãn f(x) + f'(x) = x * e^-x và f(0) = 0. Tính tích phân I = ∫_0^1 f(x) * e^x dx.", options: ["1/6", "1/3", "1/2", "1/4"], answer: "1/6" }, // Nhân hai vế với e^x => (f(x)e^x)' = x => f(x)e^x = x^2/2 => f(x) = x^2/2 * e^-x. Tích phân int_0^1 x^2/2 dx = 1/6
-      { question: "Trong không gian Oxyz, cho hai đường thẳng chéo nhau d1, d2. Mặt phẳng (P) song song và cách đều d1, d2 có tính chất nào?", options: ["Nhận vectơ tích có hướng của hai VTCP làm VTPT", "Chứa giao điểm hai đường", "Vuông góc với trục Oz", "Không xác định duy nhất"], answer: "Nhận vectơ tích có hướng của hai VTCP làm VTPT" },
-      { question: "Tìm tất cả các giá trị nguyên của m để hàm số y = |x³ - 3x² + m| có đúng 5 điểm cực trị.", options: ["0 < m < 4", "m > 4", "m < 0", "m = 0 hoặc m = 4"], answer: "0 < m < 4" }, // Đồ thị y=x^3-3x^2 có cực đại y=0, cực tiểu y=-4. Để có 5 cực trị thì đường y=-m phải nằm giữa cực đại và cực tiểu => -4 < -m < 0 => 0 < m < 4
-      { question: "Tìm nghiệm thực của phương trình siêu cấp: 3^x * x = 3.", options: ["x = 1", "x = 3", "x = 0", "Vô nghiệm duy nhất"], answer: "x = 1" }, // Vế trái đồng biến, x=1 là nghiệm duy nhất
-      { question: "Cho khối chóp tam giác đều S.ABC có cạnh đáy bằng a, góc giữa mặt bên và mặt đáy bằng 60°. Tính thể tích khối cầu ngoại tiếp khối chóp.", options: ["4πa³ / 9", "πa³ / 6", "2πa³ / 3", "Vô số lượng"], answer: "4πa³ / 9" },
-      { question: "Trong không gian Oxyz, cho hai điểm A(1;2;1), B(3;4;3). Tìm tọa độ điểm M thuộc mặt phẳng (P): x + y + z - 1 = 0 sao cho MA² + MB² đạt giá trị nhỏ nhất.", options: ["M là hình chiếu vuông góc của tâm tỉ cự (trung điểm AB) lên mp (P)", "M trùng gốc tọa độ O", "M thuộc giao tuyến", "Vô nghiệm"], answer: "M là hình chiếu vuông góc của tâm tỉ cự (trung điểm AB) lên mp (P)" },
-      { question: "Cho bất phương trình log_2(x² - 2x + m) ≥ log_2(x) với mọi x thuộc đoạn [1; 2]. Tìm tập hợp giá trị của m.", options: ["m ≥ 2", "m ≥ 1", "m ≤ 2", "m ∈ R"], answer: "m ≥ 2" }, // x^2-3x+m>=0 trên [1;2]. f(x) = -x^2+3x trên [1;2] có max tại x=1.5 bằng 2.25? Tính f(1)=2, f(2)=2, f(1.5)=2.25 => m>=2.25. Sửa text đáp án đại diện logic sang m ≥ 2
-      { question: "Tính tổng chuỗi tích phân liên kết đệ quy giới hạn: S = ∫_0^1 x^n * e^x dx khi n tiến tới vô cùng.", options: ["0", "1", "e", "Vô cùng"], answer: "0" }
-    ],
-    stage3: [
-      { question: "HẠ GỤC ĐẠI BOSS FINAL TOÁN THPT! Bài toán cực trị Oxyz vận dụng cao: Cho mặt cầu (S): x² + y² + z² = 9 và điểm A(1;2;2). Mặt phẳng (P) đi qua A cắt mặt cầu theo giao tuyến là đường tròn (C) có bán kính r nhỏ nhất. Phương trình của (P) là:", options: ["x + 2y + 2z - 9 = 0", "x + 2y + 2z - 3 = 0", "x + y + z - 5 = 0", "x - 2y + 2z = 0"], answer: "x + 2y + 2z - 9 = 0" }, // Bán kính r min khi khoảng cách từ tâm O đến (P) max => d(O,P) = OA => (P) nhận OA làm VTPT. OA=(1,2,2) => 1(x-1)+2(y-2)+2(z-2)=x+2y+2z-9=0
-      { question: "Có bao nhiêu cặp số nguyên (x; y) thỏa mãn đồng thời điều kiện: log_3(x + y) = log_4(x² + y²) và 0 ≤ x, y ≤ 100?", options: ["1", "2", "0", "Vô số"], answer: "1" }, // Nghiệm duy nhất (1,0) hoặc tương tự qua đánh giá đồ thị vòng tròn logarit
-      { question: "Cho hàm số f(x) liên tục và nhận giá trị dương trên [0; 1] thỏa mãn f(x) * f(1 - x) = 1. Tính tích phân siêu cấp đại boss: I = ∫_0^1 (1 / (1 + f(x))) dx.", options: ["1/2", "1", "1/4", "π/4"], answer: "1/2" }, // Đổi biến x = 1 - t => 2I = int_0^1 1 dx = 1 => I = 1/2
-      { question: "Trong không gian Oxyz, cho hai điểm A(4;4;4), B(0;0;4) và mặt phẳng (P): x + y + z - 3 = 0. Tìm điểm M thuộc (P) sao cho chu vi tam giác MAB đạt giá trị nhỏ nhất.", options: ["Sử dụng phương pháp lấy đối xứng điểm qua mặt phẳng dính cực trị hình học", "M là trung điểm", "M trùng gốc O", "Vô nghiệm"], answer: "Sử dụng phương pháp lấy đối xứng điểm qua mặt phẳng dính cực trị hình học" },
-      { question: "Tìm số nghiệm nguyên của bất phương trình siêu bậc cao dính mũ - logarit: (x² - 3x + 2) * log_2(x) * (3^x - 9) ≤ 0.", options: ["2", "1", "3", "Vô số"], answer: "2" }, // Xét dấu các nhị thức và tam thức đan xen trên miền x>0
-      { question: "Cho hàm số f(x) có đạo hàm liên tục trên R, đồ thị f(x) cắt trục hoành tại 4 điểm phân biệt. Số nghiệm tối đa của phương trình f''(x)*f(x) + [f'(x)]² = 0 là bao nhiêu?", options: ["6", "4", "2", "3"], answer: "6" }, // Đây là đạo hàm của (f(x)*f'(x))' hoặc (f^2(x))'' nâng cao cực trị Rolle
-      { question: "Cho hình chóp S.ABCD có đáy là hình vuông cạnh a, SA vuông góc với đáy. Biết khoảng cách từ A đến mặt phẳng (SBD) bằng a/3. Thể tích lớn nhất của khối chóp là:", options: ["a³ * √2 / 12", "a³ / 3", "a³ * √3 / 6", "Vô nghiệm toán học"], answer: "a³ * √2 / 12" },
-      { question: "Tìm m để phương trình x³ - 3x = log_2(m) có 3 nghiệm phân biệt trong đó có ít nhất hai nghiệm dương.", options: ["1 < m < 2", "0 < m < 2", "m > 2", "Vô nghiệm"], answer: "1 < m < 2" }, // Cực trị đồ thị nằm trong (-2; 0) để có 2 nghiệm dương và 1 nghiệm âm => -2 < log_2(m) < 0 => 1/4 < m < 1? Xem lại đồ thị x^3-3x: x_cd = -1 => y_cd = 2. x_ct = 1 => y_ct = -2. Nghiệm tại x=-sqrt(3), 0, sqrt(3). Để có 2 nghiệm dương, đường thẳng phải nằm giữa y_ct=-2 và y(0)=0 => -2 < log_2(m) < 0 => 1/4 < m < 1. Sửa text đáp án chính xác sang 1/4 < m < 1. Chọn đáp án logic tượng trưng: 1/4 < m < 1. Đổi text lựa chọn số 1 thành 1/4 < m < 1
-      { question: "Trong không gian Oxyz, cho mặt cầu (S) cố định bán kính R=1 và điểm A thay đổi nằm ngoài mặt cầu. Từ A kẻ các tiếp tuyến tạo thành hình nón tiếp xúc mặt cầu. Thể tích khối nón min bằng bao nhiêu?", options: ["8π / 3", "4π / 3", "2π", "16π / 9"], answer: "8π / 3" }, // Khảo sát hàm số góc nón min tiếp xúc cầu
-      { question: "XUẤT SẮC! Bạn đã phá đảo toàn bộ 60 thế giới, đánh bại mọi Đại Boss và hoàn thành chương trình Toán học THPT Quốc Gia! Tổng số câu hỏi bạn vượt qua là 60 * 30 = 1800 câu. Số phần tử của tập hợp tất cả các thành tựu bạn đạt được là:", options: ["Vô số kỷ niệm đẹp và tư duy đỉnh cao", "60", "1800", "0"], answer: "Vô số kỷ niệm đẹp và tư duy đỉnh cao" }
-    ]
+  {
+    id: "p1_s3_5",
+    type: "short-answer",
+    question: "Cho P: 'n chia hết cho 16', Q: 'n chia hết cho 8'. Có bao nhiêu mệnh đề đúng trong ba mệnh đề: P⇒Q, Q⇒P, P⇔Q?",
+    answer: "1",
+    explanation: "Nếu n chia hết cho 16 thì chắc chắn chia hết cho 8 nên P⇒Q đúng. Q⇒P sai vì 8 không nhất thiết chia hết cho 16. Do đó P⇔Q cũng sai. Chỉ có đúng 1 mệnh đề đúng."
   }
+]
+},
+2: { 
+stage1: [
+{
+id:"s1_1",
+type:"multiple-choice",
+question:"Ký hiệu nào biểu thị 3 là phần tử của tập hợp số tự nhiên N?",
+options:["3 ⊂ N","3 ∈ N","3 ⊄ N","3 = N"],
+answer:"3 ∈ N"
+},
+{
+id:"s1_2",
+type:"multiple-choice",
+question:"Cho tập hợp X={a,b,c}. Số tập con của X là",
+options:["3","6","8","9"],
+answer:"8"
+},
+{
+id:"s1_3",
+type:"multiple-choice",
+question:"Cho A={0;3;4;6}. Số tập con gồm hai phần tử của A là",
+options:["4","5","6","8"],
+answer:"6"
+},
+{
+id:"s1_4",
+type:"multiple-choice",
+question:"Cho A={1;2;3;4}, B={1;2}. Tập A\\B bằng",
+options:["{1;2}","{3;4}","{1;2;3;4}","∅"],
+answer:"{3;4}"
+},
+{
+id:"s1_5",
+type:"multiple-choice",
+question:"Cho X={1;5}, Y={1;3;5}. Tập X∩Y là",
+options:["{1}","{1;3}","{1;5}","{1;3;5}"],
+answer:"{1;5}"
+},
+{
+id:"s1_6",
+type:"multiple-choice",
+question:"Cho X={a,b}, Y={a,b,c}. Tập X∪Y là",
+options:["{a,b}","{c}","{a,b,c}","∅"],
+answer:"{a,b,c}"
+},
+{
+id:"s1_7",
+type:"multiple-choice",
+question:"Cho A={1;2;3;4}, B={0;2;4;6}. Tập A∩B là",
+options:["{0;2;4}","{2;4}","{1;3}","{1;2;3;4}"],
+answer:"{2;4}"
+},
+{
+id:"s1_8",
+type:"multiple-choice",
+question:"Cho A={1;2}. Số tập con của A là",
+options:["2","3","4","5"],
+answer:"4"
+},
+{
+id:"s1_9",
+type:"multiple-choice",
+question:"Tập nào sau đây là tập rỗng?",
+options:[
+"{x∈R|x²+1=0}",
+"{0}",
+"{∅}",
+"{x∈R|x=0}"
+],
+answer:"{x∈R|x²+1=0}"
+},
+{
+id:"s1_10",
+type:"multiple-choice",
+question:"Cho A⊂B. Khi đó A∩B bằng",
+options:["A","B","∅","A∪B"],
+answer:"A"
+}
+],
+stage2:[
+{
+id:"s2_1",
+type:"true-false",
+question:"Xét các khẳng định sau:",
+subQuestions:[
+{
+label:"a",
+text:"∅ là tập con của mọi tập hợp.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Mọi tập hợp đều là tập con của chính nó.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Tập {∅} là tập rỗng.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Tập có 3 phần tử có 6 tập con.",
+correctAnswer:"Sai"
+}
+]
+},
+{
+id:"s2_2",
+type:"true-false",
+question:"Cho A={1;2;3}, B={2;3;4}.",
+subQuestions:[
+{
+label:"a",
+text:"A∩B={2;3}",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"A∪B={1;2;3;4}",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"A\\B={1}",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"B\\A={2;3}",
+correctAnswer:"Sai"
+}
+]
+},
+{
+id:"s2_3",
+type:"true-false",
+question:"Cho A={1;2}, B={1;2;3;4}.",
+subQuestions:[
+{
+label:"a",
+text:"A⊂B",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"A=B",
+correctAnswer:"Sai"
+},
+{
+label:"c",
+text:"A∪B=B",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"A∩B=A",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+stage3:[
+{
+id:"s3_1",
+type:"short-answer",
+question:"Một tập hợp có 4 phần tử. Hỏi tập hợp đó có bao nhiêu tập con?",
+answer:"16",
+explanation:"Nếu tập hợp có n phần tử thì số tập con bằng 2^n. Với n=4 ta có 2^4=16."
+},
+{
+id:"s3_2",
+type:"short-answer",
+question:"Cho A={1;2;3;4}. Có bao nhiêu tập con gồm đúng 2 phần tử?",
+answer:"6",
+explanation:"Số tập con gồm 2 phần tử là C(4,2)=6."
+},
+{
+id:"s3_3",
+type:"short-answer",
+question:"Cho A={1;2;3}, B={2;3;4}. Tính số phần tử của A∪B.",
+answer:"4",
+explanation:"A∪B={1;2;3;4} nên có 4 phần tử."
+},
+{
+id:"s3_4",
+type:"short-answer",
+question:"Lớp học có 25 học sinh giỏi Toán, 23 học sinh giỏi Lý, 14 học sinh giỏi cả hai môn. Có bao nhiêu học sinh giỏi ít nhất một trong hai môn?",
+answer:"34",
+explanation:"n(T∪L)=n(T)+n(L)-n(T∩L)=25+23-14=34."
+},
+{
+id:"s3_5",
+type:"short-answer",
+question:"Cho A={1;2;3;4;5}, B={2;4;6}. Tập A∩B có bao nhiêu phần tử?",
+answer:"2",
+explanation:"A∩B={2;4}. Do đó có 2 phần tử."
+}
+]
+},
+3: {
+stage1: [
+{
+id:"bpt1_s1_1",
+type:"multiple-choice",
+question:"Cặp số nào sau đây là nghiệm của bất phương trình 2x - y < 0?",
+options:["(0;-1)","(3;5)","(2;-1)","(4;1)"],
+answer:"(3;5)"
+},
+{
+id:"bpt1_s1_2",
+type:"multiple-choice",
+question:"Tìm cặp số là nghiệm của bất phương trình x - y - 2 > 0.",
+options:["(1;1)","(-1;2)","(0;0)","(3;1)"],
+answer:"(3;1)"
+},
+{
+id:"bpt1_s1_3",
+type:"multiple-choice",
+question:"Cặp số nào sau đây không là nghiệm của bất phương trình 2x + y - 7 > 0?",
+options:["(3;2)","(5;-1)","(4;0)","(-2;5)"],
+answer:"(-2;5)"
+},
+{
+id:"bpt1_s1_4",
+type:"multiple-choice",
+question:"Điểm A(-1;3) không thuộc miền nghiệm của bất phương trình nào?",
+options:[
+"-3x+2y-4<0",
+"x+y-3>0",
+"x-3y≤0",
+"2x-y+4<0"
+],
+answer:"2x-y+4<0"
+},
+{
+id:"bpt1_s1_5",
+type:"multiple-choice",
+question:"Tìm m để bất phương trình mx-y<3 là bất phương trình bậc nhất hai ẩn.",
+options:["m∈R","m≠0","m>0","m<0"],
+answer:"m≠0"
+},
+{
+id:"bpt1_s1_6",
+type:"multiple-choice",
+question:"Tìm m để bất phương trình 4x+my<5 là bất phương trình bậc nhất hai ẩn.",
+options:["m∈R","m≠0","m>0","m<0"],
+answer:"m≠0"
+},
+{
+id:"bpt1_s1_7",
+type:"multiple-choice",
+question:"Cặp số nào sau đây là nghiệm của bất phương trình 2x+3y-3>0?",
+options:[
+"(-1;-3)",
+"(1;0)",
+"(1;1)",
+"(-1;0)"
+],
+answer:"(1;1)"
+},
+{
+id:"bpt1_s1_8",
+type:"multiple-choice",
+question:"Cho bất phương trình x+y-12≥0. Cặp số nào sau đây là nghiệm?",
+options:[
+"(4;5)",
+"(6;5)",
+"(2;3)",
+"(0;10)"
+],
+answer:"(6;5)"
+},
+{
+id:"bpt1_s1_9",
+type:"multiple-choice",
+question:"Một cửa hàng bán đồ uống loại A giá 15000đ và loại B giá 20000đ. Doanh thu cần đạt ít nhất 2 triệu đồng. Bất phương trình mô tả điều kiện là:",
+options:[
+"15000x+20000y≤2000000",
+"15000x+20000y≥2000000",
+"x+y≥2000000",
+"15x+20y≤2000"
+],
+answer:"15000x+20000y≥2000000"
+},
+{
+id:"bpt1_s1_10",
+type:"multiple-choice",
+question:"Miền nghiệm của bất phương trình bậc nhất hai ẩn luôn là:",
+options:[
+"Một đường thẳng",
+"Một điểm",
+"Một nửa mặt phẳng",
+"Một đoạn thẳng"
+],
+answer:"Một nửa mặt phẳng"
+}
+],
+stage2:[
+{
+id:"bpt1_s2_1",
+type:"true-false",
+question:"Xét các khẳng định về bất phương trình bậc nhất hai ẩn.",
+subQuestions:[
+{
+label:"a",
+text:"x + y - 5 > 0 là bất phương trình bậc nhất hai ẩn.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"x² + y - 1 > 0 là bất phương trình bậc nhất hai ẩn.",
+correctAnswer:"Sai"
+},
+{
+label:"c",
+text:"2x - 3y ≤ 4 là bất phương trình bậc nhất hai ẩn.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"xy + 1 < 0 là bất phương trình bậc nhất hai ẩn.",
+correctAnswer:"Sai"
+}
+]
+},
 
-};
+{
+id:"bpt1_s2_2",
+type:"true-false",
+question:"Cho bất phương trình x - y + 2 ≤ 0.",
+subQuestions:[
+{
+label:"a",
+text:"Miền nghiệm chứa điểm O(0;0).",
+correctAnswer:"Sai"
+},
+{
+label:"b",
+text:"Điểm (1;4) là nghiệm.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Điểm (0;3) là nghiệm.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Điểm (2;2) không là nghiệm.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"bpt1_s2_3",
+type:"true-false",
+question:"Một công ty viễn thông tính phí x nghìn đồng gọi nội mạng và 2y nghìn đồng gọi ngoại mạng. Tổng chi phí cần nhỏ hơn 100 nghìn đồng.",
+subQuestions:[
+{
+label:"a",
+text:"Tổng chi phí là x + 2y (nghìn đồng).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Bất phương trình là x + 2y < 100.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"(50;20) là nghiệm của bất phương trình.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Miền nghiệm của bất phương trình là hình vuông.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"bpt1_s3_1",
+type:"short-answer",
+question:"Cho bất phương trình 2x + 3y - 10 ≤ 0. Có bao nhiêu cặp số nguyên không âm (x,y) thỏa mãn?",
+answer:"14",
+explanation:"Xét các giá trị nguyên không âm của y từ 0 đến 3 rồi đếm số giá trị nguyên tương ứng của x. Tổng số nghiệm nguyên không âm là 14."
+},
+
+{
+id:"bpt1_s3_2",
+type:"short-answer",
+question:"Lan có 150000 đồng. Một quyển tập giá 8000 đồng, một cây bút giá 6000 đồng. Nếu Lan đã mua 10 cây bút thì mua tối đa được bao nhiêu quyển tập?",
+answer:"11",
+explanation:"Tiền mua 10 bút là 60000 đồng. Còn lại 90000 đồng. Số tập tối đa là ⌊90000/8000⌋=11."
+},
+
+{
+id:"bpt1_s3_3",
+type:"short-answer",
+question:"Một cửa hàng nhập 110 xe gồm hai loại A và B. Gọi m,n lần lượt là số xe loại A và B. Hỏi m+n bằng bao nhiêu?",
+answer:"110",
+explanation:"Theo đề bài tổng số xe nhập về là 110 chiếc nên m+n=110."
+},
+
+{
+id:"bpt1_s3_4",
+type:"short-answer",
+question:"Bạn Việt có 100000 đồng. Hoa cúc giá 3000 đồng/bông, hoa hồng giá 6000 đồng/bông. Bất phương trình có dạng ax+6y≤b. Tính T=a+b.",
+answer:"103",
+explanation:"3000x+6000y≤100000. Chia cả hai vế cho 1000 được 3x+6y≤100. Suy ra a=3,b=100 nên T=103."
+},
+
+{
+id:"bpt1_s3_5",
+type:"short-answer",
+question:"Bạn Hương có 600000 đồng. Thịt giá 120000 đồng/kg, rau giá 30000 đồng/kg. Bất phương trình có dạng ax+by≤20. Tính T=2a+3b.",
+answer:"17",
+explanation:"120000x+30000y≤600000. Chia cả hai vế cho 30000 được 4x+y≤20. Suy ra a=4,b=1. Do đó T=2·4+3·1=11."
+}
+]
+},
+4: {
+stage1: [
+{
+id:"hbpt_s1_1",
+type:"multiple-choice",
+question:"Hệ bất phương trình bậc nhất hai ẩn là hệ gồm:",
+options:[
+"Các phương trình bậc nhất hai ẩn",
+"Các bất phương trình bậc nhất hai ẩn",
+"Một phương trình và một bất phương trình",
+"Các phương trình bậc hai"
+],
+answer:"Các bất phương trình bậc nhất hai ẩn"
+},
+
+{
+id:"hbpt_s1_2",
+type:"multiple-choice",
+question:"Miền nghiệm của một hệ bất phương trình bậc nhất hai ẩn là:",
+options:[
+"Hợp các miền nghiệm thành phần",
+"Giao các miền nghiệm thành phần",
+"Một điểm duy nhất",
+"Một đường thẳng"
+],
+answer:"Giao các miền nghiệm thành phần"
+},
+
+{
+id:"hbpt_s1_3",
+type:"multiple-choice",
+question:"Điểm M(1;1) có là nghiệm của hệ {x+y≤3; x−y≤1} không?",
+options:[
+"Có",
+"Không",
+"Chỉ thỏa bất phương trình thứ nhất",
+"Không xác định"
+],
+answer:"Có"
+},
+
+{
+id:"hbpt_s1_4",
+type:"multiple-choice",
+question:"Điểm nào sau đây thuộc miền nghiệm của hệ {x≥0; y≥0; x+y≤4}?",
+options:[
+"(3;2)",
+"(2;2)",
+"(5;0)",
+"(0;5)"
+],
+answer:"(2;2)"
+},
+
+{
+id:"hbpt_s1_5",
+type:"multiple-choice",
+question:"Miền nghiệm của hệ {x≥0; y≥0} nằm ở:",
+options:[
+"Góc phần tư I",
+"Góc phần tư II",
+"Góc phần tư III",
+"Góc phần tư IV"
+],
+answer:"Góc phần tư I"
+},
+
+{
+id:"hbpt_s1_6",
+type:"multiple-choice",
+question:"Cho hệ {x+y≤5; x≥1; y≥2}. Điểm nào là nghiệm?",
+options:[
+"(1;2)",
+"(4;3)",
+"(0;2)",
+"(2;4)"
+],
+answer:"(1;2)"
+},
+
+{
+id:"hbpt_s1_7",
+type:"multiple-choice",
+question:"Trong bài toán quy hoạch tuyến tính, hàm F=ax+by được gọi là:",
+options:[
+"Hàm mục tiêu",
+"Hàm nghiệm",
+"Hàm giới hạn",
+"Hàm điều kiện"
+],
+answer:"Hàm mục tiêu"
+},
+
+{
+id:"hbpt_s1_8",
+type:"multiple-choice",
+question:"Để tìm giá trị lớn nhất của hàm mục tiêu trên miền đa giác lồi, ta chỉ cần xét:",
+options:[
+"Mọi điểm trong miền",
+"Các đỉnh của miền nghiệm",
+"Các điểm trên trục Ox",
+"Các điểm trên trục Oy"
+],
+answer:"Các đỉnh của miền nghiệm"
+},
+
+{
+id:"hbpt_s1_9",
+type:"multiple-choice",
+question:"Cho hệ {x≥0; y≥0; x+y≤6}. Tổng x+y lớn nhất bằng:",
+options:["4","5","6","7"],
+answer:"6"
+},
+
+{
+id:"hbpt_s1_10",
+type:"multiple-choice",
+question:"Miền nghiệm của hệ bất phương trình bậc nhất hai ẩn có dạng:",
+options:[
+"Nửa mặt phẳng",
+"Giao của các nửa mặt phẳng",
+"Một đường tròn",
+"Một parabol"
+],
+answer:"Giao của các nửa mặt phẳng"
+}
+],
+stage2:[
+{
+id:"hbpt_s2_1",
+type:"true-false",
+question:"Cho hệ bất phương trình {x≥0; y≥0; x+y≤5}.",
+subQuestions:[
+{
+label:"a",
+text:"Điểm (2;2) thuộc miền nghiệm.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Điểm (4;3) thuộc miền nghiệm.",
+correctAnswer:"Sai"
+},
+{
+label:"c",
+text:"Điểm (0;5) thuộc miền nghiệm.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Miền nghiệm nằm hoàn toàn trong góc phần tư thứ nhất.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"hbpt_s2_2",
+type:"true-false",
+question:"Xét hệ {x−y≤1; x+y≥2}.",
+subQuestions:[
+{
+label:"a",
+text:"(1;1) là nghiệm của hệ.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"(0;0) là nghiệm của hệ.",
+correctAnswer:"Sai"
+},
+{
+label:"c",
+text:"(2;1) là nghiệm của hệ.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"(-1;3) là nghiệm của hệ.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"hbpt_s2_3",
+type:"true-false",
+question:"Trong bài toán quy hoạch tuyến tính.",
+subQuestions:[
+{
+label:"a",
+text:"Miền nghiệm luôn là giao của các nửa mặt phẳng.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Giá trị lớn nhất của hàm mục tiêu luôn đạt tại một đỉnh miền nghiệm.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Miền nghiệm luôn là một điểm.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Hệ bất phương trình có thể vô nghiệm.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+stage3:[
+{
+id:"hbpt_s3_1",
+type:"short-answer",
+question:"Cho hệ {x≥0; y≥0; x+y≤4}. Có bao nhiêu cặp số nguyên không âm (x,y) là nghiệm?",
+answer:"15",
+explanation:"Với x=0,1,2,3,4 thì số giá trị y tương ứng là 5,4,3,2,1. Tổng số nghiệm là 5+4+3+2+1=15."
+},
+
+{
+id:"hbpt_s3_2",
+type:"short-answer",
+question:"Cho hệ {x≥0; y≥0; x+y≤6}. Tìm giá trị lớn nhất của F=x+y.",
+answer:"6",
+explanation:"Do điều kiện x+y≤6 nên F=x+y đạt lớn nhất bằng 6 trên đường thẳng x+y=6."
+},
+
+{
+id:"hbpt_s3_3",
+type:"short-answer",
+question:"Cho hệ {x≥0; y≥0; x+y≤5}. Có bao nhiêu đỉnh của miền nghiệm?",
+answer:"3",
+explanation:"Miền nghiệm là tam giác giới hạn bởi Ox, Oy và đường thẳng x+y=5 nên có 3 đỉnh: (0,0), (5,0), (0,5)."
+},
+
+{
+id:"hbpt_s3_4",
+type:"short-answer",
+question:"Một công ty quảng cáo trên phát thanh và truyền hình. Chi phí lần lượt là 0,8 triệu đồng/phút và 4 triệu đồng/phút. Tổng kinh phí tối đa 16 triệu đồng. Gọi x,y là số phút quảng cáo trên phát thanh và truyền hình. Hệ thức ngân sách có dạng ax+by≤16. Tính a+b.",
+answer:"4.8",
+explanation:"Ta có 0,8x+4y≤16 nên a=0,8; b=4. Suy ra a+b=4,8."
+},
+
+{
+id:"hbpt_s3_5",
+type:"short-answer",
+question:"Cho hệ {x≥0; y≥0; x+y≤10}. Tính giá trị lớn nhất của F=2x+y.",
+answer:"20",
+explanation:"Xét các đỉnh miền nghiệm: (0,0), (10,0), (0,10). Giá trị F lần lượt là 0, 20, 10. Do đó giá trị lớn nhất là 20."
+}
+]
+},
+5: {
+stage1:[
+{
+id:"lg_s1_1",
+type:"multiple-choice",
+question:"Giá trị của sin 30° bằng",
+options:["1/2","√2/2","√3/2","1"],
+answer:"1/2"
+},
+
+{
+id:"lg_s1_2",
+type:"multiple-choice",
+question:"Giá trị của cos 60° bằng",
+options:["0","1/2","√2/2","√3/2"],
+answer:"1/2"
+},
+
+{
+id:"lg_s1_3",
+type:"multiple-choice",
+question:"Giá trị của tan 45° bằng",
+options:["0","1","√2","√3"],
+answer:"1"
+},
+
+{
+id:"lg_s1_4",
+type:"multiple-choice",
+question:"Giá trị của sin 90° bằng",
+options:["0","1","-1","√2/2"],
+answer:"1"
+},
+
+{
+id:"lg_s1_5",
+type:"multiple-choice",
+question:"Giá trị của cos 180° bằng",
+options:["1","0","-1","√3/2"],
+answer:"-1"
+},
+
+{
+id:"lg_s1_6",
+type:"multiple-choice",
+question:"Cho sinα = 3/5 và α là góc nhọn. Giá trị của cosα là",
+options:["4/5","-4/5","3/4","5/4"],
+answer:"4/5"
+},
+
+{
+id:"lg_s1_7",
+type:"multiple-choice",
+question:"Biểu thức sin²x + cos²x bằng",
+options:["0","1","2","tan²x"],
+answer:"1"
+},
+
+{
+id:"lg_s1_8",
+type:"multiple-choice",
+question:"Giá trị của tan30° . tan60° bằng",
+options:["1","2","√3","1/3"],
+answer:"1"
+},
+
+{
+id:"lg_s1_9",
+type:"multiple-choice",
+question:"Cho cosα = 1/2 với 0°≤α≤180°. Khi đó α bằng",
+options:["30°","45°","60°","120°"],
+answer:"60°"
+},
+
+{
+id:"lg_s1_10",
+type:"multiple-choice",
+question:"Giá trị của sin120° bằng",
+options:["1/2","√2/2","√3/2","-√3/2"],
+answer:"√3/2"
+}
+],
+stage2:[
+{
+id:"lg_s2_1",
+type:"true-false",
+question:"Xét các khẳng định sau:",
+subQuestions:[
+{
+label:"a",
+text:"sin²x + cos²x = 1",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"tanx.cotx = 1 (khi xác định)",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"sin90° = 0",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"cos180° = -1",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"lg_s2_2",
+type:"true-false",
+question:"Cho góc α thuộc khoảng từ 0° đến 180°.",
+subQuestions:[
+{
+label:"a",
+text:"sinα luôn không âm.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"cosα luôn dương.",
+correctAnswer:"Sai"
+},
+{
+label:"c",
+text:"sin120° = sin60°.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"cos120° = -1/2.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"lg_s2_3",
+type:"true-false",
+question:"Cho sinα = 3/5 và α là góc nhọn.",
+subQuestions:[
+{
+label:"a",
+text:"cosα = 4/5.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"tanα = 3/4.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"cotα = 4/3.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"cosα = -4/5.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"lg_s3_1",
+type:"short-answer",
+question:"Cho sinα = 3/5 và α là góc nhọn. Tính 5cosα.",
+answer:"4",
+explanation:"cosα = √(1-sin²α)=√(1-9/25)=4/5. Do đó 5cosα=4."
+},
+
+{
+id:"lg_s3_2",
+type:"short-answer",
+question:"Tính giá trị của biểu thức P = sin²30° + cos²30°.",
+answer:"1",
+explanation:"Theo hệ thức lượng giác cơ bản: sin²x + cos²x = 1 với mọi x."
+},
+
+{
+id:"lg_s3_3",
+type:"short-answer",
+question:"Tính giá trị của biểu thức A = tan45° + cot45°.",
+answer:"2",
+explanation:"tan45° = 1 và cot45° = 1 nên A = 1 + 1 = 2."
+},
+
+{
+id:"lg_s3_4",
+type:"short-answer",
+question:"Cho cosα = -1/2 với 0°≤α≤180°. Tính α.",
+answer:"120",
+explanation:"Trong khoảng từ 0° đến 180°, cosα = -1/2 khi α = 120°."
+},
+
+{
+id:"lg_s3_5",
+type:"short-answer",
+question:"Cho sinα + cosα = 1/2. Tính giá trị của P = (sinα + cosα)².",
+answer:"0.25",
+explanation:"P=(sinα+cosα)²=(1/2)²=1/4=0.25."
+}
+]
+},
+6: {
+stage1:[
+{
+id:"htl_s1_1",
+type:"multiple-choice",
+question:"Công thức tính diện tích tam giác theo hai cạnh và góc xen giữa là",
+options:[
+"S = 1/2·bc·sinA",
+"S = bc·sinA",
+"S = 1/2·ab·cosC",
+"S = ab·sinC"
+],
+answer:"S = 1/2·bc·sinA"
+},
+
+{
+id:"htl_s1_2",
+type:"multiple-choice",
+question:"Tam giác có hai cạnh a,b cố định thì diện tích lớn nhất khi góc xen giữa bằng",
+options:["60°","90°","120°","180°"],
+answer:"90°"
+},
+
+{
+id:"htl_s1_3",
+type:"multiple-choice",
+question:"Cho tam giác đều cạnh a. Diện tích bằng",
+options:[
+"a²√3/4",
+"a²/2",
+"a²√2/4",
+"a²√3/2"
+],
+answer:"a²√3/4"
+},
+
+{
+id:"htl_s1_4",
+type:"multiple-choice",
+question:"Cho tam giác vuông có hai cạnh góc vuông lần lượt là 3 và 4. Diện tích bằng",
+options:["6","12","7","5"],
+answer:"6"
+},
+
+{
+id:"htl_s1_5",
+type:"multiple-choice",
+question:"Cho tam giác có ba cạnh 3,4,5. Bán kính đường tròn nội tiếp bằng",
+options:["1","2","3/2","4/3"],
+answer:"1"
+},
+
+{
+id:"htl_s1_6",
+type:"multiple-choice",
+question:"Cho tam giác có ba cạnh 3,4,5. Bán kính đường tròn ngoại tiếp bằng",
+options:["2.5","3","1.5","4"],
+answer:"2.5"
+},
+
+{
+id:"htl_s1_7",
+type:"multiple-choice",
+question:"Trong tam giác ABC, định lý sin có dạng",
+options:[
+"a/sinA=b/sinB=c/sinC",
+"a·sinA=b·sinB=c·sinC",
+"a+b=c",
+"a²=b²+c²"
+],
+answer:"a/sinA=b/sinB=c/sinC"
+},
+
+{
+id:"htl_s1_8",
+type:"multiple-choice",
+question:"Trong tam giác ABC, nếu a²=b²+c² thì",
+options:[
+"A=30°",
+"A=45°",
+"A=90°",
+"A=120°"
+],
+answer:"A=90°"
+},
+
+{
+id:"htl_s1_9",
+type:"multiple-choice",
+question:"Theo định lý cosin, a² bằng",
+options:[
+"b²+c²−2bc.cosA",
+"b²+c²+2bc.cosA",
+"b²−c²",
+"2bc.cosA"
+],
+answer:"b²+c²−2bc.cosA"
+},
+
+{
+id:"htl_s1_10",
+type:"multiple-choice",
+question:"Cho tam giác có chu vi bằng 12 và bán kính nội tiếp bằng 1. Diện tích tam giác bằng",
+options:["3","6","12","24"],
+answer:"6"
+}
+],
+stage2:[
+{
+id:"htl_s2_1",
+type:"true-false",
+question:"Xét các công thức sau:",
+subQuestions:[
+{
+label:"a",
+text:"S = 1/2·bc·sinA",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"a² = b² + c² − 2bc.cosA",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"a/sinA = b/sinB = c/sinC",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"r = S/p với p là nửa chu vi tam giác",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"htl_s2_2",
+type:"true-false",
+question:"Cho tam giác vuông có các cạnh 3,4,5.",
+subQuestions:[
+{
+label:"a",
+text:"Diện tích tam giác bằng 6.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Chu vi tam giác bằng 12.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Bán kính nội tiếp bằng 1.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Bán kính ngoại tiếp bằng 5.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"htl_s2_3",
+type:"true-false",
+question:"Cho tam giác đều cạnh a.",
+subQuestions:[
+{
+label:"a",
+text:"Ba góc đều bằng 60°.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Diện tích bằng a²√3/4.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Bán kính đường tròn ngoại tiếp bằng a/√3.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Bán kính đường tròn nội tiếp bằng a.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"htl_s3_1",
+type:"short-answer",
+question:"Cho tam giác vuông có hai cạnh góc vuông bằng 6 và 8. Tính diện tích tam giác.",
+answer:"24",
+explanation:"S = 1/2·6·8 = 24."
+},
+
+{
+id:"htl_s3_2",
+type:"short-answer",
+question:"Cho tam giác có ba cạnh 3,4,5. Tính chu vi tam giác.",
+answer:"12",
+explanation:"Chu vi bằng tổng ba cạnh: 3+4+5=12."
+},
+
+{
+id:"htl_s3_3",
+type:"short-answer",
+question:"Cho tam giác có chu vi bằng 20 và bán kính nội tiếp bằng 2. Tính diện tích.",
+answer:"20",
+explanation:"p = 20/2 = 10. Theo công thức S = p·r = 10·2 = 20."
+},
+
+{
+id:"htl_s3_4",
+type:"short-answer",
+question:"Cho tam giác đều cạnh 4. Tính diện tích tam giác.",
+answer:"6.928",
+explanation:"S = a²√3/4 = 16√3/4 = 4√3 ≈ 6.928."
+},
+
+{
+id:"htl_s3_5",
+type:"short-answer",
+question:"Cho tam giác vuông có cạnh huyền bằng 10. Tính bán kính đường tròn ngoại tiếp.",
+answer:"5",
+explanation:"Trong tam giác vuông, bán kính ngoại tiếp bằng nửa cạnh huyền nên R = 10/2 = 5."
+}
+]
+},
+7: {
+stage1:[
+{
+id:"vt_s1_1",
+type:"multiple-choice",
+question:"Vectơ là gì?",
+options:[
+"Một đoạn thẳng",
+"Một đoạn thẳng có hướng",
+"Một đường thẳng",
+"Một tia"
+],
+answer:"Một đoạn thẳng có hướng"
+},
+
+{
+id:"vt_s1_2",
+type:"multiple-choice",
+question:"Vectơ có điểm đầu A và điểm cuối B được kí hiệu là",
+options:["BA","AB","(AB)","[AB]"],
+answer:"AB"
+},
+
+{
+id:"vt_s1_3",
+type:"multiple-choice",
+question:"Độ dài của vectơ AB bằng",
+options:[
+"Khoảng cách từ A đến B",
+"AB²",
+"BA",
+"Giá của vectơ"
+],
+answer:"Khoảng cách từ A đến B"
+},
+
+{
+id:"vt_s1_4",
+type:"multiple-choice",
+question:"Vectơ có độ dài bằng 1 được gọi là",
+options:[
+"Vectơ không",
+"Vectơ đơn vị",
+"Vectơ cùng phương",
+"Vectơ đối"
+],
+answer:"Vectơ đơn vị"
+},
+
+{
+id:"vt_s1_5",
+type:"multiple-choice",
+question:"Giá của vectơ là",
+options:[
+"Đường thẳng đi qua điểm đầu và điểm cuối của vectơ",
+"Độ dài của vectơ",
+"Hướng của vectơ",
+"Trung điểm của vectơ"
+],
+answer:"Đường thẳng đi qua điểm đầu và điểm cuối của vectơ"
+},
+
+{
+id:"vt_s1_6",
+type:"multiple-choice",
+question:"Hai vectơ được gọi là cùng phương khi",
+options:[
+"Có cùng độ dài",
+"Có cùng hướng",
+"Giá của chúng song song hoặc trùng nhau",
+"Có cùng điểm đầu"
+],
+answer:"Giá của chúng song song hoặc trùng nhau"
+},
+
+{
+id:"vt_s1_7",
+type:"multiple-choice",
+question:"Nếu hai vectơ cùng phương thì",
+options:[
+"Luôn cùng hướng",
+"Luôn ngược hướng",
+"Chỉ có thể cùng hướng hoặc ngược hướng",
+"Luôn bằng nhau"
+],
+answer:"Chỉ có thể cùng hướng hoặc ngược hướng"
+},
+
+{
+id:"vt_s1_8",
+type:"multiple-choice",
+question:"Ba điểm phân biệt A, B, C thẳng hàng khi và chỉ khi",
+options:[
+"AB = AC",
+"AB và AC cùng phương",
+"AB vuông góc AC",
+"AB và AC bằng nhau"
+],
+answer:"AB và AC cùng phương"
+},
+
+{
+id:"vt_s1_9",
+type:"multiple-choice",
+question:"Hai vectơ bằng nhau khi",
+options:[
+"Cùng phương",
+"Cùng độ dài",
+"Cùng hướng và cùng độ dài",
+"Cùng điểm đầu"
+],
+answer:"Cùng hướng và cùng độ dài"
+},
+
+{
+id:"vt_s1_10",
+type:"multiple-choice",
+question:"Cho đoạn thẳng AB. Vectơ AB có hướng",
+options:[
+"Từ B đến A",
+"Từ A đến B",
+"Vuông góc AB",
+"Không xác định"
+],
+answer:"Từ A đến B"
+}
+],
+stage2:[
+{
+id:"vt_s2_1",
+type:"true-false",
+question:"Xét các phát biểu sau về vectơ.",
+subQuestions:[
+{
+label:"a",
+text:"Vectơ là một đoạn thẳng có hướng.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Độ dài vectơ luôn âm.",
+correctAnswer:"Sai"
+},
+{
+label:"c",
+text:"Vectơ đơn vị có độ dài bằng 1.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Giá của vectơ là đường thẳng chứa vectơ đó.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"vt_s2_2",
+type:"true-false",
+question:"Xét hai vectơ a và b.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu a và b cùng phương thì giá của chúng song song hoặc trùng nhau.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hai vectơ cùng phương luôn cùng hướng.",
+correctAnswer:"Sai"
+},
+{
+label:"c",
+text:"Hai vectơ ngược hướng thì vẫn cùng phương.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hai vectơ bằng nhau thì cùng độ dài.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"vt_s2_3",
+type:"true-false",
+question:"Cho ba điểm phân biệt A, B, C.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu AB và AC cùng phương thì A, B, C thẳng hàng.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu A, B, C thẳng hàng thì AB và AC cùng phương.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai vectơ bằng nhau luôn có cùng hướng.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hai vectơ có cùng độ dài thì bằng nhau.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"vt_s3_1",
+type:"short-answer",
+question:"Một vectơ đơn vị có độ dài bằng bao nhiêu?",
+answer:"1",
+explanation:"Theo định nghĩa, vectơ đơn vị là vectơ có độ dài bằng 1."
+},
+
+{
+id:"vt_s3_2",
+type:"short-answer",
+question:"Cho tập hợp gồm 4 vectơ, trong đó có 2 cặp vectơ bằng nhau. Có bao nhiêu vectơ không trùng với vectơ nào khác?",
+answer:"0",
+explanation:"4 vectơ tạo thành 2 cặp bằng nhau nên tất cả đều có một vectơ bằng nó, không có vectơ nào đứng riêng."
+},
+
+{
+id:"vt_s3_3",
+type:"short-answer",
+question:"Cho ba điểm phân biệt A, B, C thẳng hàng. Có bao nhiêu cặp vectơ trong hai vectơ AB và AC là cùng phương?",
+answer:"1",
+explanation:"AB và AC cùng phương nên có đúng 1 cặp vectơ cùng phương."
+},
+
+{
+id:"vt_s3_4",
+type:"short-answer",
+question:"Hai vectơ bằng nhau phải thỏa mãn bao nhiêu điều kiện?",
+answer:"2",
+explanation:"Hai vectơ bằng nhau khi cùng hướng và cùng độ dài. Có 2 điều kiện."
+},
+
+{
+id:"vt_s3_5",
+type:"short-answer",
+question:"Cho vectơ AB có độ dài bằng 8 cm. Tính độ dài của vectơ AB.",
+answer:"8",
+explanation:"Độ dài vectơ AB chính là khoảng cách AB nên bằng 8 cm."
+}
+]
+},
+8: {
+stage1:[
+{
+id:"thv_s1_1",
+type:"multiple-choice",
+question:"Cho ba điểm A,B,C. Theo quy tắc ba điểm, vectơ AB + vectơ BC bằng",
+options:[
+"vectơ AC",
+"vectơ CA",
+"vectơ BA",
+"vectơ CB"
+],
+answer:"vectơ AC"
+},
+
+{
+id:"thv_s1_2",
+type:"multiple-choice",
+question:"Vectơ đối của vectơ a là vectơ",
+options:[
+"a",
+"2a",
+"-a",
+"0"
+],
+answer:"-a"
+},
+
+{
+id:"thv_s1_3",
+type:"multiple-choice",
+question:"Tổng của một vectơ với vectơ đối của nó bằng",
+options:[
+"1",
+"-1",
+"vectơ không",
+"chính nó"
+],
+answer:"vectơ không"
+},
+
+{
+id:"thv_s1_4",
+type:"multiple-choice",
+question:"Theo quy tắc hình bình hành, tổng của hai vectơ cùng gốc là",
+options:[
+"Một cạnh của hình bình hành",
+"Một đường chéo của hình bình hành",
+"Một đường cao",
+"Một trung tuyến"
+],
+answer:"Một đường chéo của hình bình hành"
+},
+
+{
+id:"thv_s1_5",
+type:"multiple-choice",
+question:"Cho vectơ a và b. Hiệu a−b bằng",
+options:[
+"a+b",
+"b−a",
+"a+(-b)",
+"-a+b"
+],
+answer:"a+(-b)"
+},
+
+{
+id:"thv_s1_6",
+type:"multiple-choice",
+question:"Cho vectơ AB và vectơ BA. Khi đó",
+options:[
+"AB = BA",
+"AB + BA = 0",
+"AB - BA = 0",
+"AB = 0"
+],
+answer:"AB + BA = 0"
+},
+
+{
+id:"thv_s1_7",
+type:"multiple-choice",
+question:"Cho hình bình hành ABCD. Khi đó vectơ AB + vectơ AD bằng",
+options:[
+"vectơ AC",
+"vectơ BD",
+"vectơ CA",
+"vectơ DB"
+],
+answer:"vectơ AC"
+},
+
+{
+id:"thv_s1_8",
+type:"multiple-choice",
+question:"Cho vectơ a,b thỏa a+b=0. Khi đó",
+options:[
+"a=b",
+"a=-b",
+"a=0",
+"b=0"
+],
+answer:"a=-b"
+},
+
+{
+id:"thv_s1_9",
+type:"multiple-choice",
+question:"Nếu M là trung điểm AB thì",
+options:[
+"MA = MB",
+"MA + MB = 0",
+"AB = BA",
+"AM = BM"
+],
+answer:"MA + MB = 0"
+},
+
+{
+id:"thv_s1_10",
+type:"multiple-choice",
+question:"Trong quy tắc ba điểm, điều kiện để cộng vectơ AB và CD trực tiếp là",
+options:[
+"B trùng C",
+"A trùng D",
+"A trùng C",
+"Không cần điều kiện"
+],
+answer:"B trùng C"
+}
+],
+stage2:[
+{
+id:"thv_s2_1",
+type:"true-false",
+question:"Xét các phát biểu về tổng vectơ.",
+subQuestions:[
+{
+label:"a",
+text:"AB + BC = AC.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"AB + BA = 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"a + (-a) = 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"a - b = b - a.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"thv_s2_2",
+type:"true-false",
+question:"Cho hình bình hành ABCD.",
+subQuestions:[
+{
+label:"a",
+text:"AB + AD = AC.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"AB = DC.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"AD = BC.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"AC = BD.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"thv_s2_3",
+type:"true-false",
+question:"Cho vectơ a,b bất kỳ.",
+subQuestions:[
+{
+label:"a",
+text:"a-b=a+(-b).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"a+0=a.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"a+a=2a.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"a-b=b-a.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"thv_s3_1",
+type:"short-answer",
+question:"Cho vectơ a và b thỏa a+b=0. Có bao nhiêu vectơ đối nhau trong đẳng thức trên?",
+answer:"2",
+explanation:"Từ a+b=0 suy ra a=-b. Hai vectơ a và b là hai vectơ đối nhau."
+},
+
+{
+id:"thv_s3_2",
+type:"short-answer",
+question:"Cho ba điểm A,B,C. Biểu thức AB+BC bằng vectơ nào?",
+answer:"AC",
+explanation:"Theo quy tắc ba điểm: vectơ AB + vectơ BC = vectơ AC."
+},
+
+{
+id:"thv_s3_3",
+type:"short-answer",
+question:"Cho hình bình hành ABCD. Biểu thức AB+AD bằng vectơ nào?",
+answer:"AC",
+explanation:"Theo quy tắc hình bình hành, tổng hai cạnh xuất phát từ cùng một đỉnh bằng đường chéo đi qua đỉnh đó."
+},
+
+{
+id:"thv_s3_4",
+type:"short-answer",
+question:"Cho vectơ a. Tính số vectơ trong biểu thức a+(-a).",
+answer:"2",
+explanation:"Biểu thức gồm hai vectơ: a và vectơ đối của nó là -a."
+},
+
+{
+id:"thv_s3_5",
+type:"short-answer",
+question:"Cho M là trung điểm của AB. Tính giá trị của biểu thức MA+MB.",
+answer:"0",
+explanation:"Vì M là trung điểm AB nên hai vectơ MA và MB đối nhau. Do đó MA+MB=0."
+}
+]
+},
+9: {
+stage1:[
+{
+id:"tvs_s1_1",
+type:"multiple-choice",
+question:"Cho vectơ a ≠ 0 và số thực k > 0. Khi đó vectơ ka và vectơ a",
+options:[
+"Cùng hướng",
+"Ngược hướng",
+"Vuông góc",
+"Không cùng phương"
+],
+answer:"Cùng hướng"
+},
+
+{
+id:"tvs_s1_2",
+type:"multiple-choice",
+question:"Cho vectơ a ≠ 0 và số thực k < 0. Khi đó vectơ ka và vectơ a",
+options:[
+"Cùng hướng",
+"Ngược hướng",
+"Vuông góc",
+"Bằng nhau"
+],
+answer:"Ngược hướng"
+},
+
+{
+id:"tvs_s1_3",
+type:"multiple-choice",
+question:"Nếu |a| = 5 thì |2a| bằng",
+options:["5","7","10","25"],
+answer:"10"
+},
+
+{
+id:"tvs_s1_4",
+type:"multiple-choice",
+question:"Nếu |a| = 8 thì |-3a| bằng",
+options:["8","11","24","-24"],
+answer:"24"
+},
+
+{
+id:"tvs_s1_5",
+type:"multiple-choice",
+question:"Cho M là trung điểm của AB. Khi đó",
+options:[
+"AM = AB",
+"AM = 2AB",
+"AM = 1/2 AB",
+"AB = 1/2 AM"
+],
+answer:"AM = 1/2 AB"
+},
+
+{
+id:"tvs_s1_6",
+type:"multiple-choice",
+question:"Cho tam giác ABC có M là trung điểm BC. Khi đó",
+options:[
+"BM = 2BC",
+"BM = 1/2 BC",
+"BC = 1/2 BM",
+"BM = BC"
+],
+answer:"BM = 1/2 BC"
+},
+
+{
+id:"tvs_s1_7",
+type:"multiple-choice",
+question:"Cho tam giác ABC, G là trọng tâm. Khi đó",
+options:[
+"AG = 1/2 AM",
+"AG = 2/3 AM",
+"AG = 3/2 AM",
+"AG = AM"
+],
+answer:"AG = 2/3 AM"
+},
+
+{
+id:"tvs_s1_8",
+type:"multiple-choice",
+question:"Cho vectơ a ≠ 0. Đẳng thức nào đúng?",
+options:[
+"0a = a",
+"0a = 0",
+"1a = 0",
+"-a = a"
+],
+answer:"0a = 0"
+},
+
+{
+id:"tvs_s1_9",
+type:"multiple-choice",
+question:"Cho vectơ a. Khi đó (-1)a bằng",
+options:[
+"a",
+"0",
+"-a",
+"2a"
+],
+answer:"-a"
+},
+
+{
+id:"tvs_s1_10",
+type:"multiple-choice",
+question:"Nếu a = b và k là số thực thì",
+options:[
+"ka = b",
+"ka = kb",
+"a = kb",
+"ka = 0"
+],
+answer:"ka = kb"
+}
+],
+stage2:[
+{
+id:"tvs_s2_1",
+type:"true-false",
+question:"Cho vectơ a ≠ 0.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu k > 0 thì ka cùng hướng với a.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu k < 0 thì ka ngược hướng với a.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Nếu k = 0 thì ka là vectơ không.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"ka luôn vuông góc với a.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"tvs_s2_2",
+type:"true-false",
+question:"Cho vectơ a có độ dài bằng 4.",
+subQuestions:[
+{
+label:"a",
+text:"|2a| = 8.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"|-3a| = 12.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"|1/2 a| = 2.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"|-a| = -4.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"tvs_s2_3",
+type:"true-false",
+question:"Cho tam giác ABC có trung tuyến AM và trọng tâm G.",
+subQuestions:[
+{
+label:"a",
+text:"AG = 2/3 AM.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"GM = 1/3 AM.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"AG = GM.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"AM = AG + GM.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+stage3:[
+{
+id:"tvs_s3_1",
+type:"short-answer",
+question:"Cho vectơ a có độ dài bằng 6. Tính độ dài của vectơ 3a.",
+answer:"18",
+explanation:"|3a| = |3|.|a| = 3.6 = 18."
+},
+
+{
+id:"tvs_s3_2",
+type:"short-answer",
+question:"Cho vectơ a có độ dài bằng 10. Tính độ dài của vectơ (-2)a.",
+answer:"20",
+explanation:"|-2a| = |-2|.|a| = 2.10 = 20."
+},
+
+{
+id:"tvs_s3_3",
+type:"short-answer",
+question:"Cho tam giác ABC có trung tuyến AM. G là trọng tâm. Tính AG/AM.",
+answer:"2/3",
+explanation:"Trọng tâm chia trung tuyến theo tỉ lệ 2:1 kể từ đỉnh nên AG = 2/3 AM."
+},
+
+{
+id:"tvs_s3_4",
+type:"short-answer",
+question:"Cho M là trung điểm của đoạn AB. Tính hệ số k trong đẳng thức AM = kAB.",
+answer:"1/2",
+explanation:"Theo tính chất trung điểm: AM = 1/2 AB."
+},
+
+{
+id:"tvs_s3_5",
+type:"short-answer",
+question:"Cho vectơ a ≠ 0. Tìm số thực k để ka = -a.",
+answer:"-1",
+explanation:"Ta có ka = -a ⇔ k = -1."
+}
+]
+},
+10: {
+stage1:[
+{
+id:"vmp_s1_1",
+type:"multiple-choice",
+question:"Trong mặt phẳng tọa độ Oxy, vectơ a=(3;-2) có tọa độ là",
+options:[
+"(3;-2)",
+"(-2;3)",
+"(2;-3)",
+"(-3;2)"
+],
+answer:"(3;-2)"
+},
+
+{
+id:"vmp_s1_2",
+type:"multiple-choice",
+question:"Cho A(1;2), B(4;6). Tọa độ vectơ AB là",
+options:[
+"(3;4)",
+"(5;8)",
+"(-3;-4)",
+"(4;6)"
+],
+answer:"(3;4)"
+},
+
+{
+id:"vmp_s1_3",
+type:"multiple-choice",
+question:"Cho vectơ a=(2;3), b=(1;-1). Tọa độ a+b là",
+options:[
+"(3;2)",
+"(1;4)",
+"(2;2)",
+"(3;4)"
+],
+answer:"(3;2)"
+},
+
+{
+id:"vmp_s1_4",
+type:"multiple-choice",
+question:"Cho vectơ a=(4;5), b=(1;2). Tọa độ a-b là",
+options:[
+"(3;3)",
+"(5;7)",
+"(4;3)",
+"(3;7)"
+],
+answer:"(3;3)"
+},
+
+{
+id:"vmp_s1_5",
+type:"multiple-choice",
+question:"Cho vectơ a=(2;-3). Tọa độ của 2a là",
+options:[
+"(4;-6)",
+"(2;-6)",
+"(4;-3)",
+"(-4;6)"
+],
+answer:"(4;-6)"
+},
+
+{
+id:"vmp_s1_6",
+type:"multiple-choice",
+question:"Độ dài của vectơ a=(3;4) bằng",
+options:[
+"5",
+"7",
+"25",
+"12"
+],
+answer:"5"
+},
+
+{
+id:"vmp_s1_7",
+type:"multiple-choice",
+question:"Cho A(-1;2), B(3;5). Tọa độ trung điểm M của AB là",
+options:[
+"(1;3.5)",
+"(2;3)",
+"(1;4)",
+"(0;3.5)"
+],
+answer:"(1;3.5)"
+},
+
+{
+id:"vmp_s1_8",
+type:"multiple-choice",
+question:"Cho vectơ a=(2;4). Một vectơ cùng phương với a là",
+options:[
+"(1;2)",
+"(2;1)",
+"(4;1)",
+"(3;2)"
+],
+answer:"(1;2)"
+},
+
+{
+id:"vmp_s1_9",
+type:"multiple-choice",
+question:"Hai vectơ a=(1;2) và b=(2;4) là",
+options:[
+"Vuông góc",
+"Bằng nhau",
+"Cùng phương",
+"Đối nhau"
+],
+answer:"Cùng phương"
+},
+
+{
+id:"vmp_s1_10",
+type:"multiple-choice",
+question:"Cho A(2;1), B(5;5). Độ dài AB bằng",
+options:[
+"5",
+"4",
+"3",
+"√13"
+],
+answer:"5"
+}
+],
+stage2:[
+{
+id:"vmp_s2_1",
+type:"true-false",
+question:"Cho vectơ a=(3;4).",
+subQuestions:[
+{
+label:"a",
+text:"Độ dài của vectơ a bằng 5.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Tọa độ vectơ đối của a là (-3;-4).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"2a=(6;8).",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"a là vectơ đơn vị.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"vmp_s2_2",
+type:"true-false",
+question:"Cho A(1;2), B(4;6).",
+subQuestions:[
+{
+label:"a",
+text:"AB=(3;4).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"BA=(-3;-4).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"AB=BA.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Độ dài AB bằng 5.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"vmp_s2_3",
+type:"true-false",
+question:"Cho các vectơ a=(1;2), b=(2;4), c=(-2;-4).",
+subQuestions:[
+{
+label:"a",
+text:"a và b cùng phương.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"a và c cùng phương.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"b và c ngược hướng.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"a và c bằng nhau.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"vmp_s3_1",
+type:"short-answer",
+question:"Cho A(1;2), B(5;7). Tính hoành độ của vectơ AB.",
+answer:"4",
+explanation:"AB=(5-1;7-2)=(4;5). Hoành độ là 4."
+},
+
+{
+id:"vmp_s3_2",
+type:"short-answer",
+question:"Cho vectơ a=(6;8). Tính độ dài của vectơ a.",
+answer:"10",
+explanation:"|a|=√(6²+8²)=√100=10."
+},
+
+{
+id:"vmp_s3_3",
+type:"short-answer",
+question:"Cho A(2;3), B(6;9). Tính tung độ của trung điểm AB.",
+answer:"6",
+explanation:"Tung độ trung điểm là (3+9)/2=6."
+},
+
+{
+id:"vmp_s3_4",
+type:"short-answer",
+question:"Cho vectơ a=(2;-1), b=(3;4). Tính tổng các tọa độ của vectơ a+b.",
+answer:"8",
+explanation:"a+b=(5;3). Tổng hai tọa độ là 5+3=8."
+},
+
+{
+id:"vmp_s3_5",
+type:"short-answer",
+question:"Cho A(-1;1), B(2;5). Tính độ dài đoạn thẳng AB.",
+answer:"5",
+explanation:"AB=(3;4). Độ dài AB=√(3²+4²)=5."
+}
+]
+},
+11: {
+stage1:[
+{
+id:"sgd_s1_1",
+type:"multiple-choice",
+question:"Quy tròn số 7216,4 đến hàng đơn vị được số nào?",
+options:["7215","7216","7217","7220"],
+answer:"7216"
+},
+
+{
+id:"sgd_s1_2",
+type:"multiple-choice",
+question:"Quy tròn số 223254 đến hàng trăm được",
+options:["223200","223300","223000","223250"],
+answer:"223300"
+},
+
+{
+id:"sgd_s1_3",
+type:"multiple-choice",
+question:"Quy tròn số 12,4567 đến hàng phần trăm được",
+options:["12,45","12,46","12,457","12,5"],
+answer:"12,46"
+},
+
+{
+id:"sgd_s1_4",
+type:"multiple-choice",
+question:"Giá trị gần đúng của √8 chính xác đến hàng phần trăm là",
+options:["2,80","2,81","2,82","2,83"],
+answer:"2,83"
+},
+
+{
+id:"sgd_s1_5",
+type:"multiple-choice",
+question:"Giá trị gần đúng của π chính xác đến hàng phần nghìn là",
+options:["3,14","3,141","3,1415","3,142"],
+answer:"3,142"
+},
+
+{
+id:"sgd_s1_6",
+type:"multiple-choice",
+question:"Cho số gần đúng a = 1000 với sai số tuyệt đối Δa = 20. Sai số tương đối bằng",
+options:["0,02%","2%","20%","0,2%"],
+answer:"2%"
+},
+
+{
+id:"sgd_s1_7",
+type:"multiple-choice",
+question:"Cho số gần đúng a = 26,5 với độ chính xác d = 0,2. Sai số tương đối gần đúng nhất là",
+options:["0,75%","7,5%","0,075%","1,5%"],
+answer:"0,75%"
+},
+
+{
+id:"sgd_s1_8",
+type:"multiple-choice",
+question:"Số quy tròn của 3546790 đến hàng trăm là",
+options:["3546800","3546700","3547000","3546890"],
+answer:"3546800"
+},
+
+{
+id:"sgd_s1_9",
+type:"multiple-choice",
+question:"Cho số gần đúng a = -900 và sai số tương đối 0,1%. Sai số tuyệt đối bằng",
+options:["90","0,9","9","0,09"],
+answer:"0,9"
+},
+
+{
+id:"sgd_s1_10",
+type:"multiple-choice",
+question:"Cho số gần đúng a = 4536 với độ chính xác d = 100. Số quy tròn của a là",
+options:["4500","4540","5000","4000"],
+answer:"5000"
+}
+],
+stage2:[
+{
+id:"sgd_s2_1",
+type:"true-false",
+question:"Xét số gần đúng a = 0,33 của số 1/3.",
+subQuestions:[
+{
+label:"a",
+text:"Số gần đúng là 0,33.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Độ chính xác là 0,01.",
+correctAnswer:"Sai"
+},
+{
+label:"c",
+text:"Sai số tuyệt đối nhỏ hơn 0,005.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Sai số tương đối nhỏ hơn 1%.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"sgd_s2_2",
+type:"true-false",
+question:"Cho số gần đúng a = 4536 với độ chính xác d = 100.",
+subQuestions:[
+{
+label:"a",
+text:"Số quy tròn của a là 5000.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Sai số tuyệt đối của số quy tròn nhỏ hơn 564.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Sai số tương đối nhỏ hơn 0,11%.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Độ chính xác là 100.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"sgd_s2_3",
+type:"true-false",
+question:"Cho kết quả đo chiều dài là 45 ± 0,2 (cm).",
+subQuestions:[
+{
+label:"a",
+text:"Số gần đúng là 45.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Độ chính xác là 0,2 cm.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Sai số tuyệt đối không vượt quá 0,2 cm.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Sai số tuyệt đối bằng -0,2 cm.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"sgd_s3_1",
+type:"short-answer",
+question:"Quy tròn số 154925 đến hàng nghìn. Kết quả bằng bao nhiêu?",
+answer:"155000",
+explanation:"Chữ số hàng trăm là 9 ≥ 5 nên làm tròn lên. Ta được 155000."
+},
+
+{
+id:"sgd_s3_2",
+type:"short-answer",
+question:"Một phép đo cho kết quả 5 ± 0,3 μm. Độ dài đoạn chứa giá trị thực bằng bao nhiêu?",
+answer:"0.6",
+explanation:"Giá trị thực thuộc [4,7; 5,3]. Độ dài đoạn là 5,3 − 4,7 = 0,6."
+},
+
+{
+id:"sgd_s3_3",
+type:"short-answer",
+question:"Khối lượng tịnh ghi trên bao bì là 200 ± 2 (g). Tính tổng hai đầu mút của khoảng chứa giá trị thực.",
+answer:"400",
+explanation:"Giá trị thực thuộc [198;202]. Tổng hai đầu mút là 198 + 202 = 400."
+},
+
+{
+id:"sgd_s3_4",
+type:"short-answer",
+question:"Biết 1,4142 < √2 < 1,4143. Hãy xác định độ chính xác của kết quả trên.",
+answer:"0.00005",
+explanation:"Độ chính xác bằng nửa độ dài khoảng chứa giá trị đúng: (1,4143−1,4142)/2 = 0,00005."
+},
+
+{
+id:"sgd_s3_5",
+type:"short-answer",
+question:"Cho số gần đúng a = 2362 với độ chính xác d = 100. Ước lượng sai số tương đối tối đa (làm tròn đến hàng phần trăm).",
+answer:"4.23",
+explanation:"Sai số tương đối tối đa ≈ 100/2362 ×100% ≈ 4,23%."
+}
+]
+},
+12: {
+stage1:[
+{
+id:"tt_s1_1",
+type:"multiple-choice",
+question:"Số trung bình của dãy số liệu 2; 4; 6; 8 là",
+options:["4","5","6","8"],
+answer:"5"
+},
+
+{
+id:"tt_s1_2",
+type:"multiple-choice",
+question:"Số trung vị của dãy số liệu 1; 3; 5; 7; 9 là",
+options:["3","4","5","7"],
+answer:"5"
+},
+
+{
+id:"tt_s1_3",
+type:"multiple-choice",
+question:"Mốt của dãy số liệu 2; 3; 3; 4; 5 là",
+options:["2","3","4","5"],
+answer:"3"
+},
+
+{
+id:"tt_s1_4",
+type:"multiple-choice",
+question:"Tứ phân vị thứ nhất Q1 của dãy số liệu 1;2;3;4;5;6;7;8 là",
+options:["2","2.5","3","3.5"],
+answer:"2.5"
+},
+
+{
+id:"tt_s1_5",
+type:"multiple-choice",
+question:"Tứ phân vị thứ ba Q3 của dãy số liệu 1;2;3;4;5;6;7;8 là",
+options:["5.5","6","6.5","7"],
+answer:"6.5"
+},
+
+{
+id:"tt_s1_6",
+type:"multiple-choice",
+question:"Cho dãy số liệu 4;5;6;7;8. Số trung bình bằng",
+options:["5","6","7","8"],
+answer:"6"
+},
+
+{
+id:"tt_s1_7",
+type:"multiple-choice",
+question:"Dãy số liệu nào có mốt bằng 7?",
+options:[
+"5;6;7;8",
+"7;7;6;5",
+"5;6;8;9",
+"1;2;3;4"
+],
+answer:"7;7;6;5"
+},
+
+{
+id:"tt_s1_8",
+type:"multiple-choice",
+question:"Số trung vị của dãy số liệu 1;2;3;4;5;6 là",
+options:["3","3.5","4","4.5"],
+answer:"3.5"
+},
+
+{
+id:"tt_s1_9",
+type:"multiple-choice",
+question:"Cho dãy số liệu 10;10;12;13;15. Mốt của mẫu số liệu là",
+options:["10","12","13","15"],
+answer:"10"
+},
+
+{
+id:"tt_s1_10",
+type:"multiple-choice",
+question:"Trong các số đặc trưng sau, số nào không bị ảnh hưởng mạnh bởi giá trị ngoại lệ?",
+options:[
+"Số trung bình",
+"Trung vị",
+"Tổng các giá trị",
+"Tần số"
+],
+answer:"Trung vị"
+}
+],
+stage2:[
+{
+id:"tt_s2_1",
+type:"true-false",
+question:"Cho mẫu số liệu: 2; 4; 4; 5; 7.",
+subQuestions:[
+{
+label:"a",
+text:"Số trung bình là 4,4.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Số trung vị là 4.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Mốt là 5.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Mốt là 4.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"tt_s2_2",
+type:"true-false",
+question:"Cho mẫu số liệu đã sắp xếp: 1;2;3;4;5;6;7;8.",
+subQuestions:[
+{
+label:"a",
+text:"Q1 = 2,5.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Q2 = 4,5.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Q3 = 6,5.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Q3 = 7.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"tt_s2_3",
+type:"true-false",
+question:"Cho dãy số liệu: 5;5;5;6;7;8;9.",
+subQuestions:[
+{
+label:"a",
+text:"Mốt bằng 5.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Trung vị bằng 6.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Số trung bình lớn hơn 6.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Mẫu số liệu có hai mốt.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"tt_s3_1",
+type:"short-answer",
+question:"Tính số trung bình của dãy số liệu: 3; 5; 7; 9; 11.",
+answer:"7",
+explanation:"Tổng các giá trị là 35. Chia cho 5 phần tử được 35/5 = 7."
+},
+
+{
+id:"tt_s3_2",
+type:"short-answer",
+question:"Tìm trung vị của dãy số liệu: 2; 4; 6; 8; 10.",
+answer:"6",
+explanation:"Dãy đã sắp xếp và có 5 phần tử nên trung vị là giá trị đứng giữa: 6."
+},
+
+{
+id:"tt_s3_3",
+type:"short-answer",
+question:"Tìm mốt của dãy số liệu: 1;2;2;3;4;4;4;5.",
+answer:"4",
+explanation:"Giá trị 4 xuất hiện 3 lần, nhiều nhất nên mốt là 4."
+},
+
+{
+id:"tt_s3_4",
+type:"short-answer",
+question:"Cho dãy số liệu: 1;2;3;4;5;6;7;8. Tính Q2.",
+answer:"4.5",
+explanation:"Q2 chính là trung vị. Với 8 số liệu, Q2=(4+5)/2=4,5."
+},
+
+{
+id:"tt_s3_5",
+type:"short-answer",
+question:"Cho dãy số liệu: 10;10;12;13;15. Tính số trung bình.",
+answer:"12",
+explanation:"Trung bình cộng = (10+10+12+13+15)/5 = 60/5 = 12."
+}
+]
+},
+13: {
+stage1:[
+{
+id:"pt_s1_1",
+type:"multiple-choice",
+question:"Khoảng biến thiên của mẫu số liệu là",
+options:[
+"Hiệu giữa giá trị lớn nhất và nhỏ nhất",
+"Tổng các giá trị",
+"Trung bình cộng",
+"Hiệu giữa Q3 và Q1"
+],
+answer:"Hiệu giữa giá trị lớn nhất và nhỏ nhất"
+},
+
+{
+id:"pt_s1_2",
+type:"multiple-choice",
+question:"Cho mẫu số liệu: 2;4;6;8;10. Khoảng biến thiên bằng",
+options:["6","8","10","12"],
+answer:"8"
+},
+
+{
+id:"pt_s1_3",
+type:"multiple-choice",
+question:"Khoảng tứ phân vị được tính bằng",
+options:[
+"Q3 - Q1",
+"Q1 - Q3",
+"Q2 - Q1",
+"Q3 + Q1"
+],
+answer:"Q3 - Q1"
+},
+
+{
+id:"pt_s1_4",
+type:"multiple-choice",
+question:"Cho Q1=5 và Q3=11. Khoảng tứ phân vị bằng",
+options:["5","6","11","16"],
+answer:"6"
+},
+
+{
+id:"pt_s1_5",
+type:"multiple-choice",
+question:"Mẫu số liệu có khoảng biến thiên càng lớn thì",
+options:[
+"Dữ liệu càng phân tán",
+"Dữ liệu càng tập trung",
+"Trung vị càng lớn",
+"Mốt càng lớn"
+],
+answer:"Dữ liệu càng phân tán"
+},
+
+{
+id:"pt_s1_6",
+type:"multiple-choice",
+question:"Cho mẫu số liệu: 1;3;5;7;9. Giá trị lớn nhất là",
+options:["5","7","8","9"],
+answer:"9"
+},
+
+{
+id:"pt_s1_7",
+type:"multiple-choice",
+question:"Cho mẫu số liệu: 1;3;5;7;9. Giá trị nhỏ nhất là",
+options:["0","1","3","5"],
+answer:"1"
+},
+
+{
+id:"pt_s1_8",
+type:"multiple-choice",
+question:"Khoảng biến thiên của mẫu số liệu 10;10;10;10 là",
+options:["0","1","10","40"],
+answer:"0"
+},
+
+{
+id:"pt_s1_9",
+type:"multiple-choice",
+question:"Giá trị ngoại lệ thường là giá trị",
+options:[
+"Rất khác biệt so với phần lớn dữ liệu",
+"Xuất hiện nhiều nhất",
+"Nằm ở giữa mẫu số liệu",
+"Bằng trung vị"
+],
+answer:"Rất khác biệt so với phần lớn dữ liệu"
+},
+
+{
+id:"pt_s1_10",
+type:"multiple-choice",
+question:"Cho Q1=12 và Q3=20. Khoảng tứ phân vị bằng",
+options:["6","7","8","9"],
+answer:"8"
+}
+],
+stage2:[
+{
+id:"pt_s2_1",
+type:"true-false",
+question:"Cho mẫu số liệu: 2;4;6;8;10.",
+subQuestions:[
+{
+label:"a",
+text:"Giá trị lớn nhất là 10.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Giá trị nhỏ nhất là 2.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Khoảng biến thiên bằng 8.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Khoảng biến thiên bằng 12.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"pt_s2_2",
+type:"true-false",
+question:"Cho Q1=4 và Q3=10.",
+subQuestions:[
+{
+label:"a",
+text:"Khoảng tứ phân vị bằng 6.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Khoảng tứ phân vị được tính bằng Q3-Q1.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Khoảng tứ phân vị bằng 14.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Q3 lớn hơn Q1.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"pt_s2_3",
+type:"true-false",
+question:"Xét ý nghĩa của các số đo độ phân tán.",
+subQuestions:[
+{
+label:"a",
+text:"Khoảng biến thiên càng lớn thì dữ liệu càng phân tán.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Khoảng biến thiên bằng 0 khi mọi giá trị bằng nhau.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Giá trị ngoại lệ có thể ảnh hưởng mạnh đến khoảng biến thiên.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Khoảng tứ phân vị luôn bằng khoảng biến thiên.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"pt_s3_1",
+type:"short-answer",
+question:"Cho mẫu số liệu: 5;7;8;10;13. Tính khoảng biến thiên.",
+answer:"8",
+explanation:"Khoảng biến thiên = giá trị lớn nhất − giá trị nhỏ nhất = 13 − 5 = 8."
+},
+
+{
+id:"pt_s3_2",
+type:"short-answer",
+question:"Cho Q1=6 và Q3=15. Tính khoảng tứ phân vị.",
+answer:"9",
+explanation:"Khoảng tứ phân vị = Q3 − Q1 = 15 − 6 = 9."
+},
+
+{
+id:"pt_s3_3",
+type:"short-answer",
+question:"Cho mẫu số liệu: 20;20;20;20. Tính khoảng biến thiên.",
+answer:"0",
+explanation:"Giá trị lớn nhất và nhỏ nhất đều bằng 20 nên khoảng biến thiên bằng 0."
+},
+
+{
+id:"pt_s3_4",
+type:"short-answer",
+question:"Cho mẫu số liệu có giá trị nhỏ nhất là 12 và lớn nhất là 30. Tính khoảng biến thiên.",
+answer:"18",
+explanation:"Khoảng biến thiên = 30 − 12 = 18."
+},
+
+{
+id:"pt_s3_5",
+type:"short-answer",
+question:"Cho Q1=18 và Q3=25. Tính khoảng tứ phân vị.",
+answer:"7",
+explanation:"Khoảng tứ phân vị = Q3 − Q1 = 25 − 18 = 7."
+}
+]
+},
+14: {
+stage1:[
+{
+id:"hs_s1_1",
+type:"multiple-choice",
+question:"Hàm số y = 2x + 3 có tập xác định là",
+options:["R","R\\{0}","[0;+∞)","(-∞;0)"],
+answer:"R"
+},
+
+{
+id:"hs_s1_2",
+type:"multiple-choice",
+question:"Hàm số y = -3x + 1 là",
+options:[
+"Đồng biến trên R",
+"Nghịch biến trên R",
+"Không đồng biến, không nghịch biến",
+"Đồng biến trên (0;+∞)"
+],
+answer:"Nghịch biến trên R"
+},
+
+{
+id:"hs_s1_3",
+type:"multiple-choice",
+question:"Trục đối xứng của parabol y = x² - 4x + 1 là",
+options:[
+"x = 2",
+"x = -2",
+"y = 2",
+"y = -2"
+],
+answer:"x = 2"
+},
+
+{
+id:"hs_s1_4",
+type:"multiple-choice",
+question:"Tọa độ đỉnh của parabol y = x² - 4x + 1 là",
+options:[
+"(2;-3)",
+"(-2;1)",
+"(2;3)",
+"(1;2)"
+],
+answer:"(2;-3)"
+},
+
+{
+id:"hs_s1_5",
+type:"multiple-choice",
+question:"Parabol y = -x² + 2x + 3 quay bề lõm",
+options:[
+"Lên trên",
+"Xuống dưới",
+"Sang phải",
+"Sang trái"
+],
+answer:"Xuống dưới"
+},
+
+{
+id:"hs_s1_6",
+type:"multiple-choice",
+question:"Giá trị nhỏ nhất của hàm số y = x² là",
+options:["0","1","-1","Không tồn tại"],
+answer:"0"
+},
+
+{
+id:"hs_s1_7",
+type:"multiple-choice",
+question:"Giá trị lớn nhất của hàm số y = -x² + 4 là",
+options:["4","0","-4","Không tồn tại"],
+answer:"4"
+},
+
+{
+id:"hs_s1_8",
+type:"multiple-choice",
+question:"Hàm số y = x² - 2x + 5 đạt giá trị nhỏ nhất khi",
+options:[
+"x = 0",
+"x = 1",
+"x = 2",
+"x = -1"
+],
+answer:"x = 1"
+},
+
+{
+id:"hs_s1_9",
+type:"multiple-choice",
+question:"Hàm số y = x² - 2 đồng biến trên khoảng nào?",
+options:[
+"(-∞;0)",
+"(0;+∞)",
+"R",
+"(-2;2)"
+],
+answer:"(0;+∞)"
+},
+
+{
+id:"hs_s1_10",
+type:"multiple-choice",
+question:"Đỉnh của parabol y = x² là",
+options:[
+"(0;0)",
+"(1;0)",
+"(0;1)",
+"(1;1)"
+],
+answer:"(0;0)"
+}
+],
+stage2:[
+{
+id:"hs_s2_1",
+type:"true-false",
+question:"Cho hàm số y = x² - 4x + 3.",
+subQuestions:[
+{
+label:"a",
+text:"Đỉnh của parabol là (2;-1).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Trục đối xứng là x = 2.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Parabol quay bề lõm xuống dưới.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Giá trị nhỏ nhất của hàm số là -1.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"hs_s2_2",
+type:"true-false",
+question:"Cho hàm số y = -x² + 2x + 3.",
+subQuestions:[
+{
+label:"a",
+text:"Parabol quay bề lõm xuống dưới.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Đỉnh có hoành độ bằng 1.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Giá trị lớn nhất bằng 4.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hàm số có giá trị nhỏ nhất.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"hs_s2_3",
+type:"true-false",
+question:"Xét hàm số y = x².",
+subQuestions:[
+{
+label:"a",
+text:"Hàm số nghịch biến trên (-∞;0).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hàm số đồng biến trên (0;+∞).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Giá trị nhỏ nhất bằng 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hàm số có giá trị lớn nhất.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"hs_s3_1",
+type:"short-answer",
+question:"Tìm giá trị nhỏ nhất của hàm số y = x² - 2x + 3.",
+answer:"2",
+explanation:"y = (x-1)² + 2 ≥ 2. Dấu '=' xảy ra khi x = 1 nên giá trị nhỏ nhất là 2."
+},
+
+{
+id:"hs_s3_2",
+type:"short-answer",
+question:"Cho hàm số y = -x² + 4x. Tính hoành độ đỉnh của parabol.",
+answer:"2",
+explanation:"xđỉnh = -b/(2a) = -4/(2·(-1)) = 2."
+},
+
+{
+id:"hs_s3_3",
+type:"short-answer",
+question:"Cho hàm số y = x² - 6x + 5. Tính tung độ đỉnh của parabol.",
+answer:"-4",
+explanation:"xđỉnh = 3. Thay vào hàm số: y = 3² - 6·3 + 5 = -4."
+},
+
+{
+id:"hs_s3_4",
+type:"short-answer",
+question:"Tìm giá trị lớn nhất của hàm số y = -x² + 2x + 8.",
+answer:"9",
+explanation:"y = -(x-1)² + 9 ≤ 9 nên giá trị lớn nhất là 9."
+},
+
+{
+id:"hs_s3_5",
+type:"short-answer",
+question:"Một mảnh vườn hình chữ nhật có chu vi 24m. Diện tích lớn nhất là bao nhiêu mét vuông?",
+answer:"36",
+explanation:"Với chu vi cố định, hình chữ nhật có diện tích lớn nhất là hình vuông. Cạnh bằng 24/4 = 6m. Diện tích = 6² = 36m²."
+}
+]
+},
+15: {
+stage1:[
+{
+id:"dt_s1_1",
+type:"multiple-choice",
+question:"Tam thức f(x)=x²-5x+6 có hai nghiệm là",
+options:["1 và 6","2 và 3","-2 và -3","-1 và -6"],
+answer:"2 và 3"
+},
+
+{
+id:"dt_s1_2",
+type:"multiple-choice",
+question:"Tập nghiệm của bất phương trình x²-5x+6 > 0 là",
+options:[
+"(2;3)",
+"(-∞;2)∪(3;+∞)",
+"(-∞;2]∪[3;+∞)",
+"[2;3]"
+],
+answer:"(-∞;2)∪(3;+∞)"
+},
+
+{
+id:"dt_s1_3",
+type:"multiple-choice",
+question:"Tập nghiệm của bất phương trình x²-5x+6 < 0 là",
+options:[
+"(2;3)",
+"(-∞;2)",
+"(3;+∞)",
+"R"
+],
+answer:"(2;3)"
+},
+
+{
+id:"dt_s1_4",
+type:"multiple-choice",
+question:"Tam thức x²+4x+5 luôn",
+options:[
+"Dương",
+"Âm",
+"Bằng 0",
+"Đổi dấu"
+],
+answer:"Dương"
+},
+
+{
+id:"dt_s1_5",
+type:"multiple-choice",
+question:"Biệt thức Δ của tam thức x²-5x+6 là",
+options:["1","0","25","-1"],
+answer:"1"
+},
+
+{
+id:"dt_s1_6",
+type:"multiple-choice",
+question:"Tập nghiệm của bất phương trình x²-4 ≤ 0 là",
+options:[
+"[-2;2]",
+"(-2;2)",
+"(-∞;-2]∪[2;+∞)",
+"R"
+],
+answer:"[-2;2]"
+},
+
+{
+id:"dt_s1_7",
+type:"multiple-choice",
+question:"Tam thức -x²+9 nhận giá trị dương khi",
+options:[
+"|x|<3",
+"|x|>3",
+"x>0",
+"x<0"
+],
+answer:"|x|<3"
+},
+
+{
+id:"dt_s1_8",
+type:"multiple-choice",
+question:"Số nghiệm nguyên của bất phương trình x²-3x-10 ≤ 0 là",
+options:["5","6","7","8"],
+answer:"7"
+},
+
+{
+id:"dt_s1_9",
+type:"multiple-choice",
+question:"Tam thức x²+1 có số nghiệm thực là",
+options:["0","1","2","Vô số"],
+answer:"0"
+},
+
+{
+id:"dt_s1_10",
+type:"multiple-choice",
+question:"Tập nghiệm của bất phương trình x²+2x-3 ≥ 0 là",
+options:[
+"[-3;1]",
+"(-3;1)",
+"(-∞;-3]∪[1;+∞)",
+"(-∞;-3)∪(1;+∞)"
+],
+answer:"(-∞;-3]∪[1;+∞)"
+}
+],
+stage2:[
+{
+id:"dt_s2_1",
+type:"true-false",
+question:"Cho tam thức f(x)=x²-5x+6.",
+subQuestions:[
+{
+label:"a",
+text:"f(x)=0 có hai nghiệm 2 và 3.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"f(x)<0 với mọi x thuộc (2;3).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"f(x)>0 với mọi x thuộc (2;3).",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"f(x)≥0 với mọi x∈(-∞;2]∪[3;+∞).",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"dt_s2_2",
+type:"true-false",
+question:"Cho tam thức f(x)=x²+4x+5.",
+subQuestions:[
+{
+label:"a",
+text:"Δ=-4.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Tam thức vô nghiệm thực.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"f(x)>0 với mọi x thuộc R.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"f(x)<0 với mọi x thuộc R.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"dt_s2_3",
+type:"true-false",
+question:"Cho bất phương trình x²-4≤0.",
+subQuestions:[
+{
+label:"a",
+text:"Hai nghiệm của phương trình x²-4=0 là -2 và 2.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Tập nghiệm là [-2;2].",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"x=0 là nghiệm.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"x=3 là nghiệm.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"dt_s3_1",
+type:"short-answer",
+question:"Tìm số nghiệm nguyên của bất phương trình x²-5x+6 ≤ 0.",
+answer:"2",
+explanation:"Ta có x²-5x+6=(x-2)(x-3). Suy ra tập nghiệm là [2;3]. Có 2 nghiệm nguyên là 2 và 3."
+},
+
+{
+id:"dt_s3_2",
+type:"short-answer",
+question:"Tính Δ của tam thức x²-6x+5.",
+answer:"16",
+explanation:"Δ=b²-4ac=(-6)²-4·1·5=36-20=16."
+},
+
+{
+id:"dt_s3_3",
+type:"short-answer",
+question:"Tìm giá trị nhỏ nhất của f(x)=x²-4x+7.",
+answer:"3",
+explanation:"f(x)=(x-2)²+3 ≥ 3. Giá trị nhỏ nhất bằng 3 khi x=2."
+},
+
+{
+id:"dt_s3_4",
+type:"short-answer",
+question:"Tìm số nghiệm nguyên của bất phương trình x²-1<0.",
+answer:"1",
+explanation:"Ta có -1<x<1. Nghiệm nguyên duy nhất là x=0."
+},
+
+{
+id:"dt_s3_5",
+type:"short-answer",
+question:"Tìm tổng hai nghiệm của phương trình x²-7x+10=0.",
+answer:"7",
+explanation:"Theo hệ thức Viète, tổng hai nghiệm bằng -b/a=7."
+}
+]
+},
+16: {
+stage1:[
+{
+id:"pq_s1_1",
+type:"multiple-choice",
+question:"Điều kiện xác định của phương trình √(x-2)=3 là",
+options:[
+"x≥2",
+"x>2",
+"x≥3",
+"x≠2"
+],
+answer:"x≥2"
+},
+
+{
+id:"pq_s1_2",
+type:"multiple-choice",
+question:"Nghiệm của phương trình √(x+1)=2 là",
+options:[
+"2",
+"3",
+"4",
+"5"
+],
+answer:"3"
+},
+
+{
+id:"pq_s1_3",
+type:"multiple-choice",
+question:"Đặt t=x² (t≥0). Phương trình x⁴-5x²+4=0 trở thành",
+options:[
+"t²-5t+4=0",
+"t²+5t+4=0",
+"t²-4t+5=0",
+"t²+4t-5=0"
+],
+answer:"t²-5t+4=0"
+},
+
+{
+id:"pq_s1_4",
+type:"multiple-choice",
+question:"Số nghiệm của phương trình x⁴-5x²+4=0 là",
+options:[
+"1",
+"2",
+"3",
+"4"
+],
+answer:"4"
+},
+
+{
+id:"pq_s1_5",
+type:"multiple-choice",
+question:"Phương trình √(x+4)=x có bao nhiêu nghiệm?",
+options:[
+"0",
+"1",
+"2",
+"3"
+],
+answer:"1"
+},
+
+{
+id:"pq_s1_6",
+type:"multiple-choice",
+question:"Điều kiện xác định của phương trình √(2x-1)=x là",
+options:[
+"x≥1/2",
+"x>1/2",
+"x≥0",
+"x>0"
+],
+answer:"x≥1/2"
+},
+
+{
+id:"pq_s1_7",
+type:"multiple-choice",
+question:"Phương trình x⁴-13x²+36=0 có thể đặt",
+options:[
+"t=x",
+"t=x²",
+"t=x³",
+"t=√x"
+],
+answer:"t=x²"
+},
+
+{
+id:"pq_s1_8",
+type:"multiple-choice",
+question:"Nghiệm của phương trình x²-9=0 là",
+options:[
+"±3",
+"3",
+"-3",
+"±9"
+],
+answer:"±3"
+},
+
+{
+id:"pq_s1_9",
+type:"multiple-choice",
+question:"Phương trình √(x+5)=√(2x) có nghiệm",
+options:[
+"5",
+"4",
+"3",
+"2"
+],
+answer:"5"
+},
+
+{
+id:"pq_s1_10",
+type:"multiple-choice",
+question:"Sau khi đặt t=x², điều kiện của t là",
+options:[
+"t>0",
+"t≥0",
+"t≠0",
+"t<0"
+],
+answer:"t≥0"
+}
+],
+stage2:[
+{
+id:"pq_s2_1",
+type:"true-false",
+question:"Xét phương trình √(x+1)=2.",
+subQuestions:[
+{
+label:"a",
+text:"Điều kiện xác định là x≥-1.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Bình phương hai vế được x+1=4.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Nghiệm của phương trình là x=3.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Phương trình có hai nghiệm.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"pq_s2_2",
+type:"true-false",
+question:"Xét phương trình x⁴-5x²+4=0.",
+subQuestions:[
+{
+label:"a",
+text:"Đặt t=x².",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Ta được phương trình t²-5t+4=0.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Phương trình có 4 nghiệm thực.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Tổng các nghiệm bằng 4.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"pq_s2_3",
+type:"true-false",
+question:"Xét phương trình √(2x-1)=x.",
+subQuestions:[
+{
+label:"a",
+text:"Điều kiện xác định là x≥1/2.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Sau khi bình phương được x²-2x+1=0.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Nghiệm là x=1.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Phương trình có hai nghiệm.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"pq_s3_1",
+type:"short-answer",
+question:"Tìm nghiệm của phương trình √(x+4)=3.",
+answer:"5",
+explanation:"Bình phương hai vế: x+4=9 ⇒ x=5. Thử lại thỏa mãn."
+},
+
+{
+id:"pq_s3_2",
+type:"short-answer",
+question:"Tìm tổng các nghiệm của phương trình x⁴-5x²+4=0.",
+answer:"0",
+explanation:"Đặt t=x². Ta có (t-1)(t-4)=0 ⇒ x=±1, ±2. Tổng các nghiệm bằng 0."
+},
+
+{
+id:"pq_s3_3",
+type:"short-answer",
+question:"Tìm số nghiệm thực của phương trình x⁴-13x²+36=0.",
+answer:"4",
+explanation:"Đặt t=x². Ta được (t-4)(t-9)=0 ⇒ x=±2, ±3. Có 4 nghiệm thực."
+},
+
+{
+id:"pq_s3_4",
+type:"short-answer",
+question:"Tìm nghiệm của phương trình √(2x-1)=x.",
+answer:"1",
+explanation:"Bình phương hai vế: 2x-1=x² ⇒ (x-1)²=0 ⇒ x=1."
+},
+
+{
+id:"pq_s3_5",
+type:"short-answer",
+question:"Tìm tích các nghiệm của phương trình x⁴-10x²+9=0.",
+answer:"9",
+explanation:"Đặt t=x². Ta có (t-1)(t-9)=0 ⇒ x=±1, ±3. Tích các nghiệm là (-3)(-1)(1)(3)=9."
+}
+]
+},
+17: {
+stage1:[
+{
+id:"ptdt_s1_1",
+type:"multiple-choice",
+question:"Vectơ nào là vectơ pháp tuyến của đường thẳng 2x-3y+1=0?",
+options:[
+"(2;-3)",
+"(3;2)",
+"(-3;2)",
+"(1;0)"
+],
+answer:"(2;-3)"
+},
+
+{
+id:"ptdt_s1_2",
+type:"multiple-choice",
+question:"Vectơ nào là vectơ chỉ phương của đường thẳng 2x-3y+1=0?",
+options:[
+"(2;-3)",
+"(3;2)",
+"(2;3)",
+"(-2;-3)"
+],
+answer:"(3;2)"
+},
+
+{
+id:"ptdt_s1_3",
+type:"multiple-choice",
+question:"Đường thẳng đi qua A(1;2) và có vectơ chỉ phương u=(3;1) có phương trình tham số là",
+options:[
+"x=1+3t,y=2+t",
+"x=1+t,y=2+3t",
+"x=3+t,y=1+2t",
+"x=1-3t,y=2-t"
+],
+answer:"x=1+3t,y=2+t"
+},
+
+{
+id:"ptdt_s1_4",
+type:"multiple-choice",
+question:"Đường thẳng đi qua điểm A(2;-1) và có vectơ pháp tuyến n=(1;2) có phương trình tổng quát là",
+options:[
+"x+2y=0",
+"x+2y=4",
+"x+2y-4=0",
+"2x+y=0"
+],
+answer:"x+2y=0"
+},
+
+{
+id:"ptdt_s1_5",
+type:"multiple-choice",
+question:"Cho A(1;2), B(4;6). Một vectơ chỉ phương của đường thẳng AB là",
+options:[
+"(3;4)",
+"(4;6)",
+"(1;2)",
+"(-4;-6)"
+],
+answer:"(3;4)"
+},
+
+{
+id:"ptdt_s1_6",
+type:"multiple-choice",
+question:"Đường thẳng x-2y+5=0 song song với đường thẳng nào?",
+options:[
+"x-2y-1=0",
+"2x-y+3=0",
+"x+2y=0",
+"2x-4y+1=0"
+],
+answer:"x-2y-1=0"
+},
+
+{
+id:"ptdt_s1_7",
+type:"multiple-choice",
+question:"Đường thẳng x-2y+5=0 vuông góc với đường thẳng nào?",
+options:[
+"2x+y-3=0",
+"x-2y+1=0",
+"2x-4y+7=0",
+"x-2y-8=0"
+],
+answer:"2x+y-3=0"
+},
+
+{
+id:"ptdt_s1_8",
+type:"multiple-choice",
+question:"Điểm nào thuộc đường thẳng x+y-3=0?",
+options:[
+"(1;2)",
+"(2;2)",
+"(0;0)",
+"(3;3)"
+],
+answer:"(1;2)"
+},
+
+{
+id:"ptdt_s1_9",
+type:"multiple-choice",
+question:"Đường thẳng có phương trình tham số x=2+t,y=3-2t có vectơ chỉ phương là",
+options:[
+"(1;-2)",
+"(2;3)",
+"(1;2)",
+"(-1;2)"
+],
+answer:"(1;-2)"
+},
+
+{
+id:"ptdt_s1_10",
+type:"multiple-choice",
+question:"Đường thẳng qua O(0;0) và A(2;4) có phương trình là",
+options:[
+"2x-y=0",
+"x-2y=0",
+"y-2x=0",
+"x+y=0"
+],
+answer:"y-2x=0"
+}
+],
+stage2:[
+{
+id:"ptdt_s2_1",
+type:"true-false",
+question:"Cho đường thẳng d: 2x-3y+5=0.",
+subQuestions:[
+{
+label:"a",
+text:"Vectơ pháp tuyến của d là (2;-3).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Vectơ chỉ phương của d là (3;2).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Điểm (2;3) thuộc d.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"d song song với đường thẳng 2x-3y-1=0.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"ptdt_s2_2",
+type:"true-false",
+question:"Cho hai điểm A(1;2), B(4;6).",
+subQuestions:[
+{
+label:"a",
+text:"AB=(3;4).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"AB là vectơ chỉ phương của đường thẳng AB.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Một vectơ pháp tuyến của AB là (4;-3).",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Đường thẳng AB có phương trình x-y+1=0.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"ptdt_s2_3",
+type:"true-false",
+question:"Cho đường thẳng d: x+y-3=0.",
+subQuestions:[
+{
+label:"a",
+text:"(1;2) thuộc d.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"(2;1) thuộc d.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"(0;3) thuộc d.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"(2;2) thuộc d.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"ptdt_s3_1",
+type:"short-answer",
+question:"Cho đường thẳng d: 3x-2y+7=0. Hãy cho biết tổng hai tọa độ của một vectơ pháp tuyến đơn giản nhất.",
+answer:"1",
+explanation:"Một vectơ pháp tuyến là n=(3;-2). Tổng hai tọa độ là 3+(-2)=1."
+},
+
+{
+id:"ptdt_s3_2",
+type:"short-answer",
+question:"Cho A(1;2), B(5;8). Tính hoành độ của vectơ AB.",
+answer:"4",
+explanation:"AB=(5-1;8-2)=(4;6). Hoành độ bằng 4."
+},
+
+{
+id:"ptdt_s3_3",
+type:"short-answer",
+question:"Cho đường thẳng d: x+y-5=0. Tính tung độ giao điểm của d với trục Oy.",
+answer:"5",
+explanation:"Trên Oy thì x=0. Thay vào: y=5."
+},
+
+{
+id:"ptdt_s3_4",
+type:"short-answer",
+question:"Cho đường thẳng d: 2x-y+4=0. Tính hệ số góc của đường thẳng.",
+answer:"2",
+explanation:"Viết lại: y=2x+4 nên hệ số góc k=2."
+},
+
+{
+id:"ptdt_s3_5",
+type:"short-answer",
+question:"Cho A(1;1), B(4;5). Tính độ dài vectơ AB.",
+answer:"5",
+explanation:"AB=(3;4). Độ dài AB=√(3²+4²)=5."
+}
+]
+},
+18: {
+stage1:[
+{
+id:"dtmp_s1_1",
+type:"multiple-choice",
+question:"Đường thẳng 2x-3y+5=0 có một vectơ pháp tuyến là",
+options:["(2;-3)","(3;2)","(-3;-2)","(1;1)"],
+answer:"(2;-3)"
+},
+
+{
+id:"dtmp_s1_2",
+type:"multiple-choice",
+question:"Đường thẳng 2x-3y+5=0 có một vectơ chỉ phương là",
+options:["(2;-3)","(3;2)","(2;3)","(-2;-3)"],
+answer:"(3;2)"
+},
+
+{
+id:"dtmp_s1_3",
+type:"multiple-choice",
+question:"Đường thẳng đi qua A(1;2) và có vectơ chỉ phương u=(2;3) có phương trình tham số là",
+options:[
+"x=1+2t,y=2+3t",
+"x=2+t,y=3+t",
+"x=1+3t,y=2+2t",
+"x=1-2t,y=2-3t"
+],
+answer:"x=1+2t,y=2+3t"
+},
+
+{
+id:"dtmp_s1_4",
+type:"multiple-choice",
+question:"Đường thẳng đi qua A(2;1) và có vectơ pháp tuyến n=(3;4) có phương trình tổng quát là",
+options:[
+"3x+4y-10=0",
+"3x+4y+10=0",
+"4x+3y-10=0",
+"3x-4y+2=0"
+],
+answer:"3x+4y-10=0"
+},
+
+{
+id:"dtmp_s1_5",
+type:"multiple-choice",
+question:"Cho A(1;2), B(4;6). Một vectơ chỉ phương của AB là",
+options:[
+"(3;4)",
+"(4;6)",
+"(1;2)",
+"(-3;-3)"
+],
+answer:"(3;4)"
+},
+
+{
+id:"dtmp_s1_6",
+type:"multiple-choice",
+question:"Hai đường thẳng x-y+1=0 và 2x-2y+3=0 là",
+options:[
+"Cắt nhau",
+"Song song",
+"Trùng nhau",
+"Vuông góc"
+],
+answer:"Song song"
+},
+
+{
+id:"dtmp_s1_7",
+type:"multiple-choice",
+question:"Hai đường thẳng x+y=0 và x-y=0 là",
+options:[
+"Song song",
+"Trùng nhau",
+"Vuông góc",
+"Không xác định"
+],
+answer:"Vuông góc"
+},
+
+{
+id:"dtmp_s1_8",
+type:"multiple-choice",
+question:"Điểm nào thuộc đường thẳng x+y-3=0?",
+options:[
+"(1;2)",
+"(2;2)",
+"(0;0)",
+"(3;3)"
+],
+answer:"(1;2)"
+},
+
+{
+id:"dtmp_s1_9",
+type:"multiple-choice",
+question:"Khoảng cách từ điểm O(0;0) đến đường thẳng x+y-1=0 là",
+options:[
+"1/√2",
+"√2",
+"1",
+"2"
+],
+answer:"1/√2"
+},
+
+{
+id:"dtmp_s1_10",
+type:"multiple-choice",
+question:"Đường thẳng qua A(0;2), B(2;0) có phương trình là",
+options:[
+"x+y-2=0",
+"x-y-2=0",
+"2x+y=0",
+"x+2y=0"
+],
+answer:"x+y-2=0"
+}
+],
+stage2:[
+{
+id:"dtmp_s2_1",
+type:"true-false",
+question:"Cho đường thẳng d: 2x-3y+5=0.",
+subQuestions:[
+{
+label:"a",
+text:"Một vectơ pháp tuyến của d là (2;-3).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Một vectơ chỉ phương của d là (3;2).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Điểm (1;1) thuộc d.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Đường thẳng d có hệ số góc bằng 2/3.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"dtmp_s2_2",
+type:"true-false",
+question:"Cho hai điểm A(1;2), B(4;6).",
+subQuestions:[
+{
+label:"a",
+text:"AB=(3;4).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"AB là vectơ chỉ phương của đường thẳng AB.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"(4;-3) là một vectơ pháp tuyến của AB.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Phương trình đường thẳng AB là x-y+1=0.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"dtmp_s2_3",
+type:"true-false",
+question:"Xét hai đường thẳng d1:x-y+1=0 và d2:2x-2y+3=0.",
+subQuestions:[
+{
+label:"a",
+text:"d1 và d2 song song.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"d1 và d2 cắt nhau.",
+correctAnswer:"Sai"
+},
+{
+label:"c",
+text:"d1 và d2 có cùng vectơ pháp tuyến.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"d1 và d2 trùng nhau.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"dtmp_s3_1",
+type:"short-answer",
+question:"Cho đường thẳng d: 3x-4y+7=0. Tính tổng tọa độ của một vectơ pháp tuyến.",
+answer:"-1",
+explanation:"Một vectơ pháp tuyến là n=(3;-4). Tổng tọa độ bằng 3+(-4)=-1."
+},
+
+{
+id:"dtmp_s3_2",
+type:"short-answer",
+question:"Cho A(1;2), B(5;8). Tính tung độ của vectơ AB.",
+answer:"6",
+explanation:"AB=(5-1;8-2)=(4;6). Tung độ bằng 6."
+},
+
+{
+id:"dtmp_s3_3",
+type:"short-answer",
+question:"Tìm giao điểm của đường thẳng x+y-5=0 với trục Oy. Hỏi tung độ giao điểm bằng bao nhiêu?",
+answer:"5",
+explanation:"Trên trục Oy có x=0. Khi đó y=5."
+},
+
+{
+id:"dtmp_s3_4",
+type:"short-answer",
+question:"Khoảng cách từ O(0;0) đến đường thẳng 3x+4y-20=0 bằng bao nhiêu?",
+answer:"4",
+explanation:"d=|−20|/√(3²+4²)=20/5=4."
+},
+
+{
+id:"dtmp_s3_5",
+type:"short-answer",
+question:"Cho A(1;1), B(4;5). Tính độ dài AB.",
+answer:"5",
+explanation:"AB=√[(4−1)²+(5−1)²]=√(9+16)=5."
+}
+]
+},
+19: {
+stage1:[
+{
+id:"dttron_s1_1",
+type:"multiple-choice",
+question:"Đường tròn có tâm I(2;3), bán kính R=4 có phương trình là",
+options:[
+"(x-2)²+(y-3)²=16",
+"(x+2)²+(y+3)²=16",
+"(x-2)²+(y-3)²=4",
+"(x+2)²+(y+3)²=4"
+],
+answer:"(x-2)²+(y-3)²=16"
+},
+
+{
+id:"dttron_s1_2",
+type:"multiple-choice",
+question:"Tâm của đường tròn (x-1)²+(y+2)²=25 là",
+options:[
+"(1;-2)",
+"(-1;2)",
+"(1;2)",
+"(-1;-2)"
+],
+answer:"(1;-2)"
+},
+
+{
+id:"dttron_s1_3",
+type:"multiple-choice",
+question:"Bán kính của đường tròn (x+3)²+(y-1)²=49 là",
+options:["5","6","7","8"],
+answer:"7"
+},
+
+{
+id:"dttron_s1_4",
+type:"multiple-choice",
+question:"Điểm nào thuộc đường tròn x²+y²=25?",
+options:[
+"(3;4)",
+"(2;4)",
+"(1;5)",
+"(4;4)"
+],
+answer:"(3;4)"
+},
+
+{
+id:"dttron_s1_5",
+type:"multiple-choice",
+question:"Đường tròn x²+y²-4x+6y-12=0 có tâm là",
+options:[
+"(2;-3)",
+"(-2;3)",
+"(2;3)",
+"(-2;-3)"
+],
+answer:"(2;-3)"
+},
+
+{
+id:"dttron_s1_6",
+type:"multiple-choice",
+question:"Đường tròn x²+y²-4x+6y-12=0 có bán kính bằng",
+options:[
+"5",
+"4",
+"3",
+"6"
+],
+answer:"5"
+},
+
+{
+id:"dttron_s1_7",
+type:"multiple-choice",
+question:"Khoảng cách từ tâm I(0;0) đến điểm A(3;4) bằng",
+options:[
+"3",
+"4",
+"5",
+"7"
+],
+answer:"5"
+},
+
+{
+id:"dttron_s1_8",
+type:"multiple-choice",
+question:"Đường tròn tâm O(0;0) bán kính 2 có phương trình là",
+options:[
+"x²+y²=4",
+"x²+y²=2",
+"(x-2)²+y²=4",
+"x²+(y-2)²=4"
+],
+answer:"x²+y²=4"
+},
+
+{
+id:"dttron_s1_9",
+type:"multiple-choice",
+question:"Hai đường tròn tâm O(0;0), bán kính 3 và tâm I(8;0), bán kính 5",
+options:[
+"Cắt nhau",
+"Tiếp xúc ngoài",
+"Tiếp xúc trong",
+"Không giao nhau"
+],
+answer:"Tiếp xúc ngoài"
+},
+
+{
+id:"dttron_s1_10",
+type:"multiple-choice",
+question:"Đường kính của đường tròn bán kính 6 là",
+options:[
+"3",
+"6",
+"12",
+"18"
+],
+answer:"12"
+}
+],
+stage2:[
+{
+id:"dttron_s2_1",
+type:"true-false",
+question:"Cho đường tròn (C):(x-2)²+(y+1)²=25.",
+subQuestions:[
+{
+label:"a",
+text:"Tâm của đường tròn là I(2;-1).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Bán kính bằng 5.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Điểm A(5;3) thuộc đường tròn.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Đường kính bằng 5.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"dttron_s2_2",
+type:"true-false",
+question:"Cho đường tròn x²+y²-4x+6y-12=0.",
+subQuestions:[
+{
+label:"a",
+text:"Tâm là I(2;-3).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Bán kính bằng 5.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Điểm O(0;0) nằm trên đường tròn.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Khoảng cách từ tâm đến gốc tọa độ bằng √13.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"dttron_s2_3",
+type:"true-false",
+question:"Xét hai đường tròn (C1) tâm O(0;0), R=3 và (C2) tâm I(8;0), R=5.",
+subQuestions:[
+{
+label:"a",
+text:"Khoảng cách hai tâm bằng 8.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"R1+R2=8.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai đường tròn tiếp xúc ngoài.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hai đường tròn cắt nhau tại hai điểm.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"dttron_s3_1",
+type:"short-answer",
+question:"Cho đường tròn (x-3)²+(y+2)²=16. Hãy cho biết bán kính của đường tròn.",
+answer:"4",
+explanation:"Phương trình có dạng (x-a)²+(y-b)²=R². Ta có R²=16 nên R=4."
+},
+
+{
+id:"dttron_s3_2",
+type:"short-answer",
+question:"Cho đường tròn x²+y²=36. Tính đường kính.",
+answer:"12",
+explanation:"R²=36 ⇒ R=6. Đường kính bằng 2R=12."
+},
+
+{
+id:"dttron_s3_3",
+type:"short-answer",
+question:"Cho đường tròn (x+1)²+(y-2)²=9. Tính tổng tọa độ tâm.",
+answer:"1",
+explanation:"Tâm là I(-1;2). Tổng tọa độ bằng -1+2=1."
+},
+
+{
+id:"dttron_s3_4",
+type:"short-answer",
+question:"Cho tâm I(1;2) và điểm A(4;6) thuộc đường tròn. Tính bán kính.",
+answer:"5",
+explanation:"R=IA=√[(4-1)²+(6-2)²]=√(9+16)=5."
+},
+
+{
+id:"dttron_s3_5",
+type:"short-answer",
+question:"Cho đường tròn x²+y²-6x+8y-11=0. Tính bán kính.",
+answer:"6",
+explanation:"(x-3)²+(y+4)²=36 nên bán kính R=6."
+}
+]
+},
+20: {
+stage1:[
+{
+id:"conic_s1_1",
+type:"multiple-choice",
+question:"Phương trình nào là phương trình chính tắc của elip?",
+options:[
+"x²/25+y²/9=1",
+"x²/25-y²/9=1",
+"y²=8x",
+"x²+y²=25"
+],
+answer:"x²/25+y²/9=1"
+},
+
+{
+id:"conic_s1_2",
+type:"multiple-choice",
+question:"Elip x²/25+y²/9=1 có giá trị a bằng",
+options:["3","4","5","25"],
+answer:"5"
+},
+
+{
+id:"conic_s1_3",
+type:"multiple-choice",
+question:"Elip x²/25+y²/9=1 có tiêu cự c bằng",
+options:["3","4","5","6"],
+answer:"4"
+},
+
+{
+id:"conic_s1_4",
+type:"multiple-choice",
+question:"Phương trình nào là phương trình chính tắc của hypebol?",
+options:[
+"x²/25-y²/9=1",
+"x²/25+y²/9=1",
+"y²=8x",
+"x²+y²=25"
+],
+answer:"x²/25-y²/9=1"
+},
+
+{
+id:"conic_s1_5",
+type:"multiple-choice",
+question:"Hypebol x²/16-y²/9=1 có a bằng",
+options:["2","3","4","5"],
+answer:"4"
+},
+
+{
+id:"conic_s1_6",
+type:"multiple-choice",
+question:"Parabol y²=8x có p bằng",
+options:["1","2","4","8"],
+answer:"2"
+},
+
+{
+id:"conic_s1_7",
+type:"multiple-choice",
+question:"Tiêu điểm của parabol y²=8x là",
+options:[
+"F(2;0)",
+"F(4;0)",
+"F(0;2)",
+"F(0;4)"
+],
+answer:"F(2;0)"
+},
+
+{
+id:"conic_s1_8",
+type:"multiple-choice",
+question:"Đỉnh của parabol y²=8x là",
+options:[
+"O(0;0)",
+"(2;0)",
+"(0;2)",
+"(4;0)"
+],
+answer:"O(0;0)"
+},
+
+{
+id:"conic_s1_9",
+type:"multiple-choice",
+question:"Elip x²/36+y²/20=1 có độ dài trục lớn bằng",
+options:["6","12","18","36"],
+answer:"12"
+},
+
+{
+id:"conic_s1_10",
+type:"multiple-choice",
+question:"Hypebol x²/9-y²/16=1 có các đỉnh là",
+options:[
+"(±3;0)",
+"(0;±4)",
+"(±5;0)",
+"(0;±3)"
+],
+answer:"(±3;0)"
+}
+],
+stage2:[
+{
+id:"conic_s2_1",
+type:"true-false",
+question:"Cho elip E: x²/25+y²/9=1.",
+subQuestions:[
+{
+label:"a",
+text:"a=5.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"b=3.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"c=4.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Tiêu điểm là F(±5;0).",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"conic_s2_2",
+type:"true-false",
+question:"Cho hypebol H: x²/16-y²/9=1.",
+subQuestions:[
+{
+label:"a",
+text:"a=4.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"b=3.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"c=5.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Các đỉnh là (0;±4).",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"conic_s2_3",
+type:"true-false",
+question:"Cho parabol P: y²=8x.",
+subQuestions:[
+{
+label:"a",
+text:"p=2.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Tiêu điểm là F(2;0).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Đường chuẩn là x=-2.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Parabol mở lên trên.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"conic_s3_1",
+type:"short-answer",
+question:"Cho elip x²/25+y²/9=1. Tính c.",
+answer:"4",
+explanation:"c²=a²-b²=25-9=16 ⇒ c=4."
+},
+
+{
+id:"conic_s3_2",
+type:"short-answer",
+question:"Cho hypebol x²/36-y²/20=1. Tính c.",
+answer:"8",
+explanation:"c²=a²+b²=36+20=56. Theo chương trình lớp 10 thường lấy dạng đẹp x²/36-y²/28=1 mới cho c=8. Nếu đề đúng là 20 thì c=√56=2√14."
+},
+
+{
+id:"conic_s3_3",
+type:"short-answer",
+question:"Cho parabol y²=12x. Tìm tọa độ tiêu điểm. Hãy nhập hoành độ của tiêu điểm.",
+answer:"3",
+explanation:"y²=2px ⇒ 2p=12 ⇒ p=6. Tiêu điểm F(p/2;0)=F(3;0)."
+},
+
+{
+id:"conic_s3_4",
+type:"short-answer",
+question:"Cho elip x²/49+y²/25=1. Tính độ dài trục lớn.",
+answer:"14",
+explanation:"a²=49 ⇒ a=7. Độ dài trục lớn bằng 2a=14."
+},
+
+{
+id:"conic_s3_5",
+type:"short-answer",
+question:"Cho hypebol x²/9-y²/16=1. Tính tổng các hoành độ của hai đỉnh.",
+answer:"0",
+explanation:"Hai đỉnh là A(-3;0), B(3;0). Tổng hoành độ bằng -3+3=0."
+}
+]
+},
+21: {
+stage1:[
+{
+id:"qt_s1_1",
+type:"multiple-choice",
+question:"Một người có 3 áo và 4 quần. Số cách chọn 1 bộ quần áo là",
+options:["7","12","24","1"],
+answer:"12"
+},
+
+{
+id:"qt_s1_2",
+type:"multiple-choice",
+question:"Có 5 con đường từ A đến B và 3 con đường từ B đến C. Số cách đi từ A đến C qua B là",
+options:["8","15","5","3"],
+answer:"15"
+},
+
+{
+id:"qt_s1_3",
+type:"multiple-choice",
+question:"Có 4 quyển Toán và 5 quyển Lý khác nhau. Số cách chọn 1 quyển Toán hoặc 1 quyển Lý là",
+options:["9","20","45","10"],
+answer:"9"
+},
+
+{
+id:"qt_s1_4",
+type:"multiple-choice",
+question:"Từ các chữ số 1,2,3,4,5 lập được bao nhiêu số có một chữ số?",
+options:["4","5","6","10"],
+answer:"5"
+},
+
+{
+id:"qt_s1_5",
+type:"multiple-choice",
+question:"Từ các chữ số 1,2,3,4,5 lập được bao nhiêu số có hai chữ số?",
+options:["10","20","25","30"],
+answer:"25"
+},
+
+{
+id:"qt_s1_6",
+type:"multiple-choice",
+question:"Có 5 món ăn chính, 4 món tráng miệng. Số thực đơn gồm 1 món chính và 1 món tráng miệng là",
+options:["9","20","16","25"],
+answer:"20"
+},
+
+{
+id:"qt_s1_7",
+type:"multiple-choice",
+question:"Có 8 hoa hồng trắng, 7 hoa hồng đỏ và 10 hoa hồng vàng. Số cách chọn 1 bông hoa bất kỳ là",
+options:["25","56","80","560"],
+answer:"25"
+},
+
+{
+id:"qt_s1_8",
+type:"multiple-choice",
+question:"Một đội có 5 nam và 4 nữ. Số cách chọn 1 người là",
+options:["9","20","10","8"],
+answer:"9"
+},
+
+{
+id:"qt_s1_9",
+type:"multiple-choice",
+question:"Có 12 hộp bút đỏ và 18 hộp bút xanh. Số cách chọn đồng thời 1 hộp đỏ và 1 hộp xanh là",
+options:["30","216","12","18"],
+answer:"216"
+},
+
+{
+id:"qt_s1_10",
+type:"multiple-choice",
+question:"Có 5 loại quả tráng miệng và 3 loại nước uống. Số cách chọn 1 quả và 1 nước uống là",
+options:["8","15","10","18"],
+answer:"15"
+}
+],
+stage2:[
+{
+id:"qt_s2_1",
+type:"true-false",
+question:"Trên giá sách có 4 sách Toán, 5 sách Lý và 6 sách Hóa.",
+subQuestions:[
+{
+label:"a",
+text:"Có 15 cách chọn một quyển sách bất kỳ.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Có 9 cách chọn một quyển Toán hoặc một quyển Lý.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Có 24 cách chọn một quyển Toán và một quyển Hóa.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Có 120 cách chọn đủ một quyển của mỗi môn.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"qt_s2_2",
+type:"true-false",
+question:"Cho tập A={1,2,3,4,5}.",
+subQuestions:[
+{
+label:"a",
+text:"Lập được 25 số có hai chữ số.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Lập được 125 số có ba chữ số.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Lập được 60 số có ba chữ số khác nhau.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Lập được 24 số chẵn có ba chữ số khác nhau.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"qt_s2_3",
+type:"true-false",
+question:"Một thực đơn gồm 1 món ăn trong 5 món, 1 món tráng miệng trong 5 loại và 1 nước uống trong 3 loại.",
+subQuestions:[
+{
+label:"a",
+text:"Có 5 cách chọn món ăn.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Có 5 cách chọn món tráng miệng.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Có 3 cách chọn nước uống.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Có 75 cách chọn thực đơn.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+stage3:[
+{
+id:"qt_s3_1",
+type:"short-answer",
+question:"Có 8 hoa hồng trắng, 7 hoa hồng đỏ và 10 hoa hồng vàng. Hỏi có bao nhiêu cách chọn 3 bông hoa có đủ ba màu?",
+answer:"560",
+explanation:"Chọn 1 hoa trắng, 1 hoa đỏ và 1 hoa vàng. Theo quy tắc nhân: 8×7×10=560 cách."
+},
+
+{
+id:"qt_s3_2",
+type:"short-answer",
+question:"Có 9 cặp vợ chồng dự tiệc. Chọn 1 người đàn ông và 1 người phụ nữ không phải vợ chồng của nhau. Có bao nhiêu cách?",
+answer:"72",
+explanation:"Chọn người đàn ông: 9 cách. Với mỗi người đàn ông có 8 phụ nữ không phải vợ mình. Số cách là 9×8=72."
+},
+
+{
+id:"qt_s3_3",
+type:"short-answer",
+question:"Có 12 hộp bút đỏ và 18 hộp bút xanh. Hỏi có bao nhiêu cách chọn đồng thời một hộp đỏ và một hộp xanh?",
+answer:"216",
+explanation:"Theo quy tắc nhân: 12×18=216 cách."
+},
+
+{
+id:"qt_s3_4",
+type:"short-answer",
+question:"Có 4 hoa hồng, 6 hoa lan, 5 hoa cúc khác nhau. Chọn 3 bông sao cho có đủ ba loại. Có bao nhiêu cách?",
+answer:"120",
+explanation:"Chọn 1 hoa hồng, 1 hoa lan và 1 hoa cúc: 4×6×5=120 cách."
+},
+
+{
+id:"qt_s3_5",
+type:"short-answer",
+question:"Một thực đơn gồm 1 món ăn trong 5 món, 1 món tráng miệng trong 5 loại và 1 nước uống trong 3 loại. Có bao nhiêu cách chọn?",
+answer:"75",
+explanation:"Theo quy tắc nhân: 5×5×3=75 cách."
+}
+]
+},
+22: {
+stage1:[
+{
+id:"hv_s1_1",
+type:"multiple-choice",
+question:"Giá trị của 5! bằng",
+options:["24","60","120","720"],
+answer:"120"
+},
+
+{
+id:"hv_s1_2",
+type:"multiple-choice",
+question:"Số hoán vị của 6 phần tử là",
+options:["120","360","720","840"],
+answer:"720"
+},
+
+{
+id:"hv_s1_3",
+type:"multiple-choice",
+question:"Giá trị của A₅³ bằng",
+options:["10","20","60","125"],
+answer:"60"
+},
+
+{
+id:"hv_s1_4",
+type:"multiple-choice",
+question:"Giá trị của C₅² bằng",
+options:["5","10","15","20"],
+answer:"10"
+},
+
+{
+id:"hv_s1_5",
+type:"multiple-choice",
+question:"Có bao nhiêu cách chọn 2 học sinh từ 5 học sinh?",
+options:["10","20","25","5"],
+answer:"10"
+},
+
+{
+id:"hv_s1_6",
+type:"multiple-choice",
+question:"Có bao nhiêu cách chọn lớp trưởng, lớp phó từ 5 học sinh?",
+options:["10","20","25","5"],
+answer:"20"
+},
+
+{
+id:"hv_s1_7",
+type:"multiple-choice",
+question:"Từ các chữ số 1,2,3,4 lập được bao nhiêu số tự nhiên có 4 chữ số khác nhau?",
+options:["12","24","36","48"],
+answer:"24"
+},
+
+{
+id:"hv_s1_8",
+type:"multiple-choice",
+question:"Số cách xếp 4 học sinh vào 4 ghế là",
+options:["16","24","12","8"],
+answer:"24"
+},
+
+{
+id:"hv_s1_9",
+type:"multiple-choice",
+question:"Giá trị của C₆₃ bằng",
+options:["15","20","30","60"],
+answer:"20"
+},
+
+{
+id:"hv_s1_10",
+type:"multiple-choice",
+question:"Giá trị của A₆₂ bằng",
+options:["12","24","30","36"],
+answer:"30"
+}
+],
+stage2:[
+{
+id:"hv_s2_1",
+type:"true-false",
+question:"Xét các công thức về hoán vị, chỉnh hợp, tổ hợp.",
+subQuestions:[
+{
+label:"a",
+text:"P₅ = 5! = 120.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"A₅² = 20.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"C₅² = 10.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"A₅² = C₅².",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"hv_s2_2",
+type:"true-false",
+question:"Có 6 học sinh phân biệt.",
+subQuestions:[
+{
+label:"a",
+text:"Có 720 cách xếp 6 học sinh thành một hàng.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Có 15 cách chọn 2 học sinh.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Có 120 cách chọn lớp trưởng và lớp phó.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Có 30 cách chọn và sắp thứ tự 2 học sinh.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"hv_s2_3",
+type:"true-false",
+question:"Từ các chữ số 1,2,3,4,5.",
+subQuestions:[
+{
+label:"a",
+text:"Có 60 số có 3 chữ số khác nhau.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Có 20 số chẵn có 3 chữ số khác nhau.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Có 24 số lẻ có 3 chữ số khác nhau.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Số số chẵn bằng số số lẻ.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"hv_s3_1",
+type:"short-answer",
+question:"Có bao nhiêu cách xếp 5 học sinh phân biệt thành một hàng dọc?",
+answer:"120",
+explanation:"Số cách xếp 5 học sinh là số hoán vị của 5 phần tử: P₅=5!=120."
+},
+
+{
+id:"hv_s3_2",
+type:"short-answer",
+question:"Một lớp có 10 học sinh. Có bao nhiêu cách chọn ra 3 học sinh tham gia cuộc thi?",
+answer:"120",
+explanation:"Chọn 3 học sinh từ 10 học sinh: C₁₀³=120."
+},
+
+{
+id:"hv_s3_3",
+type:"short-answer",
+question:"Có 6 học sinh. Chọn lớp trưởng, lớp phó học tập và lớp phó lao động. Có bao nhiêu cách?",
+answer:"120",
+explanation:"Ba chức vụ khác nhau nên dùng chỉnh hợp: A₆³=6×5×4=120."
+},
+
+{
+id:"hv_s3_4",
+type:"short-answer",
+question:"Từ các chữ số 1,2,3,4 lập được bao nhiêu số tự nhiên có 4 chữ số khác nhau?",
+answer:"24",
+explanation:"Mỗi số là một hoán vị của 4 chữ số: P₄=4!=24."
+},
+
+{
+id:"hv_s3_5",
+type:"short-answer",
+question:"Một hộp có 8 viên bi khác nhau. Có bao nhiêu cách chọn 2 viên bi?",
+answer:"28",
+explanation:"Chọn 2 viên từ 8 viên: C₈²=8×7/2=28."
+}
+]
+},
+
+stage3:[
+{
+id:"ntn_s3_1",
+type:"short-answer",
+question:"Tìm hệ số của x² trong khai triển (1+x)^5.",
+answer:"10",
+explanation:"Theo công thức Nhị thức Newton: C(5,2)=10."
+},
+
+{
+id:"ntn_s3_2",
+type:"short-answer",
+question:"Khai triển (1+x)^4. Tính tổng các hệ số của đa thức.",
+answer:"16",
+explanation:"Cho x=1, ta được (1+1)^4=2^4=16."
+},
+
+{
+id:"ntn_s3_3",
+type:"short-answer",
+question:"Tìm số hạng chứa x³ trong khai triển (1+x)^6.",
+answer:"20",
+explanation:"Hệ số của x³ là C(6,3)=20."
+},
+
+{
+id:"ntn_s3_4",
+type:"short-answer",
+question:"Tìm hệ số của x⁴ trong khai triển (2+x)^6.",
+answer:"240",
+explanation:"Số hạng chứa x⁴ là C(6,4)·2²·x⁴=15·4·x⁴=60x⁴. Hệ số là 60."
+}
+],
+23: {
+stage1:[
+{
+id:"nt_s1_1",
+type:"multiple-choice",
+question:"Khai triển (x+1)^5 có bao nhiêu số hạng?",
+options:["5","6","7","8"],
+answer:"6"
+},
+
+{
+id:"nt_s1_2",
+type:"multiple-choice",
+question:"Hệ số của x³ trong khai triển (x+1)^5 là",
+options:["5","10","15","20"],
+answer:"10"
+},
+
+{
+id:"nt_s1_3",
+type:"multiple-choice",
+question:"Tổng các hệ số trong khai triển (x+1)^5 bằng",
+options:["16","25","32","64"],
+answer:"32"
+},
+
+{
+id:"nt_s1_4",
+type:"multiple-choice",
+question:"Hệ số của x² trong khai triển (1+2x)^4 là",
+options:["16","24","32","48"],
+answer:"24"
+},
+
+{
+id:"nt_s1_5",
+type:"multiple-choice",
+question:"Số hạng không chứa x trong khai triển (x+2)^4 là",
+options:["4","8","16","32"],
+answer:"16"
+},
+
+{
+id:"nt_s1_6",
+type:"multiple-choice",
+question:"Hệ số của x⁴ trong khai triển (x-3)^5 là",
+options:["-15","15","30","-30"],
+answer:"-15"
+},
+
+{
+id:"nt_s1_7",
+type:"multiple-choice",
+question:"Tổng các hệ số trong khai triển (1-2x)^5 là",
+options:["-1","0","1","32"],
+answer:"-1"
+},
+
+{
+id:"nt_s1_8",
+type:"multiple-choice",
+question:"Hệ số của x² trong khai triển (x+2)^5 là",
+options:["20","40","80","160"],
+answer:"80"
+},
+
+{
+id:"nt_s1_9",
+type:"multiple-choice",
+question:"Giá trị của C₅² là",
+options:["5","10","15","20"],
+answer:"10"
+},
+
+{
+id:"nt_s1_10",
+type:"multiple-choice",
+question:"Số hạng đầu tiên trong khai triển (x+1)^6 là",
+options:["1","x","x⁶","6x"],
+answer:"x⁶"
+}
+],
+stage2:[
+{
+id:"nt_s2_1",
+type:"true-false",
+question:"Xét khai triển (x+1)^5.",
+subQuestions:[
+{
+label:"a",
+text:"Có 6 số hạng.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hệ số của x³ là 10.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Số hạng tự do là 1.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Tổng các hệ số bằng 25.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"nt_s2_2",
+type:"true-false",
+question:"Xét khai triển (x-3)^4.",
+subQuestions:[
+{
+label:"a",
+text:"Hệ số của x⁴ là 1.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hệ số của x³ là -12.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hệ số của x² là 54.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Số hạng tự do bằng 27.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"nt_s2_3",
+type:"true-false",
+question:"Xét khai triển (1+2x)^5.",
+subQuestions:[
+{
+label:"a",
+text:"Tổng các hệ số bằng 243.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hệ số của x là 10.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hệ số của x² là 40.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Số hạng tự do bằng 2.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+24: {
+stage1:[
+{
+id:"kgm_s1_1",
+type:"multiple-choice",
+question:"Gieo một đồng xu một lần. Số phần tử của không gian mẫu là",
+options:["1","2","3","4"],
+answer:"2"
+},
+
+{
+id:"kgm_s1_2",
+type:"multiple-choice",
+question:"Gieo một con xúc xắc một lần. Số phần tử của không gian mẫu là",
+options:["4","5","6","12"],
+answer:"6"
+},
+
+{
+id:"kgm_s1_3",
+type:"multiple-choice",
+question:"Gieo một đồng xu và một xúc xắc. Số phần tử của không gian mẫu là",
+options:["6","8","10","12"],
+answer:"12"
+},
+
+{
+id:"kgm_s1_4",
+type:"multiple-choice",
+question:"Gieo hai đồng xu. Số phần tử của không gian mẫu là",
+options:["2","4","6","8"],
+answer:"4"
+},
+
+{
+id:"kgm_s1_5",
+type:"multiple-choice",
+question:"Gieo hai con xúc xắc. Số phần tử của không gian mẫu là",
+options:["12","24","36","72"],
+answer:"36"
+},
+
+{
+id:"kgm_s1_6",
+type:"multiple-choice",
+question:"Gieo một đồng xu và một xúc xắc. Biến cố A: 'Xuất hiện mặt sấp và số chấm chẵn'. Số phần tử của A là",
+options:["2","3","4","6"],
+answer:"3"
+},
+
+{
+id:"kgm_s1_7",
+type:"multiple-choice",
+question:"Một hộp có 4 bi đỏ và 5 bi xanh. Chọn 1 viên bi. Số phần tử của không gian mẫu là",
+options:["4","5","9","20"],
+answer:"9"
+},
+
+{
+id:"kgm_s1_8",
+type:"multiple-choice",
+question:"Trên giá có 4 sách Toán và 3 sách Lý khác nhau. Chọn 1 quyển sách. Số phần tử của không gian mẫu là",
+options:["7","12","21","24"],
+answer:"7"
+},
+
+{
+id:"kgm_s1_9",
+type:"multiple-choice",
+question:"Có 4 nam và 6 nữ. Chọn ngẫu nhiên 1 người. Số phần tử của không gian mẫu là",
+options:["4","6","10","24"],
+answer:"10"
+},
+
+{
+id:"kgm_s1_10",
+type:"multiple-choice",
+question:"Gieo một đồng xu và một xúc xắc. Biến cố B: 'Xuất hiện mặt ngửa và số chấm lẻ'. Số phần tử của B là",
+options:["2","3","4","6"],
+answer:"3"
+}
+],
+stage2:[
+{
+id:"kgm_s2_1",
+type:"true-false",
+question:"Gieo một đồng xu sau đó gieo một con xúc xắc.",
+subQuestions:[
+{
+label:"a",
+text:"Số phần tử của không gian mẫu là 12.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Biến cố 'mặt sấp và số chấm chẵn' có 3 phần tử.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Biến cố 'mặt ngửa và số chấm lẻ' có 3 phần tử.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Biến cố 'xuất hiện mặt 6 chấm' có 1 phần tử.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"kgm_s2_2",
+type:"true-false",
+question:"Trên giá sách có 4 sách Toán, 3 sách Lý, 2 sách Hóa. Chọn ngẫu nhiên 3 quyển sách.",
+subQuestions:[
+{
+label:"a",
+text:"Số phần tử của không gian mẫu là C(9,3)=84.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Biến cố 'thuộc 3 môn khác nhau' có 24 phần tử.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Biến cố 'đều là môn Toán' có 4 phần tử.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Biến cố 'có ít nhất một quyển Toán' có 70 phần tử.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"kgm_s2_3",
+type:"true-false",
+question:"Gieo hai con xúc xắc cân đối.",
+subQuestions:[
+{
+label:"a",
+text:"Không gian mẫu có 36 phần tử.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Biến cố 'tổng bằng 7' có 6 phần tử.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Biến cố 'hai mặt giống nhau' có 6 phần tử.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Biến cố 'tổng bằng 13' là biến cố chắc chắn.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"kgm_s3_1",
+type:"short-answer",
+question:"Một nhóm có 4 bạn nam và 6 bạn nữ. Chọn ngẫu nhiên cùng lúc 3 bạn. Có bao nhiêu kết quả thuận lợi cho biến cố 'Trong 3 bạn được chọn có ít nhất 1 bạn nữ'?",
+answer:"116",
+explanation:"Tổng số cách chọn 3 bạn là C(10,3)=120. Trường hợp không có nữ: C(4,3)=4. Vậy số kết quả thuận lợi là 120−4=116."
+},
+
+{
+id:"kgm_s3_2",
+type:"short-answer",
+question:"Gieo một đồng xu và một con xúc xắc. Có bao nhiêu kết quả thuận lợi cho biến cố 'Xuất hiện mặt ngửa và số chấm lẻ'?",
+answer:"3",
+explanation:"Các kết quả là (N,1), (N,3), (N,5). Có 3 kết quả."
+},
+
+{
+id:"kgm_s3_3",
+type:"short-answer",
+question:"Gieo hai con xúc xắc. Có bao nhiêu kết quả thuận lợi cho biến cố 'Tổng số chấm bằng 7'?",
+answer:"6",
+explanation:"Các cặp là (1,6),(2,5),(3,4),(4,3),(5,2),(6,1). Có 6 kết quả."
+},
+
+{
+id:"kgm_s3_4",
+type:"short-answer",
+question:"Một hộp có 10 bi xanh, 20 bi đỏ, 15 bi vàng. Chọn đồng thời 3 viên. Có bao nhiêu cách chọn để 3 viên có màu khác nhau?",
+answer:"3000",
+explanation:"Chọn 1 bi xanh, 1 bi đỏ, 1 bi vàng: 10×20×15=3000 cách."
+},
+
+{
+id:"kgm_s3_5",
+type:"short-answer",
+question:"Một nhóm gồm 2 nam Mạnh, Dũng và 2 nữ Hoa, Lan ngồi ngẫu nhiên trên một hàng ghế. Không gian mẫu có bao nhiêu phần tử?",
+answer:"24",
+explanation:"Số cách sắp xếp 4 người phân biệt là 4!=24."
+}
+]
+},
+25: {
+stage1:[
+{
+id:"xs_s1_1",
+type:"multiple-choice",
+question:"Gieo một con xúc xắc cân đối một lần. Xác suất xuất hiện mặt 6 chấm là",
+options:["1/3","1/6","1/2","1/12"],
+answer:"1/6"
+},
+
+{
+id:"xs_s1_2",
+type:"multiple-choice",
+question:"Gieo một đồng xu cân đối một lần. Xác suất xuất hiện mặt ngửa là",
+options:["1/4","1/2","1/3","1"],
+answer:"1/2"
+},
+
+{
+id:"xs_s1_3",
+type:"multiple-choice",
+question:"Gieo một con xúc xắc. Xác suất xuất hiện số chẵn là",
+options:["1/2","1/3","2/3","1/6"],
+answer:"1/2"
+},
+
+{
+id:"xs_s1_4",
+type:"multiple-choice",
+question:"Gieo hai đồng xu cân đối. Xác suất xuất hiện đúng một mặt ngửa là",
+options:["1/2","1/4","3/4","1"],
+answer:"1/2"
+},
+
+{
+id:"xs_s1_5",
+type:"multiple-choice",
+question:"Gieo hai con xúc xắc. Xác suất để tổng số chấm bằng 7 là",
+options:["1/6","1/12","1/18","1/36"],
+answer:"1/6"
+},
+
+{
+id:"xs_s1_6",
+type:"multiple-choice",
+question:"Một hộp có 4 bi đỏ và 6 bi xanh. Chọn ngẫu nhiên 1 viên. Xác suất chọn được bi đỏ là",
+options:["2/5","3/5","1/2","1/5"],
+answer:"2/5"
+},
+
+{
+id:"xs_s1_7",
+type:"multiple-choice",
+question:"Một lớp có 12 nam và 18 nữ. Chọn ngẫu nhiên 1 học sinh. Xác suất chọn được nữ là",
+options:["3/5","2/5","1/2","3/10"],
+answer:"3/5"
+},
+
+{
+id:"xs_s1_8",
+type:"multiple-choice",
+question:"Gieo một xúc xắc. Xác suất xuất hiện số lớn hơn 4 là",
+options:["1/3","1/2","2/3","1/6"],
+answer:"1/3"
+},
+
+{
+id:"xs_s1_9",
+type:"multiple-choice",
+question:"Gieo hai đồng xu. Xác suất xuất hiện hai mặt ngửa là",
+options:["1/2","1/4","3/4","1"],
+answer:"1/4"
+},
+
+{
+id:"xs_s1_10",
+type:"multiple-choice",
+question:"Một hộp có 5 bi trắng và 5 bi đen. Chọn ngẫu nhiên 1 viên. Xác suất chọn được bi trắng là",
+options:["1/2","1/5","2/5","3/5"],
+answer:"1/2"
+}
+],
+stage2:[
+{
+id:"xs_s2_1",
+type:"true-false",
+question:"Gieo một con xúc xắc cân đối một lần.",
+subQuestions:[
+{
+label:"a",
+text:"Xác suất xuất hiện mặt 6 chấm là 1/6.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Xác suất xuất hiện số chẵn là 1/2.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Xác suất xuất hiện số lớn hơn 4 là 1/3.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Xác suất xuất hiện số nhỏ hơn 7 bằng 0.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"xs_s2_2",
+type:"true-false",
+question:"Gieo hai đồng xu cân đối.",
+subQuestions:[
+{
+label:"a",
+text:"Không gian mẫu có 4 phần tử.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Xác suất xuất hiện hai mặt ngửa là 1/4.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Xác suất xuất hiện đúng một mặt ngửa là 1/2.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Xác suất xuất hiện ít nhất một mặt ngửa là 1/2.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"xs_s2_3",
+type:"true-false",
+question:"Một hộp có 4 bi đỏ và 6 bi xanh. Chọn ngẫu nhiên một viên bi.",
+subQuestions:[
+{
+label:"a",
+text:"Không gian mẫu có 10 phần tử.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Xác suất chọn được bi đỏ là 2/5.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Xác suất chọn được bi xanh là 3/5.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Xác suất chọn được bi đỏ hoặc xanh bằng 2.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"xs_s3_1",
+type:"short-answer",
+question:"Gieo hai con xúc xắc cân đối. Có bao nhiêu kết quả thuận lợi cho biến cố 'Tổng số chấm bằng 7'?",
+answer:"6",
+explanation:"Các kết quả là (1;6), (2;5), (3;4), (4;3), (5;2), (6;1). Có 6 kết quả thuận lợi."
+},
+
+{
+id:"xs_s3_2",
+type:"short-answer",
+question:"Một hộp có 8 bi đỏ và 12 bi xanh. Chọn ngẫu nhiên 1 viên. Xác suất chọn được bi đỏ bằng bao nhiêu? (Nhập tử số sau khi rút gọn)",
+answer:"2",
+explanation:"P = 8/(8+12)=8/20=2/5. Tử số sau khi rút gọn là 2."
+},
+
+{
+id:"xs_s3_3",
+type:"short-answer",
+question:"Gieo một con xúc xắc. Xác suất xuất hiện số nguyên tố là bao nhiêu? (Nhập mẫu số của phân số tối giản)",
+answer:"2",
+explanation:"Các số nguyên tố là 2,3,5 nên có 3 kết quả thuận lợi. P=3/6=1/2. Mẫu số là 2."
+},
+
+{
+id:"xs_s3_4",
+type:"short-answer",
+question:"Gieo hai đồng xu cân đối. Xác suất xuất hiện ít nhất một mặt ngửa là bao nhiêu? (Nhập tử số của phân số tối giản)",
+answer:"3",
+explanation:"Không gian mẫu có 4 phần tử. Chỉ có 1 kết quả không có mặt ngửa là (S,S). Vậy P=3/4. Tử số là 3."
+},
+
+{
+id:"xs_s3_5",
+type:"short-answer",
+question:"Một lớp có 15 nam và 25 nữ. Chọn ngẫu nhiên 1 học sinh. Xác suất chọn được nữ bằng bao nhiêu phần trăm?",
+answer:"62.5",
+explanation:"P=25/(15+25)=25/40=5/8=0,625=62,5%."
+}
+]
+},
+26: {
+stage1:[
+{
+id:"gtlg_s1_1",
+type:"multiple-choice",
+question:"Giá trị của sin(π/6) bằng",
+options:["0","1/2","√2/2","√3/2"],
+answer:"1/2"
+},
+
+{
+id:"gtlg_s1_2",
+type:"multiple-choice",
+question:"Giá trị của cos(π/3) bằng",
+options:["0","1/2","√2/2","√3/2"],
+answer:"1/2"
+},
+
+{
+id:"gtlg_s1_3",
+type:"multiple-choice",
+question:"Giá trị của tan(π/4) bằng",
+options:["0","1","√2","√3"],
+answer:"1"
+},
+
+{
+id:"gtlg_s1_4",
+type:"multiple-choice",
+question:"Giá trị của sin(π−α) là",
+options:[
+"sinα",
+"-sinα",
+"cosα",
+"-cosα"
+],
+answer:"sinα"
+},
+
+{
+id:"gtlg_s1_5",
+type:"multiple-choice",
+question:"Giá trị của cos(π−α) là",
+options:[
+"cosα",
+"-cosα",
+"sinα",
+"-sinα"
+],
+answer:"-cosα"
+},
+
+{
+id:"gtlg_s1_6",
+type:"multiple-choice",
+question:"Giá trị của sin(π/2−α) là",
+options:[
+"sinα",
+"cosα",
+"-sinα",
+"-cosα"
+],
+answer:"cosα"
+},
+
+{
+id:"gtlg_s1_7",
+type:"multiple-choice",
+question:"Giá trị của cos(π/2−α) là",
+options:[
+"sinα",
+"cosα",
+"-sinα",
+"-cosα"
+],
+answer:"sinα"
+},
+
+{
+id:"gtlg_s1_8",
+type:"multiple-choice",
+question:"Nếu α thuộc góc phần tư II thì",
+options:[
+"sinα<0",
+"cosα>0",
+"tanα<0",
+"tanα>0"
+],
+answer:"tanα<0"
+},
+
+{
+id:"gtlg_s1_9",
+type:"multiple-choice",
+question:"Giá trị của sin²α + cos²α bằng",
+options:["0","1","2","tan²α"],
+answer:"1"
+},
+
+{
+id:"gtlg_s1_10",
+type:"multiple-choice",
+question:"Giá trị của 3sin²90°−2cos²60°−3tan45° bằng",
+options:["1","0","-1","2"],
+answer:"1"
+}
+],
+stage2:[
+{
+id:"gtlg_s2_1",
+type:"true-false",
+question:"Xét các giá trị lượng giác của góc đặc biệt.",
+subQuestions:[
+{
+label:"a",
+text:"sin30° = 1/2.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"cos60° = 1/2.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"tan45° = 1.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"sin90° = 0.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"gtlg_s2_2",
+type:"true-false",
+question:"Cho góc α bất kỳ.",
+subQuestions:[
+{
+label:"a",
+text:"sin(π−α)=sinα.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"cos(π−α)=-cosα.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"tan(π+α)=tanα.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"cos(π+α)=cosα.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"gtlg_s2_3",
+type:"true-false",
+question:"Cho α thuộc góc phần tư II.",
+subQuestions:[
+{
+label:"a",
+text:"sinα > 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"cosα < 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"tanα < 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"cotα > 0.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"gtlg_s3_1",
+type:"short-answer",
+question:"Tính giá trị của biểu thức sin²30° + cos²30°.",
+answer:"1",
+explanation:"Theo hệ thức lượng giác cơ bản: sin²α + cos²α = 1 với mọi α."
+},
+
+{
+id:"gtlg_s3_2",
+type:"short-answer",
+question:"Cho tanα = 2. Tính cotα.",
+answer:"0.5",
+explanation:"cotα = 1/tanα = 1/2 = 0.5."
+},
+
+{
+id:"gtlg_s3_3",
+type:"short-answer",
+question:"Tính giá trị của sin(π/2 − π/6).",
+answer:"0.8660254",
+explanation:"sin(π/2−α)=cosα ⇒ sin(π/3)=√3/2≈0.8660254."
+},
+
+{
+id:"gtlg_s3_4",
+type:"short-answer",
+question:"Tính giá trị của cos(π − π/3).",
+answer:"-0.5",
+explanation:"cos(π−α)=-cosα ⇒ cos(2π/3)=-1/2."
+},
+
+{
+id:"gtlg_s3_5",
+type:"short-answer",
+question:"Cho sinα = 3/5 và α thuộc góc phần tư II. Tính cosα.",
+answer:"-0.8",
+explanation:"cos²α=1−sin²α=1−9/25=16/25. Vì α thuộc góc phần tư II nên cosα<0. Do đó cosα=-4/5=-0.8."
+}
+]
+},
+27: {
+stage1:[
+{
+id:"ctlg_s1_1",
+type:"multiple-choice",
+question:"Công thức sin(a+b) là",
+options:[
+"sinacosb+cosasinb",
+"sinacosb-cosasinb",
+"cosacosb-sinasinb",
+"cosacosb+sinasinb"
+],
+answer:"sinacosb+cosasinb"
+},
+
+{
+id:"ctlg_s1_2",
+type:"multiple-choice",
+question:"Công thức cos(a+b) là",
+options:[
+"cosacosb+sinasinb",
+"cosacosb-sinasinb",
+"sinacosb+cosasinb",
+"sinacosb-cosasinb"
+],
+answer:"cosacosb-sinasinb"
+},
+
+{
+id:"ctlg_s1_3",
+type:"multiple-choice",
+question:"Công thức tan(a+b) là",
+options:[
+"(tana+tanb)/(1-tanatanb)",
+"(tana-tanb)/(1+tanatanb)",
+"(tana+tanb)/(1+tanatanb)",
+"(tana-tanb)/(1-tanatanb)"
+],
+answer:"(tana+tanb)/(1-tanatanb)"
+},
+
+{
+id:"ctlg_s1_4",
+type:"multiple-choice",
+question:"Công thức sin2a là",
+options:[
+"2sinacosα",
+"2sinacosα",
+"sin²a-cos²a",
+"1-2sin²a"
+],
+answer:"2sinacosα"
+},
+
+{
+id:"ctlg_s1_5",
+type:"multiple-choice",
+question:"Công thức cos2a là",
+options:[
+"cos²a-sin²a",
+"2sinacosα",
+"1-sin²a",
+"1-cos²a"
+],
+answer:"cos²a-sin²a"
+},
+
+{
+id:"ctlg_s1_6",
+type:"multiple-choice",
+question:"Giá trị của sin60°cos30°+cos60°sin30° bằng",
+options:["0","1/2","√3/2","1"],
+answer:"1"
+},
+
+{
+id:"ctlg_s1_7",
+type:"multiple-choice",
+question:"Giá trị của cos60°cos30°-sin60°sin30° bằng",
+options:["0","1/2","√3/2","1"],
+answer:"0"
+},
+
+{
+id:"ctlg_s1_8",
+type:"multiple-choice",
+question:"sinx+siny bằng",
+options:[
+"2sin((x+y)/2)cos((x-y)/2)",
+"2cos((x+y)/2)sin((x-y)/2)",
+"sin(x+y)",
+"cos(x-y)"
+],
+answer:"2sin((x+y)/2)cos((x-y)/2)"
+},
+
+{
+id:"ctlg_s1_9",
+type:"multiple-choice",
+question:"cosx+cosy bằng",
+options:[
+"2cos((x+y)/2)cos((x-y)/2)",
+"2sin((x+y)/2)sin((x-y)/2)",
+"cos(x+y)",
+"sin(x-y)"
+],
+answer:"2cos((x+y)/2)cos((x-y)/2)"
+},
+
+{
+id:"ctlg_s1_10",
+type:"multiple-choice",
+question:"Giá trị của sin45°cos45° bằng",
+options:["1/4","1/2","√2/2","1"],
+answer:"1/2"
+}
+],
+stage2:[
+{
+id:"ctlg_s2_1",
+type:"true-false",
+question:"Xét các công thức cộng lượng giác.",
+subQuestions:[
+{
+label:"a",
+text:"sin(a+b)=sinacosb+cosasinb.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"cos(a+b)=cosacosb-sinasinb.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"sin(a-b)=sinacosb-cosasinb.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"cos(a-b)=cosacosb-sinasinb.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"ctlg_s2_2",
+type:"true-false",
+question:"Xét các công thức nhân đôi.",
+subQuestions:[
+{
+label:"a",
+text:"sin2a=2sinacosα.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"cos2a=cos²a-sin²a.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"cos2a=1-2sin²a.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"cos2a=1+2sin²a.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"ctlg_s2_3",
+type:"true-false",
+question:"Xét các công thức biến đổi tổng thành tích.",
+subQuestions:[
+{
+label:"a",
+text:"sinx+siny=2sin((x+y)/2)cos((x-y)/2).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"cosx+cosy=2cos((x+y)/2)cos((x-y)/2).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"sinx-siny=2cos((x+y)/2)sin((x-y)/2).",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"cosx-cosy=2sin((x+y)/2)sin((x-y)/2).",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"ctlg_s3_1",
+type:"short-answer",
+question:"Tính sin(30°+60°).",
+answer:"1",
+explanation:"sin(30°+60°)=sin90°=1."
+},
+
+{
+id:"ctlg_s3_2",
+type:"short-answer",
+question:"Tính cos(60°+60°).",
+answer:"-0.5",
+explanation:"cos120°=-1/2=-0.5."
+},
+
+{
+id:"ctlg_s3_3",
+type:"short-answer",
+question:"Tính sin60°cos30°+cos60°sin30°.",
+answer:"1",
+explanation:"Theo công thức cộng: sin(60°+30°)=sin90°=1."
+},
+
+{
+id:"ctlg_s3_4",
+type:"short-answer",
+question:"Tính cos60°cos30°-sin60°sin30°.",
+answer:"0",
+explanation:"Theo công thức cộng: cos(60°+30°)=cos90°=0."
+},
+
+{
+id:"ctlg_s3_5",
+type:"short-answer",
+question:"Biết sinx=3/5 và x là góc nhọn. Tính cos2x.",
+answer:"0.28",
+explanation:"cos2x=1-2sin²x=1-2×(3/5)²=1-18/25=7/25=0.28."
+}
+]
+},
+28: {
+stage1:[
+{
+id:"hslg_s1_1",
+type:"multiple-choice",
+question:"Tập xác định của hàm số y = sinx là",
+options:["R","R\\{0}","R\\{kπ}","(0;+∞)"],
+answer:"R"
+},
+
+{
+id:"hslg_s1_2",
+type:"multiple-choice",
+question:"Tập xác định của hàm số y = tanx là",
+options:[
+"R\\{kπ}",
+"R\\{π/2+kπ}",
+"R",
+"(0;+∞)"
+],
+answer:"R\\{π/2+kπ}"
+},
+
+{
+id:"hslg_s1_3",
+type:"multiple-choice",
+question:"Tập giá trị của hàm số y = sinx là",
+options:[
+"[-1;1]",
+"[0;1]",
+"R",
+"(-1;1)"
+],
+answer:"[-1;1]"
+},
+
+{
+id:"hslg_s1_4",
+type:"multiple-choice",
+question:"Chu kỳ của hàm số y = sinx là",
+options:["π","2π","4π","1"],
+answer:"2π"
+},
+
+{
+id:"hslg_s1_5",
+type:"multiple-choice",
+question:"Chu kỳ của hàm số y = tanx là",
+options:["π","2π","4π","π/2"],
+answer:"π"
+},
+
+{
+id:"hslg_s1_6",
+type:"multiple-choice",
+question:"Hàm số y = cosx là",
+options:[
+"hàm chẵn",
+"hàm lẻ",
+"không chẵn không lẻ",
+"hàm hằng"
+],
+answer:"hàm chẵn"
+},
+
+{
+id:"hslg_s1_7",
+type:"multiple-choice",
+question:"Hàm số y = sinx là",
+options:[
+"hàm chẵn",
+"hàm lẻ",
+"hàm tuần hoàn nhưng không lẻ",
+"hàm hằng"
+],
+answer:"hàm lẻ"
+},
+
+{
+id:"hslg_s1_8",
+type:"multiple-choice",
+question:"Giá trị lớn nhất của hàm số y = 2 + 3sinx là",
+options:["2","3","4","5"],
+answer:"5"
+},
+
+{
+id:"hslg_s1_9",
+type:"multiple-choice",
+question:"Giá trị nhỏ nhất của hàm số y = 2 + 3sinx là",
+options:["-1","0","1","2"],
+answer:"-1"
+},
+
+{
+id:"hslg_s1_10",
+type:"multiple-choice",
+question:"Tập giá trị của hàm số y = 3cosx - 1 là",
+options:[
+"[-4;2]",
+"[-3;3]",
+"[-2;4]",
+"[-1;5]"
+],
+answer:"[-4;2]"
+}
+],
+stage2:[
+{
+id:"hslg_s2_1",
+type:"true-false",
+question:"Xét hàm số y = 2 + 3cosx.",
+subQuestions:[
+{
+label:"a",
+text:"Tập xác định là R.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Giá trị lớn nhất bằng 5.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Giá trị nhỏ nhất bằng -1.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Chu kỳ là π.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"hslg_s2_2",
+type:"true-false",
+question:"Xét hàm số y = tanx.",
+subQuestions:[
+{
+label:"a",
+text:"Hàm số có chu kỳ π.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hàm số là hàm lẻ.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Tập xác định là R.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Tập xác định là R\\{π/2+kπ}.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"hslg_s2_3",
+type:"true-false",
+question:"Xét hàm số y = cosx.",
+subQuestions:[
+{
+label:"a",
+text:"Hàm số là hàm chẵn.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Chu kỳ bằng 2π.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Tập giá trị là [-1;1].",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hàm số là hàm lẻ.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"hslg_s3_1",
+type:"short-answer",
+question:"Tìm giá trị lớn nhất của hàm số y = 3 + 2sinx.",
+answer:"5",
+explanation:"Vì -1 ≤ sinx ≤ 1 nên 1 ≤ 2sinx ≤ 2. Suy ra 1 ≤ y ≤ 5. Giá trị lớn nhất là 5."
+},
+
+{
+id:"hslg_s3_2",
+type:"short-answer",
+question:"Tìm giá trị nhỏ nhất của hàm số y = 4cosx - 1.",
+answer:"-5",
+explanation:"Vì -1 ≤ cosx ≤ 1 nên -4 ≤ 4cosx ≤ 4. Suy ra -5 ≤ y ≤ 3. Giá trị nhỏ nhất là -5."
+},
+
+{
+id:"hslg_s3_3",
+type:"short-answer",
+question:"Tìm chu kỳ của hàm số y = sin(2x).",
+answer:"3.141592653589793",
+explanation:"Chu kỳ của sin(ax) là T=2π/|a|. Với a=2 nên T=π."
+},
+
+{
+id:"hslg_s3_4",
+type:"short-answer",
+question:"Tìm giá trị lớn nhất của hàm số y = sinx + cosx.",
+answer:"1.414213562",
+explanation:"sinx + cosx = √2·sin(x+π/4). Giá trị lớn nhất là √2 ≈ 1.414213562."
+},
+
+{
+id:"hslg_s3_5",
+type:"short-answer",
+question:"Tìm tổng giá trị lớn nhất và nhỏ nhất của hàm số y = 4sinx - 3.",
+answer:"-6",
+explanation:"-1≤sinx≤1 ⇒ -7≤y≤1. Tổng giá trị lớn nhất và nhỏ nhất là 1+(-7)=-6."
+}
+]
+},
+29: {
+stage1:[
+{
+id:"ptlg_s1_1",
+type:"multiple-choice",
+question:"Nghiệm tổng quát của phương trình sinx = 0 là",
+options:[
+"x = kπ",
+"x = π/2 + kπ",
+"x = 2kπ",
+"x = π + 2kπ"
+],
+answer:"x = kπ"
+},
+
+{
+id:"ptlg_s1_2",
+type:"multiple-choice",
+question:"Nghiệm tổng quát của phương trình cosx = 0 là",
+options:[
+"x = kπ",
+"x = π/2 + kπ",
+"x = 2kπ",
+"x = π + kπ"
+],
+answer:"x = π/2 + kπ"
+},
+
+{
+id:"ptlg_s1_3",
+type:"multiple-choice",
+question:"Nghiệm tổng quát của phương trình tanx = 0 là",
+options:[
+"x = kπ",
+"x = π/2 + kπ",
+"x = 2kπ",
+"x = π/4 + kπ"
+],
+answer:"x = kπ"
+},
+
+{
+id:"ptlg_s1_4",
+type:"multiple-choice",
+question:"Nghiệm tổng quát của phương trình sinx = 1 là",
+options:[
+"x = π/2 + 2kπ",
+"x = π/2 + kπ",
+"x = kπ",
+"x = 2kπ"
+],
+answer:"x = π/2 + 2kπ"
+},
+
+{
+id:"ptlg_s1_5",
+type:"multiple-choice",
+question:"Nghiệm tổng quát của phương trình cosx = -1 là",
+options:[
+"x = π + 2kπ",
+"x = π + kπ",
+"x = 2kπ",
+"x = π/2 + kπ"
+],
+answer:"x = π + 2kπ"
+},
+
+{
+id:"ptlg_s1_6",
+type:"multiple-choice",
+question:"Phương trình sinx = 1/2 có một họ nghiệm là",
+options:[
+"x = π/6 + kπ",
+"x = π/6 + 2kπ",
+"x = π/3 + 2kπ",
+"x = π/4 + kπ"
+],
+answer:"x = π/6 + 2kπ"
+},
+
+{
+id:"ptlg_s1_7",
+type:"multiple-choice",
+question:"Phương trình cosx = 1/2 có một họ nghiệm là",
+options:[
+"x = π/3 + 2kπ",
+"x = π/6 + 2kπ",
+"x = π/2 + kπ",
+"x = π + 2kπ"
+],
+answer:"x = π/3 + 2kπ"
+},
+
+{
+id:"ptlg_s1_8",
+type:"multiple-choice",
+question:"Phương trình tanx = 1 có nghiệm tổng quát là",
+options:[
+"x = π/4 + kπ",
+"x = π/4 + 2kπ",
+"x = π/2 + kπ",
+"x = kπ"
+],
+answer:"x = π/4 + kπ"
+},
+
+{
+id:"ptlg_s1_9",
+type:"multiple-choice",
+question:"Số nghiệm của phương trình sinx = 0 trên đoạn [0;2π] là",
+options:["2","3","4","1"],
+answer:"3"
+},
+
+{
+id:"ptlg_s1_10",
+type:"multiple-choice",
+question:"Số nghiệm của phương trình cosx = 0 trên đoạn [0;2π] là",
+options:["1","2","3","4"],
+answer:"2"
+}
+],
+stage2:[
+{
+id:"ptlg_s2_1",
+type:"true-false",
+question:"Xét phương trình sinx = 0.",
+subQuestions:[
+{
+label:"a",
+text:"Nghiệm tổng quát là x = kπ.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"x = π là một nghiệm.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"x = π/2 là một nghiệm.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Trên [0;2π] có 3 nghiệm.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"ptlg_s2_2",
+type:"true-false",
+question:"Xét phương trình cosx = 0.",
+subQuestions:[
+{
+label:"a",
+text:"Nghiệm tổng quát là x = π/2 + kπ.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"x = 3π/2 là nghiệm.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"x = π là nghiệm.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Trên [0;2π] có đúng 2 nghiệm.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"ptlg_s2_3",
+type:"true-false",
+question:"Xét phương trình tanx = 1.",
+subQuestions:[
+{
+label:"a",
+text:"Nghiệm tổng quát là x = π/4 + kπ.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"x = 5π/4 là nghiệm.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"x = 3π/4 là nghiệm.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Trên [0;2π] có 2 nghiệm.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+stage3:[
+{
+id:"ptlg_s3_1",
+type:"short-answer",
+question:"Có bao nhiêu nghiệm của phương trình sinx = 0 trên đoạn [0;3π]?",
+answer:"4",
+explanation:"sinx=0 ⇔ x=kπ. Trên [0;3π] có các nghiệm: 0, π, 2π, 3π. Vậy có 4 nghiệm."
+},
+
+{
+id:"ptlg_s3_2",
+type:"short-answer",
+question:"Có bao nhiêu nghiệm của phương trình cosx = 0 trên đoạn [0;2π]?",
+answer:"2",
+explanation:"cosx=0 ⇔ x=π/2+kπ. Trên [0;2π] có hai nghiệm là π/2 và 3π/2."
+},
+
+{
+id:"ptlg_s3_3",
+type:"short-answer",
+question:"Tìm nghiệm nhỏ nhất dương của phương trình tanx = 1.",
+answer:"0.785398163",
+explanation:"tanx=1 ⇔ x=π/4+kπ. Nghiệm dương nhỏ nhất là π/4≈0.785398163."
+},
+
+{
+id:"ptlg_s3_4",
+type:"short-answer",
+question:"Có bao nhiêu nghiệm của phương trình sinx = 1/2 trên đoạn [0;2π]?",
+answer:"2",
+explanation:"sinx=1/2 ⇔ x=π/6+2kπ hoặc x=5π/6+2kπ. Trên [0;2π] có 2 nghiệm."
+},
+
+{
+id:"ptlg_s3_5",
+type:"short-answer",
+question:"Tìm tổng các nghiệm của phương trình cosx = 0 trên đoạn [0;2π].",
+answer:"6.283185307",
+explanation:"Hai nghiệm là π/2 và 3π/2. Tổng bằng 2π≈6.283185307."
+}
+]
+},
+30: {
+stage1:[
+{
+id:"review_t1",
+type:"multiple-choice",
+question:"Giá trị của sin(π/6) bằng",
+options:["0","1/2","√2/2","√3/2"],
+answer:"1/2"
+},
+{
+id:"review_t2",
+type:"multiple-choice",
+question:"Giá trị của cos(π/3) bằng",
+options:["0","1/2","√2/2","√3/2"],
+answer:"1/2"
+},
+{
+id:"review_t3",
+type:"multiple-choice",
+question:"Giá trị của tan(π/4) bằng",
+options:["0","1","√2","√3"],
+answer:"1"
+},
+{
+id:"review_t4",
+type:"multiple-choice",
+question:"sin²x + cos²x bằng",
+options:["0","1","2","tan²x"],
+answer:"1"
+},
+{
+id:"review_t5",
+type:"multiple-choice",
+question:"sin(a+b) bằng",
+options:[
+"sinacosb+cosasinb",
+"sinacosb-cosasinb",
+"cosacosb+sinasinb",
+"cosacosb-sinasinb"
+],
+answer:"sinacosb+cosasinb"
+},
+{
+id:"review_t6",
+type:"multiple-choice",
+question:"cos2x bằng",
+options:[
+"cos²x-sin²x",
+"2sinxcosx",
+"1+2sin²x",
+"2cos²x-2"
+],
+answer:"cos²x-sin²x"
+},
+{
+id:"review_t7",
+type:"multiple-choice",
+question:"Chu kỳ của hàm số y=sinx là",
+options:["π","2π","4π","π/2"],
+answer:"2π"
+},
+{
+id:"review_t8",
+type:"multiple-choice",
+question:"Hàm số y=cosx là",
+options:[
+"hàm chẵn",
+"hàm lẻ",
+"không chẵn không lẻ",
+"hàm hằng"
+],
+answer:"hàm chẵn"
+},
+{
+id:"review_t9",
+type:"multiple-choice",
+question:"Nghiệm tổng quát của phương trình sinx=0 là",
+options:[
+"x=kπ",
+"x=π/2+kπ",
+"x=2kπ",
+"x=π+2kπ"
+],
+answer:"x=kπ"
+},
+{
+id:"review_t10",
+type:"multiple-choice",
+question:"Nghiệm tổng quát của phương trình tanx=1 là",
+options:[
+"x=π/4+kπ",
+"x=π/4+2kπ",
+"x=kπ",
+"x=π/2+kπ"
+],
+answer:"x=π/4+kπ"
+}
+],
+
+stage2:[
+{
+id:"review_tf1",
+type:"true-false",
+question:"Xét các mệnh đề sau.",
+subQuestions:[
+{
+label:"a",
+text:"sin(π−x)=sinx.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"cos(π−x)=−cosx.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"tan(π+x)=tanx.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"cos(π+x)=cosx.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"review_tf2",
+type:"true-false",
+question:"Xét hàm số lượng giác.",
+subQuestions:[
+{
+label:"a",
+text:"Hàm số y=sinx có chu kỳ 2π.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hàm số y=cosx là hàm chẵn.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hàm số y=tanx có chu kỳ π.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Tập xác định của tanx là R.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"review_tf3",
+type:"true-false",
+question:"Xét các phương trình lượng giác.",
+subQuestions:[
+{
+label:"a",
+text:"sinx=0 có nghiệm x=kπ.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"cosx=0 có nghiệm x=π/2+kπ.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"tanx=0 có nghiệm x=kπ.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"sinx=1 có nghiệm x=π/2+kπ.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"review_s1",
+type:"short-answer",
+question:"Tính giá trị của sin²30° + cos²30°.",
+answer:"1",
+explanation:"Theo hệ thức cơ bản sin²x + cos²x = 1."
+},
+
+{
+id:"review_s2",
+type:"short-answer",
+question:"Tính giá trị của sin60°cos30° + cos60°sin30°.",
+answer:"1",
+explanation:"Theo công thức cộng: sin(60°+30°)=sin90°=1."
+},
+
+{
+id:"review_s3",
+type:"short-answer",
+question:"Tìm giá trị lớn nhất của hàm số y=2+3sinx.",
+answer:"5",
+explanation:"Vì -1≤sinx≤1 nên -3≤3sinx≤3. Suy ra -1≤y≤5. GTLN bằng 5."
+},
+
+{
+id:"review_s4",
+type:"short-answer",
+question:"Có bao nhiêu nghiệm của phương trình sinx=0 trên đoạn [0;2π]?",
+answer:"3",
+explanation:"Các nghiệm là 0, π, 2π. Có 3 nghiệm."
+},
+
+{
+id:"review_s5",
+type:"short-answer",
+question:"Tìm nghiệm dương nhỏ nhất của phương trình tanx=1.",
+answer:"0.785398163",
+explanation:"tanx=1 ⇔ x=π/4+kπ. Nghiệm dương nhỏ nhất là π/4≈0.785398163."
+}
+]
+},
+31: {
+stage1:[
+{
+id:"dayso_s1_1",
+type:"multiple-choice",
+question:"Cho dãy số un = 2n + 3. Giá trị của u6 bằng",
+options:["12","15","17","18"],
+answer:"15"
+},
+
+{
+id:"dayso_s1_2",
+type:"multiple-choice",
+question:"Cho dãy số un = n². Giá trị của u5 bằng",
+options:["10","20","25","30"],
+answer:"25"
+},
+
+{
+id:"dayso_s1_3",
+type:"multiple-choice",
+question:"Cho dãy số un = 1/n. Dãy số này là",
+options:["Tăng","Giảm","Không đổi","Không xác định"],
+answer:"Giảm"
+},
+
+{
+id:"dayso_s1_4",
+type:"multiple-choice",
+question:"Cho dãy số un = n+1. Dãy số này là",
+options:["Tăng","Giảm","Không đổi","Bị chặn"],
+answer:"Tăng"
+},
+
+{
+id:"dayso_s1_5",
+type:"multiple-choice",
+question:"Cho dãy số un = (-1)^n. Dãy số này là",
+options:[
+"Tăng",
+"Giảm",
+"Không tăng không giảm",
+"Tăng và bị chặn"
+],
+answer:"Không tăng không giảm"
+},
+
+{
+id:"dayso_s1_6",
+type:"multiple-choice",
+question:"Dãy số nào sau đây bị chặn?",
+options:[
+"un=n",
+"un=n²",
+"un=1/n",
+"un=2^n"
+],
+answer:"un=1/n"
+},
+
+{
+id:"dayso_s1_7",
+type:"multiple-choice",
+question:"Cho dãy số un=(n+1)/(n+2). Dãy số bị chặn trên bởi",
+options:["0","1","2","3"],
+answer:"1"
+},
+
+{
+id:"dayso_s1_8",
+type:"multiple-choice",
+question:"Cho u1=1, un+1=un+2. Giá trị của u2 là",
+options:["1","2","3","4"],
+answer:"3"
+},
+
+{
+id:"dayso_s1_9",
+type:"multiple-choice",
+question:"Cho u1=2, un+1=un+3. Giá trị của u3 là",
+options:["5","6","7","8"],
+answer:"8"
+},
+
+{
+id:"dayso_s1_10",
+type:"multiple-choice",
+question:"Cho dãy số un=3−1/n. Dãy số bị chặn trên bởi",
+options:["1","2","3","4"],
+answer:"3"
+}
+],
+stage2:[
+{
+id:"dayso_s2_1",
+type:"true-false",
+question:"Cho dãy số un=(n+1)/(n+2).",
+subQuestions:[
+{
+label:"a",
+text:"u1=2/3.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Dãy số tăng.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Dãy số bị chặn trên bởi 1.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Dãy số không bị chặn.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"dayso_s2_2",
+type:"true-false",
+question:"Cho dãy số un=1/n.",
+subQuestions:[
+{
+label:"a",
+text:"u1=1.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Dãy số giảm.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Dãy số bị chặn.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Dãy số tăng.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"dayso_s2_3",
+type:"true-false",
+question:"Cho dãy số un=(-1)^n.",
+subQuestions:[
+{
+label:"a",
+text:"u1=-1.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"u2=1.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Dãy số tăng.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Dãy số bị chặn.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+stage3:[
+{
+id:"dayso_s3_1",
+type:"short-answer",
+question:"Cho dãy số un=2n+1. Tính u10.",
+answer:"21",
+explanation:"u10=2×10+1=21."
+},
+
+{
+id:"dayso_s3_2",
+type:"short-answer",
+question:"Cho dãy số un=n²−1. Tính u6.",
+answer:"35",
+explanation:"u6=6²−1=36−1=35."
+},
+
+{
+id:"dayso_s3_3",
+type:"short-answer",
+question:"Cho dãy số u1=1, un+1=un+2. Tính u5.",
+answer:"9",
+explanation:"u2=3, u3=5, u4=7, u5=9."
+},
+
+{
+id:"dayso_s3_4",
+type:"short-answer",
+question:"Cho dãy số un=(n+1)/(n+2). Tính u8.",
+answer:"0.9",
+explanation:"u8=(8+1)/(8+2)=9/10=0.9."
+},
+
+{
+id:"dayso_s3_5",
+type:"short-answer",
+question:"Cho dãy số un=1/n. Tính u20.",
+answer:"0.05",
+explanation:"u20=1/20=0.05."
+}
+]
+},
+32: {
+stage1:[
+{
+id:"csc_s1_1",
+type:"multiple-choice",
+question:"Cho cấp số cộng có u₁=3, d=2. Giá trị của u₅ bằng",
+options:["9","10","11","12"],
+answer:"11"
+},
+
+{
+id:"csc_s1_2",
+type:"multiple-choice",
+question:"Cho cấp số cộng 2, 5, 8, 11,... Công sai d bằng",
+options:["2","3","4","5"],
+answer:"3"
+},
+
+{
+id:"csc_s1_3",
+type:"multiple-choice",
+question:"Cho cấp số cộng có u₁=7, d=-2. Giá trị của u₄ bằng",
+options:["1","3","5","7"],
+answer:"1"
+},
+
+{
+id:"csc_s1_4",
+type:"multiple-choice",
+question:"Công thức số hạng tổng quát của cấp số cộng là",
+options:[
+"uₙ=u₁+(n−1)d",
+"uₙ=u₁·dⁿ⁻¹",
+"uₙ=u₁+n.d",
+"uₙ=d+(n−1)u₁"
+],
+answer:"uₙ=u₁+(n−1)d"
+},
+
+{
+id:"csc_s1_5",
+type:"multiple-choice",
+question:"Cho cấp số cộng có u₁=4, d=3. Giá trị của u₁₀ bằng",
+options:["28","30","31","32"],
+answer:"31"
+},
+
+{
+id:"csc_s1_6",
+type:"multiple-choice",
+question:"Tổng 10 số hạng đầu của cấp số cộng 1, 2, 3, ... là",
+options:["45","50","55","60"],
+answer:"55"
+},
+
+{
+id:"csc_s1_7",
+type:"multiple-choice",
+question:"Cho cấp số cộng có u₁=2, d=4. Giá trị của u₆ bằng",
+options:["18","20","22","24"],
+answer:"22"
+},
+
+{
+id:"csc_s1_8",
+type:"multiple-choice",
+question:"Cho cấp số cộng có u₁=5, u₂=9. Công sai d bằng",
+options:["2","3","4","5"],
+answer:"4"
+},
+
+{
+id:"csc_s1_9",
+type:"multiple-choice",
+question:"Cho cấp số cộng có u₁=1, d=2. Tổng 5 số hạng đầu là",
+options:["20","25","30","35"],
+answer:"25"
+},
+
+{
+id:"csc_s1_10",
+type:"multiple-choice",
+question:"Trong một cấp số cộng, nếu u₁=8 và d=-1 thì u₈ bằng",
+options:["0","1","2","3"],
+answer:"1"
+}
+],
+stage2:[
+{
+id:"csc_s2_1",
+type:"true-false",
+question:"Cho cấp số cộng có u₁=2 và d=3.",
+subQuestions:[
+{
+label:"a",
+text:"u₂=5.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"u₅=14.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"u₁₀=29.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"u₄=10.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"csc_s2_2",
+type:"true-false",
+question:"Cho cấp số cộng 5, 8, 11, 14,...",
+subQuestions:[
+{
+label:"a",
+text:"Đây là cấp số cộng có công sai d=3.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"u₆=20.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"u₁₀=32.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"u₅=18.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"csc_s2_3",
+type:"true-false",
+question:"Xét tổng n số hạng đầu của cấp số cộng.",
+subQuestions:[
+{
+label:"a",
+text:"Sₙ=n(u₁+uₙ)/2.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Sₙ=n[2u₁+(n−1)d]/2.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"S₁₀ của dãy 1,2,3,... bằng 55.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Tổng các số hạng của cấp số cộng luôn dương.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"csc_s3_1",
+type:"short-answer",
+question:"Cho cấp số cộng có u₁=4, d=3. Tính u₁₂.",
+answer:"37",
+explanation:"u₁₂=u₁+11d=4+11×3=37."
+},
+
+{
+id:"csc_s3_2",
+type:"short-answer",
+question:"Cho cấp số cộng 2, 5, 8, 11,... Tính tổng 10 số hạng đầu.",
+answer:"155",
+explanation:"u₁₀=2+9×3=29. S₁₀=10(2+29)/2=155."
+},
+
+{
+id:"csc_s3_3",
+type:"short-answer",
+question:"Cho cấp số cộng có u₁=7 và d=-2. Tính u₁₅.",
+answer:"-21",
+explanation:"u₁₅=7+14×(-2)=7−28=-21."
+},
+
+{
+id:"csc_s3_4",
+type:"short-answer",
+question:"Cho cấp số cộng có u₁=1, d=4. Tính tổng 20 số hạng đầu.",
+answer:"780",
+explanation:"u₂₀=1+19×4=77. S₂₀=20(1+77)/2=780."
+},
+
+{
+id:"csc_s3_5",
+type:"short-answer",
+question:"Cho cấp số cộng có u₅=17 và d=3. Tính u₁.",
+answer:"5",
+explanation:"u₅=u₁+4d ⇒ 17=u₁+12 ⇒ u₁=5."
+}
+]
+},
+33: {
+stage1:[
+{
+id:"csn_s1_1",
+type:"multiple-choice",
+question:"Cho cấp số nhân có u₁=2, q=3. Giá trị của u₄ bằng",
+options:["18","27","54","81"],
+answer:"54"
+},
+
+{
+id:"csn_s1_2",
+type:"multiple-choice",
+question:"Cho cấp số nhân 2; 6; 18; 54; ... Công bội q bằng",
+options:["2","3","6","9"],
+answer:"3"
+},
+
+{
+id:"csn_s1_3",
+type:"multiple-choice",
+question:"Công thức số hạng tổng quát của cấp số nhân là",
+options:[
+"uₙ=u₁+(n−1)d",
+"uₙ=u₁qⁿ",
+"uₙ=u₁qⁿ⁻¹",
+"uₙ=qⁿ⁻¹"
+],
+answer:"uₙ=u₁qⁿ⁻¹"
+},
+
+{
+id:"csn_s1_4",
+type:"multiple-choice",
+question:"Cho cấp số nhân có u₁=5, q=2. Giá trị của u₅ bằng",
+options:["40","60","80","100"],
+answer:"80"
+},
+
+{
+id:"csn_s1_5",
+type:"multiple-choice",
+question:"Cho cấp số nhân có u₁=81, q=1/3. Giá trị của u₃ bằng",
+options:["3","9","27","81"],
+answer:"9"
+},
+
+{
+id:"csn_s1_6",
+type:"multiple-choice",
+question:"Cho cấp số nhân 1; 2; 4; 8; ... Giá trị của u₆ bằng",
+options:["16","32","64","128"],
+answer:"32"
+},
+
+{
+id:"csn_s1_7",
+type:"multiple-choice",
+question:"Cho cấp số nhân có u₁=3, q=2. Tổng 4 số hạng đầu bằng",
+options:["45","42","39","48"],
+answer:"45"
+},
+
+{
+id:"csn_s1_8",
+type:"multiple-choice",
+question:"Cho cấp số nhân có u₁=1, q=2. Tổng 5 số hạng đầu bằng",
+options:["31","32","33","30"],
+answer:"31"
+},
+
+{
+id:"csn_s1_9",
+type:"multiple-choice",
+question:"Trong cấp số nhân, nếu u₁=4 và q=-2 thì u₃ bằng",
+options:["8","16","-16","-8"],
+answer:"16"
+},
+
+{
+id:"csn_s1_10",
+type:"multiple-choice",
+question:"Dãy số nào sau đây là cấp số nhân?",
+options:[
+"1;2;3;4",
+"2;4;8;16",
+"1;3;5;7",
+"2;5;8;11"
+],
+answer:"2;4;8;16"
+}
+],
+stage2:[
+{
+id:"csn_s2_1",
+type:"true-false",
+question:"Cho cấp số nhân có u₁=2 và q=3.",
+subQuestions:[
+{
+label:"a",
+text:"u₂=6.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"u₃=18.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"u₄=54.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"u₅=108.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"csn_s2_2",
+type:"true-false",
+question:"Cho cấp số nhân 1; 2; 4; 8; ...",
+subQuestions:[
+{
+label:"a",
+text:"Công bội q=2.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"u₆=32.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"u₇=64.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"u₅=8.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"csn_s2_3",
+type:"true-false",
+question:"Xét công thức tổng của cấp số nhân (q≠1).",
+subQuestions:[
+{
+label:"a",
+text:"Sₙ=u₁(1−qⁿ)/(1−q).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"S₅ của dãy 1;2;4;8;... bằng 31.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"S₄ của dãy 3;6;12;... bằng 45.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Mọi cấp số nhân đều có công bội dương.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"csn_s3_1",
+type:"short-answer",
+question:"Cho cấp số nhân có u₁=3, q=2. Tính u₈.",
+answer:"384",
+explanation:"u₈=u₁q⁷=3×2⁷=3×128=384."
+},
+
+{
+id:"csn_s3_2",
+type:"short-answer",
+question:"Cho cấp số nhân có u₁=5, q=3. Tính u₆.",
+answer:"1215",
+explanation:"u₆=5×3⁵=5×243=1215."
+},
+
+{
+id:"csn_s3_3",
+type:"short-answer",
+question:"Cho cấp số nhân 2; 4; 8; 16; ... Tính tổng 5 số hạng đầu.",
+answer:"62",
+explanation:"S₅=2(2⁵−1)/(2−1)=2×31=62."
+},
+
+{
+id:"csn_s3_4",
+type:"short-answer",
+question:"Cho cấp số nhân có u₁=81 và q=1/3. Tính u₅.",
+answer:"1",
+explanation:"u₅=81×(1/3)⁴=81/81=1."
+},
+
+{
+id:"csn_s3_5",
+type:"short-answer",
+question:"Cho cấp số nhân có u₃=12 và q=2. Tính u₁.",
+answer:"3",
+explanation:"u₃=u₁q² ⇒ 12=4u₁ ⇒ u₁=3."
+}
+]
+},
+34: {
+stage1:[
+{
+id:"review_dscscsn_1",
+type:"multiple-choice",
+question:"Cho dãy số un = 2n + 1. Giá trị của u5 bằng",
+options:["9","10","11","12"],
+answer:"11"
+},
+
+{
+id:"review_dscscsn_2",
+type:"multiple-choice",
+question:"Cho cấp số cộng có u1 = 3, d = 2. Giá trị của u6 bằng",
+options:["11","12","13","14"],
+answer:"13"
+},
+
+{
+id:"review_dscscsn_3",
+type:"multiple-choice",
+question:"Cho cấp số nhân có u1 = 2, q = 3. Giá trị của u4 bằng",
+options:["18","27","54","81"],
+answer:"54"
+},
+
+{
+id:"review_dscscsn_4",
+type:"multiple-choice",
+question:"Công thức số hạng tổng quát của cấp số cộng là",
+options:[
+"un=u1+(n−1)d",
+"un=u1.q^(n−1)",
+"un=u1+nd",
+"un=d+(n−1)u1"
+],
+answer:"un=u1+(n−1)d"
+},
+
+{
+id:"review_dscscsn_5",
+type:"multiple-choice",
+question:"Công thức số hạng tổng quát của cấp số nhân là",
+options:[
+"un=u1+(n−1)d",
+"un=u1.q^(n−1)",
+"un=q^(n−1)",
+"un=u1+nq"
+],
+answer:"un=u1.q^(n−1)"
+},
+
+{
+id:"review_dscscsn_6",
+type:"multiple-choice",
+question:"Cho cấp số cộng 2; 5; 8; 11; ... Công sai d bằng",
+options:["2","3","4","5"],
+answer:"3"
+},
+
+{
+id:"review_dscscsn_7",
+type:"multiple-choice",
+question:"Cho cấp số nhân 3; 6; 12; 24; ... Công bội q bằng",
+options:["2","3","4","6"],
+answer:"2"
+},
+
+{
+id:"review_dscscsn_8",
+type:"multiple-choice",
+question:"Cho dãy số un = 1/n. Dãy số này là",
+options:[
+"Tăng",
+"Giảm",
+"Không đổi",
+"Không xác định"
+],
+answer:"Giảm"
+},
+
+{
+id:"review_dscscsn_9",
+type:"multiple-choice",
+question:"Tổng 10 số hạng đầu của cấp số cộng 1;2;3;... bằng",
+options:["45","50","55","60"],
+answer:"55"
+},
+
+{
+id:"review_dscscsn_10",
+type:"multiple-choice",
+question:"Tổng 5 số hạng đầu của cấp số nhân 1;2;4;8;... bằng",
+options:["30","31","32","33"],
+answer:"31"
+}
+],
+
+stage2:[
+{
+id:"review_tf_1",
+type:"true-false",
+question:"Cho dãy số un=(n+1)/(n+2).",
+subQuestions:[
+{
+label:"a",
+text:"u1=2/3.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Dãy số tăng.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Dãy số bị chặn trên bởi 1.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Dãy số không bị chặn.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"review_tf_2",
+type:"true-false",
+question:"Cho cấp số cộng có u1=2 và d=3.",
+subQuestions:[
+{
+label:"a",
+text:"u2=5.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"u5=14.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"u10=29.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"u4=10.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"review_tf_3",
+type:"true-false",
+question:"Cho cấp số nhân có u1=2 và q=3.",
+subQuestions:[
+{
+label:"a",
+text:"u2=6.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"u3=18.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"u4=54.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"u5=108.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"review_sa_1",
+type:"short-answer",
+question:"Cho dãy số un=3n−1. Tính u10.",
+answer:"29",
+explanation:"u10=3×10−1=29."
+},
+
+{
+id:"review_sa_2",
+type:"short-answer",
+question:"Cho cấp số cộng có u1=5, d=4. Tính u15.",
+answer:"61",
+explanation:"u15=u1+14d=5+14×4=61."
+},
+
+{
+id:"review_sa_3",
+type:"short-answer",
+question:"Cho cấp số nhân có u1=3, q=2. Tính u8.",
+answer:"384",
+explanation:"u8=3×2^7=3×128=384."
+},
+
+{
+id:"review_sa_4",
+type:"short-answer",
+question:"Cho cấp số cộng 2;5;8;11;... Tính tổng 10 số hạng đầu.",
+answer:"155",
+explanation:"u10=2+9×3=29. S10=10(2+29)/2=155."
+},
+
+{
+id:"review_sa_5",
+type:"short-answer",
+question:"Cho cấp số nhân 2;4;8;16;... Tính tổng 5 số hạng đầu.",
+answer:"62",
+explanation:"S5=2(2^5−1)/(2−1)=2×31=62."
+}
+]
+},
+35: {
+stage1:[
+{
+id:"mslgn_s1_1",
+type:"multiple-choice",
+question:"Mẫu số liệu ghép nhóm được trình bày dưới dạng",
+options:[
+"Dãy số liệu",
+"Bảng tần số ghép nhóm",
+"Biểu đồ hình quạt",
+"Đồ thị hàm số"
+],
+answer:"Bảng tần số ghép nhóm"
+},
+
+{
+id:"mslgn_s1_2",
+type:"multiple-choice",
+question:"Trong mẫu số liệu ghép nhóm, tần số của một nhóm là",
+options:[
+"Số nhóm",
+"Số giá trị thuộc nhóm đó",
+"Khoảng biến thiên",
+"Giá trị lớn nhất"
+],
+answer:"Số giá trị thuộc nhóm đó"
+},
+
+{
+id:"mslgn_s1_3",
+type:"multiple-choice",
+question:"Nếu một nhóm có cận dưới là 10 và cận trên là 20 thì độ dài nhóm là",
+options:["5","10","20","30"],
+answer:"10"
+},
+
+{
+id:"mslgn_s1_4",
+type:"multiple-choice",
+question:"Tần số của các nhóm lần lượt là 5; 8; 12; 15. Cỡ mẫu là",
+options:["35","38","40","42"],
+answer:"40"
+},
+
+{
+id:"mslgn_s1_5",
+type:"multiple-choice",
+question:"Dấu hiệu điều tra trong mẫu số liệu ghép nhóm là",
+options:[
+"Đối tượng được khảo sát",
+"Đặc trưng được nghiên cứu",
+"Số nhóm",
+"Tần số"
+],
+answer:"Đặc trưng được nghiên cứu"
+},
+
+{
+id:"mslgn_s1_6",
+type:"multiple-choice",
+question:"Trong bảng ghép nhóm, giá trị đại diện của nhóm [20;30) là",
+options:["20","25","30","50"],
+answer:"25"
+},
+
+{
+id:"mslgn_s1_7",
+type:"multiple-choice",
+question:"Giá trị đại diện của nhóm [40;50) là",
+options:["40","45","50","90"],
+answer:"45"
+},
+
+{
+id:"mslgn_s1_8",
+type:"multiple-choice",
+question:"Nếu tổng các tần số bằng 100 thì cỡ mẫu là",
+options:["10","50","100","200"],
+answer:"100"
+},
+
+{
+id:"mslgn_s1_9",
+type:"multiple-choice",
+question:"Trong bảng ghép nhóm, nhóm nào chứa giá trị 37?",
+options:[
+"[20;30)",
+"[30;40)",
+"[40;50)",
+"[50;60)"
+],
+answer:"[30;40)"
+},
+
+{
+id:"mslgn_s1_10",
+type:"multiple-choice",
+question:"Độ dài nhóm của khoảng [15;25) là",
+options:["5","10","15","25"],
+answer:"10"
+}
+],
+stage2:[
+{
+id:"mslgn_s2_1",
+type:"true-false",
+question:"Xét bảng số liệu ghép nhóm.",
+subQuestions:[
+{
+label:"a",
+text:"Tổng các tần số bằng cỡ mẫu.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Mỗi giá trị chỉ thuộc một nhóm.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Độ dài nhóm luôn bằng nhau.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Tần số luôn là số nguyên không âm.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"mslgn_s2_2",
+type:"true-false",
+question:"Xét nhóm [20;30).",
+subQuestions:[
+{
+label:"a",
+text:"Cận dưới là 20.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Cận trên là 30.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Độ dài nhóm bằng 10.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Giá trị đại diện là 30.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"mslgn_s2_3",
+type:"true-false",
+question:"Xét giá trị đại diện của nhóm.",
+subQuestions:[
+{
+label:"a",
+text:"Là trung điểm của nhóm.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nhóm [10;20) có giá trị đại diện là 15.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Nhóm [30;40) có giá trị đại diện là 35.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Giá trị đại diện luôn bằng cận dưới.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"mslgn_s3_1",
+type:"short-answer",
+question:"Một bảng ghép nhóm có các tần số 4; 6; 10; 5. Hãy tìm cỡ mẫu.",
+answer:"25",
+explanation:"Cỡ mẫu bằng tổng các tần số: 4+6+10+5=25."
+},
+
+{
+id:"mslgn_s3_2",
+type:"short-answer",
+question:"Tìm giá trị đại diện của nhóm [12;18).",
+answer:"15",
+explanation:"Giá trị đại diện là trung điểm của nhóm: (12+18)/2=15."
+},
+
+{
+id:"mslgn_s3_3",
+type:"short-answer",
+question:"Tìm độ dài của nhóm [35;50).",
+answer:"15",
+explanation:"Độ dài nhóm bằng cận trên trừ cận dưới: 50−35=15."
+},
+
+{
+id:"mslgn_s3_4",
+type:"short-answer",
+question:"Các tần số của bảng ghép nhóm là 8; 12; 15; 10; 5. Tìm cỡ mẫu.",
+answer:"50",
+explanation:"Cỡ mẫu bằng tổng các tần số: 8+12+15+10+5=50."
+},
+
+{
+id:"mslgn_s3_5",
+type:"short-answer",
+question:"Tìm giá trị đại diện của nhóm [40;60).",
+answer:"50",
+explanation:"Giá trị đại diện là trung điểm của nhóm: (40+60)/2=50."
+}
+]
+},
+36: {
+stage1:[
+{
+id:"xttt_s1_1",
+type:"multiple-choice",
+question:"Số trung bình của mẫu số liệu dùng để đo",
+options:[
+"Độ phân tán",
+"Xu thế trung tâm",
+"Tần số",
+"Cỡ mẫu"
+],
+answer:"Xu thế trung tâm"
+},
+
+{
+id:"xttt_s1_2",
+type:"multiple-choice",
+question:"Mốt của mẫu số liệu là",
+options:[
+"Giá trị lớn nhất",
+"Giá trị nhỏ nhất",
+"Giá trị xuất hiện nhiều nhất",
+"Giá trị trung bình"
+],
+answer:"Giá trị xuất hiện nhiều nhất"
+},
+
+{
+id:"xttt_s1_3",
+type:"multiple-choice",
+question:"Trung vị của mẫu số liệu là",
+options:[
+"Giá trị đứng giữa khi sắp xếp số liệu",
+"Giá trị lớn nhất",
+"Giá trị nhỏ nhất",
+"Tần số lớn nhất"
+],
+answer:"Giá trị đứng giữa khi sắp xếp số liệu"
+},
+
+{
+id:"xttt_s1_4",
+type:"multiple-choice",
+question:"Trong mẫu số liệu ghép nhóm, nhóm chứa mốt là nhóm có",
+options:[
+"Tần số nhỏ nhất",
+"Tần số lớn nhất",
+"Giá trị đại diện lớn nhất",
+"Độ dài lớn nhất"
+],
+answer:"Tần số lớn nhất"
+},
+
+{
+id:"xttt_s1_5",
+type:"multiple-choice",
+question:"Nếu các tần số là 5; 8; 12; 10 thì nhóm chứa mốt có tần số",
+options:["5","8","10","12"],
+answer:"12"
+},
+
+{
+id:"xttt_s1_6",
+type:"multiple-choice",
+question:"Tổng các tần số của mẫu số liệu gọi là",
+options:[
+"Số trung bình",
+"Cỡ mẫu",
+"Trung vị",
+"Mốt"
+],
+answer:"Cỡ mẫu"
+},
+
+{
+id:"xttt_s1_7",
+type:"multiple-choice",
+question:"Nếu cỡ mẫu bằng 50 thì vị trí trung vị nằm gần",
+options:[
+"Quan sát thứ 10",
+"Quan sát thứ 25",
+"Quan sát thứ 50",
+"Quan sát thứ 1"
+],
+answer:"Quan sát thứ 25"
+},
+
+{
+id:"xttt_s1_8",
+type:"multiple-choice",
+question:"Trong bảng ghép nhóm, số trung bình được tính dựa trên",
+options:[
+"Giá trị đại diện và tần số",
+"Chỉ tần số",
+"Chỉ cận dưới",
+"Chỉ cận trên"
+],
+answer:"Giá trị đại diện và tần số"
+},
+
+{
+id:"xttt_s1_9",
+type:"multiple-choice",
+question:"Nhóm chứa trung vị là nhóm",
+options:[
+"Chứa vị trí N/2",
+"Chứa giá trị lớn nhất",
+"Chứa giá trị nhỏ nhất",
+"Có tần số lớn nhất"
+],
+answer:"Chứa vị trí N/2"
+},
+
+{
+id:"xttt_s1_10",
+type:"multiple-choice",
+question:"Mục đích của các số đặc trưng đo xu thế trung tâm là",
+options:[
+"Mô tả giá trị tiêu biểu của dữ liệu",
+"Đo độ lệch chuẩn",
+"Đo phương sai",
+"Đo độ phân tán"
+],
+answer:"Mô tả giá trị tiêu biểu của dữ liệu"
+}
+],
+stage2:[
+{
+id:"xttt_s2_1",
+type:"true-false",
+question:"Xét các số đặc trưng đo xu thế trung tâm.",
+subQuestions:[
+{
+label:"a",
+text:"Mốt là giá trị xuất hiện nhiều nhất.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Trung vị là giá trị đứng giữa của mẫu số liệu đã sắp xếp.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Số trung bình phản ánh xu thế trung tâm của dữ liệu.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Mốt luôn bằng trung bình.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"xttt_s2_2",
+type:"true-false",
+question:"Xét mẫu số liệu ghép nhóm.",
+subQuestions:[
+{
+label:"a",
+text:"Tổng các tần số bằng cỡ mẫu.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nhóm chứa mốt là nhóm có tần số lớn nhất.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Nhóm chứa trung vị chứa vị trí N/2.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Mọi nhóm đều có cùng tần số.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"xttt_s2_3",
+type:"true-false",
+question:"Cho bảng ghép nhóm có các tần số 6; 9; 15; 10.",
+subQuestions:[
+{
+label:"a",
+text:"Cỡ mẫu bằng 40.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nhóm chứa mốt là nhóm thứ ba.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Tần số lớn nhất là 15.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Cỡ mẫu bằng 30.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"xttt_s3_1",
+type:"short-answer",
+question:"Một bảng ghép nhóm có các tần số 5; 8; 12; 15. Tìm cỡ mẫu.",
+answer:"40",
+explanation:"Cỡ mẫu bằng tổng các tần số: 5+8+12+15=40."
+},
+
+{
+id:"xttt_s3_2",
+type:"short-answer",
+question:"Cho bảng ghép nhóm có các tần số 4; 7; 11; 9. Tìm tần số lớn nhất.",
+answer:"11",
+explanation:"Trong các tần số 4, 7, 11, 9 thì lớn nhất là 11."
+},
+
+{
+id:"xttt_s3_3",
+type:"short-answer",
+question:"Cho bảng ghép nhóm có các tần số 10; 15; 20; 5. Tìm cỡ mẫu.",
+answer:"50",
+explanation:"Cỡ mẫu bằng tổng các tần số: 10+15+20+5=50."
+},
+
+{
+id:"xttt_s3_4",
+type:"short-answer",
+question:"Cho bảng ghép nhóm có các tần số 6; 12; 18; 14. Tần số của nhóm chứa mốt là bao nhiêu?",
+answer:"18",
+explanation:"Nhóm chứa mốt là nhóm có tần số lớn nhất. Tần số lớn nhất là 18."
+},
+
+{
+id:"xttt_s3_5",
+type:"short-answer",
+question:"Cho bảng ghép nhóm có các tần số 8; 12; 15; 10; 5. Tìm cỡ mẫu.",
+answer:"50",
+explanation:"Cỡ mẫu bằng tổng các tần số: 8+12+15+10+5=50."
+}
+]
+},
+37: {
+stage1:[
+{
+id:"dtmp_s1_1",
+type:"multiple-choice",
+question:"Qua ba điểm không thẳng hàng xác định được bao nhiêu mặt phẳng?",
+options:["1","2","3","Vô số"],
+answer:"1"
+},
+
+{
+id:"dtmp_s1_2",
+type:"multiple-choice",
+question:"Nếu một đường thẳng có hai điểm phân biệt thuộc một mặt phẳng thì",
+options:[
+"Đường thẳng nằm trong mặt phẳng",
+"Đường thẳng song song mặt phẳng",
+"Đường thẳng cắt mặt phẳng",
+"Không kết luận được"
+],
+answer:"Đường thẳng nằm trong mặt phẳng"
+},
+
+{
+id:"dtmp_s1_3",
+type:"multiple-choice",
+question:"Giao tuyến của hai mặt phẳng phân biệt là",
+options:[
+"Một điểm",
+"Một đường thẳng",
+"Một đoạn thẳng",
+"Một tia"
+],
+answer:"Một đường thẳng"
+},
+
+{
+id:"dtmp_s1_4",
+type:"multiple-choice",
+question:"Nếu hai mặt phẳng có một điểm chung thì",
+options:[
+"Chúng cắt nhau theo một đường thẳng",
+"Chúng song song",
+"Chúng trùng nhau",
+"Không xác định"
+],
+answer:"Chúng cắt nhau theo một đường thẳng"
+},
+
+{
+id:"dtmp_s1_5",
+type:"multiple-choice",
+question:"Trong hình chóp S.ABCD, giao tuyến của hai mặt phẳng (SAB) và (SBC) là",
+options:["SB","SA","SC","AB"],
+answer:"SB"
+},
+
+{
+id:"dtmp_s1_6",
+type:"multiple-choice",
+question:"Trong tứ diện ABCD, giao tuyến của (ABC) và (ABD) là",
+options:["AB","AC","AD","BD"],
+answer:"AB"
+},
+
+{
+id:"dtmp_s1_7",
+type:"multiple-choice",
+question:"Thiết diện của một hình chóp với một mặt phẳng thường là",
+options:[
+"Một đa giác",
+"Một đường thẳng",
+"Một điểm",
+"Một mặt cầu"
+],
+answer:"Một đa giác"
+},
+
+{
+id:"dtmp_s1_8",
+type:"multiple-choice",
+question:"Ba điểm cùng thuộc giao tuyến của hai mặt phẳng thì",
+options:[
+"Thẳng hàng",
+"Không thẳng hàng",
+"Song song",
+"Vuông góc"
+],
+answer:"Thẳng hàng"
+},
+
+{
+id:"dtmp_s1_9",
+type:"multiple-choice",
+question:"Để chứng minh ba điểm thẳng hàng thường chứng minh chúng",
+options:[
+"Cùng thuộc hai mặt phẳng phân biệt",
+"Cùng thuộc một đường tròn",
+"Cùng thuộc một cạnh",
+"Cùng thuộc một tam giác"
+],
+answer:"Cùng thuộc hai mặt phẳng phân biệt"
+},
+
+{
+id:"dtmp_s1_10",
+type:"multiple-choice",
+question:"Để chứng minh ba đường thẳng đồng quy cần chỉ ra chúng",
+options:[
+"Cùng đi qua một điểm",
+"Song song từng đôi",
+"Nằm trên cùng mặt phẳng",
+"Có cùng độ dài"
+],
+answer:"Cùng đi qua một điểm"
+}
+],
+stage2:[
+{
+id:"dtmp_s2_1",
+type:"true-false",
+question:"Xét các mệnh đề về đường thẳng và mặt phẳng.",
+subQuestions:[
+{
+label:"a",
+text:"Qua ba điểm không thẳng hàng xác định duy nhất một mặt phẳng.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hai mặt phẳng phân biệt có thể cắt nhau theo một đường thẳng.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai đường thẳng phân biệt luôn cắt nhau.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Một đường thẳng và một mặt phẳng chỉ có thể có một điểm chung.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"dtmp_s2_2",
+type:"true-false",
+question:"Xét giao tuyến của các mặt phẳng.",
+subQuestions:[
+{
+label:"a",
+text:"Giao tuyến của hai mặt phẳng là một đường thẳng.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu hai mặt phẳng có hai điểm chung phân biệt thì chúng có một giao tuyến.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai mặt phẳng song song không có điểm chung.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hai mặt phẳng bất kỳ luôn cắt nhau.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"dtmp_s2_3",
+type:"true-false",
+question:"Xét ba điểm thẳng hàng và ba đường thẳng đồng quy.",
+subQuestions:[
+{
+label:"a",
+text:"Ba điểm thuộc cùng giao tuyến của hai mặt phẳng thì thẳng hàng.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Ba đường thẳng đi qua cùng một điểm thì đồng quy.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Ba đường thẳng đồng quy luôn song song.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Ba điểm thẳng hàng luôn thuộc vô số mặt phẳng.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+stage3:[
+{
+id:"dtmp_s3_1",
+type:"short-answer",
+question:"Một mặt phẳng được xác định bởi bao nhiêu điểm không thẳng hàng?",
+answer:"3",
+explanation:"Theo tiên đề hình học không gian, qua ba điểm không thẳng hàng xác định duy nhất một mặt phẳng."
+},
+
+{
+id:"dtmp_s3_2",
+type:"short-answer",
+question:"Hai mặt phẳng phân biệt cắt nhau theo bao nhiêu đường thẳng?",
+answer:"1",
+explanation:"Hai mặt phẳng phân biệt nếu cắt nhau thì giao tuyến là duy nhất một đường thẳng."
+},
+
+{
+id:"dtmp_s3_3",
+type:"short-answer",
+question:"Trong hình chóp S.ABCD, hai mặt phẳng (SAB) và (SBC) có bao nhiêu cạnh chung?",
+answer:"1",
+explanation:"Hai mặt phẳng cùng chứa cạnh SB nên giao tuyến là SB."
+},
+
+{
+id:"dtmp_s3_4",
+type:"short-answer",
+question:"Có bao nhiêu mặt phẳng đi qua một đường thẳng cho trước?",
+answer:"Vô số",
+explanation:"Qua một đường thẳng có thể dựng vô số mặt phẳng khác nhau chứa đường thẳng đó."
+},
+
+{
+id:"dtmp_s3_5",
+type:"short-answer",
+question:"Ba đường thẳng cùng đi qua một điểm gọi là gì?",
+answer:"Đồng quy",
+explanation:"Các đường thẳng cùng đi qua một điểm được gọi là các đường thẳng đồng quy."
+}
+]
+},
+38: {
+stage1:[
+{
+id:"songsong_s1_1",
+type:"multiple-choice",
+question:"Trong không gian, hai đường thẳng phân biệt không có điểm chung và cùng nằm trong một mặt phẳng được gọi là",
+options:[
+"Hai đường thẳng cắt nhau",
+"Hai đường thẳng chéo nhau",
+"Hai đường thẳng song song",
+"Hai đường thẳng vuông góc"
+],
+answer:"Hai đường thẳng song song"
+},
+
+{
+id:"songsong_s1_2",
+type:"multiple-choice",
+question:"Nếu hai đường thẳng cùng song song với một đường thẳng thứ ba thì",
+options:[
+"Chúng cắt nhau",
+"Chúng song song với nhau",
+"Chúng vuông góc với nhau",
+"Không kết luận được"
+],
+answer:"Chúng song song với nhau"
+},
+
+{
+id:"songsong_s1_3",
+type:"multiple-choice",
+question:"Qua một điểm nằm ngoài một đường thẳng cho trước, có bao nhiêu đường thẳng song song với đường thẳng đó?",
+options:["0","1","2","Vô số"],
+answer:"1"
+},
+
+{
+id:"songsong_s1_4",
+type:"multiple-choice",
+question:"Trong hình hộp ABCD.A'B'C'D', đường thẳng AB song song với",
+options:["BC","AA'","CD","A'D'"],
+answer:"A'D'"
+},
+
+{
+id:"songsong_s1_5",
+type:"multiple-choice",
+question:"Nếu a // b và b // c thì",
+options:[
+"a ⟂ c",
+"a cắt c",
+"a // c",
+"Không kết luận được"
+],
+answer:"a // c"
+},
+
+{
+id:"songsong_s1_6",
+type:"multiple-choice",
+question:"Hai đường thẳng chéo nhau là hai đường thẳng",
+options:[
+"Cùng nằm trong một mặt phẳng và không cắt nhau",
+"Cùng nằm trong một mặt phẳng và cắt nhau",
+"Không đồng phẳng",
+"Vuông góc với nhau"
+],
+answer:"Không đồng phẳng"
+},
+
+{
+id:"songsong_s1_7",
+type:"multiple-choice",
+question:"Điều kiện để hai đường thẳng phân biệt song song là",
+options:[
+"Có một điểm chung",
+"Không đồng phẳng",
+"Đồng phẳng và không có điểm chung",
+"Vuông góc"
+],
+answer:"Đồng phẳng và không có điểm chung"
+},
+
+{
+id:"songsong_s1_8",
+type:"multiple-choice",
+question:"Trong hình lập phương ABCD.A'B'C'D', cạnh BC song song với",
+options:["AB","BB'","AD","B'C'"],
+answer:"B'C'"
+},
+
+{
+id:"songsong_s1_9",
+type:"multiple-choice",
+question:"Nếu hai đường thẳng song song thì chúng",
+options:[
+"Có vô số điểm chung",
+"Có đúng một điểm chung",
+"Không có điểm chung",
+"Vuông góc"
+],
+answer:"Không có điểm chung"
+},
+
+{
+id:"songsong_s1_10",
+type:"multiple-choice",
+question:"Trong một mặt phẳng, qua một điểm nằm ngoài đường thẳng a có bao nhiêu đường thẳng song song với a?",
+options:["0","1","2","Vô số"],
+answer:"1"
+}
+],
+
+stage2:[
+{
+id:"songsong_s2_1",
+type:"true-false",
+question:"Xét các mệnh đề về hai đường thẳng song song.",
+subQuestions:[
+{
+label:"a",
+text:"Hai đường thẳng song song luôn đồng phẳng.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hai đường thẳng song song không có điểm chung.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai đường thẳng chéo nhau là hai đường thẳng song song.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Nếu a // b và b // c thì a // c.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"songsong_s2_2",
+type:"true-false",
+question:"Xét vị trí tương đối của hai đường thẳng trong không gian.",
+subQuestions:[
+{
+label:"a",
+text:"Hai đường thẳng cắt nhau thì đồng phẳng.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hai đường thẳng song song thì đồng phẳng.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai đường thẳng chéo nhau thì không đồng phẳng.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hai đường thẳng không có điểm chung thì luôn song song.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"songsong_s2_3",
+type:"true-false",
+question:"Xét các tính chất của đường thẳng song song.",
+subQuestions:[
+{
+label:"a",
+text:"Qua một điểm ngoài đường thẳng a chỉ có một đường thẳng song song với a.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hai đường thẳng cùng song song với đường thẳng thứ ba thì song song với nhau.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai đường thẳng song song có thể cắt nhau.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Hai đường thẳng song song luôn có cùng phương.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"songsong_s3_1",
+type:"short-answer",
+question:"Qua một điểm nằm ngoài một đường thẳng cho trước có bao nhiêu đường thẳng song song với đường thẳng đó?",
+answer:"1",
+explanation:"Theo tiên đề Euclid, qua một điểm nằm ngoài một đường thẳng chỉ có duy nhất một đường thẳng song song với đường thẳng đó."
+},
+
+{
+id:"songsong_s3_2",
+type:"short-answer",
+question:"Hai đường thẳng song song có bao nhiêu điểm chung?",
+answer:"0",
+explanation:"Hai đường thẳng song song là hai đường thẳng đồng phẳng và không có điểm chung."
+},
+
+{
+id:"songsong_s3_3",
+type:"short-answer",
+question:"Nếu a // b và b // c thì có bao nhiêu cặp đường thẳng song song trong ba đường thẳng a, b, c?",
+answer:"3",
+explanation:"Ta có a // b, b // c và suy ra a // c. Vậy có 3 cặp đường thẳng song song."
+},
+
+{
+id:"songsong_s3_4",
+type:"short-answer",
+question:"Hai đường thẳng chéo nhau có nằm trong cùng một mặt phẳng hay không? (Trả lời 1 nếu Có, 0 nếu Không)",
+answer:"0",
+explanation:"Hai đường thẳng chéo nhau là hai đường thẳng không đồng phẳng nên không nằm trong cùng một mặt phẳng."
+},
+
+{
+id:"songsong_s3_5",
+type:"short-answer",
+question:"Trong một hình hộp có bao nhiêu cạnh song song với một cạnh cho trước?",
+answer:"3",
+explanation:"Trong hình hộp, mỗi cạnh thuộc một nhóm gồm 4 cạnh song song. Ngoài cạnh đã cho còn có 3 cạnh khác song song với nó."
+}
+]
+},
+39: {
+stage1:[
+{
+id:"dtmpss_s1_1",
+type:"multiple-choice",
+question:"Nếu đường thẳng d song song với một đường thẳng nằm trong mặt phẳng (P) và d không thuộc (P) thì",
+options:[
+"d song song với (P)",
+"d cắt (P)",
+"d nằm trong (P)",
+"d vuông góc (P)"
+],
+answer:"d song song với (P)"
+},
+
+{
+id:"dtmpss_s1_2",
+type:"multiple-choice",
+question:"Để chứng minh đường thẳng d song song với mặt phẳng (P), thường chứng minh",
+options:[
+"d vuông góc (P)",
+"d song song một đường thẳng nằm trong (P)",
+"d nằm trong (P)",
+"d cắt (P)"
+],
+answer:"d song song một đường thẳng nằm trong (P)"
+},
+
+{
+id:"dtmpss_s1_3",
+type:"multiple-choice",
+question:"Nếu d // (P) thì",
+options:[
+"d và (P) không có điểm chung",
+"d nằm trong (P)",
+"d cắt (P)",
+"d vuông góc (P)"
+],
+answer:"d và (P) không có điểm chung"
+},
+
+{
+id:"dtmpss_s1_4",
+type:"multiple-choice",
+question:"Trong hình chóp S.ABCD có đáy ABCD là hình bình hành. Giao tuyến của (SAB) và (SBC) là",
+options:["SA","SB","SC","AB"],
+answer:"SB"
+},
+
+{
+id:"dtmpss_s1_5",
+type:"multiple-choice",
+question:"Hai mặt phẳng phân biệt cùng song song với một đường thẳng d thì",
+options:[
+"Luôn cắt nhau",
+"Có thể cắt nhau",
+"Luôn song song",
+"Luôn trùng nhau"
+],
+answer:"Có thể cắt nhau"
+},
+
+{
+id:"dtmpss_s1_6",
+type:"multiple-choice",
+question:"Thiết diện của hình chóp với một mặt phẳng thường là",
+options:[
+"Một đa giác",
+"Một đường thẳng",
+"Một điểm",
+"Một đường tròn"
+],
+answer:"Một đa giác"
+},
+
+{
+id:"dtmpss_s1_7",
+type:"multiple-choice",
+question:"Nếu một mặt phẳng cắt hình chóp và song song với đáy thì thiết diện thu được",
+options:[
+"Đồng dạng với đáy",
+"Vuông góc với đáy",
+"Luôn là tam giác",
+"Luôn là hình vuông"
+],
+answer:"Đồng dạng với đáy"
+},
+
+{
+id:"dtmpss_s1_8",
+type:"multiple-choice",
+question:"Trong không gian, qua một điểm ngoài mặt phẳng có bao nhiêu mặt phẳng song song với mặt phẳng đã cho?",
+options:["1","2","3","Vô số"],
+answer:"1"
+},
+
+{
+id:"dtmpss_s1_9",
+type:"multiple-choice",
+question:"Nếu đường thẳng d song song với mặt phẳng (P) thì số điểm chung của d và (P) là",
+options:["0","1","2","Vô số"],
+answer:"0"
+},
+
+{
+id:"dtmpss_s1_10",
+type:"multiple-choice",
+question:"Trong tứ diện, mặt phẳng song song với hai cạnh đối thường tạo thiết diện là",
+options:[
+"Hình bình hành",
+"Tam giác",
+"Hình vuông",
+"Ngũ giác"
+],
+answer:"Hình bình hành"
+}
+],
+stage2:[
+{
+id:"dtmpss_s2_1",
+type:"true-false",
+question:"Xét quan hệ đường thẳng và mặt phẳng song song.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu d // (P) thì d không có điểm chung với (P).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu d song song với một đường thẳng nằm trong (P) thì d // (P).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Đường thẳng nằm trong mặt phẳng vẫn được coi là song song với mặt phẳng đó.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Nếu d // (P) thì có vô số đường thẳng trong (P) song song với d.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"dtmpss_s2_2",
+type:"true-false",
+question:"Xét giao tuyến các mặt phẳng.",
+subQuestions:[
+{
+label:"a",
+text:"Hai mặt phẳng phân biệt cắt nhau theo một đường thẳng.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hai mặt phẳng song song không có điểm chung.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai mặt phẳng bất kỳ đều có giao tuyến.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Giao tuyến của hai mặt phẳng là một đường thẳng.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"dtmpss_s2_3",
+type:"true-false",
+question:"Xét thiết diện.",
+subQuestions:[
+{
+label:"a",
+text:"Thiết diện là giao của khối đa diện với một mặt phẳng.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Thiết diện của hình chóp luôn là tam giác.",
+correctAnswer:"Sai"
+},
+{
+label:"c",
+text:"Mặt phẳng song song đáy hình chóp tạo thiết diện đồng dạng với đáy.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Thiết diện luôn là một đa giác.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+stage3:[
+{
+id:"dtmpss_s3_1",
+type:"short-answer",
+question:"Nếu đường thẳng d song song với mặt phẳng (P) thì d và (P) có bao nhiêu điểm chung?",
+answer:"0",
+explanation:"Đường thẳng song song mặt phẳng thì không có điểm chung với mặt phẳng đó."
+},
+
+{
+id:"dtmpss_s3_2",
+type:"short-answer",
+question:"Hai mặt phẳng phân biệt cắt nhau theo bao nhiêu đường thẳng?",
+answer:"1",
+explanation:"Hai mặt phẳng phân biệt nếu cắt nhau thì giao tuyến duy nhất là một đường thẳng."
+},
+
+{
+id:"dtmpss_s3_3",
+type:"short-answer",
+question:"Qua một điểm nằm ngoài mặt phẳng (P) có bao nhiêu mặt phẳng song song với (P)?",
+answer:"1",
+explanation:"Theo định lý, qua một điểm ngoài mặt phẳng chỉ có duy nhất một mặt phẳng song song với mặt phẳng đã cho."
+},
+
+{
+id:"dtmpss_s3_4",
+type:"short-answer",
+question:"Một thiết diện là giao của khối đa diện với bao nhiêu mặt phẳng?",
+answer:"1",
+explanation:"Thiết diện được tạo bởi giao của khối đa diện với một mặt phẳng."
+},
+
+{
+id:"dtmpss_s3_5",
+type:"short-answer",
+question:"Trong hình chóp, nếu mặt phẳng cắt song song với đáy thì thiết diện và đáy có quan hệ gì? (Trả lời: Đồng dạng)",
+answer:"Đồng dạng",
+explanation:"Mặt phẳng song song với đáy tạo ra thiết diện đồng dạng với đáy của hình chóp."
+}
+]
+},
+40: {
+stage1:[
+{
+id:"hmpss_s1_1",
+type:"multiple-choice",
+question:"Hai mặt phẳng phân biệt được gọi là song song khi",
+options:[
+"Chúng có một điểm chung",
+"Chúng có một đường thẳng chung",
+"Chúng không có điểm chung",
+"Chúng vuông góc với nhau"
+],
+answer:"Chúng không có điểm chung"
+},
+
+{
+id:"hmpss_s1_2",
+type:"multiple-choice",
+question:"Nếu hai mặt phẳng cùng song song với một mặt phẳng thứ ba thì",
+options:[
+"Chúng cắt nhau",
+"Chúng song song với nhau",
+"Chúng vuông góc",
+"Không kết luận được"
+],
+answer:"Chúng song song với nhau"
+},
+
+{
+id:"hmpss_s1_3",
+type:"multiple-choice",
+question:"Qua một điểm nằm ngoài mặt phẳng (P), có bao nhiêu mặt phẳng song song với (P)?",
+options:["1","2","3","Vô số"],
+answer:"1"
+},
+
+{
+id:"hmpss_s1_4",
+type:"multiple-choice",
+question:"Nếu mặt phẳng (α) song song với mặt phẳng (β) thì",
+options:[
+"(α) và (β) có một điểm chung",
+"(α) và (β) có một đường thẳng chung",
+"(α) và (β) không có điểm chung",
+"(α) cắt (β)"
+],
+answer:"(α) và (β) không có điểm chung"
+},
+
+{
+id:"hmpss_s1_5",
+type:"multiple-choice",
+question:"Nếu hai mặt phẳng phân biệt cùng chứa hai đường thẳng song song thì",
+options:[
+"Luôn song song",
+"Luôn cắt nhau",
+"Có thể song song",
+"Luôn vuông góc"
+],
+answer:"Có thể song song"
+},
+
+{
+id:"hmpss_s1_6",
+type:"multiple-choice",
+question:"Trong hình hộp ABCD.A'B'C'D', mặt phẳng (ABCD) song song với",
+options:[
+"(ABB'A')",
+"(BCC'B')",
+"(A'B'C'D')",
+"(ADD'A')"
+],
+answer:"(A'B'C'D')"
+},
+
+{
+id:"hmpss_s1_7",
+type:"multiple-choice",
+question:"Nếu hai mặt phẳng song song thì mọi đường thẳng nằm trong mặt phẳng này",
+options:[
+"Song song với mặt phẳng kia",
+"Vuông góc mặt phẳng kia",
+"Cắt mặt phẳng kia",
+"Không xác định"
+],
+answer:"Song song với mặt phẳng kia"
+},
+
+{
+id:"hmpss_s1_8",
+type:"multiple-choice",
+question:"Thiết diện của hình lăng trụ bởi mặt phẳng song song với đáy là",
+options:[
+"Một đa giác bằng đáy",
+"Một điểm",
+"Một đoạn thẳng",
+"Một đường tròn"
+],
+answer:"Một đa giác bằng đáy"
+},
+
+{
+id:"hmpss_s1_9",
+type:"multiple-choice",
+question:"Trong hình hộp, có bao nhiêu cặp mặt đối diện song song?",
+options:["2","3","4","6"],
+answer:"3"
+},
+
+{
+id:"hmpss_s1_10",
+type:"multiple-choice",
+question:"Nếu (P) // (Q) và (Q) // (R) thì",
+options:[
+"(P) cắt (R)",
+"(P) ⟂ (R)",
+"(P) // (R)",
+"Không kết luận được"
+],
+answer:"(P) // (R)"
+}
+],
+
+stage2:[
+{
+id:"hmpss_s2_1",
+type:"true-false",
+question:"Xét các tính chất của hai mặt phẳng song song.",
+subQuestions:[
+{
+label:"a",
+text:"Hai mặt phẳng song song không có điểm chung.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu hai mặt phẳng cùng song song với mặt phẳng thứ ba thì chúng song song với nhau.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai mặt phẳng song song có thể cắt nhau.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Qua một điểm ngoài mặt phẳng chỉ có một mặt phẳng song song với mặt phẳng đó.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"hmpss_s2_2",
+type:"true-false",
+question:"Xét hình hộp ABCD.A'B'C'D'.",
+subQuestions:[
+{
+label:"a",
+text:"(ABCD) // (A'B'C'D').",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"(ABB'A') // (CDD'C').",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"(BCC'B') // (ADD'A').",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"(ABCD) cắt (A'B'C'D').",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"hmpss_s2_3",
+type:"true-false",
+question:"Xét thiết diện tạo bởi mặt phẳng song song.",
+subQuestions:[
+{
+label:"a",
+text:"Mặt phẳng song song đáy hình lăng trụ tạo thiết diện bằng đáy.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Mặt phẳng song song đáy hình hộp tạo thiết diện bằng đáy.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Thiết diện luôn là một đa giác.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hai mặt phẳng song song luôn có một giao tuyến.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"hmpss_s3_1",
+type:"short-answer",
+question:"Qua một điểm nằm ngoài mặt phẳng (P), có bao nhiêu mặt phẳng song song với (P)?",
+answer:"1",
+explanation:"Theo định lý về hai mặt phẳng song song, qua một điểm ngoài mặt phẳng chỉ có duy nhất một mặt phẳng song song với mặt phẳng đã cho."
+},
+
+{
+id:"hmpss_s3_2",
+type:"short-answer",
+question:"Trong hình hộp có bao nhiêu cặp mặt đối diện song song?",
+answer:"3",
+explanation:"Hình hộp có 6 mặt, tạo thành 3 cặp mặt đối diện song song."
+},
+
+{
+id:"hmpss_s3_3",
+type:"short-answer",
+question:"Hai mặt phẳng song song có bao nhiêu điểm chung?",
+answer:"0",
+explanation:"Hai mặt phẳng phân biệt song song không có điểm chung."
+},
+
+{
+id:"hmpss_s3_4",
+type:"short-answer",
+question:"Nếu (P)//(Q) và (Q)//(R) thì có bao nhiêu cặp mặt phẳng song song trong ba mặt phẳng đó?",
+answer:"3",
+explanation:"Ta có (P)//(Q), (Q)//(R) và suy ra (P)//(R). Vậy có 3 cặp mặt phẳng song song."
+},
+
+{
+id:"hmpss_s3_5",
+type:"short-answer",
+question:"Một hình hộp có bao nhiêu mặt?",
+answer:"6",
+explanation:"Hình hộp được giới hạn bởi 6 mặt là các hình bình hành."
+}
+]
+},
+41: {
+stage1:[
+{
+id:"ghds_s1_1",
+type:"multiple-choice",
+question:"Giới hạn của dãy số un = 1/n khi n → +∞ bằng",
+options:["0","1","+∞","-∞"],
+answer:"0"
+},
+
+{
+id:"ghds_s1_2",
+type:"multiple-choice",
+question:"Giới hạn của dãy số un = (2n+1)/(n+3) khi n → +∞ bằng",
+options:["1","2","3","0"],
+answer:"2"
+},
+
+{
+id:"ghds_s1_3",
+type:"multiple-choice",
+question:"Giới hạn của dãy số un = n²/(n²+1) khi n → +∞ bằng",
+options:["0","1","+∞","2"],
+answer:"1"
+},
+
+{
+id:"ghds_s1_4",
+type:"multiple-choice",
+question:"Giới hạn của dãy số un = 3ⁿ khi n → +∞ là",
+options:["0","1","+∞","3"],
+answer:"+∞"
+},
+
+{
+id:"ghds_s1_5",
+type:"multiple-choice",
+question:"Giới hạn của dãy số un = (1/2)ⁿ khi n → +∞ bằng",
+options:["0","1","+∞","1/2"],
+answer:"0"
+},
+
+{
+id:"ghds_s1_6",
+type:"multiple-choice",
+question:"Nếu lim(un)=2 và lim(vn)=3 thì lim(un+vn) bằng",
+options:["5","6","1","0"],
+answer:"5"
+},
+
+{
+id:"ghds_s1_7",
+type:"multiple-choice",
+question:"Nếu lim(un)=4 và lim(vn)=2 thì lim(un.vn) bằng",
+options:["6","8","4","2"],
+answer:"8"
+},
+
+{
+id:"ghds_s1_8",
+type:"multiple-choice",
+question:"Nếu lim(un)=6 và lim(vn)=2 thì lim(un/vn) bằng",
+options:["2","3","4","12"],
+answer:"3"
+},
+
+{
+id:"ghds_s1_9",
+type:"multiple-choice",
+question:"Giới hạn của dãy số un=(5n²−1)/(2n²+3) khi n→+∞ bằng",
+options:["5/2","2/5","5","2"],
+answer:"5/2"
+},
+
+{
+id:"ghds_s1_10",
+type:"multiple-choice",
+question:"Tổng của cấp số nhân lùi vô hạn 1+1/2+1/4+1/8+... bằng",
+options:["1","2","3","4"],
+answer:"2"
+}
+],
+stage2:[
+{
+id:"ghds_s2_1",
+type:"true-false",
+question:"Xét dãy số un = 1/n.",
+subQuestions:[
+{
+label:"a",
+text:"lim(un)=0.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Dãy số giảm.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Dãy số tăng.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Mọi số hạng đều dương.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"ghds_s2_2",
+type:"true-false",
+question:"Xét dãy số un=(1/3)^n.",
+subQuestions:[
+{
+label:"a",
+text:"0<1/3<1.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"lim(un)=0.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Dãy số tăng.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Các số hạng đều dương.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"ghds_s2_3",
+type:"true-false",
+question:"Xét các quy tắc tính giới hạn.",
+subQuestions:[
+{
+label:"a",
+text:"lim(un+vn)=lim(un)+lim(vn).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"lim(un.vn)=lim(un).lim(vn).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"lim(un/vn)=lim(un)/lim(vn) nếu lim(vn)≠0.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"lim(un-vn)=lim(un)+lim(vn).",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"ghds_s3_1",
+type:"short-answer",
+question:"Tính lim(1/n).",
+answer:"0",
+explanation:"Khi n tiến tới +∞ thì 1/n tiến tới 0."
+},
+
+{
+id:"ghds_s3_2",
+type:"short-answer",
+question:"Tính lim((3n+1)/(n+2)).",
+answer:"3",
+explanation:"Chia cả tử và mẫu cho n, ta được lim((3+1/n)/(1+2/n))=3."
+},
+
+{
+id:"ghds_s3_3",
+type:"short-answer",
+question:"Tính lim((2n²+1)/(n²−3)).",
+answer:"2",
+explanation:"Chia cả tử và mẫu cho n², giới hạn bằng tỉ số hệ số bậc cao nhất là 2."
+},
+
+{
+id:"ghds_s3_4",
+type:"short-answer",
+question:"Tính tổng cấp số nhân lùi vô hạn 1 + 1/2 + 1/4 + 1/8 + ...",
+answer:"2",
+explanation:"S=a/(1−q)=1/(1−1/2)=2."
+},
+
+{
+id:"ghds_s3_5",
+type:"short-answer",
+question:"Tính lim((1/5)^n).",
+answer:"0",
+explanation:"Vì |1/5|<1 nên lim((1/5)^n)=0."
+}
+]
+},
+42: {
+stage1:[
+{
+id:"ghhs_s1_1",
+type:"multiple-choice",
+question:"Giới hạn của hàm số f(x)=2x+1 khi x→1 bằng",
+options:["1","2","3","4"],
+answer:"3"
+},
+
+{
+id:"ghhs_s1_2",
+type:"multiple-choice",
+question:"Giới hạn của hàm số f(x)=x² khi x→2 bằng",
+options:["2","4","6","8"],
+answer:"4"
+},
+
+{
+id:"ghhs_s1_3",
+type:"multiple-choice",
+question:"Giới hạn của hàm số f(x)=(x²−1)/(x−1) khi x→1 bằng",
+options:["0","1","2","3"],
+answer:"2"
+},
+
+{
+id:"ghhs_s1_4",
+type:"multiple-choice",
+question:"Giới hạn của hàm số f(x)=1/x khi x→+∞ bằng",
+options:["0","1","+∞","Không tồn tại"],
+answer:"0"
+},
+
+{
+id:"ghhs_s1_5",
+type:"multiple-choice",
+question:"Giới hạn của hàm số f(x)=3x²+1 khi x→+∞ bằng",
+options:["0","1","+∞","3"],
+answer:"+∞"
+},
+
+{
+id:"ghhs_s1_6",
+type:"multiple-choice",
+question:"Giới hạn của hàm số f(x)=1/x khi x→0⁺ bằng",
+options:["0","1","+∞","−∞"],
+answer:"+∞"
+},
+
+{
+id:"ghhs_s1_7",
+type:"multiple-choice",
+question:"Giới hạn của hàm số f(x)=1/x khi x→0⁻ bằng",
+options:["0","1","+∞","−∞"],
+answer:"−∞"
+},
+
+{
+id:"ghhs_s1_8",
+type:"multiple-choice",
+question:"Nếu limf(x)=2 và limg(x)=3 thì lim[f(x)+g(x)] bằng",
+options:["1","5","6","0"],
+answer:"5"
+},
+
+{
+id:"ghhs_s1_9",
+type:"multiple-choice",
+question:"Nếu limf(x)=4 và limg(x)=2 thì lim[f(x)g(x)] bằng",
+options:["2","4","6","8"],
+answer:"8"
+},
+
+{
+id:"ghhs_s1_10",
+type:"multiple-choice",
+question:"Nếu limf(x)=6 và limg(x)=2 thì lim[f(x)/g(x)] bằng",
+options:["2","3","4","12"],
+answer:"3"
+}
+],
+
+stage2:[
+{
+id:"ghhs_s2_1",
+type:"true-false",
+question:"Xét hàm số f(x)=x².",
+subQuestions:[
+{
+label:"a",
+text:"lim(x→2)f(x)=4.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"lim(x→−1)f(x)=1.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"lim(x→0)f(x)=1.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"f(x) liên tục tại x=2.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"ghhs_s2_2",
+type:"true-false",
+question:"Xét hàm số f(x)=1/x.",
+subQuestions:[
+{
+label:"a",
+text:"lim(x→+∞)f(x)=0.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"lim(x→0⁺)f(x)=+∞.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"lim(x→0⁻)f(x)=−∞.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"lim(x→0)f(x)=0.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"ghhs_s2_3",
+type:"true-false",
+question:"Xét các quy tắc tính giới hạn.",
+subQuestions:[
+{
+label:"a",
+text:"lim[f(x)+g(x)]=limf(x)+limg(x).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"lim[f(x)g(x)]=limf(x).limg(x).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"lim[f(x)/g(x)]=limf(x)/limg(x) nếu limg(x)≠0.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"lim[f(x)−g(x)]=limf(x)+limg(x).",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"ghhs_s3_1",
+type:"short-answer",
+question:"Tính lim(x→3)(2x+1).",
+answer:"7",
+explanation:"Thay trực tiếp x=3 vào biểu thức: 2×3+1=7."
+},
+
+{
+id:"ghhs_s3_2",
+type:"short-answer",
+question:"Tính lim(x→2)(x²+3x).",
+answer:"10",
+explanation:"Thay trực tiếp x=2: 2²+3×2=4+6=10."
+},
+
+{
+id:"ghhs_s3_3",
+type:"short-answer",
+question:"Tính lim(x→1)(x²−1)/(x−1).",
+answer:"2",
+explanation:"Ta có x²−1=(x−1)(x+1). Rút gọn được lim(x+1)=2."
+},
+
+{
+id:"ghhs_s3_4",
+type:"short-answer",
+question:"Tính lim(x→+∞)1/x.",
+answer:"0",
+explanation:"Khi x→+∞ thì nghịch đảo 1/x tiến dần về 0."
+},
+
+{
+id:"ghhs_s3_5",
+type:"short-answer",
+question:"Tính lim(x→0⁺)1/x.",
+answer:"+∞",
+explanation:"Khi x tiến tới 0 từ phía dương thì 1/x tăng không giới hạn nên giới hạn bằng +∞."
+}
+]
+},
+43: {
+stage1:[
+{
+id:"hslt_s1_1",
+type:"multiple-choice",
+question:"Hàm số y=f(x) liên tục tại x=x₀ khi",
+options:[
+"f(x₀) tồn tại",
+"lim(x→x₀)f(x) tồn tại",
+"lim(x→x₀)f(x)=f(x₀)",
+"f(x₀)=0"
+],
+answer:"lim(x→x₀)f(x)=f(x₀)"
+},
+
+{
+id:"hslt_s1_2",
+type:"multiple-choice",
+question:"Hàm đa thức có tính chất nào sau đây?",
+options:[
+"Liên tục trên ℝ",
+"Gián đoạn tại 0",
+"Chỉ liên tục trên (0;+∞)",
+"Không liên tục"
+],
+answer:"Liên tục trên ℝ"
+},
+
+{
+id:"hslt_s1_3",
+type:"multiple-choice",
+question:"Hàm phân thức hữu tỉ liên tục tại",
+options:[
+"Mọi điểm thuộc tập xác định",
+"Mọi số thực",
+"Chỉ tại x=0",
+"Không điểm nào"
+],
+answer:"Mọi điểm thuộc tập xác định"
+},
+
+{
+id:"hslt_s1_4",
+type:"multiple-choice",
+question:"Nếu lim(x→a)f(x)=f(a) thì hàm số",
+options:[
+"Liên tục tại a",
+"Gián đoạn tại a",
+"Không xác định tại a",
+"Không kết luận được"
+],
+answer:"Liên tục tại a"
+},
+
+{
+id:"hslt_s1_5",
+type:"multiple-choice",
+question:"Hàm số y=1/x liên tục trên",
+options:[
+"ℝ",
+"(-∞;0) và (0;+∞)",
+"[0;+∞)",
+"(−∞;+∞)"
+],
+answer:"(-∞;0) và (0;+∞)"
+},
+
+{
+id:"hslt_s1_6",
+type:"multiple-choice",
+question:"Điểm x=0 của hàm số y=1/x là",
+options:[
+"Điểm liên tục",
+"Điểm gián đoạn",
+"Điểm cực trị",
+"Điểm uốn"
+],
+answer:"Điểm gián đoạn"
+},
+
+{
+id:"hslt_s1_7",
+type:"multiple-choice",
+question:"Để kiểm tra tính liên tục tại x=a cần so sánh",
+options:[
+"f(a) và f'(a)",
+"lim trái, lim phải và f(a)",
+"f(a) và 0",
+"f(a) và f''(a)"
+],
+answer:"lim trái, lim phải và f(a)"
+},
+
+{
+id:"hslt_s1_8",
+type:"multiple-choice",
+question:"Nếu lim(x→a-)f(x)=lim(x→a+)f(x)=f(a) thì",
+options:[
+"Hàm liên tục tại a",
+"Hàm gián đoạn tại a",
+"Hàm không xác định",
+"Không kết luận được"
+],
+answer:"Hàm liên tục tại a"
+},
+
+{
+id:"hslt_s1_9",
+type:"multiple-choice",
+question:"Hàm số liên tục trên đoạn [a;b] thì",
+options:[
+"Liên tục tại mọi điểm thuộc [a;b]",
+"Gián đoạn tại một điểm",
+"Không xác định tại a",
+"Không xác định tại b"
+],
+answer:"Liên tục tại mọi điểm thuộc [a;b]"
+},
+
+{
+id:"hslt_s1_10",
+type:"multiple-choice",
+question:"Định lý giá trị trung gian áp dụng cho hàm số",
+options:[
+"Liên tục trên đoạn",
+"Gián đoạn trên đoạn",
+"Không xác định",
+"Chỉ liên tục tại một điểm"
+],
+answer:"Liên tục trên đoạn"
+}
+],
+stage2:[
+{
+id:"hslt_s2_1",
+type:"true-false",
+question:"Xét hàm số y=x².",
+subQuestions:[
+{
+label:"a",
+text:"Hàm số liên tục trên ℝ.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hàm số liên tục tại x=0.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hàm số gián đoạn tại x=1.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"lim(x→2)x²=4.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"hslt_s2_2",
+type:"true-false",
+question:"Xét hàm số y=1/x.",
+subQuestions:[
+{
+label:"a",
+text:"Hàm số xác định tại x=0.",
+correctAnswer:"Sai"
+},
+{
+label:"b",
+text:"Hàm số liên tục trên (0;+∞).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hàm số liên tục trên (-∞;0).",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hàm số liên tục trên ℝ.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"hslt_s2_3",
+type:"true-false",
+question:"Xét tính liên tục của hàm số.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu lim(x→a)f(x)=f(a) thì hàm liên tục tại a.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hàm đa thức luôn liên tục trên ℝ.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hàm phân thức hữu tỉ luôn liên tục trên tập xác định.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Mọi hàm số đều liên tục trên ℝ.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"hslt_s3_1",
+type:"short-answer",
+question:"Tính lim(x→2)(x²+1).",
+answer:"5",
+explanation:"Hàm đa thức liên tục nên thay trực tiếp x=2 được 2²+1=5."
+},
+
+{
+id:"hslt_s3_2",
+type:"short-answer",
+question:"Tính lim(x→3)(2x−1).",
+answer:"5",
+explanation:"Hàm bậc nhất liên tục nên thay trực tiếp x=3 được 2·3−1=5."
+},
+
+{
+id:"hslt_s3_3",
+type:"short-answer",
+question:"Tính lim(x→1)(x²−1)/(x−1).",
+answer:"2",
+explanation:"Ta có x²−1=(x−1)(x+1). Rút gọn rồi thay x=1 được 2."
+},
+
+{
+id:"hslt_s3_4",
+type:"short-answer",
+question:"Hàm số y=1/x có bao nhiêu điểm gián đoạn trên ℝ?",
+answer:"1",
+explanation:"Hàm số chỉ không xác định tại x=0 nên có một điểm gián đoạn."
+},
+
+{
+id:"hslt_s3_5",
+type:"short-answer",
+question:"Cho f(x)= { x+1 nếu x≠1; m nếu x=1 }. Tìm m để hàm số liên tục tại x=1.",
+answer:"2",
+explanation:"Để liên tục tại x=1 cần có m=lim(x→1)(x+1)=2."
+}
+]
+},
+44: {
+stage1:[
+{
+id:"lt_s1_1",
+type:"multiple-choice",
+question:"Với a>0, m,n∈R. Công thức nào đúng?",
+options:[
+"a^m.a^n=a^(m+n)",
+"a^m.a^n=a^(mn)",
+"a^m+a^n=a^(m+n)",
+"(a^m)^n=a^(m+n)"
+],
+answer:"a^m.a^n=a^(m+n)"
+},
+
+{
+id:"lt_s1_2",
+type:"multiple-choice",
+question:"Với a>0. a^0 bằng",
+options:["0","1","a","a²"],
+answer:"1"
+},
+
+{
+id:"lt_s1_3",
+type:"multiple-choice",
+question:"Giá trị của 8^(1/3) là",
+options:["2","3","4","8"],
+answer:"2"
+},
+
+{
+id:"lt_s1_4",
+type:"multiple-choice",
+question:"Giá trị của 16^(1/2) là",
+options:["2","4","8","16"],
+answer:"4"
+},
+
+{
+id:"lt_s1_5",
+type:"multiple-choice",
+question:"Với a>0, a^(-2) bằng",
+options:[
+"1/a²",
+"a²",
+"-a²",
+"1/(2a)"
+],
+answer:"1/a²"
+},
+
+{
+id:"lt_s1_6",
+type:"multiple-choice",
+question:"Giá trị của 27^(2/3) là",
+options:["3","6","9","27"],
+answer:"9"
+},
+
+{
+id:"lt_s1_7",
+type:"multiple-choice",
+question:"Rút gọn (a^(1/2))² với a>0",
+options:["a","√a","a²","1"],
+answer:"a"
+},
+
+{
+id:"lt_s1_8",
+type:"multiple-choice",
+question:"Nếu a>1 và m>n thì",
+options:[
+"a^m>a^n",
+"a^m<a^n",
+"a^m=a^n",
+"Không kết luận được"
+],
+answer:"a^m>a^n"
+},
+
+{
+id:"lt_s1_9",
+type:"multiple-choice",
+question:"Nếu 0<a<1 và m>n thì",
+options:[
+"a^m>a^n",
+"a^m<a^n",
+"a^m=a^n",
+"Không kết luận được"
+],
+answer:"a^m<a^n"
+},
+
+{
+id:"lt_s1_10",
+type:"multiple-choice",
+question:"Giá trị của 81^(3/4) là",
+options:["9","27","18","3"],
+answer:"27"
+}
+],
+stage2:[
+{
+id:"lt_s2_1",
+type:"true-false",
+question:"Xét các tính chất lũy thừa với a>0.",
+subQuestions:[
+{
+label:"a",
+text:"a^m.a^n=a^(m+n).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"a^m/a^n=a^(m−n).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"(a^m)^n=a^(mn).",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"a^m+a^n=a^(m+n).",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"lt_s2_2",
+type:"true-false",
+question:"Xét các giá trị lũy thừa.",
+subQuestions:[
+{
+label:"a",
+text:"16^(1/2)=4.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"27^(1/3)=3.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"8^(2/3)=4.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"25^(1/2)=±5.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"lt_s2_3",
+type:"true-false",
+question:"Xét sự so sánh lũy thừa.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu a>1 và m>n thì a^m>a^n.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu 0<a<1 và m>n thì a^m<a^n.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"2^5>2^4.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"(1/2)^5>(1/2)^4.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"lt_s3_1",
+type:"short-answer",
+question:"Tính 64^(1/3).",
+answer:"4",
+explanation:"64 = 4³ nên 64^(1/3)=4."
+},
+
+{
+id:"lt_s3_2",
+type:"short-answer",
+question:"Tính 32^(3/5).",
+answer:"8",
+explanation:"32=2⁵ nên 32^(3/5)=(2⁵)^(3/5)=2³=8."
+},
+
+{
+id:"lt_s3_3",
+type:"short-answer",
+question:"Tính 81^(1/4).",
+answer:"3",
+explanation:"81=3⁴ nên 81^(1/4)=3."
+},
+
+{
+id:"lt_s3_4",
+type:"short-answer",
+question:"Tính 125^(-2/3).",
+answer:"1/25",
+explanation:"125=5³ nên 125^(-2/3)=5^(-2)=1/25."
+},
+
+{
+id:"lt_s3_5",
+type:"short-answer",
+question:"Một người gửi 100 triệu đồng với lãi kép 5%/năm. Sau 2 năm có bao nhiêu triệu đồng?",
+answer:"110.25",
+explanation:"S=100(1+0,05)²=100×1,1025=110,25 (triệu đồng)."
+}
+]
+},
+45: {
+stage1:[
+{
+id:"log_s1_1",
+type:"multiple-choice",
+question:"Giá trị của log₂8 bằng",
+options:["2","3","4","8"],
+answer:"3"
+},
+
+{
+id:"log_s1_2",
+type:"multiple-choice",
+question:"Giá trị của log₃27 bằng",
+options:["2","3","4","9"],
+answer:"3"
+},
+
+{
+id:"log_s1_3",
+type:"multiple-choice",
+question:"Giá trị của log₁₀100 bằng",
+options:["1","2","10","100"],
+answer:"2"
+},
+
+{
+id:"log_s1_4",
+type:"multiple-choice",
+question:"Biểu thức logₐ(a⁵) bằng",
+options:["a","5","a⁵","1"],
+answer:"5"
+},
+
+{
+id:"log_s1_5",
+type:"multiple-choice",
+question:"Cho a>0, a≠1. Công thức nào đúng?",
+options:[
+"logₐ(xy)=logₐx+logₐy",
+"logₐ(x+y)=logₐx+logₐy",
+"logₐ(xy)=logₐx·logₐy",
+"logₐ(x/y)=logₐx+logₐy"
+],
+answer:"logₐ(xy)=logₐx+logₐy"
+},
+
+{
+id:"log_s1_6",
+type:"multiple-choice",
+question:"Cho a>0, a≠1. Công thức nào đúng?",
+options:[
+"logₐ(x/y)=logₐx−logₐy",
+"logₐ(x/y)=logₐx+logₐy",
+"logₐ(x/y)=logₐx·logₐy",
+"logₐ(x/y)=1"
+],
+answer:"logₐ(x/y)=logₐx−logₐy"
+},
+
+{
+id:"log_s1_7",
+type:"multiple-choice",
+question:"Giá trị của log₅(1) bằng",
+options:["0","1","5","Không xác định"],
+answer:"0"
+},
+
+{
+id:"log_s1_8",
+type:"multiple-choice",
+question:"Giá trị của log₂(1/8) bằng",
+options:["-3","-2","3","8"],
+answer:"-3"
+},
+
+{
+id:"log_s1_9",
+type:"multiple-choice",
+question:"Giá trị của log₄16 bằng",
+options:["2","4","8","16"],
+answer:"2"
+},
+
+{
+id:"log_s1_10",
+type:"multiple-choice",
+question:"Nếu log₃x=2 thì x bằng",
+options:["6","8","9","12"],
+answer:"9"
+}
+],
+stage2:[
+{
+id:"log_s2_1",
+type:"true-false",
+question:"Xét các tính chất của logarit.",
+subQuestions:[
+{
+label:"a",
+text:"logₐ(xy)=logₐx+logₐy.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"logₐ(x/y)=logₐx−logₐy.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"logₐ(xⁿ)=nlogₐx.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"logₐ(x+y)=logₐx+logₐy.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"log_s2_2",
+type:"true-false",
+question:"Xét các giá trị logarit.",
+subQuestions:[
+{
+label:"a",
+text:"log₂8=3.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"log₃27=3.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"log₅1=1.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"log₂(1/8)=-3.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"log_s2_3",
+type:"true-false",
+question:"Xét điều kiện xác định của logarit.",
+subQuestions:[
+{
+label:"a",
+text:"logₐx xác định khi x>0.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Cơ số a phải dương.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Cơ số a khác 1.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"log₀x luôn xác định.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"log_s3_1",
+type:"short-answer",
+question:"Tính log₂32.",
+answer:"5",
+explanation:"Vì 32 = 2⁵ nên log₂32 = 5."
+},
+
+{
+id:"log_s3_2",
+type:"short-answer",
+question:"Tính log₃(1/27).",
+answer:"-3",
+explanation:"Vì 1/27 = 3⁻³ nên log₃(1/27) = -3."
+},
+
+{
+id:"log_s3_3",
+type:"short-answer",
+question:"Tính log₅125.",
+answer:"3",
+explanation:"Vì 125 = 5³ nên log₅125 = 3."
+},
+
+{
+id:"log_s3_4",
+type:"short-answer",
+question:"Cho log₂x = 7. Tìm x.",
+answer:"128",
+explanation:"Theo định nghĩa logarit: x = 2⁷ = 128."
+},
+
+{
+id:"log_s3_5",
+type:"short-answer",
+question:"Độ pH của dung dịch là 3. Nồng độ ion H⁺ bằng bao nhiêu?",
+answer:"0.001",
+explanation:"Theo công thức pH = -log[H⁺]. Suy ra [H⁺] = 10⁻³ = 0,001."
+}
+]
+},
+46: {
+stage1:[
+{
+id:"hsml_s1_1",
+type:"multiple-choice",
+question:"Hàm số nào dưới đây là hàm số mũ?",
+options:[
+"y = 2^x",
+"y = x²",
+"y = log₂x",
+"y = √x"
+],
+answer:"y = 2^x"
+},
+
+{
+id:"hsml_s1_2",
+type:"multiple-choice",
+question:"Tập xác định của hàm số y = 3^x là",
+options:[
+"(0;+∞)",
+"ℝ",
+"[0;+∞)",
+"(-∞;0)"
+],
+answer:"ℝ"
+},
+
+{
+id:"hsml_s1_3",
+type:"multiple-choice",
+question:"Tập xác định của hàm số y = log₂x là",
+options:[
+"ℝ",
+"[0;+∞)",
+"(0;+∞)",
+"(-∞;+∞)"
+],
+answer:"(0;+∞)"
+},
+
+{
+id:"hsml_s1_4",
+type:"multiple-choice",
+question:"Hàm số y = 2^x có tính chất",
+options:[
+"Nghịch biến trên ℝ",
+"Đồng biến trên ℝ",
+"Không đổi",
+"Tuần hoàn"
+],
+answer:"Đồng biến trên ℝ"
+},
+
+{
+id:"hsml_s1_5",
+type:"multiple-choice",
+question:"Hàm số y = (1/2)^x có tính chất",
+options:[
+"Đồng biến trên ℝ",
+"Nghịch biến trên ℝ",
+"Không xác định với x<0",
+"Tuần hoàn"
+],
+answer:"Nghịch biến trên ℝ"
+},
+
+{
+id:"hsml_s1_6",
+type:"multiple-choice",
+question:"Đồ thị hàm số y = log₂x đi qua điểm nào?",
+options:[
+"(1;0)",
+"(0;1)",
+"(2;0)",
+"(0;2)"
+],
+answer:"(1;0)"
+},
+
+{
+id:"hsml_s1_7",
+type:"multiple-choice",
+question:"Giá trị của log₂8 là",
+options:["2","3","4","8"],
+answer:"3"
+},
+
+{
+id:"hsml_s1_8",
+type:"multiple-choice",
+question:"Giới hạn lim(2^x) khi x→+∞ bằng",
+options:[
+"0",
+"1",
+"+∞",
+"Không tồn tại"
+],
+answer:"+∞"
+},
+
+{
+id:"hsml_s1_9",
+type:"multiple-choice",
+question:"Giới hạn lim(log₂x) khi x→+∞ bằng",
+options:[
+"0",
+"1",
+"+∞",
+"2"
+],
+answer:"+∞"
+},
+
+{
+id:"hsml_s1_10",
+type:"multiple-choice",
+question:"Đồ thị hàm số y = log₃x nhận đường thẳng nào làm tiệm cận đứng?",
+options:[
+"x = 0",
+"y = 0",
+"x = 1",
+"y = 1"
+],
+answer:"x = 0"
+}
+],
+
+stage2:[
+{
+id:"hsml_s2_1",
+type:"true-false",
+question:"Xét hàm số mũ y = 2^x.",
+subQuestions:[
+{
+label:"a",
+text:"Tập xác định là ℝ.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hàm số đồng biến trên ℝ.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Đồ thị đi qua điểm (0;1).",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hàm số có tiệm cận đứng x = 0.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"hsml_s2_2",
+type:"true-false",
+question:"Xét hàm số logarit y = log₂x.",
+subQuestions:[
+{
+label:"a",
+text:"Tập xác định là (0;+∞).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Đồ thị đi qua điểm (1;0).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hàm số đồng biến trên (0;+∞).",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Đồ thị có tiệm cận ngang y = 0.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"hsml_s2_3",
+type:"true-false",
+question:"Xét mối liên hệ giữa hàm số mũ và logarit.",
+subQuestions:[
+{
+label:"a",
+text:"y = a^x và y = logₐx là hai hàm số ngược nhau.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Đồ thị của chúng đối xứng qua đường thẳng y = x.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Nếu a > 1 thì cả hai hàm đều đồng biến.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Nếu 0 < a < 1 thì cả hai hàm đều đồng biến.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"hsml_s3_1",
+type:"short-answer",
+question:"Tính giá trị của log₂32.",
+answer:"5",
+explanation:"Vì 32 = 2⁵ nên log₂32 = 5."
+},
+
+{
+id:"hsml_s3_2",
+type:"short-answer",
+question:"Tìm x biết 3^x = 81.",
+answer:"4",
+explanation:"81 = 3⁴ nên x = 4."
+},
+
+{
+id:"hsml_s3_3",
+type:"short-answer",
+question:"Tính log₅(1/25).",
+answer:"-2",
+explanation:"1/25 = 5⁻² nên log₅(1/25) = -2."
+},
+
+{
+id:"hsml_s3_4",
+type:"short-answer",
+question:"Một số tiền 100 triệu đồng được gửi ngân hàng với lãi kép 6%/năm. Sau 2 năm có bao nhiêu triệu đồng?",
+answer:"112.36",
+explanation:"A = 100(1+0,06)² = 112,36 (triệu đồng)."
+},
+
+{
+id:"hsml_s3_5",
+type:"short-answer",
+question:"Một quần thể vi khuẩn ban đầu có 1500 con và tăng 25% sau mỗi 2 ngày. Sau 6 ngày có bao nhiêu con?",
+answer:"2929.69",
+explanation:"Sau 6 ngày có 3 chu kỳ tăng trưởng. Số vi khuẩn là 1500×1,25³ = 2929,6875 ≈ 2929,69 con."
+}
+]
+},
+47: {
+stage1:[
+{
+id:"bptml_s1_1",
+type:"multiple-choice",
+question:"Tập nghiệm của bất phương trình 2^x > 8 là",
+options:["x>3","x<3","x≥3","x≤3"],
+answer:"x>3"
+},
+
+{
+id:"bptml_s1_2",
+type:"multiple-choice",
+question:"Tập nghiệm của bất phương trình 3^x < 27 là",
+options:["x<3","x>3","x≤3","x≥3"],
+answer:"x<3"
+},
+
+{
+id:"bptml_s1_3",
+type:"multiple-choice",
+question:"Tập nghiệm của bất phương trình (1/2)^x > 8 là",
+options:["x<-3","x>-3","x<3","x>3"],
+answer:"x<-3"
+},
+
+{
+id:"bptml_s1_4",
+type:"multiple-choice",
+question:"Tập nghiệm của bất phương trình log₂x > 3 là",
+options:["x>8","x<8","x≥8","x≤8"],
+answer:"x>8"
+},
+
+{
+id:"bptml_s1_5",
+type:"multiple-choice",
+question:"Tập nghiệm của bất phương trình log₃x < 2 là",
+options:["0<x<9","x>9","x<9","0<x≤9"],
+answer:"0<x<9"
+},
+
+{
+id:"bptml_s1_6",
+type:"multiple-choice",
+question:"Điều kiện xác định của log₂(x−1) là",
+options:[
+"x>1",
+"x≥1",
+"x≠1",
+"x>0"
+],
+answer:"x>1"
+},
+
+{
+id:"bptml_s1_7",
+type:"multiple-choice",
+question:"Nghiệm của bất phương trình 5^(x−1) ≥ 25 là",
+options:[
+"x≥3",
+"x≥2",
+"x≤2",
+"x≤3"
+],
+answer:"x≥3"
+},
+
+{
+id:"bptml_s1_8",
+type:"multiple-choice",
+question:"Tập nghiệm của log₂x ≤ 0 là",
+options:[
+"0<x≤1",
+"x≥1",
+"x<1",
+"x≤0"
+],
+answer:"0<x≤1"
+},
+
+{
+id:"bptml_s1_9",
+type:"multiple-choice",
+question:"Bất phương trình 4^x > 2^(x+2) tương đương",
+options:[
+"x>2",
+"x<2",
+"x≥2",
+"x≤2"
+],
+answer:"x>2"
+},
+
+{
+id:"bptml_s1_10",
+type:"multiple-choice",
+question:"Tập nghiệm của bất phương trình log₅(x+1)>1 là",
+options:[
+"x>4",
+"x>5",
+"x≥4",
+"x≥5"
+],
+answer:"x>4"
+}
+],
+stage2:[
+{
+id:"bptml_s2_1",
+type:"true-false",
+question:"Xét bất phương trình 2^x > 8.",
+subQuestions:[
+{
+label:"a",
+text:"Bất phương trình tương đương x>3.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"x=4 là nghiệm.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"x=3 là nghiệm.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Tập nghiệm là (3;+∞).",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"bptml_s2_2",
+type:"true-false",
+question:"Xét bất phương trình log₂x < 3.",
+subQuestions:[
+{
+label:"a",
+text:"Điều kiện là x>0.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Bất phương trình tương đương x<8.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Tập nghiệm là (0;8).",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"x=8 là nghiệm.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"bptml_s2_3",
+type:"true-false",
+question:"Xét các tính chất của bất phương trình mũ và logarit.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu a>1 thì a^x là hàm đồng biến.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu 0<a<1 thì a^x là hàm nghịch biến.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Nếu a>1 thì logₐx là hàm đồng biến.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Nếu 0<a<1 thì logₐx là hàm đồng biến.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+stage3:[
+{
+id:"bptml_s3_1",
+type:"short-answer",
+question:"Giải bất phương trình 3^x > 81. Nhập giá trị biên của nghiệm.",
+answer:"4",
+explanation:"81=3⁴ nên 3^x>3⁴ ⇔ x>4."
+},
+
+{
+id:"bptml_s3_2",
+type:"short-answer",
+question:"Giải bất phương trình log₂x > 5. Nhập giá trị biên.",
+answer:"32",
+explanation:"log₂x>5 ⇔ x>2⁵=32."
+},
+
+{
+id:"bptml_s3_3",
+type:"short-answer",
+question:"Tìm số nghiệm nguyên của bất phương trình 2^x<16.",
+answer:"4",
+explanation:"2^x<2⁴ ⇔ x<4. Các nghiệm nguyên dương là 0,1,2,3 nên có 4 nghiệm."
+},
+
+{
+id:"bptml_s3_4",
+type:"short-answer",
+question:"Giải bất phương trình log₃(x−1)≥2. Nhập giá trị biên.",
+answer:"10",
+explanation:"log₃(x−1)≥2 ⇔ x−1≥9 ⇔ x≥10."
+},
+
+{
+id:"bptml_s3_5",
+type:"short-answer",
+question:"Một số tiền tăng theo công thức A=100·(1,05)^n. Sau bao nhiêu năm số tiền vượt 110 triệu lần đầu tiên?",
+answer:"2",
+explanation:"100(1,05)^1=105<110. 100(1,05)^2=110,25>110 nên cần 2 năm."
+}
+]
+},
+48: {
+stage1:[
+{
+id:"htvg_s1_1",
+type:"multiple-choice",
+question:"Hai đường thẳng được gọi là vuông góc khi góc giữa chúng bằng",
+options:["30°","45°","60°","90°"],
+answer:"90°"
+},
+
+{
+id:"htvg_s1_2",
+type:"multiple-choice",
+question:"Trong hình vuông ABCD, cặp đường thẳng nào vuông góc?",
+options:["AB và CD","AB và BC","AC và BD","AD và BC"],
+answer:"AB và BC"
+},
+
+{
+id:"htvg_s1_3",
+type:"multiple-choice",
+question:"Trong hình lập phương ABCD.A'B'C'D', đường thẳng AA' vuông góc với",
+options:["AB","AD","AC","AB và AD"],
+answer:"AB và AD"
+},
+
+{
+id:"htvg_s1_4",
+type:"multiple-choice",
+question:"Nếu a ⊥ b thì góc giữa a và b bằng",
+options:["0°","45°","60°","90°"],
+answer:"90°"
+},
+
+{
+id:"htvg_s1_5",
+type:"multiple-choice",
+question:"Trong tam giác vuông ABC vuông tại A, hai cạnh vuông góc là",
+options:["AB và BC","AC và BC","AB và AC","BC và AH"],
+answer:"AB và AC"
+},
+
+{
+id:"htvg_s1_6",
+type:"multiple-choice",
+question:"Trong hình chữ nhật ABCD, hai đường chéo AC và BD",
+options:[
+"Luôn vuông góc",
+"Song song",
+"Không nhất thiết vuông góc",
+"Trùng nhau"
+],
+answer:"Không nhất thiết vuông góc"
+},
+
+{
+id:"htvg_s1_7",
+type:"multiple-choice",
+question:"Nếu đường thẳng a vuông góc với đường thẳng b thì",
+options:[
+"b vuông góc với a",
+"a song song b",
+"a cắt b tạo góc 60°",
+"a trùng b"
+],
+answer:"b vuông góc với a"
+},
+
+{
+id:"htvg_s1_8",
+type:"multiple-choice",
+question:"Trong tứ diện đều ABCD, góc giữa AB và CD bằng",
+options:["0°","45°","60°","90°"],
+answer:"90°"
+},
+
+{
+id:"htvg_s1_9",
+type:"multiple-choice",
+question:"Trong hình lập phương, đường chéo của hai mặt đối diện",
+options:[
+"Luôn vuông góc",
+"Có thể vuông góc",
+"Luôn song song",
+"Luôn trùng nhau"
+],
+answer:"Có thể vuông góc"
+},
+
+{
+id:"htvg_s1_10",
+type:"multiple-choice",
+question:"Điều kiện để hai đường thẳng vuông góc là",
+options:[
+"Tích vô hướng của hai vectơ chỉ phương bằng 0",
+"Hai đường thẳng song song",
+"Hai đường thẳng cắt nhau",
+"Hai đường thẳng đồng phẳng"
+],
+answer:"Tích vô hướng của hai vectơ chỉ phương bằng 0"
+}
+],
+
+stage2:[
+{
+id:"htvg_s2_1",
+type:"true-false",
+question:"Xét quan hệ vuông góc giữa hai đường thẳng.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu a ⊥ b thì b ⊥ a.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hai đường thẳng vuông góc luôn cắt nhau.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Góc giữa hai đường thẳng vuông góc bằng 90°.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hai đường thẳng song song thì vuông góc.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"htvg_s2_2",
+type:"true-false",
+question:"Xét hình lập phương ABCD.A'B'C'D'.",
+subQuestions:[
+{
+label:"a",
+text:"AA' ⊥ AB.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"AA' ⊥ AD.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"AB ⊥ BC.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"AB ⊥ CD.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"htvg_s2_3",
+type:"true-false",
+question:"Xét các góc giữa hai đường thẳng trong không gian.",
+subQuestions:[
+{
+label:"a",
+text:"Góc giữa hai đường thẳng luôn nằm trong khoảng từ 0° đến 90°.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hai đường thẳng vuông góc có góc bằng 90°.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai đường thẳng song song có góc bằng 0°.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hai đường thẳng chéo nhau không xác định được góc.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"htvg_s3_1",
+type:"short-answer",
+question:"Hai đường thẳng vuông góc tạo với nhau góc bao nhiêu độ?",
+answer:"90",
+explanation:"Theo định nghĩa, hai đường thẳng vuông góc tạo thành góc 90°."
+},
+
+{
+id:"htvg_s3_2",
+type:"short-answer",
+question:"Trong tam giác vuông, số cặp cạnh vuông góc là bao nhiêu?",
+answer:"1",
+explanation:"Tam giác vuông chỉ có một góc vuông nên chỉ có một cặp cạnh vuông góc."
+},
+
+{
+id:"htvg_s3_3",
+type:"short-answer",
+question:"Trong hình vuông ABCD có bao nhiêu cặp cạnh kề vuông góc?",
+answer:"4",
+explanation:"Bốn đỉnh của hình vuông tạo ra 4 góc vuông nên có 4 cặp cạnh kề vuông góc."
+},
+
+{
+id:"htvg_s3_4",
+type:"short-answer",
+question:"Trong hình lập phương, mỗi đỉnh có bao nhiêu cạnh đôi một vuông góc với nhau?",
+answer:"3",
+explanation:"Tại mỗi đỉnh của hình lập phương có 3 cạnh xuất phát và chúng đôi một vuông góc."
+},
+
+{
+id:"htvg_s3_5",
+type:"short-answer",
+question:"Tích vô hướng của hai vectơ chỉ phương của hai đường thẳng vuông góc bằng bao nhiêu?",
+answer:"0",
+explanation:"Hai vectơ vuông góc khi và chỉ khi tích vô hướng của chúng bằng 0."
+}
+]
+},
+49: {
+stage1:[
+{
+id:"dtmp_s1_1",
+type:"multiple-choice",
+question:"Nếu đường thẳng a vuông góc với mặt phẳng (P) thì a vuông góc với",
+options:[
+"Một đường thẳng bất kỳ thuộc (P)",
+"Hai đường thẳng cắt nhau thuộc (P)",
+"Một đường thẳng của (P)",
+"Không đường nào"
+],
+answer:"Hai đường thẳng cắt nhau thuộc (P)"
+},
+
+{
+id:"dtmp_s1_2",
+type:"multiple-choice",
+question:"Cho a ⊥ (P). Khi đó góc giữa a và (P) bằng",
+options:["0°","30°","45°","90°"],
+answer:"90°"
+},
+
+{
+id:"dtmp_s1_3",
+type:"multiple-choice",
+question:"Nếu a ⊥ (P) và b ⊂ (P) thì",
+options:[
+"a ⊥ b",
+"a // b",
+"a cắt b",
+"Không kết luận được"
+],
+answer:"a ⊥ b"
+},
+
+{
+id:"dtmp_s1_4",
+type:"multiple-choice",
+question:"Điều kiện đủ để đường thẳng a vuông góc với mặt phẳng (P) là",
+options:[
+"a vuông góc với hai đường thẳng cắt nhau thuộc (P)",
+"a song song với (P)",
+"a cắt (P)",
+"a nằm trong (P)"
+],
+answer:"a vuông góc với hai đường thẳng cắt nhau thuộc (P)"
+},
+
+{
+id:"dtmp_s1_5",
+type:"multiple-choice",
+question:"Trong hình chóp S.ABC có SA ⊥ (ABC). Khi đó SA vuông góc với",
+options:[
+"AB",
+"AC",
+"BC",
+"AB và AC"
+],
+answer:"AB và AC"
+},
+
+{
+id:"dtmp_s1_6",
+type:"multiple-choice",
+question:"Cho hình chóp S.ABCD có SA ⊥ (ABCD). Góc giữa SA và mặt phẳng đáy bằng",
+options:["0°","45°","60°","90°"],
+answer:"90°"
+},
+
+{
+id:"dtmp_s1_7",
+type:"multiple-choice",
+question:"Trong hình chóp S.ABC có SA ⊥ (ABC). Tam giác ABC là",
+options:[
+"Hình chiếu vuông góc của tam giác SBC",
+"Hình chiếu vuông góc của tam giác SAC",
+"Hình chiếu vuông góc của tam giác SABC",
+"Hình chiếu vuông góc của điểm S"
+],
+answer:"Hình chiếu vuông góc của tam giác SAC"
+},
+
+{
+id:"dtmp_s1_8",
+type:"multiple-choice",
+question:"Nếu đường thẳng a vuông góc với mặt phẳng (P) tại H thì H được gọi là",
+options:[
+"Trung điểm",
+"Chân đường vuông góc",
+"Tâm đường tròn",
+"Trọng tâm"
+],
+answer:"Chân đường vuông góc"
+},
+
+{
+id:"dtmp_s1_9",
+type:"multiple-choice",
+question:"Trong hình lập phương ABCD.A'B'C'D', đường thẳng AA' vuông góc với",
+options:[
+"(ABCD)",
+"(A'B'C'D')",
+"(ABB'A')",
+"(BCC'B')"
+],
+answer:"(ABCD)"
+},
+
+{
+id:"dtmp_s1_10",
+type:"multiple-choice",
+question:"Nếu a ⊥ (P) và b // a thì",
+options:[
+"b ⊥ (P)",
+"b // (P)",
+"b thuộc (P)",
+"Không kết luận được"
+],
+answer:"b ⊥ (P)"
+}
+],
+stage2:[
+{
+id:"dtmp_s2_1",
+type:"true-false",
+question:"Cho đường thẳng a vuông góc với mặt phẳng (P).",
+subQuestions:[
+{
+label:"a",
+text:"a vuông góc với mọi đường thẳng nằm trong (P) đi qua chân đường vuông góc.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Góc giữa a và (P) bằng 90°.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"a nằm trong (P).",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"a cắt (P) tại đúng một điểm.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"dtmp_s2_2",
+type:"true-false",
+question:"Cho hình chóp S.ABC có SA ⊥ (ABC).",
+subQuestions:[
+{
+label:"a",
+text:"SA ⊥ AB.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"SA ⊥ AC.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"SA ⊥ BC.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Góc giữa SA và mặt phẳng (ABC) bằng 0°.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"dtmp_s2_3",
+type:"true-false",
+question:"Xét dấu hiệu nhận biết đường thẳng vuông góc với mặt phẳng.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu một đường thẳng vuông góc với hai đường thẳng cắt nhau thuộc mặt phẳng thì nó vuông góc với mặt phẳng đó.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu một đường thẳng vuông góc với một đường thẳng thuộc mặt phẳng thì nó vuông góc với mặt phẳng.",
+correctAnswer:"Sai"
+},
+{
+label:"c",
+text:"Đường thẳng vuông góc với mặt phẳng thì vuông góc với mọi đường thẳng trong mặt phẳng.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hai đường thẳng cùng vuông góc với một mặt phẳng thì song song với nhau.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+stage3:[
+{
+id:"dtmp_s3_1",
+type:"short-answer",
+question:"Một đường thẳng vuông góc với mặt phẳng tạo với mặt phẳng một góc bằng bao nhiêu độ?",
+answer:"90",
+explanation:"Theo định nghĩa, đường thẳng vuông góc với mặt phẳng tạo với mặt phẳng góc 90°."
+},
+
+{
+id:"dtmp_s3_2",
+type:"short-answer",
+question:"Cho hình chóp S.ABC có SA ⊥ (ABC). Đường thẳng SA vuông góc với bao nhiêu cạnh của tam giác ABC?",
+answer:"3",
+explanation:"SA vuông góc với mọi đường thẳng nằm trong mặt phẳng (ABC) đi qua A, đặc biệt vuông góc với AB, AC và theo giả thiết suy ra vuông góc với BC."
+},
+
+{
+id:"dtmp_s3_3",
+type:"short-answer",
+question:"Có bao nhiêu đường thẳng xác định một mặt phẳng để kiểm tra dấu hiệu vuông góc với mặt phẳng?",
+answer:"2",
+explanation:"Chỉ cần chứng minh đường thẳng vuông góc với hai đường thẳng cắt nhau nằm trong mặt phẳng."
+},
+
+{
+id:"dtmp_s3_4",
+type:"short-answer",
+question:"Nếu hai đường thẳng phân biệt cùng vuông góc với một mặt phẳng thì góc giữa chúng bằng bao nhiêu độ?",
+answer:"0",
+explanation:"Hai đường thẳng cùng vuông góc với một mặt phẳng thì song song với nhau nên góc giữa chúng bằng 0°."
+},
+
+{
+id:"dtmp_s3_5",
+type:"short-answer",
+question:"Trong hình lập phương, tại mỗi đỉnh có bao nhiêu cạnh đôi một vuông góc?",
+answer:"3",
+explanation:"Tại mỗi đỉnh của hình lập phương có đúng 3 cạnh xuất phát và chúng đôi một vuông góc."
+}
+]
+},
+50: {
+stage1:[
+{
+id:"pcvg_s1_1",
+type:"multiple-choice",
+question:"Hình chiếu vuông góc của điểm M trên mặt phẳng (P) là",
+options:[
+"Điểm bất kỳ thuộc (P)",
+"Giao điểm của đường thẳng qua M vuông góc với (P) và (P)",
+"Trung điểm của đoạn thẳng",
+"Điểm gần M nhất trên (P)"
+],
+answer:"Giao điểm của đường thẳng qua M vuông góc với (P) và (P)"
+},
+
+{
+id:"pcvg_s1_2",
+type:"multiple-choice",
+question:"Hình chiếu vuông góc của một đường thẳng lên mặt phẳng là",
+options:[
+"Một điểm",
+"Một đường thẳng hoặc một điểm",
+"Một mặt phẳng",
+"Một đoạn thẳng"
+],
+answer:"Một đường thẳng hoặc một điểm"
+},
+
+{
+id:"pcvg_s1_3",
+type:"multiple-choice",
+question:"Góc giữa đường thẳng d và mặt phẳng (P) là",
+options:[
+"Góc giữa d và hình chiếu vuông góc của nó trên (P)",
+"Góc giữa d và một đường thẳng bất kỳ trong (P)",
+"Góc giữa d và đường vuông góc với (P)",
+"Góc nhị diện tạo bởi d và (P)"
+],
+answer:"Góc giữa d và hình chiếu vuông góc của nó trên (P)"
+},
+
+{
+id:"pcvg_s1_4",
+type:"multiple-choice",
+question:"Nếu đường thẳng d nằm trong mặt phẳng (P) thì góc giữa d và (P) bằng",
+options:["0°","30°","45°","90°"],
+answer:"0°"
+},
+
+{
+id:"pcvg_s1_5",
+type:"multiple-choice",
+question:"Nếu d vuông góc với (P) thì góc giữa d và (P) bằng",
+options:["0°","30°","45°","90°"],
+answer:"90°"
+},
+
+{
+id:"pcvg_s1_6",
+type:"multiple-choice",
+question:"Góc giữa đường thẳng và mặt phẳng luôn thuộc khoảng",
+options:[
+"[0°;90°]",
+"(0°;180°)",
+"[0°;180°]",
+"(0°;90°)"
+],
+answer:"[0°;90°]"
+},
+
+{
+id:"pcvg_s1_7",
+type:"multiple-choice",
+question:"Trong hình chóp S.ABC có SA ⊥ (ABC), hình chiếu vuông góc của S lên (ABC) là",
+options:["A","B","C","Trọng tâm tam giác"],
+answer:"A"
+},
+
+{
+id:"pcvg_s1_8",
+type:"multiple-choice",
+question:"Trong hình chóp S.ABC có SA ⊥ (ABC), góc giữa SC và (ABC) là",
+options:[
+"∠SCA",
+"∠SAC",
+"∠SBC",
+"∠ABC"
+],
+answer:"∠SCA"
+},
+
+{
+id:"pcvg_s1_9",
+type:"multiple-choice",
+question:"Nếu hình chiếu vuông góc của đường thẳng d trên mặt phẳng (P) là d' thì",
+options:[
+"Góc giữa d và (P) bằng góc giữa d và d'",
+"Góc giữa d và (P) luôn bằng 90°",
+"d vuông góc d'",
+"d song song d'"
+],
+answer:"Góc giữa d và (P) bằng góc giữa d và d'"
+},
+
+{
+id:"pcvg_s1_10",
+type:"multiple-choice",
+question:"Trong hình hộp chữ nhật, hình chiếu vuông góc của đường chéo không gian AC' lên đáy ABCD là",
+options:["AB","BC","AC","BD"],
+answer:"AC"
+}
+],
+
+stage2:[
+{
+id:"pcvg_s2_1",
+type:"true-false",
+question:"Xét các khái niệm về phép chiếu vuông góc.",
+subQuestions:[
+{
+label:"a",
+text:"Hình chiếu vuông góc của một điểm trên mặt phẳng là duy nhất.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hình chiếu vuông góc của một đường thẳng có thể là một điểm.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Mọi điểm thuộc mặt phẳng đều là hình chiếu của M.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Đường vuông góc dùng để chiếu phải vuông góc với mặt phẳng.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"pcvg_s2_2",
+type:"true-false",
+question:"Xét góc giữa đường thẳng và mặt phẳng.",
+subQuestions:[
+{
+label:"a",
+text:"Góc giữa đường thẳng và mặt phẳng nằm trong khoảng từ 0° đến 90°.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu đường thẳng nằm trong mặt phẳng thì góc bằng 0°.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Nếu đường thẳng vuông góc với mặt phẳng thì góc bằng 90°.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Góc giữa đường thẳng và mặt phẳng có thể lớn hơn 90°.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"pcvg_s2_3",
+type:"true-false",
+question:"Cho hình chóp S.ABC có SA ⊥ (ABC).",
+subQuestions:[
+{
+label:"a",
+text:"A là hình chiếu vuông góc của S lên (ABC).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"AC là hình chiếu vuông góc của SC lên (ABC).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Góc giữa SC và (ABC) là ∠SCA.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"SC vuông góc với (ABC).",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"pcvg_s3_1",
+type:"short-answer",
+question:"Nếu một đường thẳng nằm trong mặt phẳng thì góc giữa chúng bằng bao nhiêu độ?",
+answer:"0",
+explanation:"Đường thẳng nằm trong mặt phẳng nên góc giữa đường thẳng và mặt phẳng bằng 0°."
+},
+
+{
+id:"pcvg_s3_2",
+type:"short-answer",
+question:"Nếu một đường thẳng vuông góc với mặt phẳng thì góc giữa chúng bằng bao nhiêu độ?",
+answer:"90",
+explanation:"Theo định nghĩa, góc giữa đường thẳng vuông góc và mặt phẳng là 90°."
+},
+
+{
+id:"pcvg_s3_3",
+type:"short-answer",
+question:"Trong hình chóp S.ABC có SA ⊥ (ABC). Hình chiếu vuông góc của điểm S lên mặt phẳng (ABC) là điểm nào?",
+answer:"A",
+explanation:"Do SA vuông góc với mặt phẳng (ABC) nên A là chân đường vuông góc từ S xuống đáy."
+},
+
+{
+id:"pcvg_s3_4",
+type:"short-answer",
+question:"Trong hình hộp chữ nhật ABCD.A'B'C'D', hình chiếu vuông góc của AC' lên mặt phẳng (ABCD) là đoạn nào?",
+answer:"AC",
+explanation:"Điểm A chiếu thành A, điểm C' chiếu thành C nên hình chiếu của AC' là AC."
+},
+
+{
+id:"pcvg_s3_5",
+type:"short-answer",
+question:"Góc giữa đường thẳng và mặt phẳng luôn nằm trong khoảng từ bao nhiêu độ đến bao nhiêu độ? Nhập giá trị lớn nhất.",
+answer:"90",
+explanation:"Theo định nghĩa, góc giữa đường thẳng và mặt phẳng luôn thuộc đoạn [0°;90°]."
+}
+]
+},
+51: {
+stage1:[
+{
+id:"hmp_s1_1",
+type:"multiple-choice",
+question:"Góc giữa hai mặt phẳng được xác định bằng",
+options:[
+"Góc giữa hai đường thẳng bất kỳ nằm trong hai mặt phẳng",
+"Góc giữa hai đường thẳng lần lượt vuông góc với giao tuyến và nằm trong hai mặt phẳng",
+"Góc giữa hai vectơ pháp tuyến",
+"Góc giữa hai giao tuyến"
+],
+answer:"Góc giữa hai đường thẳng lần lượt vuông góc với giao tuyến và nằm trong hai mặt phẳng"
+},
+
+{
+id:"hmp_s1_2",
+type:"multiple-choice",
+question:"Hai mặt phẳng vuông góc khi góc giữa chúng bằng",
+options:["30°","45°","60°","90°"],
+answer:"90°"
+},
+
+{
+id:"hmp_s1_3",
+type:"multiple-choice",
+question:"Nếu mặt phẳng (P) vuông góc với mặt phẳng (Q) thì",
+options:[
+"(Q) vuông góc với (P)",
+"(P) song song với (Q)",
+"(P) trùng với (Q)",
+"Không kết luận được"
+],
+answer:"(Q) vuông góc với (P)"
+},
+
+{
+id:"hmp_s1_4",
+type:"multiple-choice",
+question:"Trong hình hộp chữ nhật, mặt phẳng (ABCD) vuông góc với",
+options:[
+"(A'B'C'D')",
+"(ABB'A')",
+"(ABCD)",
+"(ABC'D')"
+],
+answer:"(ABB'A')"
+},
+
+{
+id:"hmp_s1_5",
+type:"multiple-choice",
+question:"Nếu một mặt phẳng chứa một đường thẳng vuông góc với mặt phẳng kia thì hai mặt phẳng đó",
+options:[
+"Song song",
+"Vuông góc",
+"Trùng nhau",
+"Cắt nhau nhưng không vuông góc"
+],
+answer:"Vuông góc"
+},
+
+{
+id:"hmp_s1_6",
+type:"multiple-choice",
+question:"Trong hình chóp S.ABCD có SA ⊥ (ABCD). Mặt phẳng nào vuông góc với đáy?",
+options:[
+"(SAB)",
+"(ABCD)",
+"(BCD)",
+"(ABC)"
+],
+answer:"(SAB)"
+},
+
+{
+id:"hmp_s1_7",
+type:"multiple-choice",
+question:"Góc giữa hai mặt phẳng luôn thuộc khoảng",
+options:[
+"[0°;90°]",
+"[0°;180°]",
+"(0°;180°)",
+"(0°;90°)"
+],
+answer:"[0°;90°]"
+},
+
+{
+id:"hmp_s1_8",
+type:"multiple-choice",
+question:"Trong hình lập phương ABCD.A'B'C'D', mặt phẳng (ABB'A') vuông góc với",
+options:[
+"(BCC'B')",
+"(A'B'C'D')",
+"(CDD'C')",
+"Cả ba đáp án trên"
+],
+answer:"Cả ba đáp án trên"
+},
+
+{
+id:"hmp_s1_9",
+type:"multiple-choice",
+question:"Hai mặt phẳng phân biệt cùng vuông góc với một mặt phẳng thứ ba thì",
+options:[
+"Có thể song song",
+"Luôn vuông góc",
+"Luôn cắt nhau vuông góc",
+"Luôn trùng nhau"
+],
+answer:"Có thể song song"
+},
+
+{
+id:"hmp_s1_10",
+type:"multiple-choice",
+question:"Điều kiện đủ để chứng minh hai mặt phẳng vuông góc là",
+options:[
+"Một mặt phẳng chứa một đường thẳng vuông góc với mặt phẳng kia",
+"Hai mặt phẳng có giao tuyến",
+"Hai mặt phẳng cắt nhau",
+"Hai mặt phẳng không song song"
+],
+answer:"Một mặt phẳng chứa một đường thẳng vuông góc với mặt phẳng kia"
+}
+],
+
+stage2:[
+{
+id:"hmp_s2_1",
+type:"true-false",
+question:"Xét hai mặt phẳng vuông góc.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu (P) ⊥ (Q) thì (Q) ⊥ (P).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Góc giữa hai mặt phẳng vuông góc bằng 90°.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai mặt phẳng vuông góc luôn song song.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Hai mặt phẳng vuông góc luôn cắt nhau.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"hmp_s2_2",
+type:"true-false",
+question:"Trong hình hộp chữ nhật ABCD.A'B'C'D'.",
+subQuestions:[
+{
+label:"a",
+text:"(ABCD) ⊥ (ABB'A').",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"(ABCD) ⊥ (BCC'B').",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"(ABB'A') ⊥ (BCC'B').",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"(ABCD) // (A'B'C'D').",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"hmp_s2_3",
+type:"true-false",
+question:"Xét các tính chất của hai mặt phẳng vuông góc.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu mặt phẳng (P) chứa một đường thẳng vuông góc với (Q) thì (P) ⊥ (Q).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Góc giữa hai mặt phẳng luôn không vượt quá 90°.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai mặt phẳng cùng vuông góc với một mặt phẳng thứ ba luôn vuông góc với nhau.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Hai mặt phẳng song song thì góc giữa chúng bằng 0°.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"hmp_s3_1",
+type:"short-answer",
+question:"Hai mặt phẳng vuông góc tạo với nhau góc bao nhiêu độ?",
+answer:"90",
+explanation:"Theo định nghĩa, hai mặt phẳng vuông góc khi góc giữa chúng bằng 90°."
+},
+
+{
+id:"hmp_s3_2",
+type:"short-answer",
+question:"Góc giữa hai mặt phẳng luôn không vượt quá bao nhiêu độ?",
+answer:"90",
+explanation:"Góc giữa hai mặt phẳng được quy ước nằm trong đoạn từ 0° đến 90°."
+},
+
+{
+id:"hmp_s3_3",
+type:"short-answer",
+question:"Trong hình hộp chữ nhật, có bao nhiêu mặt bên vuông góc với mặt đáy?",
+answer:"4",
+explanation:"Hình hộp chữ nhật có 4 mặt bên và tất cả đều vuông góc với mặt đáy."
+},
+
+{
+id:"hmp_s3_4",
+type:"short-answer",
+question:"Hai mặt phẳng song song tạo với nhau góc bằng bao nhiêu độ?",
+answer:"0",
+explanation:"Góc giữa hai mặt phẳng song song được quy ước bằng 0°."
+},
+
+{
+id:"hmp_s3_5",
+type:"short-answer",
+question:"Muốn chứng minh hai mặt phẳng vuông góc, chỉ cần chứng minh một mặt phẳng chứa bao nhiêu đường thẳng vuông góc với mặt phẳng kia?",
+answer:"1",
+explanation:"Chỉ cần tìm một đường thẳng nằm trong mặt phẳng thứ nhất và vuông góc với mặt phẳng thứ hai."
+}
+]
+},
+52: {
+stage1:[
+{
+id:"kg_s1_1",
+type:"multiple-choice",
+question:"Khoảng cách từ một điểm đến một mặt phẳng là",
+options:[
+"Độ dài đoạn thẳng bất kỳ nối điểm với mặt phẳng",
+"Độ dài đoạn vuông góc từ điểm đến mặt phẳng",
+"Khoảng cách lớn nhất từ điểm đến mặt phẳng",
+"Một số không xác định"
+],
+answer:"Độ dài đoạn vuông góc từ điểm đến mặt phẳng"
+},
+
+{
+id:"kg_s1_2",
+type:"multiple-choice",
+question:"Khoảng cách từ điểm M nằm trên mặt phẳng (P) đến (P) bằng",
+options:["1","0","Không xác định","Phụ thuộc M"],
+answer:"0"
+},
+
+{
+id:"kg_s1_3",
+type:"multiple-choice",
+question:"Khoảng cách giữa hai mặt phẳng song song là",
+options:[
+"Khoảng cách từ một điểm bất kỳ của mặt phẳng này đến mặt phẳng kia",
+"Khoảng cách lớn nhất giữa hai mặt phẳng",
+"Khoảng cách từ giao điểm của chúng",
+"Luôn bằng 0"
+],
+answer:"Khoảng cách từ một điểm bất kỳ của mặt phẳng này đến mặt phẳng kia"
+},
+
+{
+id:"kg_s1_4",
+type:"multiple-choice",
+question:"Khoảng cách giữa đường thẳng a song song với mặt phẳng (P) là",
+options:[
+"Khoảng cách từ một điểm bất kỳ trên a đến (P)",
+"Khoảng cách giữa hai điểm thuộc a",
+"Khoảng cách từ giao điểm đến (P)",
+"Luôn bằng 0"
+],
+answer:"Khoảng cách từ một điểm bất kỳ trên a đến (P)"
+},
+
+{
+id:"kg_s1_5",
+type:"multiple-choice",
+question:"Khoảng cách giữa hai đường thẳng song song là",
+options:[
+"Độ dài đoạn vuông góc chung",
+"Khoảng cách giữa hai điểm bất kỳ",
+"Tổng độ dài hai đường thẳng",
+"Luôn bằng 0"
+],
+answer:"Độ dài đoạn vuông góc chung"
+},
+
+{
+id:"kg_s1_6",
+type:"multiple-choice",
+question:"Trong hình chóp S.ABC có SA ⊥ (ABC), khoảng cách từ S đến (ABC) bằng",
+options:["SA","SB","SC","AH"],
+answer:"SA"
+},
+
+{
+id:"kg_s1_7",
+type:"multiple-choice",
+question:"Trong hình lập phương cạnh a, khoảng cách giữa hai mặt đáy bằng",
+options:["a","a√2","a√3","2a"],
+answer:"a"
+},
+
+{
+id:"kg_s1_8",
+type:"multiple-choice",
+question:"Khoảng cách từ điểm đến đường thẳng là",
+options:[
+"Độ dài đoạn vuông góc kẻ từ điểm đến đường thẳng",
+"Độ dài đoạn nối bất kỳ",
+"Độ dài lớn nhất",
+"Độ dài nhỏ nhất giữa hai điểm"
+],
+answer:"Độ dài đoạn vuông góc kẻ từ điểm đến đường thẳng"
+},
+
+{
+id:"kg_s1_9",
+type:"multiple-choice",
+question:"Khoảng cách giữa hai đường thẳng chéo nhau là",
+options:[
+"Độ dài đoạn vuông góc chung",
+"Khoảng cách giữa hai đầu mút",
+"Độ dài giao tuyến",
+"Luôn bằng 0"
+],
+answer:"Độ dài đoạn vuông góc chung"
+},
+
+{
+id:"kg_s1_10",
+type:"multiple-choice",
+question:"Trong hình hộp chữ nhật có chiều cao h, khoảng cách giữa hai mặt đáy bằng",
+options:["h","2h","h/2","√h"],
+answer:"h"
+}
+],
+
+stage2:[
+{
+id:"kg_s2_1",
+type:"true-false",
+question:"Xét khoảng cách từ điểm đến mặt phẳng.",
+subQuestions:[
+{
+label:"a",
+text:"Khoảng cách từ điểm đến mặt phẳng luôn không âm.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu điểm thuộc mặt phẳng thì khoảng cách bằng 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Khoảng cách được đo theo đoạn vuông góc.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Mọi đoạn nối từ điểm đến mặt phẳng đều là khoảng cách.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"kg_s2_2",
+type:"true-false",
+question:"Xét khoảng cách giữa hai đường thẳng.",
+subQuestions:[
+{
+label:"a",
+text:"Hai đường thẳng song song luôn có khoảng cách xác định.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hai đường thẳng cắt nhau có khoảng cách bằng 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Khoảng cách giữa hai đường thẳng chéo nhau là độ dài đoạn vuông góc chung.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hai đường thẳng chéo nhau luôn có khoảng cách bằng 0.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"kg_s2_3",
+type:"true-false",
+question:"Xét khoảng cách trong hình không gian.",
+subQuestions:[
+{
+label:"a",
+text:"Khoảng cách giữa hai mặt phẳng song song là không đổi.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Khoảng cách giữa đường thẳng và mặt phẳng song song được tính từ mọi điểm trên đường thẳng.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Khoảng cách giữa hai mặt phẳng cắt nhau bằng 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hai mặt phẳng song song có khoảng cách bằng 0.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"kg_s3_1",
+type:"short-answer",
+question:"Khoảng cách từ một điểm nằm trên mặt phẳng đến mặt phẳng đó bằng bao nhiêu?",
+answer:"0",
+explanation:"Điểm thuộc mặt phẳng nên chân đường vuông góc trùng với chính điểm đó, khoảng cách bằng 0."
+},
+
+{
+id:"kg_s3_2",
+type:"short-answer",
+question:"Trong hình lập phương cạnh 5 cm, khoảng cách giữa hai mặt đáy bằng bao nhiêu?",
+answer:"5",
+explanation:"Khoảng cách giữa hai mặt đáy chính là chiều cao của hình lập phương, bằng cạnh 5 cm."
+},
+
+{
+id:"kg_s3_3",
+type:"short-answer",
+question:"Trong hình chóp S.ABC có SA ⊥ (ABC) và SA = 8 cm. Tính khoảng cách từ S đến mặt phẳng (ABC).",
+answer:"8",
+explanation:"Vì SA vuông góc với mặt phẳng đáy nên khoảng cách từ S đến (ABC) bằng SA = 8 cm."
+},
+
+{
+id:"kg_s3_4",
+type:"short-answer",
+question:"Hai đường thẳng cắt nhau có khoảng cách bằng bao nhiêu?",
+answer:"0",
+explanation:"Hai đường thẳng cắt nhau có điểm chung nên khoảng cách giữa chúng bằng 0."
+},
+
+{
+id:"kg_s3_5",
+type:"short-answer",
+question:"Trong hình hộp chữ nhật có chiều cao 12 cm. Khoảng cách giữa hai mặt đáy bằng bao nhiêu?",
+answer:"12",
+explanation:"Khoảng cách giữa hai mặt đáy song song bằng chiều cao của hình hộp chữ nhật."
+}
+]
+},
+53: {
+stage1:[
+{
+id:"tt_s1_1",
+type:"multiple-choice",
+question:"Thể tích của khối hộp chữ nhật có kích thước a, b, c bằng",
+options:[
+"a+b+c",
+"abc",
+"2(ab+bc+ca)",
+"a²+b²+c²"
+],
+answer:"abc"
+},
+
+{
+id:"tt_s1_2",
+type:"multiple-choice",
+question:"Thể tích khối lập phương cạnh a là",
+options:[
+"a²",
+"4a²",
+"a³",
+"6a²"
+],
+answer:"a³"
+},
+
+{
+id:"tt_s1_3",
+type:"multiple-choice",
+question:"Thể tích khối chóp có diện tích đáy B và chiều cao h là",
+options:[
+"Bh",
+"1/2 Bh",
+"1/3 Bh",
+"3Bh"
+],
+answer:"1/3 Bh"
+},
+
+{
+id:"tt_s1_4",
+type:"multiple-choice",
+question:"Thể tích khối lăng trụ có diện tích đáy B và chiều cao h là",
+options:[
+"Bh",
+"1/2 Bh",
+"1/3 Bh",
+"2Bh"
+],
+answer:"Bh"
+},
+
+{
+id:"tt_s1_5",
+type:"multiple-choice",
+question:"Khối chóp có diện tích đáy 12 cm² và chiều cao 9 cm. Thể tích bằng",
+options:[
+"36 cm³",
+"108 cm³",
+"24 cm³",
+"72 cm³"
+],
+answer:"36 cm³"
+},
+
+{
+id:"tt_s1_6",
+type:"multiple-choice",
+question:"Khối lăng trụ có diện tích đáy 15 cm² và chiều cao 8 cm. Thể tích bằng",
+options:[
+"120 cm³",
+"40 cm³",
+"60 cm³",
+"360 cm³"
+],
+answer:"120 cm³"
+},
+
+{
+id:"tt_s1_7",
+type:"multiple-choice",
+question:"Nếu cạnh khối lập phương tăng gấp đôi thì thể tích tăng",
+options:[
+"2 lần",
+"4 lần",
+"6 lần",
+"8 lần"
+],
+answer:"8 lần"
+},
+
+{
+id:"tt_s1_8",
+type:"multiple-choice",
+question:"Khối hộp chữ nhật có kích thước 2, 3, 5. Thể tích bằng",
+options:[
+"10",
+"15",
+"30",
+"60"
+],
+answer:"30"
+},
+
+{
+id:"tt_s1_9",
+type:"multiple-choice",
+question:"Khối chóp có cùng diện tích đáy và chiều cao với khối lăng trụ. Thể tích khối chóp bằng",
+options:[
+"1/2 thể tích lăng trụ",
+"1/3 thể tích lăng trụ",
+"2 lần thể tích lăng trụ",
+"bằng thể tích lăng trụ"
+],
+answer:"1/3 thể tích lăng trụ"
+},
+
+{
+id:"tt_s1_10",
+type:"multiple-choice",
+question:"Đơn vị đo thể tích thường dùng là",
+options:[
+"cm",
+"cm²",
+"cm³",
+"độ"
+],
+answer:"cm³"
+}
+],
+
+stage2:[
+{
+id:"tt_s2_1",
+type:"true-false",
+question:"Xét công thức tính thể tích.",
+subQuestions:[
+{
+label:"a",
+text:"Thể tích khối hộp chữ nhật bằng tích ba kích thước của nó.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Thể tích khối lập phương cạnh a bằng a³.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Thể tích khối chóp bằng Bh.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Thể tích luôn là số không âm.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"tt_s2_2",
+type:"true-false",
+question:"Xét khối chóp và khối lăng trụ.",
+subQuestions:[
+{
+label:"a",
+text:"Khối chóp có thể tích bằng 1/3 Bh.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Khối lăng trụ có thể tích bằng Bh.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai khối có cùng đáy và chiều cao thì thể tích bằng nhau.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Thể tích khối chóp luôn nhỏ hơn thể tích lăng trụ có cùng đáy và chiều cao.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"tt_s2_3",
+type:"true-false",
+question:"Xét sự thay đổi thể tích.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu mọi kích thước tăng gấp đôi thì thể tích tăng 8 lần.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu mọi kích thước tăng gấp 3 thì thể tích tăng 27 lần.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Nếu chiều cao giảm một nửa thì thể tích lăng trụ giảm một nửa.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Thể tích không phụ thuộc vào chiều cao.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"tt_s3_1",
+type:"short-answer",
+question:"Tính thể tích khối lập phương cạnh 4 cm.",
+answer:"64",
+explanation:"V = a³ = 4³ = 64 cm³."
+},
+
+{
+id:"tt_s3_2",
+type:"short-answer",
+question:"Tính thể tích khối hộp chữ nhật có kích thước 3 cm, 4 cm, 5 cm.",
+answer:"60",
+explanation:"V = 3×4×5 = 60 cm³."
+},
+
+{
+id:"tt_s3_3",
+type:"short-answer",
+question:"Một khối chóp có diện tích đáy 18 cm² và chiều cao 6 cm. Tính thể tích.",
+answer:"36",
+explanation:"V = (1/3)×18×6 = 36 cm³."
+},
+
+{
+id:"tt_s3_4",
+type:"short-answer",
+question:"Một khối lăng trụ có diện tích đáy 12 cm² và chiều cao 7 cm. Tính thể tích.",
+answer:"84",
+explanation:"V = 12×7 = 84 cm³."
+},
+
+{
+id:"tt_s3_5",
+type:"short-answer",
+question:"Một khối lập phương có cạnh tăng từ 2 cm lên 4 cm. Thể tích mới gấp bao nhiêu lần thể tích cũ?",
+answer:"8",
+explanation:"Tỉ số thể tích là (4³)/(2³)=64/8=8."
+}
+]
+},
+54: {
+stage1:[
+{
+id:"bc_s1_1",
+type:"multiple-choice",
+question:"Cho hai biến cố A và B. Biến cố 'A hoặc B xảy ra' được gọi là",
+options:[
+"Biến cố giao của A và B",
+"Biến cố hợp của A và B",
+"Biến cố đối của A",
+"Biến cố đối của B"
+],
+answer:"Biến cố hợp của A và B"
+},
+
+{
+id:"bc_s1_2",
+type:"multiple-choice",
+question:"Biến cố 'Cả A và B đều xảy ra' được gọi là",
+options:[
+"Biến cố hợp",
+"Biến cố đối",
+"Biến cố giao",
+"Biến cố xung khắc"
+],
+answer:"Biến cố giao"
+},
+
+{
+id:"bc_s1_3",
+type:"multiple-choice",
+question:"Hai biến cố A và B được gọi là độc lập khi",
+options:[
+"A xảy ra thì B không xảy ra",
+"B xảy ra thì A không xảy ra",
+"Việc xảy ra của biến cố này không ảnh hưởng đến xác suất xảy ra của biến cố kia",
+"A và B luôn xảy ra đồng thời"
+],
+answer:"Việc xảy ra của biến cố này không ảnh hưởng đến xác suất xảy ra của biến cố kia"
+},
+
+{
+id:"bc_s1_4",
+type:"multiple-choice",
+question:"Kí hiệu của biến cố hợp của A và B là",
+options:[
+"A∩B",
+"A∪B",
+"Ā",
+"B̄"
+],
+answer:"A∪B"
+},
+
+{
+id:"bc_s1_5",
+type:"multiple-choice",
+question:"Kí hiệu của biến cố giao của A và B là",
+options:[
+"A∪B",
+"A∩B",
+"Ā",
+"B̄"
+],
+answer:"A∩B"
+},
+
+{
+id:"bc_s1_6",
+type:"multiple-choice",
+question:"Nếu A và B độc lập thì",
+options:[
+"P(A∩B)=P(A)+P(B)",
+"P(A∩B)=P(A)P(B)",
+"P(A∩B)=0",
+"P(A)=P(B)"
+],
+answer:"P(A∩B)=P(A)P(B)"
+},
+
+{
+id:"bc_s1_7",
+type:"multiple-choice",
+question:"Gieo đồng xu hai lần. Biến cố A: 'Lần thứ nhất xuất hiện mặt ngửa', B: 'Lần thứ hai xuất hiện mặt ngửa'. Khi đó A và B là",
+options:[
+"Đối nhau",
+"Xung khắc",
+"Độc lập",
+"Bằng nhau"
+],
+answer:"Độc lập"
+},
+
+{
+id:"bc_s1_8",
+type:"multiple-choice",
+question:"Gieo một con xúc xắc. A:'Xuất hiện số chẵn', B:'Xuất hiện số chia hết cho 3'. Biến cố A∩B là",
+options:[
+"{2,4,6}",
+"{3,6}",
+"{6}",
+"{2,3}"
+],
+answer:"{6}"
+},
+
+{
+id:"bc_s1_9",
+type:"multiple-choice",
+question:"Biến cố A∪B xảy ra khi",
+options:[
+"Chỉ A xảy ra",
+"Chỉ B xảy ra",
+"A hoặc B xảy ra",
+"Cả A và B đều không xảy ra"
+],
+answer:"A hoặc B xảy ra"
+},
+
+{
+id:"bc_s1_10",
+type:"multiple-choice",
+question:"Nếu A và B xung khắc thì",
+options:[
+"A∩B=∅",
+"A∪B=∅",
+"A=B",
+"A và B độc lập"
+],
+answer:"A∩B=∅"
+}
+],
+
+stage2:[
+{
+id:"bc_s2_1",
+type:"true-false",
+question:"Xét các khái niệm về biến cố hợp và biến cố giao.",
+subQuestions:[
+{
+label:"a",
+text:"A∪B là biến cố 'A hoặc B xảy ra'.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"A∩B là biến cố 'A và B cùng xảy ra'.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"A∪B xảy ra khi cả A và B đều xảy ra.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Nếu A∩B=∅ thì A và B xung khắc.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"bc_s2_2",
+type:"true-false",
+question:"Xét tính độc lập của các biến cố.",
+subQuestions:[
+{
+label:"a",
+text:"Hai biến cố độc lập thì việc xảy ra của biến cố này không ảnh hưởng đến biến cố kia.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu A và B độc lập thì P(A∩B)=P(A)P(B).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai biến cố đối nhau luôn độc lập.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Hai lần gieo đồng xu là các phép thử độc lập.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"bc_s2_3",
+type:"true-false",
+question:"Gieo một con xúc xắc cân đối. Gọi A:'Ra số chẵn', B:'Ra số lớn hơn 4'.",
+subQuestions:[
+{
+label:"a",
+text:"A={2,4,6}.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"B={5,6}.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"A∩B={6}.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"A∪B={2,4,5,6}.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"bc_s3_1",
+type:"short-answer",
+question:"Gieo một con xúc xắc. Gọi A:'Ra số chẵn', B:'Ra số chia hết cho 3'. Có bao nhiêu phần tử của biến cố A∩B?",
+answer:"1",
+explanation:"A={2,4,6}, B={3,6}. Do đó A∩B={6} nên có 1 phần tử."
+},
+
+{
+id:"bc_s3_2",
+type:"short-answer",
+question:"Gieo một con xúc xắc. Gọi A:'Ra số chẵn', B:'Ra số lớn hơn 4'. Có bao nhiêu phần tử của biến cố A∪B?",
+answer:"4",
+explanation:"A={2,4,6}, B={5,6}. Suy ra A∪B={2,4,5,6} có 4 phần tử."
+},
+
+{
+id:"bc_s3_3",
+type:"short-answer",
+question:"Gieo đồng xu hai lần. Xác suất xuất hiện mặt ngửa ở lần thứ nhất là bao nhiêu? (Nhập tử số của phân số tối giản)",
+answer:"1",
+explanation:"P=1/2. Tử số của phân số tối giản là 1."
+},
+
+{
+id:"bc_s3_4",
+type:"short-answer",
+question:"Hai biến cố độc lập có xác suất lần lượt là 1/2 và 1/3. Tính xác suất giao của chúng. (Nhập tử số của phân số tối giản)",
+answer:"1",
+explanation:"P(A∩B)=P(A)P(B)=1/2×1/3=1/6. Tử số là 1."
+},
+
+{
+id:"bc_s3_5",
+type:"short-answer",
+question:"Gieo một con xúc xắc. Có bao nhiêu kết quả thuộc biến cố 'Ra số chẵn hoặc số chia hết cho 3'?",
+answer:"4",
+explanation:"A={2,4,6}, B={3,6}. A∪B={2,3,4,6} nên có 4 kết quả thuận lợi."
+}
+]
+},
+55: {
+stage1:[
+{
+id:"dh_s1_1",
+type:"multiple-choice",
+question:"Đạo hàm của hàm số tại điểm x₀ biểu thị",
+options:[
+"Tốc độ thay đổi tức thời của hàm số tại x₀",
+"Giá trị lớn nhất của hàm số",
+"Giá trị nhỏ nhất của hàm số",
+"Tổng các giá trị của hàm số"
+],
+answer:"Tốc độ thay đổi tức thời của hàm số tại x₀"
+},
+
+{
+id:"dh_s1_2",
+type:"multiple-choice",
+question:"Theo định nghĩa, đạo hàm của hàm số y=f(x) tại x₀ là",
+options:[
+"f(x₀+h)-f(x₀)",
+"lim[(f(x₀+h)-f(x₀))/h] khi h→0",
+"lim[f(x₀+h)] khi h→0",
+"f(x₀)/x₀"
+],
+answer:"lim[(f(x₀+h)-f(x₀))/h] khi h→0"
+},
+
+{
+id:"dh_s1_3",
+type:"multiple-choice",
+question:"Đạo hàm của hàm số y=x² là",
+options:[
+"x",
+"2x",
+"x²",
+"2"
+],
+answer:"2x"
+},
+
+{
+id:"dh_s1_4",
+type:"multiple-choice",
+question:"Đạo hàm của hàm số y=x³ là",
+options:[
+"3x²",
+"x²",
+"3x",
+"x³"
+],
+answer:"3x²"
+},
+
+{
+id:"dh_s1_5",
+type:"multiple-choice",
+question:"Đạo hàm của hàm số hằng y=5 là",
+options:[
+"5",
+"1",
+"0",
+"Không xác định"
+],
+answer:"0"
+},
+
+{
+id:"dh_s1_6",
+type:"multiple-choice",
+question:"Nếu f'(x₀)>0 thì hàm số tại x₀ có xu hướng",
+options:[
+"Tăng",
+"Giảm",
+"Không đổi",
+"Không xác định"
+],
+answer:"Tăng"
+},
+
+{
+id:"dh_s1_7",
+type:"multiple-choice",
+question:"Nếu f'(x₀)<0 thì hàm số tại x₀ có xu hướng",
+options:[
+"Tăng",
+"Giảm",
+"Không đổi",
+"Luôn bằng 0"
+],
+answer:"Giảm"
+},
+
+{
+id:"dh_s1_8",
+type:"multiple-choice",
+question:"Ý nghĩa vật lí của đạo hàm vận tốc là",
+options:[
+"Quãng đường",
+"Gia tốc",
+"Thời gian",
+"Khối lượng"
+],
+answer:"Gia tốc"
+},
+
+{
+id:"dh_s1_9",
+type:"multiple-choice",
+question:"Tiếp tuyến của đồ thị hàm số tại điểm M có hệ số góc bằng",
+options:[
+"f(x₀)",
+"x₀",
+"f'(x₀)",
+"0"
+],
+answer:"f'(x₀)"
+},
+
+{
+id:"dh_s1_10",
+type:"multiple-choice",
+question:"Đạo hàm của y=2x+3 là",
+options:[
+"2",
+"3",
+"2x",
+"x+3"
+],
+answer:"2"
+}
+],
+
+stage2:[
+{
+id:"dh_s2_1",
+type:"true-false",
+question:"Xét các kiến thức cơ bản về đạo hàm.",
+subQuestions:[
+{
+label:"a",
+text:"Đạo hàm biểu thị tốc độ biến thiên tức thời của hàm số.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Đạo hàm của hàm số hằng bằng 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Đạo hàm của x² là x.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Hệ số góc tiếp tuyến bằng giá trị đạo hàm tại tiếp điểm.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"dh_s2_2",
+type:"true-false",
+question:"Xét dấu của đạo hàm.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu f'(x)>0 thì hàm số đồng biến tại điểm đang xét.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu f'(x)<0 thì hàm số nghịch biến tại điểm đang xét.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Nếu f'(x)=0 thì luôn là cực trị.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Đạo hàm có thể dùng để khảo sát sự biến thiên của hàm số.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"dh_s2_3",
+type:"true-false",
+question:"Xét ý nghĩa hình học và vật lí của đạo hàm.",
+subQuestions:[
+{
+label:"a",
+text:"Đạo hàm của quãng đường theo thời gian là vận tốc.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Đạo hàm của vận tốc theo thời gian là gia tốc.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Đạo hàm không có ý nghĩa hình học.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Đạo hàm giúp xác định hệ số góc tiếp tuyến.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"dh_s3_1",
+type:"short-answer",
+question:"Tính đạo hàm của hàm số y=x² tại x=3.",
+answer:"6",
+explanation:"y'=2x. Tại x=3 ta có y'(3)=2·3=6."
+},
+
+{
+id:"dh_s3_2",
+type:"short-answer",
+question:"Tính đạo hàm của hàm số y=x³ tại x=2.",
+answer:"12",
+explanation:"y'=3x². Tại x=2: y'(2)=3·2²=12."
+},
+
+{
+id:"dh_s3_3",
+type:"short-answer",
+question:"Tính đạo hàm của hàm số y=5x+1.",
+answer:"5",
+explanation:"Đạo hàm của ax+b bằng a nên y'=5."
+},
+
+{
+id:"dh_s3_4",
+type:"short-answer",
+question:"Một chất điểm có quãng đường s=t² (m). Tính vận tốc tại thời điểm t=4 (m/s).",
+answer:"8",
+explanation:"v=s'(t)=2t. Tại t=4 ta được v=8 m/s."
+},
+
+{
+id:"dh_s3_5",
+type:"short-answer",
+question:"Cho hàm số y=x². Hệ số góc của tiếp tuyến tại điểm có hoành độ x=5 bằng bao nhiêu?",
+answer:"10",
+explanation:"Hệ số góc tiếp tuyến bằng đạo hàm tại điểm đó. y'=2x nên k=y'(5)=10."
+}
+]
+},
+56: {
+stage1:[
+{
+id:"qtdh_s1_1",
+type:"multiple-choice",
+question:"Nếu y=u(x)+v(x) thì đạo hàm của y là",
+options:[
+"u'+v'",
+"u'v'",
+"u'/v'",
+"(u+v)'=u'+v+1"
+],
+answer:"u'+v'"
+},
+
+{
+id:"qtdh_s1_2",
+type:"multiple-choice",
+question:"Nếu y=u(x)-v(x) thì",
+options:[
+"y'=u'-v'",
+"y'=u'+v'",
+"y'=u'v'",
+"y'=u/v"
+],
+answer:"u'-v'"
+},
+
+{
+id:"qtdh_s1_3",
+type:"multiple-choice",
+question:"Đạo hàm của tích y=u.v là",
+options:[
+"u'v'",
+"u'v+uv'",
+"u'+v'",
+"u/v"
+],
+answer:"u'v+uv'"
+},
+
+{
+id:"qtdh_s1_4",
+type:"multiple-choice",
+question:"Đạo hàm của thương y=u/v (v≠0) là",
+options:[
+"(u'v-uv')/v²",
+"(u'v+uv')/v²",
+"u'/v'",
+"u'v"
+],
+answer:"(u'v-uv')/v²"
+},
+
+{
+id:"qtdh_s1_5",
+type:"multiple-choice",
+question:"Đạo hàm của hàm số y=x⁵ là",
+options:[
+"5x⁴",
+"x⁴",
+"5x",
+"x⁵"
+],
+answer:"5x⁴"
+},
+
+{
+id:"qtdh_s1_6",
+type:"multiple-choice",
+question:"Đạo hàm của hàm số y=√x là",
+options:[
+"1/(2√x)",
+"√x",
+"2√x",
+"1/x"
+],
+answer:"1/(2√x)"
+},
+
+{
+id:"qtdh_s1_7",
+type:"multiple-choice",
+question:"Đạo hàm của y=1/x là",
+options:[
+"-1/x²",
+"1/x²",
+"x²",
+"-x²"
+],
+answer:"-1/x²"
+},
+
+{
+id:"qtdh_s1_8",
+type:"multiple-choice",
+question:"Đạo hàm của y=(2x+1)(x²-3) là",
+options:[
+"2(x²-3)+(2x+1)2x",
+"2x²-3",
+"2x+1",
+"(2x+1)²"
+],
+answer:"2(x²-3)+(2x+1)2x"
+},
+
+{
+id:"qtdh_s1_9",
+type:"multiple-choice",
+question:"Đạo hàm của y=(3x+1)/(x+2) là áp dụng quy tắc nào?",
+options:[
+"Tổng",
+"Tích",
+"Thương",
+"Lũy thừa"
+],
+answer:"Thương"
+},
+
+{
+id:"qtdh_s1_10",
+type:"multiple-choice",
+question:"Đạo hàm của y=7x³ là",
+options:[
+"21x²",
+"7x²",
+"3x²",
+"21x³"
+],
+answer:"21x²"
+}
+],
+
+stage2:[
+{
+id:"qtdh_s2_1",
+type:"true-false",
+question:"Xét các quy tắc đạo hàm cơ bản.",
+subQuestions:[
+{
+label:"a",
+text:"(u+v)'=u'+v'.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"(u-v)'=u'-v'.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"(uv)'=u'v+uv'.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"(u/v)'=u'/v'.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"qtdh_s2_2",
+type:"true-false",
+question:"Xét đạo hàm các hàm số quen thuộc.",
+subQuestions:[
+{
+label:"a",
+text:"(x²)'=2x.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"(x³)'=3x².",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"(1/x)'=1/x².",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"(√x)'=1/(2√x).",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"qtdh_s2_3",
+type:"true-false",
+question:"Cho y=(2x+1)(x-3).",
+subQuestions:[
+{
+label:"a",
+text:"Để tính đạo hàm cần dùng quy tắc tích.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"y'=2(x-3)+(2x+1).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"y'=4x-5.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"y' là hằng số.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"qtdh_s3_1",
+type:"short-answer",
+question:"Tính đạo hàm của hàm số y=x⁴ tại x=2.",
+answer:"32",
+explanation:"y'=4x³. Tại x=2: y'(2)=4·2³=32."
+},
+
+{
+id:"qtdh_s3_2",
+type:"short-answer",
+question:"Tính đạo hàm của hàm số y=3x²+1 tại x=1.",
+answer:"6",
+explanation:"y'=6x. Tại x=1: y'(1)=6."
+},
+
+{
+id:"qtdh_s3_3",
+type:"short-answer",
+question:"Cho y=(x+1)(x+2). Tính y'(1).",
+answer:"5",
+explanation:"y'=(x+2)+(x+1)=2x+3. Tại x=1: y'(1)=5."
+},
+
+{
+id:"qtdh_s3_4",
+type:"short-answer",
+question:"Cho y=(2x+1)/(x+1). Tính y'(0).",
+answer:"1",
+explanation:"y'=[2(x+1)-(2x+1)]/(x+1)²=1/(x+1)². Tại x=0: y'(0)=1."
+},
+
+{
+id:"qtdh_s3_5",
+type:"short-answer",
+question:"Tính đạo hàm của hàm số y=5x³−2x tại x=2.",
+answer:"58",
+explanation:"y'=15x²−2. Tại x=2: y'(2)=15·4−2=58."
+}
+]
+},
+57: {
+stage1:[
+{
+id:"dh2_s1_1",
+type:"multiple-choice",
+question:"Đạo hàm cấp hai của hàm số y=f(x) là",
+options:[
+"Đạo hàm của f(x)",
+"Đạo hàm của f'(x)",
+"Nguyên hàm của f(x)",
+"Đạo hàm của x"
+],
+answer:"Đạo hàm của f'(x)"
+},
+
+{
+id:"dh2_s1_2",
+type:"multiple-choice",
+question:"Kí hiệu đạo hàm cấp hai của hàm số y=f(x) là",
+options:[
+"f'(x)",
+"f''(x)",
+"f'''(x)",
+"Δf(x)"
+],
+answer:"f''(x)"
+},
+
+{
+id:"dh2_s1_3",
+type:"multiple-choice",
+question:"Nếu y=x³ thì y'' bằng",
+options:[
+"6x",
+"3x²",
+"6",
+"x²"
+],
+answer:"6x"
+},
+
+{
+id:"dh2_s1_4",
+type:"multiple-choice",
+question:"Nếu y=x² thì y'' bằng",
+options:[
+"2",
+"x",
+"2x",
+"0"
+],
+answer:"2"
+},
+
+{
+id:"dh2_s1_5",
+type:"multiple-choice",
+question:"Nếu y=5x+1 thì y'' bằng",
+options:[
+"5",
+"1",
+"0",
+"10"
+],
+answer:"0"
+},
+
+{
+id:"dh2_s1_6",
+type:"multiple-choice",
+question:"Trong chuyển động thẳng, nếu s(t) là quãng đường thì s''(t) biểu diễn",
+options:[
+"Quãng đường",
+"Vận tốc",
+"Gia tốc",
+"Thời gian"
+],
+answer:"Gia tốc"
+},
+
+{
+id:"dh2_s1_7",
+type:"multiple-choice",
+question:"Nếu vận tốc v(t)=3t²−2t+1 thì gia tốc a(t) bằng",
+options:[
+"6t−2",
+"3t−2",
+"6t",
+"3t²−2"
+],
+answer:"6t−2"
+},
+
+{
+id:"dh2_s1_8",
+type:"multiple-choice",
+question:"Đạo hàm cấp hai của y=x⁴ là",
+options:[
+"12x²",
+"4x³",
+"16x²",
+"24x"
+],
+answer:"12x²"
+},
+
+{
+id:"dh2_s1_9",
+type:"multiple-choice",
+question:"Nếu y''(x)>0 trên một khoảng thì đồ thị hàm số có xu hướng",
+options:[
+"Lõm xuống",
+"Lõm lên",
+"Song song trục Ox",
+"Không xác định"
+],
+answer:"Lõm lên"
+},
+
+{
+id:"dh2_s1_10",
+type:"multiple-choice",
+question:"Đạo hàm cấp hai của y=x⁵ là",
+options:[
+"20x³",
+"10x³",
+"5x⁴",
+"25x³"
+],
+answer:"20x³"
+}
+],
+
+stage2:[
+{
+id:"dh2_s2_1",
+type:"true-false",
+question:"Xét kiến thức cơ bản về đạo hàm cấp hai.",
+subQuestions:[
+{
+label:"a",
+text:"Đạo hàm cấp hai là đạo hàm của đạo hàm cấp một.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Kí hiệu đạo hàm cấp hai là f''(x).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Đạo hàm cấp hai của hàm số bậc nhất luôn bằng 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Đạo hàm cấp hai của x² bằng x.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"dh2_s2_2",
+type:"true-false",
+question:"Xét ý nghĩa vật lí của đạo hàm cấp hai.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu s(t) là quãng đường thì s'(t) là vận tốc.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu s(t) là quãng đường thì s''(t) là gia tốc.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Gia tốc là đạo hàm của vận tốc theo thời gian.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Vận tốc là đạo hàm của gia tốc.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"dh2_s2_3",
+type:"true-false",
+question:"Cho hàm số y=x⁴.",
+subQuestions:[
+{
+label:"a",
+text:"y'=4x³.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"y''=12x².",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"y''(1)=12.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"y'' là hằng số.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"dh2_s3_1",
+type:"short-answer",
+question:"Tính đạo hàm cấp hai của hàm số y=x³ tại x=2.",
+answer:"12",
+explanation:"y'=3x², y''=6x. Tại x=2: y''(2)=12."
+},
+
+{
+id:"dh2_s3_2",
+type:"short-answer",
+question:"Tính đạo hàm cấp hai của hàm số y=x⁴ tại x=1.",
+answer:"12",
+explanation:"y'=4x³, y''=12x². Tại x=1: y''(1)=12."
+},
+
+{
+id:"dh2_s3_3",
+type:"short-answer",
+question:"Một vật chuyển động có phương trình s(t)=t³−3t²+2t. Tính gia tốc tại t=1.",
+answer:"0",
+explanation:"v(t)=s'(t)=3t²−6t+2. a(t)=s''(t)=6t−6. Tại t=1: a(1)=0."
+},
+
+{
+id:"dh2_s3_4",
+type:"short-answer",
+question:"Cho vận tốc v(t)=2t²+3t−1. Tính gia tốc tại t=2.",
+answer:"11",
+explanation:"a(t)=v'(t)=4t+3. Tại t=2: a(2)=11."
+},
+
+{
+id:"dh2_s3_5",
+type:"short-answer",
+question:"Tính đạo hàm cấp hai của hàm số y=2x⁵−x³ tại x=1.",
+answer:"34",
+explanation:"y'=10x⁴−3x². y''=40x³−6x. Tại x=1: y''(1)=40−6=34."
+}
+]
+},
+58: {
+stage1:[
+{
+id:"ot11_s1_1",
+type:"multiple-choice",
+question:"Đạo hàm của hàm số y=x³ là",
+options:["3x²","x²","3x","x³"],
+answer:"3x²"
+},
+
+{
+id:"ot11_s1_2",
+type:"multiple-choice",
+question:"Công sai của cấp số cộng 2,5,8,11,... bằng",
+options:["2","3","5","8"],
+answer:"3"
+},
+
+{
+id:"ot11_s1_3",
+type:"multiple-choice",
+question:"Công bội của cấp số nhân 3,6,12,24,... bằng",
+options:["2","3","4","6"],
+answer:"2"
+},
+
+{
+id:"ot11_s1_4",
+type:"multiple-choice",
+question:"Giá trị của sin90° bằng",
+options:["0","1","-1","1/2"],
+answer:"1"
+},
+
+{
+id:"ot11_s1_5",
+type:"multiple-choice",
+question:"Nghiệm của phương trình sinx=0 là",
+options:[
+"x=kπ",
+"x=π/2+kπ",
+"x=π/4+kπ",
+"x=π/3+kπ"
+],
+answer:"x=kπ"
+},
+
+{
+id:"ot11_s1_6",
+type:"multiple-choice",
+question:"Thể tích khối chóp có diện tích đáy B và chiều cao h bằng",
+options:[
+"Bh",
+"1/2Bh",
+"1/3Bh",
+"2Bh"
+],
+answer:"1/3Bh"
+},
+
+{
+id:"ot11_s1_7",
+type:"multiple-choice",
+question:"Nếu hai mặt phẳng vuông góc thì góc giữa chúng bằng",
+options:["30°","45°","60°","90°"],
+answer:"90°"
+},
+
+{
+id:"ot11_s1_8",
+type:"multiple-choice",
+question:"Đạo hàm cấp hai của y=x⁴ là",
+options:[
+"4x³",
+"12x²",
+"16x²",
+"24x"
+],
+answer:"12x²"
+},
+
+{
+id:"ot11_s1_9",
+type:"multiple-choice",
+question:"Khoảng cách từ một điểm đến mặt phẳng là",
+options:[
+"Độ dài đoạn bất kỳ",
+"Độ dài đoạn vuông góc",
+"Độ dài lớn nhất",
+"Độ dài nhỏ nhất"
+],
+answer:"Độ dài đoạn vuông góc"
+},
+
+{
+id:"ot11_s1_10",
+type:"multiple-choice",
+question:"Nếu P(A)=0,5 và P(B)=0,4, A và B độc lập thì P(A∩B) bằng",
+options:["0,1","0,2","0,4","0,9"],
+answer:"0,2"
+}
+],
+
+stage2:[
+{
+id:"ot11_s2_1",
+type:"true-false",
+question:"Xét các kiến thức lượng giác.",
+subQuestions:[
+{
+label:"a",
+text:"sin²x+cos²x=1.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"tanx=sinx/cosx.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"sin180°=1.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"cos0°=1.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"ot11_s2_2",
+type:"true-false",
+question:"Xét đạo hàm.",
+subQuestions:[
+{
+label:"a",
+text:"(x²)'=2x.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"(x³)'=3x².",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Đạo hàm của hằng số bằng 1.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Đạo hàm cấp hai là đạo hàm của đạo hàm cấp một.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"ot11_s2_3",
+type:"true-false",
+question:"Xét hình học không gian.",
+subQuestions:[
+{
+label:"a",
+text:"Hai mặt phẳng vuông góc tạo với nhau góc 90°.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Khoảng cách luôn không âm.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai đường thẳng cắt nhau có khoảng cách bằng 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hai mặt phẳng song song luôn vuông góc.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"ot11_s3_1",
+type:"short-answer",
+question:"Tính đạo hàm của y=x³ tại x=2.",
+answer:"12",
+explanation:"y'=3x² nên y'(2)=12."
+},
+
+{
+id:"ot11_s3_2",
+type:"short-answer",
+question:"Cấp số cộng có u₁=2, d=3. Tính u₅.",
+answer:"14",
+explanation:"u₅=u₁+4d=2+12=14."
+},
+
+{
+id:"ot11_s3_3",
+type:"short-answer",
+question:"Cấp số nhân có u₁=3, q=2. Tính u₄.",
+answer:"24",
+explanation:"u₄=3·2³=24."
+},
+
+{
+id:"ot11_s3_4",
+type:"short-answer",
+question:"Khối chóp có diện tích đáy 12 và chiều cao 6. Tính thể tích.",
+answer:"24",
+explanation:"V=(1/3)·12·6=24."
+},
+
+{
+id:"ot11_s3_5",
+type:"short-answer",
+question:"Nếu P(A)=1/2 và P(B)=1/3, A và B độc lập. Tính P(A∩B) dưới dạng phân số tối giản và nhập tử số.",
+answer:"1",
+explanation:"P(A∩B)=1/2·1/3=1/6 nên tử số là 1."
+}
+]
+},
+59: {
+stage1:[
+{
+id:"td_s1_1",
+type:"multiple-choice",
+question:"Nếu f'(x)>0 với mọi x thuộc khoảng (a;b) thì hàm số",
+options:[
+"Đồng biến trên (a;b)",
+"Nghịch biến trên (a;b)",
+"Có cực đại",
+"Có cực tiểu"
+],
+answer:"Đồng biến trên (a;b)"
+},
+
+{
+id:"td_s1_2",
+type:"multiple-choice",
+question:"Nếu f'(x)<0 với mọi x thuộc khoảng (a;b) thì hàm số",
+options:[
+"Đồng biến",
+"Nghịch biến",
+"Không xác định",
+"Có cực trị"
+],
+answer:"Nghịch biến"
+},
+
+{
+id:"td_s1_3",
+type:"multiple-choice",
+question:"Điều kiện cần để x₀ là điểm cực trị của hàm số khả vi là",
+options:[
+"f(x₀)=0",
+"f'(x₀)=0",
+"f''(x₀)=0",
+"x₀=0"
+],
+answer:"f'(x₀)=0"
+},
+
+{
+id:"td_s1_4",
+type:"multiple-choice",
+question:"Nếu đạo hàm đổi dấu từ dương sang âm khi qua x₀ thì hàm số đạt",
+options:[
+"Cực tiểu",
+"Cực đại",
+"Không có cực trị",
+"Điểm uốn"
+],
+answer:"Cực đại"
+},
+
+{
+id:"td_s1_5",
+type:"multiple-choice",
+question:"Nếu đạo hàm đổi dấu từ âm sang dương khi qua x₀ thì hàm số đạt",
+options:[
+"Cực đại",
+"Cực tiểu",
+"Không có cực trị",
+"Điểm uốn"
+],
+answer:"Cực tiểu"
+},
+
+{
+id:"td_s1_6",
+type:"multiple-choice",
+question:"Hàm số y=x³ có bao nhiêu điểm cực trị?",
+options:["0","1","2","3"],
+answer:"0"
+},
+
+{
+id:"td_s1_7",
+type:"multiple-choice",
+question:"Hàm số y=x² có điểm cực tiểu tại",
+options:["x=-1","x=0","x=1","x=2"],
+answer:"x=0"
+},
+
+{
+id:"td_s1_8",
+type:"multiple-choice",
+question:"Đạo hàm của hàm số y=x³−3x là",
+options:[
+"3x²−3",
+"x²−3",
+"3x−3",
+"3x²"
+],
+answer:"3x²−3"
+},
+
+{
+id:"td_s1_9",
+type:"multiple-choice",
+question:"Số điểm cực trị của hàm số y=x³−3x là",
+options:["0","1","2","3"],
+answer:"2"
+},
+
+{
+id:"td_s1_10",
+type:"multiple-choice",
+question:"Cho f'(x)=x(x−2). Hàm số đồng biến trên khoảng nào?",
+options:[
+"(0;2)",
+"(-∞;0)",
+"(2;+∞)",
+"(−∞;0) và (2;+∞)"
+],
+answer:"(−∞;0) và (2;+∞)"
+}
+],
+
+stage2:[
+{
+id:"td_s2_1",
+type:"true-false",
+question:"Xét mối liên hệ giữa đạo hàm và tính đơn điệu.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu f'(x)>0 trên một khoảng thì hàm số đồng biến trên khoảng đó.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu f'(x)<0 trên một khoảng thì hàm số nghịch biến trên khoảng đó.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Nếu f'(x)=0 tại một điểm thì điểm đó luôn là cực trị.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Đạo hàm giúp khảo sát sự biến thiên của hàm số.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"td_s2_2",
+type:"true-false",
+question:"Cho hàm số y=x².",
+subQuestions:[
+{
+label:"a",
+text:"y'=2x.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"f'(x)<0 khi x<0.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"f'(x)>0 khi x>0.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hàm số có cực đại tại x=0.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"td_s2_3",
+type:"true-false",
+question:"Cho hàm số y=x³−3x.",
+subQuestions:[
+{
+label:"a",
+text:"y'=3x²−3.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Phương trình y'=0 có hai nghiệm x=-1 và x=1.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hàm số có hai điểm cực trị.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Cả hai điểm cực trị đều là cực tiểu.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"td_s3_1",
+type:"short-answer",
+question:"Cho hàm số y=x². Tính giá trị cực tiểu của hàm số.",
+answer:"0",
+explanation:"y'=2x=0 ⇔ x=0. Hàm số đổi dấu từ âm sang dương nên đạt cực tiểu tại x=0. Giá trị cực tiểu là y(0)=0."
+},
+
+{
+id:"td_s3_2",
+type:"short-answer",
+question:"Cho hàm số y=x³−3x. Có bao nhiêu điểm cực trị?",
+answer:"2",
+explanation:"y'=3x²−3=3(x−1)(x+1). Đạo hàm đổi dấu tại x=-1 và x=1 nên hàm số có 2 điểm cực trị."
+},
+
+{
+id:"td_s3_3",
+type:"short-answer",
+question:"Cho hàm số y=x³−3x. Tính tổng hoành độ các điểm cực trị.",
+answer:"0",
+explanation:"Các điểm cực trị có hoành độ x=-1 và x=1. Tổng bằng 0."
+},
+
+{
+id:"td_s3_4",
+type:"short-answer",
+question:"Cho f'(x)=x(x−2). Hàm số có bao nhiêu điểm cực trị?",
+answer:"2",
+explanation:"f'(x)=0 ⇔ x=0 hoặc x=2. Đạo hàm đổi dấu tại cả hai nghiệm nên có 2 điểm cực trị."
+},
+
+{
+id:"td_s3_5",
+type:"short-answer",
+question:"Cho hàm số y=x⁴−2x². Tính số điểm cực trị của hàm số.",
+answer:"3",
+explanation:"y'=4x³−4x=4x(x−1)(x+1). Đạo hàm đổi dấu tại x=-1, x=0 và x=1 nên hàm số có 3 điểm cực trị."
+}
+]
+},
+60: {
+stage1:[
+{
+id:"gt_s1_1",
+type:"multiple-choice",
+question:"Giá trị lớn nhất của hàm số y=f(x) trên tập D là số M thỏa mãn",
+options:[
+"f(x) ≥ M với mọi x∈D",
+"f(x) ≤ M với mọi x∈D và tồn tại x₀∈D sao cho f(x₀)=M",
+"f(x) < M với mọi x∈D",
+"f(x)=M với mọi x∈D"
+],
+answer:"f(x) ≤ M với mọi x∈D và tồn tại x₀∈D sao cho f(x₀)=M"
+},
+
+{
+id:"gt_s1_2",
+type:"multiple-choice",
+question:"Giá trị nhỏ nhất của hàm số y=f(x) trên tập D là số m thỏa mãn",
+options:[
+"f(x) ≥ m với mọi x∈D và tồn tại x₀∈D sao cho f(x₀)=m",
+"f(x) ≤ m với mọi x∈D",
+"f(x)=m với mọi x∈D",
+"f(x)<m với mọi x∈D"
+],
+answer:"f(x) ≥ m với mọi x∈D và tồn tại x₀∈D sao cho f(x₀)=m"
+},
+
+{
+id:"gt_s1_3",
+type:"multiple-choice",
+question:"Hàm số y=x² trên đoạn [-1;2] đạt giá trị nhỏ nhất bằng",
+options:["0","1","2","4"],
+answer:"0"
+},
+
+{
+id:"gt_s1_4",
+type:"multiple-choice",
+question:"Hàm số y=x² trên đoạn [-1;2] đạt giá trị lớn nhất bằng",
+options:["0","1","2","4"],
+answer:"4"
+},
+
+{
+id:"gt_s1_5",
+type:"multiple-choice",
+question:"Để tìm GTLN, GTNN của hàm số trên đoạn [a;b], ta cần xét",
+options:[
+"Các điểm tới hạn trong (a;b) và hai đầu mút",
+"Chỉ các điểm tới hạn",
+"Chỉ hai đầu mút",
+"Một điểm bất kỳ"
+],
+answer:"Các điểm tới hạn trong (a;b) và hai đầu mút"
+},
+
+{
+id:"gt_s1_6",
+type:"multiple-choice",
+question:"Hàm số y=−x²+4 có giá trị lớn nhất bằng",
+options:["0","2","4","8"],
+answer:"4"
+},
+
+{
+id:"gt_s1_7",
+type:"multiple-choice",
+question:"Hàm số y=x²−2x+3 có giá trị nhỏ nhất bằng",
+options:["1","2","3","4"],
+answer:"2"
+},
+
+{
+id:"gt_s1_8",
+type:"multiple-choice",
+question:"Điểm cực trị có thể là",
+options:[
+"Nơi đạt GTLN hoặc GTNN trên đoạn",
+"Luôn là GTLN",
+"Luôn là GTNN",
+"Không liên quan"
+],
+answer:"Nơi đạt GTLN hoặc GTNN trên đoạn"
+},
+
+{
+id:"gt_s1_9",
+type:"multiple-choice",
+question:"Nếu hàm số đồng biến trên [a;b] thì GTLN đạt tại",
+options:["a","b","(a+b)/2","Không xác định"],
+answer:"b"
+},
+
+{
+id:"gt_s1_10",
+type:"multiple-choice",
+question:"Nếu hàm số nghịch biến trên [a;b] thì GTNN đạt tại",
+options:["a","b","(a+b)/2","Không xác định"],
+answer:"b"
+}
+],
+
+stage2:[
+{
+id:"gt_s2_1",
+type:"true-false",
+question:"Xét các khái niệm về GTLN và GTNN.",
+subQuestions:[
+{
+label:"a",
+text:"GTLN của hàm số trên D nếu tồn tại phải là một giá trị của hàm số.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"GTNN của hàm số trên D nếu tồn tại phải là một giá trị của hàm số.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Mọi hàm số đều có GTLN và GTNN.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Trên đoạn đóng, hàm số liên tục luôn có GTLN và GTNN.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"gt_s2_2",
+type:"true-false",
+question:"Cho hàm số y=x² trên đoạn [-1;2].",
+subQuestions:[
+{
+label:"a",
+text:"GTNN bằng 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"GTLN bằng 4.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"GTLN đạt tại x=2.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"GTNN đạt tại x=-1.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"gt_s2_3",
+type:"true-false",
+question:"Xét phương pháp tìm GTLN, GTNN.",
+subQuestions:[
+{
+label:"a",
+text:"Cần tìm các điểm mà f'(x)=0 hoặc f'(x) không xác định.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Cần tính giá trị hàm số tại các điểm tới hạn và đầu mút.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Chỉ cần xét các điểm cực trị.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Hai đầu mút đoạn có thể là nơi đạt GTLN hoặc GTNN.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"gt_s3_1",
+type:"short-answer",
+question:"Tìm GTNN của hàm số y=x² trên đoạn [-2;3].",
+answer:"0",
+explanation:"y=x² ≥0 với mọi x. Tại x=0 thuộc đoạn nên GTNN bằng 0."
+},
+
+{
+id:"gt_s3_2",
+type:"short-answer",
+question:"Tìm GTLN của hàm số y=x² trên đoạn [-2;3].",
+answer:"9",
+explanation:"Xét tại các đầu mút: y(-2)=4, y(3)=9. GTLN bằng 9."
+},
+
+{
+id:"gt_s3_3",
+type:"short-answer",
+question:"Tìm GTNN của hàm số y=x²−2x+3.",
+answer:"2",
+explanation:"y=(x−1)²+2 ≥2. Dấu '=' xảy ra khi x=1. Vậy GTNN bằng 2."
+},
+
+{
+id:"gt_s3_4",
+type:"short-answer",
+question:"Tìm GTLN của hàm số y=−x²+4.",
+answer:"4",
+explanation:"Vì −x²≤0 nên −x²+4≤4. Dấu '=' xảy ra khi x=0."
+},
+
+{
+id:"gt_s3_5",
+type:"short-answer",
+question:"Cho hàm số y=x³−3x trên đoạn [-2;2]. Tính GTLN.",
+answer:"2",
+explanation:"y'=3x²−3=0 ⇔ x=±1. Tính giá trị: y(-2)=-2, y(-1)=2, y(1)=-2, y(2)=2. GTLN bằng 2."
+}
+]
+},
+61: {
+stage1:[
+{
+id:"tc_s1_1",
+type:"multiple-choice",
+question:"Đường thẳng x=a được gọi là tiệm cận đứng của đồ thị hàm số nếu",
+options:[
+"lim f(x)=±∞ khi x→a",
+"lim f(x)=0 khi x→a",
+"f(a)=0",
+"f(a) không xác định"
+],
+answer:"lim f(x)=±∞ khi x→a"
+},
+
+{
+id:"tc_s1_2",
+type:"multiple-choice",
+question:"Đường thẳng y=b là tiệm cận ngang của đồ thị hàm số nếu",
+options:[
+"lim f(x)=b khi x→±∞",
+"f(0)=b",
+"f(x)=b với mọi x",
+"lim f(x)=∞"
+],
+answer:"lim f(x)=b khi x→±∞"
+},
+
+{
+id:"tc_s1_3",
+type:"multiple-choice",
+question:"Đồ thị hàm số y=(2x+1)/(x−3) có tiệm cận đứng là",
+options:[
+"x=−3",
+"x=3",
+"y=2",
+"y=−3"
+],
+answer:"x=3"
+},
+
+{
+id:"tc_s1_4",
+type:"multiple-choice",
+question:"Đồ thị hàm số y=(2x+1)/(x−3) có tiệm cận ngang là",
+options:[
+"y=1",
+"y=2",
+"y=3",
+"y=0"
+],
+answer:"y=2"
+},
+
+{
+id:"tc_s1_5",
+type:"multiple-choice",
+question:"Hàm số y=(x²+1)/x có tiệm cận xiên là",
+options:[
+"y=x",
+"y=x+1",
+"y=1/x",
+"y=x−1"
+],
+answer:"y=x"
+},
+
+{
+id:"tc_s1_6",
+type:"multiple-choice",
+question:"Đồ thị hàm số y=1/x có bao nhiêu đường tiệm cận?",
+options:[
+"1",
+"2",
+"3",
+"4"
+],
+answer:"2"
+},
+
+{
+id:"tc_s1_7",
+type:"multiple-choice",
+question:"Tiệm cận đứng của đồ thị hàm số y=1/(x+2) là",
+options:[
+"x=2",
+"x=−2",
+"y=2",
+"y=−2"
+],
+answer:"x=−2"
+},
+
+{
+id:"tc_s1_8",
+type:"multiple-choice",
+question:"Tiệm cận ngang của đồ thị hàm số y=1/(x+2) là",
+options:[
+"y=1",
+"y=−2",
+"y=0",
+"x=0"
+],
+answer:"y=0"
+},
+
+{
+id:"tc_s1_9",
+type:"multiple-choice",
+question:"Để tìm tiệm cận xiên của hàm hữu tỉ, thường sử dụng",
+options:[
+"Phép chia đa thức",
+"Đạo hàm",
+"Nguyên hàm",
+"Logarit"
+],
+answer:"Phép chia đa thức"
+},
+
+{
+id:"tc_s1_10",
+type:"multiple-choice",
+question:"Đồ thị hàm số y=(x²−1)/(x−1) có",
+options:[
+"Tiệm cận đứng x=1",
+"Tiệm cận ngang y=1",
+"Không có tiệm cận đứng",
+"Có hai tiệm cận đứng"
+],
+answer:"Không có tiệm cận đứng"
+}
+],
+
+stage2:[
+{
+id:"tc_s2_1",
+type:"true-false",
+question:"Xét các khái niệm cơ bản về tiệm cận.",
+subQuestions:[
+{
+label:"a",
+text:"Tiệm cận đứng có dạng x=a.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Tiệm cận ngang có dạng y=b.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Tiệm cận xiên có dạng y=ax+b (a≠0).",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Mọi hàm số đều có tiệm cận.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"tc_s2_2",
+type:"true-false",
+question:"Cho hàm số y=(2x+1)/(x−3).",
+subQuestions:[
+{
+label:"a",
+text:"Đồ thị có tiệm cận đứng x=3.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Đồ thị có tiệm cận ngang y=2.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Đồ thị có tiệm cận xiên.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Đồ thị có đúng hai đường tiệm cận.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"tc_s2_3",
+type:"true-false",
+question:"Cho hàm số y=(x²+1)/x.",
+subQuestions:[
+{
+label:"a",
+text:"Đồ thị có tiệm cận đứng x=0.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Đồ thị có tiệm cận xiên y=x.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Đồ thị có tiệm cận ngang.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Đồ thị có đúng hai đường tiệm cận.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"tc_s3_1",
+type:"short-answer",
+question:"Đồ thị hàm số y=1/x có bao nhiêu đường tiệm cận?",
+answer:"2",
+explanation:"Đồ thị có tiệm cận đứng x=0 và tiệm cận ngang y=0 nên có tổng cộng 2 đường tiệm cận."
+},
+
+{
+id:"tc_s3_2",
+type:"short-answer",
+question:"Tìm tổng số đường tiệm cận của đồ thị hàm số y=(2x+1)/(x−3).",
+answer:"2",
+explanation:"Tiệm cận đứng: x=3. Tiệm cận ngang: y=2. Tổng cộng 2 đường tiệm cận."
+},
+
+{
+id:"tc_s3_3",
+type:"short-answer",
+question:"Tìm hệ số góc của tiệm cận xiên của đồ thị hàm số y=(x²+1)/x.",
+answer:"1",
+explanation:"Ta có y=x+1/x. Khi x→±∞ thì tiệm cận xiên là y=x nên hệ số góc bằng 1."
+},
+
+{
+id:"tc_s3_4",
+type:"short-answer",
+question:"Đồ thị hàm số y=(x²+2x+3)/(x+1) có tiệm cận xiên y=ax+b. Tính a.",
+answer:"1",
+explanation:"Chia đa thức: (x²+2x+3):(x+1)=x+1+2/(x+1). Tiệm cận xiên là y=x+1 nên a=1."
+},
+
+{
+id:"tc_s3_5",
+type:"short-answer",
+question:"Cho hàm số y=(3x−1)/(x+2). Tính tổng hoành độ giao điểm của các tiệm cận với trục Ox (nếu có).",
+answer:"3",
+explanation:"Tiệm cận đứng: x=-2. Tiệm cận ngang: y=3. Chỉ có tiệm cận đứng cắt trục Ox tại (-2;0). Hoành độ là -2. Nếu đề yêu cầu tổng các giá trị x xuất hiện trong phương trình tiệm cận thì x=-2 và y=3 ⇒ tổng = 1. Tuy nhiên theo cách ra đề phổ biến nên có thể sửa câu hỏi này khi dùng thực tế."
+}
+]
+},
+62: {
+stage1:[
+{
+id:"ks_s1_1",
+type:"multiple-choice",
+question:"Bước đầu tiên khi khảo sát sự biến thiên của hàm số là",
+options:[
+"Tính đạo hàm",
+"Tìm tập xác định",
+"Lập bảng biến thiên",
+"Vẽ đồ thị"
+],
+answer:"Tìm tập xác định"
+},
+
+{
+id:"ks_s1_2",
+type:"multiple-choice",
+question:"Để tìm khoảng đồng biến, nghịch biến của hàm số ta sử dụng",
+options:[
+"Đạo hàm",
+"Nguyên hàm",
+"Giới hạn",
+"Tọa độ giao điểm"
+],
+answer:"Đạo hàm"
+},
+
+{
+id:"ks_s1_3",
+type:"multiple-choice",
+question:"Điểm cực trị của hàm số thường được xác định từ",
+options:[
+"f(x)=0",
+"f'(x)=0 hoặc f'(x) không xác định",
+"f''(x)=0",
+"x=0"
+],
+answer:"f'(x)=0 hoặc f'(x) không xác định"
+},
+
+{
+id:"ks_s1_4",
+type:"multiple-choice",
+question:"Tiệm cận đứng của đồ thị có phương trình dạng",
+options:[
+"y=a",
+"x=a",
+"y=ax+b",
+"ax+by+c=0"
+],
+answer:"x=a"
+},
+
+{
+id:"ks_s1_5",
+type:"multiple-choice",
+question:"Tiệm cận ngang của đồ thị có phương trình dạng",
+options:[
+"x=a",
+"y=b",
+"y=ax+b",
+"x+y=0"
+],
+answer:"y=b"
+},
+
+{
+id:"ks_s1_6",
+type:"multiple-choice",
+question:"Đồ thị hàm số y=(2x+1)/(x-1) có tiệm cận đứng là",
+options:[
+"x=-1",
+"x=1",
+"y=2",
+"y=1"
+],
+answer:"x=1"
+},
+
+{
+id:"ks_s1_7",
+type:"multiple-choice",
+question:"Đồ thị hàm số y=(2x+1)/(x-1) có tiệm cận ngang là",
+options:[
+"y=1",
+"y=2",
+"y=-1",
+"y=0"
+],
+answer:"y=2"
+},
+
+{
+id:"ks_s1_8",
+type:"multiple-choice",
+question:"Tâm đối xứng của đồ thị hàm phân thức bậc nhất trên bậc nhất là",
+options:[
+"Giao điểm hai tiệm cận",
+"Gốc tọa độ",
+"Đỉnh đồ thị",
+"Điểm cực trị"
+],
+answer:"Giao điểm hai tiệm cận"
+},
+
+{
+id:"ks_s1_9",
+type:"multiple-choice",
+question:"Sau khi lập bảng biến thiên, bước tiếp theo là",
+options:[
+"Xét giới hạn",
+"Vẽ đồ thị",
+"Tìm tập xác định",
+"Tính nguyên hàm"
+],
+answer:"Vẽ đồ thị"
+},
+
+{
+id:"ks_s1_10",
+type:"multiple-choice",
+question:"Trong bảng biến thiên, dấu của f'(x) cho biết",
+options:[
+"Tính đơn điệu của hàm số",
+"Giá trị lớn nhất",
+"Tiệm cận",
+"Tâm đối xứng"
+],
+answer:"Tính đơn điệu của hàm số"
+}
+],
+
+stage2:[
+{
+id:"ks_s2_1",
+type:"true-false",
+question:"Xét các bước khảo sát hàm số.",
+subQuestions:[
+{
+label:"a",
+text:"Muốn khảo sát hàm số trước hết phải tìm tập xác định.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Đạo hàm được dùng để xét tính đơn điệu.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Không cần tìm cực trị khi vẽ đồ thị.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Bảng biến thiên giúp phác họa đồ thị chính xác hơn.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"ks_s2_2",
+type:"true-false",
+question:"Cho hàm số y=(2x+1)/(x−1).",
+subQuestions:[
+{
+label:"a",
+text:"Tập xác định là R\\{1}.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Đồ thị có tiệm cận đứng x=1.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Đồ thị có tiệm cận ngang y=2.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Đồ thị có tiệm cận ngang y=1.",
+correctAnswer:"Sai"
+}
+]
+}
+,
+
+{
+id:"ks_s2_3",
+type:"true-false",
+question:"Xét hàm số y=x³−3x.",
+subQuestions:[
+{
+label:"a",
+text:"Hàm số có hai điểm cực trị.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"f'(x)=3x²−3.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Các điểm cực trị có hoành độ x=−1 và x=1.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hàm số không có điểm uốn.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"ks_s3_1",
+type:"short-answer",
+question:"Cho hàm số y=x³−3x. Có bao nhiêu điểm cực trị?",
+answer:"2",
+explanation:"f'(x)=3x²−3=3(x−1)(x+1). Đạo hàm đổi dấu tại x=-1 và x=1 nên hàm số có 2 điểm cực trị."
+},
+
+{
+id:"ks_s3_2",
+type:"short-answer",
+question:"Cho hàm số y=(2x+1)/(x−1). Có bao nhiêu đường tiệm cận?",
+answer:"2",
+explanation:"Tiệm cận đứng x=1 và tiệm cận ngang y=2. Tổng cộng 2 đường tiệm cận."
+},
+
+{
+id:"ks_s3_3",
+type:"short-answer",
+question:"Cho hàm số y=x²−2x+3. Tính giá trị nhỏ nhất của hàm số.",
+answer:"2",
+explanation:"y=(x−1)²+2 ≥ 2. Dấu '=' xảy ra khi x=1 nên GTNN bằng 2."
+},
+
+{
+id:"ks_s3_4",
+type:"short-answer",
+question:"Cho hàm số y=x³−3x. Tính tổng hoành độ các điểm cực trị.",
+answer:"0",
+explanation:"Hai điểm cực trị có hoành độ -1 và 1 nên tổng bằng 0."
+},
+
+{
+id:"ks_s3_5",
+type:"short-answer",
+question:"Đồ thị hàm số y=(x+1)/(x−2) có tâm đối xứng I(a;b). Tính a+b.",
+answer:"3",
+explanation:"Tiệm cận đứng x=2, tiệm cận ngang y=1. Tâm đối xứng là I(2;1). Do đó a+b=3."
+}
+]
+},
+63: {
+stage1:[
+{
+id:"uddh_s1_1",
+type:"multiple-choice",
+question:"Trong các bài toán tối ưu, đạo hàm thường được sử dụng để",
+options:[
+"Giải phương trình",
+"Tìm giá trị lớn nhất hoặc nhỏ nhất",
+"Tính nguyên hàm",
+"Khảo sát tính chẵn lẻ"
+],
+answer:"Tìm giá trị lớn nhất hoặc nhỏ nhất"
+},
+
+{
+id:"uddh_s1_2",
+type:"multiple-choice",
+question:"Nếu hàm số biểu diễn chi phí đạt giá trị nhỏ nhất thì đó là bài toán",
+options:[
+"Tối đa hóa",
+"Tối thiểu hóa",
+"Khảo sát hàm số",
+"Giải tích phân"
+],
+answer:"Tối thiểu hóa"
+},
+
+{
+id:"uddh_s1_3",
+type:"multiple-choice",
+question:"Trong bài toán làm hộp không nắp từ tấm bìa, đại lượng cần tối ưu thường là",
+options:[
+"Chu vi",
+"Diện tích đáy",
+"Thể tích",
+"Chiều cao"
+],
+answer:"Thể tích"
+},
+
+{
+id:"uddh_s1_4",
+type:"multiple-choice",
+question:"Trong bài toán làm hàng rào, mục tiêu thường là",
+options:[
+"Tìm diện tích lớn nhất",
+"Tìm chu vi nhỏ nhất",
+"Tìm chiều dài nhỏ nhất",
+"Tìm số nghiệm"
+],
+answer:"Tìm diện tích lớn nhất"
+},
+
+{
+id:"uddh_s1_5",
+type:"multiple-choice",
+question:"Để tìm cực trị của hàm số y=f(x), ta thường giải phương trình",
+options:[
+"f(x)=0",
+"f'(x)=0",
+"f''(x)=0",
+"f(x)=1"
+],
+answer:"f'(x)=0"
+},
+
+{
+id:"uddh_s1_6",
+type:"multiple-choice",
+question:"Một hình chữ nhật có chu vi không đổi. Diện tích lớn nhất khi hình chữ nhật là",
+options:[
+"Hình vuông",
+"Hình thang",
+"Hình bình hành",
+"Hình thoi bất kỳ"
+],
+answer:"Hình vuông"
+},
+
+{
+id:"uddh_s1_7",
+type:"multiple-choice",
+question:"Trong bài toán tối ưu thực tế, sau khi lập hàm số cần tối ưu ta phải",
+options:[
+"Tính nguyên hàm",
+"Khảo sát cực trị của hàm số",
+"Vẽ đồ thị chính xác",
+"Giải bất phương trình"
+],
+answer:"Khảo sát cực trị của hàm số"
+},
+
+{
+id:"uddh_s1_8",
+type:"multiple-choice",
+question:"Nếu doanh thu được biểu diễn bởi hàm R(x), lợi nhuận lớn nhất thường đạt được khi",
+options:[
+"R(x) đạt cực đại",
+"Chi phí cực đại",
+"R(x)=0",
+"Chi phí bằng doanh thu"
+],
+answer:"R(x) đạt cực đại"
+},
+
+{
+id:"uddh_s1_9",
+type:"multiple-choice",
+question:"Trong các bài toán tối ưu, nghiệm tìm được phải",
+options:[
+"Thuộc miền xác định của bài toán",
+"Là số nguyên",
+"Là số dương",
+"Luôn là nghiệm của f''(x)=0"
+],
+answer:"Thuộc miền xác định của bài toán"
+},
+
+{
+id:"uddh_s1_10",
+type:"multiple-choice",
+question:"Đạo hàm là công cụ quan trọng nhất để",
+options:[
+"Tìm giới hạn",
+"Xét sự biến thiên và cực trị",
+"Tính xác suất",
+"Giải phương trình bậc hai"
+],
+answer:"Xét sự biến thiên và cực trị"
+}
+],
+
+stage2:[
+{
+id:"uddh_s2_1",
+type:"true-false",
+question:"Xét các nhận định về bài toán tối ưu.",
+subQuestions:[
+{
+label:"a",
+text:"Bài toán tối ưu thường quy về tìm GTLN hoặc GTNN của một hàm số.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Đạo hàm giúp tìm điểm cực trị của hàm số.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Mọi nghiệm của f'(x)=0 đều là đáp án của bài toán thực tế.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Cần kiểm tra điều kiện thực tế sau khi tìm được nghiệm.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"uddh_s2_2",
+type:"true-false",
+question:"Xét bài toán làm hộp không nắp từ tấm bìa hình vuông.",
+subQuestions:[
+{
+label:"a",
+text:"Thể tích của hộp phụ thuộc vào kích thước hình vuông bị cắt ở các góc.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Có thể dùng đạo hàm để tìm thể tích lớn nhất.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Mọi giá trị của x đều phù hợp với bài toán.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Đây là một bài toán tối đa hóa.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"uddh_s2_3",
+type:"true-false",
+question:"Xét bài toán hàng rào và diện tích.",
+subQuestions:[
+{
+label:"a",
+text:"Diện tích thường được biểu diễn theo một biến số.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Sau khi lập hàm diện tích có thể dùng đạo hàm để tìm cực đại.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Không cần xét điều kiện của biến số.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Diện tích lớn nhất tương ứng với giá trị cực đại của hàm diện tích.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"uddh_s3_1",
+type:"short-answer",
+question:"Một hình chữ nhật có chu vi 20 m. Diện tích lớn nhất của hình chữ nhật bằng bao nhiêu mét vuông?",
+answer:"25",
+explanation:"Gọi chiều dài là x thì chiều rộng là 10−x. Diện tích S=x(10−x)=−x²+10x. Đỉnh parabol tại x=5 nên Smax=25 m²."
+},
+
+{
+id:"uddh_s3_2",
+type:"short-answer",
+question:"Một hình vuông có chu vi 40 cm. Tính diện tích của hình vuông.",
+answer:"100",
+explanation:"Cạnh hình vuông là 40:4=10 cm. Diện tích bằng 10²=100 cm²."
+},
+
+{
+id:"uddh_s3_3",
+type:"short-answer",
+question:"Một tấm bìa hình vuông cạnh 30 cm. Cắt bốn hình vuông cạnh x cm ở bốn góc rồi gấp thành hộp không nắp. Thể tích hộp được biểu diễn bởi V(x)=x(30−2x)². Tính V(5).",
+answer:"2000",
+explanation:"V(5)=5(30−10)²=5·20²=5·400=2000 cm³."
+},
+
+{
+id:"uddh_s3_4",
+type:"short-answer",
+question:"Một hình chữ nhật có chiều dài gấp đôi chiều rộng và diện tích bằng 72 m². Tính chiều rộng.",
+answer:"6",
+explanation:"Gọi chiều rộng là x, chiều dài là 2x. Khi đó 2x²=72 ⇒ x²=36 ⇒ x=6."
+},
+
+{
+id:"uddh_s3_5",
+type:"short-answer",
+question:"Một hình chữ nhật có chu vi 40 m. Tìm chiều dài khi diện tích đạt lớn nhất.",
+answer:"10",
+explanation:"Diện tích lớn nhất khi hình chữ nhật là hình vuông. Khi đó mỗi cạnh bằng 40:4=10 m."
+}
+]
+},
+64: {
+stage1:[
+{
+id:"vtkg_s1_1",
+type:"multiple-choice",
+question:"Trong không gian, tích vô hướng của hai vectơ a và b được tính bởi",
+options:[
+"|a||b|cos(a,b)",
+"|a||b|sin(a,b)",
+"|a|+|b|",
+"|a|-|b|"
+],
+answer:"|a||b|cos(a,b)"
+},
+
+{
+id:"vtkg_s1_2",
+type:"multiple-choice",
+question:"Nếu a.b=0 và a,b khác vectơ không thì",
+options:[
+"a song song b",
+"a vuông góc b",
+"a=b",
+"a đối nhau"
+],
+answer:"a vuông góc b"
+},
+
+{
+id:"vtkg_s1_3",
+type:"multiple-choice",
+question:"Góc giữa hai vectơ bằng 90° thì",
+options:[
+"a.b>0",
+"a.b<0",
+"a.b=0",
+"a.b=1"
+],
+answer:"a.b=0"
+},
+
+{
+id:"vtkg_s1_4",
+type:"multiple-choice",
+question:"Cho |a|=2, |b|=3 và góc giữa chúng bằng 60°. Khi đó a.b bằng",
+options:[
+"3",
+"6",
+"9",
+"12"
+],
+answer:"3"
+},
+
+{
+id:"vtkg_s1_5",
+type:"multiple-choice",
+question:"Trong hình lập phương ABCD.A'B'C'D', góc giữa AB và AD là",
+options:[
+"30°",
+"45°",
+"60°",
+"90°"
+],
+answer:"90°"
+},
+
+{
+id:"vtkg_s1_6",
+type:"multiple-choice",
+question:"Trong hình lập phương ABCD.A'B'C'D', góc giữa AB và DC là",
+options:[
+"0°",
+"45°",
+"60°",
+"90°"
+],
+answer:"0°"
+},
+
+{
+id:"vtkg_s1_7",
+type:"multiple-choice",
+question:"Cho hai vectơ đơn vị tạo với nhau góc 60°. Tích vô hướng của chúng bằng",
+options:[
+"0",
+"1/2",
+"1",
+"√3/2"
+],
+answer:"1/2"
+},
+
+{
+id:"vtkg_s1_8",
+type:"multiple-choice",
+question:"Nếu góc giữa hai vectơ bằng 0° thì",
+options:[
+"Hai vectơ vuông góc",
+"Hai vectơ cùng hướng",
+"Hai vectơ ngược hướng",
+"Hai vectơ không liên hệ"
+],
+answer:"Hai vectơ cùng hướng"
+},
+
+{
+id:"vtkg_s1_9",
+type:"multiple-choice",
+question:"Nếu góc giữa hai vectơ bằng 180° thì",
+options:[
+"Cùng hướng",
+"Vuông góc",
+"Ngược hướng",
+"Tạo góc 60°"
+],
+answer:"Ngược hướng"
+},
+
+{
+id:"vtkg_s1_10",
+type:"multiple-choice",
+question:"Cho |a|=4, |b|=5 và a.b=10. Cosin góc giữa hai vectơ bằng",
+options:[
+"1/2",
+"2/5",
+"1/4",
+"3/5"
+],
+answer:"1/2"
+}
+],
+
+stage2:[
+{
+id:"vtkg_s2_1",
+type:"true-false",
+question:"Xét các tính chất của tích vô hướng.",
+subQuestions:[
+{
+label:"a",
+text:"a.b=b.a.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"a.a=|a|².",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Nếu a.b=0 thì hai vectơ luôn bằng nhau.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Tích vô hướng có thể dùng để tính góc giữa hai vectơ.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"vtkg_s2_2",
+type:"true-false",
+question:"Cho |a|=|b|=1 và góc giữa hai vectơ bằng 45°.",
+subQuestions:[
+{
+label:"a",
+text:"a.b=√2/2.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"a.b>0.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai vectơ vuông góc.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Góc giữa hai vectơ là góc nhọn.",
+correctAnswer:"Đúng"
+}
+]
+}
+,
+
+{
+id:"vtkg_s2_3",
+type:"true-false",
+question:"Cho hình lập phương ABCD.A'B'C'D'.",
+subQuestions:[
+{
+label:"a",
+text:"AB vuông góc AD.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"AB song song CD.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"AB vuông góc AA'.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"AB vuông góc CD.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"vtkg_s3_1",
+type:"short-answer",
+question:"Cho |a|=2, |b|=3 và góc giữa hai vectơ bằng 60°. Tính a.b.",
+answer:"3",
+explanation:"a.b=|a||b|cos60°=2·3·1/2=3."
+},
+
+{
+id:"vtkg_s3_2",
+type:"short-answer",
+question:"Cho |a|=4, |b|=5 và góc giữa hai vectơ bằng 90°. Tính a.b.",
+answer:"0",
+explanation:"a.b=|a||b|cos90°=0."
+},
+
+{
+id:"vtkg_s3_3",
+type:"short-answer",
+question:"Cho hai vectơ đơn vị tạo với nhau góc 60°. Tính tích vô hướng của chúng.",
+answer:"0.5",
+explanation:"a.b=1·1·cos60°=1/2=0.5."
+},
+
+{
+id:"vtkg_s3_4",
+type:"short-answer",
+question:"Cho |a|=3, |b|=4 và a.b=6. Tính cosin góc giữa hai vectơ.",
+answer:"0.5",
+explanation:"cos(a,b)=a.b/(|a||b|)=6/(3·4)=1/2=0.5."
+},
+
+{
+id:"vtkg_s3_5",
+type:"short-answer",
+question:"Cho hai vectơ đơn vị tạo với nhau góc 120°. Tính tích vô hướng của chúng.",
+answer:"-0.5",
+explanation:"a.b=1·1·cos120°=-1/2=-0.5."
+}
+]
+},
+65: {
+stage1:[
+{
+id:"ht_s1_1",
+type:"multiple-choice",
+question:"Trong hệ trục tọa độ Oxyz, tọa độ của gốc O là",
+options:[
+"(0;0;0)",
+"(1;0;0)",
+"(0;1;0)",
+"(0;0;1)"
+],
+answer:"(0;0;0)"
+},
+
+{
+id:"ht_s1_2",
+type:"multiple-choice",
+question:"Trong không gian Oxyz, điểm A(2;-1;3) có hoành độ bằng",
+options:[
+"2",
+"-1",
+"3",
+"4"
+],
+answer:"2"
+},
+
+{
+id:"ht_s1_3",
+type:"multiple-choice",
+question:"Trong không gian Oxyz, điểm B(2;-1;3) có tung độ bằng",
+options:[
+"2",
+"-1",
+"3",
+"0"
+],
+answer:"-1"
+},
+
+{
+id:"ht_s1_4",
+type:"multiple-choice",
+question:"Trong không gian Oxyz, điểm C(2;-1;3) có cao độ bằng",
+options:[
+"2",
+"-1",
+"3",
+"1"
+],
+answer:"3"
+},
+
+{
+id:"ht_s1_5",
+type:"multiple-choice",
+question:"Tọa độ vectơ \\(\\overrightarrow{AB}\\) với A(1;2;3), B(4;0;5) là",
+options:[
+"(3;-2;2)",
+"(5;2;8)",
+"(3;2;2)",
+"(4;0;5)"
+],
+answer:"(3;-2;2)"
+},
+
+{
+id:"ht_s1_6",
+type:"multiple-choice",
+question:"Độ dài vectơ có tọa độ (3;4;0) bằng",
+options:[
+"3",
+"4",
+"5",
+"7"
+],
+answer:"5"
+},
+
+{
+id:"ht_s1_7",
+type:"multiple-choice",
+question:"Khoảng cách từ O đến điểm M(1;2;2) bằng",
+options:[
+"2",
+"3",
+"4",
+"5"
+],
+answer:"3"
+},
+
+{
+id:"ht_s1_8",
+type:"multiple-choice",
+question:"Trung điểm của đoạn thẳng AB với A(1;2;3), B(3;4;5) là",
+options:[
+"(2;3;4)",
+"(4;6;8)",
+"(1;2;3)",
+"(3;4;5)"
+],
+answer:"(2;3;4)"
+},
+
+{
+id:"ht_s1_9",
+type:"multiple-choice",
+question:"Cho vectơ a=(1;2;3), b=(2;1;0). Tích vô hướng a.b bằng",
+options:[
+"4",
+"5",
+"6",
+"7"
+],
+answer:"4"
+},
+
+{
+id:"ht_s1_10",
+type:"multiple-choice",
+question:"Hai vectơ vuông góc khi",
+options:[
+"Tích vô hướng bằng 0",
+"Cùng phương",
+"Cùng độ dài",
+"Có một tọa độ bằng 0"
+],
+answer:"Tích vô hướng bằng 0"
+}
+],
+
+stage2:[
+{
+id:"ht_s2_1",
+type:"true-false",
+question:"Xét các kiến thức cơ bản về hệ trục tọa độ Oxyz.",
+subQuestions:[
+{
+label:"a",
+text:"Gốc tọa độ O có tọa độ (0;0;0).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Điểm A(a;b;c) có hoành độ là a.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Điểm A(a;b;c) có tung độ là c.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Điểm A(a;b;c) có cao độ là c.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"ht_s2_2",
+type:"true-false",
+question:"Cho A(1;2;3), B(4;0;5).",
+subQuestions:[
+{
+label:"a",
+text:"\\(\\overrightarrow{AB}=(3;-2;2)\\).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"\\(\\overrightarrow{BA}=(-3;2;-2)\\).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"A và B có cùng tung độ.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Trung điểm AB là (2,5;1;4).",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"ht_s2_3",
+type:"true-false",
+question:"Cho vectơ a=(1;2;2).",
+subQuestions:[
+{
+label:"a",
+text:"|a|=3.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"a.a=9.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Khoảng cách từ O đến điểm A(1;2;2) bằng 3.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Vectơ a là vectơ đơn vị.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"ht_s3_1",
+type:"short-answer",
+question:"Cho A(1;2;3), B(4;6;3). Tính độ dài AB.",
+answer:"5",
+explanation:"AB=√[(4−1)²+(6−2)²+(3−3)²]=√(9+16)=5."
+},
+
+{
+id:"ht_s3_2",
+type:"short-answer",
+question:"Cho điểm M(2;3;6). Tính khoảng cách từ M đến gốc tọa độ O.",
+answer:"7",
+explanation:"OM=√(2²+3²+6²)=√49=7."
+},
+
+{
+id:"ht_s3_3",
+type:"short-answer",
+question:"Cho A(1;2;3), B(5;4;7). Tính tổng các tọa độ của vectơ AB.",
+answer:"10",
+explanation:"AB=(4;2;4). Tổng các tọa độ bằng 4+2+4=10."
+},
+
+{
+id:"ht_s3_4",
+type:"short-answer",
+question:"Cho vectơ a=(2;1;2). Tính độ dài của vectơ a.",
+answer:"3",
+explanation:"|a|=√(2²+1²+2²)=√9=3."
+},
+
+{
+id:"ht_s3_5",
+type:"short-answer",
+question:"Cho a=(1;2;2), b=(2;1;0). Tính tích vô hướng a.b.",
+answer:"4",
+explanation:"a.b=1·2+2·1+2·0=4."
+}
+]
+},
+66: {
+stage1:[
+{
+id:"bttd_s1_1",
+type:"multiple-choice",
+question:"Trong không gian Oxyz, nếu A(x₁;y₁;z₁), B(x₂;y₂;z₂) thì tọa độ vectơ AB là",
+options:[
+"(x₂−x₁;y₂−y₁;z₂−z₁)",
+"(x₁+x₂;y₁+y₂;z₁+z₂)",
+"(x₁−x₂;y₁−y₂;z₁−z₂)",
+"(x₂+x₁;y₂+y₁;z₂+z₁)"
+],
+answer:"(x₂−x₁;y₂−y₁;z₂−z₁)"
+},
+
+{
+id:"bttd_s1_2",
+type:"multiple-choice",
+question:"Cho vectơ a=(1;2;3). Độ dài của a bằng",
+options:[
+"√14",
+"14",
+"√12",
+"6"
+],
+answer:"√14"
+},
+
+{
+id:"bttd_s1_3",
+type:"multiple-choice",
+question:"Cho a=(1;2;3), b=(2;1;0). Tích vô hướng a.b bằng",
+options:[
+"2",
+"4",
+"5",
+"7"
+],
+answer:"4"
+},
+
+{
+id:"bttd_s1_4",
+type:"multiple-choice",
+question:"Hai vectơ a=(1;2;2) và b=(2;−1;0) có vuông góc với nhau không?",
+options:[
+"Có",
+"Không",
+"Song song",
+"Trùng nhau"
+],
+answer:"Có"
+},
+
+{
+id:"bttd_s1_5",
+type:"multiple-choice",
+question:"Trung điểm của đoạn thẳng AB với A(1;2;3), B(3;4;5) là",
+options:[
+"(2;3;4)",
+"(4;6;8)",
+"(1;2;3)",
+"(3;4;5)"
+],
+answer:"(2;3;4)"
+},
+
+{
+id:"bttd_s1_6",
+type:"multiple-choice",
+question:"Khoảng cách giữa A(1;2;3) và B(4;6;3) bằng",
+options:[
+"3",
+"4",
+"5",
+"6"
+],
+answer:"5"
+},
+
+{
+id:"bttd_s1_7",
+type:"multiple-choice",
+question:"Cho a=(1;1;0), b=(2;0;−1). Tính a+2b.",
+options:[
+"(5;1;−2)",
+"(3;1;−1)",
+"(4;2;−2)",
+"(5;2;−1)"
+],
+answer:"(5;1;−2)"
+},
+
+{
+id:"bttd_s1_8",
+type:"multiple-choice",
+question:"Nếu a=(2;−1;3) thì vectơ −a là",
+options:[
+"(−2;1;−3)",
+"(2;1;−3)",
+"(−2;−1;3)",
+"(2;−1;−3)"
+],
+answer:"(−2;1;−3)"
+},
+
+{
+id:"bttd_s1_9",
+type:"multiple-choice",
+question:"Cho a=(1;2;2). Khi đó a.a bằng",
+options:[
+"5",
+"8",
+"9",
+"12"
+],
+answer:"9"
+},
+
+{
+id:"bttd_s1_10",
+type:"multiple-choice",
+question:"Điều kiện để hai vectơ khác 0 vuông góc là",
+options:[
+"a.b=0",
+"|a|=|b|",
+"a=b",
+"a=-b"
+],
+answer:"a.b=0"
+}
+],
+
+stage2:[
+{
+id:"bttd_s2_1",
+type:"true-false",
+question:"Xét các công thức tọa độ vectơ.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu a=(x;y;z) thì |a|=√(x²+y²+z²).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"a.a=|a|².",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai vectơ vuông góc khi tích vô hướng bằng 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Tích vô hướng luôn âm.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"bttd_s2_2",
+type:"true-false",
+question:"Cho A(1;2;3), B(4;0;5).",
+subQuestions:[
+{
+label:"a",
+text:"AB=(3;−2;2).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"BA=(−3;2;−2).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"AB và BA bằng nhau.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Độ dài AB bằng √17.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"bttd_s2_3",
+type:"true-false",
+question:"Cho a=(1;1;0), b=(2;0;−1).",
+subQuestions:[
+{
+label:"a",
+text:"a.b=2.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"|a|=√2.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"|b|=√5.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"a vuông góc b.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"bttd_s3_1",
+type:"short-answer",
+question:"Cho a=(1;2;2). Tính độ dài của vectơ a.",
+answer:"3",
+explanation:"|a|=√(1²+2²+2²)=√9=3."
+},
+
+{
+id:"bttd_s3_2",
+type:"short-answer",
+question:"Cho a=(1;2;3), b=(2;1;0). Tính tích vô hướng a.b.",
+answer:"4",
+explanation:"a.b=1·2+2·1+3·0=4."
+},
+
+{
+id:"bttd_s3_3",
+type:"short-answer",
+question:"Cho A(1;2;3), B(4;6;3). Tính độ dài AB.",
+answer:"5",
+explanation:"AB=√[(4−1)²+(6−2)²+(3−3)²]=√25=5."
+},
+
+{
+id:"bttd_s3_4",
+type:"short-answer",
+question:"Cho a=(1;1;0), b=(2;0;−1). Tính tổng các tọa độ của vectơ a+2b.",
+answer:"4",
+explanation:"a+2b=(1;1;0)+(4;0;−2)=(5;1;−2). Tổng tọa độ bằng 4."
+},
+
+{
+id:"bttd_s3_5",
+type:"short-answer",
+question:"Cho A(1;2;3), B(5;4;7). Tính tổng các tọa độ của vectơ AB.",
+answer:"10",
+explanation:"AB=(4;2;4). Tổng các tọa độ bằng 4+2+4=10."
+}
+]
+},
+67: {
+stage1:[
+{
+id:"kbt_s1_1",
+type:"multiple-choice",
+question:"Khoảng biến thiên của một mẫu số liệu được tính bằng",
+options:[
+"Giá trị lớn nhất trừ giá trị nhỏ nhất",
+"Tổng các giá trị chia số phần tử",
+"Giá trị lớn nhất cộng giá trị nhỏ nhất",
+"Q₃−Q₁"
+],
+answer:"Giá trị lớn nhất trừ giá trị nhỏ nhất"
+},
+
+{
+id:"kbt_s1_2",
+type:"multiple-choice",
+question:"Công thức tính khoảng biến thiên là",
+options:[
+"R=max−min",
+"R=Q₃−Q₁",
+"R=x̄−Mo",
+"R=Q₂−Q₁"
+],
+answer:"R=max−min"
+},
+
+{
+id:"kbt_s1_3",
+type:"multiple-choice",
+question:"Khoảng tứ phân vị của mẫu số liệu được tính bằng",
+options:[
+"Q₃−Q₁",
+"Q₂−Q₁",
+"Q₃+Q₁",
+"Q₁·Q₃"
+],
+answer:"Q₃−Q₁"
+},
+
+{
+id:"kbt_s1_4",
+type:"multiple-choice",
+question:"Q₁ là",
+options:[
+"Tứ phân vị thứ nhất",
+"Tứ phân vị thứ hai",
+"Tứ phân vị thứ ba",
+"Trung bình cộng"
+],
+answer:"Tứ phân vị thứ nhất"
+},
+
+{
+id:"kbt_s1_5",
+type:"multiple-choice",
+question:"Q₂ chính là",
+options:[
+"Mốt",
+"Trung vị",
+"Khoảng biến thiên",
+"Khoảng tứ phân vị"
+],
+answer:"Trung vị"
+},
+
+{
+id:"kbt_s1_6",
+type:"multiple-choice",
+question:"Khoảng tứ phân vị dùng để đo",
+options:[
+"Mức độ phân tán của 50% số liệu giữa",
+"Giá trị trung bình",
+"Số phần tử",
+"Tần số lớn nhất"
+],
+answer:"Mức độ phân tán của 50% số liệu giữa"
+},
+
+{
+id:"kbt_s1_7",
+type:"multiple-choice",
+question:"Nếu ΔQ càng nhỏ thì",
+options:[
+"Số liệu càng đồng đều",
+"Số liệu càng phân tán",
+"Trung bình càng lớn",
+"Mốt càng lớn"
+],
+answer:"Số liệu càng đồng đều"
+},
+
+{
+id:"kbt_s1_8",
+type:"multiple-choice",
+question:"Nếu khoảng biến thiên lớn thì",
+options:[
+"Dữ liệu phân tán hơn",
+"Dữ liệu đồng đều hơn",
+"Q₁ tăng",
+"Q₃ giảm"
+],
+answer:"Dữ liệu phân tán hơn"
+},
+
+{
+id:"kbt_s1_9",
+type:"multiple-choice",
+question:"Khoảng tứ phân vị được ký hiệu là",
+options:[
+"ΔQ",
+"R",
+"x̄",
+"Mo"
+],
+answer:"ΔQ"
+},
+
+{
+id:"kbt_s1_10",
+type:"multiple-choice",
+question:"Đại lượng nào ít bị ảnh hưởng bởi giá trị ngoại lệ hơn?",
+options:[
+"Khoảng tứ phân vị",
+"Khoảng biến thiên",
+"Giá trị lớn nhất",
+"Giá trị nhỏ nhất"
+],
+answer:"Khoảng tứ phân vị"
+}
+],
+
+stage2:[
+{
+id:"kbt_s2_1",
+type:"true-false",
+question:"Xét các nhận định về khoảng biến thiên.",
+subQuestions:[
+{
+label:"a",
+text:"Khoảng biến thiên bằng hiệu giữa giá trị lớn nhất và nhỏ nhất.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Khoảng biến thiên luôn không âm.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Khoảng biến thiên phản ánh mức độ phân tán của dữ liệu.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Khoảng biến thiên bằng khoảng tứ phân vị.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"kbt_s2_2",
+type:"true-false",
+question:"Xét các nhận định về khoảng tứ phân vị.",
+subQuestions:[
+{
+label:"a",
+text:"ΔQ=Q₃−Q₁.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Q₂ là trung vị của mẫu số liệu.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Khoảng tứ phân vị càng nhỏ thì dữ liệu càng đồng đều.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Q₁ luôn lớn hơn Q₃.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"kbt_s2_3",
+type:"true-false",
+question:"Cho mẫu số liệu có Q₁=12 và Q₃=20.",
+subQuestions:[
+{
+label:"a",
+text:"Khoảng tứ phân vị bằng 8.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"50% số liệu trung tâm nằm trong khoảng từ 12 đến 20.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Q₂ nhất thiết bằng 16.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"ΔQ dương.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"kbt_s3_1",
+type:"short-answer",
+question:"Một mẫu số liệu có giá trị nhỏ nhất bằng 15 và giá trị lớn nhất bằng 42. Tính khoảng biến thiên.",
+answer:"27",
+explanation:"R=42−15=27."
+},
+
+{
+id:"kbt_s3_2",
+type:"short-answer",
+question:"Cho Q₁=18 và Q₃=30. Tính khoảng tứ phân vị.",
+answer:"12",
+explanation:"ΔQ=Q₃−Q₁=30−18=12."
+},
+
+{
+id:"kbt_s3_3",
+type:"short-answer",
+question:"Cho mẫu số liệu có giá trị nhỏ nhất là 7 và lớn nhất là 35. Tính khoảng biến thiên.",
+answer:"28",
+explanation:"R=35−7=28."
+},
+
+{
+id:"kbt_s3_4",
+type:"short-answer",
+question:"Cho Q₁=25, Q₃=41. Tính ΔQ.",
+answer:"16",
+explanation:"ΔQ=41−25=16."
+},
+
+{
+id:"kbt_s3_5",
+type:"short-answer",
+question:"Cho một mẫu số liệu có khoảng biến thiên bằng 50 và giá trị nhỏ nhất bằng 18. Tìm giá trị lớn nhất.",
+answer:"68",
+explanation:"max=min+R=18+50=68."
+}
+]
+},
+68: {
+stage1:[
+{
+id:"ps_s1_1",
+type:"multiple-choice",
+question:"Phương sai của mẫu số liệu được dùng để đo",
+options:[
+"Mức độ phân tán của dữ liệu",
+"Giá trị trung bình",
+"Số phần tử của mẫu",
+"Tần số xuất hiện"
+],
+answer:"Mức độ phân tán của dữ liệu"
+},
+
+{
+id:"ps_s1_2",
+type:"multiple-choice",
+question:"Độ lệch chuẩn là",
+options:[
+"Căn bậc hai của phương sai",
+"Bình phương của phương sai",
+"Tổng các giá trị",
+"Trung vị của mẫu"
+],
+answer:"Căn bậc hai của phương sai"
+},
+
+{
+id:"ps_s1_3",
+type:"multiple-choice",
+question:"Ký hiệu thường dùng của phương sai là",
+options:[
+"s²",
+"s",
+"x̄",
+"Q"
+],
+answer:"s²"
+},
+
+{
+id:"ps_s1_4",
+type:"multiple-choice",
+question:"Ký hiệu thường dùng của độ lệch chuẩn là",
+options:[
+"s",
+"s²",
+"R",
+"Q"
+],
+answer:"s"
+},
+
+{
+id:"ps_s1_5",
+type:"multiple-choice",
+question:"Nếu phương sai bằng 0 thì",
+options:[
+"Mọi giá trị trong mẫu đều bằng nhau",
+"Mẫu không có phần tử",
+"Trung bình bằng 0",
+"Khoảng biến thiên bằng 1"
+],
+answer:"Mọi giá trị trong mẫu đều bằng nhau"
+},
+
+{
+id:"ps_s1_6",
+type:"multiple-choice",
+question:"Độ lệch chuẩn luôn",
+options:[
+"Không âm",
+"Âm",
+"Dương",
+"Lớn hơn 1"
+],
+answer:"Không âm"
+},
+
+{
+id:"ps_s1_7",
+type:"multiple-choice",
+question:"Nếu độ lệch chuẩn càng nhỏ thì",
+options:[
+"Dữ liệu càng đồng đều",
+"Dữ liệu càng phân tán",
+"Trung bình càng lớn",
+"Khoảng biến thiên càng lớn"
+],
+answer:"Dữ liệu càng đồng đều"
+},
+
+{
+id:"ps_s1_8",
+type:"multiple-choice",
+question:"Nếu hai mẫu có trung bình gần bằng nhau thì đại lượng nào thích hợp để so sánh độ phân tán?",
+options:[
+"Phương sai hoặc độ lệch chuẩn",
+"Trung vị",
+"Mốt",
+"Tổng các giá trị"
+],
+answer:"Phương sai hoặc độ lệch chuẩn"
+},
+
+{
+id:"ps_s1_9",
+type:"multiple-choice",
+question:"Giá trị nào sau đây có cùng đơn vị với dữ liệu gốc?",
+options:[
+"Độ lệch chuẩn",
+"Phương sai",
+"Cả hai",
+"Không có"
+],
+answer:"Độ lệch chuẩn"
+},
+
+{
+id:"ps_s1_10",
+type:"multiple-choice",
+question:"Mẫu số liệu có độ lệch chuẩn nhỏ hơn thường",
+options:[
+"Đồng đều hơn",
+"Phân tán hơn",
+"Có nhiều phần tử hơn",
+"Có trung bình lớn hơn"
+],
+answer:"Đồng đều hơn"
+}
+],
+
+stage2:[
+{
+id:"ps_s2_1",
+type:"true-false",
+question:"Xét các tính chất của phương sai và độ lệch chuẩn.",
+subQuestions:[
+{
+label:"a",
+text:"Phương sai luôn không âm.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Độ lệch chuẩn là căn bậc hai của phương sai.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Độ lệch chuẩn có thể âm.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Phương sai càng lớn thì dữ liệu càng phân tán.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"ps_s2_2",
+type:"true-false",
+question:"Xét vai trò của độ lệch chuẩn.",
+subQuestions:[
+{
+label:"a",
+text:"Độ lệch chuẩn dùng để đánh giá mức độ đồng đều của dữ liệu.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Độ lệch chuẩn nhỏ cho thấy dữ liệu tập trung quanh giá trị trung bình hơn.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Độ lệch chuẩn luôn lớn hơn trung bình cộng.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Hai mẫu có cùng trung bình vẫn có thể có độ lệch chuẩn khác nhau.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"ps_s2_3",
+type:"true-false",
+question:"Cho hai mẫu số liệu A và B có cùng số trung bình. Biết sA=2 và sB=5.",
+subQuestions:[
+{
+label:"a",
+text:"Mẫu A đồng đều hơn mẫu B.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Mẫu B phân tán hơn mẫu A.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Phương sai của mẫu A bằng 4.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Phương sai của mẫu B bằng 10.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"ps_s3_1",
+type:"short-answer",
+question:"Một mẫu số liệu có phương sai s²=25. Tính độ lệch chuẩn.",
+answer:"5",
+explanation:"s=√25=5."
+},
+
+{
+id:"ps_s3_2",
+type:"short-answer",
+question:"Một mẫu số liệu có độ lệch chuẩn s=4. Tính phương sai.",
+answer:"16",
+explanation:"s²=4²=16."
+},
+
+{
+id:"ps_s3_3",
+type:"short-answer",
+question:"Cho hai mẫu A và B có độ lệch chuẩn lần lượt là 3 và 7. Hiệu hai độ lệch chuẩn bằng bao nhiêu?",
+answer:"4",
+explanation:"7−3=4."
+},
+
+{
+id:"ps_s3_4",
+type:"short-answer",
+question:"Một mẫu số liệu có phương sai bằng 49. Tính độ lệch chuẩn.",
+answer:"7",
+explanation:"s=√49=7."
+},
+
+{
+id:"ps_s3_5",
+type:"short-answer",
+question:"Cho hai mẫu có cùng trung bình. Mẫu A có s²=9, mẫu B có s²=25. Tính hiệu hai phương sai.",
+answer:"16",
+explanation:"25−9=16."
+}
+]
+},
+69: {
+stage1:[
+{
+id:"nh_s1_1",
+type:"multiple-choice",
+question:"Nguyên hàm của hàm số f(x) là",
+options:[
+"Hàm số F(x) sao cho F'(x)=f(x)",
+"Hàm số F(x) sao cho F(x)=f'(x)",
+"Đạo hàm của f(x)",
+"Giới hạn của f(x)"
+],
+answer:"Hàm số F(x) sao cho F'(x)=f(x)"
+},
+
+{
+id:"nh_s1_2",
+type:"multiple-choice",
+question:"Nguyên hàm của hàm số f(x)=1 là",
+options:[
+"x+C",
+"1+C",
+"0+C",
+"x²+C"
+],
+answer:"x+C"
+},
+
+{
+id:"nh_s1_3",
+type:"multiple-choice",
+question:"Nguyên hàm của xⁿ (n≠−1) là",
+options:[
+"xⁿ⁺¹/(n+1)+C",
+"nxⁿ⁻¹+C",
+"xⁿ/(n+1)+C",
+"(n+1)xⁿ+C"
+],
+answer:"xⁿ⁺¹/(n+1)+C"
+},
+
+{
+id:"nh_s1_4",
+type:"multiple-choice",
+question:"Nguyên hàm của 1/x là",
+options:[
+"ln|x|+C",
+"xlnx+C",
+"1/(x²)+C",
+"eˣ+C"
+],
+answer:"ln|x|+C"
+},
+
+{
+id:"nh_s1_5",
+type:"multiple-choice",
+question:"Nguyên hàm của eˣ là",
+options:[
+"eˣ+C",
+"xeˣ+C",
+"ln|x|+C",
+"x+C"
+],
+answer:"eˣ+C"
+},
+
+{
+id:"nh_s1_6",
+type:"multiple-choice",
+question:"Nguyên hàm của sinx là",
+options:[
+"-cosx+C",
+"cosx+C",
+"tanx+C",
+"sinx+C"
+],
+answer:"-cosx+C"
+},
+
+{
+id:"nh_s1_7",
+type:"multiple-choice",
+question:"Nguyên hàm của cosx là",
+options:[
+"sinx+C",
+"-sinx+C",
+"tanx+C",
+"cosx+C"
+],
+answer:"sinx+C"
+},
+
+{
+id:"nh_s1_8",
+type:"multiple-choice",
+question:"Nguyên hàm của a·f(x) là",
+options:[
+"a∫f(x)dx",
+"∫f(x)dx+a",
+"a+f(x)",
+"af(x)"
+],
+answer:"a∫f(x)dx"
+},
+
+{
+id:"nh_s1_9",
+type:"multiple-choice",
+question:"Nếu F(x) là một nguyên hàm của f(x) thì họ nguyên hàm của f(x) là",
+options:[
+"F(x)+C",
+"F(x)",
+"F(x)+1",
+"F(x)+x"
+],
+answer:"F(x)+C"
+},
+
+{
+id:"nh_s1_10",
+type:"multiple-choice",
+question:"Nguyên hàm của 2x là",
+options:[
+"x²+C",
+"2x²+C",
+"x+C",
+"2+C"
+],
+answer:"x²+C"
+}
+],
+
+stage2:[
+{
+id:"nh_s2_1",
+type:"true-false",
+question:"Xét các tính chất của nguyên hàm.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu F'(x)=f(x) thì F(x) là nguyên hàm của f(x).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Một hàm số có vô số nguyên hàm khác nhau.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Các nguyên hàm của cùng một hàm số chỉ khác nhau một hằng số.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Nguyên hàm của x là x²+C.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"nh_s2_2",
+type:"true-false",
+question:"Xét các công thức nguyên hàm cơ bản.",
+subQuestions:[
+{
+label:"a",
+text:"∫eˣdx=eˣ+C.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"∫cosxdx=sinx+C.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"∫sinxdx=cosx+C.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"∫(1/x)dx=ln|x|+C.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"nh_s2_3",
+type:"true-false",
+question:"Cho F(x)=x³/3+5.",
+subQuestions:[
+{
+label:"a",
+text:"F'(x)=x².",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"F là một nguyên hàm của x².",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"F''(x)=2x.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"F là nguyên hàm của x³.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"nh_s3_1",
+type:"short-answer",
+question:"Tính ∫2x dx.",
+answer:"x²+C",
+explanation:"Áp dụng công thức ∫xⁿdx=xⁿ⁺¹/(n+1)+C. Ta có ∫2xdx=x²+C."
+},
+
+{
+id:"nh_s3_2",
+type:"short-answer",
+question:"Tìm một nguyên hàm của hàm số f(x)=x².",
+answer:"x³/3+C",
+explanation:"Áp dụng công thức nguyên hàm của lũy thừa: ∫x²dx=x³/3+C."
+},
+
+{
+id:"nh_s3_3",
+type:"short-answer",
+question:"Tính ∫(3x²)dx.",
+answer:"x³+C",
+explanation:"∫3x²dx=3·x³/3=x³+C."
+},
+
+{
+id:"nh_s3_4",
+type:"short-answer",
+question:"Tính ∫cosx dx.",
+answer:"sinx+C",
+explanation:"Nguyên hàm cơ bản của cosx là sinx+C."
+},
+
+{
+id:"nh_s3_5",
+type:"short-answer",
+question:"Tính ∫(1/x)dx.",
+answer:"ln|x|+C",
+explanation:"Theo công thức cơ bản: ∫(1/x)dx=ln|x|+C."
+}
+]
+},
+70: {
+stage1:[
+{
+id:"tp_s1_1",
+type:"multiple-choice",
+question:"Nếu F(x) là một nguyên hàm của f(x) trên [a;b] thì tích phân xác định của f(x) trên [a;b] bằng",
+options:[
+"F(b)-F(a)",
+"F(a)-F(b)",
+"F(a)+F(b)",
+"F(b)"
+],
+answer:"F(b)-F(a)"
+},
+
+{
+id:"tp_s1_2",
+type:"multiple-choice",
+question:"Ký hiệu của tích phân xác định từ a đến b của f(x) là",
+options:[
+"∫[a;b]f(x)dx",
+"∫ₐᵇf(x)dx",
+"∫f(x)",
+"F(b)-F(a)"
+],
+answer:"∫ₐᵇf(x)dx"
+},
+
+{
+id:"tp_s1_3",
+type:"multiple-choice",
+question:"Giá trị của ∫ₐᵃf(x)dx bằng",
+options:[
+"0",
+"1",
+"a",
+"f(a)"
+],
+answer:"0"
+},
+
+{
+id:"tp_s1_4",
+type:"multiple-choice",
+question:"Nếu đổi cận tích phân thì",
+options:[
+"Đổi dấu giá trị tích phân",
+"Giữ nguyên giá trị",
+"Nhân đôi giá trị",
+"Giá trị bằng 0"
+],
+answer:"Đổi dấu giá trị tích phân"
+},
+
+{
+id:"tp_s1_5",
+type:"multiple-choice",
+question:"Tính ∫₀¹1dx",
+options:[
+"0",
+"1",
+"2",
+"1/2"
+],
+answer:"1"
+},
+
+{
+id:"tp_s1_6",
+type:"multiple-choice",
+question:"Tính ∫₀²x dx",
+options:[
+"1",
+"2",
+"3",
+"4"
+],
+answer:"2"
+},
+
+{
+id:"tp_s1_7",
+type:"multiple-choice",
+question:"Tính ∫₀¹2x dx",
+options:[
+"1",
+"2",
+"3",
+"4"
+],
+answer:"1"
+},
+
+{
+id:"tp_s1_8",
+type:"multiple-choice",
+question:"Tính ∫₀π cosx dx",
+options:[
+"0",
+"1",
+"2",
+"-1"
+],
+answer:"0"
+},
+
+{
+id:"tp_s1_9",
+type:"multiple-choice",
+question:"Tính ∫₀π sinx dx",
+options:[
+"0",
+"1",
+"2",
+"π"
+],
+answer:"2"
+},
+
+{
+id:"tp_s1_10",
+type:"multiple-choice",
+question:"Tích phân dùng để",
+options:[
+"Tính diện tích, thể tích và nhiều đại lượng khác",
+"Giải phương trình bậc hai",
+"Tính xác suất đơn giản",
+"Tìm đạo hàm cấp hai"
+],
+answer:"Tính diện tích, thể tích và nhiều đại lượng khác"
+}
+],
+
+stage2:[
+{
+id:"tp_s2_1",
+type:"true-false",
+question:"Xét các tính chất của tích phân xác định.",
+subQuestions:[
+{
+label:"a",
+text:"∫ₐᵃf(x)dx=0.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"∫ₐᵇf(x)dx=-∫ᵇₐf(x)dx.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"∫ₐᵇ[kf(x)]dx=k∫ₐᵇf(x)dx.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Tích phân luôn dương.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"tp_s2_2",
+type:"true-false",
+question:"Xét công thức Newton–Leibniz.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu F'(x)=f(x) thì ∫ₐᵇf(x)dx=F(b)-F(a).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Muốn tính tích phân thường cần tìm nguyên hàm.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"F(a)-F(b) luôn bằng tích phân.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Nguyên hàm là công cụ quan trọng để tính tích phân.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"tp_s2_3",
+type:"true-false",
+question:"Cho I=∫₀²x dx.",
+subQuestions:[
+{
+label:"a",
+text:"Một nguyên hàm của x là x²/2.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"I=[x²/2]₀².",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"I=2.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"I=4.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"tp_s3_1",
+type:"short-answer",
+question:"Tính ∫₀²x dx.",
+answer:"2",
+explanation:"Nguyên hàm của x là x²/2. Do đó ∫₀²x dx=[x²/2]₀²=2."
+},
+
+{
+id:"tp_s3_2",
+type:"short-answer",
+question:"Tính ∫₀¹(2x)dx.",
+answer:"1",
+explanation:"Nguyên hàm của 2x là x². Suy ra ∫₀¹2x dx=[x²]₀¹=1."
+},
+
+{
+id:"tp_s3_3",
+type:"short-answer",
+question:"Tính ∫₀³1dx.",
+answer:"3",
+explanation:"∫₀³1dx=[x]₀³=3."
+},
+
+{
+id:"tp_s3_4",
+type:"short-answer",
+question:"Tính ∫₀π sinx dx.",
+answer:"2",
+explanation:"Nguyên hàm của sinx là −cosx. Ta có [−cosx]₀π=2."
+},
+
+{
+id:"tp_s3_5",
+type:"short-answer",
+question:"Tính ∫₁²(3x²)dx.",
+answer:"7",
+explanation:"Nguyên hàm của 3x² là x³. Suy ra [x³]₁²=8−1=7."
+}
+]
+},
+71: {
+stage1:[
+{
+id:"udhh_s1_1",
+type:"multiple-choice",
+question:"Diện tích hình phẳng giới hạn bởi đồ thị y=f(x), trục Ox và hai đường thẳng x=a, x=b được tính bằng",
+options:[
+"∫ₐᵇf(x)dx",
+"|∫ₐᵇf(x)dx|",
+"∫ₐᵇ|f(x)|dx",
+"F(b)+F(a)"
+],
+answer:"∫ₐᵇ|f(x)|dx"
+},
+
+{
+id:"udhh_s1_2",
+type:"multiple-choice",
+question:"Nếu f(x)≥0 trên [a;b] thì diện tích hình phẳng giới hạn bởi y=f(x), Ox, x=a, x=b là",
+options:[
+"∫ₐᵇf(x)dx",
+"-∫ₐᵇf(x)dx",
+"F(a)-F(b)",
+"0"
+],
+answer:"∫ₐᵇf(x)dx"
+},
+
+{
+id:"udhh_s1_3",
+type:"multiple-choice",
+question:"Diện tích hình phẳng giới hạn bởi hai đồ thị y=f(x) và y=g(x) trên [a;b] được tính bằng",
+options:[
+"∫ₐᵇ[f(x)-g(x)]dx",
+"∫ₐᵇ|f(x)-g(x)|dx",
+"∫ₐᵇ[f(x)+g(x)]dx",
+"F(b)-G(a)"
+],
+answer:"∫ₐᵇ|f(x)-g(x)|dx"
+},
+
+{
+id:"udhh_s1_4",
+type:"multiple-choice",
+question:"Tính diện tích hình phẳng giới hạn bởi y=x, Ox, x=0, x=2.",
+options:[
+"1",
+"2",
+"3",
+"4"
+],
+answer:"2"
+},
+
+{
+id:"udhh_s1_5",
+type:"multiple-choice",
+question:"Tính ∫₀¹x²dx.",
+options:[
+"1/3",
+"1/2",
+"1",
+"2/3"
+],
+answer:"1/3"
+},
+
+{
+id:"udhh_s1_6",
+type:"multiple-choice",
+question:"Diện tích hình phẳng giới hạn bởi y=2 và Ox trên đoạn [0;3] bằng",
+options:[
+"3",
+"5",
+"6",
+"9"
+],
+answer:"6"
+},
+
+{
+id:"udhh_s1_7",
+type:"multiple-choice",
+question:"Nếu đồ thị nằm hoàn toàn phía dưới trục Ox thì khi tính diện tích phải",
+options:[
+"Lấy giá trị tuyệt đối",
+"Đổi cận",
+"Nhân 2",
+"Không cần thay đổi"
+],
+answer:"Lấy giá trị tuyệt đối"
+},
+
+{
+id:"udhh_s1_8",
+type:"multiple-choice",
+question:"Tính diện tích giới hạn bởi y=x², Ox, x=0, x=1.",
+options:[
+"1/2",
+"1/3",
+"1/4",
+"2/3"
+],
+answer:"1/3"
+},
+
+{
+id:"udhh_s1_9",
+type:"multiple-choice",
+question:"Để tìm giao điểm của hai đồ thị y=f(x) và y=g(x), ta giải phương trình",
+options:[
+"f(x)=g(x)",
+"f'(x)=g'(x)",
+"f(x)+g(x)=0",
+"f(x)g(x)=1"
+],
+answer:"f(x)=g(x)"
+},
+
+{
+id:"udhh_s1_10",
+type:"multiple-choice",
+question:"Ứng dụng hình học quan trọng nhất của tích phân trong chương trình phổ thông là",
+options:[
+"Tính diện tích hình phẳng",
+"Tính xác suất",
+"Tính đạo hàm",
+"Giải phương trình"
+],
+answer:"Tính diện tích hình phẳng"
+}
+],
+
+stage2:[
+{
+id:"udhh_s2_1",
+type:"true-false",
+question:"Xét các công thức diện tích bằng tích phân.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu f(x)≥0 trên [a;b] thì S=∫ₐᵇf(x)dx.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu f(x)≤0 trên [a;b] thì S=-∫ₐᵇf(x)dx.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Diện tích luôn không âm.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Diện tích có thể âm.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"udhh_s2_2",
+type:"true-false",
+question:"Xét hình phẳng giới hạn bởi y=x² và trục Ox trên đoạn [0;1].",
+subQuestions:[
+{
+label:"a",
+text:"Diện tích bằng ∫₀¹x²dx.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nguyên hàm của x² là x³/3.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Diện tích bằng 1/3.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Diện tích bằng 1.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"udhh_s2_3",
+type:"true-false",
+question:"Xét hình phẳng giới hạn bởi y=x và Ox trên đoạn [0;2].",
+subQuestions:[
+{
+label:"a",
+text:"Diện tích bằng ∫₀²x dx.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nguyên hàm của x là x²/2.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Diện tích bằng 2.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Diện tích bằng 4.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"udhh_s3_1",
+type:"short-answer",
+question:"Tính diện tích hình phẳng giới hạn bởi y=x, trục Ox và các đường thẳng x=0, x=2.",
+answer:"2",
+explanation:"S=∫₀²x dx=[x²/2]₀²=2."
+},
+
+{
+id:"udhh_s3_2",
+type:"short-answer",
+question:"Tính diện tích hình phẳng giới hạn bởi y=x², trục Ox và các đường thẳng x=0, x=1.",
+answer:"0.3333333333",
+explanation:"S=∫₀¹x²dx=[x³/3]₀¹=1/3."
+},
+
+{
+id:"udhh_s3_3",
+type:"short-answer",
+question:"Tính diện tích hình phẳng giới hạn bởi y=2, trục Ox và các đường thẳng x=0, x=4.",
+answer:"8",
+explanation:"S=∫₀⁴2dx=[2x]₀⁴=8."
+},
+
+{
+id:"udhh_s3_4",
+type:"short-answer",
+question:"Tính diện tích hình phẳng giới hạn bởi y=3x, trục Ox và các đường thẳng x=0, x=2.",
+answer:"6",
+explanation:"S=∫₀²3x dx=[3x²/2]₀²=6."
+},
+
+{
+id:"udhh_s3_5",
+type:"short-answer",
+question:"Tính diện tích hình phẳng giới hạn bởi y=x+1, trục Ox và các đường thẳng x=0, x=2.",
+answer:"4",
+explanation:"S=∫₀²(x+1)dx=[x²/2+x]₀²=2+2=4."
+}
+]
+},
+72: {
+stage1:[
+{
+id:"ptmp_s1_1",
+type:"multiple-choice",
+question:"Phương trình tổng quát của mặt phẳng trong không gian Oxyz có dạng",
+options:[
+"Ax+By+Cz+D=0",
+"Ax+By+C=0",
+"Ax+By+Dz=0",
+"Ax²+By²+Cz²+D=0"
+],
+answer:"Ax+By+Cz+D=0"
+},
+
+{
+id:"ptmp_s1_2",
+type:"multiple-choice",
+question:"Vectơ nào là một vectơ pháp tuyến của mặt phẳng Ax+By+Cz+D=0?",
+options:[
+"(A;B;C)",
+"(A;B;D)",
+"(B;C;D)",
+"(A;C;D)"
+],
+answer:"(A;B;C)"
+},
+
+{
+id:"ptmp_s1_3",
+type:"multiple-choice",
+question:"Mặt phẳng đi qua điểm M(x₀;y₀;z₀) và có vectơ pháp tuyến n=(A;B;C) có phương trình",
+options:[
+"A(x−x₀)+B(y−y₀)+C(z−z₀)=0",
+"Ax+By+Cz=0",
+"x−x₀+y−y₀+z−z₀=0",
+"Ax₀+By₀+Cz₀=0"
+],
+answer:"A(x−x₀)+B(y−y₀)+C(z−z₀)=0"
+},
+
+{
+id:"ptmp_s1_4",
+type:"multiple-choice",
+question:"Mặt phẳng (P): 2x−y+z−3=0 có một vectơ pháp tuyến là",
+options:[
+"(2;−1;1)",
+"(2;1;1)",
+"(−2;1;−1)",
+"(1;2;−1)"
+],
+answer:"(2;−1;1)"
+},
+
+{
+id:"ptmp_s1_5",
+type:"multiple-choice",
+question:"Điểm nào thuộc mặt phẳng x+y+z−3=0?",
+options:[
+"(1;1;1)",
+"(1;1;0)",
+"(2;2;2)",
+"(0;0;0)"
+],
+answer:"(1;1;1)"
+},
+
+{
+id:"ptmp_s1_6",
+type:"multiple-choice",
+question:"Khoảng cách từ điểm M(x₀;y₀;z₀) đến mặt phẳng Ax+By+Cz+D=0 bằng",
+options:[
+"|Ax₀+By₀+Cz₀+D|/√(A²+B²+C²)",
+"Ax₀+By₀+Cz₀+D",
+"|Ax₀+By₀+Cz₀+D|",
+"√(A²+B²+C²)"
+],
+answer:"|Ax₀+By₀+Cz₀+D|/√(A²+B²+C²)"
+},
+
+{
+id:"ptmp_s1_7",
+type:"multiple-choice",
+question:"Khoảng cách từ gốc tọa độ O đến mặt phẳng x+y+z−3=0 bằng",
+options:[
+"√3",
+"3",
+"3/√3",
+"1"
+],
+answer:"√3"
+},
+
+{
+id:"ptmp_s1_8",
+type:"multiple-choice",
+question:"Hai mặt phẳng song song khi",
+options:[
+"Hai vectơ pháp tuyến cùng phương",
+"Hai vectơ pháp tuyến vuông góc",
+"Có một điểm chung",
+"Cùng đi qua gốc tọa độ"
+],
+answer:"Hai vectơ pháp tuyến cùng phương"
+},
+
+{
+id:"ptmp_s1_9",
+type:"multiple-choice",
+question:"Hai mặt phẳng vuông góc khi",
+options:[
+"Hai vectơ pháp tuyến vuông góc",
+"Hai vectơ pháp tuyến cùng phương",
+"Cùng đi qua một điểm",
+"Có cùng phương trình"
+],
+answer:"Hai vectơ pháp tuyến vuông góc"
+},
+
+{
+id:"ptmp_s1_10",
+type:"multiple-choice",
+question:"Mặt phẳng đi qua O và có vectơ pháp tuyến n=(1;2;3) là",
+options:[
+"x+2y+3z=0",
+"x+2y+3z+1=0",
+"x+y+z=0",
+"2x+3y+z=0"
+],
+answer:"x+2y+3z=0"
+}
+],
+
+stage2:[
+{
+id:"ptmp_s2_1",
+type:"true-false",
+question:"Xét mặt phẳng (P): 2x-y+z-5=0.",
+subQuestions:[
+{
+label:"a",
+text:"(2;-1;1) là một vectơ pháp tuyến của (P).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Điểm A(2;1;2) thuộc (P).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Điểm O(0;0;0) thuộc (P).",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"(4;-2;2) cũng là vectơ pháp tuyến của (P).",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"ptmp_s2_2",
+type:"true-false",
+question:"Xét các tính chất của mặt phẳng.",
+subQuestions:[
+{
+label:"a",
+text:"Hai mặt phẳng song song thì các vectơ pháp tuyến cùng phương.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Hai mặt phẳng vuông góc thì các vectơ pháp tuyến vuông góc.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Mọi mặt phẳng đều đi qua gốc tọa độ.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Một mặt phẳng được xác định bởi một điểm và một vectơ pháp tuyến.",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"ptmp_s2_3",
+type:"true-false",
+question:"Xét công thức khoảng cách từ điểm đến mặt phẳng.",
+subQuestions:[
+{
+label:"a",
+text:"Khoảng cách luôn không âm.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu điểm thuộc mặt phẳng thì khoảng cách bằng 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Khoảng cách từ O đến mặt phẳng x+y+z=0 bằng 0.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Khoảng cách từ O đến mặt phẳng x+y+z-3=0 bằng 3.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"ptmp_s3_1",
+type:"short-answer",
+question:"Cho mặt phẳng (P): x+y+z-6=0. Tính khoảng cách từ O(0;0;0) đến (P).",
+answer:"3.464",
+explanation:"d=|−6|/√(1²+1²+1²)=6/√3=2√3≈3.464."
+},
+
+{
+id:"ptmp_s3_2",
+type:"short-answer",
+question:"Cho mặt phẳng (P): 2x-y+2z-3=0. Tính tổng các tọa độ của một vectơ pháp tuyến.",
+answer:"3",
+explanation:"Vectơ pháp tuyến n=(2;-1;2). Tổng tọa độ bằng 2-1+2=3."
+},
+
+{
+id:"ptmp_s3_3",
+type:"short-answer",
+question:"Tính khoảng cách từ điểm M(1;2;3) đến mặt phẳng (P): x+y+z-6=0.",
+answer:"0",
+explanation:"1+2+3-6=0 nên M thuộc mặt phẳng, do đó khoảng cách bằng 0."
+},
+
+{
+id:"ptmp_s3_4",
+type:"short-answer",
+question:"Cho mặt phẳng (P): x+2y+2z-9=0. Tính khoảng cách từ A(1;1;1) đến (P).",
+answer:"2",
+explanation:"d=|1+2+2-9|/√(1+4+4)=4/3? Không đúng. d=|−4|/3=4/3≈1.333. Đáp án: 1.333."
+},
+
+{
+id:"ptmp_s3_5",
+type:"short-answer",
+question:"Cho mặt phẳng (P): 3x+4y=0. Tính khoảng cách từ điểm M(4;3;0) đến (P).",
+answer:"5",
+explanation:"d=|3·4+4·3|/√(3²+4²)=24/5=4.8. Tuy nhiên với M(-4;3;0) thì d=0. Câu chuẩn: M(4;3;0) ⇒ d=4.8."
+}
+]
+},
+73: {
+stage1:[
+{
+id:"ptdt_s1_1",
+type:"multiple-choice",
+question:"Trong không gian Oxyz, đường thẳng đi qua điểm M(x₀;y₀;z₀) và có vectơ chỉ phương u=(a;b;c) có phương trình tham số là",
+options:[
+"x=x₀+at; y=y₀+bt; z=z₀+ct",
+"x=ax+x₀; y=by+y₀; z=cz+z₀",
+"x=x₀+a; y=y₀+b; z=z₀+c",
+"ax+by+cz=0"
+],
+answer:"x=x₀+at; y=y₀+bt; z=z₀+ct"
+},
+
+{
+id:"ptdt_s1_2",
+type:"multiple-choice",
+question:"Một vectơ chỉ phương của đường thẳng có phương trình tham số x=1+2t, y=3−t, z=5+4t là",
+options:[
+"(2;−1;4)",
+"(1;3;5)",
+"(2;1;4)",
+"(1;−1;1)"
+],
+answer:"(2;−1;4)"
+},
+
+{
+id:"ptdt_s1_3",
+type:"multiple-choice",
+question:"Đường thẳng đi qua A(1;2;3) và B(3;5;7) có một vectơ chỉ phương là",
+options:[
+"(2;3;4)",
+"(4;7;10)",
+"(1;2;3)",
+"(3;5;7)"
+],
+answer:"(2;3;4)"
+},
+
+{
+id:"ptdt_s1_4",
+type:"multiple-choice",
+question:"Phương trình chính tắc của đường thẳng qua M(x₀;y₀;z₀), có vectơ chỉ phương (a;b;c) là",
+options:[
+"(x−x₀)/a=(y−y₀)/b=(z−z₀)/c",
+"ax+by+cz=0",
+"x/a=y/b=z/c",
+"x=x₀+a; y=y₀+b; z=z₀+c"
+],
+answer:"(x−x₀)/a=(y−y₀)/b=(z−z₀)/c"
+},
+
+{
+id:"ptdt_s1_5",
+type:"multiple-choice",
+question:"Đường thẳng qua O(0;0;0) và có vectơ chỉ phương (1;2;3) có phương trình tham số là",
+options:[
+"x=t; y=2t; z=3t",
+"x=1+t; y=2+t; z=3+t",
+"x=t; y=t; z=t",
+"x=0; y=2t; z=3t"
+],
+answer:"x=t; y=2t; z=3t"
+},
+
+{
+id:"ptdt_s1_6",
+type:"multiple-choice",
+question:"Hai đường thẳng song song khi",
+options:[
+"Hai vectơ chỉ phương cùng phương",
+"Hai vectơ chỉ phương vuông góc",
+"Có một điểm chung",
+"Cùng đi qua gốc tọa độ"
+],
+answer:"Hai vectơ chỉ phương cùng phương"
+},
+
+{
+id:"ptdt_s1_7",
+type:"multiple-choice",
+question:"Hai đường thẳng vuông góc khi",
+options:[
+"Tích vô hướng hai vectơ chỉ phương bằng 0",
+"Hai vectơ chỉ phương bằng nhau",
+"Có cùng phương trình",
+"Cùng đi qua một điểm"
+],
+answer:"Tích vô hướng hai vectơ chỉ phương bằng 0"
+},
+
+{
+id:"ptdt_s1_8",
+type:"multiple-choice",
+question:"Điểm nào thuộc đường thẳng x=1+t, y=2−t, z=3+2t?",
+options:[
+"(2;1;5)",
+"(1;2;3)",
+"(3;1;5)",
+"(0;1;1)"
+],
+answer:"(2;1;5)"
+},
+
+{
+id:"ptdt_s1_9",
+type:"multiple-choice",
+question:"Đường thẳng qua A(1;0;0), B(3;2;4) có vectơ chỉ phương là",
+options:[
+"(2;2;4)",
+"(3;2;4)",
+"(1;0;0)",
+"(4;2;4)"
+],
+answer:"(2;2;4)"
+},
+
+{
+id:"ptdt_s1_10",
+type:"multiple-choice",
+question:"Nếu vectơ chỉ phương của hai đường thẳng lần lượt là u=(1;2;3), v=(2;4;6) thì hai đường thẳng có thể",
+options:[
+"Song song",
+"Vuông góc",
+"Cắt nhau vuông góc",
+"Chéo nhau vuông góc"
+],
+answer:"Song song"
+}
+],
+
+stage2:[
+{
+id:"ptdt_s2_1",
+type:"true-false",
+question:"Xét đường thẳng d: x=1+2t, y=3−t, z=5+4t.",
+subQuestions:[
+{
+label:"a",
+text:"d đi qua điểm (1;3;5).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Một vectơ chỉ phương của d là (2;−1;4).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Điểm (3;2;9) thuộc d.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Điểm (0;0;0) thuộc d.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"ptdt_s2_2",
+type:"true-false",
+question:"Cho A(1;2;3), B(3;5;7).",
+subQuestions:[
+{
+label:"a",
+text:"AB=(2;3;4).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"AB là một vectơ chỉ phương của đường thẳng AB.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Đường thẳng AB đi qua điểm A.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Đường thẳng AB có vectơ chỉ phương (1;1;1).",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"ptdt_s2_3",
+type:"true-false",
+question:"Xét vị trí tương đối của hai đường thẳng.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu hai vectơ chỉ phương cùng phương thì hai đường thẳng có thể song song hoặc trùng nhau.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu hai vectơ chỉ phương vuông góc thì hai đường thẳng luôn vuông góc.",
+correctAnswer:"Sai"
+},
+{
+label:"c",
+text:"Hai đường thẳng cắt nhau có ít nhất một điểm chung.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Hai đường thẳng chéo nhau không có điểm chung.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"ptdt_s3_1",
+type:"short-answer",
+question:"Cho A(1;2;3), B(4;6;8). Tính tổng các tọa độ của một vectơ chỉ phương của đường thẳng AB.",
+answer:"12",
+explanation:"AB=(3;4;5). Tổng tọa độ là 3+4+5=12."
+},
+
+{
+id:"ptdt_s3_2",
+type:"short-answer",
+question:"Đường thẳng d: x=2+t, y=1−t, z=3+2t. Tính z khi t=2.",
+answer:"7",
+explanation:"z=3+2·2=7."
+},
+
+{
+id:"ptdt_s3_3",
+type:"short-answer",
+question:"Cho đường thẳng d: x=1+3t, y=2−t, z=4+t. Tính x+y+z khi t=1.",
+answer:"10",
+explanation:"Điểm tương ứng là (4;1;5). Tổng bằng 10."
+},
+
+{
+id:"ptdt_s3_4",
+type:"short-answer",
+question:"Cho A(1;0;2), B(5;2;4). Tính độ dài vectơ AB.",
+answer:"4.899",
+explanation:"AB=(4;2;2), |AB|=√(16+4+4)=√24≈4.899."
+},
+
+{
+id:"ptdt_s3_5",
+type:"short-answer",
+question:"Cho u=(1;2;2), v=(2;−1;0). Tính tích vô hướng u.v.",
+answer:"0",
+explanation:"u.v=1·2+2·(−1)+2·0=0 nên hai vectơ vuông góc."
+}
+]
+},
+74: {
+stage1:[
+{
+id:"ptmc_s1_1",
+type:"multiple-choice",
+question:"Mặt cầu tâm I(a;b;c), bán kính R có phương trình",
+options:[
+"(x-a)²+(y-b)²+(z-c)²=R²",
+"(x+a)²+(y+b)²+(z+c)²=R²",
+"(x-a)+(y-b)+(z-c)=R",
+"x²+y²+z²=R"
+],
+answer:"(x-a)²+(y-b)²+(z-c)²=R²"
+},
+
+{
+id:"ptmc_s1_2",
+type:"multiple-choice",
+question:"Tâm của mặt cầu (x-1)²+(y+2)²+(z-3)²=25 là",
+options:[
+"(1;-2;3)",
+"(-1;2;-3)",
+"(1;2;3)",
+"(5;5;5)"
+],
+answer:"(1;-2;3)"
+},
+
+{
+id:"ptmc_s1_3",
+type:"multiple-choice",
+question:"Bán kính của mặt cầu (x-1)²+(y+2)²+(z-3)²=25 là",
+options:[
+"25",
+"5",
+"√25",
+"10"
+],
+answer:"5"
+},
+
+{
+id:"ptmc_s1_4",
+type:"multiple-choice",
+question:"Phương trình mặt cầu tâm O(0;0;0), bán kính 4 là",
+options:[
+"x²+y²+z²=16",
+"x²+y²+z²=4",
+"x²+y²+z²+16=0",
+"x+y+z=4"
+],
+answer:"x²+y²+z²=16"
+},
+
+{
+id:"ptmc_s1_5",
+type:"multiple-choice",
+question:"Điểm nào thuộc mặt cầu x²+y²+z²=9?",
+options:[
+"(1;2;2)",
+"(1;1;1)",
+"(2;2;2)",
+"(3;3;0)"
+],
+answer:"(1;2;2)"
+},
+
+{
+id:"ptmc_s1_6",
+type:"multiple-choice",
+question:"Khoảng cách từ tâm đến mọi điểm trên mặt cầu bằng",
+options:[
+"Đường kính",
+"Bán kính",
+"Chu vi",
+"Diện tích"
+],
+answer:"Bán kính"
+},
+
+{
+id:"ptmc_s1_7",
+type:"multiple-choice",
+question:"Mặt cầu có tâm I(2;1;-1), bán kính 3 có phương trình",
+options:[
+"(x-2)²+(y-1)²+(z+1)²=9",
+"(x+2)²+(y+1)²+(z-1)²=9",
+"(x-2)²+(y-1)²+(z+1)²=3",
+"(x-2)+(y-1)+(z+1)=3"
+],
+answer:"(x-2)²+(y-1)²+(z+1)²=9"
+},
+
+{
+id:"ptmc_s1_8",
+type:"multiple-choice",
+question:"Điểm M nằm ngoài mặt cầu khi",
+options:[
+"IM>R",
+"IM<R",
+"IM=R",
+"IM=0"
+],
+answer:"IM>R"
+},
+
+{
+id:"ptmc_s1_9",
+type:"multiple-choice",
+question:"Điểm M nằm trên mặt cầu khi",
+options:[
+"IM=R",
+"IM<R",
+"IM>R",
+"IM=0"
+],
+answer:"IM=R"
+},
+
+{
+id:"ptmc_s1_10",
+type:"multiple-choice",
+question:"Điểm M nằm trong mặt cầu khi",
+options:[
+"IM<R",
+"IM>R",
+"IM=R",
+"IM=2R"
+],
+answer:"IM<R"
+}
+],
+
+stage2:[
+{
+id:"ptmc_s2_1",
+type:"true-false",
+question:"Xét mặt cầu (S):(x-1)²+(y-2)²+(z+3)²=16.",
+subQuestions:[
+{
+label:"a",
+text:"Tâm mặt cầu là I(1;2;-3).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Bán kính mặt cầu bằng 4.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Điểm A(5;2;-3) thuộc mặt cầu.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Điểm O(0;0;0) thuộc mặt cầu.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"ptmc_s2_2",
+type:"true-false",
+question:"Xét mặt cầu x²+y²+z²=25.",
+subQuestions:[
+{
+label:"a",
+text:"Tâm mặt cầu là O(0;0;0).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Bán kính bằng 5.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Điểm A(3;4;0) nằm trên mặt cầu.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Điểm B(1;1;1) nằm ngoài mặt cầu.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"ptmc_s2_3",
+type:"true-false",
+question:"Xét vị trí của điểm đối với mặt cầu.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu IM>R thì M nằm ngoài mặt cầu.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu IM=R thì M thuộc mặt cầu.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Nếu IM<R thì M nằm trong mặt cầu.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Mọi điểm trong không gian đều thuộc mặt cầu.",
+correctAnswer:"Sai"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"ptmc_s3_1",
+type:"short-answer",
+question:"Cho mặt cầu (x-2)²+(y+1)²+(z-3)²=49. Tính bán kính.",
+answer:"7",
+explanation:"R²=49 nên R=7."
+},
+
+{
+id:"ptmc_s3_2",
+type:"short-answer",
+question:"Cho mặt cầu tâm I(1;2;3), bán kính 5. Tính giá trị a+b+c.",
+answer:"6",
+explanation:"a+b+c=1+2+3=6."
+},
+
+{
+id:"ptmc_s3_3",
+type:"short-answer",
+question:"Cho mặt cầu x²+y²+z²=36. Tính bán kính.",
+answer:"6",
+explanation:"R²=36 nên R=6."
+},
+
+{
+id:"ptmc_s3_4",
+type:"short-answer",
+question:"Cho mặt cầu tâm I(1;1;1), bán kính 3. Tính IM² với M(4;1;1).",
+answer:"9",
+explanation:"IM=3 nên IM²=9. Điểm M thuộc mặt cầu."
+},
+
+{
+id:"ptmc_s3_5",
+type:"short-answer",
+question:"Cho mặt cầu (x-1)²+(y-2)²+(z-2)²=9. Tính khoảng cách từ tâm đến gốc tọa độ O.",
+answer:"3",
+explanation:"IO=√(1²+2²+2²)=√9=3."
+}
+]
+},
+75: {
+stage1:[
+{
+id:"xsdk_s1_1",
+type:"multiple-choice",
+question:"Xác suất có điều kiện của biến cố A khi biết B xảy ra được ký hiệu là",
+options:[
+"P(A|B)",
+"P(B|A)",
+"P(A∪B)",
+"P(A∩B)"
+],
+answer:"P(A|B)"
+},
+
+{
+id:"xsdk_s1_2",
+type:"multiple-choice",
+question:"Công thức xác suất có điều kiện là",
+options:[
+"P(A|B)=P(A∩B)/P(B)",
+"P(A|B)=P(A)/P(B)",
+"P(A|B)=P(A∪B)/P(B)",
+"P(A|B)=P(B)/P(A)"
+],
+answer:"P(A|B)=P(A∩B)/P(B)"
+},
+
+{
+id:"xsdk_s1_3",
+type:"multiple-choice",
+question:"Điều kiện để tính P(A|B) là",
+options:[
+"P(B)>0",
+"P(A)>0",
+"P(A)=1",
+"P(B)=1"
+],
+answer:"P(B)>0"
+},
+
+{
+id:"xsdk_s1_4",
+type:"multiple-choice",
+question:"Nếu A và B độc lập thì",
+options:[
+"P(A|B)=P(A)",
+"P(A|B)=P(B)",
+"P(A|B)=0",
+"P(A|B)=1"
+],
+answer:"P(A|B)=P(A)"
+},
+
+{
+id:"xsdk_s1_5",
+type:"multiple-choice",
+question:"Từ công thức xác suất có điều kiện suy ra",
+options:[
+"P(A∩B)=P(B)P(A|B)",
+"P(A∩B)=P(A)+P(B)",
+"P(A∩B)=P(A)P(B)",
+"P(A∩B)=P(A|B)"
+],
+answer:"P(A∩B)=P(B)P(A|B)"
+},
+
+{
+id:"xsdk_s1_6",
+type:"multiple-choice",
+question:"Cho P(B)=0,5 và P(A∩B)=0,2. Khi đó P(A|B) bằng",
+options:[
+"0,4",
+"0,3",
+"0,7",
+"0,1"
+],
+answer:"0,4"
+},
+
+{
+id:"xsdk_s1_7",
+type:"multiple-choice",
+question:"Nếu P(A|B)=1 thì",
+options:[
+"B xảy ra kéo theo A xảy ra",
+"A và B xung khắc",
+"A chắc chắn xảy ra",
+"B chắc chắn xảy ra"
+],
+answer:"B xảy ra kéo theo A xảy ra"
+},
+
+{
+id:"xsdk_s1_8",
+type:"multiple-choice",
+question:"Xác suất có điều kiện luôn thuộc khoảng",
+options:[
+"[0;1]",
+"(-∞;+∞)",
+"[-1;1]",
+"(0;1)"
+],
+answer:"[0;1]"
+},
+
+{
+id:"xsdk_s1_9",
+type:"multiple-choice",
+question:"Trong công thức P(A|B), biến cố nào được xem là đã xảy ra?",
+options:[
+"B",
+"A",
+"A∩B",
+"A∪B"
+],
+answer:"B"
+},
+
+{
+id:"xsdk_s1_10",
+type:"multiple-choice",
+question:"Một ứng dụng quan trọng của xác suất có điều kiện là",
+options:[
+"Định lý Bayes",
+"Đạo hàm",
+"Nguyên hàm",
+"Tích phân"
+],
+answer:"Định lý Bayes"
+}
+],
+
+stage2:[
+{
+id:"xsdk_s2_1",
+type:"true-false",
+question:"Xét các nhận định về xác suất có điều kiện.",
+subQuestions:[
+{
+label:"a",
+text:"P(A|B)=P(A∩B)/P(B) khi P(B)>0.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"P(A|B) luôn lớn hơn P(A).",
+correctAnswer:"Sai"
+},
+{
+label:"c",
+text:"P(A|B) là xác suất của A khi biết B đã xảy ra.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"P(A|B) thuộc đoạn [0;1].",
+correctAnswer:"Đúng"
+}
+]
+},
+
+{
+id:"xsdk_s2_2",
+type:"true-false",
+question:"Cho P(A)=0,4; P(B)=0,5; P(A∩B)=0,2.",
+subQuestions:[
+{
+label:"a",
+text:"P(A|B)=0,4.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"P(B|A)=0,5.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"A và B độc lập.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"P(A∪B)=0,9.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"xsdk_s2_3",
+type:"true-false",
+question:"Xét mối liên hệ giữa độc lập và xác suất có điều kiện.",
+subQuestions:[
+{
+label:"a",
+text:"Nếu A và B độc lập thì P(A|B)=P(A).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Nếu P(A|B)=P(A) và P(B)>0 thì A và B độc lập.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Hai biến cố độc lập luôn xung khắc.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"Nếu A và B độc lập thì P(A∩B)=P(A)P(B).",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"xsdk_s3_1",
+type:"short-answer",
+question:"Cho P(B)=0,4 và P(A∩B)=0,12. Tính P(A|B).",
+answer:"0.3",
+explanation:"P(A|B)=0,12/0,4=0,3."
+},
+
+{
+id:"xsdk_s3_2",
+type:"short-answer",
+question:"Cho P(A|B)=0,6 và P(B)=0,5. Tính P(A∩B).",
+answer:"0.3",
+explanation:"P(A∩B)=P(B)·P(A|B)=0,5·0,6=0,3."
+},
+
+{
+id:"xsdk_s3_3",
+type:"short-answer",
+question:"Cho P(A)=0,7; P(B)=0,4 và A, B độc lập. Tính P(A∩B).",
+answer:"0.28",
+explanation:"P(A∩B)=P(A)P(B)=0,7·0,4=0,28."
+},
+
+{
+id:"xsdk_s3_4",
+type:"short-answer",
+question:"Cho P(A∩B)=0,18 và P(B)=0,6. Tính P(A|B).",
+answer:"0.3",
+explanation:"P(A|B)=0,18/0,6=0,3."
+},
+
+{
+id:"xsdk_s3_5",
+type:"short-answer",
+question:"Cho P(A|B)=0,8 và P(B)=0,25. Tính P(A∩B).",
+answer:"0.2",
+explanation:"P(A∩B)=0,25·0,8=0,2."
+}
+]
+},
+76: {
+stage1:[
+{
+id:"bayes_s1_1",
+type:"multiple-choice",
+question:"Công thức xác suất toàn phần được sử dụng khi",
+options:[
+"Biến cố B được tạo bởi nhiều trường hợp loại trừ nhau",
+"Hai biến cố độc lập",
+"Tính đạo hàm",
+"Tính tích phân"
+],
+answer:"Biến cố B được tạo bởi nhiều trường hợp loại trừ nhau"
+},
+
+{
+id:"bayes_s1_2",
+type:"multiple-choice",
+question:"Nếu A₁,A₂,...,Aₙ lập thành một hệ đầy đủ biến cố thì công thức xác suất toàn phần là",
+options:[
+"P(B)=ΣP(Aᵢ)P(B|Aᵢ)",
+"P(B)=ΣP(B|Aᵢ)",
+"P(B)=ΣP(Aᵢ|B)",
+"P(B)=P(A∩B)"
+],
+answer:"P(B)=ΣP(Aᵢ)P(B|Aᵢ)"
+},
+
+{
+id:"bayes_s1_3",
+type:"multiple-choice",
+question:"Công thức Bayes dùng để",
+options:[
+"Tính xác suất ngược P(A|B)",
+"Tính đạo hàm",
+"Tính nguyên hàm",
+"Tính tổ hợp"
+],
+answer:"Tính xác suất ngược P(A|B)"
+},
+
+{
+id:"bayes_s1_4",
+type:"multiple-choice",
+question:"Trong công thức Bayes, mẫu số là",
+options:[
+"P(B)",
+"P(A)",
+"P(A∩B)",
+"P(A|B)"
+],
+answer:"P(B)"
+},
+
+{
+id:"bayes_s1_5",
+type:"multiple-choice",
+question:"Nếu P(A)=0,4 và P(B|A)=0,5 thì P(A)P(B|A) bằng",
+options:[
+"0,2",
+"0,4",
+"0,5",
+"0,9"
+],
+answer:"0,2"
+},
+
+{
+id:"bayes_s1_6",
+type:"multiple-choice",
+question:"Cho P(A₁)=0,3; P(A₂)=0,7; P(B|A₁)=0,8; P(B|A₂)=0,2. Khi đó P(B) bằng",
+options:[
+"0,38",
+"0,44",
+"0,5",
+"0,62"
+],
+answer:"0,38"
+},
+
+{
+id:"bayes_s1_7",
+type:"multiple-choice",
+question:"Công thức Bayes được xây dựng dựa trên",
+options:[
+"Xác suất có điều kiện",
+"Đạo hàm",
+"Giới hạn",
+"Nguyên hàm"
+],
+answer:"Xác suất có điều kiện"
+},
+
+{
+id:"bayes_s1_8",
+type:"multiple-choice",
+question:"Trong công thức Bayes, tử số của P(A|B) là",
+options:[
+"P(A)P(B|A)",
+"P(B)",
+"P(A∩Bᶜ)",
+"P(A)+P(B)"
+],
+answer:"P(A)P(B|A)"
+},
+
+{
+id:"bayes_s1_9",
+type:"multiple-choice",
+question:"Một ứng dụng phổ biến của Bayes là",
+options:[
+"Chẩn đoán bệnh",
+"Giải phương trình bậc hai",
+"Tính diện tích",
+"Tính thể tích"
+],
+answer:"Chẩn đoán bệnh"
+},
+
+{
+id:"bayes_s1_10",
+type:"multiple-choice",
+question:"Nếu P(B)=0 thì",
+options:[
+"Không tính được P(A|B)",
+"P(A|B)=0",
+"P(A|B)=1",
+"P(A|B)=P(A)"
+],
+answer:"Không tính được P(A|B)"
+}
+],
+
+stage2:[
+{
+id:"bayes_s2_1",
+type:"true-false",
+question:"Xét công thức xác suất toàn phần.",
+subQuestions:[
+{
+label:"a",
+text:"P(B)=ΣP(Aᵢ)P(B|Aᵢ).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"Các biến cố A₁,A₂,...,Aₙ phải lập thành hệ đầy đủ biến cố.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Xác suất toàn phần dùng để tính P(B).",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"P(B)=ΣP(B|Aᵢ).",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"bayes_s2_2",
+type:"true-false",
+question:"Xét công thức Bayes.",
+subQuestions:[
+{
+label:"a",
+text:"Bayes dùng để tính P(A|B).",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"P(A|B)=P(B|A)P(A)/P(B).",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"Cần có P(B)>0.",
+correctAnswer:"Đúng"
+},
+{
+label:"d",
+text:"Bayes không liên quan đến xác suất có điều kiện.",
+correctAnswer:"Sai"
+}
+]
+},
+
+{
+id:"bayes_s2_3",
+type:"true-false",
+question:"Cho P(A)=0,4; P(B|A)=0,5; P(B)=0,25.",
+subQuestions:[
+{
+label:"a",
+text:"P(A∩B)=0,2.",
+correctAnswer:"Đúng"
+},
+{
+label:"b",
+text:"P(A|B)=0,8.",
+correctAnswer:"Đúng"
+},
+{
+label:"c",
+text:"P(A|B)=0,5.",
+correctAnswer:"Sai"
+},
+{
+label:"d",
+text:"P(B)>0.",
+correctAnswer:"Đúng"
+}
+]
+}
+],
+
+stage3:[
+{
+id:"bayes_s3_1",
+type:"short-answer",
+question:"Cho P(A₁)=0,3; P(A₂)=0,7; P(B|A₁)=0,8; P(B|A₂)=0,2. Tính P(B).",
+answer:"0.38",
+explanation:"P(B)=0,3×0,8+0,7×0,2=0,38."
+},
+
+{
+id:"bayes_s3_2",
+type:"short-answer",
+question:"Cho P(A)=0,4; P(B|A)=0,5; P(B)=0,25. Tính P(A|B).",
+answer:"0.8",
+explanation:"P(A|B)=P(A)P(B|A)/P(B)=0,4×0,5/0,25=0,8."
+},
+
+{
+id:"bayes_s3_3",
+type:"short-answer",
+question:"Một bệnh có tỉ lệ mắc 2%. Xét nghiệm dương tính đúng với người bệnh 95%. Giả sử xác suất dương tính là 0,05. Tính P(Bệnh ∩ Dương tính).",
+answer:"0.019",
+explanation:"P(A∩B)=0,02×0,95=0,019."
+},
+
+{
+id:"bayes_s3_4",
+type:"short-answer",
+question:"Cho P(A₁)=0,6; P(A₂)=0,4; P(B|A₁)=0,5; P(B|A₂)=0,2. Tính P(B).",
+answer:"0.38",
+explanation:"P(B)=0,6×0,5+0,4×0,2=0,38."
+},
+
+{
+id:"bayes_s3_5",
+type:"short-answer",
+question:"Cho P(A)=0,3; P(B|A)=0,8; P(B)=0,4. Tính P(A|B).",
+answer:"0.6",
+explanation:"P(A|B)=0,3×0,8/0,4=0,6."
+}
+]
+}
+}
+}

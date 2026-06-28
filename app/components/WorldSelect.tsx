@@ -46,7 +46,7 @@ export default function WorldSelect({
   );
 
   const world11 = worlds.filter(
-    (w) => w.id >= 21 && w.id <= 40
+    (w) => w.id >= 27 && w.id <= 40
   );
 
   const world12 = worlds.filter(
