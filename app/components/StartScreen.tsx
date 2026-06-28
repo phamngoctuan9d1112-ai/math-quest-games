@@ -29,18 +29,16 @@ export default function StartScreen({
           <p className="text-slate-400 text-lg">
             Chinh phục toán học, thăng hạng bản thân
           </p>
+          <p className="text-slate-400 text-lg">
+          Nhấn đăng nhập bằng Google để Bắt Đầu
+         </p>
         </div>
 
         {/* Các nút */}
         <div className="flex flex-col sm:flex-row gap-4 w-full max-w-3xl justify-center mt-4">
 
           {/* Bắt đầu */}
-          <button
-            onClick={onStart}
-            className="bg-blue-600 hover:bg-blue-700 hover:scale-105 transition-all text-white px-8 py-4 rounded-xl font-bold text-xl shadow-lg"
-          >
-            🚀 Bắt đầu chơi
-          </button>
+         
 
           {/* Hướng dẫn */}
           <button
