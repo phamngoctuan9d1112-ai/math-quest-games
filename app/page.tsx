@@ -40,7 +40,7 @@ export default function Home() {
   const [pet, setPet] = useState("🥚");
   const [dailyRewardClaimed, setDailyRewardClaimed] = useState<boolean>(false);
   const [newWorldUnlocked, setNewWorldUnlocked] = useState<number | null>(null);
-  const [unlockedWorlds, setUnlockedWorlds] = useState([1, 21, 41]);
+  const [unlockedWorlds, setUnlockedWorlds] = useState([1, 27, 62]);
   const [examMode, setExamMode] = useState(false);
   const [selectedWorld, setSelectedWorld] = useState<number | null>(null);
   const [shuffledQuestions, setShuffledQuestions] = useState<any[]>([]);
@@ -290,9 +290,9 @@ if (rewardDate === today) {
       if (savedWorlds) {
         try {
           const parsedWorlds = JSON.parse(savedWorlds);
-          setUnlockedWorlds([...new Set([...parsedWorlds, 1, 21, 41])]);
+          setUnlockedWorlds([...new Set([...parsedWorlds, 1, 27, 62])]);
         } catch (e) {
-          setUnlockedWorlds([1, 21, 41]);
+          setUnlockedWorlds([1, 27, 62]);
         }
       }
       const savedBossHP = localStorage.getItem("bossHP");
@@ -582,7 +582,7 @@ transition
         <h1 className="text-7xl font-bold">👑 CHÚC MỪNG</h1>
         <p className="text-4xl">Bạn đã hoàn thành</p>
         <p className="text-6xl font-bold">MATH QUEST THPT</p>
-        <p className="text-2xl">🌟 60 World đã chinh phục</p>
+        <p className="text-2xl">🌟 79 World đã chinh phục</p>
         <p className="text-2xl">🏆 Danh hiệu:</p>
         <p className="text-4xl font-bold">Chúa Tể Toán Học 👑</p>
         <p className="text-xl">XP: {xp}</p>

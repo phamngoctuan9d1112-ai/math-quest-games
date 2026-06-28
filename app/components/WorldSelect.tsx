@@ -42,15 +42,15 @@ export default function WorldSelect({
 }: Props) {
 
   const world10 = worlds.filter(
-    (w) => w.id >= 1 && w.id <= 20
+    (w) => w.id >= 1 && w.id <= 26
   );
 
   const world11 = worlds.filter(
-    (w) => w.id >= 27 && w.id <= 40
+    (w) => w.id >= 27 && w.id <= 61
   );
 
   const world12 = worlds.filter(
-    (w) => w.id >= 41 && w.id <= 60
+    (w) => w.id >= 62 && w.id <= 79
   );
 
   function renderWorldGroup(group: World[]) {
