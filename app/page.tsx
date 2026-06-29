@@ -7,7 +7,7 @@ import StatusBar from "./components/StatusBar";
 import WorldSelect from "./components/WorldSelect";
 import TopBar from "./components/TopBar";
 import AchievementList from "./components/AchievementList";
-
+import TermsModal from "./components/TermsModal";
 import { achievements } from "./data/achievements";
 import { bosses } from "./data/bosses";
 import { getWorlds } from "./data/worlds";
@@ -31,9 +31,11 @@ interface Boss {
 }
 
 export default function Home() {
+
   // ==========================================
   // 1. KHAI BÁO TẤT CẢ STATE Ở TRÊN CÙNG
   // ==========================================
+  const [userName, setUserName] = useState("");
   const [started, setStarted] = useState<boolean>(false);
   const [showInventory, setShowInventory] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -81,21 +83,26 @@ const [showExplanation, setShowExplanation] = useState<boolean>(false);
   const [myRank, setMyRank] = useState<number>(0);
   
   // Đã sửa Type cho biến Auth
+  const [showTerms, setShowTerms] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [loadingAuth, setLoadingAuth] = useState<boolean>(true);
 
   const [selectedSubMap, setSelectedSubMap] = useState<number | null>(null);
   const [currentSubNode, setCurrentSubNode] = useState<number | null>(null);
   const [subNodeProgress, setSubNodeProgress] = useState<Record<number, number>>({ 1: 1 });
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   // Thêm State này vào cùng với các State khác trong page.tsx
 const [leaderboard, setLeaderboard] = useState<any[]>([]);
 
-
+const [currentUserId, setCurrentUserId] =
+  useState<string | null>(null);
   // ==========================================
   // 2. BIẾN TÍNH TOÁN (Derived Variables)
   // ==========================================
+  
   const level = Math.floor(xp / 50) + 1;
+  
   let petDamage = 1;
   if (pet === "🐶") petDamage = 2;
   if (pet === "🐱") petDamage = 3;
@@ -115,6 +122,8 @@ const [leaderboard, setLeaderboard] = useState<any[]>([]);
   if (level >= 20) rank = "💎 Kim Cương";
   if (level >= 30) rank = "👑 Huyền Thoại";
 
+  
+
   const questions = (() => {
 
 
@@ -128,6 +137,36 @@ const [leaderboard, setLeaderboard] = useState<any[]>([]);
     if (currentSubNode === 3) return worldData.stage3 || [];
     return [];
   })();
+
+ 
+
+
+  const syncData = async () => {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) return;
+
+  const { data, error } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("id", user.id)
+    .single();
+
+  if (data && !error) {
+    const profile = data as any;
+
+    setXp(Number(profile.xp || 0));
+    setCoins(Number(profile.coins || 0));
+    setUnlockedWorlds(profile.unlocked_worlds || [1,27,62]);
+    setAvatar(profile.avatar || "🧑");
+    setWeapon(profile.weapon || "🪵");
+    setPet(profile.pet || "🥚");
+    setHearts(Number(profile.hearts || 3));
+    setDataLoaded(true);
+  }
+}; // <-- THIẾU CÁI NÀY?
   
 
   async function updateXP(newXP: number) {
@@ -164,63 +203,117 @@ async function updateCoins(newCoins: number) {
     .eq("id", user.id);
 }
 
+async function saveProgress() {
+
+
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) return;
+
+  await supabase
+    .from("profiles")
+    .update({
+      xp,
+      coins,
+      unlocked_worlds: unlockedWorlds,
+      avatar,
+      weapon,
+      pet,
+      hearts,
+    })
+    .eq("id", user.id);
+}
+
   const question = (current < questions.length ? questions[current] : null) as any;
 
   // ==========================================
   // 3. TẤT CẢ USE EFFECT (Không được đặt dưới if return)
   // ==========================================
   useEffect(() => {
-    const syncData = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        const { data, error } = await supabase.from('profiles').select('*').eq('id', user.id).single();
-        if (data && !error) {
-          const profile = data as any;
-          setXp(Number(profile.xp || 0));
-          setCoins(Number(profile.coins || 0));
-        }
-      }
-    };
-    syncData();
-  }, []);
+  if (!currentUserId) return;
+
+  syncData();
+}, [currentUserId]);
 
   useEffect(() => {
   const checkUser = async () => {
+    
+
     const {
-  data: { user },
-} = await supabase.auth.getUser();
+      data: { user },
+    } = await supabase.auth.getUser();
 
-if (user) {
-  await supabase
-    .from("profiles")
-    .upsert({
-      id: user.id,
-      display_name:
-        user.user_metadata?.full_name ??
-        user.user_metadata?.name ??
-        user.email,
-      avatar_url: user.user_metadata?.avatar_url ?? "",
-    });
+    
+    if (user) {
 
-  setIsLoggedIn(true);
-}
+setCurrentUserId(user.id);
 
-setLoadingAuth(false);
+      setUserName(
+        user.user_metadata?.full_name ||
+        user.email ||
+        "Người chơi"
+      );
+
+      await supabase
+        .from("profiles")
+        .upsert({
+          id: user.id,
+          display_name:
+            user.user_metadata?.full_name ??
+            user.user_metadata?.name ??
+            user.email,
+          avatar_url:
+            user.user_metadata?.avatar_url ?? "",
+        });
+
+      const accepted =
+  localStorage.getItem(
+    `accepted_terms_${user.id}`
+  );
+      if (!accepted) {
+        setShowTerms(true);
+      } else {
+        setIsLoggedIn(true);
+      }
+    }
+
+    setLoadingAuth(false);
   };
 
   checkUser();
 
   const {
     data: { subscription },
-  } = supabase.auth.onAuthStateChange((event, session) => {
-    if (event === "SIGNED_IN" && session?.user) {
-      setIsLoggedIn(true);
-      setLoadingAuth(false);
-    } else if (event === "SIGNED_OUT") {
-      setIsLoggedIn(false);
+  } = supabase.auth.onAuthStateChange(
+    (event, session) => {
+      if (event === "SIGNED_IN" && session?.user) {
+        setIsLoggedIn(true);
+      } else if (event === "SIGNED_OUT") {
+
+  setIsLoggedIn(false);
+
+  setXp(0);
+  setCoins(0);
+
+  setUnlockedWorlds([1, 27, 62]);
+
+  setAvatar("🧑");
+  setWeapon("🪵");
+  setPet("🥚");
+
+  setHearts(3);
+
+  setDataLoaded(false);
+
+  setCurrentUserId(null);
+}
+
       setLoadingAuth(false);
     }
-  });
+  );
 
   return () => subscription.unsubscribe();
 }, []);
@@ -251,23 +344,35 @@ async function fetchLeaderboard() {
   // Các useEffect đồng bộ LocalStorage
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const savedProgress = localStorage.getItem('daily_task_progress');
+      const savedProgress = 
+      localStorage.getItem(
+  `daily_task_progres_${currentUserId}`
+)
       if (savedProgress) setDailyProgress(parseInt(savedProgress, 10));
-      const savedSubNodes = localStorage.getItem('subNodeProgress');
+      const savedSubNodes = 
+      localStorage.getItem(
+  `subNodeProgres_${currentUserId}`
+)
       if (savedSubNodes) {
         try { setSubNodeProgress(JSON.parse(savedSubNodes)); } catch(e){}
       }
       const today = new Date().toDateString();
 
       // Kiểm tra đã nhận thưởng Daily Quest hôm nay chưa
-const rewardDate = localStorage.getItem("dailyRewardDate");
+const rewardDate = 
+localStorage.getItem(
+  `dailyRewardDate_${currentUserId}`
+)
 
 if (rewardDate === today) {
   setDailyRewardClaimed(true);
 } else {
   setDailyRewardClaimed(false);
 }
-      const lastLogin = localStorage.getItem("lastLogin");
+      const lastLogin = 
+      localStorage.getItem(
+  `lastLogin_${currentUserId}`
+)
       if (lastLogin !== today) {
 
   // Thưởng đăng nhập
@@ -286,31 +391,25 @@ if (rewardDate === today) {
 
   setMessage("🎁 Đăng nhập nhận 50 Coin");
 }
-      const savedWorlds = localStorage.getItem("unlockedWorlds");
-      if (savedWorlds) {
-        try {
-          const parsedWorlds = JSON.parse(savedWorlds);
-          setUnlockedWorlds([...new Set([...parsedWorlds, 1, 27, 62])]);
-        } catch (e) {
-          setUnlockedWorlds([1, 27, 62]);
-        }
-      }
+
       const savedBossHP = localStorage.getItem("bossHP");
       if (savedBossHP) setBossHP(Number(savedBossHP));
-      const savedHearts = localStorage.getItem("hearts");
-      if (savedHearts) setHearts(Number(savedHearts));
-      const savedXP = localStorage.getItem("xp");
-      const savedCoins = localStorage.getItem("coins");
-      const savedAvatar = localStorage.getItem("avatar");
-      if (savedXP) setXp(Number(savedXP));
-      if (savedCoins) setCoins(Number(savedCoins));
-      if (savedAvatar) setAvatar(savedAvatar);
-      const savedInventory = localStorage.getItem("inventory");
-      if (savedInventory) setInventory(JSON.parse(savedInventory));
-      const savedWeapon = localStorage.getItem("weapon");
-      if (savedWeapon) setWeapon(savedWeapon);
-      const savedPet = localStorage.getItem("pet");
-      if (savedPet) setPet(savedPet);
+      
+      const savedInventory =
+  localStorage.getItem(
+  `inventory_${currentUserId}`
+)
+
+try {
+  const data = localStorage.getItem("inventory");
+
+  if (data && data !== "undefined") {
+    setInventory(JSON.parse(data));
+  }
+} catch (err) {
+  console.error(err);
+}
+      
     }
   }, []);
 
@@ -322,13 +421,7 @@ if (rewardDate === today) {
   useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("current", current.toString()); }, [current]);
   useEffect(() => { if (typeof window !== "undefined" && selectedWorld) localStorage.setItem("selectedWorld", selectedWorld.toString()); }, [selectedWorld]);
   useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("inventory", JSON.stringify(inventory)); }, [inventory]);
-  useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("unlockedWorlds", JSON.stringify(unlockedWorlds)); }, [unlockedWorlds]);
-  useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("xp", xp.toString()); }, [xp]);
-  useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("pet", pet); }, [pet]);
-  useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("coins", coins.toString()); }, [coins]);
-  useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("weapon", weapon); }, [weapon]);
-  useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("avatar", avatar); }, [avatar]);
-
+  
   // Setup Boss khi tới stage 3
   useEffect(() => {
     if (selectedWorld && selectedWorld !== -1 && currentSubNode === 3 && current >= questions.length && !currentBoss) {
@@ -342,6 +435,25 @@ if (rewardDate === today) {
       }
     }
   }, [current, selectedWorld, currentSubNode, currentBoss, totalDamage, questions.length]);
+
+useEffect(() => {
+  if (!isLoggedIn) return;
+  if (!dataLoaded) return;
+
+  saveProgress();
+
+
+
+}, [
+  xp,
+  coins,
+  unlockedWorlds,
+  avatar,
+  weapon,
+  pet,
+  hearts,
+  dataLoaded,
+]);
 
   // Setup Boss chung
   useEffect(() => {
@@ -385,8 +497,6 @@ if (rewardDate === today) {
 
 setXp(newXP);
 
-await updateXP(newXP);
-
 let reward = 5;
 
 if (pet === "🐶") reward = 6;
@@ -396,8 +506,6 @@ if (pet === "🐉") reward = 10;
 const newCoins = coins + reward;
 
 setCoins(newCoins);
-
-await updateCoins(newCoins);
 
 await fetchLeaderboard();
       setMessage("✅ Chính xác!");
@@ -509,12 +617,40 @@ await fetchLeaderboard();
  // ==========================================
   // 5. GIAO DIỆN (Điều kiện hiển thị render)
   // ==========================================
+
+  
   
   if (loadingAuth) {
     return <div className="min-h-screen bg-slate-950 flex items-center justify-center text-white">Đang tải...</div>;
   }
 
+
+  // ==========================
+  // ĐIỀU KHOẢN VÀ DỊCH VỤ 
+  // ==========================
+
+  
+
   // ĐÃ CẬP NHẬT ĐIỀU KIỆN: Nếu chưa bấm Start và CHƯA đăng nhập thì mới giữ chân ở StartScreen
+
+
+if (showTerms) {
+  return (
+    <TermsModal
+      onAccept={() => {
+        localStorage.setItem(
+          `accepted_terms_${currentUserId}`,
+          "true"
+        );
+
+        setShowTerms(false);
+        setIsLoggedIn(true);
+      }}
+    />
+  );
+}
+
+
   if (!started && !isLoggedIn) {
     return (
       <StartScreen 
@@ -929,6 +1065,10 @@ await fetchLeaderboard();
     );
   }
 
+ 
+
+
+
   return (
     <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-6">
       <div className="bg-white text-black p-8 rounded-3xl shadow-2xl w-[600px] max-w-full">
@@ -1090,4 +1230,4 @@ await fetchLeaderboard();
       </div>
     </main>
   );
-}
+  }
