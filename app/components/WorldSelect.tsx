@@ -134,7 +134,6 @@ onLogout,
       
 
 
-<div className="grid grid-cols-[1fr_auto_1fr] items-center">
 
     {/* Bên trái */}
     <div className="left-buttons flex gap-4 justify-start">
@@ -195,24 +194,51 @@ onLogout,
     {/* Bên phải */}
     <div className="right-buttons flex gap-4 justify-end">
 
-        <button
-    onClick={onLeaderboard}
+       <div className="relative group">
+  <button
+    onClick={onLogout}
     className="
-        bg-yellow-500
-        hover:bg-yellow-600
-        hover:scale-105
-        hover:shadow-xl
-        transition-all
-        duration-300
-        text-white
-        px-6 py-3
-        rounded-xl
-        font-bold
-        cursor-pointer
+      bg-red-500
+      hover:bg-red-600
+      text-white
+      w-12
+      h-12
+      rounded-xl
+      flex
+      items-center
+      justify-center
+      text-xl
+      transition
     "
->
-    🏅 Bảng xếp hạng
-</button>
+  >
+     🏅
+  </button>
+
+  <div
+    className="
+      absolute
+      top-full
+      mt-2
+      left-1/2
+      -translate-x-1/2
+      bg-black
+      text-white
+      text-sm
+      px-3
+      py-1
+      rounded-lg
+      opacity-0
+      group-hover:opacity-100
+      transition
+      whitespace-nowrap
+      pointer-events-none
+      z-50
+    "
+  >
+    Bảng xếp hạng
+  </div>
+        </div>
+<div className="grid grid-cols-[1fr_auto_1fr] items-center">
 
         <button
     onClick={onExam}

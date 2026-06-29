@@ -9,7 +9,6 @@ import TopBar from "./components/TopBar";
 import AchievementList from "./components/AchievementList";
 import TermsModal from "./components/TermsModal";
 import { achievements } from "./data/achievements";
-import { bosses } from "./data/bosses";
 import { getWorlds } from "./data/worlds";
 import { propositionQuestions } from "./data/questions";
 import Shop from "./components/Shop";
@@ -23,12 +22,7 @@ const supabase = createBrowserClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-// Định nghĩa cấu trúc của một Boss
-interface Boss {
-  question: string;
-  options: (string | number)[];
-  answer: string | number;
-}
+
 
 export default function Home() {
 
@@ -46,21 +40,20 @@ export default function Home() {
   const [examMode, setExamMode] = useState(false);
   const [selectedWorld, setSelectedWorld] = useState<number | null>(null);
   const [shuffledQuestions, setShuffledQuestions] = useState<any[]>([]);
-  const [bossVictory, setBossVictory] = useState(false);
-  const [bossHP, setBossHP] = useState(0);
-  const [maxBossHP, setMaxBossHP] = useState(0);
+  
+ 
   const [weapon, setWeapon] = useState("🪵");
   const [attacking, setAttacking] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
-  const [bossAttack, setBossAttack] = useState(false);
-  const [bossHit, setBossHit] = useState(false);
+  
+ 
   const [message, setMessage] = useState("");
   const [shopMessage, setShopMessage] = useState("");
   const [current, setCurrent] = useState(0);
   const [avatar, setAvatar] = useState("🧑");
 // Thay vì: const [currentBoss, setCurrentBoss] = useState(null);
 // Hãy sửa thành:
-const [currentBoss, setCurrentBoss] = useState<Boss | null>(null);
+
   const [xp, setXp] = useState(0);
   const [coins, setCoins] = useState(0);
   const [hearts, setHearts] = useState(3);
@@ -103,19 +96,7 @@ const [currentUserId, setCurrentUserId] =
   
   const level = Math.floor(xp / 50) + 1;
   
-  let petDamage = 1;
-  if (pet === "🐶") petDamage = 2;
-  if (pet === "🐱") petDamage = 3;
-  if (pet === "🐉") petDamage = 5;
-
-  let weaponDamage = 1;
-  if (weapon === "⚔️") weaponDamage = 3;
-  if (weapon === "💎") weaponDamage = 5;
-  if (weapon === "🔥") weaponDamage = 8;
-  if (weapon === "👑") weaponDamage = 15;
-
-  const totalDamage = petDamage + weaponDamage;
-
+  
   let rank = "🥉 Đồng";
   if (level >= 5) rank = "🥈 Bạc";
   if (level >= 10) rank = "🥇 Vàng";
@@ -394,7 +375,7 @@ async function fetchLeaderboard() {
     if (typeof window !== "undefined") {
       const savedProgress = 
       localStorage.getItem(
-  `daily_task_progres_${currentUserId}`
+  `daily_task_progress_${currentUserId}`
 )
       if (savedProgress) setDailyProgress(parseInt(savedProgress, 10));
       const savedSubNodes = 
@@ -440,8 +421,6 @@ if (rewardDate === today) {
   setMessage("🎁 Đăng nhập nhận 50 Coin");
 }
 
-      const savedBossHP = localStorage.getItem("bossHP");
-      if (savedBossHP) setBossHP(Number(savedBossHP));
       
       const savedInventory =
   localStorage.getItem(
@@ -464,25 +443,12 @@ try {
   // Lưu state vào LocalStorage khi thay đổi
   useEffect(() => { if (typeof window !== "undefined") localStorage.setItem('daily_task_progress', dailyProgress.toString()); }, [dailyProgress]);
   useEffect(() => { if (typeof window !== "undefined") localStorage.setItem('subNodeProgress', JSON.stringify(subNodeProgress)); }, [subNodeProgress]);
-  useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("bossHP", bossHP.toString()); }, [bossHP]);
   useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("hearts", hearts.toString()); }, [hearts]);
   useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("current", current.toString()); }, [current]);
   useEffect(() => { if (typeof window !== "undefined" && selectedWorld) localStorage.setItem("selectedWorld", selectedWorld.toString()); }, [selectedWorld]);
   useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("inventory", JSON.stringify(inventory)); }, [inventory]);
   
   // Setup Boss khi tới stage 3
-  useEffect(() => {
-    if (selectedWorld && selectedWorld !== -1 && currentSubNode === 3 && current >= questions.length && !currentBoss) {
-      const bossList = bosses[selectedWorld as keyof typeof bosses];
-      if (bossList) {
-        const randomBoss = bossList[Math.floor(Math.random() * bossList.length)];
-        setCurrentBoss(randomBoss);
-        const bossHPRequired = totalDamage * 3; 
-        setBossHP(bossHPRequired);
-        setMaxBossHP(bossHPRequired);
-      }
-    }
-  }, [current, selectedWorld, currentSubNode, currentBoss, totalDamage, questions.length]);
 
 useEffect(() => {
   if (!isLoggedIn) return;
@@ -504,17 +470,7 @@ useEffect(() => {
 ]);
 
   // Setup Boss chung
-  useEffect(() => {
-    if (!selectedWorld || selectedWorld === -1) return;
-    const bossList = bosses[selectedWorld as keyof typeof bosses];
-    if (!bossList) return;
-    const randomBoss = bossList[Math.floor(Math.random() * bossList.length)];
-    setCurrentBoss(randomBoss);
-    const bossHPRequired = totalDamage * 3;
-    setBossHP(bossHPRequired);
-    setMaxBossHP(bossHPRequired);
-  }, [selectedWorld, totalDamage]);
-
+  
   // ==========================================
   // 4. CÁC HÀM XỬ LÝ SỰ KIỆN (Functions)
   // ==========================================
@@ -565,26 +521,48 @@ await fetchLeaderboard();
     setTimeout(() => { setMessage(""); }, 1200);
 
     const nextIndex = current + 1;
-    if (nextIndex >= questions.length) {
-      const currentMapId = selectedSubMap || 1;
-      const currentWorldProgress = subNodeProgress[currentMapId] || 1;
 
-      if (currentSubNode === currentWorldProgress && currentWorldProgress < 3) {
-        setSubNodeProgress(prev => ({ ...prev, [currentMapId]: currentWorldProgress + 1 }));
-        setCurrentSubNode(null);
-        setSelectedWorld(null);
-        setCurrent(0);
-      } else if (currentSubNode === 3) {
-        setCurrent(nextIndex);
-      } else {
-        setCurrentSubNode(null);
-        setSelectedWorld(null);
-        setCurrent(0);
-      }
-    } else {
-      setCurrent(nextIndex);
-    }
+    if (nextIndex >= questions.length) {
+
+  const currentMapId = selectedSubMap || 1;
+  const currentWorldProgress = subNodeProgress[currentMapId] || 1;
+
+  if (currentSubNode === currentWorldProgress && currentWorldProgress < 3) {
+
+    setSubNodeProgress(prev => ({
+      ...prev,
+      [currentMapId]: currentWorldProgress + 1,
+    }));
+
+    setCurrentSubNode(null);
+    setSelectedWorld(null);
+    setCurrent(0);
+
+  } else if (currentSubNode === 3) {
+
+    const nextWorld = currentMapId + 1;
+
+    setUnlockedWorlds(prev => [
+      ...new Set([...prev, nextWorld]),
+    ]);
+
+    setNewWorldUnlocked(nextWorld);
+
+    setSelectedWorld(null);
+    setCurrentSubNode(null);
+    setCurrent(0);
+
+  } else {
+
+    setCurrentSubNode(null);
+    setSelectedWorld(null);
+    setCurrent(0);
   }
+
+}
+  }
+
+  
   // HÀM XỬ LÝ NỘP BÀI CHẶNG 2: ĐÚNG / SAI
   const checkTrueFalseAnswer = () => {
     if (!question?.subQuestions) return;
@@ -784,25 +762,18 @@ transition
         <div className="text-8xl animate-bounce">🔓</div>
         <h1 className="text-6xl font-bold mt-4">World Mới!</h1>
         <p className="text-3xl mt-4">🌍 World {newWorldUnlocked} đã được mở khóa</p>
-        <button onClick={() => { setNewWorldUnlocked(null); setBossVictory(true); }} className="mt-8 bg-yellow-500 px-8 py-4 rounded-xl text-xl font-bold">
+        <button
+  onClick={() => {
+    setNewWorldUnlocked(null);
+  }}
+>
           Tiếp tục
         </button>
       </main>
     );
   }
 
-  if (bossVictory) {
-    return (
-      <main className="min-h-screen flex flex-col items-center justify-center gap-4">
-        <h1 className="text-5xl font-bold">🏆 Đánh Bại Boss!</h1>
-        <p className="text-2xl">+50 XP</p>
-        <p className="text-2xl">+30 Coin</p>
-        <button onClick={() => { setBossVictory(false); setCurrent(0); setCurrentBoss(null); setBossHP(0); setMaxBossHP(0); setSelectedWorld(null); setSelectedSubMap(null); setCurrentSubNode(null); }} className="bg-green-500 text-white px-6 py-3 rounded-xl">
-          Tiếp tục
-        </button>
-      </main>
-    );
-  } 
+  
 
   if (selectedSubMap !== null && currentSubNode === null) {
     const currentWorldProgress = subNodeProgress[selectedSubMap] || 1;
@@ -1014,93 +985,28 @@ transition
     );
   }
 
-  if (!examMode && current >= questions.length && currentBoss) {
-    return (
-      <main className="min-h-screen flex flex-col items-center justify-center gap-4 p-6 bg-slate-900 text-white">
-        <h1 className="text-5xl font-bold text-red-500">👹 BOSS WORLD {selectedWorld}</h1>
-        <div className="w-[400px]">
-          <p className="font-bold text-center">❤️ HP: {bossHP}/{maxBossHP}</p>
-          <div className="bg-gray-700 h-6 rounded-full w-full overflow-hidden mt-1">
-            <div className="bg-red-500 h-6 rounded-full transition-all duration-300" style={{ width: `${Math.max(0, (bossHP / maxBossHP) * 100)}%` }} />
-          </div>
-        </div>
-        
-        <div className="bg-slate-800 p-6 rounded-2xl max-w-xl text-center my-4 shadow-xl border border-slate-700">
-          <p className="text-3xl font-semibold text-yellow-400">{currentBoss.question}</p>
-        </div>
+  
+                    
+                      
 
-        <div className="relative w-[800px] h-[250px] border border-slate-700 rounded-xl bg-slate-950 overflow-hidden shadow-inner">
-          <div className={`absolute bottom-5 text-7xl transition-all duration-500 ${attacking ? "left-[500px]" : "left-[50px]"}`}>
-            {avatar}⚔️
-          </div>
-          <div className={`absolute bottom-5 text-7xl transition-all duration-500 ${bossAttack ? "right-[500px]" : "right-[50px]"}`}>
-            {bossHP > maxBossHP * 0.7 ? "👹" : bossHP > maxBossHP * 0.3 ? "👺" : "😈"}
-          </div>
-        </div>
+   
 
-        {bossHit && (
-          <p className="text-red-400 font-bold text-3xl animate-bounce">-{totalDamage} HP</p>
-        )}
+    const nextWorld =
+      selectedWorld + 1;
 
-        <div className="grid grid-cols-2 gap-4 w-[600px] mt-4">
-          {(currentBoss as any).options.map((option: any) => (
-            <button
-              key={String(option)}
-              className="bg-red-600 hover:bg-red-700 active:scale-95 transition text-white px-6 py-4 rounded-xl font-bold text-xl shadow-lg"
-              onClick={() => {
-                if (option === currentBoss.answer) {
-                  setAttacking(true);
-                  setTimeout(async () => {
-                    const newHP = bossHP - totalDamage;
-                    setBossHP(newHP);
-                    setBossHit(true);
-                    setAttacking(false);
-                    setTimeout(() => { setBossHit(false); }, 400);
+    if (
+      nextWorld <=
+      Object.keys(propositionQuestions).length
+    ) {
+      setUnlockedWorlds(prev =>
+        [...new Set([...prev, nextWorld])]
+      );
 
-                    if (newHP > 0) {
-                      const bossList = bosses[selectedWorld as keyof typeof bosses];
-                      if (bossList) setCurrentBoss(bossList[Math.floor(Math.random() * bossList.length)]);
-                    } else {
-                      if (selectedWorld === 20) {
-                        const newXP = xp + 500;
-setXp(newXP);
-await updateXP(newXP);
+      setNewWorldUnlocked(nextWorld);
+    }
+  
 
-const newCoins = coins + 1000;
-setCoins(newCoins);
-await updateCoins(newCoins);
-
-await fetchLeaderboard();
-
-                        confetti({ particleCount: 300, spread: 180 });
-                        setGameCompleted(true);
-                      } else {
-                        const nextWorld = selectedWorld + 1;
-                        if (nextWorld <= Object.keys(propositionQuestions).length) {
-                          setUnlockedWorlds(prev => [...new Set([...prev, nextWorld])]);
-                          setNewWorldUnlocked(nextWorld);
-                        }
-                        setBossVictory(true);
-                      }
-                      setCurrentBoss(null);
-                    }
-                  }, 500);
-                } else {
-                  setBossAttack(true);
-                  setTimeout(() => {
-                    setHearts(prev => prev - 1);
-                    setBossAttack(false);
-                  }, 500);
-                }
-              }}
-            >
-              {option}
-            </button>
-          ))}
-        </div>
-      </main>
-    );
-  }
+               
 
   if (examMode && current >= questions.length) {
     return (
@@ -1225,6 +1131,8 @@ await fetchLeaderboard();
       </div>
     ))}
 
+
+    
     {/* Nút nộp bài, chỉ sáng lên khi người chơi tích đủ đáp án cho cả 4 ý a,b,c,d */}
     <button
       onClick={checkTrueFalseAnswer}
