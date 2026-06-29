@@ -764,9 +764,14 @@ transition
         <p className="text-3xl mt-4">🌍 World {newWorldUnlocked} đã được mở khóa</p>
         <button
   onClick={() => {
-    console.log("Đã bấm");
     setNewWorldUnlocked(null);
+
+    setSelectedWorld(null);
+    setSelectedSubMap(null);
+    setCurrentSubNode(null);
+    setCurrent(0);
   }}
+  className="mt-8 bg-yellow-500 px-8 py-4 rounded-xl text-xl font-bold"
 >
   Tiếp tục
 </button>
