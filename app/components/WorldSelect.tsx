@@ -232,20 +232,50 @@ onLogout,
 >
     🎓 Luyện Thi THPT
 </button>
-<button
-  onClick={onLogout}
-  className="
-  bg-red-500
-  hover:bg-red-600
-  text-white
-  px-4
-  py-2
-  rounded-xl
-  font-bold
-  "
->
-  🚪 Đăng xuất
-</button>
+<div className="relative group">
+  <button
+    onClick={onLogout}
+    className="
+      bg-red-500
+      hover:bg-red-600
+      text-white
+      w-12
+      h-12
+      rounded-xl
+      flex
+      items-center
+      justify-center
+      text-xl
+      transition
+    "
+  >
+    📲
+  </button>
+
+  <div
+    className="
+      absolute
+      top-full
+      mt-2
+      left-1/2
+      -translate-x-1/2
+      bg-black
+      text-white
+      text-sm
+      px-3
+      py-1
+      rounded-lg
+      opacity-0
+      group-hover:opacity-100
+      transition
+      whitespace-nowrap
+      pointer-events-none
+      z-50
+    "
+  >
+    Đăng xuất
+  </div>
+</div>
 
     </div>
 
