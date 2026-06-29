@@ -232,6 +232,54 @@ async function saveProgress() {
   // ==========================================
   // 3. TẤT CẢ USE EFFECT (Không được đặt dưới if return)
   // ==========================================
+
+
+useEffect(() => {
+  if (typeof window === "undefined") return;
+
+  const savedWorld =
+    localStorage.getItem("selectedWorld");
+
+  const savedCurrent =
+    localStorage.getItem("current");
+
+  const savedSubMap =
+    localStorage.getItem("selectedSubMap");
+
+  const savedSubNode =
+    localStorage.getItem("currentSubNode");
+
+  if (savedWorld)
+    setSelectedWorld(Number(savedWorld));
+
+  if (savedCurrent)
+    setCurrent(Number(savedCurrent));
+
+  if (savedSubMap)
+    setSelectedSubMap(Number(savedSubMap));
+
+  if (savedSubNode)
+    setCurrentSubNode(Number(savedSubNode));
+}, []);
+
+useEffect(() => {
+  if (selectedSubMap !== null) {
+    localStorage.setItem(
+      "selectedSubMap",
+      selectedSubMap.toString()
+    );
+  }
+}, [selectedSubMap]);
+
+useEffect(() => {
+  if (currentSubNode !== null) {
+    localStorage.setItem(
+      "currentSubNode",
+      currentSubNode.toString()
+    );
+  }
+}, [currentSubNode]);
+
   useEffect(() => {
   if (!currentUserId) return;
 
@@ -924,6 +972,7 @@ transition
             level={level}
             rank={rank}
             coins={coins}
+            onLogout={onLogout}
             onShop={() => setShowShop(true)}
             onInventory={() => setShowInventory(true)}
             onAchievements={() => setShowAchievements(true)}

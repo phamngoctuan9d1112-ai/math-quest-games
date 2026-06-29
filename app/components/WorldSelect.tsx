@@ -14,7 +14,7 @@ type Props = {
   level: number;
   rank: string;
   coins: number;
-
+onLogout: () => void;
   onLeaderboard: () => void;
 
   onShop: () => void;
@@ -32,7 +32,7 @@ export default function WorldSelect({
   level,
   rank,
   coins,
-
+onLogout,
   onShop,
   onAchievements,
   onLeaderboard,
@@ -134,10 +134,10 @@ export default function WorldSelect({
       
 
 
-<div className="w-full flex items-center justify-between">
+<div className="grid grid-cols-[1fr_auto_1fr] items-center">
 
     {/* Bên trái */}
-    <div className="flex gap-4">
+    <div className="left-buttons flex gap-4 justify-start">
 
         <button
     onClick={onShop}
@@ -182,7 +182,7 @@ export default function WorldSelect({
     </div>
 
     {/* Chính giữa */}
-    <div className="text-center">
+    <div className="title text-center">
 
         <h1 className="text-6xl font-bold">
                🌎 Math Quest
@@ -193,7 +193,7 @@ export default function WorldSelect({
     </div>
 
     {/* Bên phải */}
-    <div className="flex gap-4">
+    <div className="right-buttons flex gap-4 justify-end">
 
         <button
     onClick={onLeaderboard}
@@ -231,6 +231,20 @@ export default function WorldSelect({
     "
 >
     🎓 Luyện Thi THPT
+</button>
+<button
+  onClick={onLogout}
+  className="
+  bg-red-500
+  hover:bg-red-600
+  text-white
+  px-4
+  py-2
+  rounded-xl
+  font-bold
+  "
+>
+  🚪 Đăng xuất
 </button>
 
     </div>
