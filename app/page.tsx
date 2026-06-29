@@ -542,11 +542,13 @@ await fetchLeaderboard();
 
     const nextWorld = currentMapId + 1;
 
-    setUnlockedWorlds(prev => [
-      ...new Set([...prev, nextWorld]),
-    ]);
+if (!unlockedWorlds.includes(nextWorld)) {
+  setUnlockedWorlds(prev => [
+    ...new Set([...prev, nextWorld]),
+  ]);
 
-    setNewWorldUnlocked(nextWorld);
+  setNewWorldUnlocked(nextWorld);
+}
 
     setSelectedWorld(null);
     setCurrentSubNode(null);

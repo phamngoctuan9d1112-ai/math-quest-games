@@ -135,175 +135,70 @@ onLogout,
 
 
 
-    {/* Bên trái */}
-    <div className="left-buttons flex gap-4 justify-start">
+    <div className="grid grid-cols-3 items-start mb-8">
 
-        <button
-    onClick={onShop}
-    className="
-        bg-yellow-500
-        hover:bg-yellow-600
-        hover:scale-105
-        hover:shadow-xl
-        active:scale-95
-        transition-all
-        duration-300
-        text-white
-        px-6
-        py-3
-        rounded-xl
-        font-bold
-        cursor-pointer
-    "
->
-    🛒 Shop
-</button>
+  {/* BÊN TRÁI */}
+  <div className="flex gap-4 justify-start">
+    <button
+      onClick={onShop}
+      className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-xl font-bold"
+    >
+      🛒 Shop
+    </button>
 
-        <button
-    onClick={onAchievements}
-    className="
-        bg-green-500
-        hover:bg-green-600
-        hover:scale-105
-        hover:shadow-xl
-        transition-all
-        duration-300
-        text-white
-        px-6 py-3
-        rounded-xl
-        font-bold
-        cursor-pointer
-    "
->
-    🏆 Thành tích
-</button>
-
-    </div>
-
-    {/* Chính giữa */}
-    <div className="text-center">
-
-        <h1 className="text-6xl font-bold">
-               🌎 Math Quest
-        </h1>
-
-        
-
-    </div>
-
-    {/* Bên phải */}
-    <div className="flex gap-4 justify-end">
-
-       <div className="relative group">
-  <button
-    onClick={onLeaderboard}
-    className="
-      bg-red-500
-      hover:bg-red-600
-      text-white
-      w-12
-      h-12
-      rounded-xl
-      flex
-      items-center
-      justify-center
-      text-xl
-      transition
-    "
-  >
-     🏅
-  </button>
-
-  <div
-    className="
-      absolute
-      top-full
-      mt-2
-      left-1/2
-      -translate-x-1/2
-      bg-black
-      text-white
-      text-sm
-      px-3
-      py-1
-      rounded-lg
-      opacity-0
-      group-hover:opacity-100
-      transition
-      whitespace-nowrap
-      pointer-events-none
-      z-50
-    "
-  >
-    Bảng xếp hạng
+    <button
+      onClick={onAchievements}
+      className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-bold"
+    >
+      🏆 Thành tích
+    </button>
   </div>
-        </div>
-<div className="grid grid-cols-[1fr_auto_1fr] items-center">
 
-        <button
-    onClick={onExam}
-    className="
+  {/* CHÍNH GIỮA */}
+  <div className="text-center">
+    <h1 className="text-6xl font-bold text-white">
+      🌎 Math Quest
+    </h1>
+  </div>
+
+  {/* BÊN PHẢI */}
+  <div className="flex gap-4 justify-end">
+
+    <button
+      onClick={onLeaderboard}
+      className="bg-red-500 hover:bg-red-600 text-white px-5 py-3 rounded-xl"
+      title="Bảng xếp hạng"
+    >
+      🏅
+    </button>
+
+    <button
+      onClick={onExam}
+      className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl font-bold"
+    >
+      🎓 Luyện Thi THPT
+    </button>
+
+    <button
+      onClick={onLogout}
+      title="Đăng xuất"
+      className="
         bg-red-500
         hover:bg-red-600
-        hover:scale-105
-        hover:shadow-xl
-        transition-all
-        duration-300
         text-white
-        px-6 py-3
+        w-12
+        h-12
         rounded-xl
-        font-bold
-        cursor-pointer
-    "
->
-    🎓 Luyện Thi THPT
-</button>
-<div className="relative group">
-  <button
-    onClick={onLogout}
-    className="
-      bg-red-500
-      hover:bg-red-600
-      text-white
-      w-12
-      h-12
-      rounded-xl
-      flex
-      items-center
-      justify-center
-      text-xl
-      transition
-    "
-  >
-    📲
-  </button>
+        flex
+        items-center
+        justify-center
+        text-xl
+      "
+    >
+      📲
+    </button>
 
-  <div
-    className="
-      absolute
-      top-full
-      mt-2
-      left-1/2
-      -translate-x-1/2
-      bg-black
-      text-white
-      text-sm
-      px-3
-      py-1
-      rounded-lg
-      opacity-0
-      group-hover:opacity-100
-      transition
-      whitespace-nowrap
-      pointer-events-none
-      z-50
-    "
-  >
-    Đăng xuất
   </div>
-</div>
-
-    </div>
 
 </div>
 
