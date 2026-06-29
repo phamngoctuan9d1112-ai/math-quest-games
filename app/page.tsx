@@ -764,11 +764,12 @@ transition
         <p className="text-3xl mt-4">🌍 World {newWorldUnlocked} đã được mở khóa</p>
         <button
   onClick={() => {
+    console.log("Đã bấm");
     setNewWorldUnlocked(null);
   }}
 >
-          Tiếp tục
-        </button>
+  Tiếp tục
+</button>
       </main>
     );
   }
