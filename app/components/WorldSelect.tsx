@@ -181,7 +181,7 @@ onLogout,
     </div>
 
     {/* Chính giữa */}
-    <div className="title text-center">
+    <div className="text-center">
 
         <h1 className="text-6xl font-bold">
                🌎 Math Quest
@@ -192,11 +192,11 @@ onLogout,
     </div>
 
     {/* Bên phải */}
-    <div className="right-buttons flex gap-4 justify-end">
+    <div className="flex gap-4 justify-end">
 
        <div className="relative group">
   <button
-    onClick={onLogout}
+    onClick={onLeaderboard}
     className="
       bg-red-500
       hover:bg-red-600
