@@ -108,6 +108,10 @@ const [currentUserId, setCurrentUserId] =
   
 
   const questions = (() => {
+    console.log("examMode =", examMode);
+console.log("shuffledQuestions =", shuffledQuestions.length);
+console.log("selectedWorld =", selectedWorld);
+console.log("currentSubNode =", currentSubNode);
 
   if (examMode) {
     return shuffledQuestions;
@@ -990,7 +994,7 @@ transition
     setShowLeaderboard(true);
 }}
             onExam={() => {
-
+              
   const allQuestions: any[] = [];
 
   Object.values(propositionQuestions).forEach((world: any) => {
@@ -1006,6 +1010,8 @@ transition
     .slice(0, 50);
 
   console.log("shuffled =", shuffled.length);
+  
+
 
   setShuffledQuestions(shuffled);
 
