@@ -108,10 +108,6 @@ const [currentUserId, setCurrentUserId] =
   
 
   const questions = (() => {
-    console.log("examMode =", examMode);
-console.log("shuffledQuestions =", shuffledQuestions.length);
-console.log("selectedWorld =", selectedWorld);
-console.log("currentSubNode =", currentSubNode);
 
   if (examMode) {
     return shuffledQuestions;
@@ -131,19 +127,16 @@ console.log("currentSubNode =", currentSubNode);
 
   if (!worldData) return [];
 
-  switch (currentSubNode) {
-    case 1:
-      return worldData.stage1 || [];
+  if (currentSubNode === 1)
+    return worldData.stage1 || [];
 
-    case 2:
-      return worldData.stage2 || [];
+  if (currentSubNode === 2)
+    return worldData.stage2 || [];
 
-    case 3:
-      return worldData.stage3 || [];
+  if (currentSubNode === 3)
+    return worldData.stage3 || [];
 
-    default:
-      return [];
-  }
+  return [];
 })();
  
 
@@ -1000,35 +993,41 @@ transition
     setShowLeaderboard(true);
 }}
             onExam={() => {
-              console.log("EXAM CLICKED")
-               alert("EXAM CLICKED");
   const allQuestions: any[] = [];
 
-  Object.values(propositionQuestions).forEach((world: any) => {
-    if (world.stage1) allQuestions.push(...world.stage1);
-    if (world.stage2) allQuestions.push(...world.stage2);
-    if (world.stage3) allQuestions.push(...world.stage3);
-  });
+  Object.values(propositionQuestions).forEach(
+    (world: any) => {
+      if (world.stage1)
+        allQuestions.push(...world.stage1);
 
-  console.log("ALL =", allQuestions.length)
+      if (world.stage2)
+        allQuestions.push(...world.stage2);
+
+      if (world.stage3)
+        allQuestions.push(...world.stage3);
+    }
+  );
 
   const shuffled = [...allQuestions]
     .sort(() => Math.random() - 0.5)
     .slice(0, 50);
 
-  
-  
+  console.log(
+    "THI THU",
+    shuffled.length
+  );
 
-console.log("SHUFFLED =", shuffled.length);
   setShuffledQuestions(shuffled);
 
   setCurrent(0);
+
   setCorrectAnswers(0);
 
   setExamMode(true);
-console.log("SET EXAM MODE TRUE");
+
   setSelectedWorld(-1);
-  setCurrentSubNode(1);
+
+  setCurrentSubNode(-1);
 
   setStarted(true);
 }}
