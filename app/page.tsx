@@ -137,8 +137,8 @@ const [currentUserId, setCurrentUserId] =
     return worldData.stage3 || [];
 
   return [];
+
 })();
- 
 
 
   const syncData = async () => {
@@ -1031,9 +1031,9 @@ transition
 
   setExamMode(true);
 
-  setSelectedWorld(-1);
+  
 
-  setCurrentSubNode(-1);
+
 
   setStarted(true);
 }}
