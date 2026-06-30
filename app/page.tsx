@@ -107,6 +107,12 @@ const [currentUserId, setCurrentUserId] =
 
   const questions = (() => {
 
+console.log(
+  "World:",
+  selectedWorld,
+  "Node:",
+  currentSubNode
+);
 
     if (shuffledQuestions.length > 0) return shuffledQuestions; 
     if (!selectedWorld || selectedWorld === -1 || currentSubNode === null) return [];
@@ -116,6 +122,7 @@ const [currentUserId, setCurrentUserId] =
     if (currentSubNode === 1) return worldData.stage1 || [];
     if (currentSubNode === 2) return worldData.stage2 || [];
     if (currentSubNode === 3) return worldData.stage3 || [];
+    console.log("worldData =", worldData);
     return [];
   })();
 
