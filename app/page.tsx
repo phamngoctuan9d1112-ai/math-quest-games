@@ -999,6 +999,7 @@ transition
 }}
             onExam={() => {
               console.log("EXAM CLICKED")
+               alert("EXAM CLICKED");
   const allQuestions: any[] = [];
 
   Object.values(propositionQuestions).forEach((world: any) => {
