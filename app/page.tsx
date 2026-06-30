@@ -270,6 +270,10 @@ useEffect(() => {
 }, []);
 
 useEffect(() => {
+  console.log("examMode changed:", examMode);
+}, [examMode]);
+
+useEffect(() => {
   if (selectedSubMap !== null) {
     localStorage.setItem(
       "selectedSubMap",
@@ -994,7 +998,7 @@ transition
     setShowLeaderboard(true);
 }}
             onExam={() => {
-              
+              console.log("EXAM CLICKED")
   const allQuestions: any[] = [];
 
   Object.values(propositionQuestions).forEach((world: any) => {
@@ -1003,23 +1007,23 @@ transition
     if (world.stage3) allQuestions.push(...world.stage3);
   });
 
-  console.log("allQuestions =", allQuestions.length);
+  console.log("ALL =", allQuestions.length)
 
   const shuffled = [...allQuestions]
     .sort(() => Math.random() - 0.5)
     .slice(0, 50);
 
-  console.log("shuffled =", shuffled.length);
+  
   
 
-
+console.log("SHUFFLED =", shuffled.length);
   setShuffledQuestions(shuffled);
 
   setCurrent(0);
   setCorrectAnswers(0);
 
   setExamMode(true);
-
+console.log("SET EXAM MODE TRUE");
   setSelectedWorld(-1);
   setCurrentSubNode(1);
 
