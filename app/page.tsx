@@ -109,25 +109,38 @@ const [currentUserId, setCurrentUserId] =
 
   const questions = (() => {
 
-console.log(
-  "World:",
-  selectedWorld,
-  "Node:",
-  currentSubNode
-);
+  if (examMode) {
+    return shuffledQuestions;
+  }
 
-    if (shuffledQuestions.length > 0) return shuffledQuestions; 
-    if (!selectedWorld || selectedWorld === -1 || currentSubNode === null) return [];
-    const worldData = propositionQuestions [selectedWorld as keyof typeof propositionQuestions] as any;
-    console.log("worldData", worldData);
-    if (!worldData) return [];
-    if (currentSubNode === 1) return worldData.stage1 || [];
-    if (currentSubNode === 2) return worldData.stage2 || [];
-    if (currentSubNode === 3) return worldData.stage3 || [];
-    console.log("worldData =", worldData);
+  if (
+    selectedWorld === null ||
+    currentSubNode === null
+  ) {
     return [];
-  })();
+  }
 
+  const worldData =
+    propositionQuestions[
+      selectedWorld as keyof typeof propositionQuestions
+    ] as any;
+
+  if (!worldData) return [];
+
+  switch (currentSubNode) {
+    case 1:
+      return worldData.stage1 || [];
+
+    case 2:
+      return worldData.stage2 || [];
+
+    case 3:
+      return worldData.stage3 || [];
+
+    default:
+      return [];
+  }
+})();
  
 
 
@@ -977,20 +990,37 @@ transition
     setShowLeaderboard(true);
 }}
             onExam={() => {
-              const allQuestions: any[] = [];
-              Object.values(propositionQuestions).forEach((world: any) => {
-                if (world.stage1) allQuestions.push(...world.stage1);
-                if (world.stage2) allQuestions.push(...world.stage2);
-                if (world.stage3) allQuestions.push(...world.stage3);
-              });
-              const shuffled = [...allQuestions].sort(() => Math.random() - 0.5).slice(0, 50);
-              setShuffledQuestions(shuffled);
-              setCurrent(0);
-              setCorrectAnswers(0);
-              setExamMode(true);
-              setSelectedWorld(-1); 
-              setStarted(true);
-            }}
+
+  const allQuestions: any[] = [];
+
+  Object.values(propositionQuestions).forEach((world: any) => {
+    if (world.stage1) allQuestions.push(...world.stage1);
+    if (world.stage2) allQuestions.push(...world.stage2);
+    if (world.stage3) allQuestions.push(...world.stage3);
+  });
+
+  console.log("allQuestions =", allQuestions.length);
+
+  const shuffled = [...allQuestions]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 50);
+
+  console.log("shuffled =", shuffled.length);
+
+  setShuffledQuestions(shuffled);
+
+  setCurrent(0);
+  setCorrectAnswers(0);
+
+  setExamMode(true);
+
+  setSelectedWorld(-1);
+  setCurrentSubNode(1);
+
+  setStarted(true);
+}}
+              
+            
           />
         </main>
       </>
@@ -1079,9 +1109,9 @@ transition
           </div>
         </div>
 
-        <p>
+        <p className="text-center mt-4 text-sm font-semibold text-indigo-600">
   {examMode
-    ? "🎓 Chế độ luyện thi"
+    ? "🎓 Chế độ luyện thi THPT"
     : `🌍 World ${selectedWorld} - Chặng ${currentSubNode}`
   }
 </p>
