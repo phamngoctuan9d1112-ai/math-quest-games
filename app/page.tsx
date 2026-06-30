@@ -11,6 +11,8 @@ import TermsModal from "./components/TermsModal";
 import { achievements } from "./data/achievements";
 import { getWorlds } from "./data/worlds";
 import { propositionQuestions } from "./data/questions";
+console.log(propositionQuestions);
+console.log(Object.keys(propositionQuestions));
 import Shop from "./components/Shop";
 import StartScreen from "./components/StartScreen";
 import Inventory from "./components/Inventory";

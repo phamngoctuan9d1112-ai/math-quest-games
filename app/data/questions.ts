@@ -22,6 +22,7 @@ export interface Question {
 
 // 2. Thiết lập bộ câu hỏi chia làm 3 stage (stage1, stage2, stage3)
 export const propositionQuestions = {
+
  1: {
     stage1: [
       {
