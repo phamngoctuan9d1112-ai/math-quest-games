@@ -5226,42 +5226,10 @@ question:"Một hộp có 8 viên bi khác nhau. Có bao nhiêu cách chọn 2 v
 answer:"28",
 explanation:"Chọn 2 viên từ 8 viên: C₈²=8×7/2=28."
 }
-]
-},
-
-stage3:[
-{
-id:"ntn_s3_1",
-type:"short-answer",
-question:"Tìm hệ số của x² trong khai triển (1+x)^5.",
-answer:"10",
-explanation:"Theo công thức Nhị thức Newton: C(5,2)=10."
-},
-
-{
-id:"ntn_s3_2",
-type:"short-answer",
-question:"Khai triển (1+x)^4. Tính tổng các hệ số của đa thức.",
-answer:"16",
-explanation:"Cho x=1, ta được (1+1)^4=2^4=16."
-},
-
-{
-id:"ntn_s3_3",
-type:"short-answer",
-question:"Tìm số hạng chứa x³ trong khai triển (1+x)^6.",
-answer:"20",
-explanation:"Hệ số của x³ là C(6,3)=20."
-},
-
-{
-id:"ntn_s3_4",
-type:"short-answer",
-question:"Tìm hệ số của x⁴ trong khai triển (2+x)^6.",
-answer:"240",
-explanation:"Số hạng chứa x⁴ là C(6,4)·2²·x⁴=15·4·x⁴=60x⁴. Hệ số là 60."
-}
 ],
+
+
+},
 23: {
 stage1:[
 {
