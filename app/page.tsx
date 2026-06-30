@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import confetti from "canvas-confetti";
 import XPBar from "./components/XPBar";
 import StatusBar from "./components/StatusBar";
@@ -389,7 +389,7 @@ async function fetchLeaderboard() {
       if (savedProgress) setDailyProgress(parseInt(savedProgress, 10));
       const savedSubNodes = 
       localStorage.getItem(
-  `subNodeProgres_${currentUserId}`
+  `subNodeProgress_${currentUserId}`
 )
       if (savedSubNodes) {
         try { setSubNodeProgress(JSON.parse(savedSubNodes)); } catch(e){}
@@ -421,9 +421,12 @@ if (rewardDate === today) {
 
   setDailyRewardClaimed(false);
 
-  localStorage.removeItem("dailyRewardDate");
+  localStorage.removeItem(
+  `dailyRewardDate_${currentUserId}`
+);
 
-  localStorage.setItem("daily_task_progress", "0");
+  const key =
+  `daily_task_progress_${currentUserId}`;
 
   localStorage.setItem("lastLogin", today);
 
@@ -432,12 +435,14 @@ if (rewardDate === today) {
 
       
       const savedInventory =
-  localStorage.getItem(
-  `inventory_${currentUserId}`
-)
-
+  localStorage.setItem(
+  `inventory_${currentUserId}`,
+  JSON.stringify(inventory)
+);
 try {
-  const data = localStorage.getItem("inventory");
+  const data = localStorage.getItem(
+  `inventory_${currentUserId}`
+);
 
   if (data && data !== "undefined") {
     setInventory(JSON.parse(data));
@@ -459,14 +464,18 @@ try {
   
   // Setup Boss khi tới stage 3
 
+const firstLoad = useRef(true);
+
 useEffect(() => {
   if (!isLoggedIn) return;
   if (!dataLoaded) return;
 
+  if (firstLoad.current) {
+    firstLoad.current = false;
+    return;
+  }
+
   saveProgress();
-
-
-
 }, [
   xp,
   coins,
@@ -475,7 +484,6 @@ useEffect(() => {
   weapon,
   pet,
   hearts,
-  dataLoaded,
 ]);
 
   // Setup Boss chung
@@ -1071,9 +1079,12 @@ transition
           </div>
         </div>
 
-        <p className="text-center mt-4 text-sm font-semibold text-indigo-600">
-          {examMode ? "🎓 Chế độ Luyện Thi THPT" : `🌍 World ${selectedWorld} - Chặng ${currentSubNode}`}
-        </p>
+        <p>
+  {examMode
+    ? "🎓 Chế độ luyện thi"
+    : `🌍 World ${selectedWorld} - Chặng ${currentSubNode}`
+  }
+</p>
       
         {message && (
           <div className="bg-yellow-100 text-black p-3 rounded-xl mt-4 text-center">
