@@ -229,6 +229,12 @@ async function saveProgress() {
 
   const question = (current < questions.length ? questions[current] : null) as any;
 
+  console.log("questions.length =", questions.length);
+console.log("current =", current);
+console.log("selectedWorld =", selectedWorld);
+console.log("currentSubNode =", currentSubNode);
+console.log("examMode =", examMode);
+
   // ==========================================
   // 3. TẤT CẢ USE EFFECT (Không được đặt dưới if return)
   // ==========================================
