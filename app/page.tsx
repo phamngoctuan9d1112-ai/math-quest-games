@@ -1008,19 +1008,7 @@ transition
 
    
 
-    const nextWorld =
-      selectedWorld + 1;
-
-    if (
-      nextWorld <=
-      Object.keys(propositionQuestions).length
-    ) {
-      setUnlockedWorlds(prev =>
-        [...new Set([...prev, nextWorld])]
-      );
-
-      setNewWorldUnlocked(nextWorld);
-    }
+    
   
 
                
