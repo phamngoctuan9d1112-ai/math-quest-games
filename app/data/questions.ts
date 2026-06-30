@@ -5429,6 +5429,7 @@ correctAnswer:"Sai"
 ]
 }
 ],
+},
 24: {
 stage1:[
 {
@@ -18401,6 +18402,5 @@ answer:"0.6",
 explanation:"P(A|B)=0,3×0,8/0,4=0,6."
 }
 ]
-}
 }
 }
