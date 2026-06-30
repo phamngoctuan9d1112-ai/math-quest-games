@@ -597,9 +597,11 @@ if (!unlockedWorlds.includes(nextWorld)) {
     setCurrentSubNode(null);
     setSelectedWorld(null);
     setCurrent(0);
-  }
-
+  } 
+}else {
+  setCurrent(nextIndex);
 }
+
   }
 
   
