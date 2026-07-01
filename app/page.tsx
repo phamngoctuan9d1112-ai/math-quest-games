@@ -229,6 +229,10 @@ async function saveProgress() {
 console.log("current =", current);
 console.log("selectedWorld =", selectedWorld);
 console.log("currentSubNode =", currentSubNode);
+console.log(
+  "selectedSubMap =",
+  selectedSubMap
+);
 
   // ==========================================
   // 3. TẤT CẢ USE EFFECT (Không được đặt dưới if return)
@@ -853,7 +857,11 @@ transition
     );
   }
 
-  
+  console.log(
+  "SHOW SUBMAP",
+  selectedSubMap,
+  currentSubNode
+);
 
   if (selectedSubMap !== null && currentSubNode === null) {
     const currentWorldProgress = subNodeProgress[selectedSubMap] || 1;
@@ -1109,9 +1117,16 @@ transition
 <div className="flex justify-center mt-2">
   <button
     onClick={() => {
-      setCurrent(0);
-      setCurrentSubNode(null);
-    }}
+  setCurrent(0);
+
+  setTfAnswers({});
+  setShortAnswer("");
+  setShowExplanation(false);
+
+  setSelectedSubMap(selectedWorld);
+
+  setCurrentSubNode(null);
+}}
     className="
       bg-slate-600
       hover:bg-slate-700
