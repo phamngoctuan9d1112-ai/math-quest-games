@@ -125,17 +125,16 @@ md:h-32
 
   return (
     <main
-className="
-min-h-screen
-bg-gradient-to-br
-from-blue-600
-via-purple-600
-to-pink-600
-
-px-3
-py-4
-
-md:p-6
+  className="
+  w-full
+  min-h-screen
+  bg-gradient-to-br
+  from-blue-600
+  via-purple-600
+  to-pink-600
+  px-3
+  py-4
+  md:p-6
 "
 >
       {/* Header */}
