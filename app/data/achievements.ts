@@ -31,25 +31,25 @@ export const achievements = [
   {
     id: 5,
     name: "🎓 Hoàn Thành Toán 10",
-    description: "Mở khóa World 20",
+    description: "Mở khóa World 26",
     xpRequired: 0,
-    condition: (world: number) => world >= 19,
+    condition: (world: number) => world >= 25,
   },
 
   {
     id: 6,
     name: "🎓 Hoàn Thành Toán 11",
-    description: "Mở khóa World 40",
+    description: "Mở khóa World 60",
     xpRequired: 0,
-    condition: (world: number) => world >= 39,
+    condition: (world: number) => world >= 60,
   },
 
   {
     id: 7,
     name: "🎓 Hoàn Thành Toán 12",
-    description: "Mở khóa World 60",
+    description: "Mở khóa World 79",
     xpRequired: 0,
-    condition: (world: number) => world >= 59,
+    condition: (world: number) => world >= 79,
   },
 
   {
@@ -57,6 +57,6 @@ export const achievements = [
     name: "👑 Chúa Tể Toán Học",
     description: "Phá đảo Math Quest",
     xpRequired: 0,
-    condition: (world: number) => world >= 60,
+    condition: (world: number) => world >= 79,
   },
 ];
