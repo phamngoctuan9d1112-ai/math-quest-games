@@ -58,14 +58,17 @@ onLogout,
       <div
 className="
 grid
-grid-cols-2 sm:grid-cols-3
-md:flex
-md:flex-wrap
-justify-center
+grid-cols-2
+sm:grid-cols-3
+md:grid-cols-4
+lg:grid-cols-5
 gap-3
-md:gap-6
+w-full
+max-w-6xl
+mx-auto
 "
 >
+
         {group.map((world) => (
           <button
             key={world.id}
@@ -76,8 +79,9 @@ md:gap-6
               }
             }}
             className={`
-              w-28
-h-28
+              w-full
+aspect-square
+max-w-[120px]
 md:w-32
 md:h-32
               rounded-3xl
@@ -125,16 +129,17 @@ md:h-32
 
   return (
     <main
-  className="
-  w-full
-  min-h-screen
-  bg-gradient-to-br
-  from-blue-600
-  via-purple-600
-  to-pink-600
-  px-3
-  py-4
-  md:p-6
+className="
+w-full
+min-h-screen
+bg-gradient-to-br
+from-blue-600
+via-purple-600
+to-pink-600
+px-2
+sm:px-4
+md:px-6
+py-4
 "
 >
       {/* Header */}
@@ -155,7 +160,7 @@ md:h-32
 >
 
   {/* BÊN TRÁI */}
-  <div className="flex justify-center gap-2 md:justify-start">
+  <div className="flex flex-wrap gap-2 justify-center md:justify-start">
     <button
       onClick={onShop}
       className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-2 md:px-6 md:py-3 rounded-xl font-bold"
@@ -175,8 +180,7 @@ md:h-32
   <div className="text-center">
     <h1
   className="
-  text-4xl
-  md:text-6xl
+  text-2xl sm:text-3xl md:text-6xl
   font-bold
   text-white
   "
@@ -230,18 +234,18 @@ md:h-32
         </p>
 
         <div
-  className="
-  mt-4
-  flex
-  flex-wrap
-  justify-center
-  gap-3
-  md:gap-6
-  text-sm
-  md:text-lg
-  font-bold
-  "
->
+   className="
+mt-4
+flex
+flex-wrap
+justify-center
+gap-2
+text-xs
+sm:text-sm
+md:text-lg
+font-bold
+">
+
           <span>⭐ Level {level}</span>
           <span>{rank}</span>
           <span>🪙 {coins}</span>
