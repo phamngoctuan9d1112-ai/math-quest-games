@@ -109,6 +109,7 @@ const [currentUserId, setCurrentUserId] =
 
   const questions = (() => {
 
+    
   if (examMode) {
     return shuffledQuestions;
   }
@@ -137,6 +138,7 @@ const [currentUserId, setCurrentUserId] =
     return worldData.stage3 || [];
 
   return [];
+
 
 })();
 
@@ -273,6 +275,18 @@ useEffect(() => {
 }, [examMode]);
 
 useEffect(() => {
+  if (
+    selectedWorld === null &&
+    currentSubNode === null
+  ) {
+    setExamMode(false);
+  }
+}, [
+  selectedWorld,
+  currentSubNode
+]);
+
+useEffect(() => {
   if (selectedSubMap !== null) {
     localStorage.setItem(
       "selectedSubMap",
@@ -350,6 +364,16 @@ setCurrentUserId(user.id);
       if (event === "SIGNED_IN" && session?.user) {
         setIsLoggedIn(true);
       } else if (event === "SIGNED_OUT") {
+
+        setExamMode(false);
+
+setSelectedWorld(null);
+
+setCurrentSubNode(null);
+
+setCurrent(0);
+
+setShuffledQuestions([]);
 
   setIsLoggedIn(false);
 
@@ -448,21 +472,19 @@ if (rewardDate === today) {
   const key =
   `daily_task_progress_${currentUserId}`;
 
-  localStorage.setItem("lastLogin", today);
+  localStorage.setItem(
+  `lastLogin_${currentUserId}`,
+  today
+);
 
   setMessage("🎁 Đăng nhập nhận 50 Coin");
 }
 
       
-      const savedInventory =
-  localStorage.setItem(
-  `inventory_${currentUserId}`,
-  JSON.stringify(inventory)
-);
-try {
+      try {
   const data = localStorage.getItem(
-  `inventory_${currentUserId}`
-);
+    `inventory_${currentUserId}`
+  );
 
   if (data && data !== "undefined") {
     setInventory(JSON.parse(data));
@@ -475,12 +497,34 @@ try {
   }, []);
 
   // Lưu state vào LocalStorage khi thay đổi
-  useEffect(() => { if (typeof window !== "undefined") localStorage.setItem('daily_task_progress', dailyProgress.toString()); }, [dailyProgress]);
-  useEffect(() => { if (typeof window !== "undefined") localStorage.setItem('subNodeProgress', JSON.stringify(subNodeProgress)); }, [subNodeProgress]);
+  useEffect(() => {
+  if (!currentUserId) return;
+
+  localStorage.setItem(
+    `daily_task_progress_${currentUserId}`,
+    dailyProgress.toString()
+  );
+}, [dailyProgress, currentUserId]);
+
+  useEffect(() => {
+  if (!currentUserId) return;
+
+  localStorage.setItem(
+    `subNodeProgress_${currentUserId}`,
+    JSON.stringify(subNodeProgress)
+  );
+}, [subNodeProgress, currentUserId]);
   useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("hearts", hearts.toString()); }, [hearts]);
   useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("current", current.toString()); }, [current]);
   useEffect(() => { if (typeof window !== "undefined" && selectedWorld) localStorage.setItem("selectedWorld", selectedWorld.toString()); }, [selectedWorld]);
-  useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("inventory", JSON.stringify(inventory)); }, [inventory]);
+  useEffect(() => {
+  if (!currentUserId) return;
+
+  localStorage.setItem(
+    `inventory_${currentUserId}`,
+    JSON.stringify(inventory)
+  );
+}, [inventory, currentUserId]);
   
   // Setup Boss khi tới stage 3
 
@@ -1115,7 +1159,10 @@ transition
     setDailyRewardClaimed(true);
 
     // Lưu ngày đã nhận thưởng
-    localStorage.setItem("dailyRewardDate", today);
+    localStorage.setItem(
+  `dailyRewardDate_${currentUserId}`,
+  today
+);
 
     setMessage("🎁 Nhận 50 Coin!");
   }}
