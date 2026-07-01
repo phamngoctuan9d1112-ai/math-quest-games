@@ -239,33 +239,7 @@ console.log(
   // ==========================================
 
 
-useEffect(() => {
-  if (typeof window === "undefined") return;
 
-  const savedWorld =
-    localStorage.getItem("selectedWorld");
-
-  const savedCurrent =
-    localStorage.getItem("current");
-
-  const savedSubMap =
-    localStorage.getItem("selectedSubMap");
-
-  const savedSubNode =
-    localStorage.getItem("currentSubNode");
-
-  if (savedWorld)
-    setSelectedWorld(Number(savedWorld));
-
-  if (savedCurrent)
-    setCurrent(Number(savedCurrent));
-
-  if (savedSubMap)
-    setSelectedSubMap(Number(savedSubMap));
-
-  if (savedSubNode)
-    setCurrentSubNode(Number(savedSubNode));
-}, []);
 
 
 
@@ -281,23 +255,9 @@ useEffect(() => {
   currentSubNode
 ]);
 
-useEffect(() => {
-  if (selectedSubMap !== null) {
-    localStorage.setItem(
-      "selectedSubMap",
-      selectedSubMap.toString()
-    );
-  }
-}, [selectedSubMap]);
 
-useEffect(() => {
-  if (currentSubNode !== null) {
-    localStorage.setItem(
-      "currentSubNode",
-      currentSubNode.toString()
-    );
-  }
-}, [currentSubNode]);
+
+
 
   useEffect(() => {
   if (!currentUserId) return;
@@ -489,6 +449,13 @@ if (rewardDate === today) {
     }
   }, []);
 
+  useEffect(() => {
+  setSelectedWorld(null);
+  setSelectedSubMap(null);
+  setCurrentSubNode(null);
+  setCurrent(0);
+}, []);
+
   // Lưu state vào LocalStorage khi thay đổi
   useEffect(() => {
   if (!currentUserId) return;
@@ -508,8 +475,6 @@ if (rewardDate === today) {
   );
 }, [subNodeProgress, currentUserId]);
   useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("hearts", hearts.toString()); }, [hearts]);
-  useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("current", current.toString()); }, [current]);
-  useEffect(() => { if (typeof window !== "undefined" && selectedWorld) localStorage.setItem("selectedWorld", selectedWorld.toString()); }, [selectedWorld]);
   useEffect(() => {
   if (!currentUserId) return;
 
