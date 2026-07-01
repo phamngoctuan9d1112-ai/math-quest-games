@@ -852,32 +852,79 @@ transition
   }
 
   if (showLeaderboard) {
+    const medals = ["🥇", "🥈", "🥉"];
     return (
         <main className="min-h-screen flex items-center justify-center bg-black/60">
-            <div className="bg-white rounded-3xl p-8 w-[600px]">
+            <div className="
+bg-slate-900
+text-white
+rounded-3xl
+p-8
+w-[700px]
+max-w-full
+shadow-2xl
+border
+border-slate-700
+">
 
-                <h1 className="text-3xl font-bold text-center mb-6">
-                    🏆 Bảng Xếp Hạng
-                </h1>
+                <h1 className="
+text-4xl
+font-bold
+text-center
+mb-8
+text-yellow-400
+">
+  🏆 Bảng Xếp Hạng
+</h1>
 
                 {leaderboard.map((user, index) => (
-                    <div
-                        key={user.id}
-                        className="flex justify-between border-b py-3"
-                    >
-                        <div>
-                            {index + 1}. {user.display_name}
-                        </div>
+  <div
+    key={user.id}
+    className="
+    flex
+    justify-between
+    items-center
+    py-4
+    px-4
+    rounded-xl
+    mb-2
+    bg-slate-800
+    hover:bg-slate-700
+    transition
+    "
+  >
+    <div className="flex items-center gap-3">
 
-                        <div className="font-bold text-blue-600">
-                            {user.xp} Điểm
-                        </div>
-                    </div>
-                ))}
+      <div className="text-2xl">
+        {index < 3
+          ? medals[index]
+          : `#${index + 1}`}
+      </div>
 
+      <div>
+        <div className="font-semibold">
+          {user.display_name}
+        </div>
+
+        <div className="text-sm text-gray-400">
+          Hạng {index + 1}
+        </div>
+      </div>
+
+    </div>
+
+    <div className="
+      text-blue-400
+      font-bold
+      text-lg
+    ">
+      ⭐ {user.xp}
+    </div>
+  </div>
+))}
                 <div className="mt-6 text-center">
                     <p className="font-bold">
-                        Hạng của bạn: #{myRank}
+                        Hạng của bạn: {myRank}
                     </p>
 
                     <button
