@@ -58,7 +58,7 @@ onLogout,
       <div
 className="
 grid
-grid-cols-2
+grid-cols-2 sm:grid-cols-3
 md:flex
 md:flex-wrap
 justify-center
@@ -76,8 +76,8 @@ md:gap-6
               }
             }}
             className={`
-              w-24
-h-24
+              w-28
+h-28
 md:w-32
 md:h-32
               rounded-3xl
@@ -106,7 +106,7 @@ md:h-32
               }
             `}
           >
-            <div className="text-3xl">
+            <div className="text-2xl md:text-3xl">
               {world.unlocked ? "🌍" : "🔒"}
             </div>
 
@@ -156,17 +156,17 @@ md:p-6
 >
 
   {/* BÊN TRÁI */}
-  <div className="flex gap-4 justify-start">
+  <div className="flex justify-center gap-2 md:justify-start">
     <button
       onClick={onShop}
-      className="bg-yellow-500 hover:bg-yellow-600 text-white py-3 md:px-6 md:py-3 rounded-xl font-bold"
+      className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-2 md:px-6 md:py-3 rounded-xl font-bold"
     >
       🛒 Shop
     </button>
 
     <button
       onClick={onAchievements}
-      className="bg-green-500 hover:bg-green-600 text-white py-3 md:px-6 md:py-3 rounded-xl font-bold"
+      className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 md:px-6 md:py-3 rounded-xl font-bold"
     >
       🏆 Thành tích
     </button>
@@ -187,7 +187,7 @@ md:p-6
   </div>
 
   {/* BÊN PHẢI */}
-  <div className="flex gap-4 justify-end">
+  <div className="flex justify-center gap-2 md:justify-end">
 
     <button
       onClick={onLeaderboard}
@@ -215,7 +215,7 @@ md:p-6
         text-xl
       "
     >
-      📲
+      ↩️
     </button>
 
   </div>
@@ -230,7 +230,19 @@ md:p-6
           Toán THPT qua trò chơi
         </p>
 
-        <div className="mt-4 flex justify-center gap-6 text-lg font-bold">
+        <div
+  className="
+  mt-4
+  flex
+  flex-wrap
+  justify-center
+  gap-3
+  md:gap-6
+  text-sm
+  md:text-lg
+  font-bold
+  "
+>
           <span>⭐ Level {level}</span>
           <span>{rank}</span>
           <span>🪙 {coins}</span>
@@ -241,7 +253,7 @@ md:p-6
 
       {/* TOÁN 10 */}
 
-      <section className="mt-16">
+      <section className="mt-10 md:mt-16">
         <h2 className="text-2xl md:text-4xl text-white font-bold text-center mb-8">
           📘 Toán 10
         </h2>
@@ -251,7 +263,7 @@ md:p-6
 
       {/* TOÁN 11 */}
 
-      <section className="mt-20">
+      <section className="mt-12 md:mt-20">
         <h2 className="text-2xl md:text-4xl text-white font-bold text-center mb-8">
           📗 Toán 11
         </h2>
