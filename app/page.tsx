@@ -1105,6 +1105,28 @@ transition
         <p className="text-center mt-4 text-sm font-semibold text-indigo-600">
   🌍 World {selectedWorld} - Chặng {currentSubNode}
 </p>
+
+<div className="flex justify-center mt-2">
+  <button
+    onClick={() => {
+      setCurrent(0);
+      setCurrentSubNode(null);
+    }}
+    className="
+      bg-slate-600
+      hover:bg-slate-700
+      text-white
+      px-4
+      py-2
+      rounded-xl
+      text-sm
+      font-bold
+      transition
+    "
+  >
+    ⬅️ Quay lại chọn chặng
+  </button>
+</div>
       
         {message && (
           <div className="bg-yellow-100 text-black p-3 rounded-xl mt-4 text-center">
