@@ -898,7 +898,7 @@ text-yellow-400
       <div className="text-2xl">
         {index < 3
           ? medals[index]
-          : `#${index + 1}`}
+          : `${index + 1}`}
       </div>
 
       <div>
@@ -1084,7 +1084,7 @@ text-yellow-400
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-6">
-      <div className="bg-white text-black p-8 rounded-3xl shadow-2xl w-[600px] max-w-full">
+      <div className="bg-white text-black p-8 rounded-3xl shadow-2xl w-full max-w-[600px] max-w-full">
         <h1 className="text-4xl font-bold text-center">🚀 Math Quest</h1>
         <p className="text-center font-bold">Pet Đồng Hành</p>
         <p className="text-center text-sm text-gray-500">

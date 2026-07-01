@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -14,8 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 // Thêm đoạn này vào file app/layout.tsx của bạn
-export const viewport = {
-  width: 750, // Ép điện thoại hiểu độ rộng màn hình là 750px để tự động thu nhỏ game lại vừa khít
+
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export const metadata: Metadata = {
