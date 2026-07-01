@@ -875,7 +875,12 @@ transition
             setSelectedWorld(selectedSubMap);
             setCurrent(0);
           }}
-          onBack={() => { setSelectedSubMap(null); }}
+          onBack={() => {
+  setSelectedSubMap(null);
+  setSelectedWorld(null);
+  setCurrentSubNode(null);
+  setCurrent(0);
+}}
         />
       </main>
     );
