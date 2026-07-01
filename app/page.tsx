@@ -39,10 +39,7 @@ export default function Home() {
   const [dailyRewardClaimed, setDailyRewardClaimed] = useState<boolean>(false);
   const [newWorldUnlocked, setNewWorldUnlocked] = useState<number | null>(null);
   const [unlockedWorlds, setUnlockedWorlds] = useState([1, 27, 62]);
-  const [examMode, setExamMode] = useState(false);
   const [selectedWorld, setSelectedWorld] = useState<number | null>(null);
-  const [shuffledQuestions, setShuffledQuestions] = useState<any[]>([]);
-  
  
   const [weapon, setWeapon] = useState("🪵");
   const [attacking, setAttacking] = useState(false);
@@ -110,9 +107,6 @@ const [currentUserId, setCurrentUserId] =
   const questions = (() => {
 
     
-  if (examMode) {
-    return shuffledQuestions;
-  }
 
   if (
     selectedWorld === null ||
@@ -235,7 +229,6 @@ async function saveProgress() {
 console.log("current =", current);
 console.log("selectedWorld =", selectedWorld);
 console.log("currentSubNode =", currentSubNode);
-console.log("examMode =", examMode);
 
   // ==========================================
   // 3. TẤT CẢ USE EFFECT (Không được đặt dưới if return)
@@ -270,16 +263,14 @@ useEffect(() => {
     setCurrentSubNode(Number(savedSubNode));
 }, []);
 
-useEffect(() => {
-  console.log("examMode changed:", examMode);
-}, [examMode]);
+
 
 useEffect(() => {
   if (
     selectedWorld === null &&
     currentSubNode === null
   ) {
-    setExamMode(false);
+    
   }
 }, [
   selectedWorld,
@@ -365,15 +356,13 @@ setCurrentUserId(user.id);
         setIsLoggedIn(true);
       } else if (event === "SIGNED_OUT") {
 
-        setExamMode(false);
+        
 
 setSelectedWorld(null);
 
 setCurrentSubNode(null);
 
 setCurrent(0);
-
-setShuffledQuestions([]);
 
   setIsLoggedIn(false);
 
@@ -1042,45 +1031,7 @@ transition
     fetchLeaderboard();
     setShowLeaderboard(true);
 }}
-            onExam={() => {
-  const allQuestions: any[] = [];
-
-  Object.values(propositionQuestions).forEach(
-    (world: any) => {
-      if (world.stage1)
-        allQuestions.push(...world.stage1);
-
-      if (world.stage2)
-        allQuestions.push(...world.stage2);
-
-      if (world.stage3)
-        allQuestions.push(...world.stage3);
-    }
-  );
-
-  const shuffled = [...allQuestions]
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 50);
-
-  console.log(
-    "THI THU",
-    shuffled.length
-  );
-
-  setShuffledQuestions(shuffled);
-
-  setCurrent(0);
-
-  setCorrectAnswers(0);
-
-  setExamMode(true);
-
-  
-
-
-
-  setStarted(true);
-}}
+            
               
             
           />
@@ -1097,29 +1048,6 @@ transition
         <p>🪙 Coin: {coins}</p>
         <button onClick={() => { setCurrent(0); setHearts(3); setSelectedWorld(null); setSelectedSubMap(null); setCurrentSubNode(null); }} className="bg-red-500 text-white px-6 py-3 rounded-xl">
           Chơi lại
-        </button>
-      </main>
-    );
-  }
-
-  
-                    
-                      
-
-   
-
-    
-  
-
-               
-
-  if (examMode && current >= questions.length) {
-    return (
-      <main className="min-h-screen flex flex-col items-center justify-center gap-4">
-        <h1 className="text-5xl font-bold">🎓 Hoàn Thành Bài Thi</h1>
-        <p className="text-3xl">Điểm: {correctAnswers}/50</p>
-        <button onClick={() => { setExamMode(false); setSelectedWorld(null); setSelectedSubMap(null); setCurrent(0); setShuffledQuestions([]); }} className="bg-green-500 text-white px-6 py-3 rounded-xl">
-          Về Menu
         </button>
       </main>
     );
@@ -1175,10 +1103,7 @@ transition
         </div>
 
         <p className="text-center mt-4 text-sm font-semibold text-indigo-600">
-  {examMode
-    ? "🎓 Chế độ luyện thi THPT"
-    : `🌍 World ${selectedWorld} - Chặng ${currentSubNode}`
-  }
+  🌍 World {selectedWorld} - Chặng {currentSubNode}
 </p>
       
         {message && (
