@@ -16,6 +16,8 @@ const geistMono = Geist_Mono({
 // Thêm đoạn này vào file app/layout.tsx của bạn
 
 
+
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
