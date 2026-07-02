@@ -45,7 +45,7 @@ export default function Home() {
   const [attacking, setAttacking] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState("");
- 
+ const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [message, setMessage] = useState("");
   const [shopMessage, setShopMessage] = useState("");
   const [current, setCurrent] = useState(0);
@@ -533,39 +533,116 @@ useEffect(() => {
   }
 
   async function checkAnswer(value: number | string) {
-    if (value === question?.answer) {
-      setCorrectAnswers(prev => prev + 1);
-      setDailyProgress(prev => (prev < 5 ? prev + 1 : prev));
-      const newXP = xp + 10;
 
-setXp(newXP);
+  const isCorrect = value === question?.answer;
 
-let reward = 5;
+  if (isCorrect) {
 
-if (pet === "🐶") reward = 6;
-if (pet === "🐱") reward = 7;
-if (pet === "🐉") reward = 10;
+    setCorrectAnswers(prev => prev + 1);
 
-const newCoins = coins + reward;
+    setDailyProgress(prev =>
+      prev < 5 ? prev + 1 : prev
+    );
 
-setCoins(newCoins);
+    const newXP = xp + 10;
+    setXp(newXP);
 
-await fetchLeaderboard();
-      setMessage("✅ Chính xác!");
-    } else {
-  setHearts(prev => prev - 1);
+    let reward = 5;
 
-  setCorrectAnswer(String(question?.answer));
+    if (pet === "🐶") reward = 6;
+    if (pet === "🐱") reward = 7;
+    if (pet === "🐉") reward = 10;
 
-  setMessage(
-    `❌ Sai! Đáp án đúng là: ${question?.answer}`
-  );
-}
+    const newCoins = coins + reward;
+
+    setCoins(newCoins);
+
+    await fetchLeaderboard();
+
+    setMessage("✅ Chính xác!");
 
     setTimeout(() => {
+      moveToNextQuestion();
+    }, 800);
+
+  } else {
+
+    setHearts(prev => prev - 1);
+
+    setMessage("❌ Sai rồi!");
+
+    setShowCorrectAnswer(true);
+
+    setTimeout(() => {
+      setShowCorrectAnswer(false);
+      moveToNextQuestion();
+    }, 5000);
+  }
+}
+
+function moveToNextQuestion() {
+
   setMessage("");
-  setCorrectAnswer("");
-}, 2000);
+
+  const nextIndex = current + 1;
+
+  if (nextIndex >= questions.length) {
+
+    const currentMapId =
+      selectedSubMap || 1;
+
+    const currentWorldProgress =
+      subNodeProgress[currentMapId] || 1;
+
+    if (
+      currentSubNode === currentWorldProgress &&
+      currentWorldProgress < 3
+    ) {
+
+      setSubNodeProgress(prev => ({
+        ...prev,
+        [currentMapId]:
+          currentWorldProgress + 1,
+      }));
+
+      setCurrentSubNode(null);
+      setSelectedWorld(null);
+      setCurrent(0);
+
+    } else if (currentSubNode === 3) {
+
+      const nextWorld =
+        currentMapId + 1;
+
+      if (!unlockedWorlds.includes(nextWorld)) {
+
+        setUnlockedWorlds(prev => [
+          ...new Set([
+            ...prev,
+            nextWorld,
+          ]),
+        ]);
+
+        setNewWorldUnlocked(nextWorld);
+      }
+
+      setSelectedWorld(null);
+      setCurrentSubNode(null);
+      setCurrent(0);
+
+    } else {
+
+      setCurrentSubNode(null);
+      setSelectedWorld(null);
+      setCurrent(0);
+    }
+
+  } else {
+
+    setCurrent(nextIndex);
+  }
+}
+    
 
     const nextIndex = current + 1;
 
@@ -611,7 +688,7 @@ if (!unlockedWorlds.includes(nextWorld)) {
   setCurrent(nextIndex);
 }
 
-  }
+
 
   
   // HÀM XỬ LÝ NỘP BÀI CHẶNG 2: ĐÚNG / SAI
@@ -1180,10 +1257,34 @@ text-yellow-400
 </div>
       
         {message && (
-          <div className="bg-yellow-100 text-black p-3 rounded-xl mt-4 text-center">
-            {message}
-          </div>
-        )}
+  <div className="bg-yellow-100 text-black p-3 rounded-xl mt-4 text-center">
+    {message}
+  </div>
+)}
+
+{showCorrectAnswer && (
+  <div className="mt-4 bg-red-50 border-2 border-red-300 rounded-xl p-4">
+    <h3 className="font-bold text-red-600">
+      ❌ Đáp án đúng:
+    </h3>
+
+    <p className="text-lg font-bold text-slate-800 mt-2">
+      {question?.answer}
+    </p>
+
+    {question?.explanation && (
+      <div className="mt-3">
+        <h4 className="font-bold text-amber-700">
+          💡 Giải thích:
+        </h4>
+
+        <p className="text-slate-700 whitespace-pre-line">
+          {question.explanation}
+        </p>
+      </div>
+    )}
+  </div>
+)}
 
         <p className="text-center mt-2">
           Câu {current + 1} / {questions.length}
@@ -1315,4 +1416,4 @@ text-yellow-400
       </div>
     </main>
   );
-  }
+}
