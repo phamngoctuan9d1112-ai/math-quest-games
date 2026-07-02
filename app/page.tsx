@@ -543,6 +543,7 @@ useEffect(() => {
   const isCorrect = value === question?.answer;
 
   if (isCorrect) {
+    console.log("PLAY CORRECT");
     playSound("/sounds/correct.mp3");
 
     setCorrectAnswers(prev => prev + 1);

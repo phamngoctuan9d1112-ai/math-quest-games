@@ -1,15 +1,8 @@
-export const playSound = (
-  soundFile: string
-) => {
-  const audio = new Audio(
-    `/sounds/${soundFile}`
-  );
+export function playSound(src: string) {
+  const audio = new Audio(src);
+  audio.volume = 0.5;
 
-  audio.volume = 0.8;
-
-  audio.play().catch(() => {
-    console.log(
-      "Trình duyệt chặn autoplay"
-    );
+  audio.play().catch((err) => {
+    console.log("Sound error:", err);
   });
-};
+}
