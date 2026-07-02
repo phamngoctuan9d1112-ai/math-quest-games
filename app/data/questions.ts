@@ -28,7 +28,8 @@ export const propositionQuestions = {
       {
         id: "p1_s1_1",
         type: "multiple-choice",
-        question: "Câu nào sau đây không là mệnh đề?",
+        question:
+"Cho $y=\\frac{2x+1}{x-1}$.",
         options: [
           "Tam giác đều là tam giác có ba cạnh bằng nhau",
           "3 < 1",
