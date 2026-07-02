@@ -12,15 +12,33 @@ interface SubMapProps {
 export default function SubMap({ worldId, currentProgress, onSelectNode, onBack }: SubMapProps) {
   // Tọa độ X, Y được thiết kế uốn lượn zigzag theo hình vẽ tay
   const nodes = [
-    { id: 1, name: "Chặng 1: Nhận Biết", x: 80, y: 300, icon: "🌱" },
-    { id: 2, name: "Chặng 2: Thông Hiểu", x: 340, y: 200, icon: "📖" },
-    { id: 3, name: "Chặng 3: Vận Dụng", x: 140, y: 90, icon: "⚡" },
-  ];
+  {
+    id: 1,
+    name: "Chặng 1: Nhận Biết",
+    x: "18%",
+    y: "82%",
+    icon: "🌱",
+  },
+  {
+    id: 2,
+    name: "Chặng 2: Thông Hiểu",
+    x: "78%",
+    y: "50%",
+    icon: "📖",
+  },
+  {
+    id: 3,
+    name: "Chặng 3: Vận Dụng",
+    x: "32%",
+    y: "20%",
+    icon: "⚡",
+  },
+];
 
   return (
     <div className="w-full flex justify-center items-center my-6">
       {/* Khung bản đồ cố định kích thước, không bị ảnh hưởng bởi CSS của page.tsx */}
-      <div className="w-[450px] h-[500px] bg-[#fdf5e6] p-6 rounded-[2rem] shadow-2xl border-4 border-[#8b5e3c] relative overflow-hidden select-none flex flex-col justify-between">
+      <div className="w-full max-w-[450px] h-[500px] bg-[#fdf5e6] p-6 rounded-[2rem] shadow-2xl border-4 border-[#8b5e3c] relative overflow-hidden select-none flex flex-col justify-between">
         
         {/* Header Bản đồ */}
         <div className="relative z-10 flex justify-between items-center border-b border-[#8b5e3c]/20 pb-3">
@@ -42,7 +60,7 @@ export default function SubMap({ worldId, currentProgress, onSelectNode, onBack 
           {/* Đường vẽ SVG uốn cong S qua 3 điểm */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
             <path
-              d="M 80 300 C 200 330, 360 270, 340 200 C 320 130, 60 120, 140 90"
+              d="M18 82 C45 90,80 65,78 50 C75 30,15 28,32 20"
               fill="none"
               stroke="#8b5e3c"
               strokeWidth="5"
@@ -60,11 +78,11 @@ export default function SubMap({ worldId, currentProgress, onSelectNode, onBack 
               <div
                 key={node.id}
                 className="absolute flex flex-col items-center -translate-x-1/2 -translate-y-1/2"
-                style={{ 
-                  left: `${node.x}px`, 
-                  top: `${node.y}px`,
-                  zIndex: 10 
-                }}
+                style={{
+  left: node.x,
+  top: node.y,
+  zIndex: 10,
+}}
               >
                 {/* Nút bấm tròn */}
                 <button
