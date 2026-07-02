@@ -644,50 +644,6 @@ function moveToNextQuestion() {
 }
     
 
-    const nextIndex = current + 1;
-
-    if (nextIndex >= questions.length) {
-
-  const currentMapId = selectedSubMap || 1;
-  const currentWorldProgress = subNodeProgress[currentMapId] || 1;
-
-  if (currentSubNode === currentWorldProgress && currentWorldProgress < 3) {
-
-    setSubNodeProgress(prev => ({
-      ...prev,
-      [currentMapId]: currentWorldProgress + 1,
-    }));
-
-    setCurrentSubNode(null);
-    setSelectedWorld(null);
-    setCurrent(0);
-
-  } else if (currentSubNode === 3) {
-
-    const nextWorld = currentMapId + 1;
-
-if (!unlockedWorlds.includes(nextWorld)) {
-  setUnlockedWorlds(prev => [
-    ...new Set([...prev, nextWorld]),
-  ]);
-
-  setNewWorldUnlocked(nextWorld);
-}
-
-    setSelectedWorld(null);
-    setCurrentSubNode(null);
-    setCurrent(0);
-
-  } else {
-
-    setCurrentSubNode(null);
-    setSelectedWorld(null);
-    setCurrent(0);
-  } 
-}else {
-  setCurrent(nextIndex);
-}
-
 
 
   
