@@ -14619,7 +14619,7 @@ correctAnswer:"Đúng"
 {
 id:"ks_s2_2",
 type:"true-false",
-question:"Cho hàm số y=(2x+1)/(x−1).",
+question:"Cho hàm số $y=\\frac{2x+1}{x-1}$",
 subQuestions:[
 {
 label:"a",
