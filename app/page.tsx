@@ -241,9 +241,21 @@ console.log(
   // ==========================================
 
 
+useEffect(() => {
+  if (!bgmRef.current) return;
 
+  if (musicOn) {
+    bgmRef.current.play().catch(console.error);
+  } else {
+    bgmRef.current.pause();
+  }
+}, [musicOn]);
 
-
+useEffect(() => {
+  if (started && bgmRef.current) {
+    bgmRef.current.play().catch(console.error);
+  }
+}, [started]);
 
 useEffect(() => {
   if (
@@ -263,7 +275,26 @@ useEffect(() => {
   bgmRef.current.volume = 0.2;
 }, []);
 
+useEffect(() => {
+  if (
+    isLoggedIn &&
+    selectedWorld === null &&
+    bgmRef.current
+  ) {
+    bgmRef.current.play().catch(console.error);
+  }
+}, [isLoggedIn, selectedWorld]);
 
+useEffect(() => {
+  if (!bgmRef.current) return;
+
+  if (selectedWorld === null) {
+    bgmRef.current.currentTime = 0;
+    bgmRef.current.play().catch(() => {});
+  } else {
+    bgmRef.current.pause();
+  }
+}, [selectedWorld]);
 
   useEffect(() => {
   if (!currentUserId) return;
@@ -1148,7 +1179,25 @@ text-yellow-400
     mx-auto
   "
 >
-        <h1 className="text-4xl font-bold text-center">🚀 Math Quest</h1>
+        <div className="flex justify-between items-center">
+  <h1 className="text-4xl font-bold">
+    🚀 Math Quest
+  </h1>
+
+  <button
+    onClick={() => setMusicOn(!musicOn)}
+    className="
+      bg-slate-200
+      hover:bg-slate-300
+      px-3
+      py-2
+      rounded-xl
+      text-xl
+    "
+  >
+    {musicOn ? "🔊" : "🔇"}
+  </button>
+</div>
         <p className="text-center text-sm text-gray-500">
           {pet === "🐶" && "+1 Coin mỗi câu"}
           {pet === "🐱" && "+2 Coin mỗi câu"}
