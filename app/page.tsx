@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import confetti from "canvas-confetti";
 import XPBar from "./components/XPBar";
+import { playSound } from "./lib/sound";
 import StatusBar from "./components/StatusBar";
 import WorldSelect from "./components/WorldSelect";
 import TopBar from "./components/TopBar";
@@ -61,6 +62,7 @@ export default function Home() {
   const [gameCompleted, setGameCompleted] = useState(false);
   const [showAchievements, setShowAchievements] = useState(false);
   const [dailyProgress, setDailyProgress] = useState<number>(0);
+  const bgmRef = useRef<HTMLAudioElement | null>(null);
 
   // State lưu kết quả chọn Đúng/Sai cho 4 ý của Chặng 2. Ví dụ: { a: "Đúng", b: "Sai" }
 const [tfAnswers, setTfAnswers] = useState<Record<string, "Đúng" | "Sai">>({});
@@ -78,7 +80,7 @@ const [showExplanation, setShowExplanation] = useState<boolean>(false);
   const [showTerms, setShowTerms] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [loadingAuth, setLoadingAuth] = useState<boolean>(true);
-
+  const [musicOn, setMusicOn] = useState(true);
   const [selectedSubMap, setSelectedSubMap] = useState<number | null>(null);
   const [currentSubNode, setCurrentSubNode] = useState<number | null>(null);
   const [subNodeProgress, setSubNodeProgress] = useState<Record<number, number>>({ 1: 1 });
@@ -255,7 +257,11 @@ useEffect(() => {
   currentSubNode
 ]);
 
-
+useEffect(() => {
+  bgmRef.current = new Audio("/sounds/bgm.mp3");
+  bgmRef.current.loop = true;
+  bgmRef.current.volume = 0.2;
+}, []);
 
 
 
@@ -537,6 +543,7 @@ useEffect(() => {
   const isCorrect = value === question?.answer;
 
   if (isCorrect) {
+    playSound("/sounds/correct.mp3");
 
     setCorrectAnswers(prev => prev + 1);
 
@@ -566,6 +573,7 @@ useEffect(() => {
     }, 800);
 
   } else {
+    playSound("/sounds/wrong.mp3");
 
     setHearts(prev => prev - 1);
 
@@ -624,6 +632,7 @@ function moveToNextQuestion() {
         ]);
 
         setNewWorldUnlocked(nextWorld);
+        playSound("/sounds/unlock.mp3");
       }
 
       setSelectedWorld(null);
