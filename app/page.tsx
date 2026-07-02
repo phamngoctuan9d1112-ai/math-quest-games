@@ -44,7 +44,7 @@ export default function Home() {
   const [weapon, setWeapon] = useState("🪵");
   const [attacking, setAttacking] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
-  
+  const [correctAnswer, setCorrectAnswer] = useState("");
  
   const [message, setMessage] = useState("");
   const [shopMessage, setShopMessage] = useState("");
@@ -553,11 +553,19 @@ setCoins(newCoins);
 await fetchLeaderboard();
       setMessage("✅ Chính xác!");
     } else {
-      setHearts(prev => prev - 1);
-      setMessage("❌ Sai!");
-    }
+  setHearts(prev => prev - 1);
 
-    setTimeout(() => { setMessage(""); }, 1200);
+  setCorrectAnswer(String(question?.answer));
+
+  setMessage(
+    `❌ Sai! Đáp án đúng là: ${question?.answer}`
+  );
+}
+
+    setTimeout(() => {
+  setMessage("");
+  setCorrectAnswer("");
+}, 2000);
 
     const nextIndex = current + 1;
 
@@ -1200,6 +1208,14 @@ text-yellow-400
 >
   {question?.question}
 </h2>
+
+{correctAnswer && (
+  <div className="mt-3 text-center">
+    <span className="bg-green-100 text-green-700 px-4 py-2 rounded-xl font-bold">
+      ✅ Đáp án đúng: {correctAnswer}
+    </span>
+  </div>
+)}
 
 {/* ---------------- CHẶNG 1: GIAO DIỆN TRẮC NGHIỆM ---------------- */}
 {currentSubNode === 1 && (

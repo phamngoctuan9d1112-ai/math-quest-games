@@ -198,7 +198,7 @@ export default function WorldSelect({
               "
             >
               <span>⭐ Level {level}</span>
-              <span>👑 {rank}</span>
+              <span> {rank}</span>
               <span>🪙 {coins}</span>
             </div>
           </div>
