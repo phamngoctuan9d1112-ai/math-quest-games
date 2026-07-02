@@ -39,320 +39,243 @@ export default function WorldSelect({
   const world12 = worlds.filter((w) => w.id >= 62 && w.id <= 79);
 
   function renderWorldGroup(group: World[]) {
-    return (
-      <div
-        className="
-          grid
-          grid-cols-2
-          sm:grid-cols-3
-          md:grid-cols-4
-          lg:grid-cols-5
-          gap-4
-          justify-items-center
-          w-full
-          max-w-6xl
-          mx-auto
-        "
-      >
-        {group.map((world) => (
-          <button
-            key={world.id}
-            disabled={!world.unlocked}
-            onClick={() => {
-              if (world.unlocked) {
-                onSelect(world.id);
-              }
-            }}
-            className={`
-              aspect-square
-              w-full
-              max-w-[110px]
-              md:max-w-[125px]
-
-              rounded-3xl
-              text-white
-              font-bold
-              shadow-xl
-              transition-all
-              duration-300
-
-              flex
-              flex-col
-              items-center
-              justify-center
-
-              ${
-                world.unlocked
-                  ? `
-                    bg-gradient-to-br
-                    from-yellow-400
-                    to-orange-500
-                    hover:scale-105
-                    hover:shadow-2xl
-                  `
-                  : `
-                    bg-gray-500
-                    cursor-not-allowed
-                  `
-              }
-            `}
-          >
-            <div className="text-xl md:text-3xl">
-              {world.unlocked ? "🌍" : "🔒"}
-            </div>
-
-            <div className="mt-1 text-xs md:text-sm font-bold">
-              World {world.id}
-            </div>
-
-            <div className="text-[10px] md:text-xs text-center px-2 leading-tight">
-              {worldNames[world.id]}
-            </div>
-          </button>
-        ))}
-      </div>
-    );
-  }
-
   return (
-    <main
+    <div
       className="
-        min-h-screen
-        bg-gradient-to-br
-        from-blue-600
-        via-purple-600
-        to-pink-600
-
-        w-full
+      grid
+      grid-cols-2
+      md:grid-cols-4
+      xl:grid-cols-5
+      gap-6
+      justify-items-center
+      max-w-[1100px]
+      mx-auto
       "
     >
-      <div
-        className="
-          max-w-7xl
-          mx-auto
-
-          px-3
-          sm:px-5
-          md:px-8
-
-          py-5
-        "
-      >
-        {/* HEADER */}
-
-        <div
-          className="
+      {group.map((world) => (
+        <button
+          key={world.id}
+          disabled={!world.unlocked}
+          onClick={() => {
+            if (world.unlocked) onSelect(world.id);
+          }}
+          className={`
+            w-[130px]
+            h-[130px]
+            rounded-3xl
+            text-white
+            font-bold
+            shadow-xl
+            transition-all
+            duration-300
             flex
             flex-col
+            items-center
+            justify-center
 
-            lg:grid
-            lg:grid-cols-3
-
-            gap-4
-            mb-8
-          "
+            ${
+              world.unlocked
+                ? `
+                bg-gradient-to-br
+                from-yellow-400
+                to-orange-500
+                hover:scale-105
+                `
+                : `
+                bg-gray-500
+                cursor-not-allowed
+                `
+            }
+          `}
         >
-          {/* LEFT */}
+          <div className="text-3xl">
+            {world.unlocked ? "🌍" : "🔒"}
+          </div>
+
+          <div className="mt-2 text-sm font-bold">
+            World {world.id}
+          </div>
+
+          <div className="text-xs text-center px-2 leading-tight">
+            {worldNames[world.id]}
+          </div>
+        </button>
+      ))}
+    </div>
+  );
+}
+
+  return (
+  <main
+    className="
+    min-h-screen
+    bg-gradient-to-br
+    from-blue-600
+    via-purple-600
+    to-pink-600
+    px-4
+    py-8
+    "
+  >
+    <div className="max-w-[1200px] mx-auto">
+
+      {/* HEADER */}
+
+      <div
+        className="
+        flex
+        flex-col
+        lg:flex-row
+        justify-between
+        items-center
+        gap-6
+        mb-12
+        "
+      >
+        {/* LEFT */}
+
+        <div className="flex gap-3 flex-wrap justify-center">
+          <button
+            onClick={onShop}
+            className="
+            bg-yellow-500
+            hover:bg-yellow-600
+            text-white
+            px-5
+            py-3
+            rounded-xl
+            font-bold
+            transition
+            "
+          >
+            🛒 Shop
+          </button>
+
+          <button
+            onClick={onAchievements}
+            className="
+            bg-green-500
+            hover:bg-green-600
+            text-white
+            px-5
+            py-3
+            rounded-xl
+            font-bold
+            transition
+            "
+          >
+            🏆 Thành tích
+          </button>
+        </div>
+
+        {/* CENTER */}
+
+        <div className="text-center">
+          <h1
+            className="
+            text-4xl
+            md:text-6xl
+            font-bold
+            text-white
+            "
+          >
+            🌎 Math Quest
+          </h1>
+
+          <p className="text-white text-lg mt-3">
+            Toán THPT qua trò chơi
+          </p>
 
           <div
             className="
-              flex
-              flex-wrap
-              gap-2
-              justify-center
-              lg:justify-start
+            mt-4
+            flex
+            flex-wrap
+            justify-center
+            gap-4
+            text-lg
+            font-bold
+            text-white
             "
           >
-            <button
-              onClick={onShop}
-              className="
-                bg-yellow-500
-                hover:bg-yellow-600
-                text-white
-                px-4
-                py-2
-                rounded-xl
-                font-bold
-              "
-            >
-              🛒 Shop
-            </button>
-
-            <button
-              onClick={onAchievements}
-              className="
-                bg-green-500
-                hover:bg-green-600
-                text-white
-                px-4
-                py-2
-                rounded-xl
-                font-bold
-              "
-            >
-              🏆 Thành tích
-            </button>
-          </div>
-
-          {/* CENTER */}
-
-          <div className="text-center">
-            <h1
-              className="
-                text-3xl
-                sm:text-4xl
-                lg:text-6xl
-
-                font-bold
-                text-white
-              "
-            >
-              🌎 Math Quest
-            </h1>
-
-            <p
-              className="
-                text-sm
-                sm:text-lg
-                mt-3
-                text-white
-              "
-            >
-              Toán THPT qua trò chơi
-            </p>
-
-            <div
-              className="
-                mt-3
-                flex
-                flex-wrap
-                justify-center
-                gap-3
-
-                text-xs
-                sm:text-sm
-                md:text-lg
-
-                font-bold
-                text-white
-              "
-            >
-              <span>⭐ Level {level}</span>
-              <span>👑 {rank}</span>
-              <span>🪙 {coins}</span>
-            </div>
-          </div>
-
-          {/* RIGHT */}
-
-          <div
-            className="
-              flex
-              justify-center
-              lg:justify-end
-              gap-2
-            "
-          >
-            <button
-              onClick={onLeaderboard}
-              title="Bảng xếp hạng"
-              className="
-                bg-red-500
-                hover:bg-red-600
-                text-white
-
-                w-12
-                h-12
-
-                rounded-xl
-              "
-            >
-              🏅
-            </button>
-
-            <button
-              onClick={onLogout}
-              title="Đăng xuất"
-              className="
-                bg-red-500
-                hover:bg-red-600
-
-                text-white
-
-                w-12
-                h-12
-
-                rounded-xl
-              "
-            >
-              ↩️
-            </button>
+            <span>⭐ Level {level}</span>
+            <span>{rank}</span>
+            <span>🪙 {coins}</span>
           </div>
         </div>
 
-        {/* TOÁN 10 */}
+        {/* RIGHT */}
 
-        <section className="mt-8 md:mt-12">
-          <h2
+        <div className="flex gap-3">
+          <button
+            onClick={onLeaderboard}
             className="
-              text-2xl
-              md:text-4xl
-
-              text-white
-              font-bold
-              text-center
-
-              mb-8
+            bg-red-500
+            hover:bg-red-600
+            text-white
+            w-12
+            h-12
+            rounded-xl
+            flex
+            items-center
+            justify-center
+            text-xl
             "
           >
-            📘 Toán 10
-          </h2>
+            🏅
+          </button>
 
-          {renderWorldGroup(world10)}
-        </section>
-
-        {/* TOÁN 11 */}
-
-        <section className="mt-12 md:mt-20">
-          <h2
+          <button
+            onClick={onLogout}
             className="
-              text-2xl
-              md:text-4xl
-
-              text-white
-              font-bold
-              text-center
-
-              mb-8
+            bg-red-500
+            hover:bg-red-600
+            text-white
+            w-12
+            h-12
+            rounded-xl
+            flex
+            items-center
+            justify-center
+            text-xl
             "
           >
-            📗 Toán 11
-          </h2>
-
-          {renderWorldGroup(world11)}
-        </section>
-
-        {/* TOÁN 12 */}
-
-        <section className="mt-12 md:mt-20 pb-16">
-          <h2
-            className="
-              text-2xl
-              md:text-4xl
-
-              text-white
-              font-bold
-              text-center
-
-              mb-8
-            "
-          >
-            📕 Toán 12
-          </h2>
-
-          {renderWorldGroup(world12)}
-        </section>
+            ↩️
+          </button>
+        </div>
       </div>
-    </main>
-  );
+
+      {/* TOÁN 10 */}
+
+      <section className="mb-20">
+        <h2 className="text-center text-white text-4xl font-bold mb-10">
+          📘 Toán 10
+        </h2>
+
+        {renderWorldGroup(world10)}
+      </section>
+
+      {/* TOÁN 11 */}
+
+      <section className="mb-20">
+        <h2 className="text-center text-white text-4xl font-bold mb-10">
+          📗 Toán 11
+        </h2>
+
+        {renderWorldGroup(world11)}
+      </section>
+
+      {/* TOÁN 12 */}
+
+      <section className="mb-20">
+        <h2 className="text-center text-white text-4xl font-bold mb-10">
+          📕 Toán 12
+        </h2>
+
+        {renderWorldGroup(world12)}
+      </section>
+
+    </div>
+  </main>
+);
 }
