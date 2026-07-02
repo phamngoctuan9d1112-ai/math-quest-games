@@ -4,113 +4,192 @@ import React from "react";
 
 interface SubMapProps {
   worldId: number;
-  currentProgress: number; // 1, 2, hoặc 3
+  currentProgress: number;
   onSelectNode: (nodeId: number) => void;
   onBack: () => void;
 }
 
-export default function SubMap({ worldId, currentProgress, onSelectNode, onBack }: SubMapProps) {
-  // Tọa độ X, Y được thiết kế uốn lượn zigzag theo hình vẽ tay
+export default function SubMap({
+  worldId,
+  currentProgress,
+  onSelectNode,
+  onBack,
+}: SubMapProps) {
   const nodes = [
-  {
-    id: 1,
-    name: "Chặng 1: Nhận Biết",
-    x: "18%",
-    y: "82%",
-    icon: "🌱",
-  },
-  {
-    id: 2,
-    name: "Chặng 2: Thông Hiểu",
-    x: "78%",
-    y: "50%",
-    icon: "📖",
-  },
-  {
-    id: 3,
-    name: "Chặng 3: Vận Dụng",
-    x: "32%",
-    y: "20%",
-    icon: "⚡",
-  },
-];
+    {
+      id: 1,
+      name: "Chặng 1: Nhận Biết",
+      x: 20,
+      y: 78,
+      icon: "🌱",
+    },
+    {
+      id: 2,
+      name: "Chặng 2: Thông Hiểu",
+      x: 80,
+      y: 50,
+      icon: "📖",
+    },
+    {
+      id: 3,
+      name: "Chặng 3: Vận Dụng",
+      x: 35,
+      y: 20,
+      icon: "⚡",
+    },
+  ];
 
   return (
-    <div className="w-full flex justify-center items-center my-6">
-      {/* Khung bản đồ cố định kích thước, không bị ảnh hưởng bởi CSS của page.tsx */}
-      <div className="w-full max-w-[450px] h-[500px] bg-[#fdf5e6] p-6 rounded-[2rem] shadow-2xl border-4 border-[#8b5e3c] relative overflow-hidden select-none flex flex-col justify-between">
-        
-        {/* Header Bản đồ */}
-        <div className="relative z-10 flex justify-between items-center border-b border-[#8b5e3c]/20 pb-3">
-          <button 
+    <div className="w-full flex justify-center items-center px-3 py-6">
+      <div
+        className="
+          w-full
+          max-w-[500px]
+          h-[620px]
+          bg-[#fdf5e6]
+          rounded-[2rem]
+          border-4
+          border-[#8b5e3c]
+          shadow-2xl
+          p-5
+          flex
+          flex-col
+          relative
+          overflow-hidden
+          select-none
+        "
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-[#8b5e3c]/20 pb-3 z-20">
+          <button
             onClick={onBack}
-            className="bg-[#8b5e3c] hover:bg-[#724c2f] text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-all active:scale-95"
+            className="
+              bg-[#8b5e3c]
+              hover:bg-[#724c2f]
+              text-white
+              text-sm
+              font-bold
+              px-3
+              py-2
+              rounded-lg
+              transition
+            "
           >
-            ⬅ Trở Về
+            ← Trở Về
           </button>
-          <h2 className="text-md font-black uppercase text-[#5c3a21]">
+
+          <h2 className="font-black text-[#5c3a21] text-lg uppercase">
             🗺️ Bản Đồ Chặng {worldId}
           </h2>
-          <div className="w-12"></div>
+
+          <div className="w-[70px]" />
         </div>
 
-        {/* Khu vực vẽ map tuyệt đối */}
-        <div className="relative w-full h-[360px]">
-          
-          {/* Đường vẽ SVG uốn cong S qua 3 điểm */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
+        {/* Map Area */}
+        <div className="relative flex-1 mt-4">
+          {/* Đường đi */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+          >
             <path
-              d="M18 82 C45 90,80 65,78 50 C75 30,15 28,32 20"
+              d="
+                M 20 78
+                C 45 90, 92 68, 80 50
+                C 68 30, 18 28, 35 20
+              "
               fill="none"
               stroke="#8b5e3c"
-              strokeWidth="5"
-              strokeDasharray="10 8"
+              strokeWidth="1.8"
+              strokeDasharray="4 3"
               strokeLinecap="round"
             />
           </svg>
 
-          {/* Vòng lặp các Node mốc điểm */}
+          {/* Nodes */}
           {nodes.map((node) => {
-            const isUnlocked = node.id <= currentProgress + 1;
             const isCompleted = node.id <= currentProgress;
+            const isUnlocked = node.id <= currentProgress + 1;
 
             return (
               <div
                 key={node.id}
-                className="absolute flex flex-col items-center -translate-x-1/2 -translate-y-1/2"
+                className="absolute flex flex-col items-center"
                 style={{
-  left: node.x,
-  top: node.y,
-  zIndex: 10,
-}}
+                  left: `${node.x}%`,
+                  top: `${node.y}%`,
+                  transform: "translate(-50%, -50%)",
+                  zIndex: 10,
+                }}
               >
-                {/* Nút bấm tròn */}
                 <button
                   disabled={!isUnlocked}
                   onClick={() => onSelectNode(node.id)}
                   className={`
-                    w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold shadow-md border-4 border-[#5c3a21] transition-all duration-300 relative
-                    ${isCompleted 
-                      ? "bg-gradient-to-br from-amber-400 to-orange-500 text-white" 
-                      : isUnlocked 
-                      ? "bg-gradient-to-br from-emerald-400 to-teal-600 text-white cursor-pointer scale-110 hover:scale-125 ring-4 ring-emerald-300/50" 
-                      : "bg-stone-300 border-stone-400 cursor-not-allowed opacity-50"
+                    relative
+                    w-16
+                    h-16
+                    rounded-full
+                    flex
+                    items-center
+                    justify-center
+                    text-2xl
+                    border-4
+                    shadow-lg
+                    transition-all
+                    duration-300
+                    ${
+                      isCompleted
+                        ? "bg-gradient-to-br from-amber-400 to-orange-500 border-[#5c3a21] text-white"
+                        : isUnlocked
+                        ? "bg-gradient-to-br from-emerald-400 to-teal-600 border-[#5c3a21] text-white hover:scale-110"
+                        : "bg-stone-300 border-stone-400 text-white opacity-60"
                     }
                   `}
                 >
-                  <span>
-                    {isCompleted ? "⭐" : isUnlocked ? node.icon : "🔒"}
-                  </span>
+                  {isCompleted
+                    ? "⭐"
+                    : isUnlocked
+                    ? node.icon
+                    : "🔒"}
 
-                  {/* Vòng quét hiệu ứng map */}
                   {isUnlocked && !isCompleted && (
-                    <span className="absolute -inset-1.5 rounded-full border-2 border-dashed border-emerald-500 animate-spin opacity-60" />
+                    <span
+                      className="
+                        absolute
+                        -inset-2
+                        rounded-full
+                        border-2
+                        border-dashed
+                        border-emerald-500
+                        animate-spin
+                        opacity-60
+                      "
+                    />
                   )}
                 </button>
 
-                {/* Nhãn chữ dưới nút */}
-                <div className="mt-1.5 bg-[#fffcf5] border border-[#8b5e3c]/40 px-2 py-0.5 rounded shadow-sm">
-                  <p className="text-[10px] font-black text-[#5c3a21] whitespace-nowrap">
+                <div
+                  className="
+                    mt-2
+                    px-3
+                    py-1
+                    rounded-lg
+                    bg-white/90
+                    border
+                    border-[#8b5e3c]/30
+                    shadow
+                  "
+                >
+                  <p
+                    className="
+                      text-[11px]
+                      font-black
+                      text-[#5c3a21]
+                      whitespace-nowrap
+                    "
+                  >
                     {node.name}
                   </p>
                 </div>
@@ -120,7 +199,18 @@ export default function SubMap({ worldId, currentProgress, onSelectNode, onBack 
         </div>
 
         {/* Footer */}
-        <div className="text-center text-[10px] font-bold text-[#8b5e3c]/60 pt-2 border-t border-dashed border-[#8b5e3c]/20">
+        <div
+          className="
+            border-t
+            border-dashed
+            border-[#8b5e3c]/20
+            pt-3
+            text-center
+            text-xs
+            font-bold
+            text-[#8b5e3c]/70
+          "
+        >
           📜 Hãy đi theo nét đứt để chinh phục bài học!
         </div>
       </div>
