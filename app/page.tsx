@@ -1041,7 +1041,7 @@ text-yellow-400
           </div>
         )}
 
-        <main className="relative min-h-screen bg-black text-white flex flex-col items-center p-8">
+        <main className="w-full min-h-screen">
           <WorldSelect
             worlds={getWorlds(unlockedWorlds)}
             onSelect={(worldId) => { setSelectedSubMap(worldId); }}
