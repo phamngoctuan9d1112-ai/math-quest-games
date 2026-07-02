@@ -11,7 +11,8 @@ import AchievementList from "./components/AchievementList";
 import TermsModal from "./components/TermsModal";
 import { achievements } from "./data/achievements";
 import { getWorlds } from "./data/worlds";
-import { propositionQuestions } from "./data/questions";
+import { propositionQuestions }
+from "./data/questions.converted";
 console.log(propositionQuestions);
 console.log(Object.keys(propositionQuestions));
 import Shop from "./components/Shop";
