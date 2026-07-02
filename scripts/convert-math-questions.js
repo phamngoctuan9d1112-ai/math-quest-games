@@ -1,90 +1,97 @@
 const fs = require("fs");
 
-const INPUT = "app/data/questions.ts";
-const OUTPUT = "app/data/questions.converted.ts";
+const inputFile = "app/data/questions.ts";
+const outputFile = "app/data/questions.converted.ts";
 
-let raw = fs.readFileSync(INPUT, "utf8");
+let content = fs.readFileSync(inputFile, "utf8");
 
-// =========================
-// 1. CORE CONVERTER
-// =========================
-function convertMath(text = "") {
+function convertMath(text) {
   return text
 
-    // fractions trước (quan trọng)
-    .replace(/\(([^()]+)\)\/\(([^()]+)\)/g, "\\frac{$1}{$2}")
-    .replace(/(\d+)\/(\d+)/g, "\\frac{$1}{$2}")
+    // phân số dạng (a+b)/(c+d)
+    .replace(
+      /\(([^()]+)\)\/\(([^()]+)\)/g,
+      (_, a, b) => `$\\frac{${a}}{${b}}$`
+    )
 
-    // roots
-    .replace(/√(\w+)/g, "\\sqrt{$1}")
+    // phân số dạng 3/5
+    .replace(
+      /(\d+)\/(\d+)/g,
+      (_, a, b) => `$\\frac{${a}}{${b}}$`
+    )
 
-    // Greek
-    .replace(/α/g, "\\alpha")
-    .replace(/β/g, "\\beta")
-    .replace(/γ/g, "\\gamma")
-    .replace(/θ/g, "\\theta")
-    .replace(/π/g, "\\pi")
+    // số mũ
+    .replace(/x²/g, "$x^2$")
+    .replace(/x³/g, "$x^3$")
 
-    // sets
-    .replace(/∈/g, "\\in")
-    .replace(/∉/g, "\\notin")
-    .replace(/⊂/g, "\\subset")
-    .replace(/⊆/g, "\\subseteq")
-    .replace(/∩/g, "\\cap")
-    .replace(/∪/g, "\\cup")
+    // ký hiệu Hy Lạp
+    .replace(/π/g, "$\\pi$")
+    .replace(/α/g, "$\\alpha$")
+    .replace(/β/g, "$\\beta$")
+    .replace(/γ/g, "$\\gamma$")
+    .replace(/θ/g, "$\\theta$")
+
+    // tập số
+    .replace(/\bR\b/g, "$\\mathbb{R}$")
+    .replace(/\bN\b/g, "$\\mathbb{N}$")
+    .replace(/\bZ\b/g, "$\\mathbb{Z}$")
+    .replace(/\bQ\b/g, "$\\mathbb{Q}$")
+
+    // quan hệ tập hợp
+    .replace(/∈/g, "$\\in$")
+    .replace(/∉/g, "$\\notin$")
+    .replace(/⊂/g, "$\\subset$")
+    .replace(/⊆/g, "$\\subseteq$")
+    .replace(/∩/g, "$\\cap$")
+    .replace(/∪/g, "$\\cup$")
+
+    // bất đẳng thức
+    .replace(/≤/g, "$\\le$")
+    .replace(/≥/g, "$\\ge$")
 
     // logic
-    .replace(/⇒/g, "\\Rightarrow")
-    .replace(/⇔/g, "\\Leftrightarrow")
-    .replace(/∀/g, "\\forall")
-    .replace(/∃/g, "\\exists")
+    .replace(/⇒/g, "$\\Rightarrow$")
+    .replace(/⇔/g, "$\\Leftrightarrow$")
+    .replace(/∀/g, "$\\forall$")
+    .replace(/∃/g, "$\\exists$")
 
-    // compare
-    .replace(/≤/g, "\\le")
-    .replace(/≥/g, "\\ge")
-    .replace(/≠/g, "\\neq")
+    // lượng giác
+    .replace(/\bsin\b/g, "$\\sin$")
+    .replace(/\bcos\b/g, "$\\cos$")
+    .replace(/\btan\b/g, "$\\tan$")
+    .replace(/\bcot\b/g, "$\\cot$")
 
-    // power
-    .replace(/²/g, "^2")
-    .replace(/³/g, "^3")
-
-    // functions
-    .replace(/\bsin\b/g, "\\sin")
-    .replace(/\bcos\b/g, "\\cos")
-    .replace(/\btan\b/g, "\\tan")
-    .replace(/\bcot\b/g, "\\cot")
-
-    // R \ {1}
-    .replace(/R\\\{([^}]*)\\\}/g, "\\mathbb{R}\\setminus\\{$1\\}")
-
-    // R, N, Z, Q
-    .replace(/\bR\b/g, "\\mathbb{R}")
-    .replace(/\bN\b/g, "\\mathbb{N}")
-    .replace(/\bZ\b/g, "\\mathbb{Z}")
-    .replace(/\bQ\b/g, "\\mathbb{Q}");
+    // căn
+    .replace(
+      /√([a-zA-Z0-9]+)/g,
+      (_, x) => `$\\sqrt{${x}}$`
+    );
 }
 
-// =========================
-// 2. FIND ALL STRINGS
-// =========================
-raw = raw.replace(
-  /"(question|text|explanation|answer)"\s*:\s*"([^"]*)"/g,
-  (match, key, value) => {
-    return `"${key}": "$$${convertMath(value)}$$"`;
+content = content.replace(
+  /question:\s*"([\s\S]*?)"/g,
+  (match, text) => {
+    const converted = convertMath(text);
+    return `question: "${converted}"`;
   }
 );
 
-// =========================
-// 3. FIX DOUBLE WRAP
-// =========================
-raw = raw
-  .replace(/\$\$\$\$/g, "$$")
-  .replace(/\$\$\$\$/g, "$$");
+content = content.replace(
+  /text:\s*"([\s\S]*?)"/g,
+  (match, text) => {
+    const converted = convertMath(text);
+    return `text: "${converted}"`;
+  }
+);
 
-// =========================
-// 4. WRITE FILE
-// =========================
-fs.writeFileSync(OUTPUT, raw, "utf8");
+content = content.replace(
+  /explanation:\s*"([\s\S]*?)"/g,
+  (match, text) => {
+    const converted = convertMath(text);
+    return `explanation: "${converted}"`;
+  }
+);
 
-console.log("✅ DONE: Math converted");
-console.log("📄 File:", OUTPUT);
+fs.writeFileSync(outputFile, content);
+
+console.log("✅ Created:", outputFile);
