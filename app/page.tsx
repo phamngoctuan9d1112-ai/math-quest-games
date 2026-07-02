@@ -16,6 +16,8 @@ console.log(propositionQuestions);
 console.log(Object.keys(propositionQuestions));
 import Shop from "./components/Shop";
 import StartScreen from "./components/StartScreen";
+import MathText from "./components/MathText";
+import { BlockMath } from "react-katex";
 import Inventory from "./components/Inventory";
 import SubMap from "./components/SubMap"; 
 import { createBrowserClient } from '@supabase/ssr';
@@ -1377,7 +1379,7 @@ text-yellow-400
         </div>
 
        {/* Phần hiển thị nội dung câu hỏi chính */}
-<h2
+<div
   className="
     max-w-3xl
     mx-auto
@@ -1389,8 +1391,8 @@ text-yellow-400
     text-slate-800
   "
 >
-  {question?.question}
-</h2>
+  <MathText text={question?.question || ""} />
+</div>
 
 {correctAnswer && (
   <div className="mt-3 text-center">
@@ -1421,7 +1423,7 @@ text-yellow-400
     {question?.subQuestions?.map((sub: any) => (
       <div key={sub.label} className="p-3 bg-slate-50 border border-slate-200 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
         <span className="text-slate-700 text-base">
-          <strong className="text-indigo-600 font-bold">{sub.label}</strong> {sub.text}
+          <strong className="text-indigo-600 font-bold">{sub.label}</strong> <MathText text={sub.text} />
         </span>
         
         {/* Cặp nút Đúng / Sai cho từng ý */}
@@ -1483,7 +1485,9 @@ text-yellow-400
           💡 Lời giải chi tiết:
         </h3>
         <p className="text-slate-700 leading-relaxed whitespace-pre-line font-medium text-base">
-          {question?.explanation}
+          <MathText
+  text={question?.explanation || ""}
+/>
         </p>
         <button
           onClick={handleNextShortQuestion}
