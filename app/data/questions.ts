@@ -6096,7 +6096,7 @@ id:"ctlg_s1_4",
 type:"multiple-choice",
 question:"Công thức sin2a là",
 options:[
-"2sinacosα",
+"2sinacosb",
 "2sinacosα",
 "sin²a-cos²a",
 "1-2sin²a"
