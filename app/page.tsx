@@ -1406,14 +1406,13 @@ text-yellow-400
 {currentSubNode === 1 && (
   <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
     {question?.options?.map((option: string | number) => (
-      <button
-        key={String(option)}
-        onClick={() => checkAnswer(option)} // Gọi hàm trắc nghiệm cũ của bạn
-        className="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white py-4 px-4 rounded-xl font-bold transition shadow-md text-lg"
-      >
-        {option}
-      </button>
-    ))}
+  <button
+    key={String(option)}
+    onClick={() => checkAnswer(option)}
+  >
+    <MathText text={String(option)} />
+  </button>
+))}
   </div>
 )}
 

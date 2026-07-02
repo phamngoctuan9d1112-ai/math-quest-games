@@ -28,7 +28,7 @@ export const propositionQuestions = {
       {
         id: "p1_s1_1",
         type: "multiple-choice",
-        question: "Tính $\\frac{1}{2}+\\frac{1}{3}$",
+        question: "Câu nào sau đây không là mệnh đề?",
         options: [
           "Tam giác đều là tam giác có ba cạnh bằng nhau",
           "3 < 1",
