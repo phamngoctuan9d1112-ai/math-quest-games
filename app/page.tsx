@@ -1409,6 +1409,27 @@ text-yellow-400
   <button
     key={String(option)}
     onClick={() => checkAnswer(option)}
+    className="
+bg-white
+border-2
+border-slate-300
+rounded-3xl
+p-6
+text-lg
+font-bold
+shadow-lg
+hover:shadow-xl
+hover:border-indigo-500
+hover:bg-indigo-50
+active:scale-95
+transition-all
+duration-200
+min-h-[90px]
+flex
+items-center
+justify-center
+text-center
+"
   >
     <MathText text={String(option)} />
   </button>
