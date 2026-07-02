@@ -48,7 +48,6 @@ export default function WorldSelect({
       xl:grid-cols-5
       gap-6
       justify-items-center
-      max-w-[1100px]
       mx-auto
       "
     >
@@ -117,7 +116,7 @@ export default function WorldSelect({
     py-8
     "
   >
-    <div className="max-w-[1200px] mx-auto">
+    <div className="w-full">
 
       {/* HEADER */}
 
