@@ -12,7 +12,7 @@ import TermsModal from "./components/TermsModal";
 import { achievements } from "./data/achievements";
 import { getWorlds } from "./data/worlds";
 import { propositionQuestions }
-from "./data/questions.converted";
+from "./data/questions";
 console.log(propositionQuestions);
 console.log(Object.keys(propositionQuestions));
 import Shop from "./components/Shop";
@@ -261,7 +261,29 @@ console.log(
 
 
 
+useEffect(() => {
+  localStorage.setItem("game_state", JSON.stringify({
+    selectedWorld,
+    selectedSubMap,
+    currentSubNode,
+    xp,
+    coins,
+    hearts
+  }));
+}, [selectedWorld, selectedSubMap, currentSubNode, xp, coins, hearts]);
 
+useEffect(() => {
+  const saved = localStorage.getItem("game_state");
+  if (saved) {
+    const data = JSON.parse(saved);
+    setSelectedWorld(data.selectedWorld);
+    setSelectedSubMap(data.selectedSubMap);
+    setCurrentSubNode(data.currentSubNode);
+    setXp(data.xp);
+    setCoins(data.coins);
+    setHearts(data.hearts);
+  }
+}, []);
 
 useEffect(() => {
   if (selectedWorld !== null) return;

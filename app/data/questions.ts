@@ -996,7 +996,7 @@ answer:"-1"
 {
 id:"lg_s1_6",
 type:"multiple-choice",
-question:"Cho $\sin\alpha$ = 3/5 và α là góc nhọn. Giá trị của cosα là",
+question:"Cho sinα = 3/5 và α là góc nhọn. Giá trị của cosα là",
 options:["4/5","-4/5","3/4","5/4"],
 answer:"4/5"
 },
@@ -1069,7 +1069,7 @@ question:"Cho góc α thuộc khoảng từ 0° đến 180°.",
 subQuestions:[
 {
 label:"a",
-text:"$\sin\alpha$ luôn không âm.",
+text:"sinα luôn không âm.",
 correctAnswer:"Đúng"
 },
 {
@@ -1093,7 +1093,7 @@ correctAnswer:"Đúng"
 {
 id:"lg_s2_3",
 type:"true-false",
-question:"Cho $\sin\alpha$ = 3/5 và α là góc nhọn.",
+question:"Cho sinα = 3/5 và α là góc nhọn.",
 subQuestions:[
 {
 label:"a",
@@ -1122,7 +1122,7 @@ stage3:[
 {
 id:"lg_s3_1",
 type:"short-answer",
-question:"Cho $\sin\alpha$ = 3/5 và α là góc nhọn. Tính 5cosα.",
+question:"Cho sinα = 3/5 và α là góc nhọn. Tính 5cosα.",
 answer:"4",
 explanation:"cosα = √(1-sin²α)=√(1-9/25)=4/5. Do đó 5cosα=4."
 },
@@ -1154,9 +1154,9 @@ explanation:"Trong khoảng từ 0° đến 180°, cosα = -1/2 khi α = 120°."
 {
 id:"lg_s3_5",
 type:"short-answer",
-question:"Cho $\sin\alpha$ + cosα = 1/2. Tính giá trị của P = ($\sin\alpha$ + cosα)².",
+question:"Cho sinα + cosα = 1/2. Tính giá trị của P = (sinα + cosα)².",
 answer:"0.25",
-explanation:"P=($\sin\alpha$+cosα)²=(1/2)²=1/4=0.25."
+explanation:"P=(sinα+cosα)²=(1/2)²=1/4=0.25."
 }
 ]
 },
@@ -5227,8 +5227,6 @@ answer:"28",
 explanation:"Chọn 2 viên từ 8 viên: C₈²=8×7/2=28."
 }
 ],
-
-
 },
 23: {
 stage1:[
@@ -5847,12 +5845,12 @@ id:"gtlg_s1_4",
 type:"multiple-choice",
 question:"Giá trị của sin(π−α) là",
 options:[
-"$\sin\alpha$",
-"-$\sin\alpha$",
+"sinα",
+"-sinα",
 "cosα",
 "-cosα"
 ],
-answer:"$\sin\alpha$"
+answer:"sinα"
 },
 
 {
@@ -5862,8 +5860,8 @@ question:"Giá trị của cos(π−α) là",
 options:[
 "cosα",
 "-cosα",
-"$\sin\alpha$",
-"-$\sin\alpha$"
+"sinα",
+"-sinα"
 ],
 answer:"-cosα"
 },
@@ -5873,9 +5871,9 @@ id:"gtlg_s1_6",
 type:"multiple-choice",
 question:"Giá trị của sin(π/2−α) là",
 options:[
-"$\sin\alpha$",
+"sinα",
 "cosα",
-"-$\sin\alpha$",
+"-sinα",
 "-cosα"
 ],
 answer:"cosα"
@@ -5886,12 +5884,12 @@ id:"gtlg_s1_7",
 type:"multiple-choice",
 question:"Giá trị của cos(π/2−α) là",
 options:[
-"$\sin\alpha$",
+"sinα",
 "cosα",
-"-$\sin\alpha$",
+"-sinα",
 "-cosα"
 ],
-answer:"$\sin\alpha$"
+answer:"sinα"
 },
 
 {
@@ -5899,7 +5897,7 @@ id:"gtlg_s1_8",
 type:"multiple-choice",
 question:"Nếu α thuộc góc phần tư II thì",
 options:[
-"$\sin\alpha$<0",
+"sinα<0",
 "cosα>0",
 "tanα<0",
 "tanα>0"
@@ -5959,7 +5957,7 @@ question:"Cho góc α bất kỳ.",
 subQuestions:[
 {
 label:"a",
-text:"sin(π−α)=$\sin\alpha$.",
+text:"sin(π−α)=sinα.",
 correctAnswer:"Đúng"
 },
 {
@@ -5987,7 +5985,7 @@ question:"Cho α thuộc góc phần tư II.",
 subQuestions:[
 {
 label:"a",
-text:"$\sin\alpha$ > 0.",
+text:"sinα > 0.",
 correctAnswer:"Đúng"
 },
 {
@@ -6044,7 +6042,7 @@ explanation:"cos(π−α)=-cosα ⇒ cos(2π/3)=-1/2."
 {
 id:"gtlg_s3_5",
 type:"short-answer",
-question:"Cho $\sin\alpha$ = 3/5 và α thuộc góc phần tư II. Tính cosα.",
+question:"Cho sinα = 3/5 và α thuộc góc phần tư II. Tính cosα.",
 answer:"-0.8",
 explanation:"cos²α=1−sin²α=1−9/25=16/25. Vì α thuộc góc phần tư II nên cosα<0. Do đó cosα=-4/5=-0.8."
 }
@@ -6096,7 +6094,7 @@ id:"ctlg_s1_4",
 type:"multiple-choice",
 question:"Công thức sin2a là",
 options:[
-"2sinacosb",
+"2sinacosα",
 "2sinacosα",
 "sin²a-cos²a",
 "1-2sin²a"
@@ -14619,11 +14617,11 @@ correctAnswer:"Đúng"
 {
 id:"ks_s2_2",
 type:"true-false",
-question:"Cho hàm số $y=\\frac{2x+1}{x-1}$",
+question:"Cho hàm số y=(2x+1)/(x−1).",
 subQuestions:[
 {
 label:"a",
-text:"Tập xác định là R\\{1}.",
+text:"Tập xác định là R\{1}.",
 correctAnswer:"Đúng"
 },
 {
@@ -18371,4 +18369,4 @@ explanation:"P(A|B)=0,3×0,8/0,4=0,6."
 }
 ]
 }
-};
+}
