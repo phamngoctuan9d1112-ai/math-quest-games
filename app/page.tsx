@@ -63,6 +63,20 @@ export default function Home() {
   const [showAchievements, setShowAchievements] = useState(false);
   const [dailyProgress, setDailyProgress] = useState<number>(0);
   const bgmRef = useRef<HTMLAudioElement | null>(null);
+  const startBackgroundMusic = async () => {
+  if (!bgmRef.current) return;
+
+  try {
+    await bgmRef.current.play();
+
+    localStorage.setItem(
+      "musicUnlocked",
+      "true"
+    );
+  } catch (err) {
+    console.error(err);
+  }
+};
 
   // State lưu kết quả chọn Đúng/Sai cho 4 ý của Chặng 2. Ví dụ: { a: "Đúng", b: "Sai" }
 const [tfAnswers, setTfAnswers] = useState<Record<string, "Đúng" | "Sai">>({});
@@ -91,6 +105,7 @@ const [leaderboard, setLeaderboard] = useState<any[]>([]);
 
 const [currentUserId, setCurrentUserId] =
   useState<string | null>(null);
+  
   // ==========================================
   // 2. BIẾN TÍNH TOÁN (Derived Variables)
   // ==========================================
@@ -240,6 +255,30 @@ console.log(
   // 3. TẤT CẢ USE EFFECT (Không được đặt dưới if return)
   // ==========================================
 
+
+
+
+
+
+useEffect(() => {
+  if (selectedWorld !== null) return;
+
+  const unlocked =
+    localStorage.getItem(
+      "musicUnlocked"
+    );
+
+  if (
+    unlocked === "true" &&
+    musicOn
+  ) {
+    bgmRef.current?.play()
+      .catch(() => {});
+  }
+}, [
+  selectedWorld,
+  musicOn
+]);
 
 useEffect(() => {
   if (!bgmRef.current) return;
@@ -789,14 +828,16 @@ if (showTerms) {
   return (
     <TermsModal
       onAccept={() => {
-        localStorage.setItem(
-          `accepted_terms_${currentUserId}`,
-          "true"
-        );
+  localStorage.setItem(
+    `accepted_terms_${currentUserId}`,
+    "true"
+  );
 
-        setShowTerms(false);
-        setIsLoggedIn(true);
-      }}
+  startBackgroundMusic();
+
+  setShowTerms(false);
+  setIsLoggedIn(true);
+}}
     />
   );
 }
@@ -1041,6 +1082,32 @@ text-yellow-400
   if (selectedWorld === null) {
     return (
       <>
+      <button
+  onClick={() => {
+    if (!bgmRef.current) return;
+
+    if (musicOn) {
+      bgmRef.current.pause();
+    } else {
+      bgmRef.current.play();
+    }
+
+    setMusicOn(!musicOn);
+  }}
+  className="
+    fixed
+    top-4
+    right-4
+    z-50
+    bg-black/70
+    text-white
+    px-4
+    py-2
+    rounded-xl
+  "
+>
+  {musicOn ? "🔊" : "🔇"}
+</button>
         {shopMessage && (
           <div className="fixed top-5 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-xl font-bold shadow-xl animate-bounce z-[999]">
             {shopMessage}

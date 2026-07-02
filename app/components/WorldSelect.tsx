@@ -205,6 +205,7 @@ export default function WorldSelect({
 
           {/* RIGHT */}
           <div className="flex justify-end gap-3">
+            
             <button
               onClick={onLeaderboard}
               className="
