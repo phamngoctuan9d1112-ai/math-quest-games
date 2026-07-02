@@ -100,7 +100,12 @@ const [showExplanation, setShowExplanation] = useState<boolean>(false);
   const [musicOn, setMusicOn] = useState(true);
   const [selectedSubMap, setSelectedSubMap] = useState<number | null>(null);
   const [currentSubNode, setCurrentSubNode] = useState<number | null>(null);
-  const [subNodeProgress, setSubNodeProgress] = useState<Record<number, number>>({ 1: 1 });
+  const [subNodeProgress, setSubNodeProgress]
+= useState<Record<number, number>>({
+  1: 1,
+  27: 1,
+  62: 1
+});
   const [dataLoaded, setDataLoaded] = useState(false);
 
   // Thêm State này vào cùng với các State khác trong page.tsx
@@ -262,27 +267,75 @@ console.log(
 
 
 useEffect(() => {
-  localStorage.setItem("game_state", JSON.stringify({
-    selectedWorld,
-    selectedSubMap,
-    currentSubNode,
-    xp,
-    coins,
-    hearts
-  }));
-}, [selectedWorld, selectedSubMap, currentSubNode, xp, coins, hearts]);
+
+  if (!currentUserId) return;
+
+  localStorage.setItem(
+    `game_state_${currentUserId}`,
+    JSON.stringify({
+      selectedWorld,
+      selectedSubMap,
+      currentSubNode,
+
+      current,
+
+      xp,
+      coins,
+      hearts,
+
+      unlockedWorlds,
+
+      subNodeProgress,
+    })
+  );
+
+}, [
+  selectedWorld,
+  selectedSubMap,
+  currentSubNode,
+
+  current,
+
+  xp,
+  coins,
+  hearts,
+
+  unlockedWorlds,
+
+  subNodeProgress,
+
+  currentUserId
+]);
 
 useEffect(() => {
-  const saved = localStorage.getItem("game_state");
-  if (saved) {
-    const data = JSON.parse(saved);
-    setSelectedWorld(data.selectedWorld);
-    setSelectedSubMap(data.selectedSubMap);
-    setCurrentSubNode(data.currentSubNode);
-    setXp(data.xp);
-    setCoins(data.coins);
-    setHearts(data.hearts);
-  }
+  const saved =
+    localStorage.getItem("game_state");
+
+  if (!saved) return;
+
+  const data = JSON.parse(saved);
+
+  setSelectedWorld(data.selectedWorld);
+  setSelectedSubMap(data.selectedSubMap);
+  setCurrentSubNode(data.currentSubNode);
+
+  setCurrent(data.current || 0);
+
+  setXp(data.xp || 0);
+  setCoins(data.coins || 0);
+  setHearts(data.hearts || 3);
+
+  setUnlockedWorlds(
+    data.unlockedWorlds || [1,27,62]
+  );
+
+  setSubNodeProgress(
+    data.subNodeProgress || {
+      1:1,
+      27:1,
+      62:1
+    }
+  );
 }, []);
 
 useEffect(() => {
@@ -550,12 +603,7 @@ if (rewardDate === today) {
     }
   }, []);
 
-  useEffect(() => {
-  setSelectedWorld(null);
-  setSelectedSubMap(null);
-  setCurrentSubNode(null);
-  setCurrent(0);
-}, []);
+  
 
   // Lưu state vào LocalStorage khi thay đổi
   useEffect(() => {
@@ -684,7 +732,34 @@ useEffect(() => {
   }
 }
 
-function moveToNextQuestion() {
+function getNextUnlockWorld(
+  worldId: number
+) {
+  if (
+    worldId >= 1 &&
+    worldId < 26
+  ) {
+    return worldId + 1;
+  }
+
+  if (
+    worldId >= 27 &&
+    worldId < 61
+  ) {
+    return worldId + 1;
+  }
+
+  if (
+    worldId >= 62 &&
+    worldId < 79
+  ) {
+    return worldId + 1;
+  }
+
+  return null;
+}
+
+async function moveToNextQuestion() {
 
   setMessage("");
 
@@ -715,10 +790,14 @@ function moveToNextQuestion() {
 
     } else if (currentSubNode === 3) {
 
-      const nextWorld =
-        currentMapId + 1;
-
-      if (!unlockedWorlds.includes(nextWorld)) {
+     const nextWorld =
+  getNextUnlockWorld(
+    currentMapId
+  );
+      if (
+  nextWorld &&
+  !unlockedWorlds.includes(nextWorld)
+) {
 
         setUnlockedWorlds(prev => [
           ...new Set([
@@ -726,6 +805,24 @@ function moveToNextQuestion() {
             nextWorld,
           ]),
         ]);
+
+        const updatedWorlds = [
+  ...new Set([
+    ...unlockedWorlds,
+    nextWorld,
+  ]),
+];
+
+await supabase
+  .from("profiles")
+  .update({
+    unlocked_worlds:
+      updatedWorlds,
+  })
+  .eq(
+    "id",
+    currentUserId
+  );
 
         setNewWorldUnlocked(nextWorld);
         playSound("/sounds/unlock.mp3");
