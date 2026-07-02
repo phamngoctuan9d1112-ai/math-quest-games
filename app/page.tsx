@@ -1084,7 +1084,19 @@ text-yellow-400
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-6">
-      <div className="bg-white text-black p-8 rounded-3xl shadow-2xl w-full max-w-[600px] max-w-full">
+      <div
+  className="
+    bg-white
+    text-black
+    p-6
+    md:p-8
+    rounded-3xl
+    shadow-2xl
+    w-full
+    max-w-4xl
+    mx-auto
+  "
+>
         <h1 className="text-4xl font-bold text-center">🚀 Math Quest</h1>
         <p className="text-center text-sm text-gray-500">
           {pet === "🐶" && "+1 Coin mỗi câu"}
@@ -1174,13 +1186,24 @@ text-yellow-400
         </div>
 
        {/* Phần hiển thị nội dung câu hỏi chính */}
-<h2 className="text-xl md:text-2xl text-center mt-6 font-bold text-slate-800">
+<h2
+  className="
+    max-w-3xl
+    mx-auto
+    text-xl
+    md:text-2xl
+    text-center
+    mt-6
+    font-bold
+    text-slate-800
+  "
+>
   {question?.question}
 </h2>
 
 {/* ---------------- CHẶNG 1: GIAO DIỆN TRẮC NGHIỆM ---------------- */}
 {currentSubNode === 1 && (
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
+  <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
     {question?.options?.map((option: string | number) => (
       <button
         key={String(option)}
