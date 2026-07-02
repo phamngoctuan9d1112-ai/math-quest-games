@@ -41,16 +41,17 @@ export default function WorldSelect({
   function renderWorldGroup(group: World[]) {
   return (
     <div
-      className="
-      grid
-      grid-cols-2
-      md:grid-cols-4
-      xl:grid-cols-5
-      gap-6
-      justify-items-center
-      mx-auto
-      "
-    >
+  className="
+    grid
+    grid-cols-2
+    sm:grid-cols-3
+    md:grid-cols-4
+    lg:grid-cols-5
+    xl:grid-cols-6
+    gap-6
+    justify-items-center
+  "
+>
       {group.map((world) => (
         <button
           key={world.id}
@@ -107,147 +108,156 @@ export default function WorldSelect({
   return (
   <main
     className="
-    min-h-screen
-    bg-gradient-to-br
-    from-blue-600
-    via-purple-600
-    to-pink-600
-    px-4
-    py-8
+      min-h-screen
+      bg-gradient-to-br
+      from-blue-600
+      via-purple-600
+      to-pink-600
+      px-4
+      py-8
     "
   >
-    <div className="w-full">
+    <div className="max-w-7xl mx-auto">
 
       {/* HEADER */}
-
       <div
         className="
-        flex
-        flex-col
-        lg:flex-row
-        justify-between
-        items-center
-        gap-6
-        mb-12
+          bg-black/10
+          backdrop-blur-sm
+          rounded-3xl
+          p-5
+          mb-12
         "
       >
-        {/* LEFT */}
+        <div className="grid grid-cols-3 items-start">
 
-        <div className="flex gap-3 flex-wrap justify-center">
-          <button
-            onClick={onShop}
-            className="
-            bg-yellow-500
-            hover:bg-yellow-600
-            text-white
-            px-5
-            py-3
-            rounded-xl
-            font-bold
-            transition
-            "
-          >
-            🛒 Shop
-          </button>
+          {/* LEFT */}
+          <div className="flex gap-3 flex-wrap">
+            <button
+              onClick={onShop}
+              className="
+                bg-yellow-500
+                hover:bg-yellow-600
+                text-white
+                px-5
+                py-3
+                rounded-xl
+                font-bold
+                shadow-lg
+                transition
+              "
+            >
+              🛒 Shop
+            </button>
 
-          <button
-            onClick={onAchievements}
-            className="
-            bg-green-500
-            hover:bg-green-600
-            text-white
-            px-5
-            py-3
-            rounded-xl
-            font-bold
-            transition
-            "
-          >
-            🏆 Thành tích
-          </button>
-        </div>
-
-        {/* CENTER */}
-
-        <div className="text-center">
-          <h1
-            className="
-            text-4xl
-            md:text-6xl
-            font-bold
-            text-white
-            "
-          >
-            🌎 Math Quest
-          </h1>
-
-          <p className="text-white text-lg mt-3">
-            Toán THPT qua trò chơi
-          </p>
-
-          <div
-            className="
-            mt-4
-            flex
-            flex-wrap
-            justify-center
-            gap-4
-            text-lg
-            font-bold
-            text-white
-            "
-          >
-            <span>⭐ Level {level}</span>
-            <span>{rank}</span>
-            <span>🪙 {coins}</span>
+            <button
+              onClick={onAchievements}
+              className="
+                bg-green-500
+                hover:bg-green-600
+                text-white
+                px-5
+                py-3
+                rounded-xl
+                font-bold
+                shadow-lg
+                transition
+              "
+            >
+              🏆 Thành tích
+            </button>
           </div>
-        </div>
 
-        {/* RIGHT */}
+          {/* CENTER */}
+          <div className="text-center">
+            <h1
+              className="
+                text-4xl
+                md:text-6xl
+                font-black
+                text-white
+              "
+            >
+              🌎 Math Quest
+            </h1>
 
-        <div className="flex gap-3">
-          <button
-            onClick={onLeaderboard}
-            className="
-            bg-red-500
-            hover:bg-red-600
-            text-white
-            w-12
-            h-12
-            rounded-xl
-            flex
-            items-center
-            justify-center
-            text-xl
-            "
-          >
-            🏅
-          </button>
+            <p className="text-white/90 text-lg mt-3">
+              Toán THPT qua trò chơi
+            </p>
 
-          <button
-            onClick={onLogout}
-            className="
-            bg-red-500
-            hover:bg-red-600
-            text-white
-            w-12
-            h-12
-            rounded-xl
-            flex
-            items-center
-            justify-center
-            text-xl
-            "
-          >
-            ↩️
-          </button>
+            <div
+              className="
+                mt-5
+                flex
+                justify-center
+                flex-wrap
+                gap-6
+                text-lg
+                font-bold
+                text-white
+              "
+            >
+              <span>⭐ Level {level}</span>
+              <span>👑 {rank}</span>
+              <span>🪙 {coins}</span>
+            </div>
+          </div>
+
+          {/* RIGHT */}
+          <div className="flex justify-end gap-3">
+            <button
+              onClick={onLeaderboard}
+              className="
+                bg-red-500
+                hover:bg-red-600
+                text-white
+                w-12
+                h-12
+                rounded-xl
+                flex
+                items-center
+                justify-center
+                text-xl
+                shadow-lg
+              "
+            >
+              🏅
+            </button>
+
+            <button
+              onClick={onLogout}
+              className="
+                bg-red-500
+                hover:bg-red-600
+                text-white
+                w-12
+                h-12
+                rounded-xl
+                flex
+                items-center
+                justify-center
+                text-xl
+                shadow-lg
+              "
+            >
+              ↩️
+            </button>
+          </div>
         </div>
       </div>
 
       {/* TOÁN 10 */}
-
       <section className="mb-20">
-        <h2 className="text-center text-white text-4xl font-bold mb-10">
+        <h2
+          className="
+            text-center
+            text-white
+            text-3xl
+            md:text-5xl
+            font-black
+            mb-10
+          "
+        >
           📘 Toán 10
         </h2>
 
@@ -255,9 +265,17 @@ export default function WorldSelect({
       </section>
 
       {/* TOÁN 11 */}
-
       <section className="mb-20">
-        <h2 className="text-center text-white text-4xl font-bold mb-10">
+        <h2
+          className="
+            text-center
+            text-white
+            text-3xl
+            md:text-5xl
+            font-black
+            mb-10
+          "
+        >
           📗 Toán 11
         </h2>
 
@@ -265,15 +283,22 @@ export default function WorldSelect({
       </section>
 
       {/* TOÁN 12 */}
-
       <section className="mb-20">
-        <h2 className="text-center text-white text-4xl font-bold mb-10">
+        <h2
+          className="
+            text-center
+            text-white
+            text-3xl
+            md:text-5xl
+            font-black
+            mb-10
+          "
+        >
           📕 Toán 12
         </h2>
 
         {renderWorldGroup(world12)}
       </section>
-
     </div>
   </main>
 );
