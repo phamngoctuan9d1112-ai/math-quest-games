@@ -3,16 +3,55 @@
 import 'katex/dist/katex.min.css';
 import { InlineMath } from 'react-katex';
 
-export default function MathText({
-  text,
-}: {
-  text: string;
-}) {
+export default function MathText({ text }: { text: string }) {
+  const parts = parseText(text);
+
   return (
-    <div className="whitespace-pre-line">
-      <InlineMath math={convertMath(text)} />
-    </div>
+    <span className="leading-relaxed">
+      {parts.map((part, i) =>
+        part.type === "math" ? (
+          <InlineMath key={i} math={part.value} />
+        ) : (
+          <span key={i}>{part.value}</span>
+        )
+      )}
+    </span>
   );
+}
+
+function parseText(text: string) {
+  const result: { type: "text" | "math"; value: string }[] = [];
+
+  // detect toán đơn giản: x², a/b, sin, ∈, R{1}...
+  const regex = /(\d+\/\d+|\([^)]*\/[^)]*\)|sin|cos|tan|log|√|∈|⊂|⊆|≤|≥|≠|[xxyz]\^2|\w+\{\d+\})/g;
+
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      result.push({
+        type: "text",
+        value: text.slice(lastIndex, match.index),
+      });
+    }
+
+    result.push({
+      type: "math",
+      value: convertMath(match[0]),
+    });
+
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    result.push({
+      type: "text",
+      value: text.slice(lastIndex),
+    });
+  }
+
+  return result;
 }
 
 function convertMath(text: string) {
