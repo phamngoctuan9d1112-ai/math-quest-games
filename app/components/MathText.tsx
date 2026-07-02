@@ -1,61 +1,43 @@
 "use client";
 
-import 'katex/dist/katex.min.css';
-import { InlineMath } from 'react-katex';
+import "katex/dist/katex.min.css";
+import { InlineMath } from "react-katex";
 
-export default function MathText({ text }: { text: string }) {
-  const parts = parseText(text);
-
+export default function MathText({
+  text,
+}: {
+  text: string;
+}) {
   return (
-    <span className="leading-relaxed">
-      {parts.map((part, i) =>
-        part.type === "math" ? (
-          <InlineMath key={i} math={part.value} />
-        ) : (
-          <span key={i}>{part.value}</span>
-        )
-      )}
+    <span>
+      <InlineMath math={convertMath(text)} />
     </span>
   );
 }
 
-function parseText(text: string) {
-  const result: { type: "text" | "math"; value: string }[] = [];
-
-  // detect toán đơn giản: x², a/b, sin, ∈, R{1}...
-  const regex = /(\d+\/\d+|\([^)]*\/[^)]*\)|sin|cos|tan|log|√|∈|⊂|⊆|≤|≥|≠|[xxyz]\^2|\w+\{\d+\})/g;
-
-  let lastIndex = 0;
-  let match;
-
-  while ((match = regex.exec(text)) !== null) {
-    if (match.index > lastIndex) {
-      result.push({
-        type: "text",
-        value: text.slice(lastIndex, match.index),
-      });
-    }
-
-    result.push({
-      type: "math",
-      value: convertMath(match[0]),
-    });
-
-    lastIndex = match.index + match[0].length;
-  }
-
-  if (lastIndex < text.length) {
-    result.push({
-      type: "text",
-      value: text.slice(lastIndex),
-    });
-  }
-
-  return result;
-}
-
 function convertMath(text: string) {
   return text
+
+    // R\{1}
+    .replace(
+      /R\\\{([^}]*)\}/g,
+      "\\mathbb{R}\\setminus\\{$1\\}"
+    )
+
+    .replace(
+      /N\\\{([^}]*)\}/g,
+      "\\mathbb{N}\\setminus\\{$1\\}"
+    )
+
+    .replace(
+      /Z\\\{([^}]*)\}/g,
+      "\\mathbb{Z}\\setminus\\{$1\\}"
+    )
+
+    .replace(
+      /Q\\\{([^}]*)\}/g,
+      "\\mathbb{Q}\\setminus\\{$1\\}"
+    )
 
     // Tập số
     .replace(/\bR\b/g, "\\mathbb{R}")
@@ -63,77 +45,54 @@ function convertMath(text: string) {
     .replace(/\bZ\b/g, "\\mathbb{Z}")
     .replace(/\bQ\b/g, "\\mathbb{Q}")
 
-    // R\{1}
-    .replace(
-      /\\mathbb\{R\}\\\{([^}]*)\\\}/g,
-      "\\mathbb{R}\\setminus\\{$1\\}"
-    )
-
-    .replace(
-      /R\\\{([^}]*)\\\}/g,
-      "\\mathbb{R}\\setminus\\{$1\\}"
-    )
-
     // x² x³
     .replace(/²/g, "^2")
     .replace(/³/g, "^3")
 
-    // α β γ
+    // Greek
     .replace(/α/g, "\\alpha")
     .replace(/β/g, "\\beta")
     .replace(/γ/g, "\\gamma")
     .replace(/θ/g, "\\theta")
+    .replace(/π/g, "\\pi")
 
-    // ∈ ∉
+    // Tập hợp
     .replace(/∈/g, "\\in")
     .replace(/∉/g, "\\notin")
-
-    // ⊂ ⊆
     .replace(/⊂/g, "\\subset")
     .replace(/⊆/g, "\\subseteq")
-
-    // ∩ ∪
     .replace(/∩/g, "\\cap")
     .replace(/∪/g, "\\cup")
 
-    // ≤ ≥
+    // So sánh
     .replace(/≤/g, "\\le")
     .replace(/≥/g, "\\ge")
+    .replace(/≠/g, "\\ne")
 
-    // ⇒ ⇔
+    // Logic
     .replace(/⇒/g, "\\Rightarrow")
     .replace(/⇔/g, "\\Leftrightarrow")
-
-    // ∀ ∃
     .replace(/∀/g, "\\forall")
     .replace(/∃/g, "\\exists")
 
-    // √x
-    .replace(/√(\w+)/g, "\\sqrt{$1}")
+    // Căn
+    .replace(/√([a-zA-Z0-9]+)/g, "\\sqrt{$1}")
 
-    // (a+b)/(c+d)
+    // Phân số dạng (a+b)/(c+d)
     .replace(
-    /\(([^()]+)\)\/\(([^()]+)\)/g,
-    "\\frac{$1}{$2}"
+      /\(([^()]+)\)\/\(([^()]+)\)/g,
+      "\\frac{$1}{$2}"
     )
 
-    // a/b
+    // Phân số số học
     .replace(
-    /(\d+)\/(\d+)/g,
-    "\\frac{$1}{$2}"
+      /(\d+)\/(\d+)/g,
+      "\\frac{$1}{$2}"
     )
 
+    // Lượng giác
     .replace(/sin/g, "\\sin")
     .replace(/cos/g, "\\cos")
     .replace(/tan/g, "\\tan")
-    .replace(/cot/g, "\\cot")
-
-    .replace(/log₂/g, "\\log_2")
-    .replace(/log₃/g, "\\log_3")
-    .replace(/log₁₀/g, "\\log_{10}") 
-
-
-
-    // π
-    .replace(/π/g, "\\pi");
+    .replace(/cot/g, "\\cot");
 }

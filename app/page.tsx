@@ -1391,7 +1391,9 @@ text-yellow-400
     text-slate-800
   "
 >
+  <div className="whitespace-pre-line">
   <MathText text={question?.question || ""} />
+</div>
 </div>
 
 {correctAnswer && (
@@ -1431,7 +1433,9 @@ justify-center
 text-center
 "
   >
-    <MathText text={String(option)} />
+    <div className="text-center">
+  <MathText text={String(option)} />
+</div>
   </button>
 ))}
   </div>
