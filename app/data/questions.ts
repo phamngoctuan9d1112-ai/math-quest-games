@@ -265,12 +265,28 @@ stage3: [
   },
 
   {
-    id: "p1_s3_5",
-    type: "short-answer",
-    question: "Cho P: 'n chia hết cho 16', Q: 'n chia hết cho 8'. Có bao nhiêu mệnh đề đúng trong ba mệnh đề: \nP⇒Q,\nQ⇒P,\nP⇔Q?",
-    answer: "1",
-    explanation: "Nếu n chia hết cho 16 thì chắc chắn chia hết cho 8 nên P⇒Q đúng. Q⇒P sai vì 8 không nhất thiết chia hết cho 16. Do đó P⇔Q cũng sai. Chỉ có đúng 1 mệnh đề đúng."
-  }
+  id: "p1_s3_5",
+  type: "short-answer",
+  question:
+`Cho P: "n chia hết cho 16", Q: "n chia hết cho 8".
+
+Có bao nhiêu mệnh đề đúng trong ba mệnh đề:
+
+P ⇒ Q
+Q ⇒ P
+P ⇔ Q ?`,
+
+  answer: "1",
+
+  explanation:
+`Nếu n chia hết cho 16 thì chắc chắn chia hết cho 8 nên P ⇒ Q đúng.
+
+Q ⇒ P sai vì chia hết cho 8 không nhất thiết chia hết cho 16.
+
+Do đó P ⇔ Q sai.
+
+Chỉ có 1 mệnh đề đúng.`
+}
 ]
 },
 2: { 
