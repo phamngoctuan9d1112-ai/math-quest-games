@@ -181,6 +181,13 @@ const [currentUserId, setCurrentUserId] =
     setXp(Number(profile.xp || 0));
     setCoins(Number(profile.coins || 0));
     setUnlockedWorlds(profile.unlocked_worlds || [1,27,62]);
+    setSubNodeProgress(
+  profile.sub_node_progress || {
+    1: 1,
+    27: 1,
+    62: 1,
+  }
+);
     setAvatar(profile.avatar || "🧑");
     setWeapon(profile.weapon || "🪵");
     setPet(profile.pet || "🥚");
@@ -235,17 +242,18 @@ async function saveProgress() {
   if (!user) return;
 
   await supabase
-    .from("profiles")
-    .update({
-      xp,
-      coins,
-      unlocked_worlds: unlockedWorlds,
-      avatar,
-      weapon,
-      pet,
-      hearts,
-    })
-    .eq("id", user.id);
+  .from("profiles")
+  .update({
+    xp,
+    coins,
+    unlocked_worlds: unlockedWorlds,
+    sub_node_progress: subNodeProgress,
+    avatar,
+    weapon,
+    pet,
+    hearts,
+  })
+  .eq("id", user.id);
 }
 
   const question = (current < questions.length ? questions[current] : null) as any;
@@ -609,20 +617,17 @@ if (rewardDate === today) {
   useEffect(() => {
   if (!currentUserId) return;
 
-  localStorage.setItem(
-    `daily_task_progress_${currentUserId}`,
-    dailyProgress.toString()
-  );
-}, [dailyProgress, currentUserId]);
+  const savedSubNodes =
+    localStorage.getItem(
+      `subNodeProgress_${currentUserId}`
+    );
 
-  useEffect(() => {
-  if (!currentUserId) return;
-
-  localStorage.setItem(
-    `subNodeProgress_${currentUserId}`,
-    JSON.stringify(subNodeProgress)
-  );
-}, [subNodeProgress, currentUserId]);
+  if (savedSubNodes) {
+    setSubNodeProgress(
+      JSON.parse(savedSubNodes)
+    );
+  }
+}, [currentUserId]);
   useEffect(() => { if (typeof window !== "undefined") localStorage.setItem("hearts", hearts.toString()); }, [hearts]);
   useEffect(() => {
   if (!currentUserId) return;
@@ -778,12 +783,20 @@ async function moveToNextQuestion() {
       currentWorldProgress < 3
     ) {
 
-      setSubNodeProgress(prev => ({
-        ...prev,
-        [currentMapId]:
-          currentWorldProgress + 1,
-      }));
+      const updatedProgress = {
+  ...subNodeProgress,
+  [currentMapId]:
+    currentWorldProgress + 1,
+};
 
+setSubNodeProgress(updatedProgress);
+
+await supabase
+  .from("profiles")
+  .update({
+    sub_node_progress: updatedProgress,
+  })
+  .eq("id", currentUserId);
       setCurrentSubNode(null);
       setSelectedWorld(null);
       setCurrent(0);
