@@ -44,12 +44,12 @@ export default function Home() {
   const [newWorldUnlocked, setNewWorldUnlocked] = useState<number | null>(null);
   const [unlockedWorlds, setUnlockedWorlds] = useState([1, 27, 62]);
   const [selectedWorld, setSelectedWorld] = useState<number | null>(null);
- 
+  const [showTFAnswer, setShowTFAnswer] = useState(false);
   const [weapon, setWeapon] = useState("🪵");
   const [attacking, setAttacking] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState("");
- const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
+  const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [message, setMessage] = useState("");
   const [shopMessage, setShopMessage] = useState("");
   const [current, setCurrent] = useState(0);
@@ -870,43 +870,67 @@ await supabase
   
   // HÀM XỬ LÝ NỘP BÀI CHẶNG 2: ĐÚNG / SAI
   const checkTrueFalseAnswer = () => {
-    if (!question?.subQuestions) return;
-    let correctCount = 0;
-    question.subQuestions.forEach((sub: any) => {
-      if (tfAnswers[sub.label] === sub.correctAnswer) correctCount++;
-    });
+  if (!question?.subQuestions) return;
 
-    let scoreMultiplier = 0;
-    if (correctCount === 1) scoreMultiplier = 0.10;
-    if (correctCount === 2) scoreMultiplier = 0.25;
-    if (correctCount === 3) scoreMultiplier = 0.50;
-    if (correctCount === 4) scoreMultiplier = 1.00;
+  let correctCount = 0;
 
-    if (scoreMultiplier > 0) {
-      setCorrectAnswers((prev) => prev + 1);
-      setXp((prev) => prev + Math.round(15 * scoreMultiplier));
-      let reward = Math.round(10 * scoreMultiplier);
-      if (pet === "🐶") reward += 1;
-      if (pet === "🐱") reward += 2;
-      if (pet === "🐉") reward += 5;
-      setCoins((prev) => prev + reward);
-      setMessage(`🎉 Đúng ${correctCount}/4 ý! Thưởng ${scoreMultiplier * 100}%.`);
-    } else {
-      setHearts((prev) => Math.max(0, prev - 1));
-      setMessage("❌ Sai cả 4 ý!");
+  question.subQuestions.forEach((sub: any) => {
+    if (
+      tfAnswers[sub.label] ===
+      sub.correctAnswer
+    ) {
+      correctCount++;
     }
+  });
+
+  // Đúng hết
+  if (
+    correctCount ===
+    question.subQuestions.length
+  ) {
+    setCorrectAnswers(prev => prev + 1);
+
+    setXp(prev => prev + 15);
+
+    let reward = 10;
+
+    if (pet === "🐶") reward += 1;
+    if (pet === "🐱") reward += 2;
+    if (pet === "🐉") reward += 5;
+
+    setCoins(prev => prev + reward);
+
+    setMessage("✅ Chính xác!");
 
     setTimeout(() => {
       setMessage("");
       setTfAnswers({});
+
       const nextIndex = current + 1;
+
       if (nextIndex >= questions.length) {
-  moveToNextQuestion();
-} else {
+        moveToNextQuestion();
+      } else {
         setCurrent(nextIndex);
       }
-    }, 2000);
-  };
+    }, 1000);
+
+  } else {
+
+    // Sai ít nhất 1 ý
+    setHearts(prev =>
+      Math.max(0, prev - 1)
+    );
+
+    setMessage(
+      `❌ Sai (${correctCount}/${question.subQuestions.length})`
+    );
+
+    setShowTFAnswer(true);
+  }
+};
+
+    
 
   // HÀM XỬ LÝ NỘP BÀI CHẶNG 3: TỰ LUẬN NGẮN
   const checkShortAnswer = () => {
@@ -1613,10 +1637,62 @@ text-center
       disabled={Object.keys(tfAnswers).length < (question?.subQuestions?.length || 4)}
       className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-not-allowed text-white py-3 rounded-xl font-bold mt-4 shadow-md transition text-lg"
     >
-      Nộp bài Đọc / Sai
+      Nộp bài Đúng / Sai
     </button>
   </div>
 )}
+  {showTFAnswer && (
+  <div className="mt-4 bg-red-50 border-2 border-red-300 rounded-xl p-4">
+
+    <h3 className="font-bold text-red-600">
+      Đáp án đúng
+    </h3>
+
+    {question?.subQuestions?.map(
+      (sub: any) => (
+        <div
+          key={sub.label}
+          className="mt-2"
+        >
+          <strong>
+            {sub.label}
+          </strong>
+          : {sub.correctAnswer}
+        </div>
+      )
+    )}
+
+    <button
+      onClick={() => {
+        setShowTFAnswer(false);
+        setTfAnswers({});
+
+        const nextIndex =
+          current + 1;
+
+        if (
+          nextIndex >=
+          questions.length
+        ) {
+          moveToNextQuestion();
+        } else {
+          setCurrent(nextIndex);
+        }
+      }}
+      className="
+      mt-4
+      w-full
+      bg-blue-500
+      text-white
+      py-2
+      rounded-xl
+      "
+    >
+      Tiếp tục
+    </button>
+  </div>
+)}
+
 
 {/* ---------------- CHẶNG 3: GIAO DIỆN TRẢ LỜI NGẮN + LỜI GIẢI ---------------- */}
 {currentSubNode === 3 && (
