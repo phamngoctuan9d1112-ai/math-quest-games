@@ -768,7 +768,7 @@ async function moveToNextQuestion() {
   if (nextIndex >= questions.length) {
 
     const currentMapId =
-      selectedSubMap || 1;
+  selectedWorld!;
 
     const currentWorldProgress =
       subNodeProgress[currentMapId] || 1;
@@ -789,6 +789,10 @@ async function moveToNextQuestion() {
       setCurrent(0);
 
     } else if (currentSubNode === 3) {
+
+      console.log("selectedWorld =", selectedWorld);
+console.log("selectedSubMap =", selectedSubMap);
+console.log("currentMapId =", currentMapId);
 
      const nextWorld =
   getNextUnlockWorld(
@@ -812,6 +816,8 @@ async function moveToNextQuestion() {
     nextWorld,
   ]),
 ];
+
+setUnlockedWorlds(updatedWorlds);
 
 await supabase
   .from("profiles")
@@ -882,10 +888,8 @@ await supabase
       setTfAnswers({});
       const nextIndex = current + 1;
       if (nextIndex >= questions.length) {
-        setCurrentSubNode(null);
-        setSelectedWorld(null);
-        setCurrent(0);
-      } else {
+  moveToNextQuestion();
+} else {
         setCurrent(nextIndex);
       }
     }, 2000);
@@ -912,19 +916,19 @@ await supabase
     setShowExplanation(true);
   };
 
-  const handleNextShortQuestion = () => {
-    setShowExplanation(false);
-    setShortAnswer("");
-    setMessage("");
-    const nextIndex = current + 1;
-    if (nextIndex >= questions.length) {
-      setCurrentSubNode(null);
-      setSelectedWorld(null);
-      setCurrent(0);
-    } else {
-      setCurrent(nextIndex);
-    }
-  };
+  const handleNextShortQuestion = async () => {
+  setShowExplanation(false);
+  setShortAnswer("");
+  setMessage("");
+
+  const nextIndex = current + 1;
+
+  if (nextIndex >= questions.length) {
+    await moveToNextQuestion();
+  } else {
+    setCurrent(nextIndex);
+  }
+};
 
  // ==========================================
   // 5. GIAO DIỆN (Điều kiện hiển thị render)
