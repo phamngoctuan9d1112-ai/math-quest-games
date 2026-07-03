@@ -14621,7 +14621,7 @@ question:"Cho hàm số y=(2x+1)/(x−1).",
 subQuestions:[
 {
 label:"a",
-text:"Tập xác định là R$\${1}.",
+text:"Tập xác định là R\{1}.",
 correctAnswer:"Đúng"
 },
 {
