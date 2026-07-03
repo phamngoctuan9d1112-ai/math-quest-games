@@ -1012,7 +1012,8 @@ answer:"-1"
 {
 id:"lg_s1_6",
 type:"multiple-choice",
-question:"Cho sinα = 3/5 và α là góc nhọn. Giá trị của cosα là",
+question:
+"Cho $\\sin\\alpha = \\frac{3}{5}$ và $\\alpha$ là góc nhọn. Giá trị của $\\cos\\alpha$ là"
 options:["4/5","-4/5","3/4","5/4"],
 answer:"4/5"
 },
