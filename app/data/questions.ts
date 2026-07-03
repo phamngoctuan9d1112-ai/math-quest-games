@@ -265,28 +265,12 @@ stage3: [
   },
 
   {
-  id: "p1_s3_5",
-  type: "short-answer",
-  question:
-`Cho P: "n chia hết cho 16", Q: "n chia hết cho 8".
-
-Có bao nhiêu mệnh đề đúng trong ba mệnh đề:
-
-P ⇒ Q
-Q ⇒ P
-P ⇔ Q ?`,
-
-  answer: "1",
-
-  explanation:
-`Nếu n chia hết cho 16 thì chắc chắn chia hết cho 8 nên P ⇒ Q đúng.
-
-Q ⇒ P sai vì chia hết cho 8 không nhất thiết chia hết cho 16.
-
-Do đó P ⇔ Q sai.
-
-Chỉ có 1 mệnh đề đúng.`
-}
+    id: "p1_s3_5",
+    type: "short-answer",
+    question: "Cho P: 'n chia hết cho 16', Q: 'n chia hết cho 8'. Có bao nhiêu mệnh đề đúng trong ba mệnh đề: P⇒Q, Q⇒P, P⇔Q?",
+    answer: "1",
+    explanation: "Nếu n chia hết cho 16 thì chắc chắn chia hết cho 8 nên P⇒Q đúng. Q⇒P sai vì 8 không nhất thiết chia hết cho 16. Do đó P⇔Q cũng sai. Chỉ có đúng 1 mệnh đề đúng."
+  }
 ]
 },
 2: { 
@@ -1012,8 +996,7 @@ answer:"-1"
 {
 id:"lg_s1_6",
 type:"multiple-choice",
-question:
-"Cho $sin\\alpha = \\frac{3}{5}$ và $\\alpha$ là góc nhọn. Giá trị của $cos\\alpha$ là",
+question:"Cho sinα = 3/5 và α là góc nhọn. Giá trị của cosα là",
 options:["4/5","-4/5","3/4","5/4"],
 answer:"4/5"
 },
