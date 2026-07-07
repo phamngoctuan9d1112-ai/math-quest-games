@@ -543,22 +543,27 @@ async function fetchLeaderboard() {
 
 async function updateStreak(userId: string) {
 
-  const today = new Date();
-
-  const { data } = await supabase
+  const { data: profile } = await supabase
     .from("profiles")
     .select("streak,last_played,best_streak")
     .eq("id", userId)
     .single();
 
-  if (!data) return;
+  if (!profile) return;
 
-  let newStreak = 1;
+  const today = new Date();
+  const todayStr =
+    today.toISOString().split("T")[0];
 
-  if (data.last_played) {
+  let newStreak =
+    profile.streak || 0;
+
+  if (!profile.last_played) {
+    newStreak = 1;
+  } else {
 
     const lastDate =
-      new Date(data.last_played);
+      new Date(profile.last_played);
 
     const diffDays = Math.floor(
       (
@@ -569,38 +574,26 @@ async function updateStreak(userId: string) {
     );
 
     if (diffDays === 1) {
-      newStreak =
-        (data.streak || 0) + 1;
-    }
-
-    if (diffDays === 0) {
-      newStreak =
-        data.streak || 1;
-    }
-
-    if (diffDays > 1) {
+      newStreak++;
+    } else if (diffDays > 1) {
       newStreak = 1;
     }
   }
-
-  const bestStreak = Math.max(
-    newStreak,
-    data.best_streak || 0
-  );
 
   await supabase
     .from("profiles")
     .update({
       streak: newStreak,
-      best_streak: bestStreak,
-      last_played:
-        today.toISOString().split("T")[0]
+      best_streak: Math.max(
+        profile.best_streak || 0,
+        newStreak
+      ),
+      last_played: todayStr,
     })
     .eq("id", userId);
 
   setStreak(newStreak);
 }
-
   // Các useEffect đồng bộ LocalStorage
   useEffect(() => {
     if (typeof window !== "undefined") {
