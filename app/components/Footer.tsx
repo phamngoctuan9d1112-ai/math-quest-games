@@ -93,7 +93,7 @@ export default function Footer() {
           text-slate-400
         "
       >
-        © 2025 Math Quest. All rights reserved.
+        © 2026 Math Quest. All rights reserved.
       </div>
     </footer>
   );

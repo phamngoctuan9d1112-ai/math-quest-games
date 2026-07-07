@@ -19,12 +19,78 @@ export default function StartScreen({
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-slate-950 text-white gap-6 px-4">
+      <div
+  className="
+  relative
+  flex
+  flex-col
+  items-center
+  justify-center
+  min-h-screen
+  bg-gradient-to-br
+  from-slate-950
+  via-blue-950
+  to-indigo-950
+  text-white
+  gap-6
+  px-4
+  overflow-hidden
+"
+>
+        {/* Hiệu ứng nền */}
+        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full" />
+
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 blur-3xl rounded-full" />
+
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-cyan-500/10 blur-3xl rounded-full -translate-x-1/2 -translate-y-1/2" />
+        </div>
         {/* Tiêu đề */}
-        <div className="text-center space-y-2">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
-            ⚔️ Math Quest
-          </h1>
+        <div className="relative z-10 text-center space-y-2">
+          <div className="flex items-center justify-center gap-4">
+
+  <div
+  className="
+  inline-block
+  px-4
+  py-2
+  rounded-full
+  bg-blue-500/10
+  border
+  border-blue-500/30
+  text-blue-300
+  text-sm
+  mb-6
+"
+>
+ 🚀 Nền tảng học Toán THPT
+</div>
+
+<div className="flex items-center justify-center gap-4">
+
+  <div className="text-7xl">
+    ⚔️
+  </div>
+
+  <h1
+    className="
+    text-6xl
+    md:text-8xl
+    font-black
+    bg-gradient-to-r
+    from-cyan-400
+    via-blue-400
+    to-purple-500
+    bg-clip-text
+    text-transparent
+    "
+  >
+    Math Quest
+  </h1>
+
+</div>
+
+</div>
 
           <p className="text-slate-400 text-lg">
             Chinh phục toán học, thăng hạng bản thân
@@ -33,38 +99,158 @@ export default function StartScreen({
           Nhấn đăng nhập bằng Google để Bắt Đầu
          </p>
         </div>
+        
+        <div
+  className="
+  relative
+  z-10
+  flex
+  justify-center
+  flex-wrap
+  gap-10
+  mt-8
+"
+>
+  
+
+  <div className="text-center">
+    <div className="text-3xl font-bold text-cyan-400">
+      79
+    </div>
+    <div className="text-slate-400">
+      Worlds
+    </div>
+  </div>
+
+  <div className="text-center">
+    <div className="text-3xl font-bold text-green-400">
+      500+
+    </div>
+    <div className="text-slate-400">
+      Câu hỏi
+    </div>
+  </div>
+
+  <div className="text-center">
+    <div className="text-3xl font-bold text-yellow-400">
+      THPT
+    </div>
+    <div className="text-slate-400">
+      Chương trình
+    </div>
+  </div>
+
+</div>
 
         {/* Các nút */}
-        <div className="flex flex-col sm:flex-row gap-4 w-full max-w-3xl justify-center mt-4">
+        <div
+  className="
+  relative
+  z-10
+  flex
+  flex-col
+  md:flex-row
+  gap-5
+  mt-8
+"
+>
 
           {/* Bắt đầu */}
          
 
           {/* Hướng dẫn */}
           <button
-            onClick={() => setShowGuide(true)}
-            className="bg-green-600 hover:bg-green-700 hover:scale-105 transition-all text-white px-8 py-4 rounded-xl font-bold text-xl shadow-lg"
-          >
-            📖 Hướng dẫn
-          </button>
+  onClick={() => setShowGuide(true)}
+  className="
+  px-10
+  py-5
+  rounded-2xl
+  bg-white/10
+  backdrop-blur-md
+  border
+  border-white/20
+  text-white
+  font-bold
+  text-xl
+  hover:bg-white/20
+  transition-all
+"
+>
+  📖 Hướng dẫn
+</button>
 
           {/* Đăng nhập / Đăng xuất */}
-          {!isLoggedIn ? (
-            <button
-              onClick={onLogin}
-              className="bg-white text-slate-900 hover:bg-slate-100 hover:scale-105 transition-all px-8 py-4 rounded-xl font-bold text-xl shadow-lg"
-            >
-              🚀 Đăng nhập Google
-            </button>
-          ) : (
-            <button
-              onClick={onLogout}
-              className="bg-red-600 hover:bg-red-700 hover:scale-105 transition-all text-white px-8 py-4 rounded-xl font-bold text-xl shadow-lg"
-            >
-              🚪 Đăng xuất
-            </button>
-          )}
+          {isLoggedIn ? (
+  <button
+    onClick={onStart}
+  >
+    🎮 Vào Game
+  </button>
+) : (
+  <button
+    onClick={onLogin}
+  >
+    🚀 Bắt đầu miễn phí
+  </button>
+)}
         </div>
+
+          <footer
+  className="
+  absolute
+  bottom-0
+  left-0
+  right-0
+  border-t
+  border-white/10
+  bg-black/20
+  backdrop-blur-md
+"
+>
+  <div
+    className="
+    max-w-7xl
+    mx-auto
+    px-6
+    py-4
+    flex
+    flex-wrap
+    justify-center
+    gap-6
+    text-sm
+    text-slate-400
+  "
+  >
+    <a
+  href="/privacy"
+  className="hover:text-white transition"
+>
+  Chính sách bảo mật
+</a>
+
+    <a
+  href="/terms"
+  className="hover:text-white transition"
+>
+  Điều khoản
+</a>
+
+    <a
+  href="/contact"
+  className="hover:text-white transition"
+>
+  Liên hệ
+</a>
+
+    <a
+  href="/report"
+  className="hover:text-white transition"
+>
+  Báo cáo lỗi
+</a>
+  </div>
+</footer>
+
       </div>
 
       {/* Popup Hướng dẫn */}
