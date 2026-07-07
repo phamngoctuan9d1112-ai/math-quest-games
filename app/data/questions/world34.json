@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "review_dscscsn_1",
+      "type": "multiple-choice",
+      "question": "Cho dãy số un = 2n + 1. Giá trị của u5 bằng",
+      "options": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "answer": "11"
+    },
+    {
+      "id": "review_dscscsn_2",
+      "type": "multiple-choice",
+      "question": "Cho cấp số cộng có u1 = 3, d = 2. Giá trị của u6 bằng",
+      "options": [
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
+      "answer": "13"
+    },
+    {
+      "id": "review_dscscsn_3",
+      "type": "multiple-choice",
+      "question": "Cho cấp số nhân có u1 = 2, q = 3. Giá trị của u4 bằng",
+      "options": [
+        "18",
+        "27",
+        "54",
+        "81"
+      ],
+      "answer": "54"
+    },
+    {
+      "id": "review_dscscsn_4",
+      "type": "multiple-choice",
+      "question": "Công thức số hạng tổng quát của cấp số cộng là",
+      "options": [
+        "un=u1+(n−1)d",
+        "un=u1.q^(n−1)",
+        "un=u1+nd",
+        "un=d+(n−1)u1"
+      ],
+      "answer": "un=u1+(n−1)d"
+    },
+    {
+      "id": "review_dscscsn_5",
+      "type": "multiple-choice",
+      "question": "Công thức số hạng tổng quát của cấp số nhân là",
+      "options": [
+        "un=u1+(n−1)d",
+        "un=u1.q^(n−1)",
+        "un=q^(n−1)",
+        "un=u1+nq"
+      ],
+      "answer": "un=u1.q^(n−1)"
+    },
+    {
+      "id": "review_dscscsn_6",
+      "type": "multiple-choice",
+      "question": "Cho cấp số cộng 2; 5; 8; 11; ... Công sai d bằng",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": "3"
+    },
+    {
+      "id": "review_dscscsn_7",
+      "type": "multiple-choice",
+      "question": "Cho cấp số nhân 3; 6; 12; 24; ... Công bội q bằng",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "answer": "2"
+    },
+    {
+      "id": "review_dscscsn_8",
+      "type": "multiple-choice",
+      "question": "Cho dãy số un = 1/n. Dãy số này là",
+      "options": [
+        "Tăng",
+        "Giảm",
+        "Không đổi",
+        "Không xác định"
+      ],
+      "answer": "Giảm"
+    },
+    {
+      "id": "review_dscscsn_9",
+      "type": "multiple-choice",
+      "question": "Tổng 10 số hạng đầu của cấp số cộng 1;2;3;... bằng",
+      "options": [
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "answer": "55"
+    },
+    {
+      "id": "review_dscscsn_10",
+      "type": "multiple-choice",
+      "question": "Tổng 5 số hạng đầu của cấp số nhân 1;2;4;8;... bằng",
+      "options": [
+        "30",
+        "31",
+        "32",
+        "33"
+      ],
+      "answer": "31"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "review_tf_1",
+      "type": "true-false",
+      "question": "Cho dãy số un=(n+1)/(n+2).",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "u1=2/3.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Dãy số tăng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Dãy số bị chặn trên bởi 1.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Dãy số không bị chặn.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "review_tf_2",
+      "type": "true-false",
+      "question": "Cho cấp số cộng có u1=2 và d=3.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "u2=5.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "u5=14.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "u10=29.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "u4=10.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "review_tf_3",
+      "type": "true-false",
+      "question": "Cho cấp số nhân có u1=2 và q=3.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "u2=6.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "u3=18.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "u4=54.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "u5=108.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "review_sa_1",
+      "type": "short-answer",
+      "question": "Cho dãy số un=3n−1. Tính u10.",
+      "answer": "29",
+      "explanation": "u10=3×10−1=29."
+    },
+    {
+      "id": "review_sa_2",
+      "type": "short-answer",
+      "question": "Cho cấp số cộng có u1=5, d=4. Tính u15.",
+      "answer": "61",
+      "explanation": "u15=u1+14d=5+14×4=61."
+    },
+    {
+      "id": "review_sa_3",
+      "type": "short-answer",
+      "question": "Cho cấp số nhân có u1=3, q=2. Tính u8.",
+      "answer": "384",
+      "explanation": "u8=3×2^7=3×128=384."
+    },
+    {
+      "id": "review_sa_4",
+      "type": "short-answer",
+      "question": "Cho cấp số cộng 2;5;8;11;... Tính tổng 10 số hạng đầu.",
+      "answer": "155",
+      "explanation": "u10=2+9×3=29. S10=10(2+29)/2=155."
+    },
+    {
+      "id": "review_sa_5",
+      "type": "short-answer",
+      "question": "Cho cấp số nhân 2;4;8;16;... Tính tổng 5 số hạng đầu.",
+      "answer": "62",
+      "explanation": "S5=2(2^5−1)/(2−1)=2×31=62."
+    }
+  ]
+}

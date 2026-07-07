@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "bayes_s1_1",
+      "type": "multiple-choice",
+      "question": "Công thức xác suất toàn phần được sử dụng khi",
+      "options": [
+        "Biến cố B được tạo bởi nhiều trường hợp loại trừ nhau",
+        "Hai biến cố độc lập",
+        "Tính đạo hàm",
+        "Tính tích phân"
+      ],
+      "answer": "Biến cố B được tạo bởi nhiều trường hợp loại trừ nhau"
+    },
+    {
+      "id": "bayes_s1_2",
+      "type": "multiple-choice",
+      "question": "Nếu A₁,A₂,...,Aₙ lập thành một hệ đầy đủ biến cố thì công thức xác suất toàn phần là",
+      "options": [
+        "P(B)=ΣP(Aᵢ)P(B|Aᵢ)",
+        "P(B)=ΣP(B|Aᵢ)",
+        "P(B)=ΣP(Aᵢ|B)",
+        "P(B)=P(A∩B)"
+      ],
+      "answer": "P(B)=ΣP(Aᵢ)P(B|Aᵢ)"
+    },
+    {
+      "id": "bayes_s1_3",
+      "type": "multiple-choice",
+      "question": "Công thức Bayes dùng để",
+      "options": [
+        "Tính xác suất ngược P(A|B)",
+        "Tính đạo hàm",
+        "Tính nguyên hàm",
+        "Tính tổ hợp"
+      ],
+      "answer": "Tính xác suất ngược P(A|B)"
+    },
+    {
+      "id": "bayes_s1_4",
+      "type": "multiple-choice",
+      "question": "Trong công thức Bayes, mẫu số là",
+      "options": [
+        "P(B)",
+        "P(A)",
+        "P(A∩B)",
+        "P(A|B)"
+      ],
+      "answer": "P(B)"
+    },
+    {
+      "id": "bayes_s1_5",
+      "type": "multiple-choice",
+      "question": "Nếu P(A)=0,4 và P(B|A)=0,5 thì P(A)P(B|A) bằng",
+      "options": [
+        "0,2",
+        "0,4",
+        "0,5",
+        "0,9"
+      ],
+      "answer": "0,2"
+    },
+    {
+      "id": "bayes_s1_6",
+      "type": "multiple-choice",
+      "question": "Cho P(A₁)=0,3; P(A₂)=0,7; P(B|A₁)=0,8; P(B|A₂)=0,2. Khi đó P(B) bằng",
+      "options": [
+        "0,38",
+        "0,44",
+        "0,5",
+        "0,62"
+      ],
+      "answer": "0,38"
+    },
+    {
+      "id": "bayes_s1_7",
+      "type": "multiple-choice",
+      "question": "Công thức Bayes được xây dựng dựa trên",
+      "options": [
+        "Xác suất có điều kiện",
+        "Đạo hàm",
+        "Giới hạn",
+        "Nguyên hàm"
+      ],
+      "answer": "Xác suất có điều kiện"
+    },
+    {
+      "id": "bayes_s1_8",
+      "type": "multiple-choice",
+      "question": "Trong công thức Bayes, tử số của P(A|B) là",
+      "options": [
+        "P(A)P(B|A)",
+        "P(B)",
+        "P(A∩Bᶜ)",
+        "P(A)+P(B)"
+      ],
+      "answer": "P(A)P(B|A)"
+    },
+    {
+      "id": "bayes_s1_9",
+      "type": "multiple-choice",
+      "question": "Một ứng dụng phổ biến của Bayes là",
+      "options": [
+        "Chẩn đoán bệnh",
+        "Giải phương trình bậc hai",
+        "Tính diện tích",
+        "Tính thể tích"
+      ],
+      "answer": "Chẩn đoán bệnh"
+    },
+    {
+      "id": "bayes_s1_10",
+      "type": "multiple-choice",
+      "question": "Nếu P(B)=0 thì",
+      "options": [
+        "Không tính được P(A|B)",
+        "P(A|B)=0",
+        "P(A|B)=1",
+        "P(A|B)=P(A)"
+      ],
+      "answer": "Không tính được P(A|B)"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "bayes_s2_1",
+      "type": "true-false",
+      "question": "Xét công thức xác suất toàn phần.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "P(B)=ΣP(Aᵢ)P(B|Aᵢ).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Các biến cố A₁,A₂,...,Aₙ phải lập thành hệ đầy đủ biến cố.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Xác suất toàn phần dùng để tính P(B).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "P(B)=ΣP(B|Aᵢ).",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "bayes_s2_2",
+      "type": "true-false",
+      "question": "Xét công thức Bayes.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Bayes dùng để tính P(A|B).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "P(A|B)=P(B|A)P(A)/P(B).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Cần có P(B)>0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Bayes không liên quan đến xác suất có điều kiện.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "bayes_s2_3",
+      "type": "true-false",
+      "question": "Cho P(A)=0,4; P(B|A)=0,5; P(B)=0,25.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "P(A∩B)=0,2.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "P(A|B)=0,8.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "P(A|B)=0,5.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "P(B)>0.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "bayes_s3_1",
+      "type": "short-answer",
+      "question": "Cho P(A₁)=0,3; P(A₂)=0,7; P(B|A₁)=0,8; P(B|A₂)=0,2. Tính P(B).",
+      "answer": "0.38",
+      "explanation": "P(B)=0,3×0,8+0,7×0,2=0,38."
+    },
+    {
+      "id": "bayes_s3_2",
+      "type": "short-answer",
+      "question": "Cho P(A)=0,4; P(B|A)=0,5; P(B)=0,25. Tính P(A|B).",
+      "answer": "0.8",
+      "explanation": "P(A|B)=P(A)P(B|A)/P(B)=0,4×0,5/0,25=0,8."
+    },
+    {
+      "id": "bayes_s3_3",
+      "type": "short-answer",
+      "question": "Một bệnh có tỉ lệ mắc 2%. Xét nghiệm dương tính đúng với người bệnh 95%. Giả sử xác suất dương tính là 0,05. Tính P(Bệnh ∩ Dương tính).",
+      "answer": "0.019",
+      "explanation": "P(A∩B)=0,02×0,95=0,019."
+    },
+    {
+      "id": "bayes_s3_4",
+      "type": "short-answer",
+      "question": "Cho P(A₁)=0,6; P(A₂)=0,4; P(B|A₁)=0,5; P(B|A₂)=0,2. Tính P(B).",
+      "answer": "0.38",
+      "explanation": "P(B)=0,6×0,5+0,4×0,2=0,38."
+    },
+    {
+      "id": "bayes_s3_5",
+      "type": "short-answer",
+      "question": "Cho P(A)=0,3; P(B|A)=0,8; P(B)=0,4. Tính P(A|B).",
+      "answer": "0.6",
+      "explanation": "P(A|B)=0,3×0,8/0,4=0,6."
+    }
+  ]
+}

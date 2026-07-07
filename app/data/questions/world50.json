@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "pcvg_s1_1",
+      "type": "multiple-choice",
+      "question": "Hình chiếu vuông góc của điểm M trên mặt phẳng (P) là",
+      "options": [
+        "Điểm bất kỳ thuộc (P)",
+        "Giao điểm của đường thẳng qua M vuông góc với (P) và (P)",
+        "Trung điểm của đoạn thẳng",
+        "Điểm gần M nhất trên (P)"
+      ],
+      "answer": "Giao điểm của đường thẳng qua M vuông góc với (P) và (P)"
+    },
+    {
+      "id": "pcvg_s1_2",
+      "type": "multiple-choice",
+      "question": "Hình chiếu vuông góc của một đường thẳng lên mặt phẳng là",
+      "options": [
+        "Một điểm",
+        "Một đường thẳng hoặc một điểm",
+        "Một mặt phẳng",
+        "Một đoạn thẳng"
+      ],
+      "answer": "Một đường thẳng hoặc một điểm"
+    },
+    {
+      "id": "pcvg_s1_3",
+      "type": "multiple-choice",
+      "question": "Góc giữa đường thẳng d và mặt phẳng (P) là",
+      "options": [
+        "Góc giữa d và hình chiếu vuông góc của nó trên (P)",
+        "Góc giữa d và một đường thẳng bất kỳ trong (P)",
+        "Góc giữa d và đường vuông góc với (P)",
+        "Góc nhị diện tạo bởi d và (P)"
+      ],
+      "answer": "Góc giữa d và hình chiếu vuông góc của nó trên (P)"
+    },
+    {
+      "id": "pcvg_s1_4",
+      "type": "multiple-choice",
+      "question": "Nếu đường thẳng d nằm trong mặt phẳng (P) thì góc giữa d và (P) bằng",
+      "options": [
+        "0°",
+        "30°",
+        "45°",
+        "90°"
+      ],
+      "answer": "0°"
+    },
+    {
+      "id": "pcvg_s1_5",
+      "type": "multiple-choice",
+      "question": "Nếu d vuông góc với (P) thì góc giữa d và (P) bằng",
+      "options": [
+        "0°",
+        "30°",
+        "45°",
+        "90°"
+      ],
+      "answer": "90°"
+    },
+    {
+      "id": "pcvg_s1_6",
+      "type": "multiple-choice",
+      "question": "Góc giữa đường thẳng và mặt phẳng luôn thuộc khoảng",
+      "options": [
+        "[0°;90°]",
+        "(0°;180°)",
+        "[0°;180°]",
+        "(0°;90°)"
+      ],
+      "answer": "[0°;90°]"
+    },
+    {
+      "id": "pcvg_s1_7",
+      "type": "multiple-choice",
+      "question": "Trong hình chóp S.ABC có SA ⊥ (ABC), hình chiếu vuông góc của S lên (ABC) là",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "Trọng tâm tam giác"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "pcvg_s1_8",
+      "type": "multiple-choice",
+      "question": "Trong hình chóp S.ABC có SA ⊥ (ABC), góc giữa SC và (ABC) là",
+      "options": [
+        "∠SCA",
+        "∠SAC",
+        "∠SBC",
+        "∠ABC"
+      ],
+      "answer": "∠SCA"
+    },
+    {
+      "id": "pcvg_s1_9",
+      "type": "multiple-choice",
+      "question": "Nếu hình chiếu vuông góc của đường thẳng d trên mặt phẳng (P) là d' thì",
+      "options": [
+        "Góc giữa d và (P) bằng góc giữa d và d'",
+        "Góc giữa d và (P) luôn bằng 90°",
+        "d vuông góc d'",
+        "d song song d'"
+      ],
+      "answer": "Góc giữa d và (P) bằng góc giữa d và d'"
+    },
+    {
+      "id": "pcvg_s1_10",
+      "type": "multiple-choice",
+      "question": "Trong hình hộp chữ nhật, hình chiếu vuông góc của đường chéo không gian AC' lên đáy ABCD là",
+      "options": [
+        "AB",
+        "BC",
+        "AC",
+        "BD"
+      ],
+      "answer": "AC"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "pcvg_s2_1",
+      "type": "true-false",
+      "question": "Xét các khái niệm về phép chiếu vuông góc.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hình chiếu vuông góc của một điểm trên mặt phẳng là duy nhất.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hình chiếu vuông góc của một đường thẳng có thể là một điểm.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Mọi điểm thuộc mặt phẳng đều là hình chiếu của M.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Đường vuông góc dùng để chiếu phải vuông góc với mặt phẳng.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "pcvg_s2_2",
+      "type": "true-false",
+      "question": "Xét góc giữa đường thẳng và mặt phẳng.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Góc giữa đường thẳng và mặt phẳng nằm trong khoảng từ 0° đến 90°.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nếu đường thẳng nằm trong mặt phẳng thì góc bằng 0°.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Nếu đường thẳng vuông góc với mặt phẳng thì góc bằng 90°.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Góc giữa đường thẳng và mặt phẳng có thể lớn hơn 90°.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "pcvg_s2_3",
+      "type": "true-false",
+      "question": "Cho hình chóp S.ABC có SA ⊥ (ABC).",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "A là hình chiếu vuông góc của S lên (ABC).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "AC là hình chiếu vuông góc của SC lên (ABC).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Góc giữa SC và (ABC) là ∠SCA.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "SC vuông góc với (ABC).",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "pcvg_s3_1",
+      "type": "short-answer",
+      "question": "Nếu một đường thẳng nằm trong mặt phẳng thì góc giữa chúng bằng bao nhiêu độ?",
+      "answer": "0",
+      "explanation": "Đường thẳng nằm trong mặt phẳng nên góc giữa đường thẳng và mặt phẳng bằng 0°."
+    },
+    {
+      "id": "pcvg_s3_2",
+      "type": "short-answer",
+      "question": "Nếu một đường thẳng vuông góc với mặt phẳng thì góc giữa chúng bằng bao nhiêu độ?",
+      "answer": "90",
+      "explanation": "Theo định nghĩa, góc giữa đường thẳng vuông góc và mặt phẳng là 90°."
+    },
+    {
+      "id": "pcvg_s3_3",
+      "type": "short-answer",
+      "question": "Trong hình chóp S.ABC có SA ⊥ (ABC). Hình chiếu vuông góc của điểm S lên mặt phẳng (ABC) là điểm nào?",
+      "answer": "A",
+      "explanation": "Do SA vuông góc với mặt phẳng (ABC) nên A là chân đường vuông góc từ S xuống đáy."
+    },
+    {
+      "id": "pcvg_s3_4",
+      "type": "short-answer",
+      "question": "Trong hình hộp chữ nhật ABCD.A'B'C'D', hình chiếu vuông góc của AC' lên mặt phẳng (ABCD) là đoạn nào?",
+      "answer": "AC",
+      "explanation": "Điểm A chiếu thành A, điểm C' chiếu thành C nên hình chiếu của AC' là AC."
+    },
+    {
+      "id": "pcvg_s3_5",
+      "type": "short-answer",
+      "question": "Góc giữa đường thẳng và mặt phẳng luôn nằm trong khoảng từ bao nhiêu độ đến bao nhiêu độ? Nhập giá trị lớn nhất.",
+      "answer": "90",
+      "explanation": "Theo định nghĩa, góc giữa đường thẳng và mặt phẳng luôn thuộc đoạn [0°;90°]."
+    }
+  ]
+}

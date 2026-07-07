@@ -1,0 +1,455 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Miền nghiệm của hệ bất phương trình {x-y≥0; x-y≥1} là",
+"options": [
+"x-y≥0",
+"x-y≥1",
+"x-y≤1",
+"∅"
+],
+"answer": "x-y≥1"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Điểm nào sau đây thuộc miền nghiệm của hệ {x+y≤5; x≥1; y≥0}?",
+"options": [
+"(0;4)",
+"(2;2)",
+"(3;4)",
+"(1;5)"
+],
+"answer": "(2;2)"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Điểm nào không thuộc miền nghiệm của hệ {2x+y≤8; x≥0; y≥0}?",
+"options": [
+"(2;2)",
+"(1;5)",
+"(3;1)",
+"(4;1)"
+],
+"answer": "(4;1)"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Miền nghiệm của hệ {x≥0; y≥0; x+y≤4} là",
+"options": [
+"Tam giác",
+"Tứ giác",
+"Ngũ giác",
+"Nửa mặt phẳng"
+],
+"answer": "Tam giác"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Cho hệ {x+y≤10; x+2y≤12; x≥0; y≥0}. Đỉnh nằm trên trục Oy của miền nghiệm là",
+"options": [
+"(0;10)",
+"(0;6)",
+"(0;12)",
+"(0;5)"
+],
+"answer": "(0;6)"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Cho hệ {2x+y≤10; x+2y≤8; x≥0; y≥0}. Giao điểm của hai đường biên là",
+"options": [
+"(4;2)",
+"(2;3)",
+"(3;2)",
+"(2;2)"
+],
+"answer": "(4;2)"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Miền nghiệm của hệ {x≥0; y≥0; 2x+y≤10; x+2y≤8} là",
+"options": [
+"Tam giác",
+"Tứ giác",
+"Ngũ giác",
+"Lục giác"
+],
+"answer": "Tứ giác"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Cho hệ {x+y≥3; x-y≤1}. Điểm nào thuộc miền nghiệm?",
+"options": [
+"(1;0)",
+"(1;1)",
+"(3;1)",
+"(0;0)"
+],
+"answer": "(1;1)"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Hệ bất phương trình nào mô tả x, y không âm và tổng không vượt quá 8?",
+"options": [
+"{x+y≥8; x≥0; y≥0}",
+"{x+y≤8; x≥0; y≥0}",
+"{x+y<8; x≤0; y≤0}",
+"{x+y>8; x≥0; y≥0}"
+],
+"answer": "{x+y≤8; x≥0; y≥0}"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Miền nghiệm của hệ {x≥0; y≥0; x+y≤6; x+2y≤8} có bao nhiêu đỉnh?",
+"options": [
+"3",
+"4",
+"5",
+"6"
+],
+"answer": "4"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Một công ty cần chở 140 người và 9 tấn hàng. Xe A chở tối đa 20 người và 0,6 tấn hàng; xe B chở tối đa 10 người và 1,5 tấn hàng. Điều kiện đúng là",
+"options": [
+"20x+10y≥140 và 0,6x+1,5y≥9",
+"20x+10y≤140 và 0,6x+1,5y≤9",
+"20x+10y=140 và 0,6x+1,5y=9",
+"20x+10y≤140 và 0,6x+1,5y≥9"
+],
+"answer": "20x+10y≥140 và 0,6x+1,5y≥9"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Một hộ nông dân trồng đậu và cà phê trên 8 ha đất. Tổng diện tích thỏa mãn",
+"options": [
+"x+y≥8",
+"x+y≤8",
+"x+y=8",
+"x+y<0"
+],
+"answer": "x+y≤8"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Nếu mỗi ha đậu cần 20 công và mỗi ha cà phê cần 30 công, tổng số công không vượt quá 180 thì điều kiện là",
+"options": [
+"20x+30y≤180",
+"20x+30y≥180",
+"20x+30y=180",
+"2x+3y≥18"
+],
+"answer": "20x+30y≤180"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Trong bài toán pha chế, 1 lít nước cam cần 30g đường, 1 lít nước táo cần 10g đường, tối đa 210g đường. Điều kiện là",
+"options": [
+"30x+10y≤210",
+"30x+10y≥210",
+"30x+10y=210",
+"3x+y≥21"
+],
+"answer": "30x+10y≤210"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Miền nghiệm của hệ bất phương trình bậc nhất hai ẩn luôn là",
+"options": [
+"Đa giác lồi hoặc miền lồi",
+"Đường thẳng",
+"Một điểm",
+"Đường tròn"
+],
+"answer": "Đa giác lồi hoặc miền lồi"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Cho hệ {x≥0; y≥0; 2x+y≤100; x+2y≤80}. Điểm nào thuộc miền nghiệm?",
+"options": [
+"(40;30)",
+"(20;20)",
+"(50;20)",
+"(60;10)"
+],
+"answer": "(20;20)"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Cho hệ {x≥0; y≥0; 2x+y≤100; x+2y≤80}. Đỉnh trên trục Ox là",
+"options": [
+"(50;0)",
+"(80;0)",
+"(40;0)",
+"(100;0)"
+],
+"answer": "(50;0)"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Cho hệ {x≥0; y≥0; 2x+y≤100; x+2y≤80}. Đỉnh trên trục Oy là",
+"options": [
+"(0;50)",
+"(0;40)",
+"(0;80)",
+"(0;100)"
+],
+"answer": "(0;40)"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Giao điểm của hai đường thẳng 2x+y=100 và x+2y=80 là",
+"options": [
+"(40;20)",
+"(20;40)",
+"(30;20)",
+"(40;30)"
+],
+"answer": "(40;20)"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Miền nghiệm của hệ {x≥0; y≥0; 2x+y≤100; x+2y≤80} là",
+"options": [
+"Tam giác",
+"Tứ giác",
+"Ngũ giác",
+"Lục giác"
+],
+"answer": "Tứ giác"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Cho hệ {x≥0; y≥0; x+y≤4}.",
+"subQuestions": [
+{
+"label": "a",
+"text": "(1;2) thuộc miền nghiệm",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "(3;2) thuộc miền nghiệm",
+"correctAnswer": "Sai"
+},
+{
+"label": "c",
+"text": "Miền nghiệm là tam giác",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Gốc tọa độ thuộc miền nghiệm",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Cho hệ {x≥0; y≥0; 2x+y≤10; x+2y≤8}.",
+"subQuestions": [
+{
+"label": "a",
+"text": "(2;2) thuộc miền nghiệm",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "(4;3) thuộc miền nghiệm",
+"correctAnswer": "Sai"
+},
+{
+"label": "c",
+"text": "Miền nghiệm là tứ giác",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Giao điểm hai đường biên là (4;2)",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Bài toán thuê xe vận chuyển.",
+"subQuestions": [
+{
+"label": "a",
+"text": "20x+10y≥140",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "0,6x+1,5y≥9",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "x≤10",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "y≤8",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Bài toán trồng đậu và cà phê.",
+"subQuestions": [
+{
+"label": "a",
+"text": "x+y≤8",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "20x+30y≤180",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "x≥0, y≥0",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Miền nghiệm không chứa gốc tọa độ",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "Bài toán pha chế nước cam và nước táo.",
+"subQuestions": [
+{
+"label": "a",
+"text": "30x+10y≤210",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "x+y≤9",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "x+4y≤24",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "(4;3) không thuộc miền nghiệm",
+"correctAnswer": "Sai"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Cho hệ {x≥0; y≥0; x+y≤4}. Miền nghiệm có bao nhiêu đỉnh?",
+"answer": "3",
+"explanation": "Miền nghiệm là tam giác với các đỉnh (0;0), (4;0), (0;4)."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Cho hệ {x≥0; y≥0; 2x+y≤10; x+2y≤8}. Tính tổng hoành độ và tung độ của giao điểm hai đường biên.",
+"answer": "6",
+"explanation": "Giao điểm là (4;2), do đó x+y=6."
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Cho hệ {x≥0; y≥0; 2x+y≤100; x+2y≤80}. Tính diện tích miền nghiệm.",
+"answer": "1600",
+"explanation": "Các đỉnh là (0;0), (50;0), (40;20), (0;40). Áp dụng công thức diện tích đa giác được 1600."
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Trong bài toán thuê xe, nếu thuê 5 xe A thì cần ít nhất bao nhiêu xe B để đủ 140 người?",
+"answer": "4",
+"explanation": "5 xe A chở 100 người, cần thêm 40 người nên cần ít nhất 4 xe B."
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Trong bài toán thuê xe, nếu thuê 5 xe A và 4 xe B thì tổng sức chở hàng là bao nhiêu tấn?",
+"answer": "9",
+"explanation": "0,6×5+1,5×4=3+6=9 tấn."
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Trong bài toán trồng đậu và cà phê, nếu trồng 3 ha đậu thì diện tích cà phê lớn nhất là bao nhiêu ha?",
+"answer": "5",
+"explanation": "Do x+y≤8 nên y≤5."
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Trong bài toán trồng đậu và cà phê, nếu trồng 3 ha đậu thì số ha cà phê tối đa theo điều kiện công lao động là bao nhiêu?",
+"answer": "4",
+"explanation": "20×3+30y≤180 ⇒ y≤4."
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Trong bài toán pha chế, nếu pha 4 lít nước cam và 3 lít nước táo thì dùng bao nhiêu gam đường?",
+"answer": "150",
+"explanation": "30×4+10×3=150(g)."
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Trong bài toán pha chế, nếu pha 4 lít nước cam và 3 lít nước táo thì dùng bao nhiêu gam hương liệu?",
+"answer": "16",
+"explanation": "4+4×3=16(g)."
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Cho hệ {x≥0; y≥0; 2x+y≤100; x+2y≤80}. Tính x+y tại giao điểm hai đường biên.",
+"answer": "60",
+"explanation": "Giao điểm là (40;20), nên x+y=60."
+}
+]
+}

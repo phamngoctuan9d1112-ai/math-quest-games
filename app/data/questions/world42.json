@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "ghhs_s1_1",
+      "type": "multiple-choice",
+      "question": "Giới hạn của hàm số f(x)=2x+1 khi x→1 bằng",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "3"
+    },
+    {
+      "id": "ghhs_s1_2",
+      "type": "multiple-choice",
+      "question": "Giới hạn của hàm số f(x)=x² khi x→2 bằng",
+      "options": [
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "answer": "4"
+    },
+    {
+      "id": "ghhs_s1_3",
+      "type": "multiple-choice",
+      "question": "Giới hạn của hàm số f(x)=(x²−1)/(x−1) khi x→1 bằng",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "answer": "2"
+    },
+    {
+      "id": "ghhs_s1_4",
+      "type": "multiple-choice",
+      "question": "Giới hạn của hàm số f(x)=1/x khi x→+∞ bằng",
+      "options": [
+        "0",
+        "1",
+        "+∞",
+        "Không tồn tại"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": "ghhs_s1_5",
+      "type": "multiple-choice",
+      "question": "Giới hạn của hàm số f(x)=3x²+1 khi x→+∞ bằng",
+      "options": [
+        "0",
+        "1",
+        "+∞",
+        "3"
+      ],
+      "answer": "+∞"
+    },
+    {
+      "id": "ghhs_s1_6",
+      "type": "multiple-choice",
+      "question": "Giới hạn của hàm số f(x)=1/x khi x→0⁺ bằng",
+      "options": [
+        "0",
+        "1",
+        "+∞",
+        "−∞"
+      ],
+      "answer": "+∞"
+    },
+    {
+      "id": "ghhs_s1_7",
+      "type": "multiple-choice",
+      "question": "Giới hạn của hàm số f(x)=1/x khi x→0⁻ bằng",
+      "options": [
+        "0",
+        "1",
+        "+∞",
+        "−∞"
+      ],
+      "answer": "−∞"
+    },
+    {
+      "id": "ghhs_s1_8",
+      "type": "multiple-choice",
+      "question": "Nếu limf(x)=2 và limg(x)=3 thì lim[f(x)+g(x)] bằng",
+      "options": [
+        "1",
+        "5",
+        "6",
+        "0"
+      ],
+      "answer": "5"
+    },
+    {
+      "id": "ghhs_s1_9",
+      "type": "multiple-choice",
+      "question": "Nếu limf(x)=4 và limg(x)=2 thì lim[f(x)g(x)] bằng",
+      "options": [
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "answer": "8"
+    },
+    {
+      "id": "ghhs_s1_10",
+      "type": "multiple-choice",
+      "question": "Nếu limf(x)=6 và limg(x)=2 thì lim[f(x)/g(x)] bằng",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "12"
+      ],
+      "answer": "3"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "ghhs_s2_1",
+      "type": "true-false",
+      "question": "Xét hàm số f(x)=x².",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "lim(x→2)f(x)=4.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "lim(x→−1)f(x)=1.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "lim(x→0)f(x)=1.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "f(x) liên tục tại x=2.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "ghhs_s2_2",
+      "type": "true-false",
+      "question": "Xét hàm số f(x)=1/x.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "lim(x→+∞)f(x)=0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "lim(x→0⁺)f(x)=+∞.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "lim(x→0⁻)f(x)=−∞.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "lim(x→0)f(x)=0.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "ghhs_s2_3",
+      "type": "true-false",
+      "question": "Xét các quy tắc tính giới hạn.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "lim[f(x)+g(x)]=limf(x)+limg(x).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "lim[f(x)g(x)]=limf(x).limg(x).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "lim[f(x)/g(x)]=limf(x)/limg(x) nếu limg(x)≠0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "lim[f(x)−g(x)]=limf(x)+limg(x).",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "ghhs_s3_1",
+      "type": "short-answer",
+      "question": "Tính lim(x→3)(2x+1).",
+      "answer": "7",
+      "explanation": "Thay trực tiếp x=3 vào biểu thức: 2×3+1=7."
+    },
+    {
+      "id": "ghhs_s3_2",
+      "type": "short-answer",
+      "question": "Tính lim(x→2)(x²+3x).",
+      "answer": "10",
+      "explanation": "Thay trực tiếp x=2: 2²+3×2=4+6=10."
+    },
+    {
+      "id": "ghhs_s3_3",
+      "type": "short-answer",
+      "question": "Tính lim(x→1)(x²−1)/(x−1).",
+      "answer": "2",
+      "explanation": "Ta có x²−1=(x−1)(x+1). Rút gọn được lim(x+1)=2."
+    },
+    {
+      "id": "ghhs_s3_4",
+      "type": "short-answer",
+      "question": "Tính lim(x→+∞)1/x.",
+      "answer": "0",
+      "explanation": "Khi x→+∞ thì nghịch đảo 1/x tiến dần về 0."
+    },
+    {
+      "id": "ghhs_s3_5",
+      "type": "short-answer",
+      "question": "Tính lim(x→0⁺)1/x.",
+      "answer": "+∞",
+      "explanation": "Khi x tiến tới 0 từ phía dương thì 1/x tăng không giới hạn nên giới hạn bằng +∞."
+    }
+  ]
+}

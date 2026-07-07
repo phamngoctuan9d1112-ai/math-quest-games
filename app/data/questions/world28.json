@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "hslg_s1_1",
+      "type": "multiple-choice",
+      "question": "Tập xác định của hàm số y = sinx là",
+      "options": [
+        "R",
+        "R\\{0}",
+        "R\\{kπ}",
+        "(0;+∞)"
+      ],
+      "answer": "R"
+    },
+    {
+      "id": "hslg_s1_2",
+      "type": "multiple-choice",
+      "question": "Tập xác định của hàm số y = tanx là",
+      "options": [
+        "R\\{kπ}",
+        "R\\{π/2+kπ}",
+        "R",
+        "(0;+∞)"
+      ],
+      "answer": "R\\{π/2+kπ}"
+    },
+    {
+      "id": "hslg_s1_3",
+      "type": "multiple-choice",
+      "question": "Tập giá trị của hàm số y = sinx là",
+      "options": [
+        "[-1;1]",
+        "[0;1]",
+        "R",
+        "(-1;1)"
+      ],
+      "answer": "[-1;1]"
+    },
+    {
+      "id": "hslg_s1_4",
+      "type": "multiple-choice",
+      "question": "Chu kỳ của hàm số y = sinx là",
+      "options": [
+        "π",
+        "2π",
+        "4π",
+        "1"
+      ],
+      "answer": "2π"
+    },
+    {
+      "id": "hslg_s1_5",
+      "type": "multiple-choice",
+      "question": "Chu kỳ của hàm số y = tanx là",
+      "options": [
+        "π",
+        "2π",
+        "4π",
+        "π/2"
+      ],
+      "answer": "π"
+    },
+    {
+      "id": "hslg_s1_6",
+      "type": "multiple-choice",
+      "question": "Hàm số y = cosx là",
+      "options": [
+        "hàm chẵn",
+        "hàm lẻ",
+        "không chẵn không lẻ",
+        "hàm hằng"
+      ],
+      "answer": "hàm chẵn"
+    },
+    {
+      "id": "hslg_s1_7",
+      "type": "multiple-choice",
+      "question": "Hàm số y = sinx là",
+      "options": [
+        "hàm chẵn",
+        "hàm lẻ",
+        "hàm tuần hoàn nhưng không lẻ",
+        "hàm hằng"
+      ],
+      "answer": "hàm lẻ"
+    },
+    {
+      "id": "hslg_s1_8",
+      "type": "multiple-choice",
+      "question": "Giá trị lớn nhất của hàm số y = 2 + 3sinx là",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": "5"
+    },
+    {
+      "id": "hslg_s1_9",
+      "type": "multiple-choice",
+      "question": "Giá trị nhỏ nhất của hàm số y = 2 + 3sinx là",
+      "options": [
+        "-1",
+        "0",
+        "1",
+        "2"
+      ],
+      "answer": "-1"
+    },
+    {
+      "id": "hslg_s1_10",
+      "type": "multiple-choice",
+      "question": "Tập giá trị của hàm số y = 3cosx - 1 là",
+      "options": [
+        "[-4;2]",
+        "[-3;3]",
+        "[-2;4]",
+        "[-1;5]"
+      ],
+      "answer": "[-4;2]"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "hslg_s2_1",
+      "type": "true-false",
+      "question": "Xét hàm số y = 2 + 3cosx.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Tập xác định là R.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Giá trị lớn nhất bằng 5.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Giá trị nhỏ nhất bằng -1.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Chu kỳ là π.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "hslg_s2_2",
+      "type": "true-false",
+      "question": "Xét hàm số y = tanx.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hàm số có chu kỳ π.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hàm số là hàm lẻ.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Tập xác định là R.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Tập xác định là R\\{π/2+kπ}.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "hslg_s2_3",
+      "type": "true-false",
+      "question": "Xét hàm số y = cosx.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hàm số là hàm chẵn.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Chu kỳ bằng 2π.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Tập giá trị là [-1;1].",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hàm số là hàm lẻ.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "hslg_s3_1",
+      "type": "short-answer",
+      "question": "Tìm giá trị lớn nhất của hàm số y = 3 + 2sinx.",
+      "answer": "5",
+      "explanation": "Vì -1 ≤ sinx ≤ 1 nên 1 ≤ 2sinx ≤ 2. Suy ra 1 ≤ y ≤ 5. Giá trị lớn nhất là 5."
+    },
+    {
+      "id": "hslg_s3_2",
+      "type": "short-answer",
+      "question": "Tìm giá trị nhỏ nhất của hàm số y = 4cosx - 1.",
+      "answer": "-5",
+      "explanation": "Vì -1 ≤ cosx ≤ 1 nên -4 ≤ 4cosx ≤ 4. Suy ra -5 ≤ y ≤ 3. Giá trị nhỏ nhất là -5."
+    },
+    {
+      "id": "hslg_s3_3",
+      "type": "short-answer",
+      "question": "Tìm chu kỳ của hàm số y = sin(2x).",
+      "answer": "3.141592653589793",
+      "explanation": "Chu kỳ của sin(ax) là T=2π/|a|. Với a=2 nên T=π."
+    },
+    {
+      "id": "hslg_s3_4",
+      "type": "short-answer",
+      "question": "Tìm giá trị lớn nhất của hàm số y = sinx + cosx.",
+      "answer": "1.414213562",
+      "explanation": "sinx + cosx = √2·sin(x+π/4). Giá trị lớn nhất là √2 ≈ 1.414213562."
+    },
+    {
+      "id": "hslg_s3_5",
+      "type": "short-answer",
+      "question": "Tìm tổng giá trị lớn nhất và nhỏ nhất của hàm số y = 4sinx - 3.",
+      "answer": "-6",
+      "explanation": "-1≤sinx≤1 ⇒ -7≤y≤1. Tổng giá trị lớn nhất và nhỏ nhất là 1+(-7)=-6."
+    }
+  ]
+}

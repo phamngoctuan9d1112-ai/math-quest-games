@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "bptml_s1_1",
+      "type": "multiple-choice",
+      "question": "Tập nghiệm của bất phương trình 2^x > 8 là",
+      "options": [
+        "x>3",
+        "x<3",
+        "x≥3",
+        "x≤3"
+      ],
+      "answer": "x>3"
+    },
+    {
+      "id": "bptml_s1_2",
+      "type": "multiple-choice",
+      "question": "Tập nghiệm của bất phương trình 3^x < 27 là",
+      "options": [
+        "x<3",
+        "x>3",
+        "x≤3",
+        "x≥3"
+      ],
+      "answer": "x<3"
+    },
+    {
+      "id": "bptml_s1_3",
+      "type": "multiple-choice",
+      "question": "Tập nghiệm của bất phương trình (1/2)^x > 8 là",
+      "options": [
+        "x<-3",
+        "x>-3",
+        "x<3",
+        "x>3"
+      ],
+      "answer": "x<-3"
+    },
+    {
+      "id": "bptml_s1_4",
+      "type": "multiple-choice",
+      "question": "Tập nghiệm của bất phương trình log₂x > 3 là",
+      "options": [
+        "x>8",
+        "x<8",
+        "x≥8",
+        "x≤8"
+      ],
+      "answer": "x>8"
+    },
+    {
+      "id": "bptml_s1_5",
+      "type": "multiple-choice",
+      "question": "Tập nghiệm của bất phương trình log₃x < 2 là",
+      "options": [
+        "0<x<9",
+        "x>9",
+        "x<9",
+        "0<x≤9"
+      ],
+      "answer": "0<x<9"
+    },
+    {
+      "id": "bptml_s1_6",
+      "type": "multiple-choice",
+      "question": "Điều kiện xác định của log₂(x−1) là",
+      "options": [
+        "x>1",
+        "x≥1",
+        "x≠1",
+        "x>0"
+      ],
+      "answer": "x>1"
+    },
+    {
+      "id": "bptml_s1_7",
+      "type": "multiple-choice",
+      "question": "Nghiệm của bất phương trình 5^(x−1) ≥ 25 là",
+      "options": [
+        "x≥3",
+        "x≥2",
+        "x≤2",
+        "x≤3"
+      ],
+      "answer": "x≥3"
+    },
+    {
+      "id": "bptml_s1_8",
+      "type": "multiple-choice",
+      "question": "Tập nghiệm của log₂x ≤ 0 là",
+      "options": [
+        "0<x≤1",
+        "x≥1",
+        "x<1",
+        "x≤0"
+      ],
+      "answer": "0<x≤1"
+    },
+    {
+      "id": "bptml_s1_9",
+      "type": "multiple-choice",
+      "question": "Bất phương trình 4^x > 2^(x+2) tương đương",
+      "options": [
+        "x>2",
+        "x<2",
+        "x≥2",
+        "x≤2"
+      ],
+      "answer": "x>2"
+    },
+    {
+      "id": "bptml_s1_10",
+      "type": "multiple-choice",
+      "question": "Tập nghiệm của bất phương trình log₅(x+1)>1 là",
+      "options": [
+        "x>4",
+        "x>5",
+        "x≥4",
+        "x≥5"
+      ],
+      "answer": "x>4"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "bptml_s2_1",
+      "type": "true-false",
+      "question": "Xét bất phương trình 2^x > 8.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Bất phương trình tương đương x>3.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "x=4 là nghiệm.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "x=3 là nghiệm.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Tập nghiệm là (3;+∞).",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "bptml_s2_2",
+      "type": "true-false",
+      "question": "Xét bất phương trình log₂x < 3.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Điều kiện là x>0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Bất phương trình tương đương x<8.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Tập nghiệm là (0;8).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "x=8 là nghiệm.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "bptml_s2_3",
+      "type": "true-false",
+      "question": "Xét các tính chất của bất phương trình mũ và logarit.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu a>1 thì a^x là hàm đồng biến.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nếu 0<a<1 thì a^x là hàm nghịch biến.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Nếu a>1 thì logₐx là hàm đồng biến.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Nếu 0<a<1 thì logₐx là hàm đồng biến.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "bptml_s3_1",
+      "type": "short-answer",
+      "question": "Giải bất phương trình 3^x > 81. Nhập giá trị biên của nghiệm.",
+      "answer": "4",
+      "explanation": "81=3⁴ nên 3^x>3⁴ ⇔ x>4."
+    },
+    {
+      "id": "bptml_s3_2",
+      "type": "short-answer",
+      "question": "Giải bất phương trình log₂x > 5. Nhập giá trị biên.",
+      "answer": "32",
+      "explanation": "log₂x>5 ⇔ x>2⁵=32."
+    },
+    {
+      "id": "bptml_s3_3",
+      "type": "short-answer",
+      "question": "Tìm số nghiệm nguyên của bất phương trình 2^x<16.",
+      "answer": "4",
+      "explanation": "2^x<2⁴ ⇔ x<4. Các nghiệm nguyên dương là 0,1,2,3 nên có 4 nghiệm."
+    },
+    {
+      "id": "bptml_s3_4",
+      "type": "short-answer",
+      "question": "Giải bất phương trình log₃(x−1)≥2. Nhập giá trị biên.",
+      "answer": "10",
+      "explanation": "log₃(x−1)≥2 ⇔ x−1≥9 ⇔ x≥10."
+    },
+    {
+      "id": "bptml_s3_5",
+      "type": "short-answer",
+      "question": "Một số tiền tăng theo công thức A=100·(1,05)^n. Sau bao nhiêu năm số tiền vượt 110 triệu lần đầu tiên?",
+      "answer": "2",
+      "explanation": "100(1,05)^1=105<110. 100(1,05)^2=110,25>110 nên cần 2 năm."
+    }
+  ]
+}

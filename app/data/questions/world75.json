@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "xsdk_s1_1",
+      "type": "multiple-choice",
+      "question": "Xác suất có điều kiện của biến cố A khi biết B xảy ra được ký hiệu là",
+      "options": [
+        "P(A|B)",
+        "P(B|A)",
+        "P(A∪B)",
+        "P(A∩B)"
+      ],
+      "answer": "P(A|B)"
+    },
+    {
+      "id": "xsdk_s1_2",
+      "type": "multiple-choice",
+      "question": "Công thức xác suất có điều kiện là",
+      "options": [
+        "P(A|B)=P(A∩B)/P(B)",
+        "P(A|B)=P(A)/P(B)",
+        "P(A|B)=P(A∪B)/P(B)",
+        "P(A|B)=P(B)/P(A)"
+      ],
+      "answer": "P(A|B)=P(A∩B)/P(B)"
+    },
+    {
+      "id": "xsdk_s1_3",
+      "type": "multiple-choice",
+      "question": "Điều kiện để tính P(A|B) là",
+      "options": [
+        "P(B)>0",
+        "P(A)>0",
+        "P(A)=1",
+        "P(B)=1"
+      ],
+      "answer": "P(B)>0"
+    },
+    {
+      "id": "xsdk_s1_4",
+      "type": "multiple-choice",
+      "question": "Nếu A và B độc lập thì",
+      "options": [
+        "P(A|B)=P(A)",
+        "P(A|B)=P(B)",
+        "P(A|B)=0",
+        "P(A|B)=1"
+      ],
+      "answer": "P(A|B)=P(A)"
+    },
+    {
+      "id": "xsdk_s1_5",
+      "type": "multiple-choice",
+      "question": "Từ công thức xác suất có điều kiện suy ra",
+      "options": [
+        "P(A∩B)=P(B)P(A|B)",
+        "P(A∩B)=P(A)+P(B)",
+        "P(A∩B)=P(A)P(B)",
+        "P(A∩B)=P(A|B)"
+      ],
+      "answer": "P(A∩B)=P(B)P(A|B)"
+    },
+    {
+      "id": "xsdk_s1_6",
+      "type": "multiple-choice",
+      "question": "Cho P(B)=0,5 và P(A∩B)=0,2. Khi đó P(A|B) bằng",
+      "options": [
+        "0,4",
+        "0,3",
+        "0,7",
+        "0,1"
+      ],
+      "answer": "0,4"
+    },
+    {
+      "id": "xsdk_s1_7",
+      "type": "multiple-choice",
+      "question": "Nếu P(A|B)=1 thì",
+      "options": [
+        "B xảy ra kéo theo A xảy ra",
+        "A và B xung khắc",
+        "A chắc chắn xảy ra",
+        "B chắc chắn xảy ra"
+      ],
+      "answer": "B xảy ra kéo theo A xảy ra"
+    },
+    {
+      "id": "xsdk_s1_8",
+      "type": "multiple-choice",
+      "question": "Xác suất có điều kiện luôn thuộc khoảng",
+      "options": [
+        "[0;1]",
+        "(-∞;+∞)",
+        "[-1;1]",
+        "(0;1)"
+      ],
+      "answer": "[0;1]"
+    },
+    {
+      "id": "xsdk_s1_9",
+      "type": "multiple-choice",
+      "question": "Trong công thức P(A|B), biến cố nào được xem là đã xảy ra?",
+      "options": [
+        "B",
+        "A",
+        "A∩B",
+        "A∪B"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "xsdk_s1_10",
+      "type": "multiple-choice",
+      "question": "Một ứng dụng quan trọng của xác suất có điều kiện là",
+      "options": [
+        "Định lý Bayes",
+        "Đạo hàm",
+        "Nguyên hàm",
+        "Tích phân"
+      ],
+      "answer": "Định lý Bayes"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "xsdk_s2_1",
+      "type": "true-false",
+      "question": "Xét các nhận định về xác suất có điều kiện.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "P(A|B)=P(A∩B)/P(B) khi P(B)>0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "P(A|B) luôn lớn hơn P(A).",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "c",
+          "text": "P(A|B) là xác suất của A khi biết B đã xảy ra.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "P(A|B) thuộc đoạn [0;1].",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "xsdk_s2_2",
+      "type": "true-false",
+      "question": "Cho P(A)=0,4; P(B)=0,5; P(A∩B)=0,2.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "P(A|B)=0,4.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "P(B|A)=0,5.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "A và B độc lập.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "P(A∪B)=0,9.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "xsdk_s2_3",
+      "type": "true-false",
+      "question": "Xét mối liên hệ giữa độc lập và xác suất có điều kiện.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu A và B độc lập thì P(A|B)=P(A).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nếu P(A|B)=P(A) và P(B)>0 thì A và B độc lập.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hai biến cố độc lập luôn xung khắc.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Nếu A và B độc lập thì P(A∩B)=P(A)P(B).",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "xsdk_s3_1",
+      "type": "short-answer",
+      "question": "Cho P(B)=0,4 và P(A∩B)=0,12. Tính P(A|B).",
+      "answer": "0.3",
+      "explanation": "P(A|B)=0,12/0,4=0,3."
+    },
+    {
+      "id": "xsdk_s3_2",
+      "type": "short-answer",
+      "question": "Cho P(A|B)=0,6 và P(B)=0,5. Tính P(A∩B).",
+      "answer": "0.3",
+      "explanation": "P(A∩B)=P(B)·P(A|B)=0,5·0,6=0,3."
+    },
+    {
+      "id": "xsdk_s3_3",
+      "type": "short-answer",
+      "question": "Cho P(A)=0,7; P(B)=0,4 và A, B độc lập. Tính P(A∩B).",
+      "answer": "0.28",
+      "explanation": "P(A∩B)=P(A)P(B)=0,7·0,4=0,28."
+    },
+    {
+      "id": "xsdk_s3_4",
+      "type": "short-answer",
+      "question": "Cho P(A∩B)=0,18 và P(B)=0,6. Tính P(A|B).",
+      "answer": "0.3",
+      "explanation": "P(A|B)=0,18/0,6=0,3."
+    },
+    {
+      "id": "xsdk_s3_5",
+      "type": "short-answer",
+      "question": "Cho P(A|B)=0,8 và P(B)=0,25. Tính P(A∩B).",
+      "answer": "0.2",
+      "explanation": "P(A∩B)=0,25·0,8=0,2."
+    }
+  ]
+}

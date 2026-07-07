@@ -1,0 +1,457 @@
+{
+  "stage1": [
+    {
+      "id": "s1_1",
+      "type": "multiple-choice",
+      "question": "Gieo một đồng xu cân đối 3 lần liên tiếp. Số phần tử của không gian mẫu là",
+      "options": [
+        "6",
+        "8",
+        "12",
+        "16"
+      ],
+      "answer": "8"
+    },
+    {
+      "id": "s1_2",
+      "type": "multiple-choice",
+      "question": "Gieo một con xúc xắc có các mặt ghi số 3,4,5,6,7,8 một lần. Số phần tử của không gian mẫu là",
+      "options": [
+        "3",
+        "5",
+        "6",
+        "8"
+      ],
+      "answer": "6"
+    },
+    {
+      "id": "s1_3",
+      "type": "multiple-choice",
+      "question": "Gieo một con xúc xắc hai lần. Biến cố A: 'Lần thứ hai xuất hiện mặt 3 chấm'. Số phần tử của A là",
+      "options": [
+        "1",
+        "3",
+        "6",
+        "12"
+      ],
+      "answer": "6"
+    },
+    {
+      "id": "s1_4",
+      "type": "multiple-choice",
+      "question": "Gieo một con xúc xắc cân đối hai lần. Số phần tử của biến cố: 'Tổng số chấm của hai lần gieo không quá 5' là",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "10"
+    },
+    {
+      "id": "s1_5",
+      "type": "multiple-choice",
+      "question": "Một trường có 10 lớp 12, mỗi lớp cử 3 học sinh tham gia giao lưu. Số lần bắt tay giữa các học sinh khác lớp là",
+      "options": [
+        "405",
+        "435",
+        "450",
+        "870"
+      ],
+      "answer": "405"
+    },
+    {
+      "id": "s1_6",
+      "type": "multiple-choice",
+      "question": "Một nhóm gồm 6 nam và 4 nữ. Chọn ngẫu nhiên 5 học sinh. Số kết quả thuận lợi của biến cố: 'Có ít nhất một học sinh nữ' là",
+      "options": [
+        "186",
+        "210",
+        "246",
+        "252"
+      ],
+      "answer": "246"
+    },
+    {
+      "id": "s1_7",
+      "type": "multiple-choice",
+      "question": "Một hộp có 10 sản phẩm tốt và 3 sản phẩm lỗi. Chọn ngẫu nhiên 3 sản phẩm. Số phần tử của không gian mẫu là",
+      "options": [
+        "C(10,3)",
+        "C(13,3)",
+        "C(3,3)",
+        "A(13,3)"
+      ],
+      "answer": "C(13,3)"
+    },
+    {
+      "id": "s1_8",
+      "type": "multiple-choice",
+      "question": "Trong hộp có 15 thẻ đánh số từ 1 đến 15. Chọn 2 thẻ. Số kết quả thuận lợi của biến cố: 'Tổng hai số là số chẵn' là",
+      "options": [
+        "35",
+        "42",
+        "49",
+        "56"
+      ],
+      "answer": "49"
+    },
+    {
+      "id": "s1_9",
+      "type": "multiple-choice",
+      "question": "Cho A={0,1,2,3,4,5}. Chọn ngẫu nhiên hai số có 3 chữ số khác nhau và chia hết cho 5 được lập từ A. Số kết quả thuận lợi là",
+      "options": [
+        "630",
+        "720",
+        "1260",
+        "36"
+      ],
+      "answer": "630"
+    },
+    {
+      "id": "s1_10",
+      "type": "multiple-choice",
+      "question": "Chia 25 quyển vở giống nhau thành 4 phần quà, phần nào cũng có ít nhất 4 quyển. Số kết quả thuận lợi là",
+      "options": [
+        "56",
+        "220",
+        "336",
+        "1320"
+      ],
+      "answer": "220"
+    },
+    {
+      "id": "s1_11",
+      "type": "multiple-choice",
+      "question": "Một hộp có 6 bi đỏ, 8 bi xanh và 10 bi trắng. Chọn 4 viên bi. Số kết quả thuận lợi của biến cố: '4 viên chỉ có đúng 2 màu' là",
+      "options": [
+        "2780",
+        "4375",
+        "5291",
+        "916"
+      ],
+      "answer": "5291"
+    },
+    {
+      "id": "s1_12",
+      "type": "multiple-choice",
+      "question": "Học sinh chọn 5 môn từ 10 môn thuộc 3 nhóm môn học. Số cách chọn sao cho mỗi nhóm có ít nhất một môn là",
+      "options": [
+        "168",
+        "192",
+        "204",
+        "252"
+      ],
+      "answer": "204"
+    },
+    {
+      "id": "s1_13",
+      "type": "multiple-choice",
+      "question": "Trong hình chữ nhật có các điểm nguyên với −2≤x≤4 và 0≤y≤2. Số điểm có cả x và y đều chia hết cho 2 là",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "answer": "8"
+    },
+    {
+      "id": "s1_14",
+      "type": "multiple-choice",
+      "question": "Có hai dãy ghế đối diện nhau, mỗi dãy 3 ghế. Xếp 3 nam và 3 nữ sao cho mỗi nam ngồi đối diện một nữ. Số kết quả thuận lợi là",
+      "options": [
+        "48",
+        "144",
+        "288",
+        "720"
+      ],
+      "answer": "288"
+    },
+    {
+      "id": "s1_15",
+      "type": "multiple-choice",
+      "question": "Từ tập S={1,2,3,...,20} chọn 3 số. Số kết quả thuận lợi để ba số lập thành một cấp số cộng là",
+      "options": [
+        "45",
+        "90",
+        "1140",
+        "720"
+      ],
+      "answer": "90"
+    },
+    {
+      "id": "s1_16",
+      "type": "multiple-choice",
+      "question": "Một hội đồng gồm 7 nam và 3 nữ. Lập ban thường trực gồm 5 người có ít nhất một nữ. Số kết quả thuận lợi là",
+      "options": [
+        "1260",
+        "13860",
+        "15120",
+        "3528"
+      ],
+      "answer": "13860"
+    },
+    {
+      "id": "s1_17",
+      "type": "multiple-choice",
+      "question": "Gieo đồng thời hai xúc xắc cân đối. Số phần tử của không gian mẫu là",
+      "options": [
+        "12",
+        "24",
+        "36",
+        "72"
+      ],
+      "answer": "36"
+    },
+    {
+      "id": "s1_18",
+      "type": "multiple-choice",
+      "question": "Gieo một đồng tiền hai lần. Biến cố: 'Hai lần gieo cho kết quả giống nhau'. Số phần tử của biến cố là",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "2"
+    },
+    {
+      "id": "s1_19",
+      "type": "multiple-choice",
+      "question": "Chọn ngẫu nhiên một số tự nhiên có ba chữ số. Số kết quả thuận lợi của biến cố: 'Ba chữ số đôi một khác nhau' là",
+      "options": [
+        "648",
+        "720",
+        "900",
+        "450"
+      ],
+      "answer": "648"
+    },
+    {
+      "id": "s1_20",
+      "type": "multiple-choice",
+      "question": "Gieo 5 lần một đồng tiền cân đối. Số phần tử của không gian mẫu là",
+      "options": [
+        "16",
+        "25",
+        "32",
+        "64"
+      ],
+      "answer": "32"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "s2_1",
+      "type": "true-false",
+      "question": "Gieo 5 lần một đồng tiền cân đối. Gọi Ω là không gian mẫu.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "n(Ω)=32.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Biến cố A: 'Lần đầu tiên xuất hiện mặt ngửa' có 16 kết quả thuận lợi.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Biến cố B: 'Mặt sấp xuất hiện ít nhất một lần' có 30 kết quả thuận lợi.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Biến cố C: 'Số lần xuất hiện mặt sấp nhiều hơn mặt ngửa' có 16 kết quả thuận lợi.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+
+    {
+      "id": "s2_2",
+      "type": "true-false",
+      "question": "Gieo đồng thời hai con xúc xắc cân đối.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Không gian mẫu có 36 phần tử.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Biến cố 'Tổng số chấm bằng 7' có 6 kết quả thuận lợi.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Biến cố 'Hai mặt xuất hiện giống nhau' có 12 kết quả thuận lợi.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Biến cố 'Tổng số chấm lớn hơn 10' có 3 kết quả thuận lợi.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+
+    {
+      "id": "s2_3",
+      "type": "true-false",
+      "question": "Một hộp chứa 10 sản phẩm tốt và 3 sản phẩm lỗi. Chọn ngẫu nhiên 3 sản phẩm.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Số phần tử của không gian mẫu là C(13,3).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Biến cố 'Cả 3 sản phẩm đều tốt' có C(10,3) kết quả thuận lợi.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Biến cố 'Có đúng 1 sản phẩm lỗi' có C(3,1)·C(10,2) kết quả thuận lợi.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Biến cố 'Ít nhất một sản phẩm lỗi' có C(13,3)-C(10,3) kết quả thuận lợi.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+
+    {
+      "id": "s2_4",
+      "type": "true-false",
+      "question": "Một nhóm gồm 6 học sinh nam và 4 học sinh nữ. Chọn ngẫu nhiên 5 học sinh.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Số phần tử của không gian mẫu là C(10,5).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Biến cố 'Cả 5 học sinh đều là nam' có C(6,5) kết quả thuận lợi.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Biến cố 'Ít nhất một học sinh nữ' có C(10,5)-C(6,5) kết quả thuận lợi.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Biến cố 'Đúng 2 học sinh nữ' có C(4,2)·C(6,3) kết quả thuận lợi.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+
+    {
+      "id": "s2_5",
+      "type": "true-false",
+      "question": "Xét các biến cố khi chọn ngẫu nhiên 3 số từ tập S={1,2,3,...,20}.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Không gian mẫu có C(20,3) phần tử.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Ba số được chọn lập thành cấp số cộng là một biến cố.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Số kết quả thuận lợi của biến cố 'Ba số lập thành cấp số cộng' bằng 90.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Mọi biến cố đều có số kết quả thuận lợi bằng số phần tử của không gian mẫu.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "s3_1",
+      "type": "short-answer",
+      "question": "Gieo một đồng tiền cân đối 6 lần. Hỏi không gian mẫu có bao nhiêu phần tử?",
+      "answer": "64",
+      "explanation": "Mỗi lần gieo có 2 kết quả. Theo quy tắc nhân: n(Ω)=2^6=64."
+    },
+    {
+      "id": "s3_2",
+      "type": "short-answer",
+      "question": "Gieo đồng thời hai con xúc xắc cân đối. Tìm số kết quả thuận lợi của biến cố A: 'Tổng số chấm bằng 8'.",
+      "answer": "5",
+      "explanation": "Các kết quả thuận lợi là (2,6), (3,5), (4,4), (5,3), (6,2). Do đó n(A)=5."
+    },
+    {
+      "id": "s3_3",
+      "type": "short-answer",
+      "question": "Gieo đồng thời hai con xúc xắc cân đối. Tìm số kết quả thuận lợi của biến cố B: 'Hai mặt xuất hiện giống nhau'.",
+      "answer": "6",
+      "explanation": "Các kết quả là (1,1), (2,2), (3,3), (4,4), (5,5), (6,6). Vậy n(B)=6."
+    },
+    {
+      "id": "s3_4",
+      "type": "short-answer",
+      "question": "Một hộp có 10 sản phẩm tốt và 3 sản phẩm lỗi. Chọn ngẫu nhiên 3 sản phẩm. Tìm số kết quả thuận lợi của biến cố: 'Cả 3 sản phẩm đều tốt'.",
+      "answer": "120",
+      "explanation": "Chọn 3 sản phẩm từ 10 sản phẩm tốt nên có C(10,3)=120 kết quả thuận lợi."
+    },
+    {
+      "id": "s3_5",
+      "type": "short-answer",
+      "question": "Một nhóm gồm 6 học sinh nam và 4 học sinh nữ. Chọn ngẫu nhiên 5 học sinh. Tìm số kết quả thuận lợi của biến cố: 'Có đúng 2 học sinh nữ'.",
+      "answer": "120",
+      "explanation": "Chọn 2 nữ từ 4 nữ và 3 nam từ 6 nam. Số kết quả là C(4,2)·C(6,3)=6·20=120."
+    },
+    {
+      "id": "s3_6",
+      "type": "short-answer",
+      "question": "Gieo 5 lần một đồng tiền cân đối. Tìm số kết quả thuận lợi của biến cố: 'Xuất hiện đúng 3 lần mặt sấp'.",
+      "answer": "10",
+      "explanation": "Chọn 3 trong 5 lần gieo xuất hiện mặt sấp. Số kết quả là C(5,3)=10."
+    },
+    {
+      "id": "s3_7",
+      "type": "short-answer",
+      "question": "Gieo 5 lần một đồng tiền cân đối. Tìm số kết quả thuận lợi của biến cố: 'Mặt sấp xuất hiện ít nhất một lần'.",
+      "answer": "31",
+      "explanation": "Không gian mẫu có 2^5=32 phần tử. Biến cố đối là xuất hiện 5 lần mặt ngửa, có 1 kết quả. Vậy số kết quả thuận lợi là 32−1=31."
+    },
+    {
+      "id": "s3_8",
+      "type": "short-answer",
+      "question": "Chọn ngẫu nhiên 3 số từ tập S={1,2,3,...,20}. Có bao nhiêu cách chọn để ba số lập thành một cấp số cộng?",
+      "answer": "90",
+      "explanation": "Gọi ba số là a−d, a, a+d. Với S={1,...,20}, đếm các bộ cấp số cộng độ dài 3 thu được 90 bộ."
+    },
+    {
+      "id": "s3_9",
+      "type": "short-answer",
+      "question": "Gieo đồng thời hai con xúc xắc cân đối. Tìm số kết quả thuận lợi của biến cố: 'Tổng số chấm lớn hơn 10'.",
+      "answer": "3",
+      "explanation": "Tổng lớn hơn 10 nghĩa là tổng bằng 11 hoặc 12. Các kết quả: (5,6), (6,5), (6,6). Vậy có 3 kết quả thuận lợi."
+    },
+    {
+      "id": "s3_10",
+      "type": "short-answer",
+      "question": "Một hộp chứa 15 thẻ được đánh số từ 1 đến 15. Chọn ngẫu nhiên 2 thẻ. Tìm số kết quả thuận lợi của biến cố: 'Tổng hai số được chọn là số chẵn'.",
+      "answer": "49",
+      "explanation": "Có 8 số lẻ và 7 số chẵn. Tổng chẵn khi chọn hai số lẻ hoặc hai số chẵn. Số kết quả là C(8,2)+C(7,2)=28+21=49."
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "dayso_s1_1",
+      "type": "multiple-choice",
+      "question": "Cho dãy số un = 2n + 3. Giá trị của u6 bằng",
+      "options": [
+        "12",
+        "15",
+        "17",
+        "18"
+      ],
+      "answer": "15"
+    },
+    {
+      "id": "dayso_s1_2",
+      "type": "multiple-choice",
+      "question": "Cho dãy số un = n². Giá trị của u5 bằng",
+      "options": [
+        "10",
+        "20",
+        "25",
+        "30"
+      ],
+      "answer": "25"
+    },
+    {
+      "id": "dayso_s1_3",
+      "type": "multiple-choice",
+      "question": "Cho dãy số un = 1/n. Dãy số này là",
+      "options": [
+        "Tăng",
+        "Giảm",
+        "Không đổi",
+        "Không xác định"
+      ],
+      "answer": "Giảm"
+    },
+    {
+      "id": "dayso_s1_4",
+      "type": "multiple-choice",
+      "question": "Cho dãy số un = n+1. Dãy số này là",
+      "options": [
+        "Tăng",
+        "Giảm",
+        "Không đổi",
+        "Bị chặn"
+      ],
+      "answer": "Tăng"
+    },
+    {
+      "id": "dayso_s1_5",
+      "type": "multiple-choice",
+      "question": "Cho dãy số un = (-1)^n. Dãy số này là",
+      "options": [
+        "Tăng",
+        "Giảm",
+        "Không tăng không giảm",
+        "Tăng và bị chặn"
+      ],
+      "answer": "Không tăng không giảm"
+    },
+    {
+      "id": "dayso_s1_6",
+      "type": "multiple-choice",
+      "question": "Dãy số nào sau đây bị chặn?",
+      "options": [
+        "un=n",
+        "un=n²",
+        "un=1/n",
+        "un=2^n"
+      ],
+      "answer": "un=1/n"
+    },
+    {
+      "id": "dayso_s1_7",
+      "type": "multiple-choice",
+      "question": "Cho dãy số un=(n+1)/(n+2). Dãy số bị chặn trên bởi",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": "dayso_s1_8",
+      "type": "multiple-choice",
+      "question": "Cho u1=1, un+1=un+2. Giá trị của u2 là",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "3"
+    },
+    {
+      "id": "dayso_s1_9",
+      "type": "multiple-choice",
+      "question": "Cho u1=2, un+1=un+3. Giá trị của u3 là",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "answer": "8"
+    },
+    {
+      "id": "dayso_s1_10",
+      "type": "multiple-choice",
+      "question": "Cho dãy số un=3−1/n. Dãy số bị chặn trên bởi",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "3"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "dayso_s2_1",
+      "type": "true-false",
+      "question": "Cho dãy số un=(n+1)/(n+2).",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "u1=2/3.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Dãy số tăng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Dãy số bị chặn trên bởi 1.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Dãy số không bị chặn.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "dayso_s2_2",
+      "type": "true-false",
+      "question": "Cho dãy số un=1/n.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "u1=1.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Dãy số giảm.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Dãy số bị chặn.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Dãy số tăng.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "dayso_s2_3",
+      "type": "true-false",
+      "question": "Cho dãy số un=(-1)^n.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "u1=-1.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "u2=1.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Dãy số tăng.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Dãy số bị chặn.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "dayso_s3_1",
+      "type": "short-answer",
+      "question": "Cho dãy số un=2n+1. Tính u10.",
+      "answer": "21",
+      "explanation": "u10=2×10+1=21."
+    },
+    {
+      "id": "dayso_s3_2",
+      "type": "short-answer",
+      "question": "Cho dãy số un=n²−1. Tính u6.",
+      "answer": "35",
+      "explanation": "u6=6²−1=36−1=35."
+    },
+    {
+      "id": "dayso_s3_3",
+      "type": "short-answer",
+      "question": "Cho dãy số u1=1, un+1=un+2. Tính u5.",
+      "answer": "9",
+      "explanation": "u2=3, u3=5, u4=7, u5=9."
+    },
+    {
+      "id": "dayso_s3_4",
+      "type": "short-answer",
+      "question": "Cho dãy số un=(n+1)/(n+2). Tính u8.",
+      "answer": "0.9",
+      "explanation": "u8=(8+1)/(8+2)=9/10=0.9."
+    },
+    {
+      "id": "dayso_s3_5",
+      "type": "short-answer",
+      "question": "Cho dãy số un=1/n. Tính u20.",
+      "answer": "0.05",
+      "explanation": "u20=1/20=0.05."
+    }
+  ]
+}

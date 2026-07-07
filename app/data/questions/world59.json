@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "td_s1_1",
+      "type": "multiple-choice",
+      "question": "Nếu f'(x)>0 với mọi x thuộc khoảng (a;b) thì hàm số",
+      "options": [
+        "Đồng biến trên (a;b)",
+        "Nghịch biến trên (a;b)",
+        "Có cực đại",
+        "Có cực tiểu"
+      ],
+      "answer": "Đồng biến trên (a;b)"
+    },
+    {
+      "id": "td_s1_2",
+      "type": "multiple-choice",
+      "question": "Nếu f'(x)<0 với mọi x thuộc khoảng (a;b) thì hàm số",
+      "options": [
+        "Đồng biến",
+        "Nghịch biến",
+        "Không xác định",
+        "Có cực trị"
+      ],
+      "answer": "Nghịch biến"
+    },
+    {
+      "id": "td_s1_3",
+      "type": "multiple-choice",
+      "question": "Điều kiện cần để x₀ là điểm cực trị của hàm số khả vi là",
+      "options": [
+        "f(x₀)=0",
+        "f'(x₀)=0",
+        "f''(x₀)=0",
+        "x₀=0"
+      ],
+      "answer": "f'(x₀)=0"
+    },
+    {
+      "id": "td_s1_4",
+      "type": "multiple-choice",
+      "question": "Nếu đạo hàm đổi dấu từ dương sang âm khi qua x₀ thì hàm số đạt",
+      "options": [
+        "Cực tiểu",
+        "Cực đại",
+        "Không có cực trị",
+        "Điểm uốn"
+      ],
+      "answer": "Cực đại"
+    },
+    {
+      "id": "td_s1_5",
+      "type": "multiple-choice",
+      "question": "Nếu đạo hàm đổi dấu từ âm sang dương khi qua x₀ thì hàm số đạt",
+      "options": [
+        "Cực đại",
+        "Cực tiểu",
+        "Không có cực trị",
+        "Điểm uốn"
+      ],
+      "answer": "Cực tiểu"
+    },
+    {
+      "id": "td_s1_6",
+      "type": "multiple-choice",
+      "question": "Hàm số y=x³ có bao nhiêu điểm cực trị?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": "td_s1_7",
+      "type": "multiple-choice",
+      "question": "Hàm số y=x² có điểm cực tiểu tại",
+      "options": [
+        "x=-1",
+        "x=0",
+        "x=1",
+        "x=2"
+      ],
+      "answer": "x=0"
+    },
+    {
+      "id": "td_s1_8",
+      "type": "multiple-choice",
+      "question": "Đạo hàm của hàm số y=x³−3x là",
+      "options": [
+        "3x²−3",
+        "x²−3",
+        "3x−3",
+        "3x²"
+      ],
+      "answer": "3x²−3"
+    },
+    {
+      "id": "td_s1_9",
+      "type": "multiple-choice",
+      "question": "Số điểm cực trị của hàm số y=x³−3x là",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "answer": "2"
+    },
+    {
+      "id": "td_s1_10",
+      "type": "multiple-choice",
+      "question": "Cho f'(x)=x(x−2). Hàm số đồng biến trên khoảng nào?",
+      "options": [
+        "(0;2)",
+        "(-∞;0)",
+        "(2;+∞)",
+        "(−∞;0) và (2;+∞)"
+      ],
+      "answer": "(−∞;0) và (2;+∞)"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "td_s2_1",
+      "type": "true-false",
+      "question": "Xét mối liên hệ giữa đạo hàm và tính đơn điệu.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu f'(x)>0 trên một khoảng thì hàm số đồng biến trên khoảng đó.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nếu f'(x)<0 trên một khoảng thì hàm số nghịch biến trên khoảng đó.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Nếu f'(x)=0 tại một điểm thì điểm đó luôn là cực trị.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Đạo hàm giúp khảo sát sự biến thiên của hàm số.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "td_s2_2",
+      "type": "true-false",
+      "question": "Cho hàm số y=x².",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "y'=2x.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "f'(x)<0 khi x<0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "f'(x)>0 khi x>0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hàm số có cực đại tại x=0.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "td_s2_3",
+      "type": "true-false",
+      "question": "Cho hàm số y=x³−3x.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "y'=3x²−3.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Phương trình y'=0 có hai nghiệm x=-1 và x=1.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hàm số có hai điểm cực trị.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Cả hai điểm cực trị đều là cực tiểu.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "td_s3_1",
+      "type": "short-answer",
+      "question": "Cho hàm số y=x². Tính giá trị cực tiểu của hàm số.",
+      "answer": "0",
+      "explanation": "y'=2x=0 ⇔ x=0. Hàm số đổi dấu từ âm sang dương nên đạt cực tiểu tại x=0. Giá trị cực tiểu là y(0)=0."
+    },
+    {
+      "id": "td_s3_2",
+      "type": "short-answer",
+      "question": "Cho hàm số y=x³−3x. Có bao nhiêu điểm cực trị?",
+      "answer": "2",
+      "explanation": "y'=3x²−3=3(x−1)(x+1). Đạo hàm đổi dấu tại x=-1 và x=1 nên hàm số có 2 điểm cực trị."
+    },
+    {
+      "id": "td_s3_3",
+      "type": "short-answer",
+      "question": "Cho hàm số y=x³−3x. Tính tổng hoành độ các điểm cực trị.",
+      "answer": "0",
+      "explanation": "Các điểm cực trị có hoành độ x=-1 và x=1. Tổng bằng 0."
+    },
+    {
+      "id": "td_s3_4",
+      "type": "short-answer",
+      "question": "Cho f'(x)=x(x−2). Hàm số có bao nhiêu điểm cực trị?",
+      "answer": "2",
+      "explanation": "f'(x)=0 ⇔ x=0 hoặc x=2. Đạo hàm đổi dấu tại cả hai nghiệm nên có 2 điểm cực trị."
+    },
+    {
+      "id": "td_s3_5",
+      "type": "short-answer",
+      "question": "Cho hàm số y=x⁴−2x². Tính số điểm cực trị của hàm số.",
+      "answer": "3",
+      "explanation": "y'=4x³−4x=4x(x−1)(x+1). Đạo hàm đổi dấu tại x=-1, x=0 và x=1 nên hàm số có 3 điểm cực trị."
+    }
+  ]
+}

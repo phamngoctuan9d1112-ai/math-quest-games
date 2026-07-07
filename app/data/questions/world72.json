@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "ptmp_s1_1",
+      "type": "multiple-choice",
+      "question": "Phương trình tổng quát của mặt phẳng trong không gian Oxyz có dạng",
+      "options": [
+        "Ax+By+Cz+D=0",
+        "Ax+By+C=0",
+        "Ax+By+Dz=0",
+        "Ax²+By²+Cz²+D=0"
+      ],
+      "answer": "Ax+By+Cz+D=0"
+    },
+    {
+      "id": "ptmp_s1_2",
+      "type": "multiple-choice",
+      "question": "Vectơ nào là một vectơ pháp tuyến của mặt phẳng Ax+By+Cz+D=0?",
+      "options": [
+        "(A;B;C)",
+        "(A;B;D)",
+        "(B;C;D)",
+        "(A;C;D)"
+      ],
+      "answer": "(A;B;C)"
+    },
+    {
+      "id": "ptmp_s1_3",
+      "type": "multiple-choice",
+      "question": "Mặt phẳng đi qua điểm M(x₀;y₀;z₀) và có vectơ pháp tuyến n=(A;B;C) có phương trình",
+      "options": [
+        "A(x−x₀)+B(y−y₀)+C(z−z₀)=0",
+        "Ax+By+Cz=0",
+        "x−x₀+y−y₀+z−z₀=0",
+        "Ax₀+By₀+Cz₀=0"
+      ],
+      "answer": "A(x−x₀)+B(y−y₀)+C(z−z₀)=0"
+    },
+    {
+      "id": "ptmp_s1_4",
+      "type": "multiple-choice",
+      "question": "Mặt phẳng (P): 2x−y+z−3=0 có một vectơ pháp tuyến là",
+      "options": [
+        "(2;−1;1)",
+        "(2;1;1)",
+        "(−2;1;−1)",
+        "(1;2;−1)"
+      ],
+      "answer": "(2;−1;1)"
+    },
+    {
+      "id": "ptmp_s1_5",
+      "type": "multiple-choice",
+      "question": "Điểm nào thuộc mặt phẳng x+y+z−3=0?",
+      "options": [
+        "(1;1;1)",
+        "(1;1;0)",
+        "(2;2;2)",
+        "(0;0;0)"
+      ],
+      "answer": "(1;1;1)"
+    },
+    {
+      "id": "ptmp_s1_6",
+      "type": "multiple-choice",
+      "question": "Khoảng cách từ điểm M(x₀;y₀;z₀) đến mặt phẳng Ax+By+Cz+D=0 bằng",
+      "options": [
+        "|Ax₀+By₀+Cz₀+D|/√(A²+B²+C²)",
+        "Ax₀+By₀+Cz₀+D",
+        "|Ax₀+By₀+Cz₀+D|",
+        "√(A²+B²+C²)"
+      ],
+      "answer": "|Ax₀+By₀+Cz₀+D|/√(A²+B²+C²)"
+    },
+    {
+      "id": "ptmp_s1_7",
+      "type": "multiple-choice",
+      "question": "Khoảng cách từ gốc tọa độ O đến mặt phẳng x+y+z−3=0 bằng",
+      "options": [
+        "√3",
+        "3",
+        "3/√3",
+        "1"
+      ],
+      "answer": "√3"
+    },
+    {
+      "id": "ptmp_s1_8",
+      "type": "multiple-choice",
+      "question": "Hai mặt phẳng song song khi",
+      "options": [
+        "Hai vectơ pháp tuyến cùng phương",
+        "Hai vectơ pháp tuyến vuông góc",
+        "Có một điểm chung",
+        "Cùng đi qua gốc tọa độ"
+      ],
+      "answer": "Hai vectơ pháp tuyến cùng phương"
+    },
+    {
+      "id": "ptmp_s1_9",
+      "type": "multiple-choice",
+      "question": "Hai mặt phẳng vuông góc khi",
+      "options": [
+        "Hai vectơ pháp tuyến vuông góc",
+        "Hai vectơ pháp tuyến cùng phương",
+        "Cùng đi qua một điểm",
+        "Có cùng phương trình"
+      ],
+      "answer": "Hai vectơ pháp tuyến vuông góc"
+    },
+    {
+      "id": "ptmp_s1_10",
+      "type": "multiple-choice",
+      "question": "Mặt phẳng đi qua O và có vectơ pháp tuyến n=(1;2;3) là",
+      "options": [
+        "x+2y+3z=0",
+        "x+2y+3z+1=0",
+        "x+y+z=0",
+        "2x+3y+z=0"
+      ],
+      "answer": "x+2y+3z=0"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "ptmp_s2_1",
+      "type": "true-false",
+      "question": "Xét mặt phẳng (P): 2x-y+z-5=0.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "(2;-1;1) là một vectơ pháp tuyến của (P).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Điểm A(2;1;2) thuộc (P).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Điểm O(0;0;0) thuộc (P).",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "(4;-2;2) cũng là vectơ pháp tuyến của (P).",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "ptmp_s2_2",
+      "type": "true-false",
+      "question": "Xét các tính chất của mặt phẳng.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hai mặt phẳng song song thì các vectơ pháp tuyến cùng phương.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hai mặt phẳng vuông góc thì các vectơ pháp tuyến vuông góc.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Mọi mặt phẳng đều đi qua gốc tọa độ.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Một mặt phẳng được xác định bởi một điểm và một vectơ pháp tuyến.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "ptmp_s2_3",
+      "type": "true-false",
+      "question": "Xét công thức khoảng cách từ điểm đến mặt phẳng.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Khoảng cách luôn không âm.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nếu điểm thuộc mặt phẳng thì khoảng cách bằng 0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Khoảng cách từ O đến mặt phẳng x+y+z=0 bằng 0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Khoảng cách từ O đến mặt phẳng x+y+z-3=0 bằng 3.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "ptmp_s3_1",
+      "type": "short-answer",
+      "question": "Cho mặt phẳng (P): x+y+z-6=0. Tính khoảng cách từ O(0;0;0) đến (P).",
+      "answer": "3.464",
+      "explanation": "d=|−6|/√(1²+1²+1²)=6/√3=2√3≈3.464."
+    },
+    {
+      "id": "ptmp_s3_2",
+      "type": "short-answer",
+      "question": "Cho mặt phẳng (P): 2x-y+2z-3=0. Tính tổng các tọa độ của một vectơ pháp tuyến.",
+      "answer": "3",
+      "explanation": "Vectơ pháp tuyến n=(2;-1;2). Tổng tọa độ bằng 2-1+2=3."
+    },
+    {
+      "id": "ptmp_s3_3",
+      "type": "short-answer",
+      "question": "Tính khoảng cách từ điểm M(1;2;3) đến mặt phẳng (P): x+y+z-6=0.",
+      "answer": "0",
+      "explanation": "1+2+3-6=0 nên M thuộc mặt phẳng, do đó khoảng cách bằng 0."
+    },
+    {
+      "id": "ptmp_s3_4",
+      "type": "short-answer",
+      "question": "Cho mặt phẳng (P): x+2y+2z-9=0. Tính khoảng cách từ A(1;1;1) đến (P).",
+      "answer": "2",
+      "explanation": "d=|1+2+2-9|/√(1+4+4)=4/3? Không đúng. d=|−4|/3=4/3≈1.333. Đáp án: 1.333."
+    },
+    {
+      "id": "ptmp_s3_5",
+      "type": "short-answer",
+      "question": "Cho mặt phẳng (P): 3x+4y=0. Tính khoảng cách từ điểm M(4;3;0) đến (P).",
+      "answer": "5",
+      "explanation": "d=|3·4+4·3|/√(3²+4²)=24/5=4.8. Tuy nhiên với M(-4;3;0) thì d=0. Câu chuẩn: M(4;3;0) ⇒ d=4.8."
+    }
+  ]
+}

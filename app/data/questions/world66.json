@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "bttd_s1_1",
+      "type": "multiple-choice",
+      "question": "Trong không gian Oxyz, nếu A(x₁;y₁;z₁), B(x₂;y₂;z₂) thì tọa độ vectơ AB là",
+      "options": [
+        "(x₂−x₁;y₂−y₁;z₂−z₁)",
+        "(x₁+x₂;y₁+y₂;z₁+z₂)",
+        "(x₁−x₂;y₁−y₂;z₁−z₂)",
+        "(x₂+x₁;y₂+y₁;z₂+z₁)"
+      ],
+      "answer": "(x₂−x₁;y₂−y₁;z₂−z₁)"
+    },
+    {
+      "id": "bttd_s1_2",
+      "type": "multiple-choice",
+      "question": "Cho vectơ a=(1;2;3). Độ dài của a bằng",
+      "options": [
+        "√14",
+        "14",
+        "√12",
+        "6"
+      ],
+      "answer": "√14"
+    },
+    {
+      "id": "bttd_s1_3",
+      "type": "multiple-choice",
+      "question": "Cho a=(1;2;3), b=(2;1;0). Tích vô hướng a.b bằng",
+      "options": [
+        "2",
+        "4",
+        "5",
+        "7"
+      ],
+      "answer": "4"
+    },
+    {
+      "id": "bttd_s1_4",
+      "type": "multiple-choice",
+      "question": "Hai vectơ a=(1;2;2) và b=(2;−1;0) có vuông góc với nhau không?",
+      "options": [
+        "Có",
+        "Không",
+        "Song song",
+        "Trùng nhau"
+      ],
+      "answer": "Có"
+    },
+    {
+      "id": "bttd_s1_5",
+      "type": "multiple-choice",
+      "question": "Trung điểm của đoạn thẳng AB với A(1;2;3), B(3;4;5) là",
+      "options": [
+        "(2;3;4)",
+        "(4;6;8)",
+        "(1;2;3)",
+        "(3;4;5)"
+      ],
+      "answer": "(2;3;4)"
+    },
+    {
+      "id": "bttd_s1_6",
+      "type": "multiple-choice",
+      "question": "Khoảng cách giữa A(1;2;3) và B(4;6;3) bằng",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "answer": "5"
+    },
+    {
+      "id": "bttd_s1_7",
+      "type": "multiple-choice",
+      "question": "Cho a=(1;1;0), b=(2;0;−1). Tính a+2b.",
+      "options": [
+        "(5;1;−2)",
+        "(3;1;−1)",
+        "(4;2;−2)",
+        "(5;2;−1)"
+      ],
+      "answer": "(5;1;−2)"
+    },
+    {
+      "id": "bttd_s1_8",
+      "type": "multiple-choice",
+      "question": "Nếu a=(2;−1;3) thì vectơ −a là",
+      "options": [
+        "(−2;1;−3)",
+        "(2;1;−3)",
+        "(−2;−1;3)",
+        "(2;−1;−3)"
+      ],
+      "answer": "(−2;1;−3)"
+    },
+    {
+      "id": "bttd_s1_9",
+      "type": "multiple-choice",
+      "question": "Cho a=(1;2;2). Khi đó a.a bằng",
+      "options": [
+        "5",
+        "8",
+        "9",
+        "12"
+      ],
+      "answer": "9"
+    },
+    {
+      "id": "bttd_s1_10",
+      "type": "multiple-choice",
+      "question": "Điều kiện để hai vectơ khác 0 vuông góc là",
+      "options": [
+        "a.b=0",
+        "|a|=|b|",
+        "a=b",
+        "a=-b"
+      ],
+      "answer": "a.b=0"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "bttd_s2_1",
+      "type": "true-false",
+      "question": "Xét các công thức tọa độ vectơ.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu a=(x;y;z) thì |a|=√(x²+y²+z²).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "a.a=|a|².",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hai vectơ vuông góc khi tích vô hướng bằng 0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Tích vô hướng luôn âm.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "bttd_s2_2",
+      "type": "true-false",
+      "question": "Cho A(1;2;3), B(4;0;5).",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "AB=(3;−2;2).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "BA=(−3;2;−2).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "AB và BA bằng nhau.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Độ dài AB bằng √17.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "bttd_s2_3",
+      "type": "true-false",
+      "question": "Cho a=(1;1;0), b=(2;0;−1).",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "a.b=2.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "|a|=√2.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "|b|=√5.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "a vuông góc b.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "bttd_s3_1",
+      "type": "short-answer",
+      "question": "Cho a=(1;2;2). Tính độ dài của vectơ a.",
+      "answer": "3",
+      "explanation": "|a|=√(1²+2²+2²)=√9=3."
+    },
+    {
+      "id": "bttd_s3_2",
+      "type": "short-answer",
+      "question": "Cho a=(1;2;3), b=(2;1;0). Tính tích vô hướng a.b.",
+      "answer": "4",
+      "explanation": "a.b=1·2+2·1+3·0=4."
+    },
+    {
+      "id": "bttd_s3_3",
+      "type": "short-answer",
+      "question": "Cho A(1;2;3), B(4;6;3). Tính độ dài AB.",
+      "answer": "5",
+      "explanation": "AB=√[(4−1)²+(6−2)²+(3−3)²]=√25=5."
+    },
+    {
+      "id": "bttd_s3_4",
+      "type": "short-answer",
+      "question": "Cho a=(1;1;0), b=(2;0;−1). Tính tổng các tọa độ của vectơ a+2b.",
+      "answer": "4",
+      "explanation": "a+2b=(1;1;0)+(4;0;−2)=(5;1;−2). Tổng tọa độ bằng 4."
+    },
+    {
+      "id": "bttd_s3_5",
+      "type": "short-answer",
+      "question": "Cho A(1;2;3), B(5;4;7). Tính tổng các tọa độ của vectơ AB.",
+      "answer": "10",
+      "explanation": "AB=(4;2;4). Tổng các tọa độ bằng 4+2+4=10."
+    }
+  ]
+}

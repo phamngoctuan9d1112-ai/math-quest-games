@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "review_t1",
+      "type": "multiple-choice",
+      "question": "Giá trị của sin(π/6) bằng",
+      "options": [
+        "0",
+        "1/2",
+        "√2/2",
+        "√3/2"
+      ],
+      "answer": "1/2"
+    },
+    {
+      "id": "review_t2",
+      "type": "multiple-choice",
+      "question": "Giá trị của cos(π/3) bằng",
+      "options": [
+        "0",
+        "1/2",
+        "√2/2",
+        "√3/2"
+      ],
+      "answer": "1/2"
+    },
+    {
+      "id": "review_t3",
+      "type": "multiple-choice",
+      "question": "Giá trị của tan(π/4) bằng",
+      "options": [
+        "0",
+        "1",
+        "√2",
+        "√3"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": "review_t4",
+      "type": "multiple-choice",
+      "question": "sin²x + cos²x bằng",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "tan²x"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": "review_t5",
+      "type": "multiple-choice",
+      "question": "sin(a+b) bằng",
+      "options": [
+        "sinacosb+cosasinb",
+        "sinacosb-cosasinb",
+        "cosacosb+sinasinb",
+        "cosacosb-sinasinb"
+      ],
+      "answer": "sinacosb+cosasinb"
+    },
+    {
+      "id": "review_t6",
+      "type": "multiple-choice",
+      "question": "cos2x bằng",
+      "options": [
+        "cos²x-sin²x",
+        "2sinxcosx",
+        "1+2sin²x",
+        "2cos²x-2"
+      ],
+      "answer": "cos²x-sin²x"
+    },
+    {
+      "id": "review_t7",
+      "type": "multiple-choice",
+      "question": "Chu kỳ của hàm số y=sinx là",
+      "options": [
+        "π",
+        "2π",
+        "4π",
+        "π/2"
+      ],
+      "answer": "2π"
+    },
+    {
+      "id": "review_t8",
+      "type": "multiple-choice",
+      "question": "Hàm số y=cosx là",
+      "options": [
+        "hàm chẵn",
+        "hàm lẻ",
+        "không chẵn không lẻ",
+        "hàm hằng"
+      ],
+      "answer": "hàm chẵn"
+    },
+    {
+      "id": "review_t9",
+      "type": "multiple-choice",
+      "question": "Nghiệm tổng quát của phương trình sinx=0 là",
+      "options": [
+        "x=kπ",
+        "x=π/2+kπ",
+        "x=2kπ",
+        "x=π+2kπ"
+      ],
+      "answer": "x=kπ"
+    },
+    {
+      "id": "review_t10",
+      "type": "multiple-choice",
+      "question": "Nghiệm tổng quát của phương trình tanx=1 là",
+      "options": [
+        "x=π/4+kπ",
+        "x=π/4+2kπ",
+        "x=kπ",
+        "x=π/2+kπ"
+      ],
+      "answer": "x=π/4+kπ"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "review_tf1",
+      "type": "true-false",
+      "question": "Xét các mệnh đề sau.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "sin(π−x)=sinx.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "cos(π−x)=−cosx.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "tan(π+x)=tanx.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "cos(π+x)=cosx.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "review_tf2",
+      "type": "true-false",
+      "question": "Xét hàm số lượng giác.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hàm số y=sinx có chu kỳ 2π.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hàm số y=cosx là hàm chẵn.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hàm số y=tanx có chu kỳ π.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Tập xác định của tanx là R.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "review_tf3",
+      "type": "true-false",
+      "question": "Xét các phương trình lượng giác.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "sinx=0 có nghiệm x=kπ.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "cosx=0 có nghiệm x=π/2+kπ.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "tanx=0 có nghiệm x=kπ.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "sinx=1 có nghiệm x=π/2+kπ.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "review_s1",
+      "type": "short-answer",
+      "question": "Tính giá trị của sin²30° + cos²30°.",
+      "answer": "1",
+      "explanation": "Theo hệ thức cơ bản sin²x + cos²x = 1."
+    },
+    {
+      "id": "review_s2",
+      "type": "short-answer",
+      "question": "Tính giá trị của sin60°cos30° + cos60°sin30°.",
+      "answer": "1",
+      "explanation": "Theo công thức cộng: sin(60°+30°)=sin90°=1."
+    },
+    {
+      "id": "review_s3",
+      "type": "short-answer",
+      "question": "Tìm giá trị lớn nhất của hàm số y=2+3sinx.",
+      "answer": "5",
+      "explanation": "Vì -1≤sinx≤1 nên -3≤3sinx≤3. Suy ra -1≤y≤5. GTLN bằng 5."
+    },
+    {
+      "id": "review_s4",
+      "type": "short-answer",
+      "question": "Có bao nhiêu nghiệm của phương trình sinx=0 trên đoạn [0;2π]?",
+      "answer": "3",
+      "explanation": "Các nghiệm là 0, π, 2π. Có 3 nghiệm."
+    },
+    {
+      "id": "review_s5",
+      "type": "short-answer",
+      "question": "Tìm nghiệm dương nhỏ nhất của phương trình tanx=1.",
+      "answer": "0.785398163",
+      "explanation": "tanx=1 ⇔ x=π/4+kπ. Nghiệm dương nhỏ nhất là π/4≈0.785398163."
+    }
+  ]
+}

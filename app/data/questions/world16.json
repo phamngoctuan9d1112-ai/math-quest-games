@@ -1,0 +1,455 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Điều kiện để tam thức bậc hai ax²+bx+c (a≠0) có hai nghiệm phân biệt là",
+"options": [
+"Δ<0",
+"Δ=0",
+"Δ>0",
+"a=0"
+],
+"answer": "Δ>0"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Tam thức bậc hai ax²+bx+c (a≠0) vô nghiệm khi",
+"options": [
+"Δ>0",
+"Δ=0",
+"Δ<0",
+"b=0"
+],
+"answer": "Δ<0"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Tam thức bậc hai ax²+bx+c (a≠0) có nghiệm kép khi",
+"options": [
+"Δ<0",
+"Δ=0",
+"Δ>0",
+"c=0"
+],
+"answer": "Δ=0"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Tam thức x²−5x+6 nhận giá trị âm khi",
+"options": [
+"x<2 hoặc x>3",
+"2<x<3",
+"x≤2 hoặc x≥3",
+"Mọi x∈R"
+],
+"answer": "2<x<3"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Tam thức −x²+5x−6 nhận giá trị dương khi",
+"options": [
+"2<x<3",
+"x<2 hoặc x>3",
+"Mọi x∈R",
+"Không tồn tại x"
+],
+"answer": "2<x<3"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Tam thức x²+4x+5 luôn",
+"options": [
+"Dương",
+"Âm",
+"Bằng 0",
+"Đổi dấu"
+],
+"answer": "Dương"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Tam thức −x²−2x−5 luôn",
+"options": [
+"Dương",
+"Không âm",
+"Âm",
+"Bằng 0"
+],
+"answer": "Âm"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Tập nghiệm của bất phương trình x²−6x+8≤0 là",
+"options": [
+"[2;4]",
+"(2;4)",
+"(-∞;2]∪[4;+∞)",
+"R"
+],
+"answer": "[2;4]"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Tập nghiệm của bất phương trình x²−9x+18>0 là",
+"options": [
+"(3;6)",
+"(-∞;3)∪(6;+∞)",
+"[3;6]",
+"R"
+],
+"answer": "(-∞;3)∪(6;+∞)"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Tam thức x²−2x+1 không âm với",
+"options": [
+"Mọi x∈R",
+"x≠1",
+"x>1",
+"x<1"
+],
+"answer": "Mọi x∈R"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Cho f(x)=x²−7x+10. f(x)=0 có hai nghiệm",
+"options": [
+"2 và 5",
+"1 và 10",
+"-2 và -5",
+"0 và 10"
+],
+"answer": "2 và 5"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Tam thức x²+6x+9 nhận giá trị bằng 0 khi",
+"options": [
+"x=3",
+"x=-3",
+"x=0",
+"Không có giá trị nào"
+],
+"answer": "x=-3"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Nếu a>0 và Δ<0 thì tam thức ax²+bx+c",
+"options": [
+"Luôn dương",
+"Luôn âm",
+"Đổi dấu",
+"Bằng 0"
+],
+"answer": "Luôn dương"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Nếu a<0 và Δ<0 thì tam thức ax²+bx+c",
+"options": [
+"Luôn dương",
+"Luôn âm",
+"Đổi dấu",
+"Có nghiệm kép"
+],
+"answer": "Luôn âm"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Tam thức x²−13x−12 nhận giá trị âm khi",
+"options": [
+"-1<x<12",
+"-12<x<1",
+"x<-1 hoặc x>12",
+"Mọi x"
+],
+"answer": "-1<x<12"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Cho f(x)=−x²+4x−4. Giá trị lớn nhất của f(x) là",
+"options": [
+"0",
+"1",
+"4",
+"-4"
+],
+"answer": "0"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Số nghiệm thực của phương trình x²+2x+5=0 là",
+"options": [
+"2",
+"1",
+"0",
+"Vô số"
+],
+"answer": "0"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Cho f(x)=x²−4x+3. Tập giá trị x để f(x)<0 là",
+"options": [
+"(1;3)",
+"(-∞;1)∪(3;+∞)",
+"[1;3]",
+"R"
+],
+"answer": "(1;3)"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Tam thức x²+1",
+"options": [
+"Luôn dương",
+"Luôn âm",
+"Có hai nghiệm",
+"Có nghiệm kép"
+],
+"answer": "Luôn dương"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Tam thức −x²−1",
+"options": [
+"Luôn âm",
+"Luôn dương",
+"Có nghiệm kép",
+"Có hai nghiệm"
+],
+"answer": "Luôn âm"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Cho f(x)=x²−5x+6.",
+"subQuestions": [
+{
+"label": "a",
+"text": "f(x)=0 có hai nghiệm 2 và 3.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "f(x)<0 khi 2<x<3.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "f(x)>0 khi x<2 hoặc x>3.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "f(x) luôn dương.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Cho tam thức x²+4x+5.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Δ<0.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Tam thức luôn dương.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Tam thức có nghiệm thực.",
+"correctAnswer": "Sai"
+},
+{
+"label": "d",
+"text": "Giá trị nhỏ nhất bằng 1.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Cho f(x)=−x²+4x−3.",
+"subQuestions": [
+{
+"label": "a",
+"text": "f(x)=0 có hai nghiệm phân biệt.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "f(x)>0 khi 1<x<3.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "f(x)<0 khi x<1 hoặc x>3.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "f(x) luôn âm.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Xét dấu tam thức bậc hai.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Nếu a>0, Δ<0 thì tam thức luôn dương.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Nếu a<0, Δ<0 thì tam thức luôn âm.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Nếu Δ>0 thì tam thức đổi dấu qua hai nghiệm.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Nếu Δ=0 thì tam thức luôn đổi dấu.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "Cho f(x)=x²−2x+1.",
+"subQuestions": [
+{
+"label": "a",
+"text": "f(x)=(x−1)².",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "f(x)≥0 với mọi x∈R.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "f(x)=0 khi x=1.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "f(x)<0 với mọi x≠1.",
+"correctAnswer": "Sai"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Tính Δ của tam thức x²−5x+6.",
+"answer": "1",
+"explanation": "Δ=b²−4ac=(-5)²−4.1.6=25−24=1."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Tam thức x²−5x+6 có bao nhiêu nghiệm thực phân biệt?",
+"answer": "2",
+"explanation": "Δ=1>0 nên phương trình có hai nghiệm thực phân biệt."
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Tìm tổng hai nghiệm của phương trình x²−7x+10=0.",
+"answer": "7",
+"explanation": "Theo Viète: x₁+x₂=7."
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Tìm tích hai nghiệm của phương trình x²−7x+10=0.",
+"answer": "10",
+"explanation": "Theo Viète: x₁x₂=10."
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Tam thức x²−9x+18 nhận giá trị âm trên khoảng nào? Hãy cho độ dài khoảng đó.",
+"answer": "3",
+"explanation": "Hai nghiệm là 3 và 6. Tam thức âm trên (3;6), độ dài bằng 6−3=3."
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Cho f(x)=x²+4x+5. Tính giá trị nhỏ nhất của f(x).",
+"answer": "1",
+"explanation": "f(x)=(x+2)²+1≥1, dấu '=' khi x=−2."
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Cho f(x)=−x²+4x−3. Tính giá trị lớn nhất của f(x).",
+"answer": "1",
+"explanation": "f(x)=−(x−2)²+1≤1."
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Một cửa hàng có lợi nhuận y=−x²+86x−1814 (đơn vị nghìn đồng). Hỏi cửa hàng bắt đầu có lãi từ bao nhiêu lít hàng bán ra?",
+"answer": "37",
+"explanation": "Giải bất phương trình −x²+86x−1814>0 ⇔ (x−37)(x−49)<0. Do đó có lãi khi 37<x<49, số nguyên nhỏ nhất là 38. Nếu xét từ mức hòa vốn thì bắt đầu tại 37 lít. Bài toán khai thác từ nội dung thực tế trong tài liệu. "
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Cho tam thức x²−13x−12. Tính tổng hai nghiệm.",
+"answer": "13",
+"explanation": "Theo Viète: x₁+x₂=13."
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Cho tam thức x²−4x+4. Tính nghiệm kép.",
+"answer": "2",
+"explanation": "x²−4x+4=(x−2)² nên nghiệm kép là x=2."
+}
+]
+}

@@ -1,0 +1,453 @@
+{
+  "stage1": [
+    {
+      "id": "s1_1",
+      "type": "multiple-choice",
+      "question": "Gieo một con xúc xắc cân đối một lần. Xác suất xuất hiện mặt có số chấm chẵn là",
+      "options": [
+        "1/6",
+        "1/3",
+        "1/2",
+        "2/3"
+      ],
+      "answer": "1/2"
+    },
+    {
+      "id": "s1_2",
+      "type": "multiple-choice",
+      "question": "Gieo một đồng xu cân đối 3 lần. Xác suất để xuất hiện ít nhất một lần mặt sấp là",
+      "options": [
+        "1/8",
+        "3/8",
+        "7/8",
+        "1/2"
+      ],
+      "answer": "7/8"
+    },
+    {
+      "id": "s1_3",
+      "type": "multiple-choice",
+      "question": "Một tổ có 7 nam và 3 nữ. Chọn ngẫu nhiên 2 người. Xác suất để có ít nhất một nữ là",
+      "options": [
+        "7/15",
+        "8/15",
+        "2/15",
+        "1/15"
+      ],
+      "answer": "8/15"
+    },
+    {
+      "id": "s1_4",
+      "type": "multiple-choice",
+      "question": "Trong hộp có 10 quả cầu đánh số từ 1 đến 10. Chọn ngẫu nhiên 2 quả cầu. Xác suất để tích hai số ghi trên quả cầu là số chẵn bằng",
+      "options": [
+        "2/9",
+        "4/9",
+        "5/9",
+        "7/9"
+      ],
+      "answer": "7/9"
+    },
+    {
+      "id": "s1_5",
+      "type": "multiple-choice",
+      "question": "Một lớp có 12 học sinh nam và 8 học sinh nữ. Chọn ngẫu nhiên 3 học sinh. Xác suất có ít nhất một học sinh nữ là",
+      "options": [
+        "11/57",
+        "44/57",
+        "46/57",
+        "2/285"
+      ],
+      "answer": "46/57"
+    },
+    {
+      "id": "s1_6",
+      "type": "multiple-choice",
+      "question": "Gieo một đồng xu cân đối 3 lần. Xác suất xuất hiện đúng 2 lần mặt sấp là",
+      "options": [
+        "1/8",
+        "1/4",
+        "3/8",
+        "1/2"
+      ],
+      "answer": "3/8"
+    },
+    {
+      "id": "s1_7",
+      "type": "multiple-choice",
+      "question": "Chọn ngẫu nhiên một gia đình có hai người con. Xác suất gia đình đó có hai con gái là",
+      "options": [
+        "1/2",
+        "1/4",
+        "3/4",
+        "2/5"
+      ],
+      "answer": "1/4"
+    },
+    {
+      "id": "s1_8",
+      "type": "multiple-choice",
+      "question": "Một tổ có 4 học sinh nam và 6 học sinh nữ. Chọn ngẫu nhiên 3 học sinh. Xác suất để có ít nhất một học sinh nam là",
+      "options": [
+        "1/6",
+        "5/6",
+        "2/3",
+        "1/30"
+      ],
+      "answer": "5/6"
+    },
+    {
+      "id": "s1_9",
+      "type": "multiple-choice",
+      "question": "Gieo đồng thời hai con xúc xắc cân đối. Xác suất để tổng số chấm bằng 7 là",
+      "options": [
+        "1/12",
+        "1/6",
+        "5/36",
+        "7/36"
+      ],
+      "answer": "1/6"
+    },
+    {
+      "id": "s1_10",
+      "type": "multiple-choice",
+      "question": "Cho biến cố A và biến cố đối của nó là Ā. Mệnh đề đúng là",
+      "options": [
+        "P(A)+P(Ā)=0",
+        "P(A)=P(Ā)",
+        "P(A)+P(Ā)=1",
+        "P(A)-P(Ā)=1"
+      ],
+      "answer": "P(A)+P(Ā)=1"
+    },
+    {
+      "id": "s1_11",
+      "type": "multiple-choice",
+      "question": "Gieo một đồng xu cân đối 4 lần. Xác suất để cả 4 lần đều xuất hiện mặt sấp là",
+      "options": [
+        "1/4",
+        "1/8",
+        "1/16",
+        "1/32"
+      ],
+      "answer": "1/16"
+    },
+    {
+      "id": "s1_12",
+      "type": "multiple-choice",
+      "question": "Gieo một con xúc xắc cân đối. Xác suất xuất hiện mặt có số chấm lớn hơn 4 là",
+      "options": [
+        "1/6",
+        "1/3",
+        "1/2",
+        "2/3"
+      ],
+      "answer": "1/3"
+    },
+    {
+      "id": "s1_13",
+      "type": "multiple-choice",
+      "question": "Một người bỏ ngẫu nhiên 3 lá thư vào 3 phong bì đã ghi địa chỉ. Xác suất để có ít nhất một lá thư đúng phong bì là",
+      "options": [
+        "1/2",
+        "2/3",
+        "1/3",
+        "5/6"
+      ],
+      "answer": "2/3"
+    },
+    {
+      "id": "s1_14",
+      "type": "multiple-choice",
+      "question": "Gieo đồng thời hai con xúc xắc cân đối. Xác suất để hai mặt xuất hiện giống nhau là",
+      "options": [
+        "1/12",
+        "1/6",
+        "1/3",
+        "1/2"
+      ],
+      "answer": "1/6"
+    },
+    {
+      "id": "s1_15",
+      "type": "multiple-choice",
+      "question": "Biến cố chắc chắn có xác suất bằng",
+      "options": [
+        "0",
+        "1",
+        "1/2",
+        "-1"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": "s1_16",
+      "type": "multiple-choice",
+      "question": "Biến cố không thể có xác suất bằng",
+      "options": [
+        "0",
+        "1",
+        "1/2",
+        "2"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": "s1_17",
+      "type": "multiple-choice",
+      "question": "Gieo đồng thời hai con xúc xắc cân đối. Xác suất để tổng số chấm lớn hơn 10 là",
+      "options": [
+        "1/12",
+        "1/9",
+        "1/6",
+        "5/36"
+      ],
+      "answer": "1/12"
+    },
+    {
+      "id": "s1_18",
+      "type": "multiple-choice",
+      "question": "Một hộp có 10 sản phẩm tốt và 3 sản phẩm lỗi. Chọn ngẫu nhiên 3 sản phẩm. Xác suất để cả 3 sản phẩm đều tốt là",
+      "options": [
+        "120/286",
+        "100/286",
+        "10/13",
+        "21/45"
+      ],
+      "answer": "120/286"
+    },
+    {
+      "id": "s1_19",
+      "type": "multiple-choice",
+      "question": "Gieo một đồng xu cân đối 5 lần. Xác suất để không xuất hiện mặt sấp lần nào là",
+      "options": [
+        "1/32",
+        "1/16",
+        "5/32",
+        "31/32"
+      ],
+      "answer": "1/32"
+    },
+    {
+      "id": "s1_20",
+      "type": "multiple-choice",
+      "question": "Nếu P(A)=0,35 thì P(Ā) bằng",
+      "options": [
+        "0,35",
+        "0,55",
+        "0,65",
+        "1,35"
+      ],
+      "answer": "0,65"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "s2_1",
+      "type": "true-false",
+      "question": "Gieo một đồng xu cân đối 4 lần.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Không gian mẫu có 16 phần tử.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Xác suất xuất hiện đúng 2 lần mặt sấp là 6/16.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Xác suất xuất hiện ít nhất một lần mặt sấp là 15/16.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Xác suất xuất hiện 4 lần mặt ngửa là 1/8.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "s2_2",
+      "type": "true-false",
+      "question": "Gieo đồng thời hai con xúc xắc cân đối.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Không gian mẫu có 36 phần tử.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Xác suất để tổng số chấm bằng 7 là 1/6.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Xác suất để hai mặt xuất hiện giống nhau là 1/6.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Xác suất để tổng số chấm lớn hơn 10 là 1/6.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "s2_3",
+      "type": "true-false",
+      "question": "Một hộp có 10 sản phẩm tốt và 3 sản phẩm lỗi. Chọn ngẫu nhiên 3 sản phẩm.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Số phần tử của không gian mẫu là C(13,3).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Xác suất để cả 3 sản phẩm đều tốt là C(10,3)/C(13,3).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Xác suất có ít nhất một sản phẩm lỗi bằng 1−C(10,3)/C(13,3).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Xác suất có đúng 1 sản phẩm lỗi bằng C(3,1)·C(10,2)/C(13,3).",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "s2_4",
+      "type": "true-false",
+      "question": "Một lớp có 12 học sinh nam và 8 học sinh nữ. Chọn ngẫu nhiên 3 học sinh.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Không gian mẫu có C(20,3) phần tử.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Xác suất chọn được 3 học sinh nam là C(12,3)/C(20,3).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Xác suất có ít nhất một học sinh nữ bằng 1−C(12,3)/C(20,3).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Xác suất chọn được đúng 2 học sinh nữ là C(8,2)·C(12,1)/C(20,3).",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "s2_5",
+      "type": "true-false",
+      "question": "Xét các tính chất của xác suất.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "0 ≤ P(A) ≤ 1.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "P(Ω)=1.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "P(∅)=0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Nếu P(A)=0,4 thì P(A̅)=0,4.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "s3_1",
+      "type": "short-answer",
+      "question": "Gieo một đồng xu cân đối 5 lần. Tính xác suất xuất hiện đúng 3 lần mặt sấp.",
+      "answer": "5/16",
+      "explanation": "Không gian mẫu có 2^5=32 phần tử. Số kết quả thuận lợi là C(5,3)=10. Do đó P(A)=10/32=5/16."
+    },
+    {
+      "id": "s3_2",
+      "type": "short-answer",
+      "question": "Gieo đồng thời hai con xúc xắc cân đối. Tính xác suất để tổng số chấm bằng 8.",
+      "answer": "5/36",
+      "explanation": "Có 5 kết quả thuận lợi: (2,6), (3,5), (4,4), (5,3), (6,2). Không gian mẫu có 36 phần tử nên P(A)=5/36."
+    },
+    {
+      "id": "s3_3",
+      "type": "short-answer",
+      "question": "Một hộp có 10 sản phẩm tốt và 3 sản phẩm lỗi. Chọn ngẫu nhiên 3 sản phẩm. Tính xác suất để cả 3 sản phẩm đều tốt.",
+      "answer": "60/143",
+      "explanation": "P(A)=C(10,3)/C(13,3)=120/286=60/143."
+    },
+    {
+      "id": "s3_4",
+      "type": "short-answer",
+      "question": "Một lớp có 12 học sinh nam và 8 học sinh nữ. Chọn ngẫu nhiên 3 học sinh. Tính xác suất để có ít nhất một học sinh nữ.",
+      "answer": "46/57",
+      "explanation": "P(A)=1−C(12,3)/C(20,3)=1−220/1140=920/1140=46/57."
+    },
+    {
+      "id": "s3_5",
+      "type": "short-answer",
+      "question": "Gieo một con xúc xắc cân đối. Tính xác suất xuất hiện mặt có số chấm nguyên tố.",
+      "answer": "1/2",
+      "explanation": "Các số nguyên tố trên xúc xắc là 2,3,5. Có 3 kết quả thuận lợi trên 6 kết quả có thể nên P(A)=3/6=1/2."
+    },
+    {
+      "id": "s3_6",
+      "type": "short-answer",
+      "question": "Gieo đồng thời hai con xúc xắc cân đối. Tính xác suất để hai mặt xuất hiện giống nhau.",
+      "answer": "1/6",
+      "explanation": "Có 6 kết quả thuận lợi: (1,1), (2,2), ..., (6,6). Không gian mẫu có 36 phần tử nên P(A)=6/36=1/6."
+    },
+    {
+      "id": "s3_7",
+      "type": "short-answer",
+      "question": "Gieo một đồng xu cân đối 4 lần. Tính xác suất xuất hiện ít nhất một lần mặt sấp.",
+      "answer": "15/16",
+      "explanation": "Biến cố đối là xuất hiện 4 lần mặt ngửa. P(A)=1−1/16=15/16."
+    },
+    {
+      "id": "s3_8",
+      "type": "short-answer",
+      "question": "Một hộp có 5 bi đỏ và 7 bi xanh. Chọn ngẫu nhiên 2 bi. Tính xác suất để chọn được hai bi đỏ.",
+      "answer": "5/33",
+      "explanation": "P(A)=C(5,2)/C(12,2)=10/66=5/33."
+    },
+    {
+      "id": "s3_9",
+      "type": "short-answer",
+      "question": "Chọn ngẫu nhiên một số tự nhiên có 3 chữ số. Tính xác suất để số được chọn có ba chữ số đôi một khác nhau.",
+      "answer": "18/25",
+      "explanation": "Có 900 số có 3 chữ số. Số thuận lợi là 9×9×8=648. Do đó P(A)=648/900=18/25."
+    },
+    {
+      "id": "s3_10",
+      "type": "short-answer",
+      "question": "Gieo đồng thời hai con xúc xắc cân đối. Tính xác suất để tổng số chấm lớn hơn 10.",
+      "answer": "1/12",
+      "explanation": "Các kết quả thuận lợi là (5,6), (6,5), (6,6), tổng cộng 3 kết quả. Do đó P(A)=3/36=1/12."
+    }
+  ]
+}

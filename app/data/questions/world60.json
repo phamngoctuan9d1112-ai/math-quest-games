@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "gt_s1_1",
+      "type": "multiple-choice",
+      "question": "Giá trị lớn nhất của hàm số y=f(x) trên tập D là số M thỏa mãn",
+      "options": [
+        "f(x) ≥ M với mọi x∈D",
+        "f(x) ≤ M với mọi x∈D và tồn tại x₀∈D sao cho f(x₀)=M",
+        "f(x) < M với mọi x∈D",
+        "f(x)=M với mọi x∈D"
+      ],
+      "answer": "f(x) ≤ M với mọi x∈D và tồn tại x₀∈D sao cho f(x₀)=M"
+    },
+    {
+      "id": "gt_s1_2",
+      "type": "multiple-choice",
+      "question": "Giá trị nhỏ nhất của hàm số y=f(x) trên tập D là số m thỏa mãn",
+      "options": [
+        "f(x) ≥ m với mọi x∈D và tồn tại x₀∈D sao cho f(x₀)=m",
+        "f(x) ≤ m với mọi x∈D",
+        "f(x)=m với mọi x∈D",
+        "f(x)<m với mọi x∈D"
+      ],
+      "answer": "f(x) ≥ m với mọi x∈D và tồn tại x₀∈D sao cho f(x₀)=m"
+    },
+    {
+      "id": "gt_s1_3",
+      "type": "multiple-choice",
+      "question": "Hàm số y=x² trên đoạn [-1;2] đạt giá trị nhỏ nhất bằng",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "4"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": "gt_s1_4",
+      "type": "multiple-choice",
+      "question": "Hàm số y=x² trên đoạn [-1;2] đạt giá trị lớn nhất bằng",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "4"
+      ],
+      "answer": "4"
+    },
+    {
+      "id": "gt_s1_5",
+      "type": "multiple-choice",
+      "question": "Để tìm GTLN, GTNN của hàm số trên đoạn [a;b], ta cần xét",
+      "options": [
+        "Các điểm tới hạn trong (a;b) và hai đầu mút",
+        "Chỉ các điểm tới hạn",
+        "Chỉ hai đầu mút",
+        "Một điểm bất kỳ"
+      ],
+      "answer": "Các điểm tới hạn trong (a;b) và hai đầu mút"
+    },
+    {
+      "id": "gt_s1_6",
+      "type": "multiple-choice",
+      "question": "Hàm số y=−x²+4 có giá trị lớn nhất bằng",
+      "options": [
+        "0",
+        "2",
+        "4",
+        "8"
+      ],
+      "answer": "4"
+    },
+    {
+      "id": "gt_s1_7",
+      "type": "multiple-choice",
+      "question": "Hàm số y=x²−2x+3 có giá trị nhỏ nhất bằng",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "2"
+    },
+    {
+      "id": "gt_s1_8",
+      "type": "multiple-choice",
+      "question": "Điểm cực trị có thể là",
+      "options": [
+        "Nơi đạt GTLN hoặc GTNN trên đoạn",
+        "Luôn là GTLN",
+        "Luôn là GTNN",
+        "Không liên quan"
+      ],
+      "answer": "Nơi đạt GTLN hoặc GTNN trên đoạn"
+    },
+    {
+      "id": "gt_s1_9",
+      "type": "multiple-choice",
+      "question": "Nếu hàm số đồng biến trên [a;b] thì GTLN đạt tại",
+      "options": [
+        "a",
+        "b",
+        "(a+b)/2",
+        "Không xác định"
+      ],
+      "answer": "b"
+    },
+    {
+      "id": "gt_s1_10",
+      "type": "multiple-choice",
+      "question": "Nếu hàm số nghịch biến trên [a;b] thì GTNN đạt tại",
+      "options": [
+        "a",
+        "b",
+        "(a+b)/2",
+        "Không xác định"
+      ],
+      "answer": "b"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "gt_s2_1",
+      "type": "true-false",
+      "question": "Xét các khái niệm về GTLN và GTNN.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "GTLN của hàm số trên D nếu tồn tại phải là một giá trị của hàm số.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "GTNN của hàm số trên D nếu tồn tại phải là một giá trị của hàm số.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Mọi hàm số đều có GTLN và GTNN.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Trên đoạn đóng, hàm số liên tục luôn có GTLN và GTNN.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "gt_s2_2",
+      "type": "true-false",
+      "question": "Cho hàm số y=x² trên đoạn [-1;2].",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "GTNN bằng 0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "GTLN bằng 4.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "GTLN đạt tại x=2.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "GTNN đạt tại x=-1.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "gt_s2_3",
+      "type": "true-false",
+      "question": "Xét phương pháp tìm GTLN, GTNN.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Cần tìm các điểm mà f'(x)=0 hoặc f'(x) không xác định.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Cần tính giá trị hàm số tại các điểm tới hạn và đầu mút.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Chỉ cần xét các điểm cực trị.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Hai đầu mút đoạn có thể là nơi đạt GTLN hoặc GTNN.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "gt_s3_1",
+      "type": "short-answer",
+      "question": "Tìm GTNN của hàm số y=x² trên đoạn [-2;3].",
+      "answer": "0",
+      "explanation": "y=x² ≥0 với mọi x. Tại x=0 thuộc đoạn nên GTNN bằng 0."
+    },
+    {
+      "id": "gt_s3_2",
+      "type": "short-answer",
+      "question": "Tìm GTLN của hàm số y=x² trên đoạn [-2;3].",
+      "answer": "9",
+      "explanation": "Xét tại các đầu mút: y(-2)=4, y(3)=9. GTLN bằng 9."
+    },
+    {
+      "id": "gt_s3_3",
+      "type": "short-answer",
+      "question": "Tìm GTNN của hàm số y=x²−2x+3.",
+      "answer": "2",
+      "explanation": "y=(x−1)²+2 ≥2. Dấu '=' xảy ra khi x=1. Vậy GTNN bằng 2."
+    },
+    {
+      "id": "gt_s3_4",
+      "type": "short-answer",
+      "question": "Tìm GTLN của hàm số y=−x²+4.",
+      "answer": "4",
+      "explanation": "Vì −x²≤0 nên −x²+4≤4. Dấu '=' xảy ra khi x=0."
+    },
+    {
+      "id": "gt_s3_5",
+      "type": "short-answer",
+      "question": "Cho hàm số y=x³−3x trên đoạn [-2;2]. Tính GTLN.",
+      "answer": "2",
+      "explanation": "y'=3x²−3=0 ⇔ x=±1. Tính giá trị: y(-2)=-2, y(-1)=2, y(1)=-2, y(2)=2. GTLN bằng 2."
+    }
+  ]
+}

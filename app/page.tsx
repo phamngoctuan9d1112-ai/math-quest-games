@@ -48,6 +48,7 @@ export default function Home() {
   const [weapon, setWeapon] = useState("🪵");
   const [attacking, setAttacking] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const [streak, setStreak] = useState(1);
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [message, setMessage] = useState("");
@@ -180,6 +181,7 @@ const [currentUserId, setCurrentUserId] =
 
     setXp(Number(profile.xp || 0));
     setCoins(Number(profile.coins || 0));
+    setStreak(Number(profile.streak || 1));
     setUnlockedWorlds(profile.unlocked_worlds || [1,27,62]);
     setSubNodeProgress(
   profile.sub_node_progress || {
@@ -439,6 +441,7 @@ useEffect(() => {
     if (user) {
 
 setCurrentUserId(user.id);
+await updateStreak(user.id);
 
       setUserName(
         user.user_metadata?.full_name ||
@@ -536,6 +539,66 @@ async function fetchLeaderboard() {
       setMyRank(rank + 1);
     }
   }
+}
+
+async function updateStreak(userId: string) {
+
+  const today = new Date();
+
+  const { data } = await supabase
+    .from("profiles")
+    .select("streak,last_played,best_streak")
+    .eq("id", userId)
+    .single();
+
+  if (!data) return;
+
+  let newStreak = 1;
+
+  if (data.last_played) {
+
+    const lastDate =
+      new Date(data.last_played);
+
+    const diffDays = Math.floor(
+      (
+        today.getTime() -
+        lastDate.getTime()
+      ) /
+      (1000 * 60 * 60 * 24)
+    );
+
+    if (diffDays === 1) {
+      newStreak =
+        (data.streak || 0) + 1;
+    }
+
+    if (diffDays === 0) {
+      newStreak =
+        data.streak || 1;
+    }
+
+    if (diffDays > 1) {
+      newStreak = 1;
+    }
+  }
+
+  const bestStreak = Math.max(
+    newStreak,
+    data.best_streak || 0
+  );
+
+  await supabase
+    .from("profiles")
+    .update({
+      streak: newStreak,
+      best_streak: bestStreak,
+      last_played:
+        today.toISOString().split("T")[0]
+    })
+    .eq("id", userId);
+
+  setStreak(newStreak);
 }
 
   // Các useEffect đồng bộ LocalStorage
@@ -736,6 +799,8 @@ useEffect(() => {
     }, 5000);
   }
 }
+
+
 
 function getNextUnlockWorld(
   worldId: number
@@ -1359,6 +1424,7 @@ text-yellow-400
             onSelect={(worldId) => { setSelectedSubMap(worldId); }}
             level={level}
             rank={rank}
+            streak={streak}
             coins={coins}
             onLogout={onLogout}
             onShop={() => setShowShop(true)}

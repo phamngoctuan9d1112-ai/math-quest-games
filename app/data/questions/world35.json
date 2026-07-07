@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "mslgn_s1_1",
+      "type": "multiple-choice",
+      "question": "Mẫu số liệu ghép nhóm được trình bày dưới dạng",
+      "options": [
+        "Dãy số liệu",
+        "Bảng tần số ghép nhóm",
+        "Biểu đồ hình quạt",
+        "Đồ thị hàm số"
+      ],
+      "answer": "Bảng tần số ghép nhóm"
+    },
+    {
+      "id": "mslgn_s1_2",
+      "type": "multiple-choice",
+      "question": "Trong mẫu số liệu ghép nhóm, tần số của một nhóm là",
+      "options": [
+        "Số nhóm",
+        "Số giá trị thuộc nhóm đó",
+        "Khoảng biến thiên",
+        "Giá trị lớn nhất"
+      ],
+      "answer": "Số giá trị thuộc nhóm đó"
+    },
+    {
+      "id": "mslgn_s1_3",
+      "type": "multiple-choice",
+      "question": "Nếu một nhóm có cận dưới là 10 và cận trên là 20 thì độ dài nhóm là",
+      "options": [
+        "5",
+        "10",
+        "20",
+        "30"
+      ],
+      "answer": "10"
+    },
+    {
+      "id": "mslgn_s1_4",
+      "type": "multiple-choice",
+      "question": "Tần số của các nhóm lần lượt là 5; 8; 12; 15. Cỡ mẫu là",
+      "options": [
+        "35",
+        "38",
+        "40",
+        "42"
+      ],
+      "answer": "40"
+    },
+    {
+      "id": "mslgn_s1_5",
+      "type": "multiple-choice",
+      "question": "Dấu hiệu điều tra trong mẫu số liệu ghép nhóm là",
+      "options": [
+        "Đối tượng được khảo sát",
+        "Đặc trưng được nghiên cứu",
+        "Số nhóm",
+        "Tần số"
+      ],
+      "answer": "Đặc trưng được nghiên cứu"
+    },
+    {
+      "id": "mslgn_s1_6",
+      "type": "multiple-choice",
+      "question": "Trong bảng ghép nhóm, giá trị đại diện của nhóm [20;30) là",
+      "options": [
+        "20",
+        "25",
+        "30",
+        "50"
+      ],
+      "answer": "25"
+    },
+    {
+      "id": "mslgn_s1_7",
+      "type": "multiple-choice",
+      "question": "Giá trị đại diện của nhóm [40;50) là",
+      "options": [
+        "40",
+        "45",
+        "50",
+        "90"
+      ],
+      "answer": "45"
+    },
+    {
+      "id": "mslgn_s1_8",
+      "type": "multiple-choice",
+      "question": "Nếu tổng các tần số bằng 100 thì cỡ mẫu là",
+      "options": [
+        "10",
+        "50",
+        "100",
+        "200"
+      ],
+      "answer": "100"
+    },
+    {
+      "id": "mslgn_s1_9",
+      "type": "multiple-choice",
+      "question": "Trong bảng ghép nhóm, nhóm nào chứa giá trị 37?",
+      "options": [
+        "[20;30)",
+        "[30;40)",
+        "[40;50)",
+        "[50;60)"
+      ],
+      "answer": "[30;40)"
+    },
+    {
+      "id": "mslgn_s1_10",
+      "type": "multiple-choice",
+      "question": "Độ dài nhóm của khoảng [15;25) là",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "25"
+      ],
+      "answer": "10"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "mslgn_s2_1",
+      "type": "true-false",
+      "question": "Xét bảng số liệu ghép nhóm.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Tổng các tần số bằng cỡ mẫu.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Mỗi giá trị chỉ thuộc một nhóm.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Độ dài nhóm luôn bằng nhau.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Tần số luôn là số nguyên không âm.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "mslgn_s2_2",
+      "type": "true-false",
+      "question": "Xét nhóm [20;30).",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Cận dưới là 20.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Cận trên là 30.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Độ dài nhóm bằng 10.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Giá trị đại diện là 30.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "mslgn_s2_3",
+      "type": "true-false",
+      "question": "Xét giá trị đại diện của nhóm.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Là trung điểm của nhóm.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nhóm [10;20) có giá trị đại diện là 15.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Nhóm [30;40) có giá trị đại diện là 35.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Giá trị đại diện luôn bằng cận dưới.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "mslgn_s3_1",
+      "type": "short-answer",
+      "question": "Một bảng ghép nhóm có các tần số 4; 6; 10; 5. Hãy tìm cỡ mẫu.",
+      "answer": "25",
+      "explanation": "Cỡ mẫu bằng tổng các tần số: 4+6+10+5=25."
+    },
+    {
+      "id": "mslgn_s3_2",
+      "type": "short-answer",
+      "question": "Tìm giá trị đại diện của nhóm [12;18).",
+      "answer": "15",
+      "explanation": "Giá trị đại diện là trung điểm của nhóm: (12+18)/2=15."
+    },
+    {
+      "id": "mslgn_s3_3",
+      "type": "short-answer",
+      "question": "Tìm độ dài của nhóm [35;50).",
+      "answer": "15",
+      "explanation": "Độ dài nhóm bằng cận trên trừ cận dưới: 50−35=15."
+    },
+    {
+      "id": "mslgn_s3_4",
+      "type": "short-answer",
+      "question": "Các tần số của bảng ghép nhóm là 8; 12; 15; 10; 5. Tìm cỡ mẫu.",
+      "answer": "50",
+      "explanation": "Cỡ mẫu bằng tổng các tần số: 8+12+15+10+5=50."
+    },
+    {
+      "id": "mslgn_s3_5",
+      "type": "short-answer",
+      "question": "Tìm giá trị đại diện của nhóm [40;60).",
+      "answer": "50",
+      "explanation": "Giá trị đại diện là trung điểm của nhóm: (40+60)/2=50."
+    }
+  ]
+}

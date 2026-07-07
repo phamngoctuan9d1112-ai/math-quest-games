@@ -1,0 +1,440 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Cho tanα=1/2. Giá trị của cotα bằng",
+"options": ["2", "1/2", "4", "-2"],
+"answer": "2"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Cho sinα=1/3, với 90°<α<180°. Giá trị của P=3cotα+4tanα là",
+"options": ["7", "-7", "7√2", "-7√2"],
+"answer": "-7√2"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Nếu tanα=3 thì cosα bằng",
+"options": ["1/√10", "-1/√10", "1/3", "√10"],
+"answer": "1/√10"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Cho sinα=2/5, 0°<α<90°. Giá trị của sinα−cosα bằng",
+"options": [
+"(2-√21)/5",
+"(2+√21)/5",
+"(√21-2)/5",
+"(2-√21)/25"
+],
+"answer": "(2-√21)/5"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Cho cosα=1/3. Giá trị của tanα+cotα bằng",
+"options": [
+"9√2/4",
+"9√2/2",
+"9/2",
+"9/4"
+],
+"answer": "9√2/4"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Cho cotα=2. Giá trị của P=3+tan²α+2/cos²α bằng",
+"options": [
+"23/2",
+"23/4",
+"23/8",
+"23"
+],
+"answer": "23/2"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Giá trị của biểu thức tan²x·sin²x+tan²x−1 bằng",
+"options": [
+"-1",
+"0",
+"1",
+"2"
+],
+"answer": "0"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Cho sinα=1/4, 0°<α<90°. Giá trị của P=cosα/(tanα+cotα) bằng",
+"options": [
+"15/16",
+"15/8",
+"15/64",
+"15/4"
+],
+"answer": "15/64"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Biết sinx+cosx=2/3. Giá trị của sin³x+cos³x bằng",
+"options": [
+"-31/18",
+"31/18",
+"-31/54",
+"31/54"
+],
+"answer": "31/54"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Cho tanx=1/2. Giá trị của cot²x+cos²x bằng",
+"options": [
+"21/5",
+"24/5",
+"25/5",
+"29/5"
+],
+"answer": "24/5"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Cho 8cos²α+2cosα−1=0, 0°<α<90°. Giá trị của tan²α+sin²α bằng",
+"options": [
+"113/120",
+"113/60",
+"120/113",
+"60/113"
+],
+"answer": "113/60"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Biết tanα+cotα=5/2 và sinα>cosα. Giá trị của sinα bằng",
+"options": [
+"1/5",
+"2/5",
+"1/3",
+"2/3"
+],
+"answer": "2/5"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Biết sinα.cosα=2/5 và tanα<1. Giá trị của tanα bằng",
+"options": [
+"1/5",
+"1/2",
+"2",
+"2/5"
+],
+"answer": "1/2"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Cho α là góc nhọn và sinα=1/3. Giá trị của (tanα−3cotα+2)/(tanα+cotα) bằng",
+"options": [
+"(2−2√23)/9",
+"(4+2√23)/9",
+"(4−2√23)/9",
+"(2+2√23)/9"
+],
+"answer": "(4−2√23)/9"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Cho α là góc tù và sinα−cosα=4/5. Giá trị của sinα−2cosα bằng",
+"options": [
+"(12+√34)/10",
+"(12−√34)/10",
+"(-12+√34)/10",
+"(4−3√34)/10"
+],
+"answer": "(12+√34)/10"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Giá trị của cos120° bằng",
+"options": [
+"-1/2",
+"1/2",
+"-√3/2",
+"√3/2"
+],
+"answer": "-1/2"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Giá trị của sin150° bằng",
+"options": [
+"1/2",
+"√3/2",
+"-1/2",
+"-√3/2"
+],
+"answer": "1/2"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Giá trị của tan135° bằng",
+"options": [
+"-1",
+"1",
+"-√3",
+"√3"
+],
+"answer": "-1"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Cho tanα.cotα bằng",
+"options": [
+"0",
+"1",
+"-1",
+"2"
+],
+"answer": "1"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Giá trị của sin²α+cos²α bằng",
+"options": [
+"0",
+"1",
+"2",
+"-1"
+],
+"answer": "1"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Cho sinα=2/3, 90°<α<180°.",
+"subQuestions": [
+{
+"label": "a",
+"text": "cosα>0",
+"correctAnswer": "Sai"
+},
+{
+"label": "b",
+"text": "cos²α=1−sin²α",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "cotα=-√5/2",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "1+tan²α/sin²α=2",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Cho tanα+cotα=2.",
+"subQuestions": [
+{
+"label": "a",
+"text": "tan²α+cot²α=2",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "1/(sinα.cosα)=2",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "P=sin⁶α+cos⁶α=1/2",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "sin²α.cos²α=1/2",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Cho tan²α−tanα−6=0, 0°<α<90°.",
+"subQuestions": [
+{
+"label": "a",
+"text": "tanα>0",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "tanα=3",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "P=1/cos²α+1/sin²α=91/9",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "cotα=1/3",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Cho sinx+cosx=m.",
+"subQuestions": [
+{
+"label": "a",
+"text": "sin²x+cos²x=1",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "(sinx+cosx)²=1+2sinx.cosx",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "sinx.cosx=(m²−1)/2",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "sinx−cosx=1−m²",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "Xét biểu thức A=tan2°.tan3°...tan88°.",
+"subQuestions": [
+{
+"label": "a",
+"text": "2° và 88° là hai góc phụ nhau",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "tan88°=cot2°",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "tan2°.tan88°=1",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "A=2",
+"correctAnswer": "Sai"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Cho tanα=1/3. Tính giá trị của P=(9sin³α+sin²αcosα+3cos³α)/(sinα+cosα).",
+"answer": "3",
+"explanation": "Đặt tanα=1/3, quy đồng theo sinα và cosα rồi rút gọn được P=3."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Biết sin³α−3sinα+2=0, 0°<α<90°. Tính P=3tanα+3cotα.",
+"answer": "10",
+"explanation": "Giải được sinα=(√5−1)/2, suy ra tanα+cotα=10/3 nên P=10."
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Cho tanα+cotα=5/2 và sinα>cosα. Tính sinα.",
+"answer": "0.4",
+"explanation": "Từ tanα+cotα=1/(sinα.cosα)=5/2 suy ra sinα.cosα=2/5. Kết hợp điều kiện sinα>cosα được sinα=2/5."
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Cho sinα.cosα=2/5 và tanα<1. Tính tanα.",
+"answer": "0.5",
+"explanation": "Đặt t=tanα. Khi đó t/(1+t²)=2/5. Giải được t=2 hoặc t=1/2. Do tanα<1 nên t=1/2."
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Cho cos120°. Tính 100cos120°.",
+"answer": "-50",
+"explanation": "cos120°=-1/2 nên 100cos120°=-50."
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Tính giá trị của D=cos0°+cos10°+cos20°+...+cos180°.",
+"answer": "0",
+"explanation": "Ghép các cặp cosθ và cos(180°−θ) triệt tiêu nhau, còn lại tổng bằng 0."
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Cho sinx+cosx=1/3. Tính sinx.cosx.",
+"answer": "-4/9",
+"explanation": "(sinx+cosx)²=1+2sinx.cosx ⇒ 1/9=1+2sinx.cosx ⇒ sinx.cosx=-4/9."
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Cho tanα=3. Tính tan²α+cot²α.",
+"answer": "82/9",
+"explanation": "tan²α+cot²α=9+1/9=82/9."
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Cho cotα=2. Tính cos²α.",
+"answer": "4/5",
+"explanation": "tanα=1/2 ⇒ cos²α=1/(1+tan²α)=4/5."
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Cho cosα=1/3. Tính tanα.cotα.",
+"answer": "1",
+"explanation": "Theo hệ thức cơ bản, tanα.cotα=1."
+}
+]
+}

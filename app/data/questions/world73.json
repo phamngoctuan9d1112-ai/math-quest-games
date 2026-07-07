@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "ptdt_s1_1",
+      "type": "multiple-choice",
+      "question": "Trong không gian Oxyz, đường thẳng đi qua điểm M(x₀;y₀;z₀) và có vectơ chỉ phương u=(a;b;c) có phương trình tham số là",
+      "options": [
+        "x=x₀+at; y=y₀+bt; z=z₀+ct",
+        "x=ax+x₀; y=by+y₀; z=cz+z₀",
+        "x=x₀+a; y=y₀+b; z=z₀+c",
+        "ax+by+cz=0"
+      ],
+      "answer": "x=x₀+at; y=y₀+bt; z=z₀+ct"
+    },
+    {
+      "id": "ptdt_s1_2",
+      "type": "multiple-choice",
+      "question": "Một vectơ chỉ phương của đường thẳng có phương trình tham số x=1+2t, y=3−t, z=5+4t là",
+      "options": [
+        "(2;−1;4)",
+        "(1;3;5)",
+        "(2;1;4)",
+        "(1;−1;1)"
+      ],
+      "answer": "(2;−1;4)"
+    },
+    {
+      "id": "ptdt_s1_3",
+      "type": "multiple-choice",
+      "question": "Đường thẳng đi qua A(1;2;3) và B(3;5;7) có một vectơ chỉ phương là",
+      "options": [
+        "(2;3;4)",
+        "(4;7;10)",
+        "(1;2;3)",
+        "(3;5;7)"
+      ],
+      "answer": "(2;3;4)"
+    },
+    {
+      "id": "ptdt_s1_4",
+      "type": "multiple-choice",
+      "question": "Phương trình chính tắc của đường thẳng qua M(x₀;y₀;z₀), có vectơ chỉ phương (a;b;c) là",
+      "options": [
+        "(x−x₀)/a=(y−y₀)/b=(z−z₀)/c",
+        "ax+by+cz=0",
+        "x/a=y/b=z/c",
+        "x=x₀+a; y=y₀+b; z=z₀+c"
+      ],
+      "answer": "(x−x₀)/a=(y−y₀)/b=(z−z₀)/c"
+    },
+    {
+      "id": "ptdt_s1_5",
+      "type": "multiple-choice",
+      "question": "Đường thẳng qua O(0;0;0) và có vectơ chỉ phương (1;2;3) có phương trình tham số là",
+      "options": [
+        "x=t; y=2t; z=3t",
+        "x=1+t; y=2+t; z=3+t",
+        "x=t; y=t; z=t",
+        "x=0; y=2t; z=3t"
+      ],
+      "answer": "x=t; y=2t; z=3t"
+    },
+    {
+      "id": "ptdt_s1_6",
+      "type": "multiple-choice",
+      "question": "Hai đường thẳng song song khi",
+      "options": [
+        "Hai vectơ chỉ phương cùng phương",
+        "Hai vectơ chỉ phương vuông góc",
+        "Có một điểm chung",
+        "Cùng đi qua gốc tọa độ"
+      ],
+      "answer": "Hai vectơ chỉ phương cùng phương"
+    },
+    {
+      "id": "ptdt_s1_7",
+      "type": "multiple-choice",
+      "question": "Hai đường thẳng vuông góc khi",
+      "options": [
+        "Tích vô hướng hai vectơ chỉ phương bằng 0",
+        "Hai vectơ chỉ phương bằng nhau",
+        "Có cùng phương trình",
+        "Cùng đi qua một điểm"
+      ],
+      "answer": "Tích vô hướng hai vectơ chỉ phương bằng 0"
+    },
+    {
+      "id": "ptdt_s1_8",
+      "type": "multiple-choice",
+      "question": "Điểm nào thuộc đường thẳng x=1+t, y=2−t, z=3+2t?",
+      "options": [
+        "(2;1;5)",
+        "(1;2;3)",
+        "(3;1;5)",
+        "(0;1;1)"
+      ],
+      "answer": "(2;1;5)"
+    },
+    {
+      "id": "ptdt_s1_9",
+      "type": "multiple-choice",
+      "question": "Đường thẳng qua A(1;0;0), B(3;2;4) có vectơ chỉ phương là",
+      "options": [
+        "(2;2;4)",
+        "(3;2;4)",
+        "(1;0;0)",
+        "(4;2;4)"
+      ],
+      "answer": "(2;2;4)"
+    },
+    {
+      "id": "ptdt_s1_10",
+      "type": "multiple-choice",
+      "question": "Nếu vectơ chỉ phương của hai đường thẳng lần lượt là u=(1;2;3), v=(2;4;6) thì hai đường thẳng có thể",
+      "options": [
+        "Song song",
+        "Vuông góc",
+        "Cắt nhau vuông góc",
+        "Chéo nhau vuông góc"
+      ],
+      "answer": "Song song"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "ptdt_s2_1",
+      "type": "true-false",
+      "question": "Xét đường thẳng d: x=1+2t, y=3−t, z=5+4t.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "d đi qua điểm (1;3;5).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Một vectơ chỉ phương của d là (2;−1;4).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Điểm (3;2;9) thuộc d.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Điểm (0;0;0) thuộc d.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "ptdt_s2_2",
+      "type": "true-false",
+      "question": "Cho A(1;2;3), B(3;5;7).",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "AB=(2;3;4).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "AB là một vectơ chỉ phương của đường thẳng AB.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Đường thẳng AB đi qua điểm A.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Đường thẳng AB có vectơ chỉ phương (1;1;1).",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "ptdt_s2_3",
+      "type": "true-false",
+      "question": "Xét vị trí tương đối của hai đường thẳng.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu hai vectơ chỉ phương cùng phương thì hai đường thẳng có thể song song hoặc trùng nhau.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nếu hai vectơ chỉ phương vuông góc thì hai đường thẳng luôn vuông góc.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "c",
+          "text": "Hai đường thẳng cắt nhau có ít nhất một điểm chung.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hai đường thẳng chéo nhau không có điểm chung.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "ptdt_s3_1",
+      "type": "short-answer",
+      "question": "Cho A(1;2;3), B(4;6;8). Tính tổng các tọa độ của một vectơ chỉ phương của đường thẳng AB.",
+      "answer": "12",
+      "explanation": "AB=(3;4;5). Tổng tọa độ là 3+4+5=12."
+    },
+    {
+      "id": "ptdt_s3_2",
+      "type": "short-answer",
+      "question": "Đường thẳng d: x=2+t, y=1−t, z=3+2t. Tính z khi t=2.",
+      "answer": "7",
+      "explanation": "z=3+2·2=7."
+    },
+    {
+      "id": "ptdt_s3_3",
+      "type": "short-answer",
+      "question": "Cho đường thẳng d: x=1+3t, y=2−t, z=4+t. Tính x+y+z khi t=1.",
+      "answer": "10",
+      "explanation": "Điểm tương ứng là (4;1;5). Tổng bằng 10."
+    },
+    {
+      "id": "ptdt_s3_4",
+      "type": "short-answer",
+      "question": "Cho A(1;0;2), B(5;2;4). Tính độ dài vectơ AB.",
+      "answer": "4.899",
+      "explanation": "AB=(4;2;2), |AB|=√(16+4+4)=√24≈4.899."
+    },
+    {
+      "id": "ptdt_s3_5",
+      "type": "short-answer",
+      "question": "Cho u=(1;2;2), v=(2;−1;0). Tính tích vô hướng u.v.",
+      "answer": "0",
+      "explanation": "u.v=1·2+2·(−1)+2·0=0 nên hai vectơ vuông góc."
+    }
+  ]
+}

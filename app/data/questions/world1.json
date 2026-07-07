@@ -1,0 +1,443 @@
+{
+  "stage1": [
+    {
+      "id": "MC001",
+      "type": "multiple-choice",
+      "question": "Mệnh đề phủ định của mệnh đề \"∀x ∈ ℝ, x² + 3x + 5 > 0\" là",
+      "options": [
+        "∀x ∈ ℝ, x² + 3x + 5 ≤ 0",
+        "∃x ∈ ℝ, x² + 3x + 5 ≤ 0",
+        "∀x ∈ ℝ, x² + 3x + 5 < 0",
+        "∃x ∈ ℝ, x² + 3x + 5 > 0"
+      ],
+      "answer": "∃x ∈ ℝ, x² + 3x + 5 ≤ 0"
+    },
+    {
+      "id": "MC002",
+      "type": "multiple-choice",
+      "question": "Phủ định của mệnh đề \"∀n ∈ ℕ, n² + 1 không chia hết cho 3\" là",
+      "options": [
+        "∀n ∈ ℕ, n² + 1 chia hết cho 3",
+        "∃n ∈ ℕ, n² + 1 không chia hết cho 3",
+        "∃n ∈ ℕ, n² + 1 chia hết cho 3",
+        "∀n ∈ ℕ, n² + 1 chia hết cho 2"
+      ],
+      "answer": "∃n ∈ ℕ, n² + 1 chia hết cho 3"
+    },
+    {
+      "id": "MC003",
+      "type": "multiple-choice",
+      "question": "Phủ định của mệnh đề \"∃x ∈ ℝ, x² + x + 1 là số dương\" là",
+      "options": [
+        "∀x ∈ ℝ, x² + x + 1 là số không dương",
+        "∀x ∈ ℝ, x² + x + 1 là số âm",
+        "∀x ∈ ℝ, x² + x + 1 là số dương",
+        "∃x ∈ ℝ, x² + x + 1 là số âm"
+      ],
+      "answer": "∀x ∈ ℝ, x² + x + 1 là số không dương"
+    },
+    {
+      "id": "MC004",
+      "type": "multiple-choice",
+      "question": "Mệnh đề phủ định của \"Mọi học sinh lớp C4 đều chấp hành luật giao thông\" là",
+      "options": [
+        "Có ít nhất một học sinh lớp C4 không chấp hành luật giao thông",
+        "Không có học sinh nào lớp C4 chấp hành luật giao thông",
+        "Có đúng một học sinh lớp C4 không chấp hành luật giao thông",
+        "Mọi học sinh lớp C4 đều vi phạm luật giao thông"
+      ],
+      "answer": "Có ít nhất một học sinh lớp C4 không chấp hành luật giao thông"
+    },
+    {
+      "id": "MC005",
+      "type": "multiple-choice",
+      "question": "Mệnh đề phủ định của \"∃x ∈ ℝ, x² - x + 7 < 0\" là",
+      "options": [
+        "∀x ∈ ℝ, x² - x + 7 ≥ 0",
+        "∀x ∈ ℝ, x² - x + 7 > 0",
+        "∃x ∈ ℝ, x² - x + 7 ≥ 0",
+        "∃x ∈ ℝ, x² - x + 7 > 0"
+      ],
+      "answer": "∀x ∈ ℝ, x² - x + 7 ≥ 0"
+    },
+    {
+      "id": "MC006",
+      "type": "multiple-choice",
+      "question": "Mệnh đề phủ định của \"∃x ∈ ℝ, 2x² + 3x - 5 < 0\" là",
+      "options": [
+        "∀x ∈ ℝ, 2x² + 3x - 5 ≥ 0",
+        "∀x ∈ ℝ, 2x² + 3x - 5 > 0",
+        "∃x ∈ ℝ, 2x² + 3x - 5 ≥ 0",
+        "∃x ∈ ℝ, 2x² + 3x - 5 > 0"
+      ],
+      "answer": "∀x ∈ ℝ, 2x² + 3x - 5 ≥ 0"
+    },
+    {
+      "id": "MC007",
+      "type": "multiple-choice",
+      "question": "Mệnh đề nào sau đây đúng?",
+      "options": [
+        "∀x ∈ ℝ, x² + 1 > 0",
+        "∃n ∈ ℕ, n < 0",
+        "∀x ∈ ℝ, x² < 0",
+        "∃x ∈ ℝ, x² + 1 = 0"
+      ],
+      "answer": "∀x ∈ ℝ, x² + 1 > 0"
+    },
+    {
+      "id": "MC008",
+      "type": "multiple-choice",
+      "question": "Mệnh đề nào sau đây sai?",
+      "options": [
+        "∀x ∈ ℝ, x² ≥ 0",
+        "∃n ∈ ℕ, n = n²",
+        "∀n ∈ ℕ, n ≤ n²",
+        "∃x ∈ ℝ, x² < 0"
+      ],
+      "answer": "∃x ∈ ℝ, x² < 0"
+    },
+    {
+      "id": "MC009",
+      "type": "multiple-choice",
+      "question": "Mệnh đề phủ định của \"∃x ∈ ℝ, x² + x + 13 = 0\" là",
+      "options": [
+        "∀x ∈ ℝ, x² + x + 13 ≠ 0",
+        "∃x ∈ ℝ, x² + x + 13 > 0",
+        "∀x ∈ ℝ, x² + x + 13 = 0",
+        "∃x ∈ ℝ, x² + x + 13 ≠ 0"
+      ],
+      "answer": "∀x ∈ ℝ, x² + x + 13 ≠ 0"
+    },
+    {
+      "id": "MC010",
+      "type": "multiple-choice",
+      "question": "Phủ định của mệnh đề \"Phương trình ax² + bx + c = 0 (a ≠ 0) vô nghiệm\" là",
+      "options": [
+        "Phương trình có nghiệm",
+        "Phương trình có hai nghiệm phân biệt",
+        "Phương trình có nghiệm kép",
+        "Phương trình vô số nghiệm"
+      ],
+      "answer": "Phương trình có nghiệm"
+    },
+    {
+      "id": "MC011",
+      "type": "multiple-choice",
+      "question": "Mệnh đề phủ định của \"∀x ∈ ℝ, x² + 5 > 0\" là",
+      "options": [
+        "∃x ∈ ℝ, x² + 5 < 0",
+        "∀x ∈ ℝ, x² + 5 ≤ 0",
+        "∃x ∈ ℝ, x² + 5 ≤ 0",
+        "∀x ∈ ℝ, x² + 5 < 0"
+      ],
+      "answer": "∃x ∈ ℝ, x² + 5 ≤ 0"
+    },
+    {
+      "id": "MC012",
+      "type": "multiple-choice",
+      "question": "Mệnh đề phủ định của \"∀x ∈ ℝ, x³ > x\" là",
+      "options": [
+        "∀x ∈ ℝ, x³ ≤ x",
+        "∃x ∈ ℝ, x³ > x",
+        "∃x ∈ ℝ, x³ ≤ x",
+        "∃x ∈ ℝ, x³ < x"
+      ],
+      "answer": "∃x ∈ ℝ, x³ ≤ x"
+    },
+    {
+      "id": "MC013",
+      "type": "multiple-choice",
+      "question": "Mệnh đề nào đúng?",
+      "options": [
+        "∃x ∈ ℝ, x² + 3 = 0",
+        "∃x ∈ ℝ, x² - 3 = 0",
+        "∀x ∈ ℝ, x² - 3 > 0",
+        "∀x ∈ ℝ, x² ≥ 3"
+      ],
+      "answer": "∃x ∈ ℝ, x² - 3 = 0"
+    },
+    {
+      "id": "MC014",
+      "type": "multiple-choice",
+      "question": "Trong các mệnh đề sau, mệnh đề nào sai?",
+      "options": [
+        "∃n ∈ ℕ, n² + 11n + 22 chia hết cho 11",
+        "∃n ∈ ℕ, n² + 1 chia hết cho 4",
+        "Tồn tại số nguyên tố chia hết cho 5",
+        "∃x ∈ ℝ, 2x² - 8 = 0"
+      ],
+      "answer": "∃n ∈ ℕ, n² + 1 chia hết cho 4"
+    },
+    {
+      "id": "MC015",
+      "type": "multiple-choice",
+      "question": "Mệnh đề nào tương đương với phủ định của \"∀x ∈ ℝ, P(x)\"?",
+      "options": [
+        "∀x ∈ ℝ, ¬P(x)",
+        "∃x ∈ ℝ, ¬P(x)",
+        "∃x ∈ ℝ, P(x)",
+        "¬∃x ∈ ℝ, P(x)"
+      ],
+      "answer": "∃x ∈ ℝ, ¬P(x)"
+    },
+    {
+      "id": "MC016",
+      "type": "multiple-choice",
+      "question": "Mệnh đề nào tương đương với phủ định của \"∃x ∈ ℝ, P(x)\"?",
+      "options": [
+        "∀x ∈ ℝ, ¬P(x)",
+        "∃x ∈ ℝ, ¬P(x)",
+        "∀x ∈ ℝ, P(x)",
+        "¬∀x ∈ ℝ, P(x)"
+      ],
+      "answer": "∀x ∈ ℝ, ¬P(x)"
+    },
+    {
+      "id": "MC017",
+      "type": "multiple-choice",
+      "question": "Giá trị chân lý của mệnh đề \"∀x ∈ ℝ, x² - 2x + 1 ≥ 0\" là",
+      "options": [
+        "Đúng",
+        "Sai",
+        "Không xác định",
+        "Phụ thuộc x"
+      ],
+      "answer": "Đúng"
+    },
+    {
+      "id": "MC018",
+      "type": "multiple-choice",
+      "question": "Mệnh đề nào đúng?",
+      "options": [
+        "∀n ∈ ℕ, n² + n là số lẻ",
+        "∀n ∈ ℕ, n² + n là số chẵn",
+        "∃n ∈ ℕ, n² + n là số lẻ",
+        "Không có đáp án nào đúng"
+      ],
+      "answer": "∀n ∈ ℕ, n² + n là số chẵn"
+    },
+    {
+      "id": "MC019",
+      "type": "multiple-choice",
+      "question": "Mệnh đề \"∃x ∈ ℝ, x² = -1\" có giá trị chân lý là",
+      "options": [
+        "Đúng",
+        "Sai",
+        "Không xác định",
+        "Phụ thuộc tập xác định"
+      ],
+      "answer": "Sai"
+    },
+    {
+      "id": "MC020",
+      "type": "multiple-choice",
+      "question": "Mệnh đề \"∀x ∈ ℝ, x⁴ + 1 > 0\" có giá trị chân lý là",
+      "options": [
+        "Đúng",
+        "Sai",
+        "Không xác định",
+        "Có lúc đúng có lúc sai"
+      ],
+      "answer": "Đúng"
+    }
+  ],
+  "stage2": [
+  {
+    "id": "s2_1",
+    "type": "true-false",
+    "question": "Xét tính đúng sai của các mệnh đề sau:",
+    "subQuestions": [
+      {
+        "label": "a",
+        "text": "∀x ∈ ℝ, x² ≥ 0.",
+        "correctAnswer": "Đúng"
+      },
+      {
+        "label": "b",
+        "text": "∃a ∈ ℝ, a² < a.",
+        "correctAnswer": "Đúng"
+      },
+      {
+        "label": "c",
+        "text": "∀n ∈ ℕ, n² + n chia hết cho 2.",
+        "correctAnswer": "Đúng"
+      },
+      {
+        "label": "d",
+        "text": "∀n ∈ ℕ, n(n + 1)(n + 2) không chia hết cho 3.",
+        "correctAnswer": "Sai"
+      }
+    ]
+  },
+  {
+    "id": "s2_2",
+    "type": "true-false",
+    "question": "Xét tính đúng sai của các mệnh đề sau:",
+    "subQuestions": [
+      {
+        "label": "a",
+        "text": "∃x ∈ ℝ, x² − 4x + 1 = 0.",
+        "correctAnswer": "Đúng"
+      },
+      {
+        "label": "b",
+        "text": "∀n ∈ ℕ, n và n + 2 đều là số nguyên tố.",
+        "correctAnswer": "Sai"
+      },
+      {
+        "label": "c",
+        "text": "∀x ∈ ℝ, (x − 1)² ≥ 0.",
+        "correctAnswer": "Đúng"
+      },
+      {
+        "label": "d",
+        "text": "∀n ∈ ℕ, n² > n.",
+        "correctAnswer": "Sai"
+      }
+    ]
+  },
+  {
+    "id": "s2_3",
+    "type": "true-false",
+    "question": "Xét tính đúng sai của các mệnh đề sau:",
+    "subQuestions": [
+      {
+        "label": "a",
+        "text": "∀x ∈ ℝ, x³ − x² + 1 > 0.",
+        "correctAnswer": "Sai"
+      },
+      {
+        "label": "b",
+        "text": "∃n ∈ ℕ, n + 3 chia hết cho 4.",
+        "correctAnswer": "Đúng"
+      },
+      {
+        "label": "c",
+        "text": "∀x ∈ ℝ, ∀y ∈ ℝ, x + y = 1.",
+        "correctAnswer": "Sai"
+      },
+      {
+        "label": "d",
+        "text": "∃x ∈ ℝ, ∃y ∈ ℝ, x + y = 2.",
+        "correctAnswer": "Đúng"
+      }
+    ]
+  },
+  {
+    "id": "s2_4",
+    "type": "true-false",
+    "question": "Cho mệnh đề chứa biến P(x): x > 1/x.",
+    "subQuestions": [
+      {
+        "label": "a",
+        "text": "P(1).",
+        "correctAnswer": "Sai"
+      },
+      {
+        "label": "b",
+        "text": "P(-1/3).",
+        "correctAnswer": "Sai"
+      },
+      {
+        "label": "c",
+        "text": "∀x ∈ ℝ, P(x).",
+        "correctAnswer": "Sai"
+      },
+      {
+        "label": "d",
+        "text": "∃x ∈ ℝ, P(x).",
+        "correctAnswer": "Đúng"
+      }
+    ]
+  },
+  {
+    "id": "s2_5",
+    "type": "true-false",
+    "question": "Xét tính đúng sai của các mệnh đề sau:",
+    "subQuestions": [
+      {
+        "label": "a",
+        "text": "∀x ∈ ℝ, ∀y ∈ ℝ, x + y = 1.",
+        "correctAnswer": "Sai"
+      },
+      {
+        "label": "b",
+        "text": "∃x ∈ ℝ, ∃y ∈ ℝ, x + y = 2.",
+        "correctAnswer": "Đúng"
+      },
+      {
+        "label": "c",
+        "text": "∃x ∈ ℝ, ∀y ∈ ℝ, y = xy.",
+        "correctAnswer": "Đúng"
+      },
+      {
+        "label": "d",
+        "text": "∀a ∈ ℝ, ∃b ∈ ℝ, a = 3b.",
+        "correctAnswer": "Sai"
+      }
+    ]
+  }
+],
+  "stage3": [
+    {
+      "id": "SA001",
+      "type": "short-answer",
+      "question": "Có bao nhiêu mệnh đề đúng trong các mệnh đề: (1) (-5)² = 25; (2) 5² + 12² = 13²; (3) ∀x ∈ ℝ, x² + 1 > 0; (4) ∃x ∈ ℝ, x² + 3 = 0?",
+      "answer": "3"
+    },
+    {
+      "id": "SA002",
+      "type": "short-answer",
+      "question": "Tìm giá trị lớn nhất của a để mệnh đề ∀x ∈ ℝ, x² - 2x + a > 0 đúng.",
+      "answer": "1"
+    },
+    {
+      "id": "SA003",
+      "type": "short-answer",
+      "question": "Có bao nhiêu số thực x thỏa mãn x² + x + 1 = 0?",
+      "answer": "0"
+    },
+    {
+      "id": "SA004",
+      "type": "short-answer",
+      "question": "Có bao nhiêu số nguyên n thỏa mãn n² = n?",
+      "answer": "2"
+    },
+    {
+      "id": "SA005",
+      "type": "short-answer",
+      "question": "Giá trị nhỏ nhất của x² + 4x + 5 là bao nhiêu?",
+      "answer": "1"
+    },
+    {
+      "id": "SA006",
+      "type": "short-answer",
+      "question": "Có bao nhiêu nghiệm thực của phương trình x² - 4x + 5 = 0?",
+      "answer": "0"
+    },
+    {
+      "id": "SA007",
+      "type": "short-answer",
+      "question": "Tìm số lượng giá trị nguyên của x thỏa mãn x² < 5.",
+      "answer": "5"
+    },
+    {
+      "id": "SA008",
+      "type": "short-answer",
+      "question": "Tìm giá trị nhỏ nhất của biểu thức x² - 6x + 10.",
+      "answer": "1"
+    },
+    {
+      "id": "SA009",
+      "type": "short-answer",
+      "question": "Có bao nhiêu nghiệm thực của phương trình x² - 2 = 0?",
+      "answer": "2"
+    },
+    {
+      "id": "SA010",
+      "type": "short-answer",
+      "question": "Tìm số lượng số nguyên n thỏa mãn n² ≤ 9.",
+      "answer": "7"
+    }
+  ]
+}

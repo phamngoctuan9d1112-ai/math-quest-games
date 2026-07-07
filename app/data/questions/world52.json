@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "kg_s1_1",
+      "type": "multiple-choice",
+      "question": "Khoảng cách từ một điểm đến một mặt phẳng là",
+      "options": [
+        "Độ dài đoạn thẳng bất kỳ nối điểm với mặt phẳng",
+        "Độ dài đoạn vuông góc từ điểm đến mặt phẳng",
+        "Khoảng cách lớn nhất từ điểm đến mặt phẳng",
+        "Một số không xác định"
+      ],
+      "answer": "Độ dài đoạn vuông góc từ điểm đến mặt phẳng"
+    },
+    {
+      "id": "kg_s1_2",
+      "type": "multiple-choice",
+      "question": "Khoảng cách từ điểm M nằm trên mặt phẳng (P) đến (P) bằng",
+      "options": [
+        "1",
+        "0",
+        "Không xác định",
+        "Phụ thuộc M"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": "kg_s1_3",
+      "type": "multiple-choice",
+      "question": "Khoảng cách giữa hai mặt phẳng song song là",
+      "options": [
+        "Khoảng cách từ một điểm bất kỳ của mặt phẳng này đến mặt phẳng kia",
+        "Khoảng cách lớn nhất giữa hai mặt phẳng",
+        "Khoảng cách từ giao điểm của chúng",
+        "Luôn bằng 0"
+      ],
+      "answer": "Khoảng cách từ một điểm bất kỳ của mặt phẳng này đến mặt phẳng kia"
+    },
+    {
+      "id": "kg_s1_4",
+      "type": "multiple-choice",
+      "question": "Khoảng cách giữa đường thẳng a song song với mặt phẳng (P) là",
+      "options": [
+        "Khoảng cách từ một điểm bất kỳ trên a đến (P)",
+        "Khoảng cách giữa hai điểm thuộc a",
+        "Khoảng cách từ giao điểm đến (P)",
+        "Luôn bằng 0"
+      ],
+      "answer": "Khoảng cách từ một điểm bất kỳ trên a đến (P)"
+    },
+    {
+      "id": "kg_s1_5",
+      "type": "multiple-choice",
+      "question": "Khoảng cách giữa hai đường thẳng song song là",
+      "options": [
+        "Độ dài đoạn vuông góc chung",
+        "Khoảng cách giữa hai điểm bất kỳ",
+        "Tổng độ dài hai đường thẳng",
+        "Luôn bằng 0"
+      ],
+      "answer": "Độ dài đoạn vuông góc chung"
+    },
+    {
+      "id": "kg_s1_6",
+      "type": "multiple-choice",
+      "question": "Trong hình chóp S.ABC có SA ⊥ (ABC), khoảng cách từ S đến (ABC) bằng",
+      "options": [
+        "SA",
+        "SB",
+        "SC",
+        "AH"
+      ],
+      "answer": "SA"
+    },
+    {
+      "id": "kg_s1_7",
+      "type": "multiple-choice",
+      "question": "Trong hình lập phương cạnh a, khoảng cách giữa hai mặt đáy bằng",
+      "options": [
+        "a",
+        "a√2",
+        "a√3",
+        "2a"
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "kg_s1_8",
+      "type": "multiple-choice",
+      "question": "Khoảng cách từ điểm đến đường thẳng là",
+      "options": [
+        "Độ dài đoạn vuông góc kẻ từ điểm đến đường thẳng",
+        "Độ dài đoạn nối bất kỳ",
+        "Độ dài lớn nhất",
+        "Độ dài nhỏ nhất giữa hai điểm"
+      ],
+      "answer": "Độ dài đoạn vuông góc kẻ từ điểm đến đường thẳng"
+    },
+    {
+      "id": "kg_s1_9",
+      "type": "multiple-choice",
+      "question": "Khoảng cách giữa hai đường thẳng chéo nhau là",
+      "options": [
+        "Độ dài đoạn vuông góc chung",
+        "Khoảng cách giữa hai đầu mút",
+        "Độ dài giao tuyến",
+        "Luôn bằng 0"
+      ],
+      "answer": "Độ dài đoạn vuông góc chung"
+    },
+    {
+      "id": "kg_s1_10",
+      "type": "multiple-choice",
+      "question": "Trong hình hộp chữ nhật có chiều cao h, khoảng cách giữa hai mặt đáy bằng",
+      "options": [
+        "h",
+        "2h",
+        "h/2",
+        "√h"
+      ],
+      "answer": "h"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "kg_s2_1",
+      "type": "true-false",
+      "question": "Xét khoảng cách từ điểm đến mặt phẳng.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Khoảng cách từ điểm đến mặt phẳng luôn không âm.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nếu điểm thuộc mặt phẳng thì khoảng cách bằng 0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Khoảng cách được đo theo đoạn vuông góc.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Mọi đoạn nối từ điểm đến mặt phẳng đều là khoảng cách.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "kg_s2_2",
+      "type": "true-false",
+      "question": "Xét khoảng cách giữa hai đường thẳng.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hai đường thẳng song song luôn có khoảng cách xác định.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hai đường thẳng cắt nhau có khoảng cách bằng 0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Khoảng cách giữa hai đường thẳng chéo nhau là độ dài đoạn vuông góc chung.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hai đường thẳng chéo nhau luôn có khoảng cách bằng 0.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "kg_s2_3",
+      "type": "true-false",
+      "question": "Xét khoảng cách trong hình không gian.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Khoảng cách giữa hai mặt phẳng song song là không đổi.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Khoảng cách giữa đường thẳng và mặt phẳng song song được tính từ mọi điểm trên đường thẳng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Khoảng cách giữa hai mặt phẳng cắt nhau bằng 0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hai mặt phẳng song song có khoảng cách bằng 0.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "kg_s3_1",
+      "type": "short-answer",
+      "question": "Khoảng cách từ một điểm nằm trên mặt phẳng đến mặt phẳng đó bằng bao nhiêu?",
+      "answer": "0",
+      "explanation": "Điểm thuộc mặt phẳng nên chân đường vuông góc trùng với chính điểm đó, khoảng cách bằng 0."
+    },
+    {
+      "id": "kg_s3_2",
+      "type": "short-answer",
+      "question": "Trong hình lập phương cạnh 5 cm, khoảng cách giữa hai mặt đáy bằng bao nhiêu?",
+      "answer": "5",
+      "explanation": "Khoảng cách giữa hai mặt đáy chính là chiều cao của hình lập phương, bằng cạnh 5 cm."
+    },
+    {
+      "id": "kg_s3_3",
+      "type": "short-answer",
+      "question": "Trong hình chóp S.ABC có SA ⊥ (ABC) và SA = 8 cm. Tính khoảng cách từ S đến mặt phẳng (ABC).",
+      "answer": "8",
+      "explanation": "Vì SA vuông góc với mặt phẳng đáy nên khoảng cách từ S đến (ABC) bằng SA = 8 cm."
+    },
+    {
+      "id": "kg_s3_4",
+      "type": "short-answer",
+      "question": "Hai đường thẳng cắt nhau có khoảng cách bằng bao nhiêu?",
+      "answer": "0",
+      "explanation": "Hai đường thẳng cắt nhau có điểm chung nên khoảng cách giữa chúng bằng 0."
+    },
+    {
+      "id": "kg_s3_5",
+      "type": "short-answer",
+      "question": "Trong hình hộp chữ nhật có chiều cao 12 cm. Khoảng cách giữa hai mặt đáy bằng bao nhiêu?",
+      "answer": "12",
+      "explanation": "Khoảng cách giữa hai mặt đáy song song bằng chiều cao của hình hộp chữ nhật."
+    }
+  ]
+}

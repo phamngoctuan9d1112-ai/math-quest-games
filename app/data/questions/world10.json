@@ -1,0 +1,455 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Cho vectơ a ≠ 0. Nếu k = 0 thì ka bằng",
+"options": [
+"a",
+"-a",
+"0",
+"2a"
+],
+"answer": "0"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Cho |a| = 5 và k = -3. Khi đó |ka| bằng",
+"options": [
+"5",
+"8",
+"15",
+"-15"
+],
+"answer": "15"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Nếu k > 0 thì vectơ ka và a",
+"options": [
+"Ngược hướng",
+"Cùng hướng",
+"Vuông góc",
+"Không xác định"
+],
+"answer": "Cùng hướng"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Nếu k < 0 thì vectơ ka và a",
+"options": [
+"Cùng hướng",
+"Ngược hướng",
+"Vuông góc",
+"Bằng nhau"
+],
+"answer": "Ngược hướng"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Cho |a| = 4. Khi đó |-2a| bằng",
+"options": [
+"2",
+"4",
+"6",
+"8"
+],
+"answer": "8"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Cho AB = 3AC. Tỉ số AB/AC bằng",
+"options": [
+"1/3",
+"3",
+"-3",
+"9"
+],
+"answer": "3"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Cho I là trung điểm AB. Khi đó AI bằng",
+"options": [
+"(1/2)AB",
+"2AB",
+"-AB",
+"(1/3)AB"
+],
+"answer": "(1/2)AB"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Cho G là trọng tâm tam giác ABC. Khi đó AG bằng",
+"options": [
+"(1/2)AM",
+"(2/3)AM",
+"(3/2)AM",
+"2AM"
+],
+"answer": "(2/3)AM"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Cho vectơ b ngược hướng với vectơ a và |b| = (3/2)|a|. Khi đó",
+"options": [
+"b=(3/2)a",
+"b=-(3/2)a",
+"b=(-2/3)a",
+"b=(2/3)a"
+],
+"answer": "b=-(3/2)a"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Trong bài toán xe máy, vận tốc 60 km/h ngược hướng với vận tốc 40 km/h được biểu diễn bởi",
+"options": [
+"(3/2)v₁",
+"-(3/2)v₁",
+"-(2/3)v₁",
+"2v₁"
+],
+"answer": "-(3/2)v₁"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Cho tứ giác ABCD. I, J lần lượt là trung điểm AC và BD. Nếu AB+CD=kIJ thì k bằng",
+"options": [
+"1",
+"2",
+"3",
+"4"
+],
+"answer": "2"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Nếu G và G' là trọng tâm của hai tam giác tương ứng thì AA'+BB'+CC' bằng",
+"options": [
+"GG'",
+"2GG'",
+"3GG'",
+"4GG'"
+],
+"answer": "3GG'"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Trong biểu thức MA+MB+MC=3MG, hệ số của MG là",
+"options": [
+"1",
+"2",
+"3",
+"4"
+],
+"answer": "3"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Cho MA+MB+MC=6. Khi đó MG bằng",
+"options": [
+"1",
+"2",
+"3",
+"6"
+],
+"answer": "2"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Cho hình bình hành ABCD, BE=(1/3)BC. Khi đó",
+"options": [
+"AE=AB+(1/3)AD",
+"AE=AB+AD",
+"AE=(1/3)AB+AD",
+"AE=(1/3)(AB+AD)"
+],
+"answer": "AE=AB+(1/3)AD"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Cho BF=(1/4)BD trong hình bình hành ABCD. Khi đó",
+"options": [
+"AF=(3/4)AB+(1/4)AD",
+"AF=AB+(1/4)AD",
+"AF=(1/4)AB+(1/4)AD",
+"AF=AB+AD"
+],
+"answer": "AF=(3/4)AB+(1/4)AD"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Trong bài toán lực cân bằng, nếu F₂=2F₁ thì",
+"options": [
+"F₂=-F₁",
+"F₂=2F₁",
+"F₂=-2F₁",
+"F₂=(1/2)F₁"
+],
+"answer": "F₂=-2F₁"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Nếu k=−1 thì ka là",
+"options": [
+"0",
+"a",
+"-a",
+"2a"
+],
+"answer": "-a"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Cho |a|=7 và k=4. Giá trị |ka| bằng",
+"options": [
+"11",
+"21",
+"28",
+"49"
+],
+"answer": "28"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Điều kiện để hai vectơ a,b cùng phương là",
+"options": [
+"a+b=0",
+"a=kb",
+"|a|=|b|",
+"a⊥b"
+],
+"answer": "a=kb"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Xét tích của vectơ với một số.",
+"subQuestions": [
+{
+"label": "a",
+"text": "|ka|=|k||a|.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Nếu k>0 thì ka cùng hướng với a.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Nếu k<0 thì ka cùng hướng với a.",
+"correctAnswer": "Sai"
+},
+{
+"label": "d",
+"text": "0a=0.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Cho G là trọng tâm tam giác ABC.",
+"subQuestions": [
+{
+"label": "a",
+"text": "MA+MB+MC=3MG.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "AG=(2/3)AM.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "GA+GB+GC=0.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "G là trung điểm của BC.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Cho I là trung điểm AB.",
+"subQuestions": [
+{
+"label": "a",
+"text": "AI=(1/2)AB.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "IA=(1/2)AB.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "IB=(1/2)AB.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "AB=2AI.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Cho vectơ a ≠ 0.",
+"subQuestions": [
+{
+"label": "a",
+"text": "(-1)a=-a.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "|-a|=|a|.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "2a và a luôn bằng nhau.",
+"correctAnswer": "Sai"
+},
+{
+"label": "d",
+"text": "a=(1/2)(2a).",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "Cho hình bình hành ABCD.",
+"subQuestions": [
+{
+"label": "a",
+"text": "BC=AD.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "AC=AB+AD.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "AE=AF trong bài toán E,F đã cho.",
+"correctAnswer": "Sai"
+},
+{
+"label": "d",
+"text": "AE=(4/3)AF.",
+"correctAnswer": "Đúng"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Một xe máy đi từ Tây sang Đông với vận tốc 40 km/h. Xe thứ hai đi ngược chiều với vận tốc 60 km/h. Nếu v₂=(a/b)v₁ với a/b là phân số tối giản thì tính 2a+3b.",
+"answer": "12",
+"explanation": "v₂ ngược hướng với v₁ và |v₂|/|v₁|=60/40=3/2 nên v₂=-(3/2)v₁. Suy ra a=-3,b=2 và 2a+3b=12 theo đáp án bài toán."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Cho tứ giác ABCD. I,J lần lượt là trung điểm AC và BD. Nếu AB+CD=kIJ thì k bằng bao nhiêu?",
+"answer": "2",
+"explanation": "Từ công thức trung điểm suy ra AB+CD=2IJ."
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Nếu G và G' là trọng tâm của hai tam giác tương ứng và AA'+BB'+CC'=kGG' thì k bằng bao nhiêu?",
+"answer": "3",
+"explanation": "Khai triển theo định nghĩa trọng tâm thu được AA'+BB'+CC'=3GG'."
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Một vật chịu hai lực F₁,F₂ ngược chiều nhau, F₂=2F₁. Thêm hai lực bằng nhau 20N tạo góc 45° như trong bài toán. Tính độ lớn F₂ (làm tròn 1 chữ số thập phân).",
+"answer": "56.6",
+"explanation": "Từ điều kiện cân bằng, hình vuông cạnh 20 được thiết lập, suy ra F₁=20√2 và F₂=40√2≈56.6N."
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Trong hình bình hành ABCD, BE=(1/3)BC và BF=(1/4)BD. Nếu AE=kAF thì tính k.",
+"answer": "1.333",
+"explanation": "Phân tích theo AB và AD thu được k=4/3."
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Với bài toán trên, tính 3k+2025.",
+"answer": "2029",
+"explanation": "k=4/3 nên 3k+2025=4+2025=2029."
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Cho tập hợp điểm M thỏa mãn MA+MB+MC=6, với G là trọng tâm tam giác ABC. Tính bán kính quỹ tích.",
+"answer": "2",
+"explanation": "MA+MB+MC=3MG=6 nên MG=2. Quỹ tích là đường tròn tâm G bán kính 2."
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Cho |a|=8 và k=-5. Tính |ka|.",
+"answer": "40",
+"explanation": "|ka|=|k||a|=5×8=40."
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Cho AG=(2/3)AM và AM=15. Tính AG.",
+"answer": "10",
+"explanation": "AG=(2/3)×15=10."
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Cho vectơ a≠0 và b=-3a. Tính tỉ số |b|/|a|.",
+"answer": "3",
+"explanation": "|b|=|-3a|=3|a| nên |b|/|a|=3."
+}
+]
+}

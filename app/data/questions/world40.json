@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "hmpss_s1_1",
+      "type": "multiple-choice",
+      "question": "Hai mặt phẳng phân biệt được gọi là song song khi",
+      "options": [
+        "Chúng có một điểm chung",
+        "Chúng có một đường thẳng chung",
+        "Chúng không có điểm chung",
+        "Chúng vuông góc với nhau"
+      ],
+      "answer": "Chúng không có điểm chung"
+    },
+    {
+      "id": "hmpss_s1_2",
+      "type": "multiple-choice",
+      "question": "Nếu hai mặt phẳng cùng song song với một mặt phẳng thứ ba thì",
+      "options": [
+        "Chúng cắt nhau",
+        "Chúng song song với nhau",
+        "Chúng vuông góc",
+        "Không kết luận được"
+      ],
+      "answer": "Chúng song song với nhau"
+    },
+    {
+      "id": "hmpss_s1_3",
+      "type": "multiple-choice",
+      "question": "Qua một điểm nằm ngoài mặt phẳng (P), có bao nhiêu mặt phẳng song song với (P)?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "Vô số"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": "hmpss_s1_4",
+      "type": "multiple-choice",
+      "question": "Nếu mặt phẳng (α) song song với mặt phẳng (β) thì",
+      "options": [
+        "(α) và (β) có một điểm chung",
+        "(α) và (β) có một đường thẳng chung",
+        "(α) và (β) không có điểm chung",
+        "(α) cắt (β)"
+      ],
+      "answer": "(α) và (β) không có điểm chung"
+    },
+    {
+      "id": "hmpss_s1_5",
+      "type": "multiple-choice",
+      "question": "Nếu hai mặt phẳng phân biệt cùng chứa hai đường thẳng song song thì",
+      "options": [
+        "Luôn song song",
+        "Luôn cắt nhau",
+        "Có thể song song",
+        "Luôn vuông góc"
+      ],
+      "answer": "Có thể song song"
+    },
+    {
+      "id": "hmpss_s1_6",
+      "type": "multiple-choice",
+      "question": "Trong hình hộp ABCD.A'B'C'D', mặt phẳng (ABCD) song song với",
+      "options": [
+        "(ABB'A')",
+        "(BCC'B')",
+        "(A'B'C'D')",
+        "(ADD'A')"
+      ],
+      "answer": "(A'B'C'D')"
+    },
+    {
+      "id": "hmpss_s1_7",
+      "type": "multiple-choice",
+      "question": "Nếu hai mặt phẳng song song thì mọi đường thẳng nằm trong mặt phẳng này",
+      "options": [
+        "Song song với mặt phẳng kia",
+        "Vuông góc mặt phẳng kia",
+        "Cắt mặt phẳng kia",
+        "Không xác định"
+      ],
+      "answer": "Song song với mặt phẳng kia"
+    },
+    {
+      "id": "hmpss_s1_8",
+      "type": "multiple-choice",
+      "question": "Thiết diện của hình lăng trụ bởi mặt phẳng song song với đáy là",
+      "options": [
+        "Một đa giác bằng đáy",
+        "Một điểm",
+        "Một đoạn thẳng",
+        "Một đường tròn"
+      ],
+      "answer": "Một đa giác bằng đáy"
+    },
+    {
+      "id": "hmpss_s1_9",
+      "type": "multiple-choice",
+      "question": "Trong hình hộp, có bao nhiêu cặp mặt đối diện song song?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "answer": "3"
+    },
+    {
+      "id": "hmpss_s1_10",
+      "type": "multiple-choice",
+      "question": "Nếu (P) // (Q) và (Q) // (R) thì",
+      "options": [
+        "(P) cắt (R)",
+        "(P) ⟂ (R)",
+        "(P) // (R)",
+        "Không kết luận được"
+      ],
+      "answer": "(P) // (R)"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "hmpss_s2_1",
+      "type": "true-false",
+      "question": "Xét các tính chất của hai mặt phẳng song song.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hai mặt phẳng song song không có điểm chung.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nếu hai mặt phẳng cùng song song với mặt phẳng thứ ba thì chúng song song với nhau.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hai mặt phẳng song song có thể cắt nhau.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Qua một điểm ngoài mặt phẳng chỉ có một mặt phẳng song song với mặt phẳng đó.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "hmpss_s2_2",
+      "type": "true-false",
+      "question": "Xét hình hộp ABCD.A'B'C'D'.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "(ABCD) // (A'B'C'D').",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "(ABB'A') // (CDD'C').",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "(BCC'B') // (ADD'A').",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "(ABCD) cắt (A'B'C'D').",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "hmpss_s2_3",
+      "type": "true-false",
+      "question": "Xét thiết diện tạo bởi mặt phẳng song song.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Mặt phẳng song song đáy hình lăng trụ tạo thiết diện bằng đáy.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Mặt phẳng song song đáy hình hộp tạo thiết diện bằng đáy.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Thiết diện luôn là một đa giác.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hai mặt phẳng song song luôn có một giao tuyến.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "hmpss_s3_1",
+      "type": "short-answer",
+      "question": "Qua một điểm nằm ngoài mặt phẳng (P), có bao nhiêu mặt phẳng song song với (P)?",
+      "answer": "1",
+      "explanation": "Theo định lý về hai mặt phẳng song song, qua một điểm ngoài mặt phẳng chỉ có duy nhất một mặt phẳng song song với mặt phẳng đã cho."
+    },
+    {
+      "id": "hmpss_s3_2",
+      "type": "short-answer",
+      "question": "Trong hình hộp có bao nhiêu cặp mặt đối diện song song?",
+      "answer": "3",
+      "explanation": "Hình hộp có 6 mặt, tạo thành 3 cặp mặt đối diện song song."
+    },
+    {
+      "id": "hmpss_s3_3",
+      "type": "short-answer",
+      "question": "Hai mặt phẳng song song có bao nhiêu điểm chung?",
+      "answer": "0",
+      "explanation": "Hai mặt phẳng phân biệt song song không có điểm chung."
+    },
+    {
+      "id": "hmpss_s3_4",
+      "type": "short-answer",
+      "question": "Nếu (P)//(Q) và (Q)//(R) thì có bao nhiêu cặp mặt phẳng song song trong ba mặt phẳng đó?",
+      "answer": "3",
+      "explanation": "Ta có (P)//(Q), (Q)//(R) và suy ra (P)//(R). Vậy có 3 cặp mặt phẳng song song."
+    },
+    {
+      "id": "hmpss_s3_5",
+      "type": "short-answer",
+      "question": "Một hình hộp có bao nhiêu mặt?",
+      "answer": "6",
+      "explanation": "Hình hộp được giới hạn bởi 6 mặt là các hình bình hành."
+    }
+  ]
+}

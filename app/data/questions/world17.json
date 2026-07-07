@@ -1,0 +1,455 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Phương trình x⁴−5x²+4=0 thuộc dạng",
+"options": [
+"Phương trình bậc nhất",
+"Phương trình quy về bậc hai",
+"Phương trình vô tỉ",
+"Phương trình lượng giác"
+],
+"answer": "Phương trình quy về bậc hai"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Đặt t=x² (t≥0), phương trình x⁴−5x²+4=0 trở thành",
+"options": [
+"t²−5t+4=0",
+"t²+5t+4=0",
+"t²−4t+5=0",
+"t²+4t−5=0"
+],
+"answer": "t²−5t+4=0"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Số nghiệm của phương trình x⁴−5x²+4=0 là",
+"options": [
+"1",
+"2",
+"3",
+"4"
+],
+"answer": "4"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Nghiệm của phương trình x⁴−5x²+4=0 là",
+"options": [
+"±1, ±2",
+"±1",
+"±2",
+"1, 2"
+],
+"answer": "±1, ±2"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Đặt t=x+1/x (x≠0), phương trình x²+1/x²=7 tương đương với",
+"options": [
+"t²−2=7",
+"t²+2=7",
+"t²−7=0",
+"t²+7=0"
+],
+"answer": "t²−2=7"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Điều kiện xác định của phương trình x²+5+4/x²=0 là",
+"options": [
+"x≥0",
+"x≠0",
+"x>0",
+"Mọi x∈R"
+],
+"answer": "x≠0"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Phương trình x⁶−13x³+36=0, đặt t=x³, ta được",
+"options": [
+"t²−13t+36=0",
+"t²+13t+36=0",
+"t²−36t+13=0",
+"t²−13t−36=0"
+],
+"answer": "t²−13t+36=0"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Nghiệm của phương trình x⁶−13x³+36=0 thỏa mãn",
+"options": [
+"x³=4 hoặc x³=9",
+"x³=3 hoặc x³=12",
+"x³=2 hoặc x³=18",
+"x³=1 hoặc x³=36"
+],
+"answer": "x³=4 hoặc x³=9"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Phương trình (x²−3x)²−5(x²−3x)+6=0. Đặt t=x²−3x, ta được",
+"options": [
+"t²−5t+6=0",
+"t²+5t+6=0",
+"t²−6t+5=0",
+"t²+6t−5=0"
+],
+"answer": "t²−5t+6=0"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Số nghiệm thực của phương trình x⁴−2x²+1=0 là",
+"options": [
+"1",
+"2",
+"3",
+"4"
+],
+"answer": "2"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Phương trình x⁴−10x²+9=0 có các giá trị của x² là",
+"options": [
+"1 và 9",
+"3 và 3",
+"−1 và −9",
+"0 và 10"
+],
+"answer": "1 và 9"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Tổng các nghiệm của phương trình x⁴−5x²+4=0 bằng",
+"options": [
+"0",
+"2",
+"4",
+"−2"
+],
+"answer": "0"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Phương trình x⁴+5x²+4=0 có số nghiệm thực là",
+"options": [
+"0",
+"1",
+"2",
+"4"
+],
+"answer": "0"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Nếu đặt t=x²+1/x² thì điều kiện của t là",
+"options": [
+"t≥2",
+"t≥0",
+"t>0",
+"t≤2"
+],
+"answer": "t≥2"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Phương trình x⁴−13x²+36=0 có bao nhiêu nghiệm thực?",
+"options": [
+"2",
+"3",
+"4",
+"6"
+],
+"answer": "4"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Đặt t=x−1/x. Khi đó",
+"options": [
+"t²=x²+1/x²−2",
+"t²=x²+1/x²+2",
+"t²=x²−1/x²",
+"t²=x²+1/x²"
+],
+"answer": "t²=x²+1/x²−2"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Phương pháp chủ yếu để giải phương trình quy về bậc hai là",
+"options": [
+"Đặt ẩn phụ",
+"Biến đổi logarit",
+"Đạo hàm",
+"Vẽ đồ thị"
+],
+"answer": "Đặt ẩn phụ"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Phương trình x⁴=16 có số nghiệm thực là",
+"options": [
+"1",
+"2",
+"3",
+"4"
+],
+"answer": "2"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Phương trình x⁴−6x²+9=0 tương đương",
+"options": [
+"(x²−3)²=0",
+"(x²+3)²=0",
+"(x²−9)²=0",
+"(x−3)²=0"
+],
+"answer": "(x²−3)²=0"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Phương trình x⁴−x²=0 có nghiệm",
+"options": [
+"0; ±1",
+"±1",
+"0",
+"±2"
+],
+"answer": "0; ±1"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Cho phương trình x⁴−5x²+4=0.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Đặt t=x².",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Phương trình theo t là t²−5t+4=0.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Các giá trị của t là 1 và 4.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Phương trình có 2 nghiệm thực.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Cho phương trình x⁴+5x²+4=0.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Đặt t=x².",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Phương trình theo t có nghiệm âm.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Phương trình có nghiệm thực.",
+"correctAnswer": "Sai"
+},
+{
+"label": "d",
+"text": "Số nghiệm thực bằng 0.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Cho phương trình x⁶−13x³+36=0.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Đặt t=x³.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Phương trình theo t là t²−13t+36=0.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "t=4 hoặc t=9.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Phương trình vô nghiệm.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Xét biểu thức t=x+1/x (x≠0).",
+"subQuestions": [
+{
+"label": "a",
+"text": "t²=x²+1/x²+2.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "x²+1/x²=t²−2.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "t có thể bằng 0.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Phương pháp đặt ẩn phụ thường dùng cho dạng này.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "Cho phương trình x⁴−10x²+9=0.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Các giá trị của x² là 1 và 9.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Phương trình có 4 nghiệm thực.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Các nghiệm là ±1, ±3.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Tổng các nghiệm bằng 4.",
+"correctAnswer": "Sai"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Giải phương trình x⁴−5x²+4=0. Hỏi có bao nhiêu nghiệm thực?",
+"answer": "4",
+"explanation": "Đặt t=x²≥0. Ta có t²−5t+4=0 ⇒ t=1 hoặc t=4. Suy ra x=±1, ±2 nên có 4 nghiệm thực."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Tính tổng các nghiệm của phương trình x⁴−5x²+4=0.",
+"answer": "0",
+"explanation": "Các nghiệm là −2, −1, 1, 2 nên tổng bằng 0."
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Tính tích các nghiệm của phương trình x⁴−5x²+4=0.",
+"answer": "4",
+"explanation": "(-2)(-1)(1)(2)=4."
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Giải phương trình x⁶−13x³+36=0. Tính tổng các giá trị của x³.",
+"answer": "13",
+"explanation": "Đặt t=x³. Khi đó t²−13t+36=0 ⇒ t=4 hoặc t=9. Tổng bằng 13."
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Cho phương trình x⁴−10x²+9=0. Tính tổng các nghiệm dương.",
+"answer": "4",
+"explanation": "x²=1 hoặc x²=9 ⇒ nghiệm dương là 1 và 3. Tổng bằng 4."
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Cho x²+1/x²=7 (x≠0). Tính giá trị của x+1/x lớn hơn 0.",
+"answer": "3",
+"explanation": "Đặt t=x+1/x. Khi đó t²−2=7 ⇒ t²=9 ⇒ t=±3. Giá trị dương là 3."
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Phương trình x⁴+5x²+4=0 có bao nhiêu nghiệm thực?",
+"answer": "0",
+"explanation": "Đặt t=x²≥0. Khi đó t²+5t+4=0 ⇒ t=-1 hoặc t=-4, không thỏa t≥0 nên vô nghiệm thực."
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Cho phương trình x⁴−x²=0. Có bao nhiêu nghiệm thực phân biệt?",
+"answer": "3",
+"explanation": "x²(x²−1)=0 ⇒ x=0, x=±1. Có 3 nghiệm phân biệt."
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Cho phương trình (x²−3x)²−5(x²−3x)+6=0. Tính tổng các giá trị của x²−3x.",
+"answer": "5",
+"explanation": "Đặt t=x²−3x. Khi đó t²−5t+6=0 ⇒ t=2 hoặc t=3. Tổng bằng 5."
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Cho phương trình (x−1/x)²=7 (x≠0). Tính giá trị dương của x−1/x.",
+"answer": "√7",
+"explanation": "Đặt t=x−1/x. Khi đó t²=7 ⇒ t=±√7. Giá trị dương là √7."
+}
+]
+}

@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "uddh_s1_1",
+      "type": "multiple-choice",
+      "question": "Trong các bài toán tối ưu, đạo hàm thường được sử dụng để",
+      "options": [
+        "Giải phương trình",
+        "Tìm giá trị lớn nhất hoặc nhỏ nhất",
+        "Tính nguyên hàm",
+        "Khảo sát tính chẵn lẻ"
+      ],
+      "answer": "Tìm giá trị lớn nhất hoặc nhỏ nhất"
+    },
+    {
+      "id": "uddh_s1_2",
+      "type": "multiple-choice",
+      "question": "Nếu hàm số biểu diễn chi phí đạt giá trị nhỏ nhất thì đó là bài toán",
+      "options": [
+        "Tối đa hóa",
+        "Tối thiểu hóa",
+        "Khảo sát hàm số",
+        "Giải tích phân"
+      ],
+      "answer": "Tối thiểu hóa"
+    },
+    {
+      "id": "uddh_s1_3",
+      "type": "multiple-choice",
+      "question": "Trong bài toán làm hộp không nắp từ tấm bìa, đại lượng cần tối ưu thường là",
+      "options": [
+        "Chu vi",
+        "Diện tích đáy",
+        "Thể tích",
+        "Chiều cao"
+      ],
+      "answer": "Thể tích"
+    },
+    {
+      "id": "uddh_s1_4",
+      "type": "multiple-choice",
+      "question": "Trong bài toán làm hàng rào, mục tiêu thường là",
+      "options": [
+        "Tìm diện tích lớn nhất",
+        "Tìm chu vi nhỏ nhất",
+        "Tìm chiều dài nhỏ nhất",
+        "Tìm số nghiệm"
+      ],
+      "answer": "Tìm diện tích lớn nhất"
+    },
+    {
+      "id": "uddh_s1_5",
+      "type": "multiple-choice",
+      "question": "Để tìm cực trị của hàm số y=f(x), ta thường giải phương trình",
+      "options": [
+        "f(x)=0",
+        "f'(x)=0",
+        "f''(x)=0",
+        "f(x)=1"
+      ],
+      "answer": "f'(x)=0"
+    },
+    {
+      "id": "uddh_s1_6",
+      "type": "multiple-choice",
+      "question": "Một hình chữ nhật có chu vi không đổi. Diện tích lớn nhất khi hình chữ nhật là",
+      "options": [
+        "Hình vuông",
+        "Hình thang",
+        "Hình bình hành",
+        "Hình thoi bất kỳ"
+      ],
+      "answer": "Hình vuông"
+    },
+    {
+      "id": "uddh_s1_7",
+      "type": "multiple-choice",
+      "question": "Trong bài toán tối ưu thực tế, sau khi lập hàm số cần tối ưu ta phải",
+      "options": [
+        "Tính nguyên hàm",
+        "Khảo sát cực trị của hàm số",
+        "Vẽ đồ thị chính xác",
+        "Giải bất phương trình"
+      ],
+      "answer": "Khảo sát cực trị của hàm số"
+    },
+    {
+      "id": "uddh_s1_8",
+      "type": "multiple-choice",
+      "question": "Nếu doanh thu được biểu diễn bởi hàm R(x), lợi nhuận lớn nhất thường đạt được khi",
+      "options": [
+        "R(x) đạt cực đại",
+        "Chi phí cực đại",
+        "R(x)=0",
+        "Chi phí bằng doanh thu"
+      ],
+      "answer": "R(x) đạt cực đại"
+    },
+    {
+      "id": "uddh_s1_9",
+      "type": "multiple-choice",
+      "question": "Trong các bài toán tối ưu, nghiệm tìm được phải",
+      "options": [
+        "Thuộc miền xác định của bài toán",
+        "Là số nguyên",
+        "Là số dương",
+        "Luôn là nghiệm của f''(x)=0"
+      ],
+      "answer": "Thuộc miền xác định của bài toán"
+    },
+    {
+      "id": "uddh_s1_10",
+      "type": "multiple-choice",
+      "question": "Đạo hàm là công cụ quan trọng nhất để",
+      "options": [
+        "Tìm giới hạn",
+        "Xét sự biến thiên và cực trị",
+        "Tính xác suất",
+        "Giải phương trình bậc hai"
+      ],
+      "answer": "Xét sự biến thiên và cực trị"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "uddh_s2_1",
+      "type": "true-false",
+      "question": "Xét các nhận định về bài toán tối ưu.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Bài toán tối ưu thường quy về tìm GTLN hoặc GTNN của một hàm số.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Đạo hàm giúp tìm điểm cực trị của hàm số.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Mọi nghiệm của f'(x)=0 đều là đáp án của bài toán thực tế.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Cần kiểm tra điều kiện thực tế sau khi tìm được nghiệm.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "uddh_s2_2",
+      "type": "true-false",
+      "question": "Xét bài toán làm hộp không nắp từ tấm bìa hình vuông.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Thể tích của hộp phụ thuộc vào kích thước hình vuông bị cắt ở các góc.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Có thể dùng đạo hàm để tìm thể tích lớn nhất.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Mọi giá trị của x đều phù hợp với bài toán.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Đây là một bài toán tối đa hóa.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "uddh_s2_3",
+      "type": "true-false",
+      "question": "Xét bài toán hàng rào và diện tích.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Diện tích thường được biểu diễn theo một biến số.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Sau khi lập hàm diện tích có thể dùng đạo hàm để tìm cực đại.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Không cần xét điều kiện của biến số.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Diện tích lớn nhất tương ứng với giá trị cực đại của hàm diện tích.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "uddh_s3_1",
+      "type": "short-answer",
+      "question": "Một hình chữ nhật có chu vi 20 m. Diện tích lớn nhất của hình chữ nhật bằng bao nhiêu mét vuông?",
+      "answer": "25",
+      "explanation": "Gọi chiều dài là x thì chiều rộng là 10−x. Diện tích S=x(10−x)=−x²+10x. Đỉnh parabol tại x=5 nên Smax=25 m²."
+    },
+    {
+      "id": "uddh_s3_2",
+      "type": "short-answer",
+      "question": "Một hình vuông có chu vi 40 cm. Tính diện tích của hình vuông.",
+      "answer": "100",
+      "explanation": "Cạnh hình vuông là 40:4=10 cm. Diện tích bằng 10²=100 cm²."
+    },
+    {
+      "id": "uddh_s3_3",
+      "type": "short-answer",
+      "question": "Một tấm bìa hình vuông cạnh 30 cm. Cắt bốn hình vuông cạnh x cm ở bốn góc rồi gấp thành hộp không nắp. Thể tích hộp được biểu diễn bởi V(x)=x(30−2x)². Tính V(5).",
+      "answer": "2000",
+      "explanation": "V(5)=5(30−10)²=5·20²=5·400=2000 cm³."
+    },
+    {
+      "id": "uddh_s3_4",
+      "type": "short-answer",
+      "question": "Một hình chữ nhật có chiều dài gấp đôi chiều rộng và diện tích bằng 72 m². Tính chiều rộng.",
+      "answer": "6",
+      "explanation": "Gọi chiều rộng là x, chiều dài là 2x. Khi đó 2x²=72 ⇒ x²=36 ⇒ x=6."
+    },
+    {
+      "id": "uddh_s3_5",
+      "type": "short-answer",
+      "question": "Một hình chữ nhật có chu vi 40 m. Tìm chiều dài khi diện tích đạt lớn nhất.",
+      "answer": "10",
+      "explanation": "Diện tích lớn nhất khi hình chữ nhật là hình vuông. Khi đó mỗi cạnh bằng 40:4=10 m."
+    }
+  ]
+}

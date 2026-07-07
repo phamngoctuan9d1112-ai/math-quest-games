@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "dtmpss_s1_1",
+      "type": "multiple-choice",
+      "question": "Nếu đường thẳng d song song với một đường thẳng nằm trong mặt phẳng (P) và d không thuộc (P) thì",
+      "options": [
+        "d song song với (P)",
+        "d cắt (P)",
+        "d nằm trong (P)",
+        "d vuông góc (P)"
+      ],
+      "answer": "d song song với (P)"
+    },
+    {
+      "id": "dtmpss_s1_2",
+      "type": "multiple-choice",
+      "question": "Để chứng minh đường thẳng d song song với mặt phẳng (P), thường chứng minh",
+      "options": [
+        "d vuông góc (P)",
+        "d song song một đường thẳng nằm trong (P)",
+        "d nằm trong (P)",
+        "d cắt (P)"
+      ],
+      "answer": "d song song một đường thẳng nằm trong (P)"
+    },
+    {
+      "id": "dtmpss_s1_3",
+      "type": "multiple-choice",
+      "question": "Nếu d // (P) thì",
+      "options": [
+        "d và (P) không có điểm chung",
+        "d nằm trong (P)",
+        "d cắt (P)",
+        "d vuông góc (P)"
+      ],
+      "answer": "d và (P) không có điểm chung"
+    },
+    {
+      "id": "dtmpss_s1_4",
+      "type": "multiple-choice",
+      "question": "Trong hình chóp S.ABCD có đáy ABCD là hình bình hành. Giao tuyến của (SAB) và (SBC) là",
+      "options": [
+        "SA",
+        "SB",
+        "SC",
+        "AB"
+      ],
+      "answer": "SB"
+    },
+    {
+      "id": "dtmpss_s1_5",
+      "type": "multiple-choice",
+      "question": "Hai mặt phẳng phân biệt cùng song song với một đường thẳng d thì",
+      "options": [
+        "Luôn cắt nhau",
+        "Có thể cắt nhau",
+        "Luôn song song",
+        "Luôn trùng nhau"
+      ],
+      "answer": "Có thể cắt nhau"
+    },
+    {
+      "id": "dtmpss_s1_6",
+      "type": "multiple-choice",
+      "question": "Thiết diện của hình chóp với một mặt phẳng thường là",
+      "options": [
+        "Một đa giác",
+        "Một đường thẳng",
+        "Một điểm",
+        "Một đường tròn"
+      ],
+      "answer": "Một đa giác"
+    },
+    {
+      "id": "dtmpss_s1_7",
+      "type": "multiple-choice",
+      "question": "Nếu một mặt phẳng cắt hình chóp và song song với đáy thì thiết diện thu được",
+      "options": [
+        "Đồng dạng với đáy",
+        "Vuông góc với đáy",
+        "Luôn là tam giác",
+        "Luôn là hình vuông"
+      ],
+      "answer": "Đồng dạng với đáy"
+    },
+    {
+      "id": "dtmpss_s1_8",
+      "type": "multiple-choice",
+      "question": "Trong không gian, qua một điểm ngoài mặt phẳng có bao nhiêu mặt phẳng song song với mặt phẳng đã cho?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "Vô số"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": "dtmpss_s1_9",
+      "type": "multiple-choice",
+      "question": "Nếu đường thẳng d song song với mặt phẳng (P) thì số điểm chung của d và (P) là",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "Vô số"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": "dtmpss_s1_10",
+      "type": "multiple-choice",
+      "question": "Trong tứ diện, mặt phẳng song song với hai cạnh đối thường tạo thiết diện là",
+      "options": [
+        "Hình bình hành",
+        "Tam giác",
+        "Hình vuông",
+        "Ngũ giác"
+      ],
+      "answer": "Hình bình hành"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "dtmpss_s2_1",
+      "type": "true-false",
+      "question": "Xét quan hệ đường thẳng và mặt phẳng song song.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu d // (P) thì d không có điểm chung với (P).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nếu d song song với một đường thẳng nằm trong (P) thì d // (P).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Đường thẳng nằm trong mặt phẳng vẫn được coi là song song với mặt phẳng đó.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Nếu d // (P) thì có vô số đường thẳng trong (P) song song với d.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "dtmpss_s2_2",
+      "type": "true-false",
+      "question": "Xét giao tuyến các mặt phẳng.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hai mặt phẳng phân biệt cắt nhau theo một đường thẳng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hai mặt phẳng song song không có điểm chung.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hai mặt phẳng bất kỳ đều có giao tuyến.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Giao tuyến của hai mặt phẳng là một đường thẳng.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "dtmpss_s2_3",
+      "type": "true-false",
+      "question": "Xét thiết diện.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Thiết diện là giao của khối đa diện với một mặt phẳng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Thiết diện của hình chóp luôn là tam giác.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "c",
+          "text": "Mặt phẳng song song đáy hình chóp tạo thiết diện đồng dạng với đáy.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Thiết diện luôn là một đa giác.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "dtmpss_s3_1",
+      "type": "short-answer",
+      "question": "Nếu đường thẳng d song song với mặt phẳng (P) thì d và (P) có bao nhiêu điểm chung?",
+      "answer": "0",
+      "explanation": "Đường thẳng song song mặt phẳng thì không có điểm chung với mặt phẳng đó."
+    },
+    {
+      "id": "dtmpss_s3_2",
+      "type": "short-answer",
+      "question": "Hai mặt phẳng phân biệt cắt nhau theo bao nhiêu đường thẳng?",
+      "answer": "1",
+      "explanation": "Hai mặt phẳng phân biệt nếu cắt nhau thì giao tuyến duy nhất là một đường thẳng."
+    },
+    {
+      "id": "dtmpss_s3_3",
+      "type": "short-answer",
+      "question": "Qua một điểm nằm ngoài mặt phẳng (P) có bao nhiêu mặt phẳng song song với (P)?",
+      "answer": "1",
+      "explanation": "Theo định lý, qua một điểm ngoài mặt phẳng chỉ có duy nhất một mặt phẳng song song với mặt phẳng đã cho."
+    },
+    {
+      "id": "dtmpss_s3_4",
+      "type": "short-answer",
+      "question": "Một thiết diện là giao của khối đa diện với bao nhiêu mặt phẳng?",
+      "answer": "1",
+      "explanation": "Thiết diện được tạo bởi giao của khối đa diện với một mặt phẳng."
+    },
+    {
+      "id": "dtmpss_s3_5",
+      "type": "short-answer",
+      "question": "Trong hình chóp, nếu mặt phẳng cắt song song với đáy thì thiết diện và đáy có quan hệ gì? (Trả lời: Đồng dạng)",
+      "answer": "Đồng dạng",
+      "explanation": "Mặt phẳng song song với đáy tạo ra thiết diện đồng dạng với đáy của hình chóp."
+    }
+  ]
+}

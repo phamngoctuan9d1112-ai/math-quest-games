@@ -1,0 +1,455 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Mốt của một mẫu số liệu là",
+"options": [
+"Giá trị lớn nhất",
+"Giá trị nhỏ nhất",
+"Giá trị xuất hiện nhiều nhất",
+"Giá trị trung bình"
+],
+"answer": "Giá trị xuất hiện nhiều nhất"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Trung vị của mẫu số liệu là",
+"options": [
+"Giá trị xuất hiện nhiều nhất",
+"Giá trị đứng giữa sau khi sắp xếp",
+"Giá trị lớn nhất",
+"Tổng các giá trị"
+],
+"answer": "Giá trị đứng giữa sau khi sắp xếp"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Cho mẫu số liệu: 2; 4; 5; 7; 12. Trung vị bằng",
+"options": [
+"4",
+"5",
+"6",
+"7"
+],
+"answer": "5"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Cho mẫu số liệu: 1; 2; 2; 3; 4; 5. Mốt bằng",
+"options": [
+"1",
+"2",
+"3",
+"Không có"
+],
+"answer": "2"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Cho mẫu số liệu: 10; 12; 15; 18. Trung vị bằng",
+"options": [
+"13",
+"13,5",
+"14",
+"15"
+],
+"answer": "13,5"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Tứ phân vị thứ hai Q₂ chính là",
+"options": [
+"Mốt",
+"Trung bình",
+"Trung vị",
+"Q₁"
+],
+"answer": "Trung vị"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Nếu cỡ mẫu bằng 50 thì vị trí trung vị nằm gần",
+"options": [
+"Quan sát thứ 10",
+"Quan sát thứ 25",
+"Quan sát thứ 40",
+"Quan sát thứ 50"
+],
+"answer": "Quan sát thứ 25"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Trong bảng tần số, số trung bình được tính dựa trên",
+"options": [
+"Giá trị đại diện và tần số",
+"Chỉ tần số",
+"Chỉ giá trị lớn nhất",
+"Chỉ giá trị nhỏ nhất"
+],
+"answer": "Giá trị đại diện và tần số"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Nhóm chứa mốt là nhóm có",
+"options": [
+"Tần số nhỏ nhất",
+"Tần số lớn nhất",
+"Giá trị lớn nhất",
+"Giá trị nhỏ nhất"
+],
+"answer": "Tần số lớn nhất"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Các tứ phân vị chia mẫu số liệu thành",
+"options": [
+"2 phần bằng nhau",
+"3 phần bằng nhau",
+"4 phần bằng nhau",
+"5 phần bằng nhau"
+],
+"answer": "4 phần bằng nhau"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Cho dãy số liệu: 30; 32; 33; 34; 34; 35; 36; 38. Mốt bằng",
+"options": [
+"33",
+"34",
+"35",
+"36"
+],
+"answer": "34"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Cho dãy số liệu: 250; 300; 300; 300; 350; 450; 500; 650. Trung vị bằng",
+"options": [
+"300",
+"325",
+"350",
+"387,5"
+],
+"answer": "325"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Cho dãy số liệu: 250; 300; 300; 300; 350; 450; 500; 650. Mốt bằng",
+"options": [
+"250",
+"300",
+"325",
+"350"
+],
+"answer": "300"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Trong mẫu số liệu có giá trị bất thường rất lớn, số đặc trưng phù hợp hơn thường là",
+"options": [
+"Trung vị",
+"Trung bình",
+"Tổng",
+"Tần số"
+],
+"answer": "Trung vị"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Cho các số liệu: 10; 15; 18; 15; 14; 13; 42; 15; 12; 14; 42. Mốt bằng",
+"options": [
+"14",
+"15",
+"18",
+"42"
+],
+"answer": "15"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Tứ phân vị thứ nhất Q₁ là",
+"options": [
+"Trung vị của nửa dưới",
+"Trung vị của nửa trên",
+"Giá trị lớn nhất",
+"Mốt"
+],
+"answer": "Trung vị của nửa dưới"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Tứ phân vị thứ ba Q₃ là",
+"options": [
+"Trung vị toàn mẫu",
+"Trung vị của nửa trên",
+"Giá trị nhỏ nhất",
+"Mốt"
+],
+"answer": "Trung vị của nửa trên"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Mục đích của các số đặc trưng đo xu thế trung tâm là",
+"options": [
+"Đo độ phân tán",
+"Mô tả giá trị tiêu biểu của dữ liệu",
+"Đếm số phần tử",
+"Xác định sai số"
+],
+"answer": "Mô tả giá trị tiêu biểu của dữ liệu"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Cho mẫu gồm 11 số liệu đã sắp xếp. Trung vị là số hạng thứ",
+"options": [
+"5",
+"6",
+"7",
+"11"
+],
+"answer": "6"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Cho bảng tần số có tổng các tần số bằng 120. Cỡ mẫu bằng",
+"options": [
+"12",
+"60",
+"120",
+"240"
+],
+"answer": "120"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Xét các số đặc trưng đo xu thế trung tâm.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Mốt là giá trị xuất hiện nhiều nhất.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Trung vị là giá trị đứng giữa của mẫu số liệu đã sắp xếp.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Số trung bình phản ánh xu thế trung tâm của dữ liệu.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Mốt luôn bằng số trung bình.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Xét các tứ phân vị.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Q₂ là trung vị của mẫu số liệu.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Q₁ là trung vị của nửa dưới.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Q₃ là trung vị của nửa trên.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Q₁ luôn lớn hơn Q₃.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Cho dãy số liệu 250;300;300;300;350;450;500;650.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Mốt bằng 300.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Trung vị bằng 325.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Số trung bình bằng 387,5.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Q₂ bằng 350.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Xét mẫu số liệu ghép nhóm.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Tổng các tần số bằng cỡ mẫu.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Nhóm chứa mốt là nhóm có tần số lớn nhất.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Nhóm chứa trung vị chứa vị trí N/2.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Cỡ mẫu luôn bằng số nhóm.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "Cho mẫu số liệu 0;0;0;0;0;0;0;4;6;10.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Mốt bằng 0.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Q₁=0.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Q₂=0.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Q₃=10.",
+"correctAnswer": "Sai"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Cho số liệu: 32; 24; 20; 14; 23. Tính số trung bình.",
+"answer": "22.6",
+"explanation": "x̄=(32+24+20+14+23)/5=22,6. "
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Cho số liệu: 60;72;63;83;68;74;90;86;74;80. Tính số trung bình.",
+"answer": "75",
+"explanation": "Tổng các giá trị bằng 750 nên x̄=750/10=75. "
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Cho số liệu: 10;15;18;15;14;13;42;15;12;14;42. Tính trung vị.",
+"answer": "15",
+"explanation": "Sau khi sắp xếp, giá trị đứng giữa là 15. Trung vị ít bị ảnh hưởng bởi giá trị bất thường 42. "
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Cho số liệu: 0;0;1;2;13;27;34;63. Tính Q₂.",
+"answer": "7.5",
+"explanation": "Q₂=(2+13)/2=7,5. "
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Cho số liệu: 0;0;1;2;13;27;34;63. Tính Q₁.",
+"answer": "0.5",
+"explanation": "Q₁ là trung vị của nửa dưới: (0+1)/2=0,5. "
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Cho số liệu: 0;0;1;2;13;27;34;63. Tính Q₃.",
+"answer": "30.5",
+"explanation": "Q₃ là trung vị của nửa trên: (27+34)/2=30,5. "
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Cho số liệu: 250;300;300;300;350;450;500;650. Tính số trung bình.",
+"answer": "387.5",
+"explanation": "x̄=(250+300+300+300+350+450+500+650)/8=387,5. "
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Cho số liệu: 30;32;33;34;34;35;36;38. Tính Q₃.",
+"answer": "35.5",
+"explanation": "Nửa trên là 34;35;36;38 nên Q₃=(35+36)/2=35,5. "
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Cho mẫu gồm các giá trị 0;0;0;0;0;0;0;4;6;10. Tính số trung bình.",
+"answer": "2",
+"explanation": "x̄=(4+6+10)/10=2. "
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Cho bảng tần số: Giá trị 5,6,7,8,9,10 có tần số tương ứng 2,5,10,8,6,3. Tính mốt.",
+"answer": "7",
+"explanation": "Giá trị 7 có tần số lớn nhất là 10 nên mốt bằng 7. "
+}
+]
+}

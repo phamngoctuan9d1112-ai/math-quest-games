@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "hslt_s1_1",
+      "type": "multiple-choice",
+      "question": "Hàm số y=f(x) liên tục tại x=x₀ khi",
+      "options": [
+        "f(x₀) tồn tại",
+        "lim(x→x₀)f(x) tồn tại",
+        "lim(x→x₀)f(x)=f(x₀)",
+        "f(x₀)=0"
+      ],
+      "answer": "lim(x→x₀)f(x)=f(x₀)"
+    },
+    {
+      "id": "hslt_s1_2",
+      "type": "multiple-choice",
+      "question": "Hàm đa thức có tính chất nào sau đây?",
+      "options": [
+        "Liên tục trên ℝ",
+        "Gián đoạn tại 0",
+        "Chỉ liên tục trên (0;+∞)",
+        "Không liên tục"
+      ],
+      "answer": "Liên tục trên ℝ"
+    },
+    {
+      "id": "hslt_s1_3",
+      "type": "multiple-choice",
+      "question": "Hàm phân thức hữu tỉ liên tục tại",
+      "options": [
+        "Mọi điểm thuộc tập xác định",
+        "Mọi số thực",
+        "Chỉ tại x=0",
+        "Không điểm nào"
+      ],
+      "answer": "Mọi điểm thuộc tập xác định"
+    },
+    {
+      "id": "hslt_s1_4",
+      "type": "multiple-choice",
+      "question": "Nếu lim(x→a)f(x)=f(a) thì hàm số",
+      "options": [
+        "Liên tục tại a",
+        "Gián đoạn tại a",
+        "Không xác định tại a",
+        "Không kết luận được"
+      ],
+      "answer": "Liên tục tại a"
+    },
+    {
+      "id": "hslt_s1_5",
+      "type": "multiple-choice",
+      "question": "Hàm số y=1/x liên tục trên",
+      "options": [
+        "ℝ",
+        "(-∞;0) và (0;+∞)",
+        "[0;+∞)",
+        "(−∞;+∞)"
+      ],
+      "answer": "(-∞;0) và (0;+∞)"
+    },
+    {
+      "id": "hslt_s1_6",
+      "type": "multiple-choice",
+      "question": "Điểm x=0 của hàm số y=1/x là",
+      "options": [
+        "Điểm liên tục",
+        "Điểm gián đoạn",
+        "Điểm cực trị",
+        "Điểm uốn"
+      ],
+      "answer": "Điểm gián đoạn"
+    },
+    {
+      "id": "hslt_s1_7",
+      "type": "multiple-choice",
+      "question": "Để kiểm tra tính liên tục tại x=a cần so sánh",
+      "options": [
+        "f(a) và f'(a)",
+        "lim trái, lim phải và f(a)",
+        "f(a) và 0",
+        "f(a) và f''(a)"
+      ],
+      "answer": "lim trái, lim phải và f(a)"
+    },
+    {
+      "id": "hslt_s1_8",
+      "type": "multiple-choice",
+      "question": "Nếu lim(x→a-)f(x)=lim(x→a+)f(x)=f(a) thì",
+      "options": [
+        "Hàm liên tục tại a",
+        "Hàm gián đoạn tại a",
+        "Hàm không xác định",
+        "Không kết luận được"
+      ],
+      "answer": "Hàm liên tục tại a"
+    },
+    {
+      "id": "hslt_s1_9",
+      "type": "multiple-choice",
+      "question": "Hàm số liên tục trên đoạn [a;b] thì",
+      "options": [
+        "Liên tục tại mọi điểm thuộc [a;b]",
+        "Gián đoạn tại một điểm",
+        "Không xác định tại a",
+        "Không xác định tại b"
+      ],
+      "answer": "Liên tục tại mọi điểm thuộc [a;b]"
+    },
+    {
+      "id": "hslt_s1_10",
+      "type": "multiple-choice",
+      "question": "Định lý giá trị trung gian áp dụng cho hàm số",
+      "options": [
+        "Liên tục trên đoạn",
+        "Gián đoạn trên đoạn",
+        "Không xác định",
+        "Chỉ liên tục tại một điểm"
+      ],
+      "answer": "Liên tục trên đoạn"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "hslt_s2_1",
+      "type": "true-false",
+      "question": "Xét hàm số y=x².",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hàm số liên tục trên ℝ.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hàm số liên tục tại x=0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hàm số gián đoạn tại x=1.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "lim(x→2)x²=4.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "hslt_s2_2",
+      "type": "true-false",
+      "question": "Xét hàm số y=1/x.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hàm số xác định tại x=0.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "b",
+          "text": "Hàm số liên tục trên (0;+∞).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hàm số liên tục trên (-∞;0).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hàm số liên tục trên ℝ.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "hslt_s2_3",
+      "type": "true-false",
+      "question": "Xét tính liên tục của hàm số.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu lim(x→a)f(x)=f(a) thì hàm liên tục tại a.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hàm đa thức luôn liên tục trên ℝ.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hàm phân thức hữu tỉ luôn liên tục trên tập xác định.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Mọi hàm số đều liên tục trên ℝ.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "hslt_s3_1",
+      "type": "short-answer",
+      "question": "Tính lim(x→2)(x²+1).",
+      "answer": "5",
+      "explanation": "Hàm đa thức liên tục nên thay trực tiếp x=2 được 2²+1=5."
+    },
+    {
+      "id": "hslt_s3_2",
+      "type": "short-answer",
+      "question": "Tính lim(x→3)(2x−1).",
+      "answer": "5",
+      "explanation": "Hàm bậc nhất liên tục nên thay trực tiếp x=3 được 2·3−1=5."
+    },
+    {
+      "id": "hslt_s3_3",
+      "type": "short-answer",
+      "question": "Tính lim(x→1)(x²−1)/(x−1).",
+      "answer": "2",
+      "explanation": "Ta có x²−1=(x−1)(x+1). Rút gọn rồi thay x=1 được 2."
+    },
+    {
+      "id": "hslt_s3_4",
+      "type": "short-answer",
+      "question": "Hàm số y=1/x có bao nhiêu điểm gián đoạn trên ℝ?",
+      "answer": "1",
+      "explanation": "Hàm số chỉ không xác định tại x=0 nên có một điểm gián đoạn."
+    },
+    {
+      "id": "hslt_s3_5",
+      "type": "short-answer",
+      "question": "Cho f(x)= { x+1 nếu x≠1; m nếu x=1 }. Tìm m để hàm số liên tục tại x=1.",
+      "answer": "2",
+      "explanation": "Để liên tục tại x=1 cần có m=lim(x→1)(x+1)=2."
+    }
+  ]
+}

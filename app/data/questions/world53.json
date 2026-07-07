@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "tt_s1_1",
+      "type": "multiple-choice",
+      "question": "Thể tích của khối hộp chữ nhật có kích thước a, b, c bằng",
+      "options": [
+        "a+b+c",
+        "abc",
+        "2(ab+bc+ca)",
+        "a²+b²+c²"
+      ],
+      "answer": "abc"
+    },
+    {
+      "id": "tt_s1_2",
+      "type": "multiple-choice",
+      "question": "Thể tích khối lập phương cạnh a là",
+      "options": [
+        "a²",
+        "4a²",
+        "a³",
+        "6a²"
+      ],
+      "answer": "a³"
+    },
+    {
+      "id": "tt_s1_3",
+      "type": "multiple-choice",
+      "question": "Thể tích khối chóp có diện tích đáy B và chiều cao h là",
+      "options": [
+        "Bh",
+        "1/2 Bh",
+        "1/3 Bh",
+        "3Bh"
+      ],
+      "answer": "1/3 Bh"
+    },
+    {
+      "id": "tt_s1_4",
+      "type": "multiple-choice",
+      "question": "Thể tích khối lăng trụ có diện tích đáy B và chiều cao h là",
+      "options": [
+        "Bh",
+        "1/2 Bh",
+        "1/3 Bh",
+        "2Bh"
+      ],
+      "answer": "Bh"
+    },
+    {
+      "id": "tt_s1_5",
+      "type": "multiple-choice",
+      "question": "Khối chóp có diện tích đáy 12 cm² và chiều cao 9 cm. Thể tích bằng",
+      "options": [
+        "36 cm³",
+        "108 cm³",
+        "24 cm³",
+        "72 cm³"
+      ],
+      "answer": "36 cm³"
+    },
+    {
+      "id": "tt_s1_6",
+      "type": "multiple-choice",
+      "question": "Khối lăng trụ có diện tích đáy 15 cm² và chiều cao 8 cm. Thể tích bằng",
+      "options": [
+        "120 cm³",
+        "40 cm³",
+        "60 cm³",
+        "360 cm³"
+      ],
+      "answer": "120 cm³"
+    },
+    {
+      "id": "tt_s1_7",
+      "type": "multiple-choice",
+      "question": "Nếu cạnh khối lập phương tăng gấp đôi thì thể tích tăng",
+      "options": [
+        "2 lần",
+        "4 lần",
+        "6 lần",
+        "8 lần"
+      ],
+      "answer": "8 lần"
+    },
+    {
+      "id": "tt_s1_8",
+      "type": "multiple-choice",
+      "question": "Khối hộp chữ nhật có kích thước 2, 3, 5. Thể tích bằng",
+      "options": [
+        "10",
+        "15",
+        "30",
+        "60"
+      ],
+      "answer": "30"
+    },
+    {
+      "id": "tt_s1_9",
+      "type": "multiple-choice",
+      "question": "Khối chóp có cùng diện tích đáy và chiều cao với khối lăng trụ. Thể tích khối chóp bằng",
+      "options": [
+        "1/2 thể tích lăng trụ",
+        "1/3 thể tích lăng trụ",
+        "2 lần thể tích lăng trụ",
+        "bằng thể tích lăng trụ"
+      ],
+      "answer": "1/3 thể tích lăng trụ"
+    },
+    {
+      "id": "tt_s1_10",
+      "type": "multiple-choice",
+      "question": "Đơn vị đo thể tích thường dùng là",
+      "options": [
+        "cm",
+        "cm²",
+        "cm³",
+        "độ"
+      ],
+      "answer": "cm³"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "tt_s2_1",
+      "type": "true-false",
+      "question": "Xét công thức tính thể tích.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Thể tích khối hộp chữ nhật bằng tích ba kích thước của nó.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Thể tích khối lập phương cạnh a bằng a³.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Thể tích khối chóp bằng Bh.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Thể tích luôn là số không âm.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "tt_s2_2",
+      "type": "true-false",
+      "question": "Xét khối chóp và khối lăng trụ.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Khối chóp có thể tích bằng 1/3 Bh.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Khối lăng trụ có thể tích bằng Bh.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hai khối có cùng đáy và chiều cao thì thể tích bằng nhau.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Thể tích khối chóp luôn nhỏ hơn thể tích lăng trụ có cùng đáy và chiều cao.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "tt_s2_3",
+      "type": "true-false",
+      "question": "Xét sự thay đổi thể tích.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu mọi kích thước tăng gấp đôi thì thể tích tăng 8 lần.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nếu mọi kích thước tăng gấp 3 thì thể tích tăng 27 lần.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Nếu chiều cao giảm một nửa thì thể tích lăng trụ giảm một nửa.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Thể tích không phụ thuộc vào chiều cao.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "tt_s3_1",
+      "type": "short-answer",
+      "question": "Tính thể tích khối lập phương cạnh 4 cm.",
+      "answer": "64",
+      "explanation": "V = a³ = 4³ = 64 cm³."
+    },
+    {
+      "id": "tt_s3_2",
+      "type": "short-answer",
+      "question": "Tính thể tích khối hộp chữ nhật có kích thước 3 cm, 4 cm, 5 cm.",
+      "answer": "60",
+      "explanation": "V = 3×4×5 = 60 cm³."
+    },
+    {
+      "id": "tt_s3_3",
+      "type": "short-answer",
+      "question": "Một khối chóp có diện tích đáy 18 cm² và chiều cao 6 cm. Tính thể tích.",
+      "answer": "36",
+      "explanation": "V = (1/3)×18×6 = 36 cm³."
+    },
+    {
+      "id": "tt_s3_4",
+      "type": "short-answer",
+      "question": "Một khối lăng trụ có diện tích đáy 12 cm² và chiều cao 7 cm. Tính thể tích.",
+      "answer": "84",
+      "explanation": "V = 12×7 = 84 cm³."
+    },
+    {
+      "id": "tt_s3_5",
+      "type": "short-answer",
+      "question": "Một khối lập phương có cạnh tăng từ 2 cm lên 4 cm. Thể tích mới gấp bao nhiêu lần thể tích cũ?",
+      "answer": "8",
+      "explanation": "Tỉ số thể tích là (4³)/(2³)=64/8=8."
+    }
+  ]
+}

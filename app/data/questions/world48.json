@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "htvg_s1_1",
+      "type": "multiple-choice",
+      "question": "Hai đường thẳng được gọi là vuông góc khi góc giữa chúng bằng",
+      "options": [
+        "30°",
+        "45°",
+        "60°",
+        "90°"
+      ],
+      "answer": "90°"
+    },
+    {
+      "id": "htvg_s1_2",
+      "type": "multiple-choice",
+      "question": "Trong hình vuông ABCD, cặp đường thẳng nào vuông góc?",
+      "options": [
+        "AB và CD",
+        "AB và BC",
+        "AC và BD",
+        "AD và BC"
+      ],
+      "answer": "AB và BC"
+    },
+    {
+      "id": "htvg_s1_3",
+      "type": "multiple-choice",
+      "question": "Trong hình lập phương ABCD.A'B'C'D', đường thẳng AA' vuông góc với",
+      "options": [
+        "AB",
+        "AD",
+        "AC",
+        "AB và AD"
+      ],
+      "answer": "AB và AD"
+    },
+    {
+      "id": "htvg_s1_4",
+      "type": "multiple-choice",
+      "question": "Nếu a ⊥ b thì góc giữa a và b bằng",
+      "options": [
+        "0°",
+        "45°",
+        "60°",
+        "90°"
+      ],
+      "answer": "90°"
+    },
+    {
+      "id": "htvg_s1_5",
+      "type": "multiple-choice",
+      "question": "Trong tam giác vuông ABC vuông tại A, hai cạnh vuông góc là",
+      "options": [
+        "AB và BC",
+        "AC và BC",
+        "AB và AC",
+        "BC và AH"
+      ],
+      "answer": "AB và AC"
+    },
+    {
+      "id": "htvg_s1_6",
+      "type": "multiple-choice",
+      "question": "Trong hình chữ nhật ABCD, hai đường chéo AC và BD",
+      "options": [
+        "Luôn vuông góc",
+        "Song song",
+        "Không nhất thiết vuông góc",
+        "Trùng nhau"
+      ],
+      "answer": "Không nhất thiết vuông góc"
+    },
+    {
+      "id": "htvg_s1_7",
+      "type": "multiple-choice",
+      "question": "Nếu đường thẳng a vuông góc với đường thẳng b thì",
+      "options": [
+        "b vuông góc với a",
+        "a song song b",
+        "a cắt b tạo góc 60°",
+        "a trùng b"
+      ],
+      "answer": "b vuông góc với a"
+    },
+    {
+      "id": "htvg_s1_8",
+      "type": "multiple-choice",
+      "question": "Trong tứ diện đều ABCD, góc giữa AB và CD bằng",
+      "options": [
+        "0°",
+        "45°",
+        "60°",
+        "90°"
+      ],
+      "answer": "90°"
+    },
+    {
+      "id": "htvg_s1_9",
+      "type": "multiple-choice",
+      "question": "Trong hình lập phương, đường chéo của hai mặt đối diện",
+      "options": [
+        "Luôn vuông góc",
+        "Có thể vuông góc",
+        "Luôn song song",
+        "Luôn trùng nhau"
+      ],
+      "answer": "Có thể vuông góc"
+    },
+    {
+      "id": "htvg_s1_10",
+      "type": "multiple-choice",
+      "question": "Điều kiện để hai đường thẳng vuông góc là",
+      "options": [
+        "Tích vô hướng của hai vectơ chỉ phương bằng 0",
+        "Hai đường thẳng song song",
+        "Hai đường thẳng cắt nhau",
+        "Hai đường thẳng đồng phẳng"
+      ],
+      "answer": "Tích vô hướng của hai vectơ chỉ phương bằng 0"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "htvg_s2_1",
+      "type": "true-false",
+      "question": "Xét quan hệ vuông góc giữa hai đường thẳng.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu a ⊥ b thì b ⊥ a.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hai đường thẳng vuông góc luôn cắt nhau.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Góc giữa hai đường thẳng vuông góc bằng 90°.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hai đường thẳng song song thì vuông góc.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "htvg_s2_2",
+      "type": "true-false",
+      "question": "Xét hình lập phương ABCD.A'B'C'D'.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "AA' ⊥ AB.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "AA' ⊥ AD.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "AB ⊥ BC.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "AB ⊥ CD.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "htvg_s2_3",
+      "type": "true-false",
+      "question": "Xét các góc giữa hai đường thẳng trong không gian.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Góc giữa hai đường thẳng luôn nằm trong khoảng từ 0° đến 90°.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hai đường thẳng vuông góc có góc bằng 90°.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hai đường thẳng song song có góc bằng 0°.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hai đường thẳng chéo nhau không xác định được góc.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "htvg_s3_1",
+      "type": "short-answer",
+      "question": "Hai đường thẳng vuông góc tạo với nhau góc bao nhiêu độ?",
+      "answer": "90",
+      "explanation": "Theo định nghĩa, hai đường thẳng vuông góc tạo thành góc 90°."
+    },
+    {
+      "id": "htvg_s3_2",
+      "type": "short-answer",
+      "question": "Trong tam giác vuông, số cặp cạnh vuông góc là bao nhiêu?",
+      "answer": "1",
+      "explanation": "Tam giác vuông chỉ có một góc vuông nên chỉ có một cặp cạnh vuông góc."
+    },
+    {
+      "id": "htvg_s3_3",
+      "type": "short-answer",
+      "question": "Trong hình vuông ABCD có bao nhiêu cặp cạnh kề vuông góc?",
+      "answer": "4",
+      "explanation": "Bốn đỉnh của hình vuông tạo ra 4 góc vuông nên có 4 cặp cạnh kề vuông góc."
+    },
+    {
+      "id": "htvg_s3_4",
+      "type": "short-answer",
+      "question": "Trong hình lập phương, mỗi đỉnh có bao nhiêu cạnh đôi một vuông góc với nhau?",
+      "answer": "3",
+      "explanation": "Tại mỗi đỉnh của hình lập phương có 3 cạnh xuất phát và chúng đôi một vuông góc."
+    },
+    {
+      "id": "htvg_s3_5",
+      "type": "short-answer",
+      "question": "Tích vô hướng của hai vectơ chỉ phương của hai đường thẳng vuông góc bằng bao nhiêu?",
+      "answer": "0",
+      "explanation": "Hai vectơ vuông góc khi và chỉ khi tích vô hướng của chúng bằng 0."
+    }
+  ]
+}

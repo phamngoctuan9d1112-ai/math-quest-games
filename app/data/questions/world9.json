@@ -1,0 +1,455 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Hai vectơ được gọi là đối nhau khi",
+"options": [
+"Cùng hướng và cùng độ dài",
+"Ngược hướng và cùng độ dài",
+"Vuông góc và cùng độ dài",
+"Có cùng điểm đầu"
+],
+"answer": "Ngược hướng và cùng độ dài"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Cho vectơ a. Vectơ đối của a là",
+"options": [
+"a",
+"0",
+"-a",
+"2a"
+],
+"answer": "-a"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Cho hai điểm A, B. Hiệu AB−AB bằng",
+"options": [
+"AB",
+"BA",
+"0",
+"2AB"
+],
+"answer": "0"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Cho tam giác ABC. Vectơ AB−AC bằng",
+"options": [
+"BC",
+"CB",
+"CA",
+"BA"
+],
+"answer": "CB"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Cho tam giác ABC. Vectơ AC−AB bằng",
+"options": [
+"BC",
+"CB",
+"BA",
+"CA"
+],
+"answer": "BC"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Cho tứ giác ABCD. Biểu thức AB−DC bằng",
+"options": [
+"AD+BC",
+"AC",
+"BD",
+"0"
+],
+"answer": "AD+BC"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Cho hình bình hành ABCD. Giá trị của AB−DC bằng",
+"options": [
+"0",
+"AB",
+"DC",
+"AD"
+],
+"answer": "0"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Cho hình bình hành ABCD. Giá trị của AB−AD bằng",
+"options": [
+"DB",
+"BD",
+"AC",
+"CD"
+],
+"answer": "DB"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Cho tam giác ABC. Nếu M là trung điểm BC thì MB−MC bằng",
+"options": [
+"0",
+"BC",
+"CB",
+"2BC"
+],
+"answer": "BC"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Cho vectơ a và b. Điều kiện để a−b=0 là",
+"options": [
+"a=-b",
+"a=b",
+"a⊥b",
+"a=2b"
+],
+"answer": "a=b"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Cho tam giác ABC. Giá trị của AB+BC−AC bằng",
+"options": [
+"AB",
+"BC",
+"0",
+"CA"
+],
+"answer": "0"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Cho AB=a và AC=b. Khi đó BC bằng",
+"options": [
+"a+b",
+"b−a",
+"a−b",
+"-a-b"
+],
+"answer": "b−a"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Cho hình bình hành ABCD. Vectơ AC−AB bằng",
+"options": [
+"AD",
+"BC",
+"DC",
+"AD hoặc BC"
+],
+"answer": "AD hoặc BC"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Cho AC=a+b trong hình bình hành. Khi đó AC−AD bằng",
+"options": [
+"AB",
+"BC",
+"DC",
+"AB hoặc DC"
+],
+"answer": "AB hoặc DC"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Nếu b=-a thì a−b bằng",
+"options": [
+"0",
+"a",
+"2a",
+"-2a"
+],
+"answer": "2a"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Cho |a|=5. Khi đó |-a| bằng",
+"options": [
+"-5",
+"0",
+"5",
+"10"
+],
+"answer": "5"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Cho AB=a, BC=b. Vectơ CA bằng",
+"options": [
+"a+b",
+"-(a+b)",
+"a-b",
+"b-a"
+],
+"answer": "-(a+b)"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Cho hình bình hành ABCD. Vectơ BD bằng",
+"options": [
+"AD−AB",
+"AB−AD",
+"AB+AD",
+"0"
+],
+"answer": "AD−AB"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Trong tam giác ABC, giá trị của BA−BC bằng",
+"options": [
+"CA",
+"AC",
+"AB",
+"CB"
+],
+"answer": "CA"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Cho AB=a và BA bằng",
+"options": [
+"a",
+"-a",
+"0",
+"2a"
+],
+"answer": "-a"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Xét các tính chất vectơ đối.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Hai vectơ đối nhau có cùng độ dài.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Hai vectơ đối nhau cùng hướng.",
+"correctAnswer": "Sai"
+},
+{
+"label": "c",
+"text": "a+(-a)=0.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "-(-a)=a.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Cho tam giác ABC.",
+"subQuestions": [
+{
+"label": "a",
+"text": "AB+BC=AC.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "AB−AC=BC.",
+"correctAnswer": "Sai"
+},
+{
+"label": "c",
+"text": "AC−AB=BC.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "BA−BC=CA.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Cho hình bình hành ABCD.",
+"subQuestions": [
+{
+"label": "a",
+"text": "AB=DC.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "AB−DC=0.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "AC=AB+AD.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "BD=AB+AD.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Cho các vectơ a,b.",
+"subQuestions": [
+{
+"label": "a",
+"text": "a−b=a+(-b).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "a−a=0.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "0−a=a.",
+"correctAnswer": "Sai"
+},
+{
+"label": "d",
+"text": "a−0=a.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "Cho chất điểm chịu tác dụng của các lực F₁,F₂,F₃.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Nếu F₁+F₂+F₃=0 thì hệ ở trạng thái cân bằng.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "F₃=-(F₁+F₂).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "F₃ cùng hướng với F₁+F₂.",
+"correctAnswer": "Sai"
+},
+{
+"label": "d",
+"text": "F₃ đối hướng với F₁+F₂.",
+"correctAnswer": "Đúng"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Cho |a|=12. Tính |-a|.",
+"answer": "12",
+"explanation": "Vectơ đối có cùng độ dài nên |-a|=|a|=12."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Cho a−b=0. Tính số lần độ dài của a bằng độ dài của b.",
+"answer": "1",
+"explanation": "Từ a−b=0 suy ra a=b nên |a|=|b|."
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Cho AB=a, AC=b. Viết BC theo a,b.",
+"answer": "b-a",
+"explanation": "BC=AC−AB=b−a."
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Cho AB=a và BA=-a. Tính AB+BA.",
+"answer": "0",
+"explanation": "AB+BA=a+(-a)=0."
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Cho b=-a. Tính a−b theo a.",
+"answer": "2a",
+"explanation": "a−b=a−(-a)=2a."
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Một vật chịu hai lực bằng nhau 50N và ngược hướng. Độ lớn hợp lực là bao nhiêu?",
+"answer": "0",
+"explanation": "Hai lực đối nhau và cùng độ lớn nên tổng vectơ bằng 0."
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Cho F₁=20N, F₂=20N và tạo với nhau góc 120°. Hệ cân bằng. Tính gần đúng độ lớn F₃.",
+"answer": "20",
+"explanation": "F₃ đối với F₁+F₂. Theo định lý cosin, |F₁+F₂|=20N nên |F₃|=20N."
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Cho ngũ giác ABCDE, M,N,P,Q là trung điểm các cạnh như trong bài toán. Nếu IJ=(5/4)AE thì a+b bằng bao nhiêu?",
+"answer": "9",
+"explanation": "Từ IJ=(5/4)AE suy ra a=5,b=4 nên a+b=9."
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Cho MA+MB+MC+MD=xMI và I thuộc GC, IC=3IG. Tính x.",
+"answer": "4",
+"explanation": "Suy ra MA+MB+MC+MD=4MI nên x=4."
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Cho hình bình hành ABCD, E là trung điểm BC, N là trung điểm AE. Nếu DN=pAB+qAC và p=-5/4, q=3/4 thì p+q bằng bao nhiêu?",
+"answer": "-0.5",
+"explanation": "p+q=-5/4+3/4=-1/2=-0.5."
+}
+]
+}

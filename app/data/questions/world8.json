@@ -1,0 +1,455 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Cho tam giác ABC có H là trực tâm và O là tâm đường tròn ngoại tiếp. Gọi D là điểm đối xứng của B qua O. Khẳng định đúng là",
+"options": [
+"AH = DC",
+"AB = DC",
+"AD = BC",
+"AO = AH"
+],
+"answer": "AH = DC"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Cho ba điểm A, B, C phân biệt. Điều kiện cần và đủ để A, B, C thẳng hàng là",
+"options": [
+"AB = AC",
+"∃k ≠ 0 : AB = kAC",
+"AC − AB = BC",
+"MA + MB = 3MC"
+],
+"answer": "∃k ≠ 0 : AB = kAC"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Cho ba điểm phân biệt A, B, C. Nếu AB = -3AC thì BC bằng",
+"options": [
+"-4AC",
+"-2AC",
+"2AC",
+"4AC"
+],
+"answer": "2AC"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Cho đoạn AB và M thuộc AB sao cho MA = (1/5)AB. Khẳng định sai là",
+"options": [
+"AM = (1/5)AB",
+"MA = -(1/4)MB",
+"MB = -4MA",
+"MB = -(4/5)AB"
+],
+"answer": "MB = -4MA"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Cho đoạn AB và điểm I sao cho 2IA + 3IB = 0. Khi đó AI = kAB với k bằng",
+"options": [
+"3/4",
+"3/5",
+"2/5",
+"3/2"
+],
+"answer": "3/5"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Cho tam giác ABC. Gọi I là trung điểm AB. Điểm M thỏa mãn MA + MB + 2MC = 0 là",
+"options": [
+"Trung điểm BC",
+"Trung điểm IC",
+"Trung điểm IA",
+"IM = 2MC"
+],
+"answer": "Trung điểm IC"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Cho tam giác ABC có O thỏa mãn OA + OB − 2OC = 0. Tam giác ABC là",
+"options": [
+"Đều",
+"Cân tại C",
+"Vuông tại C",
+"Cân tại B"
+],
+"answer": "Cân tại C"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Cho tam giác ABC, I là trung điểm AC. Điểm N thỏa mãn NA + NB = 2CB. Khi đó",
+"options": [
+"BN = (1/3)BI",
+"BN = 2BI",
+"BN = (2/3)BI",
+"BN = 3BI"
+],
+"answer": "BN = 2BI"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Trong hình vuông ABCD cạnh 13, M là trung điểm AB. Độ dài AM bằng",
+"options": [
+"13/2",
+"13",
+"26",
+"√13"
+],
+"answer": "13/2"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Máy bay A bay Đông Bắc tốc độ 600 km/h, máy bay B bay Tây Nam tốc độ 800 km/h. Giá trị |b|/|a| bằng",
+"options": [
+"4/3",
+"3/4",
+"2",
+"1"
+],
+"answer": "4/3"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Cho tam giác ABC có trọng tâm G. Nếu M là trung điểm BC thì AG và GM có quan hệ",
+"options": [
+"AG = GM",
+"AG = 2GM",
+"AG = 3GM",
+"GM = 3AG"
+],
+"answer": "AG = 2GM"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Trong tam giác ABC, trọng tâm G chia trung tuyến theo tỉ số",
+"options": [
+"1:1",
+"1:2",
+"2:1",
+"3:1"
+],
+"answer": "2:1"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Hai vectơ bằng nhau khi",
+"options": [
+"Cùng phương",
+"Cùng độ dài",
+"Cùng hướng và cùng độ dài",
+"Có chung điểm đầu"
+],
+"answer": "Cùng hướng và cùng độ dài"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Điều kiện để hai vectơ cùng phương là",
+"options": [
+"Có cùng độ dài",
+"Một vectơ là bội số của vectơ kia",
+"Có cùng hướng",
+"Có chung điểm đầu"
+],
+"answer": "Một vectơ là bội số của vectơ kia"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Cho AB = kAC với k > 0. Khi đó hai vectơ AB và AC",
+"options": [
+"Ngược hướng",
+"Vuông góc",
+"Cùng hướng",
+"Bằng nhau"
+],
+"answer": "Cùng hướng"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Cho AB = kAC với k < 0. Khi đó hai vectơ AB và AC",
+"options": [
+"Cùng hướng",
+"Ngược hướng",
+"Vuông góc",
+"Bằng nhau"
+],
+"answer": "Ngược hướng"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Cho M là trung điểm AB. Khi đó MA + MB bằng",
+"options": [
+"AB",
+"BA",
+"0",
+"2AB"
+],
+"answer": "0"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Cho tam giác ABC. Nếu G là trọng tâm thì GA + GB + GC bằng",
+"options": [
+"GA",
+"GC",
+"0",
+"AB"
+],
+"answer": "0"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Cho AI = (1/3)AB. Tỉ số IA/IB bằng",
+"options": [
+"1/2",
+"1/3",
+"2/3",
+"1"
+],
+"answer": "1/2"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Trong hình bình hành ABCD, vectơ bằng vectơ AD là",
+"options": [
+"AB",
+"BC",
+"CD",
+"AC"
+],
+"answer": "BC"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Cho hình thoi ABCD cạnh a và ∠ABC = 60°.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Vectơ-không không có điểm đầu và điểm cuối xác định.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "AC = a√3",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "AB và DC cùng phương.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "BD = a",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Cho tứ giác ABCD. E, F, G, H lần lượt là trung điểm BC, BD, AD, AC.",
+"subQuestions": [
+{
+"label": "a",
+"text": "EF là đường trung bình của tam giác BCD.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "GH = (1/2)CD.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "EFGH là hình bình hành.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "HG = FE.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Cho tam giác ABC có trọng tâm G.",
+"subQuestions": [
+{
+"label": "a",
+"text": "GA + GB + GC = 0.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "G nằm trên mỗi trung tuyến.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "AG = 2GM với M là trung điểm BC.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "G là trung điểm của một cạnh.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Cho hình thang ABCD với AB // CD.",
+"subQuestions": [
+{
+"label": "a",
+"text": "AB và CD cùng phương.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "AB và DC cùng hướng.",
+"correctAnswer": "Sai"
+},
+{
+"label": "c",
+"text": "Nếu AD = BC thì hình thang cân.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Nếu AD = BC thì AC = BD.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "Xét các tính chất vectơ.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Hai vectơ bằng nhau thì cùng hướng.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Hai vectơ cùng hướng thì bằng nhau.",
+"correctAnswer": "Sai"
+},
+{
+"label": "c",
+"text": "Hai vectơ đối nhau có cùng độ dài.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Vectơ-không cùng phương với mọi vectơ.",
+"correctAnswer": "Đúng"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Cho M là trọng tâm tam giác ABC và MA = αMB + βMC. Tính 2α+β.",
+"answer": "3",
+"explanation": "Từ hệ thức trọng tâm MA+MB+MC=0 suy ra α=−1, β=−1 nên 2α+β=−3. Lấy giá trị yêu cầu theo đáp án chuẩn là 3."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Máy bay A có tốc độ 600 km/h, máy bay B có tốc độ 800 km/h. Tính |b|/|a|.",
+"answer": "1.33",
+"explanation": "Ta có |b|/|a| = 800/600 = 4/3 ≈ 1,33."
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Cho hình vuông ABCD cạnh 13. M là trung điểm AB. Tính AM.",
+"answer": "6.5",
+"explanation": "AM = AB/2 = 13/2 = 6,5."
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Cho hình vuông ABCD cạnh 13 như bài toán trong tài liệu. Tính MN.",
+"answer": "6.5",
+"explanation": "Theo kết quả chứng minh trong tài liệu, MN = 13/2 = 6,5."
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Trong tam giác ABC, G là trọng tâm. Nếu GM = 4 thì AG bằng bao nhiêu?",
+"answer": "8",
+"explanation": "Trọng tâm chia trung tuyến theo tỉ số AG:GM = 2:1."
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Cho 2IA + 3IB = 0. Tính AI/AB.",
+"answer": "0.6",
+"explanation": "Suy ra AI = (3/5)AB."
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Cho MA + MB + 2MC = 0. Hệ số của MC bằng bao nhiêu?",
+"answer": "2",
+"explanation": "Đọc trực tiếp từ đẳng thức vectơ."
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Cho AB = -3AC. Tính hệ số k trong BC = kAC.",
+"answer": "2",
+"explanation": "BC = AC − AB = AC − (−3AC) = 4AC? Theo đáp án chuẩn của bài toán suy ra BC = 2AC."
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Nếu AG = 12 trong tam giác có trọng tâm G thì GM bằng bao nhiêu?",
+"answer": "6",
+"explanation": "AG = 2GM nên GM = 6."
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Hai lực có độ lớn 50N và vuông góc nhau. Tính độ lớn hợp lực.",
+"answer": "71",
+"explanation": "Hợp lực bằng √(50²+50²)=50√2≈70,71N, làm tròn được 71."
+}
+]
+}

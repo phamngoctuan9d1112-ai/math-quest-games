@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "dh_s1_1",
+      "type": "multiple-choice",
+      "question": "Đạo hàm của hàm số tại điểm x₀ biểu thị",
+      "options": [
+        "Tốc độ thay đổi tức thời của hàm số tại x₀",
+        "Giá trị lớn nhất của hàm số",
+        "Giá trị nhỏ nhất của hàm số",
+        "Tổng các giá trị của hàm số"
+      ],
+      "answer": "Tốc độ thay đổi tức thời của hàm số tại x₀"
+    },
+    {
+      "id": "dh_s1_2",
+      "type": "multiple-choice",
+      "question": "Theo định nghĩa, đạo hàm của hàm số y=f(x) tại x₀ là",
+      "options": [
+        "f(x₀+h)-f(x₀)",
+        "lim[(f(x₀+h)-f(x₀))/h] khi h→0",
+        "lim[f(x₀+h)] khi h→0",
+        "f(x₀)/x₀"
+      ],
+      "answer": "lim[(f(x₀+h)-f(x₀))/h] khi h→0"
+    },
+    {
+      "id": "dh_s1_3",
+      "type": "multiple-choice",
+      "question": "Đạo hàm của hàm số y=x² là",
+      "options": [
+        "x",
+        "2x",
+        "x²",
+        "2"
+      ],
+      "answer": "2x"
+    },
+    {
+      "id": "dh_s1_4",
+      "type": "multiple-choice",
+      "question": "Đạo hàm của hàm số y=x³ là",
+      "options": [
+        "3x²",
+        "x²",
+        "3x",
+        "x³"
+      ],
+      "answer": "3x²"
+    },
+    {
+      "id": "dh_s1_5",
+      "type": "multiple-choice",
+      "question": "Đạo hàm của hàm số hằng y=5 là",
+      "options": [
+        "5",
+        "1",
+        "0",
+        "Không xác định"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": "dh_s1_6",
+      "type": "multiple-choice",
+      "question": "Nếu f'(x₀)>0 thì hàm số tại x₀ có xu hướng",
+      "options": [
+        "Tăng",
+        "Giảm",
+        "Không đổi",
+        "Không xác định"
+      ],
+      "answer": "Tăng"
+    },
+    {
+      "id": "dh_s1_7",
+      "type": "multiple-choice",
+      "question": "Nếu f'(x₀)<0 thì hàm số tại x₀ có xu hướng",
+      "options": [
+        "Tăng",
+        "Giảm",
+        "Không đổi",
+        "Luôn bằng 0"
+      ],
+      "answer": "Giảm"
+    },
+    {
+      "id": "dh_s1_8",
+      "type": "multiple-choice",
+      "question": "Ý nghĩa vật lí của đạo hàm vận tốc là",
+      "options": [
+        "Quãng đường",
+        "Gia tốc",
+        "Thời gian",
+        "Khối lượng"
+      ],
+      "answer": "Gia tốc"
+    },
+    {
+      "id": "dh_s1_9",
+      "type": "multiple-choice",
+      "question": "Tiếp tuyến của đồ thị hàm số tại điểm M có hệ số góc bằng",
+      "options": [
+        "f(x₀)",
+        "x₀",
+        "f'(x₀)",
+        "0"
+      ],
+      "answer": "f'(x₀)"
+    },
+    {
+      "id": "dh_s1_10",
+      "type": "multiple-choice",
+      "question": "Đạo hàm của y=2x+3 là",
+      "options": [
+        "2",
+        "3",
+        "2x",
+        "x+3"
+      ],
+      "answer": "2"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "dh_s2_1",
+      "type": "true-false",
+      "question": "Xét các kiến thức cơ bản về đạo hàm.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Đạo hàm biểu thị tốc độ biến thiên tức thời của hàm số.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Đạo hàm của hàm số hằng bằng 0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Đạo hàm của x² là x.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Hệ số góc tiếp tuyến bằng giá trị đạo hàm tại tiếp điểm.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "dh_s2_2",
+      "type": "true-false",
+      "question": "Xét dấu của đạo hàm.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu f'(x)>0 thì hàm số đồng biến tại điểm đang xét.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nếu f'(x)<0 thì hàm số nghịch biến tại điểm đang xét.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Nếu f'(x)=0 thì luôn là cực trị.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Đạo hàm có thể dùng để khảo sát sự biến thiên của hàm số.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "dh_s2_3",
+      "type": "true-false",
+      "question": "Xét ý nghĩa hình học và vật lí của đạo hàm.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Đạo hàm của quãng đường theo thời gian là vận tốc.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Đạo hàm của vận tốc theo thời gian là gia tốc.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Đạo hàm không có ý nghĩa hình học.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Đạo hàm giúp xác định hệ số góc tiếp tuyến.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "dh_s3_1",
+      "type": "short-answer",
+      "question": "Tính đạo hàm của hàm số y=x² tại x=3.",
+      "answer": "6",
+      "explanation": "y'=2x. Tại x=3 ta có y'(3)=2·3=6."
+    },
+    {
+      "id": "dh_s3_2",
+      "type": "short-answer",
+      "question": "Tính đạo hàm của hàm số y=x³ tại x=2.",
+      "answer": "12",
+      "explanation": "y'=3x². Tại x=2: y'(2)=3·2²=12."
+    },
+    {
+      "id": "dh_s3_3",
+      "type": "short-answer",
+      "question": "Tính đạo hàm của hàm số y=5x+1.",
+      "answer": "5",
+      "explanation": "Đạo hàm của ax+b bằng a nên y'=5."
+    },
+    {
+      "id": "dh_s3_4",
+      "type": "short-answer",
+      "question": "Một chất điểm có quãng đường s=t² (m). Tính vận tốc tại thời điểm t=4 (m/s).",
+      "answer": "8",
+      "explanation": "v=s'(t)=2t. Tại t=4 ta được v=8 m/s."
+    },
+    {
+      "id": "dh_s3_5",
+      "type": "short-answer",
+      "question": "Cho hàm số y=x². Hệ số góc của tiếp tuyến tại điểm có hoành độ x=5 bằng bao nhiêu?",
+      "answer": "10",
+      "explanation": "Hệ số góc tiếp tuyến bằng đạo hàm tại điểm đó. y'=2x nên k=y'(5)=10."
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "tp_s1_1",
+      "type": "multiple-choice",
+      "question": "Nếu F(x) là một nguyên hàm của f(x) trên [a;b] thì tích phân xác định của f(x) trên [a;b] bằng",
+      "options": [
+        "F(b)-F(a)",
+        "F(a)-F(b)",
+        "F(a)+F(b)",
+        "F(b)"
+      ],
+      "answer": "F(b)-F(a)"
+    },
+    {
+      "id": "tp_s1_2",
+      "type": "multiple-choice",
+      "question": "Ký hiệu của tích phân xác định từ a đến b của f(x) là",
+      "options": [
+        "∫[a;b]f(x)dx",
+        "∫ₐᵇf(x)dx",
+        "∫f(x)",
+        "F(b)-F(a)"
+      ],
+      "answer": "∫ₐᵇf(x)dx"
+    },
+    {
+      "id": "tp_s1_3",
+      "type": "multiple-choice",
+      "question": "Giá trị của ∫ₐᵃf(x)dx bằng",
+      "options": [
+        "0",
+        "1",
+        "a",
+        "f(a)"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": "tp_s1_4",
+      "type": "multiple-choice",
+      "question": "Nếu đổi cận tích phân thì",
+      "options": [
+        "Đổi dấu giá trị tích phân",
+        "Giữ nguyên giá trị",
+        "Nhân đôi giá trị",
+        "Giá trị bằng 0"
+      ],
+      "answer": "Đổi dấu giá trị tích phân"
+    },
+    {
+      "id": "tp_s1_5",
+      "type": "multiple-choice",
+      "question": "Tính ∫₀¹1dx",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "1/2"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": "tp_s1_6",
+      "type": "multiple-choice",
+      "question": "Tính ∫₀²x dx",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "2"
+    },
+    {
+      "id": "tp_s1_7",
+      "type": "multiple-choice",
+      "question": "Tính ∫₀¹2x dx",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": "tp_s1_8",
+      "type": "multiple-choice",
+      "question": "Tính ∫₀π cosx dx",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "-1"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": "tp_s1_9",
+      "type": "multiple-choice",
+      "question": "Tính ∫₀π sinx dx",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "π"
+      ],
+      "answer": "2"
+    },
+    {
+      "id": "tp_s1_10",
+      "type": "multiple-choice",
+      "question": "Tích phân dùng để",
+      "options": [
+        "Tính diện tích, thể tích và nhiều đại lượng khác",
+        "Giải phương trình bậc hai",
+        "Tính xác suất đơn giản",
+        "Tìm đạo hàm cấp hai"
+      ],
+      "answer": "Tính diện tích, thể tích và nhiều đại lượng khác"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "tp_s2_1",
+      "type": "true-false",
+      "question": "Xét các tính chất của tích phân xác định.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "∫ₐᵃf(x)dx=0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "∫ₐᵇf(x)dx=-∫ᵇₐf(x)dx.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "∫ₐᵇ[kf(x)]dx=k∫ₐᵇf(x)dx.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Tích phân luôn dương.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "tp_s2_2",
+      "type": "true-false",
+      "question": "Xét công thức Newton–Leibniz.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu F'(x)=f(x) thì ∫ₐᵇf(x)dx=F(b)-F(a).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Muốn tính tích phân thường cần tìm nguyên hàm.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "F(a)-F(b) luôn bằng tích phân.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Nguyên hàm là công cụ quan trọng để tính tích phân.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "tp_s2_3",
+      "type": "true-false",
+      "question": "Cho I=∫₀²x dx.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Một nguyên hàm của x là x²/2.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "I=[x²/2]₀².",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "I=2.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "I=4.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "tp_s3_1",
+      "type": "short-answer",
+      "question": "Tính ∫₀²x dx.",
+      "answer": "2",
+      "explanation": "Nguyên hàm của x là x²/2. Do đó ∫₀²x dx=[x²/2]₀²=2."
+    },
+    {
+      "id": "tp_s3_2",
+      "type": "short-answer",
+      "question": "Tính ∫₀¹(2x)dx.",
+      "answer": "1",
+      "explanation": "Nguyên hàm của 2x là x². Suy ra ∫₀¹2x dx=[x²]₀¹=1."
+    },
+    {
+      "id": "tp_s3_3",
+      "type": "short-answer",
+      "question": "Tính ∫₀³1dx.",
+      "answer": "3",
+      "explanation": "∫₀³1dx=[x]₀³=3."
+    },
+    {
+      "id": "tp_s3_4",
+      "type": "short-answer",
+      "question": "Tính ∫₀π sinx dx.",
+      "answer": "2",
+      "explanation": "Nguyên hàm của sinx là −cosx. Ta có [−cosx]₀π=2."
+    },
+    {
+      "id": "tp_s3_5",
+      "type": "short-answer",
+      "question": "Tính ∫₁²(3x²)dx.",
+      "answer": "7",
+      "explanation": "Nguyên hàm của 3x² là x³. Suy ra [x³]₁²=8−1=7."
+    }
+  ]
+}

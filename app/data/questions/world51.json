@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "hmp_s1_1",
+      "type": "multiple-choice",
+      "question": "Góc giữa hai mặt phẳng được xác định bằng",
+      "options": [
+        "Góc giữa hai đường thẳng bất kỳ nằm trong hai mặt phẳng",
+        "Góc giữa hai đường thẳng lần lượt vuông góc với giao tuyến và nằm trong hai mặt phẳng",
+        "Góc giữa hai vectơ pháp tuyến",
+        "Góc giữa hai giao tuyến"
+      ],
+      "answer": "Góc giữa hai đường thẳng lần lượt vuông góc với giao tuyến và nằm trong hai mặt phẳng"
+    },
+    {
+      "id": "hmp_s1_2",
+      "type": "multiple-choice",
+      "question": "Hai mặt phẳng vuông góc khi góc giữa chúng bằng",
+      "options": [
+        "30°",
+        "45°",
+        "60°",
+        "90°"
+      ],
+      "answer": "90°"
+    },
+    {
+      "id": "hmp_s1_3",
+      "type": "multiple-choice",
+      "question": "Nếu mặt phẳng (P) vuông góc với mặt phẳng (Q) thì",
+      "options": [
+        "(Q) vuông góc với (P)",
+        "(P) song song với (Q)",
+        "(P) trùng với (Q)",
+        "Không kết luận được"
+      ],
+      "answer": "(Q) vuông góc với (P)"
+    },
+    {
+      "id": "hmp_s1_4",
+      "type": "multiple-choice",
+      "question": "Trong hình hộp chữ nhật, mặt phẳng (ABCD) vuông góc với",
+      "options": [
+        "(A'B'C'D')",
+        "(ABB'A')",
+        "(ABCD)",
+        "(ABC'D')"
+      ],
+      "answer": "(ABB'A')"
+    },
+    {
+      "id": "hmp_s1_5",
+      "type": "multiple-choice",
+      "question": "Nếu một mặt phẳng chứa một đường thẳng vuông góc với mặt phẳng kia thì hai mặt phẳng đó",
+      "options": [
+        "Song song",
+        "Vuông góc",
+        "Trùng nhau",
+        "Cắt nhau nhưng không vuông góc"
+      ],
+      "answer": "Vuông góc"
+    },
+    {
+      "id": "hmp_s1_6",
+      "type": "multiple-choice",
+      "question": "Trong hình chóp S.ABCD có SA ⊥ (ABCD). Mặt phẳng nào vuông góc với đáy?",
+      "options": [
+        "(SAB)",
+        "(ABCD)",
+        "(BCD)",
+        "(ABC)"
+      ],
+      "answer": "(SAB)"
+    },
+    {
+      "id": "hmp_s1_7",
+      "type": "multiple-choice",
+      "question": "Góc giữa hai mặt phẳng luôn thuộc khoảng",
+      "options": [
+        "[0°;90°]",
+        "[0°;180°]",
+        "(0°;180°)",
+        "(0°;90°)"
+      ],
+      "answer": "[0°;90°]"
+    },
+    {
+      "id": "hmp_s1_8",
+      "type": "multiple-choice",
+      "question": "Trong hình lập phương ABCD.A'B'C'D', mặt phẳng (ABB'A') vuông góc với",
+      "options": [
+        "(BCC'B')",
+        "(A'B'C'D')",
+        "(CDD'C')",
+        "Cả ba đáp án trên"
+      ],
+      "answer": "Cả ba đáp án trên"
+    },
+    {
+      "id": "hmp_s1_9",
+      "type": "multiple-choice",
+      "question": "Hai mặt phẳng phân biệt cùng vuông góc với một mặt phẳng thứ ba thì",
+      "options": [
+        "Có thể song song",
+        "Luôn vuông góc",
+        "Luôn cắt nhau vuông góc",
+        "Luôn trùng nhau"
+      ],
+      "answer": "Có thể song song"
+    },
+    {
+      "id": "hmp_s1_10",
+      "type": "multiple-choice",
+      "question": "Điều kiện đủ để chứng minh hai mặt phẳng vuông góc là",
+      "options": [
+        "Một mặt phẳng chứa một đường thẳng vuông góc với mặt phẳng kia",
+        "Hai mặt phẳng có giao tuyến",
+        "Hai mặt phẳng cắt nhau",
+        "Hai mặt phẳng không song song"
+      ],
+      "answer": "Một mặt phẳng chứa một đường thẳng vuông góc với mặt phẳng kia"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "hmp_s2_1",
+      "type": "true-false",
+      "question": "Xét hai mặt phẳng vuông góc.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu (P) ⊥ (Q) thì (Q) ⊥ (P).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Góc giữa hai mặt phẳng vuông góc bằng 90°.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hai mặt phẳng vuông góc luôn song song.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Hai mặt phẳng vuông góc luôn cắt nhau.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "hmp_s2_2",
+      "type": "true-false",
+      "question": "Trong hình hộp chữ nhật ABCD.A'B'C'D'.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "(ABCD) ⊥ (ABB'A').",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "(ABCD) ⊥ (BCC'B').",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "(ABB'A') ⊥ (BCC'B').",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "(ABCD) // (A'B'C'D').",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "hmp_s2_3",
+      "type": "true-false",
+      "question": "Xét các tính chất của hai mặt phẳng vuông góc.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu mặt phẳng (P) chứa một đường thẳng vuông góc với (Q) thì (P) ⊥ (Q).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Góc giữa hai mặt phẳng luôn không vượt quá 90°.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hai mặt phẳng cùng vuông góc với một mặt phẳng thứ ba luôn vuông góc với nhau.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Hai mặt phẳng song song thì góc giữa chúng bằng 0°.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "hmp_s3_1",
+      "type": "short-answer",
+      "question": "Hai mặt phẳng vuông góc tạo với nhau góc bao nhiêu độ?",
+      "answer": "90",
+      "explanation": "Theo định nghĩa, hai mặt phẳng vuông góc khi góc giữa chúng bằng 90°."
+    },
+    {
+      "id": "hmp_s3_2",
+      "type": "short-answer",
+      "question": "Góc giữa hai mặt phẳng luôn không vượt quá bao nhiêu độ?",
+      "answer": "90",
+      "explanation": "Góc giữa hai mặt phẳng được quy ước nằm trong đoạn từ 0° đến 90°."
+    },
+    {
+      "id": "hmp_s3_3",
+      "type": "short-answer",
+      "question": "Trong hình hộp chữ nhật, có bao nhiêu mặt bên vuông góc với mặt đáy?",
+      "answer": "4",
+      "explanation": "Hình hộp chữ nhật có 4 mặt bên và tất cả đều vuông góc với mặt đáy."
+    },
+    {
+      "id": "hmp_s3_4",
+      "type": "short-answer",
+      "question": "Hai mặt phẳng song song tạo với nhau góc bằng bao nhiêu độ?",
+      "answer": "0",
+      "explanation": "Góc giữa hai mặt phẳng song song được quy ước bằng 0°."
+    },
+    {
+      "id": "hmp_s3_5",
+      "type": "short-answer",
+      "question": "Muốn chứng minh hai mặt phẳng vuông góc, chỉ cần chứng minh một mặt phẳng chứa bao nhiêu đường thẳng vuông góc với mặt phẳng kia?",
+      "answer": "1",
+      "explanation": "Chỉ cần tìm một đường thẳng nằm trong mặt phẳng thứ nhất và vuông góc với mặt phẳng thứ hai."
+    }
+  ]
+}

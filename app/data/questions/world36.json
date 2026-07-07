@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "xttt_s1_1",
+      "type": "multiple-choice",
+      "question": "Số trung bình của mẫu số liệu dùng để đo",
+      "options": [
+        "Độ phân tán",
+        "Xu thế trung tâm",
+        "Tần số",
+        "Cỡ mẫu"
+      ],
+      "answer": "Xu thế trung tâm"
+    },
+    {
+      "id": "xttt_s1_2",
+      "type": "multiple-choice",
+      "question": "Mốt của mẫu số liệu là",
+      "options": [
+        "Giá trị lớn nhất",
+        "Giá trị nhỏ nhất",
+        "Giá trị xuất hiện nhiều nhất",
+        "Giá trị trung bình"
+      ],
+      "answer": "Giá trị xuất hiện nhiều nhất"
+    },
+    {
+      "id": "xttt_s1_3",
+      "type": "multiple-choice",
+      "question": "Trung vị của mẫu số liệu là",
+      "options": [
+        "Giá trị đứng giữa khi sắp xếp số liệu",
+        "Giá trị lớn nhất",
+        "Giá trị nhỏ nhất",
+        "Tần số lớn nhất"
+      ],
+      "answer": "Giá trị đứng giữa khi sắp xếp số liệu"
+    },
+    {
+      "id": "xttt_s1_4",
+      "type": "multiple-choice",
+      "question": "Trong mẫu số liệu ghép nhóm, nhóm chứa mốt là nhóm có",
+      "options": [
+        "Tần số nhỏ nhất",
+        "Tần số lớn nhất",
+        "Giá trị đại diện lớn nhất",
+        "Độ dài lớn nhất"
+      ],
+      "answer": "Tần số lớn nhất"
+    },
+    {
+      "id": "xttt_s1_5",
+      "type": "multiple-choice",
+      "question": "Nếu các tần số là 5; 8; 12; 10 thì nhóm chứa mốt có tần số",
+      "options": [
+        "5",
+        "8",
+        "10",
+        "12"
+      ],
+      "answer": "12"
+    },
+    {
+      "id": "xttt_s1_6",
+      "type": "multiple-choice",
+      "question": "Tổng các tần số của mẫu số liệu gọi là",
+      "options": [
+        "Số trung bình",
+        "Cỡ mẫu",
+        "Trung vị",
+        "Mốt"
+      ],
+      "answer": "Cỡ mẫu"
+    },
+    {
+      "id": "xttt_s1_7",
+      "type": "multiple-choice",
+      "question": "Nếu cỡ mẫu bằng 50 thì vị trí trung vị nằm gần",
+      "options": [
+        "Quan sát thứ 10",
+        "Quan sát thứ 25",
+        "Quan sát thứ 50",
+        "Quan sát thứ 1"
+      ],
+      "answer": "Quan sát thứ 25"
+    },
+    {
+      "id": "xttt_s1_8",
+      "type": "multiple-choice",
+      "question": "Trong bảng ghép nhóm, số trung bình được tính dựa trên",
+      "options": [
+        "Giá trị đại diện và tần số",
+        "Chỉ tần số",
+        "Chỉ cận dưới",
+        "Chỉ cận trên"
+      ],
+      "answer": "Giá trị đại diện và tần số"
+    },
+    {
+      "id": "xttt_s1_9",
+      "type": "multiple-choice",
+      "question": "Nhóm chứa trung vị là nhóm",
+      "options": [
+        "Chứa vị trí N/2",
+        "Chứa giá trị lớn nhất",
+        "Chứa giá trị nhỏ nhất",
+        "Có tần số lớn nhất"
+      ],
+      "answer": "Chứa vị trí N/2"
+    },
+    {
+      "id": "xttt_s1_10",
+      "type": "multiple-choice",
+      "question": "Mục đích của các số đặc trưng đo xu thế trung tâm là",
+      "options": [
+        "Mô tả giá trị tiêu biểu của dữ liệu",
+        "Đo độ lệch chuẩn",
+        "Đo phương sai",
+        "Đo độ phân tán"
+      ],
+      "answer": "Mô tả giá trị tiêu biểu của dữ liệu"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "xttt_s2_1",
+      "type": "true-false",
+      "question": "Xét các số đặc trưng đo xu thế trung tâm.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Mốt là giá trị xuất hiện nhiều nhất.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Trung vị là giá trị đứng giữa của mẫu số liệu đã sắp xếp.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Số trung bình phản ánh xu thế trung tâm của dữ liệu.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Mốt luôn bằng trung bình.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "xttt_s2_2",
+      "type": "true-false",
+      "question": "Xét mẫu số liệu ghép nhóm.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Tổng các tần số bằng cỡ mẫu.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nhóm chứa mốt là nhóm có tần số lớn nhất.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Nhóm chứa trung vị chứa vị trí N/2.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Mọi nhóm đều có cùng tần số.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "xttt_s2_3",
+      "type": "true-false",
+      "question": "Cho bảng ghép nhóm có các tần số 6; 9; 15; 10.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Cỡ mẫu bằng 40.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nhóm chứa mốt là nhóm thứ ba.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Tần số lớn nhất là 15.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Cỡ mẫu bằng 30.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "xttt_s3_1",
+      "type": "short-answer",
+      "question": "Một bảng ghép nhóm có các tần số 5; 8; 12; 15. Tìm cỡ mẫu.",
+      "answer": "40",
+      "explanation": "Cỡ mẫu bằng tổng các tần số: 5+8+12+15=40."
+    },
+    {
+      "id": "xttt_s3_2",
+      "type": "short-answer",
+      "question": "Cho bảng ghép nhóm có các tần số 4; 7; 11; 9. Tìm tần số lớn nhất.",
+      "answer": "11",
+      "explanation": "Trong các tần số 4, 7, 11, 9 thì lớn nhất là 11."
+    },
+    {
+      "id": "xttt_s3_3",
+      "type": "short-answer",
+      "question": "Cho bảng ghép nhóm có các tần số 10; 15; 20; 5. Tìm cỡ mẫu.",
+      "answer": "50",
+      "explanation": "Cỡ mẫu bằng tổng các tần số: 10+15+20+5=50."
+    },
+    {
+      "id": "xttt_s3_4",
+      "type": "short-answer",
+      "question": "Cho bảng ghép nhóm có các tần số 6; 12; 18; 14. Tần số của nhóm chứa mốt là bao nhiêu?",
+      "answer": "18",
+      "explanation": "Nhóm chứa mốt là nhóm có tần số lớn nhất. Tần số lớn nhất là 18."
+    },
+    {
+      "id": "xttt_s3_5",
+      "type": "short-answer",
+      "question": "Cho bảng ghép nhóm có các tần số 8; 12; 15; 10; 5. Tìm cỡ mẫu.",
+      "answer": "50",
+      "explanation": "Cỡ mẫu bằng tổng các tần số: 8+12+15+10+5=50."
+    }
+  ]
+}

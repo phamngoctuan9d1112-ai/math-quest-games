@@ -1,0 +1,455 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Đường tròn tâm I(3;−7), bán kính R=3 có phương trình là",
+"options": [
+"(x−3)²+(y+7)²=9",
+"(x+3)²+(y−7)²=9",
+"(x−3)²+(y+7)²=3",
+"(x+3)²+(y−7)²=3"
+],
+"answer": "(x−3)²+(y+7)²=9"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Đường tròn (x−2)²+(y+1)²=16 có tâm là",
+"options": [
+"(2;−1)",
+"(−2;1)",
+"(2;1)",
+"(−2;−1)"
+],
+"answer": "(2;−1)"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Đường tròn (x−2)²+(y+1)²=16 có bán kính bằng",
+"options": [
+"2",
+"4",
+"8",
+"16"
+],
+"answer": "4"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Phương trình x²+y²−4x+2y−11=0 có tâm là",
+"options": [
+"(2;−1)",
+"(−2;1)",
+"(2;1)",
+"(−2;−1)"
+],
+"answer": "(2;−1)"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Phương trình x²+y²−4x+2y−11=0 có bán kính bằng",
+"options": [
+"4",
+"√11",
+"2√4",
+"4√2"
+],
+"answer": "4"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Đường tròn nhận A(−1;4), B(5;−2) làm đường kính có tâm là",
+"options": [
+"(2;1)",
+"(3;1)",
+"(2;−1)",
+"(1;2)"
+],
+"answer": "(2;1)"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Đường tròn đi qua điểm A và có tâm I thì bán kính bằng",
+"options": [
+"IA",
+"2IA",
+"IA²",
+"IA/2"
+],
+"answer": "IA"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Điều kiện để x²+y²+ax+by+c=0 là phương trình đường tròn là",
+"options": [
+"a²+b²−4c>0",
+"a²+b²−4c=0",
+"a²+b²−4c<0",
+"a=b=0"
+],
+"answer": "a²+b²−4c>0"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Đường tròn tâm O(0;0), bán kính 5 có phương trình là",
+"options": [
+"x²+y²=25",
+"x²+y²=5",
+"x²+y²−25=25",
+"x²+y²+25=0"
+],
+"answer": "x²+y²=25"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Điểm M(3;4) thuộc đường tròn x²+y²=25 vì",
+"options": [
+"3²+4²=25",
+"3+4=7",
+"5²=50",
+"3×4=12"
+],
+"answer": "3²+4²=25"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Đường tròn tiếp xúc với đường thẳng Δ khi",
+"options": [
+"d(I,Δ)=R",
+"d(I,Δ)>R",
+"d(I,Δ)<R",
+"I∈Δ"
+],
+"answer": "d(I,Δ)=R"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Đường thẳng cắt đường tròn tại hai điểm phân biệt khi",
+"options": [
+"d(I,Δ)<R",
+"d(I,Δ)=R",
+"d(I,Δ)>R",
+"R=0"
+],
+"answer": "d(I,Δ)<R"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Đường thẳng không cắt đường tròn khi",
+"options": [
+"d(I,Δ)>R",
+"d(I,Δ)=R",
+"d(I,Δ)<R",
+"R>0"
+],
+"answer": "d(I,Δ)>R"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Tâm của đường tròn x²+y²+6x−4y−12=0 là",
+"options": [
+"(-3;2)",
+"(3;-2)",
+"(6;-4)",
+"(-6;4)"
+],
+"answer": "(-3;2)"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Bán kính của đường tròn x²+y²+6x−4y−12=0 là",
+"options": [
+"5",
+"4",
+"3",
+"√12"
+],
+"answer": "5"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Đường tròn đi qua ba điểm không thẳng hàng được xác định",
+"options": [
+"Duy nhất",
+"Hai đường tròn",
+"Ba đường tròn",
+"Không xác định"
+],
+"answer": "Duy nhất"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Nếu AB là đường kính thì tâm đường tròn là",
+"options": [
+"Trung điểm AB",
+"A",
+"B",
+"Gốc tọa độ"
+],
+"answer": "Trung điểm AB"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Đường tròn tâm I(−1;2) tiếp xúc với đường thẳng 2x−y+7=0 có bán kính bằng",
+"options": [
+"|2(−1)−2+7|/√5",
+"√5",
+"7",
+"2"
+],
+"answer": "|2(−1)−2+7|/√5"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Dạng chuẩn của phương trình đường tròn là",
+"options": [
+"(x−a)²+(y−b)²=R²",
+"ax+by+c=0",
+"y=ax+b",
+"x²−y²=R²"
+],
+"answer": "(x−a)²+(y−b)²=R²"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Bán kính của đường tròn x²+y²=100 bằng",
+"options": [
+"10",
+"20",
+"50",
+"100"
+],
+"answer": "10"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Cho đường tròn (x−2)²+(y+3)²=25.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Tâm là I(2;−3).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Bán kính bằng 5.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Điểm (5;1) thuộc đường tròn.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Điểm O(0;0) là tâm đường tròn.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Cho phương trình x²+y²+6x−4y−12=0.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Đây là phương trình đường tròn.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Tâm là (−3;2).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Bán kính bằng 5.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Bán kính bằng 25.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Xét vị trí tương đối của đường thẳng và đường tròn.",
+"subQuestions": [
+{
+"label": "a",
+"text": "d(I,Δ)=R thì Δ là tiếp tuyến.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "d(I,Δ)<R thì Δ cắt đường tròn tại hai điểm.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "d(I,Δ)>R thì Δ không cắt đường tròn.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "d(I,Δ)=0 thì Δ luôn là tiếp tuyến.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Cho A(−1;4), B(5;−2).",
+"subQuestions": [
+{
+"label": "a",
+"text": "Trung điểm AB là (2;1).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Độ dài AB=6√2.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Bán kính đường tròn đường kính AB là 3√2.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Tâm là (1;2).",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "Xét phương trình x²+y²+ax+by+c=0.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Tâm là (−a/2;−b/2).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "R²=(a²+b²)/4−c.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Nếu R²≤0 thì không là đường tròn.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Mọi phương trình dạng này đều là đường tròn.",
+"correctAnswer": "Sai"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Cho đường tròn (x−3)²+(y+4)²=25. Tính bán kính.",
+"answer": "5",
+"explanation": "R²=25 nên R=5."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Cho đường tròn x²+y²−4x+6y−12=0. Tính hoành độ tâm.",
+"answer": "2",
+"explanation": "Tâm I(−a/2;−b/2)=(2;−3)."
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Cho đường tròn x²+y²−4x+6y−12=0. Tính bán kính.",
+"answer": "5",
+"explanation": "R²=2²+(-3)²+12=25 nên R=5."
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Đường tròn tâm O, bán kính 7. Tính diện tích hình tròn.",
+"answer": "49π",
+"explanation": "S=πR²=π·7²=49π."
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Cho A(−1;4), B(5;−2). Tính hoành độ tâm đường tròn đường kính AB.",
+"answer": "2",
+"explanation": "Tâm là trung điểm AB=((−1+5)/2,(4−2)/2)=(2;1)."
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Cho đường tròn x²+y²=25. Điểm M(3;4) có thuộc đường tròn không? Trả lời 1 nếu có, 0 nếu không.",
+"answer": "1",
+"explanation": "3²+4²=25 nên M thuộc đường tròn."
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Cho tâm I(−1;2) và điểm A(2;6) thuộc đường tròn. Tính R².",
+"answer": "25",
+"explanation": "R²=IA²=(2+1)²+(6−2)²=25."
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Cho đường tròn tâm I(−1;2) tiếp xúc với đường thẳng 2x−y+7=0. Tính bán kính.",
+"answer": "3/√5",
+"explanation": "R=d(I,Δ)=|2(−1)−2+7|/√(2²+(-1)²)=3/√5. "
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Cho đường tròn x²+y²+6x−4y−12=0. Tính tổng tọa độ tâm.",
+"answer": "-1",
+"explanation": "Tâm là (−3;2), tổng tọa độ bằng −1."
+},
+{
+"id": "s3_10",        
+"type": "short-answer",
+"question": "Cho đường tròn (x−1)²+(y−2)²=9. Tính tung độ tâm.",
+"answer": "2",
+"explanation": "Tâm đường tròn là I(1;2)."
+}
+]
+}

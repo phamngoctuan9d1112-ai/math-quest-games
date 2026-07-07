@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "songsong_s1_1",
+      "type": "multiple-choice",
+      "question": "Trong không gian, hai đường thẳng phân biệt không có điểm chung và cùng nằm trong một mặt phẳng được gọi là",
+      "options": [
+        "Hai đường thẳng cắt nhau",
+        "Hai đường thẳng chéo nhau",
+        "Hai đường thẳng song song",
+        "Hai đường thẳng vuông góc"
+      ],
+      "answer": "Hai đường thẳng song song"
+    },
+    {
+      "id": "songsong_s1_2",
+      "type": "multiple-choice",
+      "question": "Nếu hai đường thẳng cùng song song với một đường thẳng thứ ba thì",
+      "options": [
+        "Chúng cắt nhau",
+        "Chúng song song với nhau",
+        "Chúng vuông góc với nhau",
+        "Không kết luận được"
+      ],
+      "answer": "Chúng song song với nhau"
+    },
+    {
+      "id": "songsong_s1_3",
+      "type": "multiple-choice",
+      "question": "Qua một điểm nằm ngoài một đường thẳng cho trước, có bao nhiêu đường thẳng song song với đường thẳng đó?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "Vô số"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": "songsong_s1_4",
+      "type": "multiple-choice",
+      "question": "Trong hình hộp ABCD.A'B'C'D', đường thẳng AB song song với",
+      "options": [
+        "BC",
+        "AA'",
+        "CD",
+        "A'D'"
+      ],
+      "answer": "A'D'"
+    },
+    {
+      "id": "songsong_s1_5",
+      "type": "multiple-choice",
+      "question": "Nếu a // b và b // c thì",
+      "options": [
+        "a ⟂ c",
+        "a cắt c",
+        "a // c",
+        "Không kết luận được"
+      ],
+      "answer": "a // c"
+    },
+    {
+      "id": "songsong_s1_6",
+      "type": "multiple-choice",
+      "question": "Hai đường thẳng chéo nhau là hai đường thẳng",
+      "options": [
+        "Cùng nằm trong một mặt phẳng và không cắt nhau",
+        "Cùng nằm trong một mặt phẳng và cắt nhau",
+        "Không đồng phẳng",
+        "Vuông góc với nhau"
+      ],
+      "answer": "Không đồng phẳng"
+    },
+    {
+      "id": "songsong_s1_7",
+      "type": "multiple-choice",
+      "question": "Điều kiện để hai đường thẳng phân biệt song song là",
+      "options": [
+        "Có một điểm chung",
+        "Không đồng phẳng",
+        "Đồng phẳng và không có điểm chung",
+        "Vuông góc"
+      ],
+      "answer": "Đồng phẳng và không có điểm chung"
+    },
+    {
+      "id": "songsong_s1_8",
+      "type": "multiple-choice",
+      "question": "Trong hình lập phương ABCD.A'B'C'D', cạnh BC song song với",
+      "options": [
+        "AB",
+        "BB'",
+        "AD",
+        "B'C'"
+      ],
+      "answer": "B'C'"
+    },
+    {
+      "id": "songsong_s1_9",
+      "type": "multiple-choice",
+      "question": "Nếu hai đường thẳng song song thì chúng",
+      "options": [
+        "Có vô số điểm chung",
+        "Có đúng một điểm chung",
+        "Không có điểm chung",
+        "Vuông góc"
+      ],
+      "answer": "Không có điểm chung"
+    },
+    {
+      "id": "songsong_s1_10",
+      "type": "multiple-choice",
+      "question": "Trong một mặt phẳng, qua một điểm nằm ngoài đường thẳng a có bao nhiêu đường thẳng song song với a?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "Vô số"
+      ],
+      "answer": "1"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "songsong_s2_1",
+      "type": "true-false",
+      "question": "Xét các mệnh đề về hai đường thẳng song song.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hai đường thẳng song song luôn đồng phẳng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hai đường thẳng song song không có điểm chung.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hai đường thẳng chéo nhau là hai đường thẳng song song.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Nếu a // b và b // c thì a // c.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "songsong_s2_2",
+      "type": "true-false",
+      "question": "Xét vị trí tương đối của hai đường thẳng trong không gian.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hai đường thẳng cắt nhau thì đồng phẳng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hai đường thẳng song song thì đồng phẳng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hai đường thẳng chéo nhau thì không đồng phẳng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hai đường thẳng không có điểm chung thì luôn song song.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "songsong_s2_3",
+      "type": "true-false",
+      "question": "Xét các tính chất của đường thẳng song song.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Qua một điểm ngoài đường thẳng a chỉ có một đường thẳng song song với a.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hai đường thẳng cùng song song với đường thẳng thứ ba thì song song với nhau.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hai đường thẳng song song có thể cắt nhau.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Hai đường thẳng song song luôn có cùng phương.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "songsong_s3_1",
+      "type": "short-answer",
+      "question": "Qua một điểm nằm ngoài một đường thẳng cho trước có bao nhiêu đường thẳng song song với đường thẳng đó?",
+      "answer": "1",
+      "explanation": "Theo tiên đề Euclid, qua một điểm nằm ngoài một đường thẳng chỉ có duy nhất một đường thẳng song song với đường thẳng đó."
+    },
+    {
+      "id": "songsong_s3_2",
+      "type": "short-answer",
+      "question": "Hai đường thẳng song song có bao nhiêu điểm chung?",
+      "answer": "0",
+      "explanation": "Hai đường thẳng song song là hai đường thẳng đồng phẳng và không có điểm chung."
+    },
+    {
+      "id": "songsong_s3_3",
+      "type": "short-answer",
+      "question": "Nếu a // b và b // c thì có bao nhiêu cặp đường thẳng song song trong ba đường thẳng a, b, c?",
+      "answer": "3",
+      "explanation": "Ta có a // b, b // c và suy ra a // c. Vậy có 3 cặp đường thẳng song song."
+    },
+    {
+      "id": "songsong_s3_4",
+      "type": "short-answer",
+      "question": "Hai đường thẳng chéo nhau có nằm trong cùng một mặt phẳng hay không? (Trả lời 1 nếu Có, 0 nếu Không)",
+      "answer": "0",
+      "explanation": "Hai đường thẳng chéo nhau là hai đường thẳng không đồng phẳng nên không nằm trong cùng một mặt phẳng."
+    },
+    {
+      "id": "songsong_s3_5",
+      "type": "short-answer",
+      "question": "Trong một hình hộp có bao nhiêu cạnh song song với một cạnh cho trước?",
+      "answer": "3",
+      "explanation": "Trong hình hộp, mỗi cạnh thuộc một nhóm gồm 4 cạnh song song. Ngoài cạnh đã cho còn có 3 cạnh khác song song với nó."
+    }
+  ]
+}

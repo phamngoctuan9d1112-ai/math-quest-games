@@ -1,0 +1,18 @@
+{
+  "worldId": 11,
+  "grade": 10,
+  "stages": {
+    "stage1": {
+      "type": "multiple_choice",
+      "questions": []
+    },
+    "stage2": {
+      "type": "true_false",
+      "questions": []
+    },
+    "stage3": {
+      "type": "short_answer",
+      "questions": []
+    }
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "hsml_s1_1",
+      "type": "multiple-choice",
+      "question": "Hàm số nào dưới đây là hàm số mũ?",
+      "options": [
+        "y = 2^x",
+        "y = x²",
+        "y = log₂x",
+        "y = √x"
+      ],
+      "answer": "y = 2^x"
+    },
+    {
+      "id": "hsml_s1_2",
+      "type": "multiple-choice",
+      "question": "Tập xác định của hàm số y = 3^x là",
+      "options": [
+        "(0;+∞)",
+        "ℝ",
+        "[0;+∞)",
+        "(-∞;0)"
+      ],
+      "answer": "ℝ"
+    },
+    {
+      "id": "hsml_s1_3",
+      "type": "multiple-choice",
+      "question": "Tập xác định của hàm số y = log₂x là",
+      "options": [
+        "ℝ",
+        "[0;+∞)",
+        "(0;+∞)",
+        "(-∞;+∞)"
+      ],
+      "answer": "(0;+∞)"
+    },
+    {
+      "id": "hsml_s1_4",
+      "type": "multiple-choice",
+      "question": "Hàm số y = 2^x có tính chất",
+      "options": [
+        "Nghịch biến trên ℝ",
+        "Đồng biến trên ℝ",
+        "Không đổi",
+        "Tuần hoàn"
+      ],
+      "answer": "Đồng biến trên ℝ"
+    },
+    {
+      "id": "hsml_s1_5",
+      "type": "multiple-choice",
+      "question": "Hàm số y = (1/2)^x có tính chất",
+      "options": [
+        "Đồng biến trên ℝ",
+        "Nghịch biến trên ℝ",
+        "Không xác định với x<0",
+        "Tuần hoàn"
+      ],
+      "answer": "Nghịch biến trên ℝ"
+    },
+    {
+      "id": "hsml_s1_6",
+      "type": "multiple-choice",
+      "question": "Đồ thị hàm số y = log₂x đi qua điểm nào?",
+      "options": [
+        "(1;0)",
+        "(0;1)",
+        "(2;0)",
+        "(0;2)"
+      ],
+      "answer": "(1;0)"
+    },
+    {
+      "id": "hsml_s1_7",
+      "type": "multiple-choice",
+      "question": "Giá trị của log₂8 là",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "8"
+      ],
+      "answer": "3"
+    },
+    {
+      "id": "hsml_s1_8",
+      "type": "multiple-choice",
+      "question": "Giới hạn lim(2^x) khi x→+∞ bằng",
+      "options": [
+        "0",
+        "1",
+        "+∞",
+        "Không tồn tại"
+      ],
+      "answer": "+∞"
+    },
+    {
+      "id": "hsml_s1_9",
+      "type": "multiple-choice",
+      "question": "Giới hạn lim(log₂x) khi x→+∞ bằng",
+      "options": [
+        "0",
+        "1",
+        "+∞",
+        "2"
+      ],
+      "answer": "+∞"
+    },
+    {
+      "id": "hsml_s1_10",
+      "type": "multiple-choice",
+      "question": "Đồ thị hàm số y = log₃x nhận đường thẳng nào làm tiệm cận đứng?",
+      "options": [
+        "x = 0",
+        "y = 0",
+        "x = 1",
+        "y = 1"
+      ],
+      "answer": "x = 0"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "hsml_s2_1",
+      "type": "true-false",
+      "question": "Xét hàm số mũ y = 2^x.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Tập xác định là ℝ.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hàm số đồng biến trên ℝ.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Đồ thị đi qua điểm (0;1).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hàm số có tiệm cận đứng x = 0.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "hsml_s2_2",
+      "type": "true-false",
+      "question": "Xét hàm số logarit y = log₂x.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Tập xác định là (0;+∞).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Đồ thị đi qua điểm (1;0).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hàm số đồng biến trên (0;+∞).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Đồ thị có tiệm cận ngang y = 0.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "hsml_s2_3",
+      "type": "true-false",
+      "question": "Xét mối liên hệ giữa hàm số mũ và logarit.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "y = a^x và y = logₐx là hai hàm số ngược nhau.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Đồ thị của chúng đối xứng qua đường thẳng y = x.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Nếu a > 1 thì cả hai hàm đều đồng biến.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Nếu 0 < a < 1 thì cả hai hàm đều đồng biến.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "hsml_s3_1",
+      "type": "short-answer",
+      "question": "Tính giá trị của log₂32.",
+      "answer": "5",
+      "explanation": "Vì 32 = 2⁵ nên log₂32 = 5."
+    },
+    {
+      "id": "hsml_s3_2",
+      "type": "short-answer",
+      "question": "Tìm x biết 3^x = 81.",
+      "answer": "4",
+      "explanation": "81 = 3⁴ nên x = 4."
+    },
+    {
+      "id": "hsml_s3_3",
+      "type": "short-answer",
+      "question": "Tính log₅(1/25).",
+      "answer": "-2",
+      "explanation": "1/25 = 5⁻² nên log₅(1/25) = -2."
+    },
+    {
+      "id": "hsml_s3_4",
+      "type": "short-answer",
+      "question": "Một số tiền 100 triệu đồng được gửi ngân hàng với lãi kép 6%/năm. Sau 2 năm có bao nhiêu triệu đồng?",
+      "answer": "112.36",
+      "explanation": "A = 100(1+0,06)² = 112,36 (triệu đồng)."
+    },
+    {
+      "id": "hsml_s3_5",
+      "type": "short-answer",
+      "question": "Một quần thể vi khuẩn ban đầu có 1500 con và tăng 25% sau mỗi 2 ngày. Sau 6 ngày có bao nhiêu con?",
+      "answer": "2929.69",
+      "explanation": "Sau 6 ngày có 3 chu kỳ tăng trưởng. Số vi khuẩn là 1500×1,25³ = 2929,6875 ≈ 2929,69 con."
+    }
+  ]
+}

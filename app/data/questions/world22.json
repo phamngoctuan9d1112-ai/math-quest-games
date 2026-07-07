@@ -1,0 +1,365 @@
+
+{
+  "stage1": [
+    {
+      "id": "s1_1",
+      "type": "multiple-choice",
+      "question": "Một công việc có thể thực hiện theo 5 cách hoặc 8 cách khác. Số cách thực hiện công việc là",
+      "options": ["13", "40", "3", "8"],
+      "answer": "13"
+    },
+    {
+      "id": "s1_2",
+      "type": "multiple-choice",
+      "question": "Có 7 bút chì khác nhau và 6 bút bi khác nhau. Chọn một đồ vật duy nhất. Có bao nhiêu cách chọn?",
+      "options": ["13", "42", "7", "6"],
+      "answer": "13"
+    },
+    {
+      "id": "s1_3",
+      "type": "multiple-choice",
+      "question": "Một trường có 365 học sinh nam và 315 học sinh nữ. Chọn một học sinh. Có bao nhiêu cách chọn?",
+      "options": ["680", "114975", "365", "315"],
+      "answer": "680"
+    },
+    {
+      "id": "s1_4",
+      "type": "multiple-choice",
+      "question": "Lớp 10A có 15 học sinh giỏi, lớp 11A có 18 học sinh giỏi. Chọn một học sinh từ một trong hai lớp. Có bao nhiêu cách?",
+      "options": ["33", "270", "18", "15"],
+      "answer": "33"
+    },
+    {
+      "id": "s1_5",
+      "type": "multiple-choice",
+      "question": "Theo quy tắc cộng, hai công việc phải thỏa mãn điều kiện nào?",
+      "options": [
+        "Không thể thực hiện đồng thời",
+        "Thực hiện đồng thời",
+        "Có cùng số cách",
+        "Có cùng kết quả"
+      ],
+      "answer": "Không thể thực hiện đồng thời"
+    },
+    {
+      "id": "s1_6",
+      "type": "multiple-choice",
+      "question": "Nếu công việc A có 9 cách, công việc B có 11 cách và hai công việc loại trừ nhau thì có tất cả",
+      "options": ["20", "99", "2", "11"],
+      "answer": "20"
+    },
+    {
+      "id": "s1_7",
+      "type": "multiple-choice",
+      "question": "Nếu công việc gồm hai bước liên tiếp có 4 cách và 6 cách thì theo quy tắc nhân số cách là",
+      "options": ["24", "10", "2", "12"],
+      "answer": "24"
+    },
+    {
+      "id": "s1_8",
+      "type": "multiple-choice",
+      "question": "Quy tắc nhân được áp dụng khi",
+      "options": [
+        "Công việc gồm nhiều bước liên tiếp",
+        "Chỉ chọn một trong nhiều phương án",
+        "Các phương án loại trừ nhau",
+        "Không có đáp án nào"
+      ],
+      "answer": "Công việc gồm nhiều bước liên tiếp"
+    },
+    {
+      "id": "s1_9",
+      "type": "multiple-choice",
+      "question": "Một người có 5 áo và 4 quần. Số cách chọn một bộ quần áo là",
+      "options": ["20", "9", "16", "25"],
+      "answer": "20"
+    },
+    {
+      "id": "s1_10",
+      "type": "multiple-choice",
+      "question": "Có 3 tuyến đường từ A đến B và 5 tuyến đường từ B đến C. Số cách đi từ A đến C qua B là",
+      "options": ["15", "8", "3", "5"],
+      "answer": "15"
+    },
+    {
+      "id": "s1_11",
+      "type": "multiple-choice",
+      "question": "Có 8 chữ số khác nhau. Chọn một chữ số. Có bao nhiêu cách?",
+      "options": ["8", "16", "64", "7"],
+      "answer": "8"
+    },
+    {
+      "id": "s1_12",
+      "type": "multiple-choice",
+      "question": "Có 4 loại nước uống và 3 loại bánh. Chọn một nước và một bánh. Có bao nhiêu cách?",
+      "options": ["12", "7", "24", "1"],
+      "answer": "12"
+    },
+    {
+      "id": "s1_13",
+      "type": "multiple-choice",
+      "question": "Có 6 quyển sách Toán và 5 quyển sách Văn. Chọn một quyển. Có bao nhiêu cách?",
+      "options": ["11", "30", "6", "5"],
+      "answer": "11"
+    },
+    {
+      "id": "s1_14",
+      "type": "multiple-choice",
+      "question": "Một mật khẩu gồm 2 ký tự, ký tự đầu có 10 cách chọn, ký tự sau có 26 cách chọn. Có bao nhiêu mật khẩu?",
+      "options": ["260", "36", "52", "16"],
+      "answer": "260"
+    },
+    {
+      "id": "s1_15",
+      "type": "multiple-choice",
+      "question": "Quy tắc cộng sử dụng phép toán nào?",
+      "options": ["Cộng", "Nhân", "Chia", "Trừ"],
+      "answer": "Cộng"
+    },
+    {
+      "id": "s1_16",
+      "type": "multiple-choice",
+      "question": "Quy tắc nhân sử dụng phép toán nào?",
+      "options": ["Nhân", "Cộng", "Chia", "Trừ"],
+      "answer": "Nhân"
+    },
+    {
+      "id": "s1_17",
+      "type": "multiple-choice",
+      "question": "Một biển số gồm 3 chữ số, mỗi vị trí có 10 cách chọn. Có bao nhiêu khả năng?",
+      "options": ["1000", "30", "300", "729"],
+      "answer": "1000"
+    },
+    {
+      "id": "s1_18",
+      "type": "multiple-choice",
+      "question": "Có 5 lối vào và 4 lối ra độc lập. Số cách đi vào rồi đi ra là",
+      "options": ["20", "9", "1", "16"],
+      "answer": "20"
+    },
+    {
+      "id": "s1_19",
+      "type": "multiple-choice",
+      "question": "Có 9 nam và 11 nữ. Chọn một người. Có bao nhiêu cách?",
+      "options": ["20", "99", "11", "9"],
+      "answer": "20"
+    },
+    {
+      "id": "s1_20",
+      "type": "multiple-choice",
+      "question": "Hai bước có lần lượt 7 và 8 cách thực hiện. Số cách thực hiện toàn bộ công việc là",
+      "options": ["56", "15", "64", "1"],
+      "answer": "56"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "s2_1",
+      "type": "true-false",
+      "question": "Xét quy tắc cộng.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hai công việc phải loại trừ nhau.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Số cách bằng tổng số cách của từng công việc.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Quy tắc cộng dùng phép nhân.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Có thể thực hiện đồng thời cả hai công việc.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "s2_2",
+      "type": "true-false",
+      "question": "Xét quy tắc nhân.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Áp dụng khi công việc gồm nhiều bước liên tiếp.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Số cách bằng tích số cách từng bước.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Quy tắc nhân luôn dùng phép cộng.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Các bước đều phải được thực hiện.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "s2_3",
+      "type": "true-false",
+      "question": "Có 5 áo và 4 quần.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Có 20 cách chọn một bộ quần áo.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Áp dụng quy tắc nhân.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Có 9 cách chọn.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Mỗi bộ gồm đúng một áo và một quần.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "s2_4",
+      "type": "true-false",
+      "question": "Một trường có 365 nam và 315 nữ.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Có 680 cách chọn một học sinh.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Áp dụng quy tắc cộng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Có 114975 cách chọn.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Chỉ chọn đúng một học sinh.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "s2_5",
+      "type": "true-false",
+      "question": "Xét các quy tắc đếm.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Quy tắc cộng và quy tắc nhân là hai quy tắc đếm cơ bản.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Có thể kết hợp cả hai quy tắc trong cùng một bài toán.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Mọi bài toán đếm đều chỉ dùng quy tắc cộng.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Việc xác định đúng các bước là quan trọng khi áp dụng quy tắc nhân.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "s3_1",
+      "type": "short-answer",
+      "question": "Một trường có 365 học sinh nam và 315 học sinh nữ. Chọn một học sinh. Có bao nhiêu cách?",
+      "answer": "680",
+      "explanation": "Áp dụng quy tắc cộng: 365+315=680. "
+    },
+    {
+      "id": "s3_2",
+      "type": "short-answer",
+      "question": "Lớp 10A có 15 học sinh giỏi, lớp 11A có 18 học sinh giỏi. Chọn một học sinh. Có bao nhiêu cách?",
+      "answer": "33",
+      "explanation": "Áp dụng quy tắc cộng: 15+18=33. "
+    },
+    {
+      "id": "s3_3",
+      "type": "short-answer",
+      "question": "Có 7 bút chì và 6 bút bi khác nhau. Chọn một món quà. Có bao nhiêu cách?",
+      "answer": "13",
+      "explanation": "Chọn một bút chì hoặc một bút bi nên có 7+6=13 cách. "
+    },
+    {
+      "id": "s3_4",
+      "type": "short-answer",
+      "question": "Có 5 áo và 4 quần. Chọn một bộ quần áo. Có bao nhiêu cách?",
+      "answer": "20",
+      "explanation": "Áp dụng quy tắc nhân: 5×4=20."
+    },
+    {
+      "id": "s3_5",
+      "type": "short-answer",
+      "question": "Có 3 đường từ A đến B và 5 đường từ B đến C. Đi từ A đến C qua B có bao nhiêu cách?",
+      "answer": "15",
+      "explanation": "Có 3 lựa chọn cho chặng đầu và 5 lựa chọn cho chặng sau nên có 3×5=15 cách."
+    },
+    {
+      "id": "s3_6",
+      "type": "short-answer",
+      "question": "Một mật khẩu gồm 3 chữ số, mỗi vị trí có 10 cách chọn. Có bao nhiêu mật khẩu?",
+      "answer": "1000",
+      "explanation": "Theo quy tắc nhân: 10×10×10=1000."
+    },
+    {
+      "id": "s3_7",
+      "type": "short-answer",
+      "question": "Có 4 món chính và 6 món tráng miệng. Chọn một suất ăn gồm cả hai. Có bao nhiêu cách?",
+      "answer": "24",
+      "explanation": "Áp dụng quy tắc nhân: 4×6=24."
+    },
+    {
+      "id": "s3_8",
+      "type": "short-answer",
+      "question": "Có 8 sách Toán và 9 sách Lý. Chọn một quyển. Có bao nhiêu cách?",
+      "answer": "17",
+      "explanation": "Áp dụng quy tắc cộng: 8+9=17."
+    },
+    {
+      "id": "s3_9",
+      "type": "short-answer",
+      "question": "Có 6 chữ cái và 10 chữ số. Tạo mã gồm một chữ cái và một chữ số. Có bao nhiêu mã?",
+      "answer": "60",
+      "explanation": "Áp dụng quy tắc nhân: 6×10=60."
+    },
+    {
+      "id": "s3_10",
+      "type": "short-answer",
+      "question": "Có 9 tuyến xe buýt và 7 tuyến tàu điện. Chọn đúng một phương tiện. Có bao nhiêu cách?",
+      "answer": "16",
+      "explanation": "Chọn xe buýt hoặc tàu điện nên có 9+7=16 cách."
+    }
+  ]
+}
+

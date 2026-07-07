@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "ghds_s1_1",
+      "type": "multiple-choice",
+      "question": "Giới hạn của dãy số un = 1/n khi n → +∞ bằng",
+      "options": [
+        "0",
+        "1",
+        "+∞",
+        "-∞"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": "ghds_s1_2",
+      "type": "multiple-choice",
+      "question": "Giới hạn của dãy số un = (2n+1)/(n+3) khi n → +∞ bằng",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "0"
+      ],
+      "answer": "2"
+    },
+    {
+      "id": "ghds_s1_3",
+      "type": "multiple-choice",
+      "question": "Giới hạn của dãy số un = n²/(n²+1) khi n → +∞ bằng",
+      "options": [
+        "0",
+        "1",
+        "+∞",
+        "2"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": "ghds_s1_4",
+      "type": "multiple-choice",
+      "question": "Giới hạn của dãy số un = 3ⁿ khi n → +∞ là",
+      "options": [
+        "0",
+        "1",
+        "+∞",
+        "3"
+      ],
+      "answer": "+∞"
+    },
+    {
+      "id": "ghds_s1_5",
+      "type": "multiple-choice",
+      "question": "Giới hạn của dãy số un = (1/2)ⁿ khi n → +∞ bằng",
+      "options": [
+        "0",
+        "1",
+        "+∞",
+        "1/2"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": "ghds_s1_6",
+      "type": "multiple-choice",
+      "question": "Nếu lim(un)=2 và lim(vn)=3 thì lim(un+vn) bằng",
+      "options": [
+        "5",
+        "6",
+        "1",
+        "0"
+      ],
+      "answer": "5"
+    },
+    {
+      "id": "ghds_s1_7",
+      "type": "multiple-choice",
+      "question": "Nếu lim(un)=4 và lim(vn)=2 thì lim(un.vn) bằng",
+      "options": [
+        "6",
+        "8",
+        "4",
+        "2"
+      ],
+      "answer": "8"
+    },
+    {
+      "id": "ghds_s1_8",
+      "type": "multiple-choice",
+      "question": "Nếu lim(un)=6 và lim(vn)=2 thì lim(un/vn) bằng",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "12"
+      ],
+      "answer": "3"
+    },
+    {
+      "id": "ghds_s1_9",
+      "type": "multiple-choice",
+      "question": "Giới hạn của dãy số un=(5n²−1)/(2n²+3) khi n→+∞ bằng",
+      "options": [
+        "5/2",
+        "2/5",
+        "5",
+        "2"
+      ],
+      "answer": "5/2"
+    },
+    {
+      "id": "ghds_s1_10",
+      "type": "multiple-choice",
+      "question": "Tổng của cấp số nhân lùi vô hạn 1+1/2+1/4+1/8+... bằng",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "2"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "ghds_s2_1",
+      "type": "true-false",
+      "question": "Xét dãy số un = 1/n.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "lim(un)=0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Dãy số giảm.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Dãy số tăng.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Mọi số hạng đều dương.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "ghds_s2_2",
+      "type": "true-false",
+      "question": "Xét dãy số un=(1/3)^n.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "0<1/3<1.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "lim(un)=0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Dãy số tăng.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Các số hạng đều dương.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "ghds_s2_3",
+      "type": "true-false",
+      "question": "Xét các quy tắc tính giới hạn.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "lim(un+vn)=lim(un)+lim(vn).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "lim(un.vn)=lim(un).lim(vn).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "lim(un/vn)=lim(un)/lim(vn) nếu lim(vn)≠0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "lim(un-vn)=lim(un)+lim(vn).",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "ghds_s3_1",
+      "type": "short-answer",
+      "question": "Tính lim(1/n).",
+      "answer": "0",
+      "explanation": "Khi n tiến tới +∞ thì 1/n tiến tới 0."
+    },
+    {
+      "id": "ghds_s3_2",
+      "type": "short-answer",
+      "question": "Tính lim((3n+1)/(n+2)).",
+      "answer": "3",
+      "explanation": "Chia cả tử và mẫu cho n, ta được lim((3+1/n)/(1+2/n))=3."
+    },
+    {
+      "id": "ghds_s3_3",
+      "type": "short-answer",
+      "question": "Tính lim((2n²+1)/(n²−3)).",
+      "answer": "2",
+      "explanation": "Chia cả tử và mẫu cho n², giới hạn bằng tỉ số hệ số bậc cao nhất là 2."
+    },
+    {
+      "id": "ghds_s3_4",
+      "type": "short-answer",
+      "question": "Tính tổng cấp số nhân lùi vô hạn 1 + 1/2 + 1/4 + 1/8 + ...",
+      "answer": "2",
+      "explanation": "S=a/(1−q)=1/(1−1/2)=2."
+    },
+    {
+      "id": "ghds_s3_5",
+      "type": "short-answer",
+      "question": "Tính lim((1/5)^n).",
+      "answer": "0",
+      "explanation": "Vì |1/5|<1 nên lim((1/5)^n)=0."
+    }
+  ]
+}

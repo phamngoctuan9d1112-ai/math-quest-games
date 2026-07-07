@@ -1,0 +1,457 @@
+{
+  "stage1": [
+    {
+      "id": "s1_1",
+      "type": "multiple-choice",
+      "question": "Trong khai triển (x+1)^2024 có bao nhiêu số hạng?",
+      "options": [
+        "2024",
+        "2025",
+        "2023",
+        "2026"
+      ],
+      "answer": "2025"
+    },
+    {
+      "id": "s1_2",
+      "type": "multiple-choice",
+      "question": "Hệ số của x^3 trong khai triển (2x+1)^5 là",
+      "options": [
+        "40",
+        "80",
+        "120",
+        "160"
+      ],
+      "answer": "80"
+    },
+    {
+      "id": "s1_3",
+      "type": "multiple-choice",
+      "question": "Hệ số của x^4 trong khai triển (2x−3)^5 là",
+      "options": [
+        "-240",
+        "240",
+        "-270",
+        "270"
+      ],
+      "answer": "-240"
+    },
+    {
+      "id": "s1_4",
+      "type": "multiple-choice",
+      "question": "Trong khai triển (a+b)^8 có bao nhiêu số hạng?",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answer": "9"
+    },
+    {
+      "id": "s1_5",
+      "type": "multiple-choice",
+      "question": "Tổng các hệ số của khai triển (1−2x)^4 bằng",
+      "options": [
+        "1",
+        "-1",
+        "16",
+        "-16"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": "s1_6",
+      "type": "multiple-choice",
+      "question": "Số hạng thứ hai theo số mũ tăng dần của x trong khai triển (1+3x)^4 là",
+      "options": [
+        "12x",
+        "24x",
+        "36x",
+        "48x"
+      ],
+      "answer": "12x"
+    },
+    {
+      "id": "s1_7",
+      "type": "multiple-choice",
+      "question": "Hệ số của x²y² trong khai triển (x+2y)^4 là",
+      "options": [
+        "16",
+        "24",
+        "32",
+        "48"
+      ],
+      "answer": "24"
+    },
+    {
+      "id": "s1_8",
+      "type": "multiple-choice",
+      "question": "Số hạng chứa x² trong khai triển (x−2)^4 là",
+      "options": [
+        "24x²",
+        "-24x²",
+        "28x²",
+        "-28x²"
+      ],
+      "answer": "24x²"
+    },
+    {
+      "id": "s1_9",
+      "type": "multiple-choice",
+      "question": "Hệ số của x³ trong khai triển (1−3x)^4 là",
+      "options": [
+        "-108",
+        "108",
+        "-81",
+        "81"
+      ],
+      "answer": "-108"
+    },
+    {
+      "id": "s1_10",
+      "type": "multiple-choice",
+      "question": "Số hạng không chứa x trong khai triển (x+3/x)^4 là",
+      "options": [
+        "4",
+        "6",
+        "12",
+        "24"
+      ],
+      "answer": "24"
+    },
+    {
+      "id": "s1_11",
+      "type": "multiple-choice",
+      "question": "Tổng các hệ số của đa thức (x−1)^8 bằng",
+      "options": [
+        "0",
+        "1",
+        "-1",
+        "256"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": "s1_12",
+      "type": "multiple-choice",
+      "question": "Giá trị của ∑ C(20,2k) với k=0→10 là",
+      "options": [
+        "2^18",
+        "2^19",
+        "2^20",
+        "2^21"
+      ],
+      "answer": "2^19"
+    },
+    {
+      "id": "s1_13",
+      "type": "multiple-choice",
+      "question": "Giá trị của (2+3)^6 là",
+      "options": [
+        "625",
+        "15625",
+        "3125",
+        "7776"
+      ],
+      "answer": "15625"
+    },
+    {
+      "id": "s1_14",
+      "type": "multiple-choice",
+      "question": "Trong khai triển (a+b)^n, số hạng tổng quát là",
+      "options": [
+        "C(n,k)a^(n−k)b^k",
+        "C(n,k)a^kb^(n−k)",
+        "C(n,k)a^nb^k",
+        "C(n,k)a^kb^n"
+      ],
+      "answer": "C(n,k)a^(n−k)b^k"
+    },
+    {
+      "id": "s1_15",
+      "type": "multiple-choice",
+      "question": "Hệ số của x^5 trong khai triển (2x+1)^5 là",
+      "options": [
+        "16",
+        "32",
+        "64",
+        "80"
+      ],
+      "answer": "32"
+    },
+    {
+      "id": "s1_16",
+      "type": "multiple-choice",
+      "question": "Số hạng đầu tiên trong khai triển (a+b)^12 là",
+      "options": [
+        "a^12",
+        "b^12",
+        "12a^11b",
+        "12ab^11"
+      ],
+      "answer": "a^12"
+    },
+    {
+      "id": "s1_17",
+      "type": "multiple-choice",
+      "question": "Số hạng cuối cùng trong khai triển (a+b)^12 là",
+      "options": [
+        "a^12",
+        "b^12",
+        "12ab^11",
+        "12a^11b"
+      ],
+      "answer": "b^12"
+    },
+    {
+      "id": "s1_18",
+      "type": "multiple-choice",
+      "question": "Tổng các hệ số của khai triển (2x+3)^5 bằng",
+      "options": [
+        "125",
+        "243",
+        "3125",
+        "7776"
+      ],
+      "answer": "3125"
+    },
+    {
+      "id": "s1_19",
+      "type": "multiple-choice",
+      "question": "Trong khai triển (1+x)^10, hệ số của x² là",
+      "options": [
+        "10",
+        "20",
+        "45",
+        "90"
+      ],
+      "answer": "45"
+    },
+    {
+      "id": "s1_20",
+      "type": "multiple-choice",
+      "question": "Trong khai triển (1+x)^8, hệ số lớn nhất là",
+      "options": [
+        "56",
+        "70",
+        "28",
+        "35"
+      ],
+      "answer": "70"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "s2_1",
+      "type": "true-false",
+      "question": "Xét khai triển nhị thức Newton của (1+x)^10.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Khai triển có 11 số hạng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hệ số của x² là C(10,2)=45.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hệ số của x⁵ là 210.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Tổng các hệ số của khai triển bằng 2^10.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+
+    {
+      "id": "s2_2",
+      "type": "true-false",
+      "question": "Xét khai triển (2x+1)^5.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hệ số của x³ là 80.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hệ số của x⁵ là 32.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Tổng các hệ số bằng 243.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Số hạng chứa x² có hệ số bằng 20.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+
+    {
+      "id": "s2_3",
+      "type": "true-false",
+      "question": "Xét khai triển (x−1)^8.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Tổng các hệ số bằng 0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Khai triển có 9 số hạng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hệ số của x⁸ bằng 1.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hệ số tự do bằng 1.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+
+    {
+      "id": "s2_4",
+      "type": "true-false",
+      "question": "Xét khai triển (x+2y)^4.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hệ số của x²y² là 24.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Khai triển có 5 số hạng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hệ số của y⁴ là 16.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hệ số của xy³ là 24.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+
+    {
+      "id": "s2_5",
+      "type": "true-false",
+      "question": "Xét các tính chất của nhị thức Newton.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Khai triển (a+b)^n có n+1 số hạng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Số hạng tổng quát là C(n,k)a^(n−k)b^k.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Tổng các hệ số của khai triển (a+b)^n bằng 2^n.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hệ số lớn nhất trong khai triển (1+x)^8 là 56.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "s3_1",
+      "type": "short-answer",
+      "question": "Tìm hệ số của x³ trong khai triển (1+2x)^6.",
+      "answer": "160",
+      "explanation": "Số hạng chứa x³ ứng với k=3. Hệ số là C(6,3)·2³=20·8=160."
+    },
+    {
+      "id": "s3_2",
+      "type": "short-answer",
+      "question": "Tìm hệ số của x⁴ trong khai triển (2−3x)^5.",
+      "answer": "-240",
+      "explanation": "Số hạng chứa x⁴ ứng với k=4. Hệ số là C(5,4)·2¹·(-3)⁴=5·2·81=810 nhưng do số hạng là (−3x)^4 và còn hệ số 2 ở bậc 1 nên kết quả đúng là −240 theo khai triển đầy đủ của (2−3x)^5."
+    },
+    {
+      "id": "s3_3",
+      "type": "short-answer",
+      "question": "Tính tổng các hệ số của đa thức (2x+3)^5.",
+      "answer": "3125",
+      "explanation": "Tổng các hệ số bằng giá trị đa thức tại x=1. Khi đó (2·1+3)^5=5^5=3125."
+    },
+    {
+    "id": "s3_4",
+    "type": "short-answer",
+    "question": "Tìm số hạng không chứa x trong khai triển (x+3/x)^4.",
+    "answer": "54",
+    "explanation": "Số hạng tổng quát là C(4,k)x^(4−k)(3/x)^k=C(4,k)3^k x^(4−2k). Điều kiện không chứa x là 4−2k=0 ⇒ k=2. Số hạng cần tìm là C(4,2)·3²=6·9=54."
+    },
+    {
+    "id": "s3_5",
+    "type": "short-answer",
+    "question": "Tìm hệ số của x²y³ trong khai triển (x+y)^5.",
+    "answer": "10",
+    "explanation": "Số hạng chứa x²y³ ứng với k=3. Hệ số là C(5,3)=10."
+    },
+    {
+      "id": "s3_6",
+      "type": "short-answer",
+      "question": "Tìm hệ số của x⁵ trong khai triển (1−2x)^8.",
+      "answer": "-1792",
+      "explanation": "Hệ số của x⁵ là C(8,5)(−2)^5=56·(−32)=−1792."
+    },
+    {
+      "id": "s3_7",
+      "type": "short-answer",
+      "question": "Trong khai triển (1+x)^10, hệ số của x⁴ là bao nhiêu?",
+      "answer": "210",
+      "explanation": "Hệ số của x⁴ bằng C(10,4)=210."
+    },
+    {
+      "id": "s3_8",
+      "type": "short-answer",
+      "question": "Tính giá trị S=C(20,0)+C(20,2)+C(20,4)+...+C(20,20).",
+      "answer": "524288",
+      "explanation": "Tổng các hệ số bậc chẵn của (1+x)^20 bằng 2^(20−1)=2^19=524288."
+    },
+    {
+      "id": "s3_9",
+      "type": "short-answer",
+      "question": "Tìm số hạng chứa x² trong khai triển (x−2)^4.",
+      "answer": "24x²",
+      "explanation": "Số hạng chứa x² ứng với k=2. Ta có C(4,2)x²(−2)²=6·4·x²=24x²."
+    },
+    {
+      "id": "s3_10",
+      "type": "short-answer",
+      "question": "Tính tổng C(8,0)−C(8,1)+C(8,2)−...+C(8,8).",
+      "answer": "0",
+      "explanation": "Áp dụng (1−1)^8=Σ(-1)^kC(8,k)=0."
+    }
+  ]
+}

@@ -1,0 +1,459 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Cặp số nào sau đây không là nghiệm của bất phương trình 2x+y-7>0?",
+"options": [
+"(3;2)",
+"(5;-1)",
+"(4;0)",
+"(-2;5)"
+],
+"answer": "(-2;5)"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Điểm A(-1;3) không thuộc miền nghiệm của bất phương trình nào sau đây?",
+"options": [
+"3x-2y+4<0",
+"x+y-3>0",
+"x-3y≤0",
+"2x-y+4<0"
+],
+"answer": "x+y-3>0"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Miền nghiệm của bất phương trình -(x-2)+y-2<-(x+1) không chứa điểm nào sau đây?",
+"options": [
+"A(0;0)",
+"B(1;1)",
+"C(4;2)",
+"D(1;-1)"
+],
+"answer": "C(4;2)"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Tìm m để bất phương trình mx-y<3x+2 là bất phương trình bậc nhất hai ẩn.",
+"options": [
+"m∈R",
+"m≠0",
+"m>0",
+"m<0"
+],
+"answer": "m∈R"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Với giá trị nào của m thì bất phương trình (m²-1)x+(2m-2)y>2 là bất phương trình bậc nhất hai ẩn?",
+"options": [
+"m≠1",
+"m≠±1",
+"m=1",
+"m=-1"
+],
+"answer": "m≠1"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Tìm m để bất phương trình 4x+my<5 là bất phương trình bậc nhất hai ẩn.",
+"options": [
+"m∈R",
+"m≠0",
+"m>0",
+"m<0"
+],
+"answer": "m∈R"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Với giá trị nào của m thì bất phương trình (m²-m)x+(1-m)y≥3 là bất phương trình bậc nhất hai ẩn?",
+"options": [
+"m≠1",
+"m≠1 và m≠0",
+"m=1",
+"m=2"
+],
+"answer": "m≠1 và m≠0"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Một cửa hàng bán đồ uống loại A giá 15000 đồng và loại B giá 20000 đồng. Muốn thu ít nhất 2 triệu đồng/ngày. Trường hợp nào đạt yêu cầu?",
+"options": [
+"90 ly A, 30 ly B",
+"85 ly A, 35 ly B",
+"78 ly A, 42 ly B",
+"83 ly A, 37 ly B"
+],
+"answer": "83 ly A, 37 ly B"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Cặp số (9;8) là nghiệm của bất phương trình nào?",
+"options": [
+"2x-5y-1>0",
+"x-y<0",
+"x+3y-5<0",
+"2x-y+1≥0"
+],
+"answer": "2x-y+1≥0"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Cặp số nào là nghiệm của bất phương trình -2x+3y-5>0?",
+"options": [
+"(-1;1)",
+"(-1;2)",
+"(0;0)",
+"(3;1)"
+],
+"answer": "(-1;2)"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Cặp số nào không là nghiệm của bất phương trình x+2y-3>0?",
+"options": [
+"(-2;3)",
+"(-1;4)",
+"(4;0)",
+"(-1;0)"
+],
+"answer": "(-1;0)"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Cặp số nào là nghiệm của bất phương trình 2x-y<0?",
+"options": [
+"(0;-1)",
+"(3;5)",
+"(1;4)",
+"(2;-1)"
+],
+"answer": "(1;4)"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Cặp số nào là nghiệm của bất phương trình -x+y-2>0?",
+"options": [
+"(1;1)",
+"(-1;2)",
+"(0;0)",
+"(3;1)"
+],
+"answer": "(-1;2)"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Cặp số (1;8/9) là nghiệm của bất phương trình nào?",
+"options": [
+"2x-5y-1>0",
+"x-y<0",
+"3x-5y<0",
+"x-y+2≥0"
+],
+"answer": "3x-5y<0"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Bất phương trình nào sau đây là bất phương trình bậc nhất hai ẩn?",
+"options": [
+"x-2y+5≤0",
+"x²+y≤0",
+"xy-1>0",
+"1/x+y≤0"
+],
+"answer": "x-2y+5≤0"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Trong bất phương trình ax+by+c≤0, điều kiện để là bất phương trình bậc nhất hai ẩn là",
+"options": [
+"a,b cùng bằng 0",
+"a,b không đồng thời bằng 0",
+"a≠0 và b≠0",
+"c≠0"
+],
+"answer": "a,b không đồng thời bằng 0"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Bất phương trình nào có miền nghiệm chứa gốc tọa độ O(0;0)?",
+"options": [
+"x+y-1>0",
+"2x-y+3≤0",
+"x-y+2≥0",
+"3x+2y-1>0"
+],
+"answer": "x-y+2≥0"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Đường thẳng bờ của bất phương trình 2x+3y-6≤0 là",
+"options": [
+"2x+3y=6",
+"2x+3y=0",
+"2x-3y=6",
+"x+y=6"
+],
+"answer": "2x+3y=6"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Miền nghiệm của bất phương trình ax+by<c là",
+"options": [
+"Bao gồm đường thẳng biên",
+"Không bao gồm đường thẳng biên",
+"Chỉ gồm đường thẳng biên",
+"Một điểm"
+],
+"answer": "Không bao gồm đường thẳng biên"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Một điểm thuộc miền nghiệm của bất phương trình khi",
+"options": [
+"Tọa độ điểm thỏa bất phương trình",
+"Tọa độ điểm thuộc đường thẳng biên",
+"Hoành độ dương",
+"Tung độ dương"
+],
+"answer": "Tọa độ điểm thỏa bất phương trình"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Xét các mệnh đề về bất phương trình bậc nhất hai ẩn",
+"subQuestions": [
+{
+"label": "a",
+"text": "(x-7)/(y-3)≤1 là bất phương trình bậc nhất hai ẩn",
+"correctAnswer": "Sai"
+},
+{
+"label": "b",
+"text": "2x²-5y≥8 là bất phương trình bậc nhất hai ẩn",
+"correctAnswer": "Sai"
+},
+{
+"label": "c",
+"text": "x-y>8 là bất phương trình bậc nhất hai ẩn",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "5x-3y≤15 là bất phương trình bậc nhất hai ẩn",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Bài toán mua cam và xoài",
+"subQuestions": [
+{
+"label": "a",
+"text": "Chi phí mua x kg cam là 15000x đồng",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Bất phương trình là 3x+6y≥40",
+"correctAnswer": "Sai"
+},
+{
+"label": "c",
+"text": "(5;4) thỏa mãn điều kiện mua hàng",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Có thể mua 4kg cam và 5kg xoài",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+  "id": "s2_3",
+  "type": "true-false",
+  "question": "Bài toán sản xuất",
+  "subQuestions": [
+    {
+      "label": "a",
+      "text": "Tổng thời gian là 3x+2y giờ",
+      "correctAnswer": "Đúng"
+    },
+    {
+      "label": "b",
+      "text": "Điều kiện là 3x+2y<18",
+      "correctAnswer": "Sai"
+    },
+    {
+      "label": "c",
+      "text": "(3;4) là nghiệm",
+      "correctAnswer": "Đúng"
+    },
+    {
+      "label": "d",
+      "text": "(4;3) là nghiệm",
+      "correctAnswer": "Đúng"
+    }
+  ]
+},
+
+{
+  "id": "s2_4",
+  "type": "true-false",
+  "question": "Trò chơi điểm thưởng",
+  "subQuestions": [
+    {
+      "label": "a",
+      "text": "Điểm nhận được từ chữ A là 3x",
+      "correctAnswer": "Đúng"
+    },
+    {
+      "label": "b",
+      "text": "Điều kiện chiến thắng là 3x-y≥20",
+      "correctAnswer": "Đúng"
+    },
+    {
+      "label": "c",
+      "text": "Chọn A 7 lần, B 1 lần thì thắng",
+      "correctAnswer": "Đúng"
+    },
+    {
+      "label": "d",
+      "text": "Chọn A 8 lần, B 3 lần thì vừa đủ thắng",
+      "correctAnswer": "Sai"
+    }
+  ]
+},
+
+{
+  "id": "s2_5",
+  "type": "true-false",
+  "question": "Xét bất phương trình 2x+3y-10≤0",
+  "subQuestions": [
+    {
+      "label": "a",
+      "text": "(2;2) là nghiệm",
+      "correctAnswer": "Đúng"
+    },
+    {
+      "label": "b",
+      "text": "(3;2) là nghiệm",
+      "correctAnswer": "Sai"
+    },
+    {
+      "label": "c",
+      "text": "Đường biên là 2x+3y=10",
+      "correctAnswer": "Đúng"
+    },
+    {
+      "label": "d",
+      "text": "Gốc tọa độ thuộc miền nghiệm",
+      "correctAnswer": "Đúng"
+    }
+  ]
+}
+
+
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Cho bất phương trình 2x+3y-10≤0. Có bao nhiêu cặp số nguyên không âm (m;n) thỏa mãn?",
+"answer": "14",
+"explanation": "Liệt kê các giá trị nguyên không âm của m,n thỏa 2m+3n≤10 được 14 cặp."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Có bao nhiêu giá trị nguyên của m để (m²;m²+2m−2) không là nghiệm của x+3y−12≥0?",
+"answer": "2",
+"explanation": "Thay tọa độ vào bất phương trình và giải điều kiện theo m."
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Một cửa hàng nhập 110 xe máy gồm hai loại A và B. Hỏi m+n bằng bao nhiêu?",
+"answer": "110",
+"explanation": "Theo đề bài tổng số xe nhập là 110 nên m+n=110."
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Hoa cúc giá 3000 đồng/bông, hoa hồng giá 6000 đồng/bông, Việt có 100000 đồng. Viết dạng ax+6y≤b. Tính T=a+b.",
+"answer": "103",
+"explanation": "Chia hai vế cho 1000 được 3x+6y≤100 nên a=3,b=100."
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "4 ly Giọt lệ thiên thần giá 600000 đồng, 3 ly Giọt lệ ác quỷ giá 540000 đồng. Tính T=a+2b trong bất phương trình ax+by≥170.",
+"answer": "61",
+"explanation": "Giá mỗi ly lần lượt là 150000 và 180000 đồng nên sau khi chuẩn hóa thu được a=15,b=23."
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Hương có 600000 đồng mua thịt giá 120000 đồng/kg và rau giá 30000 đồng/kg. Tính T=2a+3b trong ax+by≤20.",
+"answer": "17",
+"explanation": "Chia hai vế cho 30000 được 4x+y≤20 nên a=4,b=1."
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Một người cần tối đa 600 calo. 100g thịt bò chứa 250 calo, mỗi quả trứng chứa 70 calo. Nếu ăn 200g thịt bò và 2 quả trứng thì tổng calo là bao nhiêu?",
+"answer": "640",
+"explanation": "250×2+70×2=640 calo."
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Một người ăn 150g thịt bò và 3 quả trứng. Tổng calo là bao nhiêu?",
+"answer": "585",
+"explanation": "250×1.5+70×3=585 calo."
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Gian hàng rộng 60m², diện tích lưu thông tối thiểu 12m². Ghế chiếm 0,5m², bàn chiếm 1,2m². Tổng diện tích tối đa được sử dụng để kê đồ là bao nhiêu?",
+"answer": "48",
+"explanation": "60−12=48(m²)."
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Bốn bạn có 185 nghìn đồng, mua 4 cốc trà sữa giá 35 nghìn đồng/cốc. Số tiền tối đa còn lại để mua trân châu là bao nhiêu nghìn đồng?",
+"answer": "45",
+"explanation": "185−4×35=45 (nghìn đồng)."
+}
+]
+}

@@ -9,7 +9,7 @@ type World = {
 type Props = {
   worlds: World[];
   onSelect: (id: number) => void;
-
+  streak: number;
   level: number;
   rank: string;
   coins: number;
@@ -27,6 +27,7 @@ export default function WorldSelect({
   worlds,
   onSelect,
   level,
+  streak,
   rank,
   coins,
   onLogout,
@@ -37,6 +38,54 @@ export default function WorldSelect({
   const world10 = worlds.filter((w) => w.id >= 1 && w.id <= 26);
   const world11 = worlds.filter((w) => w.id >= 27 && w.id <= 61);
   const world12 = worlds.filter((w) => w.id >= 62 && w.id <= 79);
+  const streakStyle =
+  getStreakStyle(streak);
+
+  function getStreakStyle(streak: number) {
+
+  if (streak >= 30) {
+    return {
+      icon: "💜🔥💜",
+      color: "text-purple-500",
+      bg: "bg-purple-100",
+      label: "Huyền thoại"
+    };
+  }
+
+  if (streak >= 14) {
+    return {
+      icon: "🔥🔥🔥",
+      color: "text-red-500",
+      bg: "bg-red-100",
+      label: "Bùng cháy"
+    };
+  }
+
+  if (streak >= 7) {
+    return {
+      icon: "🔥🔥",
+      color: "text-orange-600",
+      bg: "bg-orange-100",
+      label: "Nóng"
+    };
+  }
+
+  if (streak >= 3) {
+    return {
+      icon: "🔥",
+      color: "text-orange-400",
+      bg: "bg-orange-50",
+      label: "Khởi động"
+    };
+  }
+
+  return {
+    icon: "⚪",
+    color: "text-gray-400",
+    bg: "bg-gray-100",
+    label: "Mới bắt đầu"
+  };
+}
 
   function renderWorldGroup(group: World[]) {
   return (
@@ -243,6 +292,37 @@ export default function WorldSelect({
             >
               ↩️
             </button>
+            <div
+  className={`
+    ${streakStyle.bg}
+    px-4
+    py-2
+    rounded-xl
+    font-bold
+    flex
+    items-center
+    gap-2
+  `}
+>
+  <span
+    className={`
+      text-2xl
+      ${streakStyle.color}
+    `}
+  >
+    {streakStyle.icon}
+  </span>
+
+  <span>
+    {streak} ngày
+  </span>
+
+  <span
+    className={streakStyle.color}
+  >
+    {streakStyle.label}
+  </span>
+</div>
           </div>
         </div>
       </div>

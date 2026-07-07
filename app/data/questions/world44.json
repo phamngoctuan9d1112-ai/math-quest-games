@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "lt_s1_1",
+      "type": "multiple-choice",
+      "question": "Với a>0, m,n∈R. Công thức nào đúng?",
+      "options": [
+        "a^m.a^n=a^(m+n)",
+        "a^m.a^n=a^(mn)",
+        "a^m+a^n=a^(m+n)",
+        "(a^m)^n=a^(m+n)"
+      ],
+      "answer": "a^m.a^n=a^(m+n)"
+    },
+    {
+      "id": "lt_s1_2",
+      "type": "multiple-choice",
+      "question": "Với a>0. a^0 bằng",
+      "options": [
+        "0",
+        "1",
+        "a",
+        "a²"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": "lt_s1_3",
+      "type": "multiple-choice",
+      "question": "Giá trị của 8^(1/3) là",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "8"
+      ],
+      "answer": "2"
+    },
+    {
+      "id": "lt_s1_4",
+      "type": "multiple-choice",
+      "question": "Giá trị của 16^(1/2) là",
+      "options": [
+        "2",
+        "4",
+        "8",
+        "16"
+      ],
+      "answer": "4"
+    },
+    {
+      "id": "lt_s1_5",
+      "type": "multiple-choice",
+      "question": "Với a>0, a^(-2) bằng",
+      "options": [
+        "1/a²",
+        "a²",
+        "-a²",
+        "1/(2a)"
+      ],
+      "answer": "1/a²"
+    },
+    {
+      "id": "lt_s1_6",
+      "type": "multiple-choice",
+      "question": "Giá trị của 27^(2/3) là",
+      "options": [
+        "3",
+        "6",
+        "9",
+        "27"
+      ],
+      "answer": "9"
+    },
+    {
+      "id": "lt_s1_7",
+      "type": "multiple-choice",
+      "question": "Rút gọn (a^(1/2))² với a>0",
+      "options": [
+        "a",
+        "√a",
+        "a²",
+        "1"
+      ],
+      "answer": "a"
+    },
+    {
+      "id": "lt_s1_8",
+      "type": "multiple-choice",
+      "question": "Nếu a>1 và m>n thì",
+      "options": [
+        "a^m>a^n",
+        "a^m<a^n",
+        "a^m=a^n",
+        "Không kết luận được"
+      ],
+      "answer": "a^m>a^n"
+    },
+    {
+      "id": "lt_s1_9",
+      "type": "multiple-choice",
+      "question": "Nếu 0<a<1 và m>n thì",
+      "options": [
+        "a^m>a^n",
+        "a^m<a^n",
+        "a^m=a^n",
+        "Không kết luận được"
+      ],
+      "answer": "a^m<a^n"
+    },
+    {
+      "id": "lt_s1_10",
+      "type": "multiple-choice",
+      "question": "Giá trị của 81^(3/4) là",
+      "options": [
+        "9",
+        "27",
+        "18",
+        "3"
+      ],
+      "answer": "27"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "lt_s2_1",
+      "type": "true-false",
+      "question": "Xét các tính chất lũy thừa với a>0.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "a^m.a^n=a^(m+n).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "a^m/a^n=a^(m−n).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "(a^m)^n=a^(mn).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "a^m+a^n=a^(m+n).",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "lt_s2_2",
+      "type": "true-false",
+      "question": "Xét các giá trị lũy thừa.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "16^(1/2)=4.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "27^(1/3)=3.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "8^(2/3)=4.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "25^(1/2)=±5.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "lt_s2_3",
+      "type": "true-false",
+      "question": "Xét sự so sánh lũy thừa.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu a>1 và m>n thì a^m>a^n.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nếu 0<a<1 và m>n thì a^m<a^n.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "2^5>2^4.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "(1/2)^5>(1/2)^4.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "lt_s3_1",
+      "type": "short-answer",
+      "question": "Tính 64^(1/3).",
+      "answer": "4",
+      "explanation": "64 = 4³ nên 64^(1/3)=4."
+    },
+    {
+      "id": "lt_s3_2",
+      "type": "short-answer",
+      "question": "Tính 32^(3/5).",
+      "answer": "8",
+      "explanation": "32=2⁵ nên 32^(3/5)=(2⁵)^(3/5)=2³=8."
+    },
+    {
+      "id": "lt_s3_3",
+      "type": "short-answer",
+      "question": "Tính 81^(1/4).",
+      "answer": "3",
+      "explanation": "81=3⁴ nên 81^(1/4)=3."
+    },
+    {
+      "id": "lt_s3_4",
+      "type": "short-answer",
+      "question": "Tính 125^(-2/3).",
+      "answer": "1/25",
+      "explanation": "125=5³ nên 125^(-2/3)=5^(-2)=1/25."
+    },
+    {
+      "id": "lt_s3_5",
+      "type": "short-answer",
+      "question": "Một người gửi 100 triệu đồng với lãi kép 5%/năm. Sau 2 năm có bao nhiêu triệu đồng?",
+      "answer": "110.25",
+      "explanation": "S=100(1+0,05)²=100×1,1025=110,25 (triệu đồng)."
+    }
+  ]
+}

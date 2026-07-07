@@ -1,0 +1,455 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Cho tam giác ABC có b=c=6 và A=60°. Độ dài cạnh a bằng",
+"options": [
+"6",
+"6√2",
+"3√3",
+"12"
+],
+"answer": "6"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Cho tam giác ABC có a=7, b=8, c=5. Giá trị cosA bằng",
+"options": [
+"1/2",
+"5/7",
+"5/8",
+"1/4"
+],
+"answer": "1/2"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Tam giác ABC có C=150°, BC=3, AC=2. Độ dài cạnh AB bằng",
+"options": [
+"√19+3√3",
+"√13",
+"5",
+"√10"
+],
+"answer": "√19+3√3"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Tam giác ABC có AB=5, AC=8, diện tích bằng 12. Độ dài BC bằng",
+"options": [
+"√73",
+"√57",
+"7",
+"5"
+],
+"answer": "√57"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Tam giác có ba cạnh 2,3,4. Sin của góc nhỏ nhất bằng",
+"options": [
+"√15/8",
+"7/8",
+"1/2",
+"√14/8"
+],
+"answer": "√15/8"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Tam giác ABC có BC=12, CA=9, AB=6. Trên BC lấy M sao cho BM=4. Độ dài AM bằng",
+"options": [
+"2√17",
+"√19",
+"√20",
+"3√5"
+],
+"answer": "2√17"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Cho b=7, c=5 và cosA=4/5. Độ dài cạnh a bằng",
+"options": [
+"3√2",
+"6",
+"5√2",
+"7"
+],
+"answer": "3√2"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Tam giác vuông cân tại A có AB=AC=a. Điểm M thuộc BC và BC=3BM. Độ dài AM bằng",
+"options": [
+"a√17/3",
+"a√5/3",
+"2a√2/3",
+"a√2/3"
+],
+"answer": "a√5/3"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Tam giác ABC có cos(A+B)=-1/8, AC=4, BC=5. Độ dài AB bằng",
+"options": [
+"√46",
+"√11",
+"5√2",
+"6"
+],
+"answer": "√46"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Tam giác ABC có BC=5, AC=3 và cotC=2. Độ dài AB bằng",
+"options": [
+"√6",
+"2",
+"9/5",
+"2√10"
+],
+"answer": "√6"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Tam giác ABC có AB=3, AC=4 và tanA=2√2. Độ dài BC bằng",
+"options": [
+"3√2",
+"4√3",
+"√33",
+"7"
+],
+"answer": "√33"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Tam giác ABC có AB=7, AC=8 và A=60°. Độ dài BC bằng",
+"options": [
+"7",
+"√57",
+"√47",
+"2√57"
+],
+"answer": "√57"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Tam giác có các cạnh 4,7,9. Giá trị cos của góc đối diện cạnh 7 bằng",
+"options": [
+"-2/7",
+"2/7",
+"1/2",
+"-1/2"
+],
+"answer": "2/7"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Tam giác có ba cạnh 5,8,9. Cos của góc lớn nhất bằng",
+"options": [
+"-1/10",
+"1/10",
+"2/5",
+"-1/2"
+],
+"answer": "-1/10"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Tam giác ABC có BC=12, CA=9, AB=6. Trên BC lấy M sao cho BM=8. Độ dài AM bằng",
+"options": [
+"√34",
+"√17",
+"√43",
+"2√17"
+],
+"answer": "√34"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Tam giác có AC=14, B=120° và AB+BC=16. Biết BC>AB. Khi đó BC bằng",
+"options": [
+"5",
+"8",
+"6",
+"10"
+],
+"answer": "10"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Định lý cosin trong tam giác cho cạnh a là",
+"options": [
+"a²=b²+c²−2bc.cosA",
+"a²=b²+c²+2bc.cosA",
+"a²=b²−c²−2bc.cosA",
+"a²=b²+c²−bc.cosA"
+],
+"answer": "a²=b²+c²−2bc.cosA"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Theo định lý sin, a/sinA bằng",
+"options": [
+"R",
+"2R",
+"R/2",
+"4R"
+],
+"answer": "2R"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Công thức diện tích tam giác theo ba cạnh và bán kính ngoại tiếp là",
+"options": [
+"S=abc/(4R)",
+"S=abc/R",
+"S=4abc/R",
+"S=ab/(4R)"
+],
+"answer": "S=abc/(4R)"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Nếu p=(a+b+c)/2 thì công thức Heron là",
+"options": [
+"S=√(p(p-a)(p-b)(p-c))",
+"S=p(p-a)(p-b)(p-c)",
+"S=(p-a)(p-b)(p-c)",
+"S=√((p-a)(p-b)(p-c))"
+],
+"answer": "S=√(p(p-a)(p-b)(p-c))"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Cho tam giác MNP có MN=13, MP=10 và cosM=5/13.",
+"subQuestions": [
+{
+"label": "a",
+"text": "NP²=MN²+MP²−2MN.MP.cosM",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Tam giác MNP cân tại M",
+"correctAnswer": "Sai"
+},
+{
+"label": "c",
+"text": "Có thể áp dụng định lý cosin để tính NP",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "MN=MP",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Cho tam giác có tỉ lệ cạnh 3:4:5.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Tam giác vuông",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Góc đối diện cạnh lớn nhất bằng 90°",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "cosA=0 nếu A đối diện cạnh lớn nhất",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Là tam giác đều",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Cho tam giác có các cạnh 5,7,8.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Thoả mãn bất đẳng thức tam giác",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Là tam giác vuông",
+"correctAnswer": "Sai"
+},
+{
+"label": "c",
+"text": "Có thể dùng Heron để tính diện tích",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Góc lớn nhất đối diện cạnh 8",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Xét các công thức hệ thức lượng trong tam giác.",
+"subQuestions": [
+{
+"label": "a",
+"text": "a/sinA=b/sinB",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "S=pr",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "S=abc/(4R)",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "R=S/pr",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "Cho tam giác ABC và m_a là trung tuyến ứng với cạnh a.",
+"subQuestions": [
+{
+"label": "a",
+"text": "m_a²=(2b²+2c²−a²)/4",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "m_a luôn nhỏ hơn b+c",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Nếu b=c thì m_a vuông góc a",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "m_a=a/2 với mọi tam giác",
+"correctAnswer": "Sai"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Tam giác có b=c=6 và A=60°. Tính cạnh a.",
+"answer": "6",
+"explanation": "Áp dụng định lý cosin: a²=6²+6²−2·6·6·cos60°=36."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Tam giác có các cạnh 7,8,5. Tính cos góc đối diện cạnh 7.",
+"answer": "0.5",
+"explanation": "cosA=(8²+5²−7²)/(2·8·5)=1/2."
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Tam giác có các cạnh 5,8,9. Tính cos góc lớn nhất.",
+"answer": "-0.1",
+"explanation": "cos=(5²+8²−9²)/(2·5·8)=-1/10."
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Tam giác có các cạnh 5,7,8. Tính nửa chu vi p.",
+"answer": "10",
+"explanation": "p=(5+7+8)/2=10."
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Tam giác có các cạnh 5,7,8. Tính diện tích.",
+"answer": "17.32",
+"explanation": "Heron: S=√(10·5·3·2)=10√3≈17.32."
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Hai tàu đi theo hai hướng tạo góc 60°, tốc độ 30 km/h và 40 km/h. Sau 2 giờ cách nhau bao nhiêu km?",
+"answer": "70",
+"explanation": "Áp dụng định lý cosin với hai cạnh 60 và 80, góc xen giữa 60°."
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Hai tàu đi theo hai hướng tạo góc 60°, tốc độ 20 và 15 hải lí/giờ. Sau 2 giờ cách nhau bao nhiêu hải lí?",
+"answer": "35",
+"explanation": "Khoảng cách là cạnh đối diện góc 60° của tam giác có cạnh 40 và 30."
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Tam giác có cạnh 3,4,5. Tính bán kính ngoại tiếp.",
+"answer": "2.5",
+"explanation": "Tam giác vuông nên R bằng nửa cạnh huyền."
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Tam giác đều cạnh 6. Tính diện tích.",
+"answer": "15.59",
+"explanation": "S=(√3/4)·6²=9√3≈15.59."
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Tam giác có các cạnh 5,7,8. Tính độ dài trung tuyến ứng với cạnh 8.",
+"answer": "√33",
+"explanation": "m²=(2·5²+2·7²−8²)/4=33."
+}
+]
+}

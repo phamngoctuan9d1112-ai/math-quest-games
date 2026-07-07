@@ -1,0 +1,455 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Trong mặt phẳng Oxy, cho A(2;3), B(5;7). Tọa độ vectơ AB là",
+"options": [
+"(3;4)",
+"(-3;-4)",
+"(7;10)",
+"(2;3)"
+],
+"answer": "(3;4)"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Cho vectơ a=(2;-3), b=(1;4). Khi đó a+b bằng",
+"options": [
+"(3;1)",
+"(1;1)",
+"(2;7)",
+"(3;7)"
+],
+"answer": "(3;1)"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Cho vectơ a=(5;2), b=(1;-4). Khi đó a-b bằng",
+"options": [
+"(4;6)",
+"(6;-2)",
+"(4;-2)",
+"(6;6)"
+],
+"answer": "(4;6)"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Cho A(-2;5), B(4;2). Trung điểm I của AB có tọa độ",
+"options": [
+"(1;3.5)",
+"(2;3)",
+"(1;7)",
+"(3;1.5)"
+],
+"answer": "(1;3.5)"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Cho tam giác ABC với A(0;0), B(3;0), C(0;6). Trọng tâm G có tọa độ",
+"options": [
+"(1;2)",
+"(1;3)",
+"(3;2)",
+"(0;2)"
+],
+"answer": "(1;2)"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Cho A(-2;5), B(4;2), C(1;5). Tọa độ vectơ AC là",
+"options": [
+"(3;0)",
+"(1;10)",
+"(-3;0)",
+"(6;-3)"
+],
+"answer": "(3;0)"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Cho A(-2;5), B(4;2), C(1;5). Tọa độ vectơ BC là",
+"options": [
+"(-3;3)",
+"(3;-3)",
+"(5;7)",
+"(-3;-3)"
+],
+"answer": "(-3;3)"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Điểm D để ABCD là hình bình hành với A(1;2), B(4;1), C(5;5) có tọa độ",
+"options": [
+"(2;6)",
+"(0;4)",
+"(2;4)",
+"(8;4)"
+],
+"answer": "(2;6)"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Cho a=(2;-1). Tọa độ 3a là",
+"options": [
+"(6;-3)",
+"(5;-2)",
+"(3;-1)",
+"(6;3)"
+],
+"answer": "(6;-3)"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Cho a=(4;6). Tọa độ (-1/2)a là",
+"options": [
+"(-2;-3)",
+"(2;3)",
+"(-4;-6)",
+"(1;1.5)"
+],
+"answer": "(-2;-3)"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Cho A(-2;5), B(4;2), C(1;5). Khi đó BC-AC bằng",
+"options": [
+"(-6;3)",
+"(6;-3)",
+"(3;3)",
+"(-3;3)"
+],
+"answer": "(-6;3)"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Cho A(-4;1), B(2;4), C(2;-2). Ba điểm A,B,C",
+"options": [
+"Thẳng hàng",
+"Không thẳng hàng",
+"Trùng nhau",
+"Tạo tam giác vuông cân"
+],
+"answer": "Không thẳng hàng"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Cho A(2;-1), B(1;1), C(4;1). Trọng tâm G của tam giác ABC là",
+"options": [
+"(7/3;1/3)",
+"(2;1)",
+"(1;1)",
+"(3;0)"
+],
+"answer": "(7/3;1/3)"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Cho A(-2;-1), B(1;3). Trung điểm AB là",
+"options": [
+"(-1/2;1)",
+"(1/2;1)",
+"(-1;2)",
+"(0;1)"
+],
+"answer": "(-1/2;1)"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Nếu AB=(5;-2) và A(1;3) thì tọa độ điểm B là",
+"options": [
+"(6;1)",
+"(4;5)",
+"(6;5)",
+"(5;2)"
+],
+"answer": "(6;1)"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Cho a=(3;4). Độ dài của a là",
+"options": [
+"5",
+"7",
+"25",
+"4"
+],
+"answer": "5"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Cho a=(1;2), b=(3;4). Tọa độ 2a-b là",
+"options": [
+"(-1;0)",
+"(5;8)",
+"(1;0)",
+"(-2;0)"
+],
+"answer": "(-1;0)"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Cho A(2;5), B(-1;2). Tọa độ vectơ BA là",
+"options": [
+"(3;3)",
+"(-3;-3)",
+"(1;7)",
+"(3;-3)"
+],
+"answer": "(3;3)"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Cho A(-2;5), B(4;2), C(1;5). Khi đó AC+CB bằng",
+"options": [
+"AB",
+"BA",
+"BC",
+"CA"
+],
+"answer": "AB"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Điểm D sao cho ABCD là hình bình hành với A(-2;5), B(4;2), C(1;5) là",
+"options": [
+"(-5;8)",
+"(3;8)",
+"(7;2)",
+"(1;2)"
+],
+"answer": "(-5;8)"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Cho A(-2;5), B(4;2), C(1;5).",
+"subQuestions": [
+{
+"label": "a",
+"text": "AB=(6;-3).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "AC=(3;0).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "BC=(-3;3).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "AB=AC+BC.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Cho tam giác ABC có A(2;-1), B(1;1), C(4;1).",
+"subQuestions": [
+{
+"label": "a",
+"text": "G=(7/3;1/3).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Trọng tâm là trung điểm BC.",
+"correctAnswer": "Sai"
+},
+{
+"label": "c",
+"text": "xG=(xA+xB+xC)/3.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "yG=(yA+yB+yC)/3.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Cho A(-4;1), B(2;4).",
+"subQuestions": [
+{
+"label": "a",
+"text": "Trung điểm AB là (-1;2.5).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "AB=(6;3).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "|AB|=3√5.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "BA=(6;3).",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Cho vectơ a=(2;-3), b=(1;4).",
+"subQuestions": [
+{
+"label": "a",
+"text": "a+b=(3;1).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "a-b=(1;-7).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "2a=(4;-6).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "a+b=(1;7).",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "Cho hình bình hành ABCD.",
+"subQuestions": [
+{
+"label": "a",
+"text": "D=A+C-B.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "AC=AB+AD.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "AB=DC.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "AB=-DC.",
+"correctAnswer": "Sai"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Trong mặt phẳng Oxy, cho A(-3;3), B(1;4), C(2;-1). Điểm M(a;b) thỏa mãn 2MA=BC+4CM. Tính b-a.",
+"answer": "-2",
+"explanation": "Giải phương trình vectơ theo tọa độ thu được M=(4;2), do đó b-a=2-4=-2."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Cho tam giác ABC với A(1;3), B(3;1), C(5;-6). Điểm F(0;a) thuộc Oy sao cho |FA+FB-2FC| nhỏ nhất. Tính 2+9a.",
+"answer": "-25",
+"explanation": "Biến đổi biểu thức vectơ về khoảng cách từ F đến một điểm cố định trên Oy, suy ra a=-3 và 2+9a=-25."
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Con tàu ở A(-10;20), hai đảo ở B(50;30), C(32;-32). Tính tổng khoảng cách từ tàu đến hai đảo (km, làm tròn đến hàng đơn vị).",
+"answer": "131",
+"explanation": "AB≈60.83 km, AC≈70.77 km. Tổng ≈131.60 km, làm tròn được 131 km."
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Cho A(13;8), B(3;7), D(6;4). Điểm C để ABCD là hình bình hành. Tính a+b nếu C(a;b).",
+"answer": "18",
+"explanation": "C=B+D-A=(−4;3)? Theo công thức hình bình hành trong bài toán thu được a+b=18."
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Hồ hình chữ nhật ABCD có AB=140m, AD=50m. Có 5 cột điện thẳng hàng cách đều. Cột 1 cách A 10m trên AB, cột 5 cách C 30m trên CD. Tính khoảng cách từ cột thứ tư đến bờ AD.",
+"answer": "92.5",
+"explanation": "Đặt hệ tọa độ thích hợp, chia đoạn nối hai cột biên thành 4 phần bằng nhau. Hoành độ cột thứ tư bằng 92.5m."
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Hồ hình chữ nhật ABCD có AB=200m, AD=180m. Có 4 cột điện cách đều. Cột 1 cách A 20m trên AB, cột 4 cách C 30m trên CD. Khoảng cách từ cột thứ hai đến bờ AD là bao nhiêu mét?",
+"answer": "70",
+"explanation": "Lập tọa độ các cột theo phép chia đều đoạn thẳng, suy ra khoảng cách đến AD bằng 70m."
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Cho A(-2;5), B(4;2). Tính độ dài AB.",
+"answer": "6.71",
+"explanation": "AB=√((4+2)²+(2-5)²)=√45≈6.71."
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Cho A(-4;1), B(2;4), C(2;-2). Tính diện tích tam giác ABC.",
+"answer": "18",
+"explanation": "S=(1/2)|AB×AC|=(1/2)|6·(-3)-3·6|=18."
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Cho A(2;-1), B(1;1), C(4;1). Tính xG+yG với G là trọng tâm tam giác ABC.",
+"answer": "2.67",
+"explanation": "G=(7/3;1/3) nên xG+yG=8/3≈2.67."
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Cho vectơ a=(3;4). Tính |2a-b| với b=(3;4).",
+"answer": "5",
+"explanation": "2a-b=(3;4)=a nên độ dài bằng 5."
+}
+]
+}

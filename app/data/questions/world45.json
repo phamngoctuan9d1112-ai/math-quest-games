@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "log_s1_1",
+      "type": "multiple-choice",
+      "question": "Giá trị của log₂8 bằng",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "8"
+      ],
+      "answer": "3"
+    },
+    {
+      "id": "log_s1_2",
+      "type": "multiple-choice",
+      "question": "Giá trị của log₃27 bằng",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "9"
+      ],
+      "answer": "3"
+    },
+    {
+      "id": "log_s1_3",
+      "type": "multiple-choice",
+      "question": "Giá trị của log₁₀100 bằng",
+      "options": [
+        "1",
+        "2",
+        "10",
+        "100"
+      ],
+      "answer": "2"
+    },
+    {
+      "id": "log_s1_4",
+      "type": "multiple-choice",
+      "question": "Biểu thức logₐ(a⁵) bằng",
+      "options": [
+        "a",
+        "5",
+        "a⁵",
+        "1"
+      ],
+      "answer": "5"
+    },
+    {
+      "id": "log_s1_5",
+      "type": "multiple-choice",
+      "question": "Cho a>0, a≠1. Công thức nào đúng?",
+      "options": [
+        "logₐ(xy)=logₐx+logₐy",
+        "logₐ(x+y)=logₐx+logₐy",
+        "logₐ(xy)=logₐx·logₐy",
+        "logₐ(x/y)=logₐx+logₐy"
+      ],
+      "answer": "logₐ(xy)=logₐx+logₐy"
+    },
+    {
+      "id": "log_s1_6",
+      "type": "multiple-choice",
+      "question": "Cho a>0, a≠1. Công thức nào đúng?",
+      "options": [
+        "logₐ(x/y)=logₐx−logₐy",
+        "logₐ(x/y)=logₐx+logₐy",
+        "logₐ(x/y)=logₐx·logₐy",
+        "logₐ(x/y)=1"
+      ],
+      "answer": "logₐ(x/y)=logₐx−logₐy"
+    },
+    {
+      "id": "log_s1_7",
+      "type": "multiple-choice",
+      "question": "Giá trị của log₅(1) bằng",
+      "options": [
+        "0",
+        "1",
+        "5",
+        "Không xác định"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": "log_s1_8",
+      "type": "multiple-choice",
+      "question": "Giá trị của log₂(1/8) bằng",
+      "options": [
+        "-3",
+        "-2",
+        "3",
+        "8"
+      ],
+      "answer": "-3"
+    },
+    {
+      "id": "log_s1_9",
+      "type": "multiple-choice",
+      "question": "Giá trị của log₄16 bằng",
+      "options": [
+        "2",
+        "4",
+        "8",
+        "16"
+      ],
+      "answer": "2"
+    },
+    {
+      "id": "log_s1_10",
+      "type": "multiple-choice",
+      "question": "Nếu log₃x=2 thì x bằng",
+      "options": [
+        "6",
+        "8",
+        "9",
+        "12"
+      ],
+      "answer": "9"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "log_s2_1",
+      "type": "true-false",
+      "question": "Xét các tính chất của logarit.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "logₐ(xy)=logₐx+logₐy.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "logₐ(x/y)=logₐx−logₐy.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "logₐ(xⁿ)=nlogₐx.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "logₐ(x+y)=logₐx+logₐy.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "log_s2_2",
+      "type": "true-false",
+      "question": "Xét các giá trị logarit.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "log₂8=3.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "log₃27=3.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "log₅1=1.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "log₂(1/8)=-3.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "log_s2_3",
+      "type": "true-false",
+      "question": "Xét điều kiện xác định của logarit.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "logₐx xác định khi x>0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Cơ số a phải dương.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Cơ số a khác 1.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "log₀x luôn xác định.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "log_s3_1",
+      "type": "short-answer",
+      "question": "Tính log₂32.",
+      "answer": "5",
+      "explanation": "Vì 32 = 2⁵ nên log₂32 = 5."
+    },
+    {
+      "id": "log_s3_2",
+      "type": "short-answer",
+      "question": "Tính log₃(1/27).",
+      "answer": "-3",
+      "explanation": "Vì 1/27 = 3⁻³ nên log₃(1/27) = -3."
+    },
+    {
+      "id": "log_s3_3",
+      "type": "short-answer",
+      "question": "Tính log₅125.",
+      "answer": "3",
+      "explanation": "Vì 125 = 5³ nên log₅125 = 3."
+    },
+    {
+      "id": "log_s3_4",
+      "type": "short-answer",
+      "question": "Cho log₂x = 7. Tìm x.",
+      "answer": "128",
+      "explanation": "Theo định nghĩa logarit: x = 2⁷ = 128."
+    },
+    {
+      "id": "log_s3_5",
+      "type": "short-answer",
+      "question": "Độ pH của dung dịch là 3. Nồng độ ion H⁺ bằng bao nhiêu?",
+      "answer": "0.001",
+      "explanation": "Theo công thức pH = -log[H⁺]. Suy ra [H⁺] = 10⁻³ = 0,001."
+    }
+  ]
+}

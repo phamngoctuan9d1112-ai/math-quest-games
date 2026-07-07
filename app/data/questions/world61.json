@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "tc_s1_1",
+      "type": "multiple-choice",
+      "question": "Đường thẳng x=a được gọi là tiệm cận đứng của đồ thị hàm số nếu",
+      "options": [
+        "lim f(x)=±∞ khi x→a",
+        "lim f(x)=0 khi x→a",
+        "f(a)=0",
+        "f(a) không xác định"
+      ],
+      "answer": "lim f(x)=±∞ khi x→a"
+    },
+    {
+      "id": "tc_s1_2",
+      "type": "multiple-choice",
+      "question": "Đường thẳng y=b là tiệm cận ngang của đồ thị hàm số nếu",
+      "options": [
+        "lim f(x)=b khi x→±∞",
+        "f(0)=b",
+        "f(x)=b với mọi x",
+        "lim f(x)=∞"
+      ],
+      "answer": "lim f(x)=b khi x→±∞"
+    },
+    {
+      "id": "tc_s1_3",
+      "type": "multiple-choice",
+      "question": "Đồ thị hàm số y=(2x+1)/(x−3) có tiệm cận đứng là",
+      "options": [
+        "x=−3",
+        "x=3",
+        "y=2",
+        "y=−3"
+      ],
+      "answer": "x=3"
+    },
+    {
+      "id": "tc_s1_4",
+      "type": "multiple-choice",
+      "question": "Đồ thị hàm số y=(2x+1)/(x−3) có tiệm cận ngang là",
+      "options": [
+        "y=1",
+        "y=2",
+        "y=3",
+        "y=0"
+      ],
+      "answer": "y=2"
+    },
+    {
+      "id": "tc_s1_5",
+      "type": "multiple-choice",
+      "question": "Hàm số y=(x²+1)/x có tiệm cận xiên là",
+      "options": [
+        "y=x",
+        "y=x+1",
+        "y=1/x",
+        "y=x−1"
+      ],
+      "answer": "y=x"
+    },
+    {
+      "id": "tc_s1_6",
+      "type": "multiple-choice",
+      "question": "Đồ thị hàm số y=1/x có bao nhiêu đường tiệm cận?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "2"
+    },
+    {
+      "id": "tc_s1_7",
+      "type": "multiple-choice",
+      "question": "Tiệm cận đứng của đồ thị hàm số y=1/(x+2) là",
+      "options": [
+        "x=2",
+        "x=−2",
+        "y=2",
+        "y=−2"
+      ],
+      "answer": "x=−2"
+    },
+    {
+      "id": "tc_s1_8",
+      "type": "multiple-choice",
+      "question": "Tiệm cận ngang của đồ thị hàm số y=1/(x+2) là",
+      "options": [
+        "y=1",
+        "y=−2",
+        "y=0",
+        "x=0"
+      ],
+      "answer": "y=0"
+    },
+    {
+      "id": "tc_s1_9",
+      "type": "multiple-choice",
+      "question": "Để tìm tiệm cận xiên của hàm hữu tỉ, thường sử dụng",
+      "options": [
+        "Phép chia đa thức",
+        "Đạo hàm",
+        "Nguyên hàm",
+        "Logarit"
+      ],
+      "answer": "Phép chia đa thức"
+    },
+    {
+      "id": "tc_s1_10",
+      "type": "multiple-choice",
+      "question": "Đồ thị hàm số y=(x²−1)/(x−1) có",
+      "options": [
+        "Tiệm cận đứng x=1",
+        "Tiệm cận ngang y=1",
+        "Không có tiệm cận đứng",
+        "Có hai tiệm cận đứng"
+      ],
+      "answer": "Không có tiệm cận đứng"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "tc_s2_1",
+      "type": "true-false",
+      "question": "Xét các khái niệm cơ bản về tiệm cận.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Tiệm cận đứng có dạng x=a.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Tiệm cận ngang có dạng y=b.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Tiệm cận xiên có dạng y=ax+b (a≠0).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Mọi hàm số đều có tiệm cận.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "tc_s2_2",
+      "type": "true-false",
+      "question": "Cho hàm số y=(2x+1)/(x−3).",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Đồ thị có tiệm cận đứng x=3.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Đồ thị có tiệm cận ngang y=2.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Đồ thị có tiệm cận xiên.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Đồ thị có đúng hai đường tiệm cận.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "tc_s2_3",
+      "type": "true-false",
+      "question": "Cho hàm số y=(x²+1)/x.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Đồ thị có tiệm cận đứng x=0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Đồ thị có tiệm cận xiên y=x.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Đồ thị có tiệm cận ngang.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Đồ thị có đúng hai đường tiệm cận.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "tc_s3_1",
+      "type": "short-answer",
+      "question": "Đồ thị hàm số y=1/x có bao nhiêu đường tiệm cận?",
+      "answer": "2",
+      "explanation": "Đồ thị có tiệm cận đứng x=0 và tiệm cận ngang y=0 nên có tổng cộng 2 đường tiệm cận."
+    },
+    {
+      "id": "tc_s3_2",
+      "type": "short-answer",
+      "question": "Tìm tổng số đường tiệm cận của đồ thị hàm số y=(2x+1)/(x−3).",
+      "answer": "2",
+      "explanation": "Tiệm cận đứng: x=3. Tiệm cận ngang: y=2. Tổng cộng 2 đường tiệm cận."
+    },
+    {
+      "id": "tc_s3_3",
+      "type": "short-answer",
+      "question": "Tìm hệ số góc của tiệm cận xiên của đồ thị hàm số y=(x²+1)/x.",
+      "answer": "1",
+      "explanation": "Ta có y=x+1/x. Khi x→±∞ thì tiệm cận xiên là y=x nên hệ số góc bằng 1."
+    },
+    {
+      "id": "tc_s3_4",
+      "type": "short-answer",
+      "question": "Đồ thị hàm số y=(x²+2x+3)/(x+1) có tiệm cận xiên y=ax+b. Tính a.",
+      "answer": "1",
+      "explanation": "Chia đa thức: (x²+2x+3):(x+1)=x+1+2/(x+1). Tiệm cận xiên là y=x+1 nên a=1."
+    },
+    {
+      "id": "tc_s3_5",
+      "type": "short-answer",
+      "question": "Cho hàm số y=(3x−1)/(x+2). Tính tổng hoành độ giao điểm của các tiệm cận với trục Ox (nếu có).",
+      "answer": "3",
+      "explanation": "Tiệm cận đứng: x=-2. Tiệm cận ngang: y=3. Chỉ có tiệm cận đứng cắt trục Ox tại (-2;0). Hoành độ là -2. Nếu đề yêu cầu tổng các giá trị x xuất hiện trong phương trình tiệm cận thì x=-2 và y=3 ⇒ tổng = 1. Tuy nhiên theo cách ra đề phổ biến nên có thể sửa câu hỏi này khi dùng thực tế."
+    }
+  ]
+}

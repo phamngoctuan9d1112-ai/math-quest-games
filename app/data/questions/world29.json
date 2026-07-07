@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "ptlg_s1_1",
+      "type": "multiple-choice",
+      "question": "Nghiệm tổng quát của phương trình sinx = 0 là",
+      "options": [
+        "x = kπ",
+        "x = π/2 + kπ",
+        "x = 2kπ",
+        "x = π + 2kπ"
+      ],
+      "answer": "x = kπ"
+    },
+    {
+      "id": "ptlg_s1_2",
+      "type": "multiple-choice",
+      "question": "Nghiệm tổng quát của phương trình cosx = 0 là",
+      "options": [
+        "x = kπ",
+        "x = π/2 + kπ",
+        "x = 2kπ",
+        "x = π + kπ"
+      ],
+      "answer": "x = π/2 + kπ"
+    },
+    {
+      "id": "ptlg_s1_3",
+      "type": "multiple-choice",
+      "question": "Nghiệm tổng quát của phương trình tanx = 0 là",
+      "options": [
+        "x = kπ",
+        "x = π/2 + kπ",
+        "x = 2kπ",
+        "x = π/4 + kπ"
+      ],
+      "answer": "x = kπ"
+    },
+    {
+      "id": "ptlg_s1_4",
+      "type": "multiple-choice",
+      "question": "Nghiệm tổng quát của phương trình sinx = 1 là",
+      "options": [
+        "x = π/2 + 2kπ",
+        "x = π/2 + kπ",
+        "x = kπ",
+        "x = 2kπ"
+      ],
+      "answer": "x = π/2 + 2kπ"
+    },
+    {
+      "id": "ptlg_s1_5",
+      "type": "multiple-choice",
+      "question": "Nghiệm tổng quát của phương trình cosx = -1 là",
+      "options": [
+        "x = π + 2kπ",
+        "x = π + kπ",
+        "x = 2kπ",
+        "x = π/2 + kπ"
+      ],
+      "answer": "x = π + 2kπ"
+    },
+    {
+      "id": "ptlg_s1_6",
+      "type": "multiple-choice",
+      "question": "Phương trình sinx = 1/2 có một họ nghiệm là",
+      "options": [
+        "x = π/6 + kπ",
+        "x = π/6 + 2kπ",
+        "x = π/3 + 2kπ",
+        "x = π/4 + kπ"
+      ],
+      "answer": "x = π/6 + 2kπ"
+    },
+    {
+      "id": "ptlg_s1_7",
+      "type": "multiple-choice",
+      "question": "Phương trình cosx = 1/2 có một họ nghiệm là",
+      "options": [
+        "x = π/3 + 2kπ",
+        "x = π/6 + 2kπ",
+        "x = π/2 + kπ",
+        "x = π + 2kπ"
+      ],
+      "answer": "x = π/3 + 2kπ"
+    },
+    {
+      "id": "ptlg_s1_8",
+      "type": "multiple-choice",
+      "question": "Phương trình tanx = 1 có nghiệm tổng quát là",
+      "options": [
+        "x = π/4 + kπ",
+        "x = π/4 + 2kπ",
+        "x = π/2 + kπ",
+        "x = kπ"
+      ],
+      "answer": "x = π/4 + kπ"
+    },
+    {
+      "id": "ptlg_s1_9",
+      "type": "multiple-choice",
+      "question": "Số nghiệm của phương trình sinx = 0 trên đoạn [0;2π] là",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "1"
+      ],
+      "answer": "3"
+    },
+    {
+      "id": "ptlg_s1_10",
+      "type": "multiple-choice",
+      "question": "Số nghiệm của phương trình cosx = 0 trên đoạn [0;2π] là",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "2"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "ptlg_s2_1",
+      "type": "true-false",
+      "question": "Xét phương trình sinx = 0.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nghiệm tổng quát là x = kπ.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "x = π là một nghiệm.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "x = π/2 là một nghiệm.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Trên [0;2π] có 3 nghiệm.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "ptlg_s2_2",
+      "type": "true-false",
+      "question": "Xét phương trình cosx = 0.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nghiệm tổng quát là x = π/2 + kπ.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "x = 3π/2 là nghiệm.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "x = π là nghiệm.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Trên [0;2π] có đúng 2 nghiệm.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "ptlg_s2_3",
+      "type": "true-false",
+      "question": "Xét phương trình tanx = 1.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nghiệm tổng quát là x = π/4 + kπ.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "x = 5π/4 là nghiệm.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "x = 3π/4 là nghiệm.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Trên [0;2π] có 2 nghiệm.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "ptlg_s3_1",
+      "type": "short-answer",
+      "question": "Có bao nhiêu nghiệm của phương trình sinx = 0 trên đoạn [0;3π]?",
+      "answer": "4",
+      "explanation": "sinx=0 ⇔ x=kπ. Trên [0;3π] có các nghiệm: 0, π, 2π, 3π. Vậy có 4 nghiệm."
+    },
+    {
+      "id": "ptlg_s3_2",
+      "type": "short-answer",
+      "question": "Có bao nhiêu nghiệm của phương trình cosx = 0 trên đoạn [0;2π]?",
+      "answer": "2",
+      "explanation": "cosx=0 ⇔ x=π/2+kπ. Trên [0;2π] có hai nghiệm là π/2 và 3π/2."
+    },
+    {
+      "id": "ptlg_s3_3",
+      "type": "short-answer",
+      "question": "Tìm nghiệm nhỏ nhất dương của phương trình tanx = 1.",
+      "answer": "0.785398163",
+      "explanation": "tanx=1 ⇔ x=π/4+kπ. Nghiệm dương nhỏ nhất là π/4≈0.785398163."
+    },
+    {
+      "id": "ptlg_s3_4",
+      "type": "short-answer",
+      "question": "Có bao nhiêu nghiệm của phương trình sinx = 1/2 trên đoạn [0;2π]?",
+      "answer": "2",
+      "explanation": "sinx=1/2 ⇔ x=π/6+2kπ hoặc x=5π/6+2kπ. Trên [0;2π] có 2 nghiệm."
+    },
+    {
+      "id": "ptlg_s3_5",
+      "type": "short-answer",
+      "question": "Tìm tổng các nghiệm của phương trình cosx = 0 trên đoạn [0;2π].",
+      "answer": "6.283185307",
+      "explanation": "Hai nghiệm là π/2 và 3π/2. Tổng bằng 2π≈6.283185307."
+    }
+  ]
+}

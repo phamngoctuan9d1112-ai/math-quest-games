@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "ks_s1_1",
+      "type": "multiple-choice",
+      "question": "Bước đầu tiên khi khảo sát sự biến thiên của hàm số là",
+      "options": [
+        "Tính đạo hàm",
+        "Tìm tập xác định",
+        "Lập bảng biến thiên",
+        "Vẽ đồ thị"
+      ],
+      "answer": "Tìm tập xác định"
+    },
+    {
+      "id": "ks_s1_2",
+      "type": "multiple-choice",
+      "question": "Để tìm khoảng đồng biến, nghịch biến của hàm số ta sử dụng",
+      "options": [
+        "Đạo hàm",
+        "Nguyên hàm",
+        "Giới hạn",
+        "Tọa độ giao điểm"
+      ],
+      "answer": "Đạo hàm"
+    },
+    {
+      "id": "ks_s1_3",
+      "type": "multiple-choice",
+      "question": "Điểm cực trị của hàm số thường được xác định từ",
+      "options": [
+        "f(x)=0",
+        "f'(x)=0 hoặc f'(x) không xác định",
+        "f''(x)=0",
+        "x=0"
+      ],
+      "answer": "f'(x)=0 hoặc f'(x) không xác định"
+    },
+    {
+      "id": "ks_s1_4",
+      "type": "multiple-choice",
+      "question": "Tiệm cận đứng của đồ thị có phương trình dạng",
+      "options": [
+        "y=a",
+        "x=a",
+        "y=ax+b",
+        "ax+by+c=0"
+      ],
+      "answer": "x=a"
+    },
+    {
+      "id": "ks_s1_5",
+      "type": "multiple-choice",
+      "question": "Tiệm cận ngang của đồ thị có phương trình dạng",
+      "options": [
+        "x=a",
+        "y=b",
+        "y=ax+b",
+        "x+y=0"
+      ],
+      "answer": "y=b"
+    },
+    {
+      "id": "ks_s1_6",
+      "type": "multiple-choice",
+      "question": "Đồ thị hàm số y=(2x+1)/(x-1) có tiệm cận đứng là",
+      "options": [
+        "x=-1",
+        "x=1",
+        "y=2",
+        "y=1"
+      ],
+      "answer": "x=1"
+    },
+    {
+      "id": "ks_s1_7",
+      "type": "multiple-choice",
+      "question": "Đồ thị hàm số y=(2x+1)/(x-1) có tiệm cận ngang là",
+      "options": [
+        "y=1",
+        "y=2",
+        "y=-1",
+        "y=0"
+      ],
+      "answer": "y=2"
+    },
+    {
+      "id": "ks_s1_8",
+      "type": "multiple-choice",
+      "question": "Tâm đối xứng của đồ thị hàm phân thức bậc nhất trên bậc nhất là",
+      "options": [
+        "Giao điểm hai tiệm cận",
+        "Gốc tọa độ",
+        "Đỉnh đồ thị",
+        "Điểm cực trị"
+      ],
+      "answer": "Giao điểm hai tiệm cận"
+    },
+    {
+      "id": "ks_s1_9",
+      "type": "multiple-choice",
+      "question": "Sau khi lập bảng biến thiên, bước tiếp theo là",
+      "options": [
+        "Xét giới hạn",
+        "Vẽ đồ thị",
+        "Tìm tập xác định",
+        "Tính nguyên hàm"
+      ],
+      "answer": "Vẽ đồ thị"
+    },
+    {
+      "id": "ks_s1_10",
+      "type": "multiple-choice",
+      "question": "Trong bảng biến thiên, dấu của f'(x) cho biết",
+      "options": [
+        "Tính đơn điệu của hàm số",
+        "Giá trị lớn nhất",
+        "Tiệm cận",
+        "Tâm đối xứng"
+      ],
+      "answer": "Tính đơn điệu của hàm số"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "ks_s2_1",
+      "type": "true-false",
+      "question": "Xét các bước khảo sát hàm số.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Muốn khảo sát hàm số trước hết phải tìm tập xác định.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Đạo hàm được dùng để xét tính đơn điệu.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Không cần tìm cực trị khi vẽ đồ thị.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Bảng biến thiên giúp phác họa đồ thị chính xác hơn.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "ks_s2_2",
+      "type": "true-false",
+      "question": "Cho hàm số y=(2x+1)/(x−1).",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Tập xác định là R{1}.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Đồ thị có tiệm cận đứng x=1.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Đồ thị có tiệm cận ngang y=2.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Đồ thị có tiệm cận ngang y=1.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "ks_s2_3",
+      "type": "true-false",
+      "question": "Xét hàm số y=x³−3x.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hàm số có hai điểm cực trị.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "f'(x)=3x²−3.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Các điểm cực trị có hoành độ x=−1 và x=1.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hàm số không có điểm uốn.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "ks_s3_1",
+      "type": "short-answer",
+      "question": "Cho hàm số y=x³−3x. Có bao nhiêu điểm cực trị?",
+      "answer": "2",
+      "explanation": "f'(x)=3x²−3=3(x−1)(x+1). Đạo hàm đổi dấu tại x=-1 và x=1 nên hàm số có 2 điểm cực trị."
+    },
+    {
+      "id": "ks_s3_2",
+      "type": "short-answer",
+      "question": "Cho hàm số y=(2x+1)/(x−1). Có bao nhiêu đường tiệm cận?",
+      "answer": "2",
+      "explanation": "Tiệm cận đứng x=1 và tiệm cận ngang y=2. Tổng cộng 2 đường tiệm cận."
+    },
+    {
+      "id": "ks_s3_3",
+      "type": "short-answer",
+      "question": "Cho hàm số y=x²−2x+3. Tính giá trị nhỏ nhất của hàm số.",
+      "answer": "2",
+      "explanation": "y=(x−1)²+2 ≥ 2. Dấu '=' xảy ra khi x=1 nên GTNN bằng 2."
+    },
+    {
+      "id": "ks_s3_4",
+      "type": "short-answer",
+      "question": "Cho hàm số y=x³−3x. Tính tổng hoành độ các điểm cực trị.",
+      "answer": "0",
+      "explanation": "Hai điểm cực trị có hoành độ -1 và 1 nên tổng bằng 0."
+    },
+    {
+      "id": "ks_s3_5",
+      "type": "short-answer",
+      "question": "Đồ thị hàm số y=(x+1)/(x−2) có tâm đối xứng I(a;b). Tính a+b.",
+      "answer": "3",
+      "explanation": "Tiệm cận đứng x=2, tiệm cận ngang y=1. Tâm đối xứng là I(2;1). Do đó a+b=3."
+    }
+  ]
+}

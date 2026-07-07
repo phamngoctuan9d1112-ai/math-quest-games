@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "kbt_s1_1",
+      "type": "multiple-choice",
+      "question": "Khoảng biến thiên của một mẫu số liệu được tính bằng",
+      "options": [
+        "Giá trị lớn nhất trừ giá trị nhỏ nhất",
+        "Tổng các giá trị chia số phần tử",
+        "Giá trị lớn nhất cộng giá trị nhỏ nhất",
+        "Q₃−Q₁"
+      ],
+      "answer": "Giá trị lớn nhất trừ giá trị nhỏ nhất"
+    },
+    {
+      "id": "kbt_s1_2",
+      "type": "multiple-choice",
+      "question": "Công thức tính khoảng biến thiên là",
+      "options": [
+        "R=max−min",
+        "R=Q₃−Q₁",
+        "R=x̄−Mo",
+        "R=Q₂−Q₁"
+      ],
+      "answer": "R=max−min"
+    },
+    {
+      "id": "kbt_s1_3",
+      "type": "multiple-choice",
+      "question": "Khoảng tứ phân vị của mẫu số liệu được tính bằng",
+      "options": [
+        "Q₃−Q₁",
+        "Q₂−Q₁",
+        "Q₃+Q₁",
+        "Q₁·Q₃"
+      ],
+      "answer": "Q₃−Q₁"
+    },
+    {
+      "id": "kbt_s1_4",
+      "type": "multiple-choice",
+      "question": "Q₁ là",
+      "options": [
+        "Tứ phân vị thứ nhất",
+        "Tứ phân vị thứ hai",
+        "Tứ phân vị thứ ba",
+        "Trung bình cộng"
+      ],
+      "answer": "Tứ phân vị thứ nhất"
+    },
+    {
+      "id": "kbt_s1_5",
+      "type": "multiple-choice",
+      "question": "Q₂ chính là",
+      "options": [
+        "Mốt",
+        "Trung vị",
+        "Khoảng biến thiên",
+        "Khoảng tứ phân vị"
+      ],
+      "answer": "Trung vị"
+    },
+    {
+      "id": "kbt_s1_6",
+      "type": "multiple-choice",
+      "question": "Khoảng tứ phân vị dùng để đo",
+      "options": [
+        "Mức độ phân tán của 50% số liệu giữa",
+        "Giá trị trung bình",
+        "Số phần tử",
+        "Tần số lớn nhất"
+      ],
+      "answer": "Mức độ phân tán của 50% số liệu giữa"
+    },
+    {
+      "id": "kbt_s1_7",
+      "type": "multiple-choice",
+      "question": "Nếu ΔQ càng nhỏ thì",
+      "options": [
+        "Số liệu càng đồng đều",
+        "Số liệu càng phân tán",
+        "Trung bình càng lớn",
+        "Mốt càng lớn"
+      ],
+      "answer": "Số liệu càng đồng đều"
+    },
+    {
+      "id": "kbt_s1_8",
+      "type": "multiple-choice",
+      "question": "Nếu khoảng biến thiên lớn thì",
+      "options": [
+        "Dữ liệu phân tán hơn",
+        "Dữ liệu đồng đều hơn",
+        "Q₁ tăng",
+        "Q₃ giảm"
+      ],
+      "answer": "Dữ liệu phân tán hơn"
+    },
+    {
+      "id": "kbt_s1_9",
+      "type": "multiple-choice",
+      "question": "Khoảng tứ phân vị được ký hiệu là",
+      "options": [
+        "ΔQ",
+        "R",
+        "x̄",
+        "Mo"
+      ],
+      "answer": "ΔQ"
+    },
+    {
+      "id": "kbt_s1_10",
+      "type": "multiple-choice",
+      "question": "Đại lượng nào ít bị ảnh hưởng bởi giá trị ngoại lệ hơn?",
+      "options": [
+        "Khoảng tứ phân vị",
+        "Khoảng biến thiên",
+        "Giá trị lớn nhất",
+        "Giá trị nhỏ nhất"
+      ],
+      "answer": "Khoảng tứ phân vị"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "kbt_s2_1",
+      "type": "true-false",
+      "question": "Xét các nhận định về khoảng biến thiên.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Khoảng biến thiên bằng hiệu giữa giá trị lớn nhất và nhỏ nhất.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Khoảng biến thiên luôn không âm.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Khoảng biến thiên phản ánh mức độ phân tán của dữ liệu.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Khoảng biến thiên bằng khoảng tứ phân vị.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "kbt_s2_2",
+      "type": "true-false",
+      "question": "Xét các nhận định về khoảng tứ phân vị.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "ΔQ=Q₃−Q₁.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Q₂ là trung vị của mẫu số liệu.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Khoảng tứ phân vị càng nhỏ thì dữ liệu càng đồng đều.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Q₁ luôn lớn hơn Q₃.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "kbt_s2_3",
+      "type": "true-false",
+      "question": "Cho mẫu số liệu có Q₁=12 và Q₃=20.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Khoảng tứ phân vị bằng 8.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "50% số liệu trung tâm nằm trong khoảng từ 12 đến 20.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Q₂ nhất thiết bằng 16.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "ΔQ dương.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "kbt_s3_1",
+      "type": "short-answer",
+      "question": "Một mẫu số liệu có giá trị nhỏ nhất bằng 15 và giá trị lớn nhất bằng 42. Tính khoảng biến thiên.",
+      "answer": "27",
+      "explanation": "R=42−15=27."
+    },
+    {
+      "id": "kbt_s3_2",
+      "type": "short-answer",
+      "question": "Cho Q₁=18 và Q₃=30. Tính khoảng tứ phân vị.",
+      "answer": "12",
+      "explanation": "ΔQ=Q₃−Q₁=30−18=12."
+    },
+    {
+      "id": "kbt_s3_3",
+      "type": "short-answer",
+      "question": "Cho mẫu số liệu có giá trị nhỏ nhất là 7 và lớn nhất là 35. Tính khoảng biến thiên.",
+      "answer": "28",
+      "explanation": "R=35−7=28."
+    },
+    {
+      "id": "kbt_s3_4",
+      "type": "short-answer",
+      "question": "Cho Q₁=25, Q₃=41. Tính ΔQ.",
+      "answer": "16",
+      "explanation": "ΔQ=41−25=16."
+    },
+    {
+      "id": "kbt_s3_5",
+      "type": "short-answer",
+      "question": "Cho một mẫu số liệu có khoảng biến thiên bằng 50 và giá trị nhỏ nhất bằng 18. Tìm giá trị lớn nhất.",
+      "answer": "68",
+      "explanation": "max=min+R=18+50=68."
+    }
+  ]
+}

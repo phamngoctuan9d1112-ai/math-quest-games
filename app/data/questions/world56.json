@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "qtdh_s1_1",
+      "type": "multiple-choice",
+      "question": "Nếu y=u(x)+v(x) thì đạo hàm của y là",
+      "options": [
+        "u'+v'",
+        "u'v'",
+        "u'/v'",
+        "(u+v)'=u'+v+1"
+      ],
+      "answer": "u'+v'"
+    },
+    {
+      "id": "qtdh_s1_2",
+      "type": "multiple-choice",
+      "question": "Nếu y=u(x)-v(x) thì",
+      "options": [
+        "y'=u'-v'",
+        "y'=u'+v'",
+        "y'=u'v'",
+        "y'=u/v"
+      ],
+      "answer": "u'-v'"
+    },
+    {
+      "id": "qtdh_s1_3",
+      "type": "multiple-choice",
+      "question": "Đạo hàm của tích y=u.v là",
+      "options": [
+        "u'v'",
+        "u'v+uv'",
+        "u'+v'",
+        "u/v"
+      ],
+      "answer": "u'v+uv'"
+    },
+    {
+      "id": "qtdh_s1_4",
+      "type": "multiple-choice",
+      "question": "Đạo hàm của thương y=u/v (v≠0) là",
+      "options": [
+        "(u'v-uv')/v²",
+        "(u'v+uv')/v²",
+        "u'/v'",
+        "u'v"
+      ],
+      "answer": "(u'v-uv')/v²"
+    },
+    {
+      "id": "qtdh_s1_5",
+      "type": "multiple-choice",
+      "question": "Đạo hàm của hàm số y=x⁵ là",
+      "options": [
+        "5x⁴",
+        "x⁴",
+        "5x",
+        "x⁵"
+      ],
+      "answer": "5x⁴"
+    },
+    {
+      "id": "qtdh_s1_6",
+      "type": "multiple-choice",
+      "question": "Đạo hàm của hàm số y=√x là",
+      "options": [
+        "1/(2√x)",
+        "√x",
+        "2√x",
+        "1/x"
+      ],
+      "answer": "1/(2√x)"
+    },
+    {
+      "id": "qtdh_s1_7",
+      "type": "multiple-choice",
+      "question": "Đạo hàm của y=1/x là",
+      "options": [
+        "-1/x²",
+        "1/x²",
+        "x²",
+        "-x²"
+      ],
+      "answer": "-1/x²"
+    },
+    {
+      "id": "qtdh_s1_8",
+      "type": "multiple-choice",
+      "question": "Đạo hàm của y=(2x+1)(x²-3) là",
+      "options": [
+        "2(x²-3)+(2x+1)2x",
+        "2x²-3",
+        "2x+1",
+        "(2x+1)²"
+      ],
+      "answer": "2(x²-3)+(2x+1)2x"
+    },
+    {
+      "id": "qtdh_s1_9",
+      "type": "multiple-choice",
+      "question": "Đạo hàm của y=(3x+1)/(x+2) là áp dụng quy tắc nào?",
+      "options": [
+        "Tổng",
+        "Tích",
+        "Thương",
+        "Lũy thừa"
+      ],
+      "answer": "Thương"
+    },
+    {
+      "id": "qtdh_s1_10",
+      "type": "multiple-choice",
+      "question": "Đạo hàm của y=7x³ là",
+      "options": [
+        "21x²",
+        "7x²",
+        "3x²",
+        "21x³"
+      ],
+      "answer": "21x²"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "qtdh_s2_1",
+      "type": "true-false",
+      "question": "Xét các quy tắc đạo hàm cơ bản.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "(u+v)'=u'+v'.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "(u-v)'=u'-v'.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "(uv)'=u'v+uv'.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "(u/v)'=u'/v'.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "qtdh_s2_2",
+      "type": "true-false",
+      "question": "Xét đạo hàm các hàm số quen thuộc.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "(x²)'=2x.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "(x³)'=3x².",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "(1/x)'=1/x².",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "(√x)'=1/(2√x).",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "qtdh_s2_3",
+      "type": "true-false",
+      "question": "Cho y=(2x+1)(x-3).",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Để tính đạo hàm cần dùng quy tắc tích.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "y'=2(x-3)+(2x+1).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "y'=4x-5.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "y' là hằng số.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "qtdh_s3_1",
+      "type": "short-answer",
+      "question": "Tính đạo hàm của hàm số y=x⁴ tại x=2.",
+      "answer": "32",
+      "explanation": "y'=4x³. Tại x=2: y'(2)=4·2³=32."
+    },
+    {
+      "id": "qtdh_s3_2",
+      "type": "short-answer",
+      "question": "Tính đạo hàm của hàm số y=3x²+1 tại x=1.",
+      "answer": "6",
+      "explanation": "y'=6x. Tại x=1: y'(1)=6."
+    },
+    {
+      "id": "qtdh_s3_3",
+      "type": "short-answer",
+      "question": "Cho y=(x+1)(x+2). Tính y'(1).",
+      "answer": "5",
+      "explanation": "y'=(x+2)+(x+1)=2x+3. Tại x=1: y'(1)=5."
+    },
+    {
+      "id": "qtdh_s3_4",
+      "type": "short-answer",
+      "question": "Cho y=(2x+1)/(x+1). Tính y'(0).",
+      "answer": "1",
+      "explanation": "y'=[2(x+1)-(2x+1)]/(x+1)²=1/(x+1)². Tại x=0: y'(0)=1."
+    },
+    {
+      "id": "qtdh_s3_5",
+      "type": "short-answer",
+      "question": "Tính đạo hàm của hàm số y=5x³−2x tại x=2.",
+      "answer": "58",
+      "explanation": "y'=15x²−2. Tại x=2: y'(2)=15·4−2=58."
+    }
+  ]
+}

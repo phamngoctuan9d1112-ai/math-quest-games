@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "nh_s1_1",
+      "type": "multiple-choice",
+      "question": "Nguyên hàm của hàm số f(x) là",
+      "options": [
+        "Hàm số F(x) sao cho F'(x)=f(x)",
+        "Hàm số F(x) sao cho F(x)=f'(x)",
+        "Đạo hàm của f(x)",
+        "Giới hạn của f(x)"
+      ],
+      "answer": "Hàm số F(x) sao cho F'(x)=f(x)"
+    },
+    {
+      "id": "nh_s1_2",
+      "type": "multiple-choice",
+      "question": "Nguyên hàm của hàm số f(x)=1 là",
+      "options": [
+        "x+C",
+        "1+C",
+        "0+C",
+        "x²+C"
+      ],
+      "answer": "x+C"
+    },
+    {
+      "id": "nh_s1_3",
+      "type": "multiple-choice",
+      "question": "Nguyên hàm của xⁿ (n≠−1) là",
+      "options": [
+        "xⁿ⁺¹/(n+1)+C",
+        "nxⁿ⁻¹+C",
+        "xⁿ/(n+1)+C",
+        "(n+1)xⁿ+C"
+      ],
+      "answer": "xⁿ⁺¹/(n+1)+C"
+    },
+    {
+      "id": "nh_s1_4",
+      "type": "multiple-choice",
+      "question": "Nguyên hàm của 1/x là",
+      "options": [
+        "ln|x|+C",
+        "xlnx+C",
+        "1/(x²)+C",
+        "eˣ+C"
+      ],
+      "answer": "ln|x|+C"
+    },
+    {
+      "id": "nh_s1_5",
+      "type": "multiple-choice",
+      "question": "Nguyên hàm của eˣ là",
+      "options": [
+        "eˣ+C",
+        "xeˣ+C",
+        "ln|x|+C",
+        "x+C"
+      ],
+      "answer": "eˣ+C"
+    },
+    {
+      "id": "nh_s1_6",
+      "type": "multiple-choice",
+      "question": "Nguyên hàm của sinx là",
+      "options": [
+        "-cosx+C",
+        "cosx+C",
+        "tanx+C",
+        "sinx+C"
+      ],
+      "answer": "-cosx+C"
+    },
+    {
+      "id": "nh_s1_7",
+      "type": "multiple-choice",
+      "question": "Nguyên hàm của cosx là",
+      "options": [
+        "sinx+C",
+        "-sinx+C",
+        "tanx+C",
+        "cosx+C"
+      ],
+      "answer": "sinx+C"
+    },
+    {
+      "id": "nh_s1_8",
+      "type": "multiple-choice",
+      "question": "Nguyên hàm của a·f(x) là",
+      "options": [
+        "a∫f(x)dx",
+        "∫f(x)dx+a",
+        "a+f(x)",
+        "af(x)"
+      ],
+      "answer": "a∫f(x)dx"
+    },
+    {
+      "id": "nh_s1_9",
+      "type": "multiple-choice",
+      "question": "Nếu F(x) là một nguyên hàm của f(x) thì họ nguyên hàm của f(x) là",
+      "options": [
+        "F(x)+C",
+        "F(x)",
+        "F(x)+1",
+        "F(x)+x"
+      ],
+      "answer": "F(x)+C"
+    },
+    {
+      "id": "nh_s1_10",
+      "type": "multiple-choice",
+      "question": "Nguyên hàm của 2x là",
+      "options": [
+        "x²+C",
+        "2x²+C",
+        "x+C",
+        "2+C"
+      ],
+      "answer": "x²+C"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "nh_s2_1",
+      "type": "true-false",
+      "question": "Xét các tính chất của nguyên hàm.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu F'(x)=f(x) thì F(x) là nguyên hàm của f(x).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Một hàm số có vô số nguyên hàm khác nhau.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Các nguyên hàm của cùng một hàm số chỉ khác nhau một hằng số.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Nguyên hàm của x là x²+C.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "nh_s2_2",
+      "type": "true-false",
+      "question": "Xét các công thức nguyên hàm cơ bản.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "∫eˣdx=eˣ+C.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "∫cosxdx=sinx+C.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "∫sinxdx=cosx+C.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "∫(1/x)dx=ln|x|+C.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "nh_s2_3",
+      "type": "true-false",
+      "question": "Cho F(x)=x³/3+5.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "F'(x)=x².",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "F là một nguyên hàm của x².",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "F''(x)=2x.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "F là nguyên hàm của x³.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "nh_s3_1",
+      "type": "short-answer",
+      "question": "Tính ∫2x dx.",
+      "answer": "x²+C",
+      "explanation": "Áp dụng công thức ∫xⁿdx=xⁿ⁺¹/(n+1)+C. Ta có ∫2xdx=x²+C."
+    },
+    {
+      "id": "nh_s3_2",
+      "type": "short-answer",
+      "question": "Tìm một nguyên hàm của hàm số f(x)=x².",
+      "answer": "x³/3+C",
+      "explanation": "Áp dụng công thức nguyên hàm của lũy thừa: ∫x²dx=x³/3+C."
+    },
+    {
+      "id": "nh_s3_3",
+      "type": "short-answer",
+      "question": "Tính ∫(3x²)dx.",
+      "answer": "x³+C",
+      "explanation": "∫3x²dx=3·x³/3=x³+C."
+    },
+    {
+      "id": "nh_s3_4",
+      "type": "short-answer",
+      "question": "Tính ∫cosx dx.",
+      "answer": "sinx+C",
+      "explanation": "Nguyên hàm cơ bản của cosx là sinx+C."
+    },
+    {
+      "id": "nh_s3_5",
+      "type": "short-answer",
+      "question": "Tính ∫(1/x)dx.",
+      "answer": "ln|x|+C",
+      "explanation": "Theo công thức cơ bản: ∫(1/x)dx=ln|x|+C."
+    }
+  ]
+}

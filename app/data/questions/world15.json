@@ -1,0 +1,455 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Hàm số nào sau đây là hàm số bậc hai?",
+"options": [
+"y=2x+1",
+"y=x²-3x+2",
+"y=1/x",
+"y=√x"
+],
+"answer": "y=x²-3x+2"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Đồ thị của hàm số y=ax²+bx+c (a≠0) là",
+"options": [
+"Đường thẳng",
+"Đường tròn",
+"Parabol",
+"Elip"
+],
+"answer": "Parabol"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Hàm số y=x²−4x+3 có trục đối xứng là",
+"options": [
+"x=1",
+"x=2",
+"x=3",
+"x=4"
+],
+"answer": "x=2"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Đỉnh của parabol y=(x−2)²−1 là",
+"options": [
+"(−2;−1)",
+"(2;−1)",
+"(2;1)",
+"(−2;1)"
+],
+"answer": "(2;−1)"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Parabol y=−x²+4 mở",
+"options": [
+"Lên trên",
+"Xuống dưới",
+"Sang trái",
+"Sang phải"
+],
+"answer": "Xuống dưới"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Hàm số y=x²−2x+5 có giá trị nhỏ nhất bằng",
+"options": [
+"3",
+"4",
+"5",
+"6"
+],
+"answer": "4"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Parabol y=x²−5x+6 cắt trục hoành tại",
+"options": [
+"1 điểm",
+"2 điểm",
+"Không cắt",
+"Vô số điểm"
+],
+"answer": "2 điểm"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Nếu đồ thị hàm số bậc hai đi qua gốc tọa độ O thì",
+"options": [
+"a=0",
+"b=0",
+"c=0",
+"a+b+c=0"
+],
+"answer": "c=0"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Cho y=ax²+bx+c. Nếu trục đối xứng là x=2 thì",
+"options": [
+"b=4a",
+"b=−4a",
+"b=2a",
+"b=−2a"
+],
+"answer": "b=−4a"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Parabol y=x²−6x+5 có tung độ đỉnh bằng",
+"options": [
+"−4",
+"−5",
+"−6",
+"−7"
+],
+"answer": "−4"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Hàm số y=2x²−8x+1 đạt giá trị nhỏ nhất tại",
+"options": [
+"x=1",
+"x=2",
+"x=3",
+"x=4"
+],
+"answer": "x=2"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Đỉnh của y=x²+4x+1 là",
+"options": [
+"(−2;−3)",
+"(2;−3)",
+"(−2;3)",
+"(2;3)"
+],
+"answer": "(−2;−3)"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Cho parabol có đỉnh S(2;−3) và đi qua điểm (0;1). Giá trị của a trong y=a(x−2)²−3 là",
+"options": [
+"1",
+"−1",
+"2",
+"−2"
+],
+"answer": "1"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Parabol y=x²−4x+4 tiếp xúc trục hoành tại điểm có hoành độ",
+"options": [
+"1",
+"2",
+"3",
+"4"
+],
+"answer": "2"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Tập xác định của hàm số bậc hai là",
+"options": [
+"R",
+"R\{0}",
+"[0;+∞)",
+"(−∞;0)"
+],
+"answer": "R"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Hàm số y=−2x²+8x−3 đạt giá trị lớn nhất bằng",
+"options": [
+"3",
+"4",
+"5",
+"5"
+],
+"answer": "5"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Parabol y=x²−1 cắt trục tung tại điểm",
+"options": [
+"(0;−1)",
+"(−1;0)",
+"(1;0)",
+"(0;1)"
+],
+"answer": "(0;−1)"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Nếu parabol y=ax²+bx+c có đỉnh nằm trên trục tung thì",
+"options": [
+"a=0",
+"b=0",
+"c=0",
+"a=c"
+],
+"answer": "b=0"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Cho hàm số y=x²−3x+2. Giá trị y tại x=4 là",
+"options": [
+"4",
+"5",
+"6",
+"7"
+],
+"answer": "6"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Một parabol có hai nghiệm phân biệt thì đồ thị",
+"options": [
+"Cắt trục hoành tại hai điểm",
+"Tiếp xúc trục hoành",
+"Không cắt trục hoành",
+"Song song trục hoành"
+],
+"answer": "Cắt trục hoành tại hai điểm"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Cho hàm số y=x²−4x+3.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Trục đối xứng là x=2.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Đỉnh là S(2;−1).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Parabol mở xuống.",
+"correctAnswer": "Sai"
+},
+{
+"label": "d",
+"text": "Đồ thị cắt trục hoành tại hai điểm.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Cho hàm số y=−x²+4x−3.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Parabol mở xuống.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Trục đối xứng là x=2.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Giá trị lớn nhất bằng 1.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Đồ thị không cắt trục hoành.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Cho hàm số y=ax²+bx+c.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Nếu c=0 thì đồ thị đi qua gốc tọa độ.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Nếu b=0 thì trục đối xứng là trục tung.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Nếu a>0 thì parabol mở lên.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Nếu a<0 thì hàm số có GTNN.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Xét đồ thị hàm số bậc hai.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Đồ thị luôn là một parabol.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Trục đối xứng luôn song song trục Oy.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Đỉnh luôn nằm trên trục Ox.",
+"correctAnswer": "Sai"
+},
+{
+"label": "d",
+"text": "Parabol có thể không cắt trục hoành.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "Cho parabol y=(x−3)²−4.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Đỉnh là (3;−4).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Trục đối xứng là x=3.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Parabol mở lên.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Giá trị nhỏ nhất bằng −4.",
+"correctAnswer": "Đúng"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Cho hàm số y=x²−6x+5. Tính hoành độ đỉnh.",
+"answer": "3",
+"explanation": "x₀=−b/(2a)=6/2=3."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Cho hàm số y=x²−6x+5. Tính tung độ đỉnh.",
+"answer": "-4",
+"explanation": "y(3)=9−18+5=−4."
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Cho y=2x²−8x+1. Tính giá trị nhỏ nhất của hàm số.",
+"answer": "-7",
+"explanation": "Đỉnh có hoành độ x=2, y(2)=−7."
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Cho y=−x²+4x−3. Tính giá trị lớn nhất.",
+"answer": "1",
+"explanation": "Đỉnh tại x=2, y(2)=1."
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Cho y=x²−4x+4. Tính nghiệm của phương trình y=0.",
+"answer": "2",
+"explanation": "x²−4x+4=(x−2)²=0 nên x=2."
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Parabol y=a(x−2)²−3 đi qua điểm (0;1). Tính a.",
+"answer": "1",
+"explanation": "1=4a−3 ⇒ a=1."
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Cho hàm số y=x²−3x+2. Tính y(5).",
+"answer": "12",
+"explanation": "y(5)=25−15+2=12."
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Một hồ cá có 1000 con. Mỗi năm số lượng cá tăng gấp x lần. Sau 2 năm có 36000 con. Tính x.",
+"answer": "6",
+"explanation": "1000.x²=36000 ⇒ x²=36 ⇒ x=6. Nội dung vận dụng từ bài toán thực tế trong tài liệu. "
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Cho hàm số y=x²−4x+3. Tính khoảng cách từ đỉnh đến trục hoành.",
+"answer": "1",
+"explanation": "Đỉnh là (2;−1) nên khoảng cách đến trục hoành bằng |−1|=1."
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Cho parabol y=x²−5x+6. Tính tổng hai nghiệm giao với trục hoành.",
+"answer": "5",
+"explanation": "Theo Viète hoặc phân tích (x−2)(x−3)=0 nên tổng hai nghiệm là 5."
+}
+]
+}

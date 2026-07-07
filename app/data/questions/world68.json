@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "ps_s1_1",
+      "type": "multiple-choice",
+      "question": "Phương sai của mẫu số liệu được dùng để đo",
+      "options": [
+        "Mức độ phân tán của dữ liệu",
+        "Giá trị trung bình",
+        "Số phần tử của mẫu",
+        "Tần số xuất hiện"
+      ],
+      "answer": "Mức độ phân tán của dữ liệu"
+    },
+    {
+      "id": "ps_s1_2",
+      "type": "multiple-choice",
+      "question": "Độ lệch chuẩn là",
+      "options": [
+        "Căn bậc hai của phương sai",
+        "Bình phương của phương sai",
+        "Tổng các giá trị",
+        "Trung vị của mẫu"
+      ],
+      "answer": "Căn bậc hai của phương sai"
+    },
+    {
+      "id": "ps_s1_3",
+      "type": "multiple-choice",
+      "question": "Ký hiệu thường dùng của phương sai là",
+      "options": [
+        "s²",
+        "s",
+        "x̄",
+        "Q"
+      ],
+      "answer": "s²"
+    },
+    {
+      "id": "ps_s1_4",
+      "type": "multiple-choice",
+      "question": "Ký hiệu thường dùng của độ lệch chuẩn là",
+      "options": [
+        "s",
+        "s²",
+        "R",
+        "Q"
+      ],
+      "answer": "s"
+    },
+    {
+      "id": "ps_s1_5",
+      "type": "multiple-choice",
+      "question": "Nếu phương sai bằng 0 thì",
+      "options": [
+        "Mọi giá trị trong mẫu đều bằng nhau",
+        "Mẫu không có phần tử",
+        "Trung bình bằng 0",
+        "Khoảng biến thiên bằng 1"
+      ],
+      "answer": "Mọi giá trị trong mẫu đều bằng nhau"
+    },
+    {
+      "id": "ps_s1_6",
+      "type": "multiple-choice",
+      "question": "Độ lệch chuẩn luôn",
+      "options": [
+        "Không âm",
+        "Âm",
+        "Dương",
+        "Lớn hơn 1"
+      ],
+      "answer": "Không âm"
+    },
+    {
+      "id": "ps_s1_7",
+      "type": "multiple-choice",
+      "question": "Nếu độ lệch chuẩn càng nhỏ thì",
+      "options": [
+        "Dữ liệu càng đồng đều",
+        "Dữ liệu càng phân tán",
+        "Trung bình càng lớn",
+        "Khoảng biến thiên càng lớn"
+      ],
+      "answer": "Dữ liệu càng đồng đều"
+    },
+    {
+      "id": "ps_s1_8",
+      "type": "multiple-choice",
+      "question": "Nếu hai mẫu có trung bình gần bằng nhau thì đại lượng nào thích hợp để so sánh độ phân tán?",
+      "options": [
+        "Phương sai hoặc độ lệch chuẩn",
+        "Trung vị",
+        "Mốt",
+        "Tổng các giá trị"
+      ],
+      "answer": "Phương sai hoặc độ lệch chuẩn"
+    },
+    {
+      "id": "ps_s1_9",
+      "type": "multiple-choice",
+      "question": "Giá trị nào sau đây có cùng đơn vị với dữ liệu gốc?",
+      "options": [
+        "Độ lệch chuẩn",
+        "Phương sai",
+        "Cả hai",
+        "Không có"
+      ],
+      "answer": "Độ lệch chuẩn"
+    },
+    {
+      "id": "ps_s1_10",
+      "type": "multiple-choice",
+      "question": "Mẫu số liệu có độ lệch chuẩn nhỏ hơn thường",
+      "options": [
+        "Đồng đều hơn",
+        "Phân tán hơn",
+        "Có nhiều phần tử hơn",
+        "Có trung bình lớn hơn"
+      ],
+      "answer": "Đồng đều hơn"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "ps_s2_1",
+      "type": "true-false",
+      "question": "Xét các tính chất của phương sai và độ lệch chuẩn.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Phương sai luôn không âm.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Độ lệch chuẩn là căn bậc hai của phương sai.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Độ lệch chuẩn có thể âm.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Phương sai càng lớn thì dữ liệu càng phân tán.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "ps_s2_2",
+      "type": "true-false",
+      "question": "Xét vai trò của độ lệch chuẩn.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Độ lệch chuẩn dùng để đánh giá mức độ đồng đều của dữ liệu.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Độ lệch chuẩn nhỏ cho thấy dữ liệu tập trung quanh giá trị trung bình hơn.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Độ lệch chuẩn luôn lớn hơn trung bình cộng.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Hai mẫu có cùng trung bình vẫn có thể có độ lệch chuẩn khác nhau.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "ps_s2_3",
+      "type": "true-false",
+      "question": "Cho hai mẫu số liệu A và B có cùng số trung bình. Biết sA=2 và sB=5.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Mẫu A đồng đều hơn mẫu B.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Mẫu B phân tán hơn mẫu A.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Phương sai của mẫu A bằng 4.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Phương sai của mẫu B bằng 10.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "ps_s3_1",
+      "type": "short-answer",
+      "question": "Một mẫu số liệu có phương sai s²=25. Tính độ lệch chuẩn.",
+      "answer": "5",
+      "explanation": "s=√25=5."
+    },
+    {
+      "id": "ps_s3_2",
+      "type": "short-answer",
+      "question": "Một mẫu số liệu có độ lệch chuẩn s=4. Tính phương sai.",
+      "answer": "16",
+      "explanation": "s²=4²=16."
+    },
+    {
+      "id": "ps_s3_3",
+      "type": "short-answer",
+      "question": "Cho hai mẫu A và B có độ lệch chuẩn lần lượt là 3 và 7. Hiệu hai độ lệch chuẩn bằng bao nhiêu?",
+      "answer": "4",
+      "explanation": "7−3=4."
+    },
+    {
+      "id": "ps_s3_4",
+      "type": "short-answer",
+      "question": "Một mẫu số liệu có phương sai bằng 49. Tính độ lệch chuẩn.",
+      "answer": "7",
+      "explanation": "s=√49=7."
+    },
+    {
+      "id": "ps_s3_5",
+      "type": "short-answer",
+      "question": "Cho hai mẫu có cùng trung bình. Mẫu A có s²=9, mẫu B có s²=25. Tính hiệu hai phương sai.",
+      "answer": "16",
+      "explanation": "25−9=16."
+    }
+  ]
+}

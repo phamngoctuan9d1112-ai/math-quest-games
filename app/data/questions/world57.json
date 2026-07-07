@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "dh2_s1_1",
+      "type": "multiple-choice",
+      "question": "Đạo hàm cấp hai của hàm số y=f(x) là",
+      "options": [
+        "Đạo hàm của f(x)",
+        "Đạo hàm của f'(x)",
+        "Nguyên hàm của f(x)",
+        "Đạo hàm của x"
+      ],
+      "answer": "Đạo hàm của f'(x)"
+    },
+    {
+      "id": "dh2_s1_2",
+      "type": "multiple-choice",
+      "question": "Kí hiệu đạo hàm cấp hai của hàm số y=f(x) là",
+      "options": [
+        "f'(x)",
+        "f''(x)",
+        "f'''(x)",
+        "Δf(x)"
+      ],
+      "answer": "f''(x)"
+    },
+    {
+      "id": "dh2_s1_3",
+      "type": "multiple-choice",
+      "question": "Nếu y=x³ thì y'' bằng",
+      "options": [
+        "6x",
+        "3x²",
+        "6",
+        "x²"
+      ],
+      "answer": "6x"
+    },
+    {
+      "id": "dh2_s1_4",
+      "type": "multiple-choice",
+      "question": "Nếu y=x² thì y'' bằng",
+      "options": [
+        "2",
+        "x",
+        "2x",
+        "0"
+      ],
+      "answer": "2"
+    },
+    {
+      "id": "dh2_s1_5",
+      "type": "multiple-choice",
+      "question": "Nếu y=5x+1 thì y'' bằng",
+      "options": [
+        "5",
+        "1",
+        "0",
+        "10"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": "dh2_s1_6",
+      "type": "multiple-choice",
+      "question": "Trong chuyển động thẳng, nếu s(t) là quãng đường thì s''(t) biểu diễn",
+      "options": [
+        "Quãng đường",
+        "Vận tốc",
+        "Gia tốc",
+        "Thời gian"
+      ],
+      "answer": "Gia tốc"
+    },
+    {
+      "id": "dh2_s1_7",
+      "type": "multiple-choice",
+      "question": "Nếu vận tốc v(t)=3t²−2t+1 thì gia tốc a(t) bằng",
+      "options": [
+        "6t−2",
+        "3t−2",
+        "6t",
+        "3t²−2"
+      ],
+      "answer": "6t−2"
+    },
+    {
+      "id": "dh2_s1_8",
+      "type": "multiple-choice",
+      "question": "Đạo hàm cấp hai của y=x⁴ là",
+      "options": [
+        "12x²",
+        "4x³",
+        "16x²",
+        "24x"
+      ],
+      "answer": "12x²"
+    },
+    {
+      "id": "dh2_s1_9",
+      "type": "multiple-choice",
+      "question": "Nếu y''(x)>0 trên một khoảng thì đồ thị hàm số có xu hướng",
+      "options": [
+        "Lõm xuống",
+        "Lõm lên",
+        "Song song trục Ox",
+        "Không xác định"
+      ],
+      "answer": "Lõm lên"
+    },
+    {
+      "id": "dh2_s1_10",
+      "type": "multiple-choice",
+      "question": "Đạo hàm cấp hai của y=x⁵ là",
+      "options": [
+        "20x³",
+        "10x³",
+        "5x⁴",
+        "25x³"
+      ],
+      "answer": "20x³"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "dh2_s2_1",
+      "type": "true-false",
+      "question": "Xét kiến thức cơ bản về đạo hàm cấp hai.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Đạo hàm cấp hai là đạo hàm của đạo hàm cấp một.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Kí hiệu đạo hàm cấp hai là f''(x).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Đạo hàm cấp hai của hàm số bậc nhất luôn bằng 0.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Đạo hàm cấp hai của x² bằng x.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "dh2_s2_2",
+      "type": "true-false",
+      "question": "Xét ý nghĩa vật lí của đạo hàm cấp hai.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu s(t) là quãng đường thì s'(t) là vận tốc.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nếu s(t) là quãng đường thì s''(t) là gia tốc.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Gia tốc là đạo hàm của vận tốc theo thời gian.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Vận tốc là đạo hàm của gia tốc.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "dh2_s2_3",
+      "type": "true-false",
+      "question": "Cho hàm số y=x⁴.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "y'=4x³.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "y''=12x².",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "y''(1)=12.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "y'' là hằng số.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "dh2_s3_1",
+      "type": "short-answer",
+      "question": "Tính đạo hàm cấp hai của hàm số y=x³ tại x=2.",
+      "answer": "12",
+      "explanation": "y'=3x², y''=6x. Tại x=2: y''(2)=12."
+    },
+    {
+      "id": "dh2_s3_2",
+      "type": "short-answer",
+      "question": "Tính đạo hàm cấp hai của hàm số y=x⁴ tại x=1.",
+      "answer": "12",
+      "explanation": "y'=4x³, y''=12x². Tại x=1: y''(1)=12."
+    },
+    {
+      "id": "dh2_s3_3",
+      "type": "short-answer",
+      "question": "Một vật chuyển động có phương trình s(t)=t³−3t²+2t. Tính gia tốc tại t=1.",
+      "answer": "0",
+      "explanation": "v(t)=s'(t)=3t²−6t+2. a(t)=s''(t)=6t−6. Tại t=1: a(1)=0."
+    },
+    {
+      "id": "dh2_s3_4",
+      "type": "short-answer",
+      "question": "Cho vận tốc v(t)=2t²+3t−1. Tính gia tốc tại t=2.",
+      "answer": "11",
+      "explanation": "a(t)=v'(t)=4t+3. Tại t=2: a(2)=11."
+    },
+    {
+      "id": "dh2_s3_5",
+      "type": "short-answer",
+      "question": "Tính đạo hàm cấp hai của hàm số y=2x⁵−x³ tại x=1.",
+      "answer": "34",
+      "explanation": "y'=10x⁴−3x². y''=40x³−6x. Tại x=1: y''(1)=40−6=34."
+    }
+  ]
+}

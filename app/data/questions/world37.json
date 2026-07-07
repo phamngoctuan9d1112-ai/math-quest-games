@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "dtmp_s1_1",
+      "type": "multiple-choice",
+      "question": "Qua ba điểm không thẳng hàng xác định được bao nhiêu mặt phẳng?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "Vô số"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": "dtmp_s1_2",
+      "type": "multiple-choice",
+      "question": "Nếu một đường thẳng có hai điểm phân biệt thuộc một mặt phẳng thì",
+      "options": [
+        "Đường thẳng nằm trong mặt phẳng",
+        "Đường thẳng song song mặt phẳng",
+        "Đường thẳng cắt mặt phẳng",
+        "Không kết luận được"
+      ],
+      "answer": "Đường thẳng nằm trong mặt phẳng"
+    },
+    {
+      "id": "dtmp_s1_3",
+      "type": "multiple-choice",
+      "question": "Giao tuyến của hai mặt phẳng phân biệt là",
+      "options": [
+        "Một điểm",
+        "Một đường thẳng",
+        "Một đoạn thẳng",
+        "Một tia"
+      ],
+      "answer": "Một đường thẳng"
+    },
+    {
+      "id": "dtmp_s1_4",
+      "type": "multiple-choice",
+      "question": "Nếu hai mặt phẳng có một điểm chung thì",
+      "options": [
+        "Chúng cắt nhau theo một đường thẳng",
+        "Chúng song song",
+        "Chúng trùng nhau",
+        "Không xác định"
+      ],
+      "answer": "Chúng cắt nhau theo một đường thẳng"
+    },
+    {
+      "id": "dtmp_s1_5",
+      "type": "multiple-choice",
+      "question": "Trong hình chóp S.ABCD, giao tuyến của hai mặt phẳng (SAB) và (SBC) là",
+      "options": [
+        "SB",
+        "SA",
+        "SC",
+        "AB"
+      ],
+      "answer": "SB"
+    },
+    {
+      "id": "dtmp_s1_6",
+      "type": "multiple-choice",
+      "question": "Trong tứ diện ABCD, giao tuyến của (ABC) và (ABD) là",
+      "options": [
+        "AB",
+        "AC",
+        "AD",
+        "BD"
+      ],
+      "answer": "AB"
+    },
+    {
+      "id": "dtmp_s1_7",
+      "type": "multiple-choice",
+      "question": "Thiết diện của một hình chóp với một mặt phẳng thường là",
+      "options": [
+        "Một đa giác",
+        "Một đường thẳng",
+        "Một điểm",
+        "Một mặt cầu"
+      ],
+      "answer": "Một đa giác"
+    },
+    {
+      "id": "dtmp_s1_8",
+      "type": "multiple-choice",
+      "question": "Ba điểm cùng thuộc giao tuyến của hai mặt phẳng thì",
+      "options": [
+        "Thẳng hàng",
+        "Không thẳng hàng",
+        "Song song",
+        "Vuông góc"
+      ],
+      "answer": "Thẳng hàng"
+    },
+    {
+      "id": "dtmp_s1_9",
+      "type": "multiple-choice",
+      "question": "Để chứng minh ba điểm thẳng hàng thường chứng minh chúng",
+      "options": [
+        "Cùng thuộc hai mặt phẳng phân biệt",
+        "Cùng thuộc một đường tròn",
+        "Cùng thuộc một cạnh",
+        "Cùng thuộc một tam giác"
+      ],
+      "answer": "Cùng thuộc hai mặt phẳng phân biệt"
+    },
+    {
+      "id": "dtmp_s1_10",
+      "type": "multiple-choice",
+      "question": "Để chứng minh ba đường thẳng đồng quy cần chỉ ra chúng",
+      "options": [
+        "Cùng đi qua một điểm",
+        "Song song từng đôi",
+        "Nằm trên cùng mặt phẳng",
+        "Có cùng độ dài"
+      ],
+      "answer": "Cùng đi qua một điểm"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "dtmp_s2_1",
+      "type": "true-false",
+      "question": "Xét các mệnh đề về đường thẳng và mặt phẳng.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Qua ba điểm không thẳng hàng xác định duy nhất một mặt phẳng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hai mặt phẳng phân biệt có thể cắt nhau theo một đường thẳng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hai đường thẳng phân biệt luôn cắt nhau.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Một đường thẳng và một mặt phẳng chỉ có thể có một điểm chung.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "dtmp_s2_2",
+      "type": "true-false",
+      "question": "Xét giao tuyến của các mặt phẳng.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Giao tuyến của hai mặt phẳng là một đường thẳng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nếu hai mặt phẳng có hai điểm chung phân biệt thì chúng có một giao tuyến.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hai mặt phẳng song song không có điểm chung.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hai mặt phẳng bất kỳ luôn cắt nhau.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "dtmp_s2_3",
+      "type": "true-false",
+      "question": "Xét ba điểm thẳng hàng và ba đường thẳng đồng quy.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Ba điểm thuộc cùng giao tuyến của hai mặt phẳng thì thẳng hàng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Ba đường thẳng đi qua cùng một điểm thì đồng quy.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Ba đường thẳng đồng quy luôn song song.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Ba điểm thẳng hàng luôn thuộc vô số mặt phẳng.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "dtmp_s3_1",
+      "type": "short-answer",
+      "question": "Một mặt phẳng được xác định bởi bao nhiêu điểm không thẳng hàng?",
+      "answer": "3",
+      "explanation": "Theo tiên đề hình học không gian, qua ba điểm không thẳng hàng xác định duy nhất một mặt phẳng."
+    },
+    {
+      "id": "dtmp_s3_2",
+      "type": "short-answer",
+      "question": "Hai mặt phẳng phân biệt cắt nhau theo bao nhiêu đường thẳng?",
+      "answer": "1",
+      "explanation": "Hai mặt phẳng phân biệt nếu cắt nhau thì giao tuyến là duy nhất một đường thẳng."
+    },
+    {
+      "id": "dtmp_s3_3",
+      "type": "short-answer",
+      "question": "Trong hình chóp S.ABCD, hai mặt phẳng (SAB) và (SBC) có bao nhiêu cạnh chung?",
+      "answer": "1",
+      "explanation": "Hai mặt phẳng cùng chứa cạnh SB nên giao tuyến là SB."
+    },
+    {
+      "id": "dtmp_s3_4",
+      "type": "short-answer",
+      "question": "Có bao nhiêu mặt phẳng đi qua một đường thẳng cho trước?",
+      "answer": "Vô số",
+      "explanation": "Qua một đường thẳng có thể dựng vô số mặt phẳng khác nhau chứa đường thẳng đó."
+    },
+    {
+      "id": "dtmp_s3_5",
+      "type": "short-answer",
+      "question": "Ba đường thẳng cùng đi qua một điểm gọi là gì?",
+      "answer": "Đồng quy",
+      "explanation": "Các đường thẳng cùng đi qua một điểm được gọi là các đường thẳng đồng quy."
+    }
+  ]
+}

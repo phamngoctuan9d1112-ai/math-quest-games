@@ -1,0 +1,455 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Góc giữa hai đường thẳng x+y=0 và x−y=0 bằng",
+"options": [
+"45°",
+"60°",
+"90°",
+"30°"
+],
+"answer": "90°"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Khoảng cách từ điểm M(1;2) đến đường thẳng x+2y−1=0 bằng",
+"options": [
+"4/√5",
+"5/√5",
+"3/√5",
+"2/√5"
+],
+"answer": "4/√5"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Hai đường thẳng vuông góc nếu",
+"options": [
+"Tích vô hướng hai vectơ chỉ phương bằng 0",
+"Hai vectơ pháp tuyến bằng nhau",
+"Có cùng hệ số góc",
+"Có cùng vectơ chỉ phương"
+],
+"answer": "Tích vô hướng hai vectơ chỉ phương bằng 0"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Đường thẳng d: x+my−3=0 tạo với đường thẳng x+y=0 góc 60°. Giá trị của m thỏa mãn",
+"options": [
+"m=−7 hoặc m=2/7",
+"m=7 hoặc m=−2/7",
+"m=1 hoặc m=−1",
+"m=2 hoặc m=−2"
+],
+"answer": "m=−7 hoặc m=2/7"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Khoảng cách từ điểm A(0;0) đến đường thẳng x+y−5=0 bằng",
+"options": [
+"5/√2",
+"5",
+"5√2",
+"10"
+],
+"answer": "5/√2"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Một vectơ pháp tuyến của đường thẳng x−2y+3=0 là",
+"options": [
+"(1;−2)",
+"(2;1)",
+"(−2;1)",
+"(1;2)"
+],
+"answer": "(1;−2)"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Một vectơ chỉ phương của đường thẳng 3x+4y−5=0 là",
+"options": [
+"(4;−3)",
+"(3;4)",
+"(−3;4)",
+"(1;1)"
+],
+"answer": "(4;−3)"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Khoảng cách từ điểm M(3;−2) đến đường thẳng x+2y−1=0 bằng",
+"options": [
+"2/√5",
+"√5",
+"5/√5",
+"4/√5"
+],
+"answer": "2/√5"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Diện tích tam giác có đáy bằng 6 và chiều cao bằng 4 là",
+"options": [
+"12",
+"24",
+"10",
+"18"
+],
+"answer": "12"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Góc giữa hai đường thẳng có vectơ pháp tuyến n₁=(1;0), n₂=(1;1) bằng",
+"options": [
+"45°",
+"60°",
+"90°",
+"30°"
+],
+"answer": "45°"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Nếu khoảng cách từ điểm M đến đường thẳng d bằng 0 thì",
+"options": [
+"M thuộc d",
+"M không thuộc d",
+"d đi qua gốc tọa độ",
+"d song song Ox"
+],
+"answer": "M thuộc d"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Đường thẳng x+y−3=0 có hệ số góc bằng",
+"options": [
+"-1",
+"1",
+"0",
+"2"
+],
+"answer": "-1"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Khoảng cách từ điểm A(1;1) đến đường thẳng x−y=0 bằng",
+"options": [
+"0",
+"1",
+"√2",
+"2"
+],
+"answer": "0"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Hai đường thẳng song song khi các vectơ pháp tuyến của chúng",
+"options": [
+"Cùng phương",
+"Vuông góc",
+"Bằng 0",
+"Không cùng phương"
+],
+"answer": "Cùng phương"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Đường thẳng qua A(1;2), B(4;6) có vectơ chỉ phương là",
+"options": [
+"(3;4)",
+"(4;3)",
+"(1;2)",
+"(−3;4)"
+],
+"answer": "(3;4)"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Diện tích tam giác bằng",
+"options": [
+"1/2 × đáy × chiều cao",
+"đáy × chiều cao",
+"2 × đáy × chiều cao",
+"đáy + chiều cao"
+],
+"answer": "1/2 × đáy × chiều cao"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Đường thẳng x=2 và y=3",
+"options": [
+"Vuông góc",
+"Song song",
+"Trùng nhau",
+"Không cắt nhau"
+],
+"answer": "Vuông góc"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Khoảng cách từ điểm O(0;0) đến đường thẳng 3x+4y−5=0 bằng",
+"options": [
+"1",
+"5",
+"5/7",
+"25"
+],
+"answer": "1"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Góc giữa hai đường thẳng trùng nhau bằng",
+"options": [
+"0°",
+"45°",
+"90°",
+"180°"
+],
+"answer": "0°"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Khoảng cách từ điểm M đến đường thẳng luôn là",
+"options": [
+"Số không âm",
+"Số âm",
+"Số nguyên",
+"Số hữu tỉ"
+],
+"answer": "Số không âm"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Xét đường thẳng d: x+2y−1=0.",
+"subQuestions": [
+{
+"label": "a",
+"text": "n=(1;2) là vectơ pháp tuyến của d.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "u=(−2;1) là vectơ chỉ phương của d.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Điểm (1;0) thuộc d.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "d song song với trục Ox.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Xét góc giữa hai đường thẳng.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Góc giữa hai đường thẳng luôn nằm trong khoảng từ 0° đến 90°.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Hai đường thẳng vuông góc tạo góc 90°.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Hai đường thẳng song song tạo góc 0°.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Mọi đường thẳng đều tạo với nhau góc nhọn.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Xét khoảng cách từ điểm đến đường thẳng.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Khoảng cách luôn không âm.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Nếu khoảng cách bằng 0 thì điểm thuộc đường thẳng.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Khoảng cách phụ thuộc vào vectơ chỉ phương.",
+"correctAnswer": "Sai"
+},
+{
+"label": "d",
+"text": "Khoảng cách là độ dài đoạn vuông góc kẻ từ điểm đến đường thẳng.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Cho A(1;2), B(4;6).",
+"subQuestions": [
+{
+"label": "a",
+"text": "AB=(3;4).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "|AB|=5.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "AB là vectơ pháp tuyến của đường thẳng AB.",
+"correctAnswer": "Sai"
+},
+{
+"label": "d",
+"text": "AB là vectơ chỉ phương của đường thẳng AB.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "Xét tam giác trong mặt phẳng tọa độ.",
+"subQuestions": [
+{
+"label": "a",
+"text": "S=1/2×đáy×chiều cao.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Chiều cao là khoảng cách từ đỉnh đến cạnh đối diện.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Diện tích luôn dương.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Tam giác có diện tích bằng 0 vẫn là tam giác.",
+"correctAnswer": "Sai"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Tính khoảng cách từ điểm O(0;0) đến đường thẳng 3x+4y−5=0.",
+"answer": "1",
+"explanation": "d(O,d)=|−5|/√(3²+4²)=5/5=1."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Tính khoảng cách từ điểm M(3;−2) đến đường thẳng x+2y−1=0.",
+"answer": "2/√5",
+"explanation": "d(M,d)=|3+2.(−2)−1|/√(1²+2²)=2/√5. "
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Cho A(1;2), B(−2;5), C(3;−4). Tính diện tích tam giác ABC.",
+"answer": "6",
+"explanation": "Dùng công thức diện tích bằng 1/2×AB×d(C,AB), suy ra S=6. "
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Tính độ dài vectơ AB với A(1;2), B(4;6).",
+"answer": "5",
+"explanation": "|AB|=√(3²+4²)=5."
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Tính góc giữa hai đường thẳng x+y=0 và x−y=0 (đơn vị độ).",
+"answer": "90",
+"explanation": "Hai vectơ pháp tuyến (1;1) và (1;−1) vuông góc nên góc giữa hai đường thẳng là 90°."
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Cho đường thẳng x+y−5=0. Tính khoảng cách từ O(0;0) đến đường thẳng.",
+"answer": "5/√2",
+"explanation": "d=|−5|/√(1²+1²)=5/√2."
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Cho đường thẳng x−y+1=0. Tính khoảng cách từ điểm M(1;2) đến đường thẳng.",
+"answer": "0",
+"explanation": "1−2+1=0 nên M nằm trên đường thẳng."
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Cho A(2;2), B(5;1). Tính độ dài AB.",
+"answer": "√10",
+"explanation": "AB=(3;−1), |AB|=√(3²+1²)=√10."
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Đường thẳng d: 2x−y+3=0 có hệ số góc bằng bao nhiêu?",
+"answer": "2",
+"explanation": "Viết lại dưới dạng y=2x+3 nên hệ số góc k=2."
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Cho đường thẳng x+y−3=0. Tính tung độ giao điểm với trục Oy.",
+"answer": "3",
+"explanation": "Cho x=0 ⇒ y=3."
+}
+]
+}

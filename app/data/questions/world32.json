@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "csc_s1_1",
+      "type": "multiple-choice",
+      "question": "Cho cấp số cộng có u₁=3, d=2. Giá trị của u₅ bằng",
+      "options": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "answer": "11"
+    },
+    {
+      "id": "csc_s1_2",
+      "type": "multiple-choice",
+      "question": "Cho cấp số cộng 2, 5, 8, 11,... Công sai d bằng",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": "3"
+    },
+    {
+      "id": "csc_s1_3",
+      "type": "multiple-choice",
+      "question": "Cho cấp số cộng có u₁=7, d=-2. Giá trị của u₄ bằng",
+      "options": [
+        "1",
+        "3",
+        "5",
+        "7"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": "csc_s1_4",
+      "type": "multiple-choice",
+      "question": "Công thức số hạng tổng quát của cấp số cộng là",
+      "options": [
+        "uₙ=u₁+(n−1)d",
+        "uₙ=u₁·dⁿ⁻¹",
+        "uₙ=u₁+n.d",
+        "uₙ=d+(n−1)u₁"
+      ],
+      "answer": "uₙ=u₁+(n−1)d"
+    },
+    {
+      "id": "csc_s1_5",
+      "type": "multiple-choice",
+      "question": "Cho cấp số cộng có u₁=4, d=3. Giá trị của u₁₀ bằng",
+      "options": [
+        "28",
+        "30",
+        "31",
+        "32"
+      ],
+      "answer": "31"
+    },
+    {
+      "id": "csc_s1_6",
+      "type": "multiple-choice",
+      "question": "Tổng 10 số hạng đầu của cấp số cộng 1, 2, 3, ... là",
+      "options": [
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "answer": "55"
+    },
+    {
+      "id": "csc_s1_7",
+      "type": "multiple-choice",
+      "question": "Cho cấp số cộng có u₁=2, d=4. Giá trị của u₆ bằng",
+      "options": [
+        "18",
+        "20",
+        "22",
+        "24"
+      ],
+      "answer": "22"
+    },
+    {
+      "id": "csc_s1_8",
+      "type": "multiple-choice",
+      "question": "Cho cấp số cộng có u₁=5, u₂=9. Công sai d bằng",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": "4"
+    },
+    {
+      "id": "csc_s1_9",
+      "type": "multiple-choice",
+      "question": "Cho cấp số cộng có u₁=1, d=2. Tổng 5 số hạng đầu là",
+      "options": [
+        "20",
+        "25",
+        "30",
+        "35"
+      ],
+      "answer": "25"
+    },
+    {
+      "id": "csc_s1_10",
+      "type": "multiple-choice",
+      "question": "Trong một cấp số cộng, nếu u₁=8 và d=-1 thì u₈ bằng",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "answer": "1"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "csc_s2_1",
+      "type": "true-false",
+      "question": "Cho cấp số cộng có u₁=2 và d=3.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "u₂=5.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "u₅=14.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "u₁₀=29.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "u₄=10.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "csc_s2_2",
+      "type": "true-false",
+      "question": "Cho cấp số cộng 5, 8, 11, 14,...",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Đây là cấp số cộng có công sai d=3.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "u₆=20.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "u₁₀=32.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "u₅=18.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "csc_s2_3",
+      "type": "true-false",
+      "question": "Xét tổng n số hạng đầu của cấp số cộng.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Sₙ=n(u₁+uₙ)/2.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Sₙ=n[2u₁+(n−1)d]/2.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "S₁₀ của dãy 1,2,3,... bằng 55.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Tổng các số hạng của cấp số cộng luôn dương.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "csc_s3_1",
+      "type": "short-answer",
+      "question": "Cho cấp số cộng có u₁=4, d=3. Tính u₁₂.",
+      "answer": "37",
+      "explanation": "u₁₂=u₁+11d=4+11×3=37."
+    },
+    {
+      "id": "csc_s3_2",
+      "type": "short-answer",
+      "question": "Cho cấp số cộng 2, 5, 8, 11,... Tính tổng 10 số hạng đầu.",
+      "answer": "155",
+      "explanation": "u₁₀=2+9×3=29. S₁₀=10(2+29)/2=155."
+    },
+    {
+      "id": "csc_s3_3",
+      "type": "short-answer",
+      "question": "Cho cấp số cộng có u₁=7 và d=-2. Tính u₁₅.",
+      "answer": "-21",
+      "explanation": "u₁₅=7+14×(-2)=7−28=-21."
+    },
+    {
+      "id": "csc_s3_4",
+      "type": "short-answer",
+      "question": "Cho cấp số cộng có u₁=1, d=4. Tính tổng 20 số hạng đầu.",
+      "answer": "780",
+      "explanation": "u₂₀=1+19×4=77. S₂₀=20(1+77)/2=780."
+    },
+    {
+      "id": "csc_s3_5",
+      "type": "short-answer",
+      "question": "Cho cấp số cộng có u₅=17 và d=3. Tính u₁.",
+      "answer": "5",
+      "explanation": "u₅=u₁+4d ⇒ 17=u₁+12 ⇒ u₁=5."
+    }
+  ]
+}

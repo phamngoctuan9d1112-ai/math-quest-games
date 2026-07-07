@@ -1,0 +1,455 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Khoảng biến thiên của mẫu số liệu được tính bằng",
+"options": [
+"Giá trị lớn nhất trừ giá trị nhỏ nhất",
+"Giá trị lớn nhất cộng giá trị nhỏ nhất",
+"Trung bình cộng các giá trị",
+"Hiệu giữa Q₃ và Q₁"
+],
+"answer": "Giá trị lớn nhất trừ giá trị nhỏ nhất"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Khoảng tứ phân vị của mẫu số liệu bằng",
+"options": [
+"Q₁+Q₃",
+"Q₂−Q₁",
+"Q₃−Q₁",
+"Q₃−Q₂"
+],
+"answer": "Q₃−Q₁"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Phương sai của mẫu số liệu luôn",
+"options": [
+"Âm",
+"Không âm",
+"Nhỏ hơn 0",
+"Lớn hơn 1"
+],
+"answer": "Không âm"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Độ lệch chuẩn là",
+"options": [
+"Bình phương của phương sai",
+"Một nửa phương sai",
+"Căn bậc hai của phương sai",
+"Khoảng biến thiên"
+],
+"answer": "Căn bậc hai của phương sai"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Cho mẫu số liệu: 1;2;3;4;5. Khoảng biến thiên bằng",
+"options": [
+"3",
+"4",
+"5",
+"6"
+],
+"answer": "4"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Cho dãy số liệu 1;2;3;4;5;6;7;8. Độ lệch chuẩn gần bằng",
+"options": [
+"1,30",
+"2,30",
+"3,30",
+"4,30"
+],
+"answer": "2,30"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Nếu các giá trị của mẫu càng tập trung quanh số trung bình thì",
+"options": [
+"Độ lệch chuẩn càng lớn",
+"Phương sai càng lớn",
+"Độ lệch chuẩn càng nhỏ",
+"Khoảng biến thiên tăng"
+],
+"answer": "Độ lệch chuẩn càng nhỏ"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Khoảng biến thiên chỉ sử dụng",
+"options": [
+"Tất cả các giá trị",
+"Giá trị lớn nhất và nhỏ nhất",
+"Q₁ và Q₃",
+"Số trung bình"
+],
+"answer": "Giá trị lớn nhất và nhỏ nhất"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Cho Q₁=12 và Q₃=20. Khoảng tứ phân vị bằng",
+"options": [
+"8",
+"10",
+"12",
+"32"
+],
+"answer": "8"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Phương sai là",
+"options": [
+"Bình phương độ lệch chuẩn",
+"Một nửa độ lệch chuẩn",
+"Căn bậc hai độ lệch chuẩn",
+"Khoảng biến thiên"
+],
+"answer": "Bình phương độ lệch chuẩn"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Trong các số đo sau, số đo phản ánh độ phân tán mạnh nhất là",
+"options": [
+"Số trung bình",
+"Mốt",
+"Phương sai",
+"Trung vị"
+],
+"answer": "Phương sai"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Cho mẫu số liệu có phương sai bằng 9. Độ lệch chuẩn bằng",
+"options": [
+"81",
+"9",
+"6",
+"3"
+],
+"answer": "3"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Cho mẫu số liệu: 2;2;2;2;2. Phương sai bằng",
+"options": [
+"0",
+"1",
+"2",
+"4"
+],
+"answer": "0"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Khoảng tứ phân vị ít bị ảnh hưởng bởi",
+"options": [
+"Giá trị trung tâm",
+"Giá trị ngoại lai",
+"Q₁",
+"Q₃"
+],
+"answer": "Giá trị ngoại lai"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Cho mẫu số liệu có độ lệch chuẩn bằng 0 thì",
+"options": [
+"Các giá trị đều bằng nhau",
+"Có đúng 2 giá trị",
+"Khoảng biến thiên bằng 1",
+"Q₁=0"
+],
+"answer": "Các giá trị đều bằng nhau"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Nếu phương sai tăng thì",
+"options": [
+"Mức độ phân tán tăng",
+"Mức độ phân tán giảm",
+"Trung vị giảm",
+"Mốt giảm"
+],
+"answer": "Mức độ phân tán tăng"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Cho mẫu số liệu có giá trị nhỏ nhất là 12 và lớn nhất là 45. Khoảng biến thiên bằng",
+"options": [
+"33",
+"57",
+"22",
+"45"
+],
+"answer": "33"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Đơn vị của độ lệch chuẩn",
+"options": [
+"Là bình phương đơn vị dữ liệu",
+"Giống đơn vị dữ liệu gốc",
+"Không có đơn vị",
+"Luôn là %"
+],
+"answer": "Giống đơn vị dữ liệu gốc"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Trong các số đo độ phân tán, số đo sử dụng mọi giá trị của mẫu là",
+"options": [
+"Khoảng biến thiên",
+"Khoảng tứ phân vị",
+"Phương sai",
+"Không có đáp án nào"
+],
+"answer": "Phương sai"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Điểm thi của Bình có phương sai lớn hơn An. Kết luận đúng là",
+"options": [
+"Bình học đều hơn",
+"Bình học lệch hơn",
+"An học lệch hơn",
+"Không so sánh được"
+],
+"answer": "Bình học lệch hơn"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Xét các khẳng định về khoảng biến thiên.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Khoảng biến thiên bằng giá trị lớn nhất trừ giá trị nhỏ nhất.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Khoảng biến thiên sử dụng mọi giá trị của mẫu.",
+"correctAnswer": "Sai"
+},
+{
+"label": "c",
+"text": "Khoảng biến thiên luôn không âm.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Khoảng biến thiên càng lớn thì dữ liệu thường càng phân tán.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Xét các khẳng định về phương sai và độ lệch chuẩn.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Độ lệch chuẩn là căn bậc hai của phương sai.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Phương sai là bình phương của độ lệch chuẩn.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Phương sai có thể âm.",
+"correctAnswer": "Sai"
+},
+{
+"label": "d",
+"text": "Độ lệch chuẩn luôn không âm.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Cho dãy số liệu 1;2;3;4;5;6;7;8.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Số trung bình bằng 4,5.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Độ lệch chuẩn gần bằng 2,30.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Phương sai gần bằng 5,25.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Khoảng biến thiên bằng 8.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Xét khoảng tứ phân vị.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Khoảng tứ phân vị bằng Q₃−Q₁.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Khoảng tứ phân vị ít bị ảnh hưởng bởi ngoại lai.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Khoảng tứ phân vị luôn lớn hơn khoảng biến thiên.",
+"correctAnswer": "Sai"
+},
+{
+"label": "d",
+"text": "Khoảng tứ phân vị luôn không âm.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "So sánh hai mẫu số liệu.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Mẫu có độ lệch chuẩn lớn hơn thì phân tán hơn.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Mẫu có phương sai lớn hơn thì phân tán hơn.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Độ lệch chuẩn bằng 0 khi mọi giá trị bằng nhau.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Mẫu phân tán hơn luôn có số trung bình lớn hơn.",
+"correctAnswer": "Sai"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Cho mẫu số liệu: 5;7;9;12;15. Tính khoảng biến thiên.",
+"answer": "10",
+"explanation": "Khoảng biến thiên = 15−5=10."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Cho Q₁=18 và Q₃=32. Tính khoảng tứ phân vị.",
+"answer": "14",
+"explanation": "Khoảng tứ phân vị = Q₃−Q₁=32−18=14."
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Cho dãy số liệu: 1;2;3;4;5;6;7;8. Tính số trung bình.",
+"answer": "4.5",
+"explanation": "x̄=(1+2+3+4+5+6+7+8)/8=4,5. "
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Cho dãy số liệu: 1;2;3;4;5;6;7;8. Tính phương sai.",
+"answer": "5.25",
+"explanation": "Theo công thức phương sai, S²=5,25. "
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Cho dãy số liệu: 1;2;3;4;5;6;7;8. Tính độ lệch chuẩn (làm tròn đến hai chữ số thập phân).",
+"answer": "2.29",
+"explanation": "S=√5,25≈2,29≈2,30. "
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Cho mẫu số liệu có phương sai bằng 16. Tính độ lệch chuẩn.",
+"answer": "4",
+"explanation": "Độ lệch chuẩn bằng căn bậc hai của phương sai nên S=√16=4. "
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Cho mẫu số liệu có độ lệch chuẩn bằng 3. Tính phương sai.",
+"answer": "9",
+"explanation": "Phương sai bằng bình phương độ lệch chuẩn nên S²=3²=9. "
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Cho điểm nhỏ nhất là 24 và điểm lớn nhất là 91. Tính khoảng biến thiên.",
+"answer": "67",
+"explanation": "Khoảng biến thiên = 91−24=67."
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Nếu Q₁=25 và Q₃=41 thì khoảng tứ phân vị bằng bao nhiêu?",
+"answer": "16",
+"explanation": "Q₃−Q₁=41−25=16."
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Điểm thi của Bình có phương sai 0,62 và của An có phương sai 0,58. Tính hiệu hai phương sai.",
+"answer": "0.04",
+"explanation": "0,62−0,58=0,04. Bình có mức độ phân tán lớn hơn An. "
+}
+]
+}

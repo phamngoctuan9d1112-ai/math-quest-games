@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "dtmp_s1_1",
+      "type": "multiple-choice",
+      "question": "Nếu đường thẳng a vuông góc với mặt phẳng (P) thì a vuông góc với",
+      "options": [
+        "Một đường thẳng bất kỳ thuộc (P)",
+        "Hai đường thẳng cắt nhau thuộc (P)",
+        "Một đường thẳng của (P)",
+        "Không đường nào"
+      ],
+      "answer": "Hai đường thẳng cắt nhau thuộc (P)"
+    },
+    {
+      "id": "dtmp_s1_2",
+      "type": "multiple-choice",
+      "question": "Cho a ⊥ (P). Khi đó góc giữa a và (P) bằng",
+      "options": [
+        "0°",
+        "30°",
+        "45°",
+        "90°"
+      ],
+      "answer": "90°"
+    },
+    {
+      "id": "dtmp_s1_3",
+      "type": "multiple-choice",
+      "question": "Nếu a ⊥ (P) và b ⊂ (P) thì",
+      "options": [
+        "a ⊥ b",
+        "a // b",
+        "a cắt b",
+        "Không kết luận được"
+      ],
+      "answer": "a ⊥ b"
+    },
+    {
+      "id": "dtmp_s1_4",
+      "type": "multiple-choice",
+      "question": "Điều kiện đủ để đường thẳng a vuông góc với mặt phẳng (P) là",
+      "options": [
+        "a vuông góc với hai đường thẳng cắt nhau thuộc (P)",
+        "a song song với (P)",
+        "a cắt (P)",
+        "a nằm trong (P)"
+      ],
+      "answer": "a vuông góc với hai đường thẳng cắt nhau thuộc (P)"
+    },
+    {
+      "id": "dtmp_s1_5",
+      "type": "multiple-choice",
+      "question": "Trong hình chóp S.ABC có SA ⊥ (ABC). Khi đó SA vuông góc với",
+      "options": [
+        "AB",
+        "AC",
+        "BC",
+        "AB và AC"
+      ],
+      "answer": "AB và AC"
+    },
+    {
+      "id": "dtmp_s1_6",
+      "type": "multiple-choice",
+      "question": "Cho hình chóp S.ABCD có SA ⊥ (ABCD). Góc giữa SA và mặt phẳng đáy bằng",
+      "options": [
+        "0°",
+        "45°",
+        "60°",
+        "90°"
+      ],
+      "answer": "90°"
+    },
+    {
+      "id": "dtmp_s1_7",
+      "type": "multiple-choice",
+      "question": "Trong hình chóp S.ABC có SA ⊥ (ABC). Tam giác ABC là",
+      "options": [
+        "Hình chiếu vuông góc của tam giác SBC",
+        "Hình chiếu vuông góc của tam giác SAC",
+        "Hình chiếu vuông góc của tam giác SABC",
+        "Hình chiếu vuông góc của điểm S"
+      ],
+      "answer": "Hình chiếu vuông góc của tam giác SAC"
+    },
+    {
+      "id": "dtmp_s1_8",
+      "type": "multiple-choice",
+      "question": "Nếu đường thẳng a vuông góc với mặt phẳng (P) tại H thì H được gọi là",
+      "options": [
+        "Trung điểm",
+        "Chân đường vuông góc",
+        "Tâm đường tròn",
+        "Trọng tâm"
+      ],
+      "answer": "Chân đường vuông góc"
+    },
+    {
+      "id": "dtmp_s1_9",
+      "type": "multiple-choice",
+      "question": "Trong hình lập phương ABCD.A'B'C'D', đường thẳng AA' vuông góc với",
+      "options": [
+        "(ABCD)",
+        "(A'B'C'D')",
+        "(ABB'A')",
+        "(BCC'B')"
+      ],
+      "answer": "(ABCD)"
+    },
+    {
+      "id": "dtmp_s1_10",
+      "type": "multiple-choice",
+      "question": "Nếu a ⊥ (P) và b // a thì",
+      "options": [
+        "b ⊥ (P)",
+        "b // (P)",
+        "b thuộc (P)",
+        "Không kết luận được"
+      ],
+      "answer": "b ⊥ (P)"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "dtmp_s2_1",
+      "type": "true-false",
+      "question": "Cho đường thẳng a vuông góc với mặt phẳng (P).",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "a vuông góc với mọi đường thẳng nằm trong (P) đi qua chân đường vuông góc.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Góc giữa a và (P) bằng 90°.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "a nằm trong (P).",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "a cắt (P) tại đúng một điểm.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "dtmp_s2_2",
+      "type": "true-false",
+      "question": "Cho hình chóp S.ABC có SA ⊥ (ABC).",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "SA ⊥ AB.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "SA ⊥ AC.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "SA ⊥ BC.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Góc giữa SA và mặt phẳng (ABC) bằng 0°.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "dtmp_s2_3",
+      "type": "true-false",
+      "question": "Xét dấu hiệu nhận biết đường thẳng vuông góc với mặt phẳng.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Nếu một đường thẳng vuông góc với hai đường thẳng cắt nhau thuộc mặt phẳng thì nó vuông góc với mặt phẳng đó.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Nếu một đường thẳng vuông góc với một đường thẳng thuộc mặt phẳng thì nó vuông góc với mặt phẳng.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "c",
+          "text": "Đường thẳng vuông góc với mặt phẳng thì vuông góc với mọi đường thẳng trong mặt phẳng.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hai đường thẳng cùng vuông góc với một mặt phẳng thì song song với nhau.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "dtmp_s3_1",
+      "type": "short-answer",
+      "question": "Một đường thẳng vuông góc với mặt phẳng tạo với mặt phẳng một góc bằng bao nhiêu độ?",
+      "answer": "90",
+      "explanation": "Theo định nghĩa, đường thẳng vuông góc với mặt phẳng tạo với mặt phẳng góc 90°."
+    },
+    {
+      "id": "dtmp_s3_2",
+      "type": "short-answer",
+      "question": "Cho hình chóp S.ABC có SA ⊥ (ABC). Đường thẳng SA vuông góc với bao nhiêu cạnh của tam giác ABC?",
+      "answer": "3",
+      "explanation": "SA vuông góc với mọi đường thẳng nằm trong mặt phẳng (ABC) đi qua A, đặc biệt vuông góc với AB, AC và theo giả thiết suy ra vuông góc với BC."
+    },
+    {
+      "id": "dtmp_s3_3",
+      "type": "short-answer",
+      "question": "Có bao nhiêu đường thẳng xác định một mặt phẳng để kiểm tra dấu hiệu vuông góc với mặt phẳng?",
+      "answer": "2",
+      "explanation": "Chỉ cần chứng minh đường thẳng vuông góc với hai đường thẳng cắt nhau nằm trong mặt phẳng."
+    },
+    {
+      "id": "dtmp_s3_4",
+      "type": "short-answer",
+      "question": "Nếu hai đường thẳng phân biệt cùng vuông góc với một mặt phẳng thì góc giữa chúng bằng bao nhiêu độ?",
+      "answer": "0",
+      "explanation": "Hai đường thẳng cùng vuông góc với một mặt phẳng thì song song với nhau nên góc giữa chúng bằng 0°."
+    },
+    {
+      "id": "dtmp_s3_5",
+      "type": "short-answer",
+      "question": "Trong hình lập phương, tại mỗi đỉnh có bao nhiêu cạnh đôi một vuông góc?",
+      "answer": "3",
+      "explanation": "Tại mỗi đỉnh của hình lập phương có đúng 3 cạnh xuất phát và chúng đôi một vuông góc."
+    }
+  ]
+}

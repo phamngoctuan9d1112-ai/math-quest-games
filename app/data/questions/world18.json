@@ -1,0 +1,455 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Trong mặt phẳng Oxy, vectơ nào là vectơ chỉ phương của đường thẳng d: x=1+2t, y=3−t?",
+"options": [
+"(2;−1)",
+"(1;3)",
+"(−1;2)",
+"(2;1)"
+],
+"answer": "(2;−1)"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Đường thẳng có phương trình tổng quát 2x−3y+5=0 có một vectơ pháp tuyến là",
+"options": [
+"(2;−3)",
+"(3;2)",
+"(−3;−2)",
+"(1;1)"
+],
+"answer": "(2;−3)"
+},
+{
+"id": "multiple-choice",
+"id": "s1_3",
+"question": "Một vectơ chỉ phương của đường thẳng 3x+4y−1=0 là",
+"options": [
+"(3;4)",
+"(4;−3)",
+"(−4;−3)",
+"(1;0)"
+],
+"answer": "(4;−3)"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Đường thẳng đi qua điểm A(2;−1) và có vectơ pháp tuyến n=(3;2) có phương trình là",
+"options": [
+"3x+2y−4=0",
+"3x−2y−8=0",
+"2x+3y−1=0",
+"3x+2y+4=0"
+],
+"answer": "3x+2y−4=0"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Đường thẳng song song với trục Ox có vectơ chỉ phương là",
+"options": [
+"(0;1)",
+"(1;0)",
+"(1;1)",
+"(−1;1)"
+],
+"answer": "(1;0)"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Đường thẳng vuông góc với trục Ox có phương trình dạng",
+"options": [
+"y=b",
+"x=a",
+"ax+by+c=0",
+"y=ax+b"
+],
+"answer": "x=a"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Cho A(1;2), B(5;4). Một vectơ chỉ phương của đường thẳng AB là",
+"options": [
+"(4;2)",
+"(2;4)",
+"(−4;2)",
+"(1;2)"
+],
+"answer": "(4;2)"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Cho đường thẳng d: x−2y+3=0. Hệ số góc của d là",
+"options": [
+"1/2",
+"−1/2",
+"2",
+"−2"
+],
+"answer": "1/2"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Điểm nào thuộc đường thẳng x+y−3=0?",
+"options": [
+"(1;2)",
+"(2;2)",
+"(0;0)",
+"(3;3)"
+],
+"answer": "(1;2)"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Đường thẳng đi qua O(0;0) và A(2;3) có phương trình là",
+"options": [
+"3x−2y=0",
+"2x−3y=0",
+"x+y=0",
+"3x+2y=0"
+],
+"answer": "3x−2y=0"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Đường thẳng d: 2x−y+5=0 cắt trục Oy tại điểm",
+"options": [
+"(0;5)",
+"(5;0)",
+"(0;−5)",
+"(0;5)"
+],
+"answer": "(0;5)"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Khoảng cách từ điểm M(1;2) đến đường thẳng x−y+1=0 bằng",
+"options": [
+"√2",
+"2√2",
+"0",
+"1"
+],
+"answer": "√2"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Hai đường thẳng có vectơ pháp tuyến cùng phương thì",
+"options": [
+"Song song hoặc trùng nhau",
+"Vuông góc",
+"Cắt nhau",
+"Không xác định"
+],
+"answer": "Song song hoặc trùng nhau"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Đường thẳng đi qua A(1;1), B(3;5) có hệ số góc là",
+"options": [
+"2",
+"1",
+"4",
+"−2"
+],
+"answer": "2"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Đường thẳng có phương trình tham số x=2+t, y=1−3t có vectơ chỉ phương là",
+"options": [
+"(1;−3)",
+"(−3;1)",
+"(2;1)",
+"(1;3)"
+],
+"answer": "(1;−3)"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Cho n=(4;−3) là vectơ pháp tuyến. Một vectơ chỉ phương tương ứng là",
+"options": [
+"(3;4)",
+"(−3;−4)",
+"(3;−4)",
+"(4;3)"
+],
+"answer": "(3;4)"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Hai đường thẳng vuông góc khi tích vô hướng hai vectơ chỉ phương của chúng",
+"options": [
+"=0",
+"=1",
+">0",
+"<0"
+],
+"answer": "=0"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Đường thẳng y=2x−1 có hệ số góc bằng",
+"options": [
+"−1",
+"1",
+"2",
+"−2"
+],
+"answer": "2"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Đường thẳng x=3 song song với",
+"options": [
+"Trục Ox",
+"Trục Oy",
+"Đường y=x",
+"Đường y=0"
+],
+"answer": "Trục Oy"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Cho đường thẳng d: 3x+2y−6=0. Tung độ giao điểm với trục Oy là",
+"options": [
+"3",
+"-3",
+"2",
+"-2"
+],
+"answer": "3"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Cho đường thẳng d: 2x−3y+6=0.",
+"subQuestions": [
+{
+"label": "a",
+"text": "n=(2;−3) là vectơ pháp tuyến của d.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "u=(3;2) là vectơ chỉ phương của d.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Điểm (0;2) thuộc d.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "d song song với trục Ox.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Cho A(1;2), B(5;4).",
+"subQuestions": [
+{
+"label": "a",
+"text": "AB=(4;2).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Một vectơ pháp tuyến của AB là (1;−2).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Hệ số góc của AB bằng 1/2.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "AB vuông góc với trục Ox.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Xét đường thẳng x=2.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Song song với trục Oy.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Vuông góc với trục Ox.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Có vectơ chỉ phương (0;1).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Đi qua gốc tọa độ.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Cho đường thẳng d: y=−x+3.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Hệ số góc bằng −1.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Đi qua điểm (1;2).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Cắt trục Oy tại (0;3).",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Song song với đường y=x.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "Xét quan hệ giữa hai đường thẳng.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Hai đường thẳng có vectơ pháp tuyến cùng phương thì song song hoặc trùng nhau.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Hai đường thẳng vuông góc thì tích vô hướng hai vectơ chỉ phương bằng 0.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Mọi đường thẳng đều có vô số vectơ chỉ phương.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Mọi vectơ pháp tuyến đều là vectơ chỉ phương.",
+"correctAnswer": "Sai"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Cho đường thẳng d: 3x−2y+4=0. Tính tung độ giao điểm của d với trục Oy.",
+"answer": "2",
+"explanation": "Cho x=0 ⇒ −2y+4=0 ⇒ y=2."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Cho đường thẳng d: x+y−5=0. Tính hoành độ giao điểm của d với trục Ox.",
+"answer": "5",
+"explanation": "Cho y=0 ⇒ x=5."
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Cho A(1;2), B(4;6). Tính hệ số góc của đường thẳng AB.",
+"answer": "4/3",
+"explanation": "k=(6−2)/(4−1)=4/3."
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Cho đường thẳng d: 2x−y+3=0. Tính hệ số góc của d.",
+"answer": "2",
+"explanation": "Viết lại: y=2x+3 nên k=2."
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Cho vectơ pháp tuyến n=(5;−2). Tính tổng tọa độ của n.",
+"answer": "3",
+"explanation": "5+(−2)=3."
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Cho đường thẳng d: x=3. Tính khoảng cách từ điểm A(0;0) đến d.",
+"answer": "3",
+"explanation": "Khoảng cách từ O đến đường thẳng x=3 bằng |3−0|=3."
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Cho A(1;1), B(5;3). Tính độ dài vectơ AB.",
+"answer": "2√5",
+"explanation": "AB=(4;2), |AB|=√(4²+2²)=√20=2√5."
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Cho đường thẳng d: x−y+1=0. Tính khoảng cách từ điểm M(1;2) đến d.",
+"answer": "0",
+"explanation": "1−2+1=0 nên M thuộc d, khoảng cách bằng 0."
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Cho đường thẳng d có vectơ pháp tuyến n=(3;4). Tính độ dài của n.",
+"answer": "5",
+"explanation": "|n|=√(3²+4²)=5."
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Cho đường thẳng đi qua A(1;2), B(5;4). Tính tổng tọa độ của một vectơ chỉ phương AB.",
+"answer": "6",
+"explanation": "AB=(5−1;4−2)=(4;2). Tổng tọa độ là 4+2=6."
+}
+]
+}

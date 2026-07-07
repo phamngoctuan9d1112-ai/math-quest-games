@@ -1,0 +1,244 @@
+{
+  "stage1": [
+    {
+      "id": "ctlg_s1_1",
+      "type": "multiple-choice",
+      "question": "Công thức sin(a+b) là",
+      "options": [
+        "sinacosb+cosasinb",
+        "sinacosb-cosasinb",
+        "cosacosb-sinasinb",
+        "cosacosb+sinasinb"
+      ],
+      "answer": "sinacosb+cosasinb"
+    },
+    {
+      "id": "ctlg_s1_2",
+      "type": "multiple-choice",
+      "question": "Công thức cos(a+b) là",
+      "options": [
+        "cosacosb+sinasinb",
+        "cosacosb-sinasinb",
+        "sinacosb+cosasinb",
+        "sinacosb-cosasinb"
+      ],
+      "answer": "cosacosb-sinasinb"
+    },
+    {
+      "id": "ctlg_s1_3",
+      "type": "multiple-choice",
+      "question": "Công thức tan(a+b) là",
+      "options": [
+        "(tana+tanb)/(1-tanatanb)",
+        "(tana-tanb)/(1+tanatanb)",
+        "(tana+tanb)/(1+tanatanb)",
+        "(tana-tanb)/(1-tanatanb)"
+      ],
+      "answer": "(tana+tanb)/(1-tanatanb)"
+    },
+    {
+      "id": "ctlg_s1_4",
+      "type": "multiple-choice",
+      "question": "Công thức sin2a là",
+      "options": [
+        "2sinacosα",
+        "2sinacosα",
+        "sin²a-cos²a",
+        "1-2sin²a"
+      ],
+      "answer": "2sinacosα"
+    },
+    {
+      "id": "ctlg_s1_5",
+      "type": "multiple-choice",
+      "question": "Công thức cos2a là",
+      "options": [
+        "cos²a-sin²a",
+        "2sinacosα",
+        "1-sin²a",
+        "1-cos²a"
+      ],
+      "answer": "cos²a-sin²a"
+    },
+    {
+      "id": "ctlg_s1_6",
+      "type": "multiple-choice",
+      "question": "Giá trị của sin60°cos30°+cos60°sin30° bằng",
+      "options": [
+        "0",
+        "1/2",
+        "√3/2",
+        "1"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": "ctlg_s1_7",
+      "type": "multiple-choice",
+      "question": "Giá trị của cos60°cos30°-sin60°sin30° bằng",
+      "options": [
+        "0",
+        "1/2",
+        "√3/2",
+        "1"
+      ],
+      "answer": "0"
+    },
+    {
+      "id": "ctlg_s1_8",
+      "type": "multiple-choice",
+      "question": "sinx+siny bằng",
+      "options": [
+        "2sin((x+y)/2)cos((x-y)/2)",
+        "2cos((x+y)/2)sin((x-y)/2)",
+        "sin(x+y)",
+        "cos(x-y)"
+      ],
+      "answer": "2sin((x+y)/2)cos((x-y)/2)"
+    },
+    {
+      "id": "ctlg_s1_9",
+      "type": "multiple-choice",
+      "question": "cosx+cosy bằng",
+      "options": [
+        "2cos((x+y)/2)cos((x-y)/2)",
+        "2sin((x+y)/2)sin((x-y)/2)",
+        "cos(x+y)",
+        "sin(x-y)"
+      ],
+      "answer": "2cos((x+y)/2)cos((x-y)/2)"
+    },
+    {
+      "id": "ctlg_s1_10",
+      "type": "multiple-choice",
+      "question": "Giá trị của sin45°cos45° bằng",
+      "options": [
+        "1/4",
+        "1/2",
+        "√2/2",
+        "1"
+      ],
+      "answer": "1/2"
+    }
+  ],
+  "stage2": [
+    {
+      "id": "ctlg_s2_1",
+      "type": "true-false",
+      "question": "Xét các công thức cộng lượng giác.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "sin(a+b)=sinacosb+cosasinb.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "cos(a+b)=cosacosb-sinasinb.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "sin(a-b)=sinacosb-cosasinb.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "cos(a-b)=cosacosb-sinasinb.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "ctlg_s2_2",
+      "type": "true-false",
+      "question": "Xét các công thức nhân đôi.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "sin2a=2sinacosα.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "cos2a=cos²a-sin²a.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "cos2a=1-2sin²a.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "cos2a=1+2sin²a.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "ctlg_s2_3",
+      "type": "true-false",
+      "question": "Xét các công thức biến đổi tổng thành tích.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "sinx+siny=2sin((x+y)/2)cos((x-y)/2).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "cosx+cosy=2cos((x+y)/2)cos((x-y)/2).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "sinx-siny=2cos((x+y)/2)sin((x-y)/2).",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "cosx-cosy=2sin((x+y)/2)sin((x-y)/2).",
+          "correctAnswer": "Sai"
+        }
+      ]
+    }
+  ],
+  "stage3": [
+    {
+      "id": "ctlg_s3_1",
+      "type": "short-answer",
+      "question": "Tính sin(30°+60°).",
+      "answer": "1",
+      "explanation": "sin(30°+60°)=sin90°=1."
+    },
+    {
+      "id": "ctlg_s3_2",
+      "type": "short-answer",
+      "question": "Tính cos(60°+60°).",
+      "answer": "-0.5",
+      "explanation": "cos120°=-1/2=-0.5."
+    },
+    {
+      "id": "ctlg_s3_3",
+      "type": "short-answer",
+      "question": "Tính sin60°cos30°+cos60°sin30°.",
+      "answer": "1",
+      "explanation": "Theo công thức cộng: sin(60°+30°)=sin90°=1."
+    },
+    {
+      "id": "ctlg_s3_4",
+      "type": "short-answer",
+      "question": "Tính cos60°cos30°-sin60°sin30°.",
+      "answer": "0",
+      "explanation": "Theo công thức cộng: cos(60°+30°)=cos90°=0."
+    },
+    {
+      "id": "ctlg_s3_5",
+      "type": "short-answer",
+      "question": "Biết sinx=3/5 và x là góc nhọn. Tính cos2x.",
+      "answer": "0.28",
+      "explanation": "cos2x=1-2sin²x=1-2×(3/5)²=1-18/25=7/25=0.28."
+    }
+  ]
+}

@@ -1,0 +1,455 @@
+{
+"stage1": [
+{
+"id": "s1_1",
+"type": "multiple-choice",
+"question": "Sai số tuyệt đối của số gần đúng a là",
+"options": [
+"|a̅-a|",
+"|a̅+a|",
+"a̅/a",
+"a-a̅"
+],
+"answer": "|a̅-a|"
+},
+{
+"id": "s1_2",
+"type": "multiple-choice",
+"question": "Nếu sai số tuyệt đối của số gần đúng a không vượt quá d thì",
+"options": [
+"Δa<d",
+"Δa≤d",
+"Δa>d",
+"Δa≥d"
+],
+"answer": "Δa≤d"
+},
+{
+"id": "s1_3",
+"type": "multiple-choice",
+"question": "Sai số tương đối của số gần đúng a được tính bởi",
+"options": [
+"δa=Δa/|a|",
+"δa=|a|/Δa",
+"δa=Δa+a",
+"δa=Δa-a"
+],
+"answer": "δa=Δa/|a|"
+},
+{
+"id": "s1_4",
+"type": "multiple-choice",
+"question": "Quy tròn số 0,33333... đến hàng phần trăm được",
+"options": [
+"0,3",
+"0,33",
+"0,333",
+"0,34"
+],
+"answer": "0,33"
+},
+{
+"id": "s1_5",
+"type": "multiple-choice",
+"question": "Khi quy tròn đến hàng phần trăm, độ chính xác là",
+"options": [
+"0,05",
+"0,01",
+"0,005",
+"0,001"
+],
+"answer": "0,005"
+},
+{
+"id": "s1_6",
+"type": "multiple-choice",
+"question": "Cho số gần đúng a̅=4536 với độ chính xác d=100. Số quy tròn thích hợp là",
+"options": [
+"4536",
+"4540",
+"4500",
+"5000"
+],
+"answer": "4500"
+},
+{
+"id": "s1_7",
+"type": "multiple-choice",
+"question": "Nếu độ chính xác d=10 thì cần quy tròn đến",
+"options": [
+"Hàng đơn vị",
+"Hàng chục",
+"Hàng trăm",
+"Hàng nghìn"
+],
+"answer": "Hàng chục"
+},
+{
+"id": "s1_8",
+"type": "multiple-choice",
+"question": "Nếu Δa≤0,01 và a≈5 thì δa không vượt quá",
+"options": [
+"0,2%",
+"2%",
+"5%",
+"10%"
+],
+"answer": "0,2%"
+},
+{
+"id": "s1_9",
+"type": "multiple-choice",
+"question": "Quy tròn số 12,678 đến hàng phần mười được",
+"options": [
+"12,6",
+"12,7",
+"12,68",
+"13"
+],
+"answer": "12,7"
+},
+{
+"id": "s1_10",
+"type": "multiple-choice",
+"question": "Quy tròn số 18,945 đến hàng phần trăm được",
+"options": [
+"18,94",
+"18,95",
+"18,9",
+"19"
+],
+"answer": "18,95"
+},
+{
+"id": "s1_11",
+"type": "multiple-choice",
+"question": "Nếu a̅=250 và Δa≤5 thì giá trị đúng a thuộc khoảng",
+"options": [
+"[245;255]",
+"[240;260]",
+"[249;251]",
+"[200;300]"
+],
+"answer": "[245;255]"
+},
+{
+"id": "s1_12",
+"type": "multiple-choice",
+"question": "Cho số gần đúng a̅=0,33. Sai số tuyệt đối tối đa khi quy tròn đến hàng phần trăm là",
+"options": [
+"0,05",
+"0,005",
+"0,0005",
+"0,01"
+],
+"answer": "0,005"
+},
+{
+"id": "s1_13",
+"type": "multiple-choice",
+"question": "Nếu δa=0,4% và a≈200 thì Δa xấp xỉ bằng",
+"options": [
+"0,8",
+"8",
+"80",
+"0,08"
+],
+"answer": "0,8"
+},
+{
+"id": "s1_14",
+"type": "multiple-choice",
+"question": "Khi viết kết quả đo lường, chữ số cuối cùng thường là",
+"options": [
+"Chính xác tuyệt đối",
+"Chữ số đáng tin cuối cùng",
+"Chữ số ngẫu nhiên",
+"Không có ý nghĩa"
+],
+"answer": "Chữ số đáng tin cuối cùng"
+},
+{
+"id": "s1_15",
+"type": "multiple-choice",
+"question": "Nếu Δa giảm thì",
+"options": [
+"Độ chính xác tăng",
+"Độ chính xác giảm",
+"Không đổi",
+"Không xác định"
+],
+"answer": "Độ chính xác tăng"
+},
+{
+"id": "s1_16",
+"type": "multiple-choice",
+"question": "Quy tròn số 9996 đến hàng nghìn được",
+"options": [
+"9000",
+"10000",
+"9990",
+"9995"
+],
+"answer": "10000"
+},
+{
+"id": "s1_17",
+"type": "multiple-choice",
+"question": "Nếu a̅=1000 và Δa≤1 thì sai số tương đối lớn nhất là",
+"options": [
+"0,1%",
+"0,01%",
+"1%",
+"10%"
+],
+"answer": "0,1%"
+},
+{
+"id": "s1_18",
+"type": "multiple-choice",
+"question": "Diện tích hình chữ nhật có kích thước 2m±1cm và 6m±2cm gần đúng bằng",
+"options": [
+"10",
+"12",
+"14",
+"18"
+],
+"answer": "12"
+},
+{
+"id": "s1_19",
+"type": "multiple-choice",
+"question": "Trong công thức δa=(Δa/|a|).100%, đơn vị của δa là",
+"options": [
+"%",
+"m",
+"cm",
+"m²"
+],
+"answer": "%"
+},
+{
+"id": "s1_20",
+"type": "multiple-choice",
+"question": "Khoảng chứa diện tích hình chữ nhật có kích thước 2m±1cm và 6m±2cm là",
+"options": [
+"[11,9002;12,1002]",
+"[11;13]",
+"[10;14]",
+"[11,99;12,01]"
+],
+"answer": "[11,9002;12,1002]"
+}
+],
+
+"stage2": [
+{
+"id": "s2_1",
+"type": "true-false",
+"question": "Xét các khẳng định về sai số.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Sai số tuyệt đối luôn không âm.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Sai số tương đối có thể âm.",
+"correctAnswer": "Sai"
+},
+{
+"label": "c",
+"text": "Δa càng nhỏ thì kết quả càng chính xác.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "δa thường được biểu diễn bằng phần trăm.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_2",
+"type": "true-false",
+"question": "Quy tròn số 0,33333... đến hàng phần trăm.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Số gần đúng là 0,33.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Độ chính xác là 0,005.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Sai số tuyệt đối nhỏ hơn 0,005.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Sai số tương đối nhỏ hơn 1%.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_3",
+"type": "true-false",
+"question": "Cho a̅=4536 với độ chính xác d=100.",
+"subQuestions": [
+{
+"label": "a",
+"text": "Số quy tròn là 4500.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "Số quy tròn là 5000.",
+"correctAnswer": "Sai"
+},
+{
+"label": "c",
+"text": "Sai số tuyệt đối nhỏ hơn 564.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Sai số tương đối nhỏ hơn 0,11%.",
+"correctAnswer": "Đúng"
+}
+]
+},
+{
+"id": "s2_4",
+"type": "true-false",
+"question": "Xét phép đo chiều dài.",
+"subQuestions": [
+{
+"label": "a",
+"text": "2m±1cm tương đương khoảng [1,99;2,01].",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "6m±2cm tương đương khoảng [5,98;6,02].",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "Diện tích gần đúng là 12m².",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "Sai số tuyệt đối của diện tích nhỏ hơn 0,1.",
+"correctAnswer": "Sai"
+}
+]
+},
+{
+"id": "s2_5",
+"type": "true-false",
+"question": "Xét quy tắc quy tròn.",
+"subQuestions": [
+{
+"label": "a",
+"text": "12,678 quy tròn đến hàng phần mười là 12,7.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "b",
+"text": "18,945 quy tròn đến hàng phần trăm là 18,95.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "c",
+"text": "9996 quy tròn đến hàng nghìn là 10000.",
+"correctAnswer": "Đúng"
+},
+{
+"label": "d",
+"text": "4500 quy tròn đến hàng trăm là 5000.",
+"correctAnswer": "Sai"
+}
+]
+}
+],
+
+"stage3": [
+{
+"id": "s3_1",
+"type": "short-answer",
+"question": "Quy tròn số 0,33333... đến hàng phần trăm. Tính 100 lần số gần đúng.",
+"answer": "33",
+"explanation": "Số gần đúng là 0,33 nên 100×0,33=33."
+},
+{
+"id": "s3_2",
+"type": "short-answer",
+"question": "Cho a̅=4536 với độ chính xác d=100. Hãy viết số quy tròn.",
+"answer": "4500",
+"explanation": "Quy tròn đến hàng trăm vì chữ số khác 0 đầu tiên của d nằm ở hàng trăm. "
+},
+{
+"id": "s3_3",
+"type": "short-answer",
+"question": "Cho a̅=250 và Δa≤5. Tính độ dài khoảng chứa giá trị đúng.",
+"answer": "10",
+"explanation": "Khoảng là [245;255], độ dài bằng 255−245=10."
+},
+{
+"id": "s3_4",
+"type": "short-answer",
+"question": "Nếu a≈100 và Δa≤0,5 thì δa lớn nhất bằng bao nhiêu phần trăm?",
+"answer": "0.5",
+"explanation": "δa≤(0,5/100)×100%=0,5%."
+},
+{
+"id": "s3_5",
+"type": "short-answer",
+"question": "Diện tích hình chữ nhật có kích thước 2m và 6m bằng bao nhiêu?",
+"answer": "12",
+"explanation": "S=2×6=12 m². "
+},
+{
+"id": "s3_6",
+"type": "short-answer",
+"question": "Cho diện tích hình chữ nhật ở trên thuộc đoạn [11,9002;12,1002]. Tính độ rộng của đoạn.",
+"answer": "0.2",
+"explanation": "12,1002−11,9002=0,2."
+},
+{
+"id": "s3_7",
+"type": "short-answer",
+"question": "Quy tròn số 9996 đến hàng nghìn.",
+"answer": "10000",
+"explanation": "Vì 996≥500 nên làm tròn lên thành 10000."
+},
+{
+"id": "s3_8",
+"type": "short-answer",
+"question": "Cho a̅=0,33 với độ chính xác d=0,005. Tính 1000d.",
+"answer": "5",
+"explanation": "1000×0,005=5. "
+},
+{
+"id": "s3_9",
+"type": "short-answer",
+"question": "Nếu δa=0,4% và a≈1,25 thì Δa lớn nhất bằng bao nhiêu?",
+"answer": "0.005",
+"explanation": "Δa=(0,4/100)×1,25=0,005. "
+},
+{
+"id": "s3_10",
+"type": "short-answer",
+"question": "Cho a̅=4500 và Δa≤100. Tính giá trị lớn nhất của a−a̅.",
+"answer": "100",
+"explanation": "Theo định nghĩa sai số tuyệt đối, |a−a̅|≤100 nên giá trị lớn nhất là 100."
+}
+]
+}
