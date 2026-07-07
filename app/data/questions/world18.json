@@ -25,8 +25,8 @@
 "answer": "(2;−3)"
 },
 {
-"id": "multiple-choice",
 "id": "s1_3",
+"type": "multiple-choice",
 "question": "Một vectơ chỉ phương của đường thẳng 3x+4y−1=0 là",
 "options": [
 "(3;4)",

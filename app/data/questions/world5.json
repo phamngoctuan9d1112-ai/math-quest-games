@@ -1,440 +1,365 @@
 {
-"stage1": [
-{
-"id": "s1_1",
-"type": "multiple-choice",
-"question": "Cho tanα=1/2. Giá trị của cotα bằng",
-"options": ["2", "1/2", "4", "-2"],
-"answer": "2"
-},
-{
-"id": "s1_2",
-"type": "multiple-choice",
-"question": "Cho sinα=1/3, với 90°<α<180°. Giá trị của P=3cotα+4tanα là",
-"options": ["7", "-7", "7√2", "-7√2"],
-"answer": "-7√2"
-},
-{
-"id": "s1_3",
-"type": "multiple-choice",
-"question": "Nếu tanα=3 thì cosα bằng",
-"options": ["1/√10", "-1/√10", "1/3", "√10"],
-"answer": "1/√10"
-},
-{
-"id": "s1_4",
-"type": "multiple-choice",
-"question": "Cho sinα=2/5, 0°<α<90°. Giá trị của sinα−cosα bằng",
-"options": [
-"(2-√21)/5",
-"(2+√21)/5",
-"(√21-2)/5",
-"(2-√21)/25"
-],
-"answer": "(2-√21)/5"
-},
-{
-"id": "s1_5",
-"type": "multiple-choice",
-"question": "Cho cosα=1/3. Giá trị của tanα+cotα bằng",
-"options": [
-"9√2/4",
-"9√2/2",
-"9/2",
-"9/4"
-],
-"answer": "9√2/4"
-},
-{
-"id": "s1_6",
-"type": "multiple-choice",
-"question": "Cho cotα=2. Giá trị của P=3+tan²α+2/cos²α bằng",
-"options": [
-"23/2",
-"23/4",
-"23/8",
-"23"
-],
-"answer": "23/2"
-},
-{
-"id": "s1_7",
-"type": "multiple-choice",
-"question": "Giá trị của biểu thức tan²x·sin²x+tan²x−1 bằng",
-"options": [
-"-1",
-"0",
-"1",
-"2"
-],
-"answer": "0"
-},
-{
-"id": "s1_8",
-"type": "multiple-choice",
-"question": "Cho sinα=1/4, 0°<α<90°. Giá trị của P=cosα/(tanα+cotα) bằng",
-"options": [
-"15/16",
-"15/8",
-"15/64",
-"15/4"
-],
-"answer": "15/64"
-},
-{
-"id": "s1_9",
-"type": "multiple-choice",
-"question": "Biết sinx+cosx=2/3. Giá trị của sin³x+cos³x bằng",
-"options": [
-"-31/18",
-"31/18",
-"-31/54",
-"31/54"
-],
-"answer": "31/54"
-},
-{
-"id": "s1_10",
-"type": "multiple-choice",
-"question": "Cho tanx=1/2. Giá trị của cot²x+cos²x bằng",
-"options": [
-"21/5",
-"24/5",
-"25/5",
-"29/5"
-],
-"answer": "24/5"
-},
-{
-"id": "s1_11",
-"type": "multiple-choice",
-"question": "Cho 8cos²α+2cosα−1=0, 0°<α<90°. Giá trị của tan²α+sin²α bằng",
-"options": [
-"113/120",
-"113/60",
-"120/113",
-"60/113"
-],
-"answer": "113/60"
-},
-{
-"id": "s1_12",
-"type": "multiple-choice",
-"question": "Biết tanα+cotα=5/2 và sinα>cosα. Giá trị của sinα bằng",
-"options": [
-"1/5",
-"2/5",
-"1/3",
-"2/3"
-],
-"answer": "2/5"
-},
-{
-"id": "s1_13",
-"type": "multiple-choice",
-"question": "Biết sinα.cosα=2/5 và tanα<1. Giá trị của tanα bằng",
-"options": [
-"1/5",
-"1/2",
-"2",
-"2/5"
-],
-"answer": "1/2"
-},
-{
-"id": "s1_14",
-"type": "multiple-choice",
-"question": "Cho α là góc nhọn và sinα=1/3. Giá trị của (tanα−3cotα+2)/(tanα+cotα) bằng",
-"options": [
-"(2−2√23)/9",
-"(4+2√23)/9",
-"(4−2√23)/9",
-"(2+2√23)/9"
-],
-"answer": "(4−2√23)/9"
-},
-{
-"id": "s1_15",
-"type": "multiple-choice",
-"question": "Cho α là góc tù và sinα−cosα=4/5. Giá trị của sinα−2cosα bằng",
-"options": [
-"(12+√34)/10",
-"(12−√34)/10",
-"(-12+√34)/10",
-"(4−3√34)/10"
-],
-"answer": "(12+√34)/10"
-},
-{
-"id": "s1_16",
-"type": "multiple-choice",
-"question": "Giá trị của cos120° bằng",
-"options": [
-"-1/2",
-"1/2",
-"-√3/2",
-"√3/2"
-],
-"answer": "-1/2"
-},
-{
-"id": "s1_17",
-"type": "multiple-choice",
-"question": "Giá trị của sin150° bằng",
-"options": [
-"1/2",
-"√3/2",
-"-1/2",
-"-√3/2"
-],
-"answer": "1/2"
-},
-{
-"id": "s1_18",
-"type": "multiple-choice",
-"question": "Giá trị của tan135° bằng",
-"options": [
-"-1",
-"1",
-"-√3",
-"√3"
-],
-"answer": "-1"
-},
-{
-"id": "s1_19",
-"type": "multiple-choice",
-"question": "Cho tanα.cotα bằng",
-"options": [
-"0",
-"1",
-"-1",
-"2"
-],
-"answer": "1"
-},
-{
-"id": "s1_20",
-"type": "multiple-choice",
-"question": "Giá trị của sin²α+cos²α bằng",
-"options": [
-"0",
-"1",
-"2",
-"-1"
-],
-"answer": "1"
-}
-],
+  "stage1": [
+    {
+      "id": "mc_r001",
+      "type": "multiple-choice",
+      "question": "Cho A={1;2;3;4;5}, B={2;4;6}. Tập A∩B bằng",
+      "options": [
+        "{2;4}",
+        "{1;3;5}",
+        "{2;4;6}",
+        "{4;6}"
+      ],
+      "answer": "{2;4}"
+    },
+    {
+      "id": "mc_r002",
+      "type": "multiple-choice",
+      "question": "Cho A={1;2;3;4}, B={2;4}. Tập A\\B bằng",
+      "options": [
+        "{1;3}",
+        "{2;4}",
+        "{1;2}",
+        "{3;4}"
+      ],
+      "answer": "{1;3}"
+    },
+    {
+      "id": "mc_r003",
+      "type": "multiple-choice",
+      "question": "Cho A={0;1}, B={0;1;2;3;4}. Số tập con của CB(A) là",
+      "options": [
+        "4",
+        "6",
+        "8",
+        "16"
+      ],
+      "answer": "8"
+    },
+    {
+      "id": "mc_r004",
+      "type": "multiple-choice",
+      "question": "Cho A=(-∞;1], B=[1;+∞). Khi đó A∩B bằng",
+      "options": [
+        "{1}",
+        "∅",
+        "[1;+∞)",
+        "(-∞;1]"
+      ],
+      "answer": "{1}"
+    },
+    {
+      "id": "mc_r005",
+      "type": "multiple-choice",
+      "question": "Cho A=(-3;5], B=(2;+∞). Tập A\\B là",
+      "options": [
+        "(-3;2]",
+        "(2;5]",
+        "(-3;+∞)",
+        "∅"
+      ],
+      "answer": "(-3;2]"
+    },
+    {
+      "id": "mc_r006",
+      "type": "multiple-choice",
+      "question": "Điểm (1;2) thuộc miền nghiệm của bất phương trình nào?",
+      "options": [
+        "x+y>5",
+        "2x-y<0",
+        "x-3y>0",
+        "x+y<2"
+      ],
+      "answer": "2x-y<0"
+    },
+    {
+      "id": "mc_r007",
+      "type": "multiple-choice",
+      "question": "Miền nghiệm của bất phương trình 2x+3y-1>0 chứa điểm nào?",
+      "options": [
+        "(-1;-1)",
+        "(0;0)",
+        "(1;1)",
+        "(-2;0)"
+      ],
+      "answer": "(1;1)"
+    },
+    {
+      "id": "mc_r008",
+      "type": "multiple-choice",
+      "question": "Đường biên của bất phương trình 5x-2y+1≤0 là",
+      "options": [
+        "5x-2y+1=0",
+        "5x-2y=1",
+        "5x+2y+1=0",
+        "5x-2y-1=0"
+      ],
+      "answer": "5x-2y+1=0"
+    },
+    {
+      "id": "mc_r009",
+      "type": "multiple-choice",
+      "question": "Miền nghiệm của hệ bất phương trình bậc nhất hai ẩn là",
+      "options": [
+        "Giao các nửa mặt phẳng",
+        "Đường tròn",
+        "Parabol",
+        "Một điểm"
+      ],
+      "answer": "Giao các nửa mặt phẳng"
+    },
+    {
+      "id": "mc_r010",
+      "type": "multiple-choice",
+      "question": "Trong quy hoạch tuyến tính, GTLN của hàm mục tiêu đạt tại",
+      "options": [
+        "Một đỉnh miền nghiệm",
+        "Mọi điểm",
+        "Gốc tọa độ",
+        "Trung điểm"
+      ],
+      "answer": "Một đỉnh miền nghiệm"
+    },
+    {
+      "id": "mc_r011",
+      "type": "multiple-choice",
+      "question": "Nếu A⊂B thì A∪B bằng",
+      "options": [
+        "A",
+        "B",
+        "∅",
+        "A\\B"
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "mc_r012",
+      "type": "multiple-choice",
+      "question": "Một tập có 5 phần tử thì số tập con là",
+      "options": [
+        "10",
+        "16",
+        "25",
+        "32"
+      ],
+      "answer": "32"
+    },
+    {
+      "id": "mc_r013",
+      "type": "multiple-choice",
+      "question": "Cho A={1;2;3}, B={2;3;4}. Tập A∪B có bao nhiêu phần tử?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "answer": "4"
+    },
+    {
+      "id": "mc_r014",
+      "type": "multiple-choice",
+      "question": "Điểm M(2;1) có thuộc miền nghiệm của 4x-3y>2 không?",
+      "options": [
+        "Có",
+        "Không",
+        "Thuộc biên",
+        "Không xác định"
+      ],
+      "answer": "Có"
+    },
+    {
+      "id": "mc_r015",
+      "type": "multiple-choice",
+      "question": "Điều kiện x≥0,y≥0 biểu diễn",
+      "options": [
+        "Góc phần tư I",
+        "Góc phần tư II",
+        "Góc phần tư III",
+        "Góc phần tư IV"
+      ],
+      "answer": "Góc phần tư I"
+    },
+    {
+      "id": "mc_r016",
+      "type": "multiple-choice",
+      "question": "Cho A={0;1;2;3;4}, B={2;3;4;5;6}. Tập đối xứng (A\\B)∪(B\\A) có số phần tử là",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": "4"
+    },
+    {
+      "id": "mc_r017",
+      "type": "multiple-choice",
+      "question": "Tập nghiệm của x+y≤3 là",
+      "options": [
+        "Một nửa mặt phẳng",
+        "Đường thẳng",
+        "Một điểm",
+        "Tập rỗng"
+      ],
+      "answer": "Một nửa mặt phẳng"
+    },
+    {
+      "id": "mc_r018",
+      "type": "multiple-choice",
+      "question": "Cho A={1;2}. Số tập con gồm đúng 1 phần tử là",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "2"
+    },
+    {
+      "id": "mc_r019",
+      "type": "multiple-choice",
+      "question": "Nếu miền nghiệm rỗng thì bài toán tối ưu",
+      "options": [
+        "Có nghiệm",
+        "Không có nghiệm",
+        "Có GTLN",
+        "Có GTNN"
+      ],
+      "answer": "Không có nghiệm"
+    },
+    {
+      "id": "mc_r020",
+      "type": "multiple-choice",
+      "question": "Trong quy hoạch tuyến tính, hàm mục tiêu thường là",
+      "options": [
+        "Hàm tuyến tính",
+        "Hàm bậc hai",
+        "Hàm lượng giác",
+        "Hàm mũ"
+      ],
+      "answer": "Hàm tuyến tính"
+    }
+  ],
 
-"stage2": [
-{
-"id": "s2_1",
-"type": "true-false",
-"question": "Cho sinα=2/3, 90°<α<180°.",
-"subQuestions": [
-{
-"label": "a",
-"text": "cosα>0",
-"correctAnswer": "Sai"
-},
-{
-"label": "b",
-"text": "cos²α=1−sin²α",
-"correctAnswer": "Đúng"
-},
-{
-"label": "c",
-"text": "cotα=-√5/2",
-"correctAnswer": "Đúng"
-},
-{
-"label": "d",
-"text": "1+tan²α/sin²α=2",
-"correctAnswer": "Đúng"
-}
-]
-},
-{
-"id": "s2_2",
-"type": "true-false",
-"question": "Cho tanα+cotα=2.",
-"subQuestions": [
-{
-"label": "a",
-"text": "tan²α+cot²α=2",
-"correctAnswer": "Đúng"
-},
-{
-"label": "b",
-"text": "1/(sinα.cosα)=2",
-"correctAnswer": "Đúng"
-},
-{
-"label": "c",
-"text": "P=sin⁶α+cos⁶α=1/2",
-"correctAnswer": "Đúng"
-},
-{
-"label": "d",
-"text": "sin²α.cos²α=1/2",
-"correctAnswer": "Sai"
-}
-]
-},
-{
-"id": "s2_3",
-"type": "true-false",
-"question": "Cho tan²α−tanα−6=0, 0°<α<90°.",
-"subQuestions": [
-{
-"label": "a",
-"text": "tanα>0",
-"correctAnswer": "Đúng"
-},
-{
-"label": "b",
-"text": "tanα=3",
-"correctAnswer": "Đúng"
-},
-{
-"label": "c",
-"text": "P=1/cos²α+1/sin²α=91/9",
-"correctAnswer": "Đúng"
-},
-{
-"label": "d",
-"text": "cotα=1/3",
-"correctAnswer": "Đúng"
-}
-]
-},
-{
-"id": "s2_4",
-"type": "true-false",
-"question": "Cho sinx+cosx=m.",
-"subQuestions": [
-{
-"label": "a",
-"text": "sin²x+cos²x=1",
-"correctAnswer": "Đúng"
-},
-{
-"label": "b",
-"text": "(sinx+cosx)²=1+2sinx.cosx",
-"correctAnswer": "Đúng"
-},
-{
-"label": "c",
-"text": "sinx.cosx=(m²−1)/2",
-"correctAnswer": "Đúng"
-},
-{
-"label": "d",
-"text": "sinx−cosx=1−m²",
-"correctAnswer": "Sai"
-}
-]
-},
-{
-"id": "s2_5",
-"type": "true-false",
-"question": "Xét biểu thức A=tan2°.tan3°...tan88°.",
-"subQuestions": [
-{
-"label": "a",
-"text": "2° và 88° là hai góc phụ nhau",
-"correctAnswer": "Đúng"
-},
-{
-"label": "b",
-"text": "tan88°=cot2°",
-"correctAnswer": "Đúng"
-},
-{
-"label": "c",
-"text": "tan2°.tan88°=1",
-"correctAnswer": "Đúng"
-},
-{
-"label": "d",
-"text": "A=2",
-"correctAnswer": "Sai"
-}
-]
-}
-],
+  "stage2": [
+    {
+      "id": "tf_r001",
+      "type": "true-false",
+      "question": "Xét các mệnh đề về tập hợp.",
+      "subQuestions": [
+        {"label":"a","text":"∅ là tập con của mọi tập hợp.","correctAnswer":"Đúng"},
+        {"label":"b","text":"Mọi tập hợp là tập con của chính nó.","correctAnswer":"Đúng"},
+        {"label":"c","text":"{∅} là tập rỗng.","correctAnswer":"Sai"},
+        {"label":"d","text":"Tập có 4 phần tử có 16 tập con.","correctAnswer":"Đúng"}
+      ]
+    },
+    {
+      "id": "tf_r002",
+      "type": "true-false",
+      "question": "Cho A={1;2;3}, B={2;3;4}.",
+      "subQuestions": [
+        {"label":"a","text":"A∩B={2;3}.","correctAnswer":"Đúng"},
+        {"label":"b","text":"A\\B={1}.","correctAnswer":"Đúng"},
+        {"label":"c","text":"B\\A={4}.","correctAnswer":"Đúng"},
+        {"label":"d","text":"A∪B={1;2;3}.","correctAnswer":"Sai"}
+      ]
+    },
+    {
+      "id": "tf_r003",
+      "type": "true-false",
+      "question": "Xét bất phương trình 2x+3y-6≥0.",
+      "subQuestions": [
+        {"label":"a","text":"Đường biên là 2x+3y-6=0.","correctAnswer":"Đúng"},
+        {"label":"b","text":"O thuộc miền nghiệm.","correctAnswer":"Sai"},
+        {"label":"c","text":"(3;0) thuộc miền nghiệm.","correctAnswer":"Đúng"},
+        {"label":"d","text":"(0;1) thuộc miền nghiệm.","correctAnswer":"Sai"}
+      ]
+    },
+    {
+      "id": "tf_r004",
+      "type": "true-false",
+      "question": "Về hệ bất phương trình.",
+      "subQuestions": [
+        {"label":"a","text":"Miền nghiệm là giao các nửa mặt phẳng.","correctAnswer":"Đúng"},
+        {"label":"b","text":"Miền nghiệm luôn hữu hạn.","correctAnswer":"Sai"},
+        {"label":"c","text":"Miền nghiệm có thể rỗng.","correctAnswer":"Đúng"},
+        {"label":"d","text":"Miền nghiệm luôn là tam giác.","correctAnswer":"Sai"}
+      ]
+    },
+    {
+      "id": "tf_r005",
+      "type": "true-false",
+      "question": "Về quy hoạch tuyến tính.",
+      "subQuestions": [
+        {"label":"a","text":"Hàm mục tiêu là hàm tuyến tính.","correctAnswer":"Đúng"},
+        {"label":"b","text":"Chỉ cần xét các đỉnh miền nghiệm.","correctAnswer":"Đúng"},
+        {"label":"c","text":"Luôn có GTLN.","correctAnswer":"Sai"},
+        {"label":"d","text":"Có thể có nhiều nghiệm tối ưu.","correctAnswer":"Đúng"}
+      ]
+    }
+  ],
 
-"stage3": [
-{
-"id": "s3_1",
-"type": "short-answer",
-"question": "Cho tanα=1/3. Tính giá trị của P=(9sin³α+sin²αcosα+3cos³α)/(sinα+cosα).",
-"answer": "3",
-"explanation": "Đặt tanα=1/3, quy đồng theo sinα và cosα rồi rút gọn được P=3."
-},
-{
-"id": "s3_2",
-"type": "short-answer",
-"question": "Biết sin³α−3sinα+2=0, 0°<α<90°. Tính P=3tanα+3cotα.",
-"answer": "10",
-"explanation": "Giải được sinα=(√5−1)/2, suy ra tanα+cotα=10/3 nên P=10."
-},
-{
-"id": "s3_3",
-"type": "short-answer",
-"question": "Cho tanα+cotα=5/2 và sinα>cosα. Tính sinα.",
-"answer": "0.4",
-"explanation": "Từ tanα+cotα=1/(sinα.cosα)=5/2 suy ra sinα.cosα=2/5. Kết hợp điều kiện sinα>cosα được sinα=2/5."
-},
-{
-"id": "s3_4",
-"type": "short-answer",
-"question": "Cho sinα.cosα=2/5 và tanα<1. Tính tanα.",
-"answer": "0.5",
-"explanation": "Đặt t=tanα. Khi đó t/(1+t²)=2/5. Giải được t=2 hoặc t=1/2. Do tanα<1 nên t=1/2."
-},
-{
-"id": "s3_5",
-"type": "short-answer",
-"question": "Cho cos120°. Tính 100cos120°.",
-"answer": "-50",
-"explanation": "cos120°=-1/2 nên 100cos120°=-50."
-},
-{
-"id": "s3_6",
-"type": "short-answer",
-"question": "Tính giá trị của D=cos0°+cos10°+cos20°+...+cos180°.",
-"answer": "0",
-"explanation": "Ghép các cặp cosθ và cos(180°−θ) triệt tiêu nhau, còn lại tổng bằng 0."
-},
-{
-"id": "s3_7",
-"type": "short-answer",
-"question": "Cho sinx+cosx=1/3. Tính sinx.cosx.",
-"answer": "-4/9",
-"explanation": "(sinx+cosx)²=1+2sinx.cosx ⇒ 1/9=1+2sinx.cosx ⇒ sinx.cosx=-4/9."
-},
-{
-"id": "s3_8",
-"type": "short-answer",
-"question": "Cho tanα=3. Tính tan²α+cot²α.",
-"answer": "82/9",
-"explanation": "tan²α+cot²α=9+1/9=82/9."
-},
-{
-"id": "s3_9",
-"type": "short-answer",
-"question": "Cho cotα=2. Tính cos²α.",
-"answer": "4/5",
-"explanation": "tanα=1/2 ⇒ cos²α=1/(1+tan²α)=4/5."
-},
-{
-"id": "s3_10",
-"type": "short-answer",
-"question": "Cho cosα=1/3. Tính tanα.cotα.",
-"answer": "1",
-"explanation": "Theo hệ thức cơ bản, tanα.cotα=1."
-}
-]
+  "stage3": [
+    {
+      "id": "sa_r001",
+      "type": "short-answer",
+      "question": "Một tập hợp có 6 phần tử. Hỏi có bao nhiêu tập con?",
+      "answer": "64"
+    },
+    {
+      "id": "sa_r002",
+      "type": "short-answer",
+      "question": "Cho A={1;2;3;4}. Có bao nhiêu tập con gồm đúng 2 phần tử?",
+      "answer": "6"
+    },
+    {
+      "id": "sa_r003",
+      "type": "short-answer",
+      "question": "Cho A={1;2;3}, B={2;3;4}. Tập A∪B có bao nhiêu phần tử?",
+      "answer": "4"
+    },
+    {
+      "id": "sa_r004",
+      "type": "short-answer",
+      "question": "Cho A={1;2;3;4;5}, B={2;4}. Tập A\\B có bao nhiêu phần tử?",
+      "answer": "3"
+    },
+    {
+      "id": "sa_r005",
+      "type": "short-answer",
+      "question": "Tính giá trị của 2x+3y tại điểm (2;1).",
+      "answer": "7"
+    },
+    {
+      "id": "sa_r006",
+      "type": "short-answer",
+      "question": "Tính giá trị của 3x−y tại điểm (1;2).",
+      "answer": "1"
+    },
+    {
+      "id": "sa_r007",
+      "type": "short-answer",
+      "question": "Đường thẳng x+2y=6 cắt trục Oy tại tung độ bằng bao nhiêu?",
+      "answer": "3"
+    },
+    {
+      "id": "sa_r008",
+      "type": "short-answer",
+      "question": "Đường thẳng 3x+y=9 cắt trục Ox tại hoành độ bằng bao nhiêu?",
+      "answer": "3"
+    },
+    {
+      "id": "sa_r009",
+      "type": "short-answer",
+      "question": "Cho A={0;1;2;3;4}, B={2;3;4;5;6}. Tập A∩B có bao nhiêu phần tử?",
+      "answer": "3"
+    },
+    {
+      "id": "sa_r010",
+      "type": "short-answer",
+      "question": "Cho A={0;1;2;3;4}, B={2;3;4;5;6}. Tập (A\\B)∪(B\\A) có bao nhiêu phần tử?",
+      "answer": "4"
+    }
+  ]
 }

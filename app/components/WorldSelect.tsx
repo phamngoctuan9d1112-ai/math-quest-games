@@ -1,4 +1,5 @@
 import { worldNames } from "../data/worldNames";
+import Footer from "./Footer";
 
 type World = {
   id: number;
@@ -381,6 +382,7 @@ export default function WorldSelect({
         {renderWorldGroup(world12)}
       </section>
     </div>
+    <Footer />
   </main>
 );
 }
