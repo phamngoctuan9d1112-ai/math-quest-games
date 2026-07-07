@@ -38,18 +38,38 @@ export default function Footer() {
 
           <ul className="space-y-2 text-slate-300">
             <li>
-              <a href="/privacy">Chính sách bảo mật</a>
+              <a
+  href="/terms"
+  className="hover:text-white transition"
+>
+  Điều khoản
+</a>
             </li>
 
             <li>
-              <a href="/terms">Điều khoản sử dụng</a>
+              <a
+  href="/privacy"
+  className="hover:text-white transition"
+>
+  Chính sách bảo mật
+</a>
             </li>
 
             <li>
-              <a href="/cookies">Chính sách Cookie</a>
+              <a
+  href="/cookies"
+  className="hover:text-white transition"
+>
+  Chính sách Cookie
+</a>
             </li>
             <li>
-              <a href="/report">Báo cáo lỗi</a>
+              <a
+  href="/report"
+  className="hover:text-white transition"
+>
+  Báo cáo lỗi
+</a>
             </li>
           </ul>
         </div>

@@ -49,44 +49,44 @@ export default function StartScreen({
         <div className="relative z-10 text-center space-y-2">
           <div className="flex items-center justify-center gap-4">
 
+  <div className="relative z-10 text-center">
+
   <div
-  className="
-  inline-block
-  px-4
-  py-2
-  rounded-full
-  bg-blue-500/10
-  border
-  border-blue-500/30
-  text-blue-300
-  text-sm
-  mb-6
-"
->
- 🚀 Nền tảng học Toán THPT
-</div>
-
-<div className="flex items-center justify-center gap-4">
-
-  <div className="text-7xl">
-    ⚔️
-  </div>
-
-  <h1
     className="
-    text-6xl
-    md:text-8xl
-    font-black
-    bg-gradient-to-r
-    from-cyan-400
-    via-blue-400
-    to-purple-500
-    bg-clip-text
-    text-transparent
+      inline-block
+      px-4
+      py-2
+      rounded-full
+      bg-blue-500/10
+      border
+      border-blue-500/30
+      text-blue-300
+      text-sm
+      mb-6
     "
   >
-    Math Quest
-  </h1>
+    🚀 Nền tảng học Toán THPT
+  </div>
+
+  <div className="flex items-center justify-center gap-4">
+    <div className="text-7xl">⚔️</div>
+
+    <h1
+      className="
+        text-6xl
+        md:text-8xl
+        font-black
+        bg-gradient-to-r
+        from-cyan-400
+        via-blue-400
+        to-purple-500
+        bg-clip-text
+        text-transparent
+      "
+    >
+      Math Quest
+    </h1>
+  </div>
 
 </div>
 
@@ -183,12 +183,40 @@ export default function StartScreen({
           {isLoggedIn ? (
   <button
     onClick={onStart}
+    className="
+      px-10
+      py-5
+      rounded-2xl
+      bg-gradient-to-r
+      from-green-500
+      to-emerald-500
+      text-white
+      font-bold
+      text-xl
+      shadow-xl
+      hover:scale-105
+      transition-all
+    "
   >
     🎮 Vào Game
   </button>
 ) : (
   <button
     onClick={onLogin}
+    className="
+      px-10
+      py-5
+      rounded-2xl
+      bg-gradient-to-r
+      from-blue-500
+      to-cyan-500
+      text-white
+      font-bold
+      text-xl
+      shadow-xl
+      hover:scale-105
+      transition-all
+    "
   >
     🚀 Bắt đầu miễn phí
   </button>
@@ -235,12 +263,7 @@ export default function StartScreen({
   Điều khoản
 </a>
 
-    <a
-  href="/contact"
-  className="hover:text-white transition"
->
-  Liên hệ
-</a>
+    
 
     <a
   href="/report"
