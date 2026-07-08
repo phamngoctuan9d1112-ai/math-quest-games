@@ -16,20 +16,29 @@ export default function AchievementList({
   xp,
 }: Props) {
   return (
-    <div
+   <div
   className="
   w-full
   min-h-screen
-  rounded-3xl
-  p-8
+  rounded-2xl
+  p-3
+  sm:p-4
+  md:p-8
   bg-cover
   bg-center
   "
-  style={{
-    backgroundImage: "url('/backgrounds/achievement-bg.jpg')",
-  }}
 >
-      <h1 className="text-4xl font-bold text-center mb-8">
+      <h1
+  className="
+  text-2xl
+  sm:text-3xl
+  md:text-4xl
+  font-bold
+  text-center
+  mb-5
+  md:mb-8
+  "
+>
         🏆 Thành Tích
       </h1>
 
@@ -44,8 +53,10 @@ export default function AchievementList({
               <div
   key={a.id}
   className={`
-    rounded-3xl
-    p-6
+    rounded-2xl
+    p-3
+    sm:p-4
+    md:p-6
     shadow-2xl
     backdrop-blur-md
     border
@@ -60,21 +71,49 @@ export default function AchievementList({
     }
   `}
 >
-              <div className="flex items-center justify-between">
+              <div
+  className="
+  flex
+  flex-col
+  md:flex-row
+  gap-3
+  md:gap-0
+  "
+>
 
-                <div className="flex items-center gap-5">
+                <div className="flex items-center gap-2 md:gap-5">
 
-                  <div className="text-5xl">
+                  <div
+  className="
+  text-3xl
+  sm:text-4xl
+  md:text-5xl
+  "
+>
                     {unlocked ? "🏅" : "🔒"}
                   </div>
 
                   <div>
 
-                    <h2 className="text-2xl font-bold">
+                    <h2
+  className="
+  text-base
+  sm:text-lg
+  md:text-2xl
+  font-bold
+  "
+>
                       {a.name}
                     </h2>
 
-                    <p className="text-gray-700">
+                    <p
+  className="
+  text-xs
+  sm:text-sm
+  md:text-base
+  text-gray-700
+  "
+>
                       {a.description}
                     </p>
 
@@ -82,9 +121,21 @@ export default function AchievementList({
 
                 </div>
 
-                <div className="text-right">
+                <div
+  className="
+  text-left
+  md:text-right
+  "
+>
 
-                  <div className="font-bold text-lg">
+                  <div
+  className="
+  font-bold
+  text-sm
+  sm:text-base
+  md:text-lg
+  "
+>
                     {a.xpRequired} Điểm
                   </div>
 
@@ -106,10 +157,24 @@ export default function AchievementList({
 
               <div className="mt-5">
 
-                <div className="w-full bg-white rounded-full h-4">
+                <div
+  className="
+  w-full
+  bg-white
+  rounded-full
+  h-2
+  md:h-4
+  "
+>
 
                   <div
-                    className="bg-green-500 h-4 rounded-full transition-all"
+  className="
+  bg-green-500
+  h-2
+  md:h-4
+  rounded-full
+  transition-all
+  "
                     style={{
   width: `${Math.min(
     100,
