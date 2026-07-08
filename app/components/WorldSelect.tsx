@@ -543,13 +543,16 @@ function isActiveDay(index: number) {
     <div
   onClick={(e) => e.stopPropagation()}
   className="
-  w-full
-  max-w-md md:max-w-xl
-  bg-slate-900
-  rounded-3xl
-  p-6
-  text-white
-  shadow-2xl
+    w-full
+    max-w-md
+    md:max-w-xl
+    max-h-[90vh]
+    overflow-y-auto
+    bg-slate-900
+    rounded-3xl
+    p-6
+    text-white
+    shadow-2xl
   "
 >
       {/* Header */}
