@@ -630,7 +630,14 @@ useEffect(() => {
 }, [selectedWorld]);
 
   useEffect(() => {
+    console.log(
+    "CURRENT USER ID EFFECT =",
+    currentUserId
+  );
+
   if (!currentUserId) return;
+
+   console.log("CALLING SYNC DATA");
 
 
   syncData();
@@ -646,9 +653,10 @@ useEffect(() => {
 
     
     if (user) {
-
-setCurrentUserId(user.id);
-await updateStreak(user.id);
+      console.log("USER FOUND", user);
+      setCurrentUserId(user.id);
+      console.log("SET CURRENT USER ID", user.id);
+      await updateStreak(user.id);
 
       setUserName(
         user.user_metadata?.full_name ||
@@ -1310,6 +1318,12 @@ await supabase
 console.log("loadingAuth =", loadingAuth);
 console.log("dataLoaded =", dataLoaded);
   
+console.log({
+  loadingAuth,
+  dataLoaded,
+  currentUserId,
+  isLoggedIn
+});
   
   if (loadingAuth || !dataLoaded) {
   return <LoadingScreen />;
