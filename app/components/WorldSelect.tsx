@@ -35,6 +35,7 @@ export default function WorldSelect({
   onShop,
   onAchievements,
   onLeaderboard,
+  onInventory,
 }: Props) {
   const world10 = worlds.filter((w) => w.id >= 1 && w.id <= 26);
   const world11 = worlds.filter((w) => w.id >= 27 && w.id <= 61);
@@ -94,7 +95,7 @@ export default function WorldSelect({
   className="
     grid
     grid-cols-2
-    sm:grid-cols-3
+    sm:grid-cols-2
     md:grid-cols-4
     lg:grid-cols-5
     xl:grid-cols-6
@@ -110,8 +111,10 @@ export default function WorldSelect({
             if (world.unlocked) onSelect(world.id);
           }}
           className={`
-            w-[130px]
-            h-[130px]
+            w-[110px]
+            h-[110px]
+            md:w-[130px]
+            md:h-[130px]
             rounded-3xl
             text-white
             font-bold
@@ -157,16 +160,18 @@ export default function WorldSelect({
 
   return (
   <main
-    className="
-      min-h-screen
-      bg-gradient-to-br
-      from-blue-600
-      via-purple-600
-      to-pink-600
-      px-4
-      py-8
-    "
-  >
+  className="
+    min-h-screen
+    bg-gradient-to-br
+    from-blue-600
+    via-purple-600
+    to-pink-600
+    px-4
+    py-8
+    pb-28
+    md:pb-8
+  "
+>
     <div className="max-w-7xl mx-auto">
 
       {/* HEADER */}
@@ -179,10 +184,10 @@ export default function WorldSelect({
           mb-12
         "
       >
-        <div className="grid grid-cols-3 items-start">
+        <div className=" flex flex-col items-center md:grid md:grid-cols-3 " >
 
           {/* LEFT */}
-          <div className="flex gap-3 flex-wrap">
+          <div className="hidden md:flex gap-3 flex-wrap">
             <button
               onClick={onShop}
               className="
@@ -222,7 +227,8 @@ export default function WorldSelect({
           <div className="text-center">
             <h1
               className="
-                text-4xl
+                text-3xl
+                sm:text-4xl
                 md:text-6xl
                 font-black
                 text-white
@@ -242,7 +248,7 @@ export default function WorldSelect({
                 justify-center
                 flex-wrap
                 gap-6
-                text-lg
+                text-sm md:text-lg
                 font-bold
                 text-white
               "
@@ -254,7 +260,7 @@ export default function WorldSelect({
           </div>
 
           {/* RIGHT */}
-          <div className="flex justify-end gap-3">
+          <div className="hidden md:flex justify-end gap-3">
             
             <button
               onClick={onLeaderboard}
@@ -383,6 +389,83 @@ export default function WorldSelect({
       </section>
     </div>
     <Footer />
-  </main>
+
+{/* MOBILE NAVBAR */}
+<div
+  className="
+  fixed
+  bottom-0
+  left-0
+  right-0
+  md:hidden
+  bg-white
+  border-t
+  border-gray-200
+  shadow-2xl
+  z-50
+  "
+>
+  <div
+    className="
+    grid
+    grid-cols-5
+    py-2
+    "
+  >
+
+    <button
+      onClick={onShop}
+      className="flex flex-col items-center"
+    >
+      <span className="text-xl">🛒</span>
+      <span className="text-[11px]">
+        Shop
+      </span>
+    </button>
+
+    <button
+      onClick={onAchievements}
+      className="flex flex-col items-center"
+    >
+      <span className="text-xl">🏆</span>
+      <span className="text-[11px]">
+        Thành tích
+      </span>
+    </button>
+
+    <button
+      onClick={onLeaderboard}
+      className="flex flex-col items-center"
+    >
+      <span className="text-xl">🥇</span>
+      <span className="text-[11px]">
+        BXH
+      </span>
+    </button>
+
+    <button
+      onClick={onInventory}
+      className="flex flex-col items-center"
+    >
+      <span className="text-xl">🎒</span>
+      <span className="text-[11px]">
+        Túi đồ
+      </span>
+    </button>
+
+    <button
+      onClick={onLogout}
+      className="flex flex-col items-center"
+    >
+      <span className="text-xl">↩️</span>
+      <span className="text-[11px]">
+        Thoát
+      </span>
+    </button>
+
+  </div>
+</div>
+
+</main>
 );
 }
