@@ -33,3 +33,6 @@ body {
   min-height: 100%;
   overflow-x: hidden;
 }
+.notranslate {
+  translate: no;
+}
