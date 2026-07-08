@@ -349,35 +349,56 @@ const [currentUserId, setCurrentUserId] =
 
 
   async function syncData() {
+  try {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
-  console.log("SYNC DATA START");
+    if (!user) {
+      setDataLoaded(true);
+      return;
+    }
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    const { data, error } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", user.id)
+      .single();
 
-  console.log("USER =", user);
+    console.log("PROFILE DATA =", data);
+    console.log("PROFILE ERROR =", error);
 
-  if (!user) {
-    console.log("NO USER");
-    return;
-  }
+    if (error) {
+      console.error(error);
+      return;
+    }
 
-  const { data, error } = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("id", user.id)
-    .single();
+    if (data) {
+      setXp(Number(data.xp || 0));
+      setCoins(Number(data.coins || 0));
 
-  console.log("PROFILE DATA =", data);
-  console.log("PROFILE ERROR =", error);
+      setUnlockedWorlds(
+        data.unlocked_worlds || [1, 27, 62]
+      );
 
-  if (data && !error) {
+      setSubNodeProgress(
+        data.sub_node_progress || {
+          1: 1,
+          27: 1,
+          62: 1,
+        }
+      );
 
-    console.log("PROFILE FOUND");
+      setAvatar(data.avatar || "🧑");
+      setWeapon(data.weapon || "🪵");
+      setPet(data.pet || "🥚");
+      setHearts(data.hearts || 3);
 
-    setXp(Number(data.xp || 0));
-
+      console.log("PROFILE FOUND");
+    }
+  } catch (err) {
+    console.error(err);
+  } finally {
     setDataLoaded(true);
   }
 }
