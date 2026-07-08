@@ -361,6 +361,9 @@ const [currentUserId, setCurrentUserId] =
     .eq("id", user.id)
     .single();
 
+    console.log("PROFILE DATA:", data);
+console.log("PROFILE ERROR:", error);
+
   if (data && !error) {
     const profile = data as any;
 
@@ -526,8 +529,9 @@ useEffect(() => {
 
 useEffect(() => {
   const saved =
-    localStorage.getItem("game_state");
-
+  localStorage.getItem(
+    `game_state_${currentUserId}`
+  );
   if (!saved) return;
 
   const data = JSON.parse(saved);
@@ -633,6 +637,7 @@ useEffect(() => {
   useEffect(() => {
   if (!currentUserId) return;
 
+
   syncData();
 }, [currentUserId]);
 
@@ -683,6 +688,8 @@ await updateStreak(user.id);
   };
 
   checkUser();
+
+  console.log("CHECK USER START");
 
   const {
     data: { subscription },
@@ -1305,7 +1312,8 @@ await supabase
  // ==========================================
   // 5. GIAO DIỆN (Điều kiện hiển thị render)
   // ==========================================
-
+console.log("loadingAuth =", loadingAuth);
+console.log("dataLoaded =", dataLoaded);
   
   
   if (loadingAuth || !dataLoaded) {
