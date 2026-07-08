@@ -57,6 +57,7 @@ export default function Home() {
   const [shopMessage, setShopMessage] = useState("");
   const [current, setCurrent] = useState(0);
   const [avatar, setAvatar] = useState("🧑");
+  const [formulaShards, setFormulaShards] = useState(0);
 // Thay vì: const [currentBoss, setCurrentBoss] = useState(null);
 // Hãy sửa thành:
 
@@ -184,6 +185,7 @@ const [currentUserId, setCurrentUserId] =
     setXp(Number(profile.xp || 0));
     setCoins(Number(profile.coins || 0));
     setStreak(Number(profile.streak || 1));
+    setFormulaShards(Number(profile.formula_shards || 0));
     setUnlockedWorlds(profile.unlocked_worlds || [1,27,62]);
     setSubNodeProgress(
   profile.sub_node_progress || {
@@ -547,7 +549,9 @@ async function updateStreak(userId: string) {
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("streak,last_played,best_streak")
+    .select(
+  "streak,last_played,best_streak,formula_shards"
+)
     .eq("id", userId)
     .single();
 
@@ -561,8 +565,21 @@ async function updateStreak(userId: string) {
     profile.streak || 0;
 
   if (!profile.last_played) {
-    newStreak = 1;
-  } else {
+
+  newStreak = 1;
+
+  await supabase
+    .from("profiles")
+    .update({
+      formula_shards:
+        (profile.formula_shards || 0) + 1
+    })
+    .eq("id", userId);
+
+  setFormulaShards(
+    (profile.formula_shards || 0) + 1
+  );
+} else {
 
     const lastDate =
       new Date(profile.last_played);
@@ -576,8 +593,22 @@ async function updateStreak(userId: string) {
     );
 
     if (diffDays === 1) {
-      newStreak++;
-    } else if (diffDays > 1) {
+
+  newStreak++;
+
+  await supabase
+    .from("profiles")
+    .update({
+      formula_shards:
+        (profile.formula_shards || 0) + 1
+    })
+    .eq("id", userId);
+
+  setFormulaShards(
+    (profile.formula_shards || 0) + 1
+  );
+
+}else if (diffDays > 1) {
       newStreak = 1;
     }
   }
@@ -1418,6 +1449,7 @@ text-yellow-400
             worlds={getWorlds(unlockedWorlds)}
             onSelect={(worldId) => { setSelectedSubMap(worldId); }}
             level={level}
+            formulaShards={formulaShards}
             rank={rank}
             streak={streak}
             coins={coins}

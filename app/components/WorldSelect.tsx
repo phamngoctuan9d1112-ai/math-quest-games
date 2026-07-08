@@ -15,7 +15,7 @@ type Props = {
   level: number;
   rank: string;
   coins: number;
-
+  formulaShards: number;
   onLogout: () => void;
   onLeaderboard: () => void;
 
@@ -31,6 +31,7 @@ export default function WorldSelect({
   level,
   streak,
   rank,
+  formulaShards,
   coins,
   onLogout,
   onShop,
@@ -60,19 +61,24 @@ const todayIndex =
     ? 6
     : today - 1;
 
-    function isActiveDay(index: number) {
-  if (streak <= 0) {
-    return false;
+function isActiveDay(index: number) {
+  if (streak <= 0) return false;
+
+  const activeDays =
+    Math.min(streak, 7);
+
+  const start =
+    (todayIndex - activeDays + 7 + 1) % 7;
+
+  if (start <= todayIndex) {
+    return (
+      index >= start &&
+      index <= todayIndex
+    );
   }
 
-  const startIndex =
-    Math.max(
-      0,
-      todayIndex - streak + 1
-    );
-
   return (
-    index >= startIndex &&
+    index >= start ||
     index <= todayIndex
   );
 }
@@ -499,7 +505,7 @@ const todayIndex =
       }
     `}
   >
-    🔥{streak}
+    🧩 {formulaShards}
   </span>
 
   <span className="text-[11px]">
@@ -549,10 +555,9 @@ const todayIndex =
       {/* Header */}
       <div className="flex justify-between items-center mb-5">
 
-        <h2 className="text-2xl font-black">
-          🔥 Chuỗi 
-        </h2>
-
+<h2 className="text-2xl font-black">
+  🧩 Bộ Sưu Tập Công Thức
+</h2>
         <button
           onClick={() => setShowStreakModal(false)}
           className="
@@ -584,15 +589,27 @@ const todayIndex =
           text-orange-400
           "
         >
-          🔥 {streak}
+          🧩 {formulaShards}
         </div>
 
         <div className="text-slate-400 mt-2">
-          ngày liên tiếp
+          mảnh công thức đã thu thập
         </div>
       </div>
 
       {/* 7 ngày */}
+
+      <div className="text-center mt-4">
+  <div className="text-orange-400 font-bold">
+    🔥 Chuỗi hiện tại: {streak} ngày
+  </div>
+
+  <div className="text-slate-400 text-sm mt-1">
+    Hoàn thành ít nhất 1 màn mỗi ngày
+    để duy trì chuỗi.
+  </div>
+</div>
+
       <div
         className="
         bg-slate-800
@@ -617,25 +634,31 @@ const todayIndex =
                 <span className="text-xs">
                   {day}
                 </span>
-
                 <div
-                  className={`
-                  w-10
-                  h-10
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                  ${
-                  isActiveDay(index)
-                  ? "bg-orange-500"
-                  : "bg-slate-600"
-                  }
-                  `}
-                  >
-                  {isActiveDay(index)
-                    ? "🔥"
-                   : "💧"}
+                className={`
+  w-10
+  h-10
+  rounded-full
+  flex
+  items-center
+  justify-center
+  ${
+    isActiveDay(index)
+      ? "bg-orange-500"
+      : "bg-slate-600"
+  }
+  ${
+    index === todayIndex
+      ? "ring-4 ring-yellow-400"
+      : ""
+  }
+`}
+>
+                  {index === todayIndex
+  ? "⭐"
+  : isActiveDay(index)
+  ? "🔥"
+  : "💧"}
                 </div>
               </div>
             )
@@ -644,25 +667,66 @@ const todayIndex =
         </div>
       </div>
 
-      {/* Hội streak */}
-      <div
-        className="
-        border
-        border-orange-500/40
-        rounded-2xl
-        p-4
-        mb-5
-        "
-      >
-        <h3 className="font-bold text-lg">
-          🔒 group Streak
-        </h3>
+      {/* Mảnh Công Thức */}
+<div
+  className="
+  bg-gradient-to-r
+  from-cyan-500/20
+  to-blue-500/20
+  border
+  border-cyan-400/30
+  rounded-2xl
+  p-4
+  mb-5
+  "
+>
+  <h3
+    className="
+    text-xl
+    font-black
+    text-cyan-300
+    mb-3
+    "
+  >
+    🧩 Mảnh Công Thức
+  </h3>
 
-        <p className="text-slate-300 mt-2">
-          Đạt 7 ngày streak để mở khóa
-          group Streak và nhận thưởng đặc biệt.
-        </p>
-      </div>
+  <div
+    className="
+    w-full
+    h-4
+    bg-slate-700
+    rounded-full
+    overflow-hidden
+    mb-3
+    "
+  >
+    <div
+      className="
+      h-full
+      bg-gradient-to-r
+      from-cyan-400
+      to-blue-500
+      rounded-full
+      "
+      style={{
+        width: `${Math.min(
+          (formulaShards / 30) * 100,
+          100
+        )}%`,
+      }}
+    />
+  </div>
+
+  <div className="text-slate-300">
+    {formulaShards}/30 mảnh
+  </div>
+
+  <div className="text-cyan-200 mt-2">
+    Thu thập đủ 30 mảnh để ghép
+    Công Thức Huyền Thoại
+  </div>
+</div>
 
       {/* Phần thưởng */}
       <div
@@ -677,9 +741,9 @@ const todayIndex =
           🎁 Phần thưởng
         </h3>
 
-        <div>🔥 7 ngày → +100 Coin</div>
-        <div>🔥 14 ngày → +300 Coin</div>
-        <div>🔥 30 ngày → Avatar hiếm</div>
+        <div>🧩 10 mảnh → +100 Coin</div>
+        <div>🧩 20 mảnh → Avatar đặc biệt</div>
+        <div>🧩 30 mảnh → 📜 Công Thức Huyền Thoại</div>
       </div>
 
       <button
