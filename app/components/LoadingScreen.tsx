@@ -38,7 +38,7 @@ export default function LoadingScreen() {
         }}
         className="text-8xl"
       >
-        ⚔️
+        ⚽
       </motion.div>
 
       <h1
