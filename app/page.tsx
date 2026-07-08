@@ -8,6 +8,7 @@ import LoadingScreen from "./components/LoadingScreen";
 import StatusBar from "./components/StatusBar";
 import { motion } from "framer-motion";
 import WorldSelect from "./components/WorldSelect";
+import Mascot from "./components/Mascot";
 import TopBar from "./components/TopBar";
 import AchievementList from "./components/AchievementList";
 import TermsModal from "./components/TermsModal";
@@ -220,6 +221,18 @@ export default function Home() {
   const [formulaShards, setFormulaShards] = useState(0);
   const [showVictory, setShowVictory] =
   useState(false);
+
+  const [mascotState, setMascotState] =
+useState<
+  "idle"
+  | "happy"
+  | "sad"
+  | "celebrate"
+  | "thinking"
+>("idle");
+
+const [mascotMessage, setMascotMessage] =
+useState("");
 
 const [victoryReward, setVictoryReward] =
   useState({
@@ -489,6 +502,27 @@ useEffect(() => {
 
   currentUserId
 ]);
+
+const prevLevel = useRef(level);
+
+useEffect(() => {
+  if (level > prevLevel.current) {
+
+    setMascotState("celebrate");
+
+    setMascotMessage(
+      `🎉 Level ${level}!`
+    );
+
+    setTimeout(() => {
+      setMascotState("idle");
+      setMascotMessage("");
+    }, 3000);
+  }
+
+  prevLevel.current = level;
+
+}, [level]);
 
 useEffect(() => {
   const saved =
@@ -952,6 +986,15 @@ useEffect(() => {
     console.log("PLAY CORRECT");
     playSound("/sounds/correct.mp3");
 
+    setMascotState("happy");
+
+setMascotMessage("🔥 Chính xác!");
+
+setTimeout(() => {
+  setMascotState("idle");
+  setMascotMessage("");
+}, 2000);
+
     setCorrectAnswers(prev => prev + 1);
 
     setDailyProgress(prev =>
@@ -981,6 +1024,17 @@ useEffect(() => {
 
   } else {
     playSound("/sounds/wrong.mp3");
+
+    setMascotState("sad");
+
+    setMascotMessage(
+      "💡 Đọc kỹ đề nhé!"
+    );
+
+  setTimeout(() => {
+  setMascotState("idle");
+  setMascotMessage("");
+  }, 2000);
 
     setHearts(prev => prev - 1);
 
@@ -1074,6 +1128,12 @@ setVictoryReward({
   coins: rewardCoins,
   shards: rewardShards,
 });
+
+setMascotState("celebrate");
+
+setMascotMessage(
+  "🏆 Bạn đã hoàn thành World!"
+);
 
 setShowVictory(true);
 
@@ -2030,6 +2090,12 @@ text-center
   </div>
 )}
       </div>
+
+      <Mascot
+  state={mascotState}
+  message={mascotMessage}
+/>
+
     </main>
   );
 }
