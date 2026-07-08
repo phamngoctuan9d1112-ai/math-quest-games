@@ -81,7 +81,7 @@ const todayIndex =
 
   if (streak >= 30) {
     return {
-      icon: "💜🔥💜",
+      icon: "💜🔥",
       color: "text-purple-500",
       bg: "bg-purple-100",
       label: "Huyền thoại"
@@ -90,7 +90,7 @@ const todayIndex =
 
   if (streak >= 14) {
     return {
-      icon: "🔥🔥🔥",
+      icon: "🔥",
       color: "text-red-500",
       bg: "bg-red-100",
       label: "Bùng cháy"
@@ -99,8 +99,8 @@ const todayIndex =
 
   if (streak >= 7) {
     return {
-      icon: "🔥🔥",
-      color: "text-orange-600",
+      icon: "🔥",
+      color: "text-orange-500",
       bg: "bg-orange-100",
       label: "Nóng"
     };
@@ -109,16 +109,16 @@ const todayIndex =
   if (streak >= 3) {
     return {
       icon: "🔥",
-      color: "text-orange-400",
-      bg: "bg-orange-50",
+      color: "text-yellow-500",
+      bg: "bg-yellow-100",
       label: "Khởi động"
     };
   }
 
   return {
-    icon: "⚪",
-    color: "text-gray-400",
-    bg: "bg-gray-100",
+    icon: "🔥",
+    color: "text-gray-500",
+    bg: "bg-gray-200",
     label: "Mới bắt đầu"
   };
 }
