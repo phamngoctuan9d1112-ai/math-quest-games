@@ -348,7 +348,7 @@ const [currentUserId, setCurrentUserId] =
 })();
 
 
-  const syncData = async () => {
+  async function syncData() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -361,8 +361,9 @@ const [currentUserId, setCurrentUserId] =
     .eq("id", user.id)
     .single();
 
-    console.log("PROFILE DATA:", data);
-console.log("PROFILE ERROR:", error);
+  console.log("PROFILE DATA", data);
+  console.log("PROFILE ERROR", error);
+
 
   if (data && !error) {
     const profile = data as any;
