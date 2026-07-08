@@ -645,14 +645,15 @@ useEffect(() => {
 
   useEffect(() => {
   const checkUser = async () => {
-    
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  
+  console.log("USER =", user);
 
-    
-    if (user) {
+  if (user) {
+    setCurrentUserId(user.id);
       console.log("USER FOUND", user);
       setCurrentUserId(user.id);
       console.log("SET CURRENT USER ID", user.id);
@@ -685,7 +686,10 @@ useEffect(() => {
       } else {
         setIsLoggedIn(true);
       }
+      setDataLoaded(true);
     }
+     
+
 
     setLoadingAuth(false);
   };
@@ -1325,7 +1329,7 @@ console.log({
   isLoggedIn
 });
   
-  if (loadingAuth || !dataLoaded) {
+  if (loadingAuth) {
   return <LoadingScreen />;
 }
 
