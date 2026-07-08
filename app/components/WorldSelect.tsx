@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { worldNames } from "../data/worldNames";
 import Footer from "./Footer";
 
@@ -42,6 +43,8 @@ export default function WorldSelect({
   const world12 = worlds.filter((w) => w.id >= 62 && w.id <= 79);
   const streakStyle =
   getStreakStyle(streak);
+  const [showStreakModal, setShowStreakModal] =
+  useState(false);
 
   function getStreakStyle(streak: number) {
 
@@ -299,7 +302,8 @@ export default function WorldSelect({
             >
               ↩️
             </button>
-            <div
+            <button
+  onClick={() => setShowStreakModal(true)}
   className={`
     ${streakStyle.bg}
     px-4
@@ -309,6 +313,8 @@ export default function WorldSelect({
     flex
     items-center
     gap-2
+    hover:scale-105
+    transition
   `}
 >
   <span
@@ -329,7 +335,7 @@ export default function WorldSelect({
   >
     {streakStyle.label}
   </span>
-</div>
+</button>
           </div>
         </div>
       </div>
@@ -439,27 +445,36 @@ export default function WorldSelect({
     >
       <span className="text-xl">🥇</span>
       <span className="text-[11px]">
-        BXH
+        xếp hạng
       </span>
     </button>
 
-    <div className="flex flex-col items-center">
-    <span className="text-xl">
-    {streak >= 30
-      ? "💜"
-      : streak >= 14
-      ? "🔥"
-      : streak >= 7
-      ? "🔥"
-      : streak >= 3
-      ? "🔥"
-      : "⚪"}
-      </span>
+    <button
+  onClick={() => setShowStreakModal(true)}
+  className="
+  flex
+  flex-col
+  items-center
+  "
+>
+  <span
+    className={`
+      text-lg
+      font-bold
+      ${
+        streak > 0
+          ? "text-orange-400"
+          : "text-gray-500"
+      }
+    `}
+  >
+    🔥{streak}
+  </span>
 
-      < span className="text-[11px]">
-        {streak} ngày
-    </span>
-  </div>
+  <span className="text-[11px]">
+    Chuỗi
+  </span>
+</button>
 
     <button
       onClick={onLogout}
@@ -473,6 +488,183 @@ export default function WorldSelect({
 
   </div>
 </div>
+
+{showStreakModal && (
+  <div
+  onClick={() => setShowStreakModal(false)}
+  className="
+  fixed
+  inset-0
+  bg-black/70
+  flex
+  items-center
+  justify-center
+  z-[999]
+  px-4
+  "
+>
+    <div
+  onClick={(e) => e.stopPropagation()}
+  className="
+  w-full
+  max-w-md md:max-w-xl
+  bg-slate-900
+  rounded-3xl
+  p-6
+  text-white
+  shadow-2xl
+  "
+>
+      {/* Header */}
+      <div className="flex justify-between items-center mb-5">
+
+        <h2 className="text-2xl font-black">
+          🔥 Chuỗi 
+        </h2>
+
+        <button
+          onClick={() => setShowStreakModal(false)}
+          className="
+          w-8
+          h-8
+          rounded-full
+          bg-slate-700
+          "
+        >
+          ✕
+        </button>
+
+      </div>
+
+      {/* Số ngày */}
+      <div
+        className="
+        bg-slate-800
+        rounded-2xl
+        p-5
+        text-center
+        mb-5
+        "
+      >
+        <div
+          className="
+          text-5xl
+          font-black
+          text-orange-400
+          "
+        >
+          🔥 {streak}
+        </div>
+
+        <div className="text-slate-400 mt-2">
+          ngày liên tiếp
+        </div>
+      </div>
+
+      {/* 7 ngày */}
+      <div
+        className="
+        bg-slate-800
+        rounded-2xl
+        p-4
+        mb-5
+        "
+      >
+        <div className="flex justify-between">
+
+          {["T2","T3","T4","T5","T6","T7","CN"].map(
+            (day, index) => (
+              <div
+                key={day}
+                className="
+                flex
+                flex-col
+                items-center
+                gap-2
+                "
+              >
+                <span className="text-xs">
+                  {day}
+                </span>
+
+                <div
+                  className={`
+                  w-10
+                  h-10
+                  rounded-full
+                  flex
+                  items-center
+                  justify-center
+                  ${
+                    index < Math.min(streak,7)
+                      ? "bg-orange-500"
+                      : "bg-slate-600"
+                  }
+                  `}
+                >
+                  🔥
+                </div>
+              </div>
+            )
+          )}
+
+        </div>
+      </div>
+
+      {/* Hội streak */}
+      <div
+        className="
+        border
+        border-orange-500/40
+        rounded-2xl
+        p-4
+        mb-5
+        "
+      >
+        <h3 className="font-bold text-lg">
+          🔒 Hội Streak
+        </h3>
+
+        <p className="text-slate-300 mt-2">
+          Đạt 7 ngày streak để mở khóa
+          Hội Streak và nhận thưởng đặc biệt.
+        </p>
+      </div>
+
+      {/* Phần thưởng */}
+      <div
+        className="
+        bg-slate-800
+        rounded-2xl
+        p-4
+        mb-5
+        "
+      >
+        <h3 className="font-bold mb-2">
+          🎁 Phần thưởng
+        </h3>
+
+        <div>🔥 7 ngày → +100 Coin</div>
+        <div>🔥 14 ngày → +300 Coin</div>
+        <div>🔥 30 ngày → Avatar hiếm</div>
+      </div>
+
+      <button
+        onClick={() => setShowStreakModal(false)}
+        className="
+        w-full
+        py-3
+        rounded-xl
+        bg-orange-500
+        hover:bg-orange-600
+        font-bold
+        "
+      >
+        Đã hiểu
+      </button>
+    </div>
+  </div>
+)}
 
 </main>
 );
