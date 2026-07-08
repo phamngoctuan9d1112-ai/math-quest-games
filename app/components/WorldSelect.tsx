@@ -443,15 +443,23 @@ export default function WorldSelect({
       </span>
     </button>
 
-    <button
-      onClick={onInventory}
-      className="flex flex-col items-center"
-    >
-      <span className="text-xl">🎒</span>
-      <span className="text-[11px]">
-        Túi đồ
+    <div className="flex flex-col items-center">
+    <span className="text-xl">
+    {streak >= 30
+      ? "💜"
+      : streak >= 14
+      ? "🔥"
+      : streak >= 7
+      ? "🔥"
+      : streak >= 3
+      ? "🔥"
+      : "⚪"}
       </span>
-    </button>
+
+      < span className="text-[11px]">
+        {streak} ngày
+    </span>
+  </div>
 
     <button
       onClick={onLogout}
