@@ -349,11 +349,19 @@ const [currentUserId, setCurrentUserId] =
 
 
   async function syncData() {
+
+  console.log("SYNC DATA START");
+
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) return;
+  console.log("USER =", user);
+
+  if (!user) {
+    console.log("NO USER");
+    return;
+  }
 
   const { data, error } = await supabase
     .from("profiles")
@@ -361,32 +369,18 @@ const [currentUserId, setCurrentUserId] =
     .eq("id", user.id)
     .single();
 
-  console.log("PROFILE DATA", data);
-  console.log("PROFILE ERROR", error);
-
+  console.log("PROFILE DATA =", data);
+  console.log("PROFILE ERROR =", error);
 
   if (data && !error) {
-    const profile = data as any;
 
-    setXp(Number(profile.xp || 0));
-    setCoins(Number(profile.coins || 0));
-    setStreak(Number(profile.streak || 1));
-    setFormulaShards(Number(profile.formula_shards || 0));
-    setUnlockedWorlds(profile.unlocked_worlds || [1,27,62]);
-    setSubNodeProgress(
-  profile.sub_node_progress || {
-    1: 1,
-    27: 1,
-    62: 1,
-  }
-);
-    setAvatar(profile.avatar || "🧑");
-    setWeapon(profile.weapon || "🪵");
-    setPet(profile.pet || "🥚");
-    setHearts(Number(profile.hearts || 3));
+    console.log("PROFILE FOUND");
+
+    setXp(Number(data.xp || 0));
+
     setDataLoaded(true);
   }
-}; // <-- THIẾU CÁI NÀY?
+}
   
 
   async function updateXP(newXP: number) {
