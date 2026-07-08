@@ -5,6 +5,7 @@ import confetti from "canvas-confetti";
 import XPBar from "./components/XPBar";
 import { playSound } from "./lib/sound";
 import StatusBar from "./components/StatusBar";
+import { motion } from "framer-motion";
 import WorldSelect from "./components/WorldSelect";
 import TopBar from "./components/TopBar";
 import AchievementList from "./components/AchievementList";
@@ -17,6 +18,7 @@ console.log(propositionQuestions);
 console.log(Object.keys(propositionQuestions));
 import Shop from "./components/Shop";
 import StartScreen from "./components/StartScreen";
+import Confetti from "react-confetti";
 import MathText from "./components/MathText";
 import { BlockMath } from "react-katex";
 import Inventory from "./components/Inventory";
@@ -29,7 +31,164 @@ const supabase = createBrowserClient(
 );
 
 
+function VictoryModal({
+  reward,
+  onClose,
+}: {
+  reward: {
+    xp: number;
+    coins: number;
+    shards: number;
+  };
+  onClose: () => void;
+}) {
+  return (
+    <div
+      className="
+      fixed
+      inset-0
+      bg-black/70
+      flex
+      items-center
+      justify-center
+      z-[9999]
+      "
+    >
+      <Confetti
+  recycle={false}
+  numberOfPieces={400}
+/>
+      <motion.div
+      
+        initial={{
+          scale: 0,
+          opacity: 0,
+        }}
+        animate={{
+          scale: 1,
+          opacity: 1,
+        }}
+        transition={{
+          duration: 0.4,
+        }}
+        className="
+        bg-white
+        rounded-3xl
+        p-8
+        w-[420px]
+        max-w-[95%]
+        text-center
+        shadow-2xl
+        "
+      >
+        <div className="text-7xl">
+          🎉
+        </div>
 
+        <motion.h2
+  initial={{
+    y: -100,
+    opacity: 0,
+  }}
+  animate={{
+    y: 0,
+    opacity: 1,
+  }}
+  transition={{
+    duration: 0.5,
+  }}
+  className="
+  text-4xl
+  font-black
+  mt-4
+  text-orange-500
+  "
+>
+  🎉 WORLD HOÀN THÀNH
+</motion.h2>
+
+        <div className="mt-6 space-y-3">
+
+          <motion.div
+  initial={{ scale: 0 }}
+  animate={{ scale: [1, 1.3, 1] }}
+  transition={{
+    duration: 0.6,
+    delay: 0.3,
+  }}
+  className="
+  text-4xl
+  font-black
+  text-yellow-500
+  "
+>
+  ⭐ +{reward.xp} XP
+</motion.div>
+
+          <motion.div
+  initial={{
+    x: -100,
+    opacity: 0,
+  }}
+  animate={{
+    x: 0,
+    opacity: 1,
+  }}
+  transition={{
+    delay: 0.8,
+    duration: 0.6,
+  }}
+  className="
+  text-4xl
+  font-black
+  text-yellow-600
+  "
+>
+  🪙 +{reward.coins} Coin
+</motion.div>
+
+          <motion.div
+  initial={{
+    rotate: -360,
+    scale: 0,
+  }}
+  animate={{
+    rotate: 0,
+    scale: 1,
+  }}
+  transition={{
+    delay: 1.3,
+    duration: 0.8,
+  }}
+  className="
+  text-4xl
+  font-black
+  text-purple-600
+  "
+>
+  🧩 +{reward.shards}
+</motion.div>
+        </div>
+
+        <button
+          onClick={onClose}
+          className="
+          mt-8
+          w-full
+          bg-orange-500
+          hover:bg-orange-600
+          text-white
+          py-3
+          rounded-xl
+          font-bold
+          "
+        >
+          Tiếp tục
+        </button>
+      </motion.div>
+    </div>
+  );
+}
 
 
 export default function Home() {
@@ -58,6 +217,15 @@ export default function Home() {
   const [current, setCurrent] = useState(0);
   const [avatar, setAvatar] = useState("🧑");
   const [formulaShards, setFormulaShards] = useState(0);
+  const [showVictory, setShowVictory] =
+  useState(false);
+
+const [victoryReward, setVictoryReward] =
+  useState({
+    xp: 0,
+    coins: 0,
+    shards: 0,
+  });
 // Thay vì: const [currentBoss, setCurrentBoss] = useState(null);
 // Hãy sửa thành:
 
@@ -893,6 +1061,21 @@ await supabase
       setCurrent(0);
 
     } else if (currentSubNode === 3) {
+      const rewardXP = 50;
+const rewardCoins = 20;
+const rewardShards = 1;
+
+setXp(prev => prev + rewardXP);
+setCoins(prev => prev + rewardCoins);
+
+setVictoryReward({
+  xp: rewardXP,
+  coins: rewardCoins,
+  shards: rewardShards,
+});
+
+setShowVictory(true);
+
 
       console.log("selectedWorld =", selectedWorld);
 console.log("selectedSubMap =", selectedSubMap);
@@ -1157,6 +1340,22 @@ transition
       </main>
     );
   }
+
+  if (showVictory) {
+  return (
+    <VictoryModal
+      reward={victoryReward}
+      onClose={() => {
+        setShowVictory(false);
+
+        setSelectedWorld(null);
+        setSelectedSubMap(null);
+        setCurrentSubNode(null);
+        setCurrent(0);
+      }}
+    />
+  );
+}
 
   if (gameCompleted) {
     return (
