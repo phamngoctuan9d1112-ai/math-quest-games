@@ -45,6 +45,37 @@ export default function WorldSelect({
   getStreakStyle(streak);
   const [showStreakModal, setShowStreakModal] =
   useState(false);
+  const weekDays = [
+  "T2",
+  "T3",
+  "T4",
+  "T5",
+  "T6",
+  "T7",
+  "CN",
+];
+const today = new Date().getDay();
+const todayIndex =
+  today === 0
+    ? 6
+    : today - 1;
+
+    function isActiveDay(index: number) {
+  if (streak <= 0) {
+    return false;
+  }
+
+  const startIndex =
+    Math.max(
+      0,
+      todayIndex - streak + 1
+    );
+
+  return (
+    index >= startIndex &&
+    index <= todayIndex
+  );
+}
 
   function getStreakStyle(streak: number) {
 
@@ -572,7 +603,7 @@ export default function WorldSelect({
       >
         <div className="flex justify-between">
 
-          {["T2","T3","T4","T5","T6","T7","CN"].map(
+          {weekDays.map(
             (day, index) => (
               <div
                 key={day}
@@ -596,13 +627,15 @@ export default function WorldSelect({
                   items-center
                   justify-center
                   ${
-                    index < Math.min(streak,7)
-                      ? "bg-orange-500"
-                      : "bg-slate-600"
+                  isActiveDay(index)
+                  ? "bg-orange-500"
+                  : "bg-slate-600"
                   }
                   `}
-                >
-                  🔥
+                  >
+                  {isActiveDay(index)
+                    ? "🔥"
+                   : "💧"}
                 </div>
               </div>
             )
@@ -622,12 +655,12 @@ export default function WorldSelect({
         "
       >
         <h3 className="font-bold text-lg">
-          🔒 Hội Streak
+          🔒 group Streak
         </h3>
 
         <p className="text-slate-300 mt-2">
           Đạt 7 ngày streak để mở khóa
-          Hội Streak và nhận thưởng đặc biệt.
+          group Streak và nhận thưởng đặc biệt.
         </p>
       </div>
 
