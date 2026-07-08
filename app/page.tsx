@@ -1329,10 +1329,12 @@ console.log({
   isLoggedIn
 });
   
-  if (loadingAuth) {
+  if (
+  loadingAuth ||
+  (isLoggedIn && !dataLoaded)
+) {
   return <LoadingScreen />;
 }
-
 
   // ==========================
   // ĐIỀU KHOẢN VÀ DỊCH VỤ 
