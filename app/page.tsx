@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import confetti from "canvas-confetti";
 import XPBar from "./components/XPBar";
 import { playSound } from "./lib/sound";
+import LoadingScreen from "./components/LoadingScreen";
 import StatusBar from "./components/StatusBar";
 import { motion } from "framer-motion";
 import WorldSelect from "./components/WorldSelect";
@@ -1247,9 +1248,9 @@ await supabase
 
   
   
-  if (loadingAuth) {
-    return <div className="min-h-screen bg-slate-950 flex items-center justify-center text-white">Đang tải...</div>;
-  }
+  if (loadingAuth || !dataLoaded) {
+  return <LoadingScreen />;
+}
 
 
   // ==========================
