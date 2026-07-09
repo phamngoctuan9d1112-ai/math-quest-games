@@ -970,6 +970,15 @@ if (rewardDate === today) {
 const firstLoad = useRef(true);
 
 useEffect(() => {
+  if (!currentUserId) return;
+
+  localStorage.setItem(
+    `daily_task_progress_${currentUserId}`,
+    dailyProgress.toString()
+  );
+}, [dailyProgress, currentUserId]);
+
+useEffect(() => {
   if (!isLoggedIn) return;
   if (!dataLoaded) return;
 
