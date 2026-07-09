@@ -1804,8 +1804,21 @@ text-yellow-400
 
 
   return (
-    <main className=" h-[100dvh] md:min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-0 md:p-6 " >
-      <div
+    <main
+  className="
+    min-h-[100dvh]
+    flex
+    items-center
+    justify-center
+    bg-gradient-to-br
+    from-blue-500
+    via-purple-500
+    to-pink-500
+    p-0
+    md:p-6
+  "
+>
+       <div
   className="
     bg-white
     text-black
@@ -1862,19 +1875,6 @@ text-yellow-400
         <div className="mt-4">
           <StatusBar hearts={hearts} coins={coins} xp={xp} />
 
-          <div
-  className="
-    flex
-    flex-col
-
-    md:block
-
-    h-[calc(100dvh-180px)]
-    md:h-auto
-
-    overflow-y-auto
-  "
-></div>
           
           <div
   className="
