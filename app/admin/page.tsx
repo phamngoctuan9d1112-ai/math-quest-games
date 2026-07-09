@@ -52,7 +52,8 @@ export default function AdminPage() {
   const [events, setEvents] = useState<any[]>([]);
   const [authorized, setAuthorized] = useState(false);
 const [checkingAuth, setCheckingAuth] = useState(true);
-
+const today = new Date();
+today.setHours(0, 0, 0, 0);
 
 
 
@@ -117,6 +118,16 @@ const worldChartData =
       count,
     })
   );
+
+  const activeToday = new Set(
+  events
+    .filter(
+      (e) =>
+        e.event_type === "login" &&
+        new Date(e.created_at) >= today
+    )
+    .map((e) => e.user_id)
+).size;
 
   console.log("EVENTS =", events);
 console.log("WORLD STATS =", worldStats);
@@ -190,7 +201,7 @@ if (!authorized) {
         👑 Admin Dashboard
       </h1>
 
-      <div className="grid md:grid-cols-3 gap-6 mb-10">
+      <div className="grid md:grid-cols-4 gap-6 mb-10">
         <div className="bg-slate-800 p-6 rounded-2xl">
           <div className="text-4xl font-black">
             {totalPlayers}
@@ -211,6 +222,15 @@ if (!authorized) {
           </div>
           <div>Tổng Coin</div>
         </div>
+        <div className="bg-slate-800 p-6 rounded-2xl">
+  <div className="text-4xl font-black">
+    {activeToday}
+  </div>
+
+  <div>
+    Online hôm nay
+  </div>
+</div>
         
 
       </div>
@@ -312,6 +332,8 @@ if (!authorized) {
       ))}
   </div>
 </div>
+
+
 
     </main>
   );
