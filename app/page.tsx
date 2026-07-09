@@ -1762,10 +1762,7 @@ text-yellow-400
           </div>
         )}
 
-        <p style={{color:"red"}}>
-  AVATAR TEST = {avatar}
-</p>
-
+        
         <main className="w-full min-h-screen">
           <WorldSelect
           key={avatar}
@@ -1778,8 +1775,6 @@ text-yellow-400
             coins={coins}
             email={userName}
             userName={userName}
-            avatar={avatar}
-            setAvatar={setAvatar}
             onLogout={onLogout}
             onShop={() => setShowShop(true)}
             onInventory={() => setShowInventory(true)}

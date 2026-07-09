@@ -23,9 +23,9 @@ type Props = {
   email: string;
   onShop: () => void;
   onAchievements: () => void;
-  avatar: string;
+  
   onInventory: () => void;
-  setAvatar: React.Dispatch<React.SetStateAction<string>>;
+  
 };
 
 export default function WorldSelect({
@@ -35,8 +35,7 @@ export default function WorldSelect({
   streak,
   rank,
   userName,
-  avatar,
-  setAvatar,
+  
   formulaShards,
   coins,
   onLogout,
@@ -51,8 +50,6 @@ export default function WorldSelect({
   const world12 = worlds.filter((w) => w.id >= 62 && w.id <= 79);
   const streakStyle =
   getStreakStyle(streak);
-  const [showAvatarPicker, setShowAvatarPicker] =
-  useState(false);
   const [showStreakModal, setShowStreakModal] =
   useState(false);
   const [darkMode, setDarkMode] =
@@ -834,22 +831,8 @@ function isActiveDay(index: number) {
       <div className="text-center mt-6">
 
         <div className="text-6xl">
-  {avatar}
+  👤
 </div>
-
-<button
-  onClick={() => setShowAvatarPicker(true)}
-  className="
-    mt-3
-    bg-blue-500
-    text-white
-    px-4
-    py-2
-    rounded-xl
-  "
->
-  Đổi Avatar
-</button>
 
         <h3 className="font-bold text-xl mt-2">
   {userName}
@@ -971,70 +954,7 @@ function isActiveDay(index: number) {
   </div>
 )}
 
-{showAvatarPicker && (
-  <div
-    className="
-      fixed
-      inset-0
-      bg-black/70
-      flex
-      items-center
-      justify-center
-      z-[999]
-    "
-  >
-    <div
-      className="
-        bg-white
-        p-6
-        rounded-3xl
-        max-w-sm
-        w-full
-      "
-    >
-      <h2 className="text-2xl font-bold mb-4">
-        Chọn Avatar
-      </h2>
 
-      <div className="grid grid-cols-4 gap-3">
-
-        {["🧑","👨‍🎓","👩‍🎓","🧙","🥷","🤖","🐱","🐉"].map((item) => (
-          <button
-            key={item}
-            onClick={() => {
-              setAvatar(item);
-              setShowAvatarPicker(false);
-            }}
-            className="
-              text-4xl
-              p-2
-              border
-              rounded-xl
-            "
-          >
-            {item}
-          </button>
-        ))}
-
-      </div>
-
-      <button
-        onClick={() =>
-          setShowAvatarPicker(false)
-        }
-        className="
-          mt-4
-          w-full
-          bg-gray-300
-          py-3
-          rounded-xl
-        "
-      >
-        Đóng
-      </button>
-    </div>
-  </div>
-)}
 
 {showPasswordModal && (
   <div
