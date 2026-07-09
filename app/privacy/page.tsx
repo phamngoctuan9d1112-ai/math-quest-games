@@ -1,6 +1,27 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
+
 export default function PrivacyPage() {
+  const router = useRouter();
   return (
     <main className="max-w-5xl mx-auto p-10">
+
+      <button
+  onClick={() => router.back()}
+  className="
+    mb-6
+    bg-blue-500
+    text-white
+    px-4
+    py-2
+    rounded-xl
+  "
+>
+  ← Quay lại
+</button>
+
       <h1 className="text-4xl font-bold mb-8">
         Chính sách bảo mật
       </h1>
@@ -46,6 +67,8 @@ export default function PrivacyPage() {
             và các dịch vụ bảo mật tiêu chuẩn.
           </p>
         </section>
+
+        
 
       </div>
     </main>

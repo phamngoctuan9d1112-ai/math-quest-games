@@ -852,6 +852,12 @@ function isActiveDay(index: number) {
   📧 Email
 </button>
 
+{showEmail && (
+  <div className="border rounded-xl p-3">
+    {email}
+  </div>
+)}
+
         <button
   onClick={() => setShowPasswordModal(true)}
   className="
@@ -920,11 +926,74 @@ function isActiveDay(index: number) {
   </div>
 )}
 
-{showEmail && (
-  <div className="border rounded-xl p-3">
-    {email}
+{showPasswordModal && (
+  <div
+    className="
+      fixed
+      inset-0
+      bg-black/70
+      flex
+      items-center
+      justify-center
+      z-[999]
+    "
+  >
+    <div
+      className="
+        bg-white
+        p-6
+        rounded-3xl
+        w-full
+        max-w-md
+      "
+    >
+      <h2 className="text-2xl font-bold mb-4">
+        🔒 Đổi mật khẩu
+      </h2>
+
+      <input
+        type="password"
+        placeholder="Mật khẩu mới"
+        className="
+          w-full
+          border
+          p-3
+          rounded-xl
+        "
+      />
+
+      <button
+        className="
+          mt-4
+          w-full
+          bg-blue-500
+          text-white
+          py-3
+          rounded-xl
+        "
+      >
+        Cập nhật
+      </button>
+
+      <button
+        onClick={() =>
+          setShowPasswordModal(false)
+        }
+        className="
+          mt-2
+          w-full
+          bg-gray-300
+          py-3
+          rounded-xl
+        "
+      >
+        Đóng
+      </button>
+    </div>
   </div>
 )}
+
+
 
 </main>
 );
