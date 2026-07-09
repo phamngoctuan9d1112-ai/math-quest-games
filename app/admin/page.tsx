@@ -118,6 +118,10 @@ const worldChartData =
     })
   );
 
+  console.log("EVENTS =", events);
+console.log("WORLD STATS =", worldStats);
+console.log("CHART DATA =", worldChartData);
+
   async function loadEvents() {
   const { data, error } = await supabase
     .from("player_events")
