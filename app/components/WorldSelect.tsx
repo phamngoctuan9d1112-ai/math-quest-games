@@ -336,6 +336,14 @@ function isActiveDay(index: number) {
             </button>
 
             <button
+  onClick={() => {
+    window.location.href = "/admin";
+  }}
+>
+  Admin
+</button>
+
+            <button
               onClick={onLogout}
               className="
                 bg-red-500
