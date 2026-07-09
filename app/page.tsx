@@ -32,6 +32,33 @@ const supabase = createBrowserClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
+async function trackEvent(
+  eventType: string,
+  worldId?: number
+) {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) return;
+
+  const { error } =
+    await supabase
+      .from("player_events")
+      .insert({
+        user_id: user.id,
+        event_type: eventType,
+        world_id: worldId ?? null,
+      });
+
+  if (error) {
+    console.error(
+      "TRACK EVENT ERROR",
+      error
+    );
+  }
+}
+
 
 function VictoryModal({
   reward,
@@ -1032,6 +1059,10 @@ useEffect(() => {
   const isCorrect = value === question?.answer;
 
   if (isCorrect) {
+    await trackEvent(
+  "question_correct",
+  selectedWorld || undefined
+);
     console.log("PLAY CORRECT");
     playSound("/sounds/correct.mp3");
 
@@ -1072,6 +1103,10 @@ setTimeout(() => {
     }, 800);
 
   } else {
+    await trackEvent(
+  "question_wrong",
+  selectedWorld || undefined
+);
     playSound("/sounds/wrong.mp3");
 
     setMascotState("sad");
@@ -1182,6 +1217,11 @@ setMascotState("celebrate");
 
 setMascotMessage(
   "🏆 Bạn đã hoàn thành World!"
+);
+
+await trackEvent(
+  "world_complete",
+  selectedWorld || undefined
 );
 
 setShowVictory(true);
