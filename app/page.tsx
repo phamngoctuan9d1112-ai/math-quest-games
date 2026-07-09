@@ -1804,24 +1804,39 @@ text-yellow-400
 
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-6">
+    <main className=" h-[100dvh] md:min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-0 md:p-6 " >
       <div
   className="
     bg-white
     text-black
-    p-6
-    md:p-8
-    rounded-3xl
-    shadow-2xl
+
     w-full
     max-w-4xl
-    mx-auto
+
+    h-[100dvh]
+    md:h-auto
+
+    overflow-y-auto
+
+    p-4
+    md:p-8
+
+    rounded-none
+    md:rounded-3xl
+
+    shadow-2xl
   "
 >
         <div className="flex justify-between items-center">
-  <h1 className="text-4xl font-bold">
-    🚀 Math Quest
-  </h1>
+  <h1
+  className="
+    text-2xl
+    md:text-4xl
+    font-bold
+  "
+>
+  🚀 Math Quest
+</h1>
 
   <button
     onClick={() => setMusicOn(!musicOn)}
@@ -1846,8 +1861,31 @@ text-yellow-400
 
         <div className="mt-4">
           <StatusBar hearts={hearts} coins={coins} xp={xp} />
+
+          <div
+  className="
+    flex
+    flex-col
+
+    md:block
+
+    h-[calc(100dvh-180px)]
+    md:h-auto
+
+    overflow-y-auto
+  "
+></div>
           
-          <div className="mt-4 p-4 border rounded-xl">
+          <div
+  className="
+    mt-3
+    p-3
+    md:p-4
+
+    border
+    rounded-xl
+  "
+>
             <h2 className="font-bold">🎯 Daily Quest</h2>
             <p>{dailyProgress >= 5 ? "✅" : "⬜"} Trả lời đúng 5 câu ({dailyProgress}/5)</p>
             <p>{xp >= 100 ? "✅" : "⬜"} Kiếm 100 Điểm ({xp}/100)</p>
@@ -1944,22 +1982,48 @@ text-yellow-400
           Câu {current + 1} / {questions.length}
         </p>
 
-        <div className="w-full bg-gray-300 rounded-full h-4 mt-3">
-          <div className="bg-green-500 h-4 rounded-full transition-all" style={{ width: `${questions.length > 0 ? ((current + 1) / questions.length) * 100 : 0}%` }} />
+        <div
+  className="
+    w-full
+    bg-gray-300
+    rounded-full
+
+    h-2
+    md:h-4
+
+    mt-3
+  "
+>
+          <div
+  className="
+    bg-green-500
+
+    h-2
+    md:h-4
+
+    rounded-full
+    transition-all
+  "
+          style={{ width: `${questions.length > 0 ? ((current + 1) / questions.length) * 100 : 0}%` }} />
         </div>
 
        {/* Phần hiển thị nội dung câu hỏi chính */}
 <div
   className="
-    max-w-3xl
-    mx-auto
-    text-xl
-    md:text-2xl
-    text-center
-    mt-6
-    font-bold
-    text-slate-800
-  "
+max-w-3xl
+mx-auto
+
+text-lg
+md:text-2xl
+
+text-center
+
+mt-4
+md:mt-6
+
+font-bold
+text-slate-800
+"
 >
   <div className="whitespace-pre-line">
   <MathText text={question?.question || ""} />
@@ -1985,18 +2049,32 @@ text-yellow-400
 bg-white
 border-2
 border-slate-300
-rounded-3xl
-p-6
-text-lg
+
+rounded-2xl
+md:rounded-3xl
+
+p-3
+md:p-6
+
+text-base
+md:text-lg
+
 font-bold
+
 shadow-lg
 hover:shadow-xl
+
 hover:border-indigo-500
 hover:bg-indigo-50
+
 active:scale-95
+
 transition-all
 duration-200
-min-h-[90px]
+
+min-h-[70px]
+md:min-h-[90px]
+
 flex
 items-center
 justify-center
