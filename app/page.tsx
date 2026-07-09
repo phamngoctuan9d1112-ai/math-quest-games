@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import confetti from "canvas-confetti";
+import { trackEvent } from "./lib/analytics";
 import XPBar from "./components/XPBar";
 import { playSound } from "./lib/sound";
 import LoadingScreen from "./components/LoadingScreen";
@@ -32,32 +33,6 @@ const supabase = createBrowserClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-async function trackEvent(
-  eventType: string,
-  worldId?: number
-) {
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) return;
-
-  const { error } =
-    await supabase
-      .from("player_events")
-      .insert({
-        user_id: user.id,
-        event_type: eventType,
-        world_id: worldId ?? null,
-      });
-
-  if (error) {
-    console.error(
-      "TRACK EVENT ERROR",
-      error
-    );
-  }
-}
 
 
 function VictoryModal({
@@ -422,6 +397,7 @@ const [currentUserId, setCurrentUserId] =
       setHearts(data.hearts || 3);
 
       console.log("PROFILE FOUND");
+      trackEvent("login");
     }
   } catch (err) {
     console.error(err);
@@ -1745,55 +1721,62 @@ text-yellow-400
         showShopMessage("❌ Không đủ Coin!");
     }
 }}
-              onBuyDog={() => {
+              onBuyDog={async () => {
                 if (coins >= 100) {
                   setCoins(prev => prev - 100);
                   setPet("🐶");
                   setInventory(prev => [...prev, "🐶"]);
+                  await trackEvent("buy_avatar");
                   showShopMessage("🐶 Đã mua Chó Toán Học!");
                 }
               }}
-              onBuyCat={() => {
+              onBuyCat={async () => {
                 if (coins >= 200) {
                   setCoins(prev => prev - 200);
                   setPet("🐱");
                   setInventory(prev => [...prev, "🐱"]);
+                  await trackEvent("buy_avatar");
                   showShopMessage("🐱 Đã mua Mèo Toán Học!");
                 }
               }}
-              onBuyDragonPet={() => {
+              onBuyDragonPet={async () => {
                 if (coins >= 500) {
                   setCoins(prev => prev - 500);
                   setPet("🐉");
                   setInventory(prev => [...prev, "🐉"]);
+                  await trackEvent("buy_avatar");
                   showShopMessage("🐉 Đã mua Rồng Toán Học!");
                 }
               }}
-              onBuyWizard={() => {
+              onBuyWizard={async () => {
                 if (coins >= 50) {
                   setCoins(prev => prev - 50);
                   setAvatar("🧙");
+                  await trackEvent("buy_avatar");
                   showShopMessage("🧙 Đã mua Pháp Sư!");
                 }
               }}
-              onBuyHero={() => {
+              onBuyHero={async () => {
                 if (coins >= 100) {
                   setCoins(prev => prev - 100);
                   setAvatar("🦸");
+                  await trackEvent("buy_avatar");
                   showShopMessage("🦸 Đã mua Siêu Anh Hùng!");
                 }
               }}
-              onBuyDragon={() => {
+              onBuyDragon={async () => {
                 if (coins >= 200) {
                   setCoins(prev => prev - 200);
                   setAvatar("🐉");
+                  await trackEvent("buy_avatar");
                   showShopMessage("🐉 Đã mở khóa Avatar Rồng!");
                 }
               }}
-              onBuyKing={() => {
+              onBuyKing={async () => {
                 if (coins >= 500) {
                   setCoins(prev => prev - 500);
                   setAvatar("👑");
+                  await trackEvent("buy_avatar");
                   showShopMessage("👑 Đã mở khóa Vua Toán!");
                 }
               }}
