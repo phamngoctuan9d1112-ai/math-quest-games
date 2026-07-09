@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { worldNames } from "../data/worldNames";
 import Footer from "./Footer";
+import { useRouter } from "next/navigation";
 
 type World = {
   id: number;
@@ -49,8 +50,12 @@ export default function WorldSelect({
   useState(false);
   const [darkMode, setDarkMode] =
   useState(false);
+  const [showPasswordModal, setShowPasswordModal] =
+  useState(false);
+  const [showEmail, setShowEmail] = useState(false);
   const [showProfile, setShowProfile] =
   useState(false);
+  const router = useRouter();
   const weekDays = [
   "T2",
   "T3",
@@ -835,43 +840,43 @@ function isActiveDay(index: number) {
       <div className="mt-6 space-y-3">
 
         <button
-          className="
-            w-full
-            bg-slate-100
-            p-4
-            rounded-xl
-            text-left
-            font-semibold
-          "
-        >
-          📧 Email
-        </button>
+  onClick={() => setShowEmail(!showEmail)}
+  className="
+    w-full
+    bg-gray-200
+    py-3
+    rounded-xl
+    font-bold
+  "
+>
+  📧 Email
+</button>
 
         <button
-          className="
-            w-full
-            bg-slate-100
-            p-4
-            rounded-xl
-            text-left
-            font-semibold
-          "
-        >
-          🔒 Mật khẩu
-        </button>
+  onClick={() => setShowPasswordModal(true)}
+  className="
+    w-full
+    bg-gray-200
+    py-3
+    rounded-xl
+    font-bold
+  "
+>
+  🔒 Đổi mật khẩu
+</button>
 
         <button
-          className="
-            w-full
-            bg-slate-100
-            p-4
-            rounded-xl
-            text-left
-            font-semibold
-          "
-        >
-          🛡️ Quyền riêng tư
-        </button>
+  onClick={() => router.push("/privacy")}
+  className="
+    w-full
+    bg-gray-200
+    py-3
+    rounded-xl
+    font-bold
+  "
+>
+  📜 Quyền riêng tư
+</button>
 
         <button
   onClick={() =>
@@ -912,6 +917,12 @@ function isActiveDay(index: number) {
       </button>
 
     </div>
+  </div>
+)}
+
+{showEmail && (
+  <div className="border rounded-xl p-3">
+    {email}
   </div>
 )}
 
