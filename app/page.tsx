@@ -1762,8 +1762,13 @@ text-yellow-400
           </div>
         )}
 
+        <p style={{color:"red"}}>
+  AVATAR TEST = {avatar}
+</p>
+
         <main className="w-full min-h-screen">
           <WorldSelect
+          key={avatar}
             worlds={getWorlds(unlockedWorlds)}
             onSelect={(worldId) => { setSelectedSubMap(worldId); }}
             level={level}
