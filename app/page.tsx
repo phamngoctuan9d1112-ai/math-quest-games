@@ -1769,6 +1769,7 @@ text-yellow-400
             rank={rank}
             streak={streak}
             coins={coins}
+            email={userName}
             onLogout={onLogout}
             onShop={() => setShowShop(true)}
             onInventory={() => setShowInventory(true)}

@@ -18,7 +18,7 @@ type Props = {
   formulaShards: number;
   onLogout: () => void;
   onLeaderboard: () => void;
-
+  email: string;
   onShop: () => void;
   onAchievements: () => void;
 
@@ -34,6 +34,7 @@ export default function WorldSelect({
   formulaShards,
   coins,
   onLogout,
+  email,
   onShop,
   onAchievements,
   onLeaderboard,
@@ -45,6 +46,10 @@ export default function WorldSelect({
   const streakStyle =
   getStreakStyle(streak);
   const [showStreakModal, setShowStreakModal] =
+  useState(false);
+  const [darkMode, setDarkMode] =
+  useState(false);
+  const [showProfile, setShowProfile] =
   useState(false);
   const weekDays = [
   "T2",
@@ -514,14 +519,15 @@ function isActiveDay(index: number) {
 </button>
 
     <button
-      onClick={onLogout}
-      className="flex flex-col items-center"
-    >
-      <span className="text-xl">↩️</span>
-      <span className="text-[11px]">
-        Thoát
-      </span>
-    </button>
+  onClick={() => setShowProfile(true)}
+  className="flex flex-col items-center"
+>
+  <span className="text-xl">👤</span>
+
+  <span className="text-[11px]">
+    Tôi
+  </span>
+</button>
 
   </div>
 </div>
@@ -762,6 +768,149 @@ function isActiveDay(index: number) {
       >
         Đã hiểu
       </button>
+    </div>
+  </div>
+)}
+
+{showProfile && (
+  <div
+    onClick={() => setShowProfile(false)}
+    className="
+      fixed
+      inset-0
+      bg-black/70
+      flex
+      items-center
+      justify-center
+      z-[999]
+      px-4
+    "
+  >
+    <div
+      onClick={(e) => e.stopPropagation()}
+      className="
+        w-full
+        max-w-md
+        bg-white
+        rounded-3xl
+        p-6
+        shadow-2xl
+      "
+    >
+      {/* Header */}
+      <div className="flex justify-between items-center">
+
+        <h2 className="text-2xl font-black">
+          👤 Hồ sơ
+        </h2>
+
+        <button
+          onClick={() => setShowProfile(false)}
+          className="
+            w-8
+            h-8
+            rounded-full
+            bg-gray-200
+          "
+        >
+          ✕
+        </button>
+
+      </div>
+
+      {/* Avatar */}
+      <div className="text-center mt-6">
+
+        <div className="text-6xl">
+          👨‍🎓
+        </div>
+
+        <h3 className="font-bold text-xl mt-2">
+  {email}
+</h3>
+
+      </div>
+
+      {/* Menu */}
+      <div className="mt-6 space-y-3">
+
+        <button
+          className="
+            w-full
+            bg-slate-100
+            p-4
+            rounded-xl
+            text-left
+            font-semibold
+          "
+        >
+          📧 Email
+        </button>
+
+        <button
+          className="
+            w-full
+            bg-slate-100
+            p-4
+            rounded-xl
+            text-left
+            font-semibold
+          "
+        >
+          🔒 Mật khẩu
+        </button>
+
+        <button
+          className="
+            w-full
+            bg-slate-100
+            p-4
+            rounded-xl
+            text-left
+            font-semibold
+          "
+        >
+          🛡️ Quyền riêng tư
+        </button>
+
+        <button
+  onClick={() =>
+    setDarkMode(!darkMode)
+  }
+  className="
+    w-full
+    bg-slate-100
+    p-4
+    rounded-xl
+    flex
+    justify-between
+  "
+>
+  <span>🌙 Chế độ tối</span>
+
+  <span>
+    {darkMode ? "Bật" : "Tắt"}
+  </span>
+</button>
+      </div>
+
+      {/* Logout */}
+      <button
+        onClick={onLogout}
+        className="
+          mt-6
+          w-full
+          bg-red-500
+          hover:bg-red-600
+          text-white
+          py-3
+          rounded-xl
+          font-bold
+        "
+      >
+        🚪 Đăng xuất
+      </button>
+
     </div>
   </div>
 )}
