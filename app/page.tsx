@@ -867,6 +867,7 @@ async function updateStreak(userId: string) {
 }
   // Các useEffect đồng bộ LocalStorage
   useEffect(() => {
+    if (!currentUserId) return;
     if (typeof window !== "undefined") {
       const savedProgress = 
       localStorage.getItem(
@@ -893,33 +894,35 @@ if (rewardDate === today) {
 } else {
   setDailyRewardClaimed(false);
 }
-      const lastLogin = 
-      localStorage.getItem(
-  `lastLogin_${currentUserId}`
-)
-      if (lastLogin !== today) {
+      const lastLogin =
+  localStorage.getItem(
+    `lastLogin_${currentUserId}`
+  );
 
-  // Thưởng đăng nhập
+if (!lastLogin) {
+
+  localStorage.setItem(
+    `lastLogin_${currentUserId}`,
+    today
+  );
+
+}
+else if (lastLogin !== today) {
+
   setCoins(prev => prev + 50);
 
-  // Reset Daily Quest
   setDailyProgress(0);
 
   setDailyRewardClaimed(false);
 
   localStorage.removeItem(
-  `dailyRewardDate_${currentUserId}`
-);
-
-  const key =
-  `daily_task_progress_${currentUserId}`;
+    `dailyRewardDate_${currentUserId}`
+  );
 
   localStorage.setItem(
-  `lastLogin_${currentUserId}`,
-  today
-);
-
-  setMessage("🎁 Đăng nhập nhận 50 Coin");
+    `lastLogin_${currentUserId}`,
+    today
+  );
 }
 
       
@@ -936,7 +939,7 @@ if (rewardDate === today) {
 }
       
     }
-  }, []);
+  }, [currentUserId]);
 
   
 
