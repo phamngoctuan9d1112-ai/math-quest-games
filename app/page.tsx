@@ -573,7 +573,7 @@ useEffect(() => {
       62:1
     }
   );
-}, []);
+}, [currentUserId]);
 
 useEffect(() => {
   if (selectedWorld !== null) return;

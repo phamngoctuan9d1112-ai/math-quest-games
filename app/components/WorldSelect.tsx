@@ -505,7 +505,7 @@ function isActiveDay(index: number) {
       }
     `}
   >
-    🧩 {formulaShards}
+    🔥 {streak}
   </span>
 
   <span className="text-[11px]">
