@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import confetti from "canvas-confetti";
+import { unlockAchievement } from "./lib/achievement";
 import { trackEvent } from "./lib/analytics";
 import XPBar from "./components/XPBar";
 import { playSound } from "./lib/sound";
@@ -208,6 +209,7 @@ export default function Home() {
   const [dailyRewardClaimed, setDailyRewardClaimed] = useState<boolean>(false);
   const [newWorldUnlocked, setNewWorldUnlocked] = useState<number | null>(null);
   const [unlockedWorlds, setUnlockedWorlds] = useState([1, 27, 62]);
+  const [unlockedAchievements, setUnlockedAchievements] = useState<number[]>([]);
   const [selectedWorld, setSelectedWorld] = useState<number | null>(null);
   const [showTFAnswer, setShowTFAnswer] = useState(false);
   const [weapon, setWeapon] = useState("🪵");
@@ -466,6 +468,55 @@ console.log("SAVE AVATAR =", avatar);
   .eq("id", user.id);
 }
 
+async function loadAchievements() {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) return;
+
+  const { data } = await supabase
+    .from("player_achievements")
+    .select("achievement_id")
+    .eq("user_id", user.id);
+
+  setUnlockedAchievements(
+    data?.map(
+      (a) => a.achievement_id
+    ) || []
+  );
+}
+
+async function checkAchievements(
+  currentXP: number,
+  currentWorld: number
+) {
+  for (const achievement of achievements) {
+
+    // Achievement theo XP
+    if (
+      achievement.xpRequired &&
+      currentXP >= achievement.xpRequired
+    ) {
+      await unlockAchievement(
+        achievement.id
+      );
+    }
+
+    // Achievement theo World
+    if (
+      achievement.condition &&
+      achievement.condition(currentWorld)
+    ) {
+      await unlockAchievement(
+        achievement.id
+      );
+    }
+  }
+}
+
+
+
   const question = (current < questions.length ? questions[current] : null) as any;
 
   console.log("questions.length =", questions.length);
@@ -526,6 +577,10 @@ useEffect(() => {
 ]);
 
 const prevLevel = useRef(level);
+
+useEffect(() => {
+  loadAchievements();
+}, []);
 
 useEffect(() => {
   if (level > prevLevel.current) {
@@ -1058,7 +1113,13 @@ setTimeout(() => {
     );
 
     const newXP = xp + 10;
-    setXp(newXP);
+
+setXp(newXP);
+
+await checkAchievements(
+  newXP,
+  selectedWorld || 0
+);
 
     let reward = 5;
 
@@ -1198,6 +1259,11 @@ setMascotMessage(
 await trackEvent(
   "world_complete",
   selectedWorld || undefined
+);
+
+await checkAchievements(
+  xp,
+  selectedWorld || 0
 );
 
 setShowVictory(true);
