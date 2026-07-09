@@ -2,7 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { createBrowserClient } from "@supabase/ssr";
-
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip
+} from "recharts";
 
 const supabase = createBrowserClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -36,6 +43,8 @@ async function trackEvent(
   }
 }
 
+
+
 export default function AdminPage() {
   const [players, setPlayers] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -44,13 +53,8 @@ export default function AdminPage() {
   const [authorized, setAuthorized] = useState(false);
 const [checkingAuth, setCheckingAuth] = useState(true);
 
-async function loadEvents() {
-  const { data } = await supabase
-    .from("player_events")
-    .select("*");
 
-  setEvents(data || []);
-}
+
 
   async function loadPlayers() {
     const { data, error } = await supabase
@@ -73,12 +77,14 @@ async function loadEvents() {
 
 useEffect(() => {
   if (authorized) {
-    loadEvents();
     loadPlayers();
+    loadEvents();
   }
 }, [authorized]);
 
-const worldStats: Record<number, number> = {};
+
+
+  const worldStats: Record<number, number> = {};
 
 events.forEach((e) => {
   if (
@@ -90,17 +96,40 @@ events.forEach((e) => {
   }
 });
 
-  const totalPlayers = players.length;
 
-  const totalXP = players.reduce(
-    (sum, p) => sum + (p.xp || 0),
-    0
+
+const totalPlayers = players.length;
+
+const totalXP = players.reduce(
+  (sum, p) => sum + (p.xp || 0),
+  0
+);
+
+const totalCoins = players.reduce(
+  (sum, p) => sum + (p.coins || 0),
+  0
+);
+
+const worldChartData =
+  Object.entries(worldStats).map(
+    ([world, count]) => ({
+      world: `World ${world}`,
+      count,
+    })
   );
 
-  const totalCoins = players.reduce(
-    (sum, p) => sum + (p.coins || 0),
-    0
-  );
+  async function loadEvents() {
+  const { data, error } = await supabase
+    .from("player_events")
+    .select("*");
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  setEvents(data || []);
+}
 
   async function checkAdmin() {
   const {
@@ -178,23 +207,8 @@ if (!authorized) {
           </div>
           <div>Tổng Coin</div>
         </div>
-        <div className="bg-slate-800 rounded-2xl p-6 mt-8">
-  <h2 className="text-3xl font-bold mb-4">
-    🌎 World phổ biến
-  </h2>
+        
 
-  {Object.entries(worldStats)
-    .sort((a, b) => Number(b[1]) - Number(a[1]))
-    .map(([world, count]) => (
-      <div
-        key={world}
-        className="flex justify-between py-2"
-      >
-        <span>World {world}</span>
-        <span>{count} lượt hoàn thành</span>
-      </div>
-    ))}
-</div>
       </div>
 
       <div className="bg-slate-800 rounded-2xl p-6">
@@ -238,6 +252,63 @@ if (!authorized) {
           </div>
         )}
       </div>
+
+        <div className="bg-slate-800 rounded-2xl p-6 mt-8">
+  <h2 className="text-3xl font-bold mb-5">
+    📊 World phổ biến nhất
+  </h2>
+
+  <div className="h-80">
+    <ResponsiveContainer width="100%" height="100%">
+      <BarChart data={worldChartData}>
+        <XAxis dataKey="world" />
+        <YAxis />
+        <Tooltip />
+        <Bar dataKey="count" />
+      </BarChart>
+    </ResponsiveContainer>
+  </div>
+</div>
+
+<div className="bg-slate-800 rounded-2xl p-6 mt-8">
+  <h2 className="text-3xl font-bold mb-5">
+    📜 Event Log
+  </h2>
+
+  <div className="space-y-2">
+    {events
+      .slice()
+      .reverse()
+      .slice(0, 30)
+      .map((event) => (
+        <div
+          key={event.id}
+          className="
+            bg-slate-700
+            rounded-lg
+            p-3
+          "
+        >
+          <div>
+            {event.event_type}
+          </div>
+
+          {event.world_id && (
+            <div>
+              World {event.world_id}
+            </div>
+          )}
+
+          <div className="text-xs text-slate-400">
+            {new Date(
+              event.created_at
+            ).toLocaleString()}
+          </div>
+        </div>
+      ))}
+  </div>
+</div>
+
     </main>
   );
 }
