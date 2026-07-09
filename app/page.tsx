@@ -388,7 +388,7 @@ const [currentUserId, setCurrentUserId] =
           62: 1,
         }
       );
-
+      console.log("LOAD AVATAR =", data.avatar);
       setAvatar(data.avatar || "🧑");
       setWeapon(data.weapon || "🪵");
       setPet(data.pet || "🥚");
@@ -440,7 +440,7 @@ async function updateCoins(newCoins: number) {
 
 async function saveProgress() {
 
-
+console.log("SAVE AVATAR =", avatar);
 
   const {
     data: { user },
