@@ -883,6 +883,15 @@ async function updateStreak(userId: string) {
       }
       const today = new Date().toDateString();
 
+     
+     const savedAvatar =
+  localStorage.getItem(
+    `avatar_${currentUserId}`
+  );
+
+if (savedAvatar) {
+  setAvatar(savedAvatar);
+}
       // Kiểm tra đã nhận thưởng Daily Quest hôm nay chưa
 const rewardDate = 
 localStorage.getItem(
@@ -1770,6 +1779,9 @@ text-yellow-400
             streak={streak}
             coins={coins}
             email={userName}
+            userName={userName}
+            avatar={avatar}
+            setAvatar={setAvatar}
             onLogout={onLogout}
             onShop={() => setShowShop(true)}
             onInventory={() => setShowInventory(true)}
