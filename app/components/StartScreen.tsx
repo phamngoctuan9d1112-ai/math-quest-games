@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { supabase } from "../lib/supabase";
 
 interface StartScreenProps {
   onStart: () => void;
@@ -16,10 +17,53 @@ export default function StartScreen({
   onLogout,
 }: StartScreenProps) {
   const [showGuide, setShowGuide] = useState(false);
-  const [showLogin, setShowLogin] =
+  const [showAuthModal, setShowAuthModal] =
   useState(false);
+  const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+
+const handleSignUp = async () => {
+    const { error } =
+      await supabase.auth.signUp({
+        email,
+        password,
+      });
+
+    if (error) {
+      alert(error.message);
+      return;
+    }
+
+    alert(
+      "Đăng ký thành công. Kiểm tra email xác thực."
+    );
+  };
+
+  const handleLogin = async () => {
+    const { error } =
+      await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+    if (error) {
+      alert(error.message);
+      return;
+    }
+
+    window.location.reload();
+  };
+
+  const handleGoogleLogin = async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: "google",
+    });
+  };
+
   return (
     <>
+
+    
       <div
   className="
   relative
@@ -216,7 +260,7 @@ export default function StartScreen({
   </button>
 ) : (
   <button
-  onClick={() => setShowLogin(true)}
+  onClick={() => setShowAuthModal(true)}
   className="
   flex-1
   py-4
@@ -331,6 +375,130 @@ export default function StartScreen({
 
         </div>
       )}
+
+      {showAuthModal && (
+  <div
+    className="
+      fixed
+      inset-0
+      bg-black/70
+      flex
+      items-center
+      justify-center
+      z-50
+    "
+  >
+    <div
+      className="
+        bg-white
+        rounded-3xl
+        p-6
+        w-full
+        max-w-md
+      "
+    >
+      <h2
+        className="
+          text-2xl
+          font-bold
+          mb-4
+          text-center
+        "
+      >
+        🚀 Đăng nhập
+      </h2>
+
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) =>
+          setEmail(e.target.value)
+        }
+        className="
+          w-full
+          border
+          p-3
+          rounded-xl
+          mb-3
+        "
+      />
+
+      <input
+        type="password"
+        placeholder="Mật khẩu"
+        value={password}
+        onChange={(e) =>
+          setPassword(e.target.value)
+        }
+        className="
+          w-full
+          border
+          p-3
+          rounded-xl
+          mb-4
+        "
+      />
+
+      <button
+        onClick={handleLogin}
+        className="
+          w-full
+          bg-blue-500
+          text-white
+          py-3
+          rounded-xl
+          mb-3
+        "
+      >
+        Đăng nhập
+      </button>
+
+      <button
+        onClick={handleSignUp}
+        className="
+          w-full
+          bg-green-500
+          text-white
+          py-3
+          rounded-xl
+          mb-3
+        "
+      >
+        Đăng ký
+      </button>
+
+      <button
+        onClick={handleGoogleLogin}
+        className="
+          w-full
+          bg-red-500
+          text-white
+          py-3
+          rounded-xl
+          mb-3
+        "
+      >
+        Google
+      </button>
+
+      <button
+        onClick={() =>
+          setShowAuthModal(false)
+        }
+        className="
+          w-full
+          bg-gray-300
+          py-3
+          rounded-xl
+        "
+      >
+        Đóng
+      </button>
+    </div>
+  </div>
+)}
+
     </>
   );
 }
