@@ -709,6 +709,20 @@ useEffect(() => {
 }, [isLoggedIn, selectedWorld]);
 
 useEffect(() => {
+  console.log({
+    loadingAuth,
+    dataLoaded,
+    isLoggedIn,
+    currentUserId
+  });
+}, [
+  loadingAuth,
+  dataLoaded,
+  isLoggedIn,
+  currentUserId
+]);
+
+useEffect(() => {
   if (!bgmRef.current) return;
 
   if (selectedWorld === null) {
@@ -792,10 +806,35 @@ useEffect(() => {
   const {
     data: { subscription },
   } = supabase.auth.onAuthStateChange(
-    (event, session) => {
-      if (event === "SIGNED_IN" && session?.user) {
-        setIsLoggedIn(true);
-      } else if (event === "SIGNED_OUT") {
+  async (event, session) => {
+    console.log(
+      "AUTH EVENT",
+      event,
+      session?.user?.id
+    );
+
+    if (event === "SIGNED_IN" && session?.user) {
+
+      setCurrentUserId(
+        session.user.id
+      );
+
+      setUserEmail(
+        session.user.email || ""
+      );
+
+      setUserName(
+        session.user.user_metadata?.full_name ||
+        session.user.email ||
+        "Người chơi"
+      );
+
+      setIsLoggedIn(true);
+
+      await syncData();
+
+      setDataLoaded(true);
+    } else if (event === "SIGNED_OUT") {
 
         
 
