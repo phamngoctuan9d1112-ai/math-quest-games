@@ -60,19 +60,3 @@ export const achievements = [
     condition: (world: number) => world >= 79,
   },
 ];
-async function unlockAchievement(
-  achievementId: number
-) {
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) return;
-
-  await supabase
-    .from("player_achievements")
-    .upsert({
-      user_id: user.id,
-      achievement_id: achievementId,
-    });
-}
