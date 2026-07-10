@@ -754,6 +754,12 @@ useEffect(() => {
     data: { user },
   } = await supabase.auth.getUser();
 
+  const {
+  data: { session },
+} = await supabase.auth.getSession();
+
+console.log("SESSION =", session);
+
   console.log("===== CURRENT USER =====");
 console.log(user);
 console.log("EMAIL =", user?.email);

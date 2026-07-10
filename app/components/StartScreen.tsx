@@ -13,7 +13,6 @@ interface StartScreenProps {
 export default function StartScreen({
   onStart,
   onLogin,
-  isLoggedIn,
   onLogout,
 }: StartScreenProps) {
   const [showGuide, setShowGuide] = useState(false);
@@ -21,6 +20,10 @@ export default function StartScreen({
   useState(false);
   const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
+const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+const [currentUserId, setCurrentUserId] =
+  useState<string | null>(null);
+  
 
 const handleSignUp = async () => {
     const { error } =
@@ -40,16 +43,19 @@ const handleSignUp = async () => {
   };
 
   const handleLogin = async () => {
-    const { error } =
-      await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+   const { data, error } =
+await supabase.auth.signInWithPassword({
+  email,
+  password,
+});
 
-    if (error) {
-      alert(error.message);
-      return;
-    }
+if (error) {
+  alert(error.message);
+  return;
+}
+
+setIsLoggedIn(true);
+setCurrentUserId(data.user.id);
 
     window.location.reload();
   };
