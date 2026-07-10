@@ -2,6 +2,8 @@ import { useState } from "react";
 import { worldNames } from "../data/worldNames";
 import Footer from "./Footer";
 import { useRouter } from "next/navigation";
+import { supabase } from "../lib/supabase";
+import { useEffect } from "react";
 
 type World = {
   id: number;
@@ -54,12 +56,17 @@ export default function WorldSelect({
   useState(false);
   const [darkMode, setDarkMode] =
   useState(false);
+  
   const [showPasswordModal, setShowPasswordModal] =
   useState(false);
+  const [newPassword, setNewPassword] = useState("");
+const [loadingPassword, setLoadingPassword] = useState(false);
   const [showEmail, setShowEmail] = useState(false);
   const [showProfile, setShowProfile] =
   useState(false);
   const router = useRouter();
+  const [provider, setProvider] =
+useState<string>("");
   const ADMIN_EMAIL =
   "phamngoctuan9d1112@gmail.com";
   const weekDays = [
@@ -98,6 +105,21 @@ function isActiveDay(index: number) {
     index <= todayIndex
   );
 }
+
+useEffect(() => {
+  async function getUser() {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    const p =
+      user?.app_metadata?.provider || "";
+
+    setProvider(p);
+  }
+
+  getUser();
+}, []);
 
   function getStreakStyle(streak: number) {
 
@@ -143,6 +165,34 @@ function isActiveDay(index: number) {
     bg: "bg-gray-200",
     label: "Mới bắt đầu"
   };
+}
+
+async function handleChangePassword() {
+  if (newPassword.length < 6) {
+    alert("Mật khẩu phải từ 6 ký tự trở lên");
+    return;
+  }
+
+  try {
+    setLoadingPassword(true);
+
+    const { error } =
+      await supabase.auth.updateUser({
+        password: newPassword,
+      });
+
+    if (error) throw error;
+
+    alert("Đổi mật khẩu thành công!");
+
+    setNewPassword("");
+    setShowPasswordModal(false);
+
+  } catch (err: any) {
+    alert(err.message);
+  } finally {
+    setLoadingPassword(false);
+  }
 }
 
   function renderWorldGroup(group: World[]) {
@@ -904,18 +954,22 @@ function isActiveDay(index: number) {
   </div>
 )}
 
-        <button
-  onClick={() => setShowPasswordModal(true)}
-  className="
-    w-full
-    bg-gray-200
-    py-3
-    rounded-xl
-    font-bold
-  "
->
-  🔒 Đổi mật khẩu
-</button>
+       {provider !== "google" && (
+  <button
+    onClick={() =>
+      setShowPasswordModal(true)
+    }
+    className="
+      w-full
+      bg-gray-200
+      py-3
+      rounded-xl
+      font-bold
+    "
+  >
+    🔒 Đổi mật khẩu
+  </button>
+)}
 
         <button
   onClick={() => router.push("/privacy")}
@@ -1000,28 +1054,36 @@ function isActiveDay(index: number) {
       </h2>
 
       <input
-        type="password"
-        placeholder="Mật khẩu mới"
-        className="
-          w-full
-          border
-          p-3
-          rounded-xl
-        "
-      />
+  type="password"
+  value={newPassword}
+  onChange={(e) =>
+    setNewPassword(e.target.value)
+  }
+  placeholder="Mật khẩu mới"
+  className="
+    w-full
+    border
+    p-3
+    rounded-xl
+  "
+/>
 
       <button
-        className="
-          mt-4
-          w-full
-          bg-blue-500
-          text-white
-          py-3
-          rounded-xl
-        "
-      >
-        Cập nhật
-      </button>
+  onClick={handleChangePassword}
+  disabled={loadingPassword}
+  className="
+    mt-4
+    w-full
+    bg-blue-500
+    text-white
+    py-3
+    rounded-xl
+  "
+>
+  {loadingPassword
+    ? "Đang cập nhật..."
+    : "Cập nhật"}
+</button>
 
       <button
         onClick={() =>

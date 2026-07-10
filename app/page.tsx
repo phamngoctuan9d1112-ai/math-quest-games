@@ -5,6 +5,8 @@ import confetti from "canvas-confetti";
 import { unlockAchievement } from "./lib/achievement";
 import { trackEvent } from "./lib/analytics";
 import XPBar from "./components/XPBar";
+import AuthModal
+from "./components/AuthModal";
 import { playSound } from "./lib/sound";
 import LoadingScreen from "./components/LoadingScreen";
 import StatusBar from "./components/StatusBar";
@@ -221,6 +223,11 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [shopMessage, setShopMessage] = useState("");
   const [current, setCurrent] = useState(0);
+  const [showAuthModal,
+setShowAuthModal] =
+useState(false);
+  const [showAuth,setShowAuth] =
+useState(false);
   const [avatar, setAvatar] = useState("🧑");
   const [formulaShards, setFormulaShards] = useState(0);
   const [showVictory, setShowVictory] =
@@ -534,6 +541,8 @@ console.log(
   // 3. TẤT CẢ USE EFFECT (Không được đặt dưới if return)
   // ==========================================
 
+
+  
 
 
 
@@ -1484,16 +1493,31 @@ if (showTerms) {
 }
 
 
+
+
   if (!started && !isLoggedIn) {
-    return (
-      <StartScreen 
-        onStart={() => setStarted(true)} 
-        onLogin={onLogin} 
-        isLoggedIn={isLoggedIn} 
+  return (
+    <>
+      <StartScreen
+        onStart={() =>
+          setShowAuthModal(true)
+        }
+        onLogin={onLogin}
+        isLoggedIn={isLoggedIn}
         onLogout={onLogout}
       />
-    );
-  }
+
+      {showAuthModal && (
+        <AuthModal
+          onClose={() =>
+            setShowAuthModal(false)
+          }
+        />
+      )}
+    </>
+  );
+}
+  
 
   if (showInventory) {
   return (
