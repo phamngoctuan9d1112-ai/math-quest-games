@@ -376,6 +376,8 @@ const [currentUserId, setCurrentUserId] =
       .eq("id", user.id)
       .single();
 
+      
+
     console.log("PROFILE DATA =", data);
     console.log("PROFILE ERROR =", error);
 
@@ -774,17 +776,18 @@ console.log("========================");
         "Người chơi"
       );
 
-      await supabase
-        .from("profiles")
-        .upsert({
-          id: user.id,
-          display_name:
-            user.user_metadata?.full_name ??
-            user.user_metadata?.name ??
-            user.email,
-          avatar_url:
-            user.user_metadata?.avatar_url ?? "",
-        });
+      const { error } = await supabase
+  .from("profiles")
+  .upsert({
+    id: user.id,
+    display_name:
+      user.user_metadata?.full_name ??
+      user.email,
+    avatar_url:
+      user.user_metadata?.avatar_url ?? "",
+  });
+
+console.log("UPSERT ERROR =", error);
 
       const accepted =
   localStorage.getItem(
@@ -899,6 +902,8 @@ async function updateStreak(userId: string) {
 )
     .eq("id", userId)
     .single();
+
+    
 
   if (!profile) return;
 
