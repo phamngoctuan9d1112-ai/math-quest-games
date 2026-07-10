@@ -365,6 +365,9 @@ const [currentUserId, setCurrentUserId] =
       data: { user },
     } = await supabase.auth.getUser();
 
+    console.log("SYNC USER =", user?.id);
+  console.log("SYNC EMAIL =", user?.email);
+
     if (!user) {
       setDataLoaded(true);
       return;
@@ -375,7 +378,7 @@ const [currentUserId, setCurrentUserId] =
       .select("*")
       .eq("id", user.id)
       .single();
-
+console.log("SAVE ERROR", error);
       
 
     console.log("PROFILE DATA =", data);
@@ -453,6 +456,15 @@ async function updateCoins(newCoins: number) {
 }
 
 async function saveProgress() {
+
+  console.log("SAVE PROGRESS");
+
+console.log({
+  currentUserId,
+  xp,
+  coins,
+  unlockedWorlds,
+});
 
 console.log("SAVE AVATAR =", avatar);
 
@@ -906,7 +918,7 @@ setCurrent(0);
   setCurrentUserId(null);
 }
 
-      setLoadingAuth(false);
+       setDataLoaded(true);
     }
   );
 
