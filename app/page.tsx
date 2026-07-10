@@ -214,6 +214,7 @@ export default function Home() {
   const [showTFAnswer, setShowTFAnswer] = useState(false);
   const [weapon, setWeapon] = useState("🪵");
   const [attacking, setAttacking] = useState(false);
+  const initializedRef = useRef(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [streak, setStreak] = useState(1);
   const [correctAnswer, setCorrectAnswer] = useState("");
@@ -361,59 +362,59 @@ const [currentUserId, setCurrentUserId] =
 
   async function syncData() {
   try {
+
     const {
-      data: { user },
-    } = await supabase.auth.getUser();
+      data: { session }
+    } = await supabase.auth.getSession();
 
-    console.log("SYNC USER =", user?.id);
-  console.log("SYNC EMAIL =", user?.email);
+    const user = session?.user;
 
-    if (!user) {
-      setDataLoaded(true);
-      return;
-    }
+    if (!user) return;
 
-    const { data, error } = await supabase
-      .from("profiles")
-      .select("*")
-      .eq("id", user.id)
-      .single();
-console.log("SAVE ERROR", error);
-      
-
-    console.log("PROFILE DATA =", data);
-    console.log("PROFILE ERROR =", error);
+    const { data, error } =
+      await supabase
+        .from("profiles")
+        .select("*")
+        .eq("id", user.id)
+        .single();
 
     if (error) {
       console.error(error);
       return;
     }
 
-    if (data) {
-      setXp(Number(data.xp || 0));
-      setCoins(Number(data.coins || 0));
+    if (!data) return;
 
-      setUnlockedWorlds(
-        data.unlocked_worlds || [1, 27, 62]
-      );
+    setXp(data.xp || 0);
 
-      setSubNodeProgress(
-        data.sub_node_progress || {
-          1: 1,
-          27: 1,
-          62: 1,
-        }
-      );
-      console.log("LOAD AVATAR =", data.avatar);
-      setAvatar(data.avatar || "🧑");
-      setWeapon(data.weapon || "🪵");
-      setPet(data.pet || "🥚");
-      setHearts(data.hearts || 3);
+    setCoins(data.coins || 0);
 
-      console.log("PROFILE FOUND");
-      trackEvent("login");
-    }
-  } catch (err) {
+    setUnlockedWorlds(
+      data.unlocked_worlds || [1,27,62]
+    );
+
+    setSubNodeProgress(
+      data.sub_node_progress || {
+        1:1,
+        27:1,
+        62:1
+      }
+    );
+
+    setStreak(data.streak || 1);
+
+    setFormulaShards(
+      data.formula_shards || 0
+    );
+
+    setAvatar(data.avatar || "🧑");
+    setWeapon(data.weapon || "🪵");
+    setPet(data.pet || "🥚");
+    setHearts(data.hearts || 3);
+
+    initializedRef.current = true;
+
+  } catch(err) {
     console.error(err);
   } finally {
     setDataLoaded(true);
@@ -637,35 +638,8 @@ useEffect(() => {
 
 }, [level]);
 
-useEffect(() => {
-  const saved =
-  localStorage.getItem(
-    `game_state_${currentUserId}`
-  );
-  if (!saved) return;
-
-  const data = JSON.parse(saved);
-
-  setSelectedWorld(data.selectedWorld);
-  setSelectedSubMap(data.selectedSubMap);
-  setCurrentSubNode(data.currentSubNode);
-
-  setCurrent(data.current || 0);
 
   
-
-  setUnlockedWorlds(
-    data.unlockedWorlds || [1,27,62]
-  );
-
-  setSubNodeProgress(
-    data.subNodeProgress || {
-      1:1,
-      27:1,
-      62:1
-    }
-  );
-}, [currentUserId]);
 
 useEffect(() => {
   if (selectedWorld !== null) return;
@@ -791,12 +765,10 @@ useEffect(() => {
   const checkUser = async () => {
 
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  const {
   data: { session },
 } = await supabase.auth.getSession();
+
+const user = session?.user;
 
 console.log("SESSION =", session);
 
@@ -867,9 +839,10 @@ console.log("UPSERT ERROR =", error);
       session?.user?.email
     );
 
-    if (
-  event === "SIGNED_IN" &&
-  session?.user
+   if (
+  (event === "SIGNED_IN" ||
+   event === "INITIAL_SESSION")
+  && session?.user
 ) {
   console.log(
     "SIGNED IN EMAIL =",
@@ -1151,15 +1124,12 @@ useEffect(() => {
 }, [dailyProgress, currentUserId]);
 
 useEffect(() => {
-  if (!isLoggedIn) return;
-  if (!dataLoaded) return;
 
-  if (firstLoad.current) {
-    firstLoad.current = false;
+  if (!initializedRef.current)
     return;
-  }
 
   saveProgress();
+
 }, [
   xp,
   coins,
