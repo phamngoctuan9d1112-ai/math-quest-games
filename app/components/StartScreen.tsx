@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
-
+import { useEffect } from "react";
 interface StartScreenProps {
   onStart: () => void;
   onLogin: () => void;
   isLoggedIn: boolean;
+  currentUserId: string | null;
   onLogout: () => void;
 }
 
@@ -14,16 +15,15 @@ export default function StartScreen({
   onStart,
   onLogin,
   onLogout,
+  currentUserId,
+  isLoggedIn,
 }: StartScreenProps) {
   const [showGuide, setShowGuide] = useState(false);
   const [showAuthModal, setShowAuthModal] =
   useState(false);
   const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
-const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-const [currentUserId, setCurrentUserId] =
-  useState<string | null>(null);
-  
+
 
 const handleSignUp = async () => {
     const { error } =
@@ -43,28 +43,30 @@ const handleSignUp = async () => {
   };
 
   const handleLogin = async () => {
-   const { data, error } =
-await supabase.auth.signInWithPassword({
-  email,
-  password,
-});
 
-if (error) {
-  alert(error.message);
-  return;
-}
+  await supabase.auth.signOut();
 
-setIsLoggedIn(true);
-setCurrentUserId(data.user.id);
+  const { data, error } =
+    await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-    window.location.reload();
-  };
+  if (error) {
+    alert(error.message);
+    return;
+  }
+
+  window.location.reload();
+};
 
   const handleGoogleLogin = async () => {
     await supabase.auth.signInWithOAuth({
       provider: "google",
     });
   };
+
+  
 
   return (
     <>

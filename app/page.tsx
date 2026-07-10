@@ -543,7 +543,20 @@ console.log(
 
 
   
+useEffect(() => {
+  const checkSession = async () => {
+    const { data } =
+      await supabase.auth.getSession();
 
+    setIsLoggedIn(!!data.session);
+
+    setCurrentUserId(
+      data.session?.user.id ?? null
+    );
+  };
+
+  checkSession();
+}, []);
 
 
 useEffect(() => {
@@ -691,6 +704,23 @@ useEffect(() => {
   selectedWorld,
   currentSubNode
 ]);
+
+useEffect(() => {
+  const {
+    data: { subscription },
+  } = supabase.auth.onAuthStateChange(
+    (_event, session) => {
+
+      setIsLoggedIn(!!session);
+
+      setCurrentUserId(
+        session?.user.id ?? null
+      );
+    }
+  );
+
+  return () => subscription.unsubscribe();
+}, []);
 
 useEffect(() => {
   bgmRef.current = new Audio("/sounds/bgm.mp3");
@@ -1560,6 +1590,7 @@ if (showTerms) {
           setShowAuthModal(true)
         }
         onLogin={onLogin}
+        currentUserId={currentUserId}
         isLoggedIn={isLoggedIn}
         onLogout={onLogout}
       />
