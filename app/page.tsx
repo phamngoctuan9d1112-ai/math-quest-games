@@ -822,17 +822,26 @@ console.log("UPSERT ERROR =", error);
     );
 
     if (
-      event === "SIGNED_IN" &&
-      session?.user
-    ) {
+  event === "SIGNED_IN" &&
+  session?.user
+) {
+  console.log(
+    "SIGNED IN EMAIL =",
+    session.user.email
+  );
 
-      console.log(
-        "SIGNED IN EMAIL =",
-        session.user.email
-      );
+  setCurrentUserId(
+    session.user.id
+  );
 
-      setIsLoggedIn(true);
-    }
+  setUserEmail(
+    session.user.email || ""
+  );
+
+  setIsLoggedIn(true);
+
+  setDataLoaded(true);
+}
 
     if (event === "SIGNED_OUT") {
       setIsLoggedIn(false);
