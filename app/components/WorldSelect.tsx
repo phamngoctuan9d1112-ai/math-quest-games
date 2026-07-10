@@ -335,7 +335,7 @@ function isActiveDay(index: number) {
               "
             >
               🏅
-            </button>
+            </button> 
 
             {email === ADMIN_EMAIL && (
   <button
