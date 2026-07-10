@@ -640,9 +640,7 @@ useEffect(() => {
 
   setCurrent(data.current || 0);
 
-  setXp(data.xp || 0);
-  setCoins(data.coins || 0);
-  setHearts(data.hearts || 3);
+  
 
   setUnlockedWorlds(
     data.unlockedWorlds || [1,27,62]
