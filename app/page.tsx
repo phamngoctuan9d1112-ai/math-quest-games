@@ -5,8 +5,6 @@ import confetti from "canvas-confetti";
 import { unlockAchievement } from "./lib/achievement";
 import { trackEvent } from "./lib/analytics";
 import XPBar from "./components/XPBar";
-import AuthModal
-from "./components/AuthModal";
 import { playSound } from "./lib/sound";
 import LoadingScreen from "./components/LoadingScreen";
 import StatusBar from "./components/StatusBar";
@@ -1546,13 +1544,7 @@ if (showTerms) {
         onLogout={onLogout}
       />
 
-      {showAuthModal && (
-        <AuthModal
-          onClose={() =>
-            setShowAuthModal(false)
-          }
-        />
-      )}
+      
     </>
   );
 }
