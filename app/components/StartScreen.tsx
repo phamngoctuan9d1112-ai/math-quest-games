@@ -16,7 +16,8 @@ export default function StartScreen({
   onLogout,
 }: StartScreenProps) {
   const [showGuide, setShowGuide] = useState(false);
-
+  const [showLogin, setShowLogin] =
+  useState(false);
   return (
     <>
       <div
@@ -215,7 +216,7 @@ export default function StartScreen({
   </button>
 ) : (
   <button
-  onClick={onLogin}
+  onClick={() => setShowLogin(true)}
   className="
   flex-1
   py-4
