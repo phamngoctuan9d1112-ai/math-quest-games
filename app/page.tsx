@@ -808,37 +808,31 @@ console.log("========================");
   console.log("CHECK USER START");
 
   const {
-    data: { subscription },
-  } = supabase.auth.onAuthStateChange(
-  async (event, session) => {
+  data: { subscription },
+} = supabase.auth.onAuthStateChange(
+  (event, session) => {
+
     console.log(
       "AUTH EVENT",
       event,
-      session?.user?.id
+      session?.user?.email
     );
 
-    if (event === "SIGNED_IN" && session?.user) {
+    if (
+      event === "SIGNED_IN" &&
+      session?.user
+    ) {
 
-      setCurrentUserId(
-        session.user.id
-      );
-
-      setUserEmail(
-        session.user.email || ""
-      );
-
-      setUserName(
-        session.user.user_metadata?.full_name ||
-        session.user.email ||
-        "Người chơi"
+      console.log(
+        "SIGNED IN EMAIL =",
+        session.user.email
       );
 
       setIsLoggedIn(true);
+    }
 
-      await syncData();
-
-      setDataLoaded(true);
-    } else if (event === "SIGNED_OUT") {
+    if (event === "SIGNED_OUT") {
+      setIsLoggedIn(false);
 
         
 
@@ -848,7 +842,7 @@ setCurrentSubNode(null);
 
 setCurrent(0);
 
-  setIsLoggedIn(false);
+  
 
   setXp(0);
   setCoins(0);
