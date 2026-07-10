@@ -60,6 +60,8 @@ export default function WorldSelect({
   const [showProfile, setShowProfile] =
   useState(false);
   const router = useRouter();
+  const ADMIN_EMAIL =
+  "phamngoctuan9d1112@gmail.com";
   const weekDays = [
   "T2",
   "T3",
@@ -335,13 +337,21 @@ function isActiveDay(index: number) {
               🏅
             </button>
 
-            <button
-  onClick={() => {
-    window.location.href = "/admin";
-  }}
->
-  Admin
-</button>
+            {email === ADMIN_EMAIL && (
+  <button
+    onClick={() => router.push("/admin")}
+    className="
+      bg-red-500
+      text-white
+      px-4
+      py-2
+      rounded-xl
+      font-bold
+    "
+  >
+    Admin
+  </button>
+)}
 
             <button
               onClick={onLogout}

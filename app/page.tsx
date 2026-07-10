@@ -290,6 +290,8 @@ const [showExplanation, setShowExplanation] = useState<boolean>(false);
   const [musicOn, setMusicOn] = useState(true);
   const [selectedSubMap, setSelectedSubMap] = useState<number | null>(null);
   const [currentSubNode, setCurrentSubNode] = useState<number | null>(null);
+  const [userEmail, setUserEmail] =
+  useState("");
   const [subNodeProgress, setSubNodeProgress]
 = useState<Record<number, number>>({
   1: 1,
@@ -732,6 +734,7 @@ useEffect(() => {
   console.log("USER =", user);
 
   if (user) {
+    setUserEmail(user.email || "");
     setCurrentUserId(user.id);
       console.log("USER FOUND", user);
       setCurrentUserId(user.id);
@@ -1862,7 +1865,7 @@ text-yellow-400
             rank={rank}
             streak={streak}
             coins={coins}
-            email={userName}
+            email={userEmail}
             userName={userName}
             onLogout={onLogout}
             onShop={() => setShowShop(true)}
