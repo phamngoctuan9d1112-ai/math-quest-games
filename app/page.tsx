@@ -371,6 +371,8 @@ const [currentUserId, setCurrentUserId] =
 
     if (!user) return;
 
+    console.log("CURRENT USER ID =", user?.id)
+
     const { data, error } =
       await supabase
         .from("profiles")
@@ -378,8 +380,7 @@ const [currentUserId, setCurrentUserId] =
         .eq("id", user.id)
         .single();
 
-        console.log("PROFILE DATA =", data);
-console.log("PROFILE ERROR =", error);
+        
 
     if (error) {
       console.error(error);
@@ -475,6 +476,7 @@ console.log("SAVE AVATAR =", avatar);
   const {
     data: { user },
   } = await supabase.auth.getUser();
+  
 
   if (!user) return;
 
@@ -563,6 +565,7 @@ useEffect(() => {
   const checkSession = async () => {
     const { data } =
       await supabase.auth.getSession();
+      console.log(data.session)
 
     setIsLoggedIn(!!data.session);
 
