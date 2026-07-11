@@ -805,6 +805,7 @@ console.log("========================");
       user.email,
     avatar_url:
       user.user_metadata?.avatar_url ?? "",
+    terms_accepted: false,
   });
 
   const { data: profile } =
@@ -814,10 +815,18 @@ console.log("========================");
     .eq("id", user.id)
     .single();
 
-if (!profile?.terms_accepted) {
+    console.log("PROFILE =", profile);
+console.log(
+  "terms_accepted =",
+  profile?.terms_accepted
+);
+
+if (!profile) {
   setShowTerms(true);
-} else {
+} else if (profile.terms_accepted === true) {
   setIsLoggedIn(true);
+} else {
+  setShowTerms(true);
 }
 
 
