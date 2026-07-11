@@ -378,6 +378,9 @@ const [currentUserId, setCurrentUserId] =
         .eq("id", user.id)
         .single();
 
+        console.log("PROFILE DATA =", data);
+console.log("PROFILE ERROR =", error);
+
     if (error) {
       console.error(error);
       return;
