@@ -499,7 +499,9 @@ console.log("SAVE AVATAR =", avatar);
     weapon,
     pet,
     hearts,
+    terms_accepted: true,
   })
+  
   .eq("id", user.id);
 }
 
@@ -796,40 +798,51 @@ console.log("========================");
         "Người chơi"
       );
 
-     await supabase
-  .from("profiles")
-  .upsert({
-    id: user.id,
-    display_name:
-      user.user_metadata?.full_name ??
-      user.email,
-    avatar_url:
-      user.user_metadata?.avatar_url ?? "",
-    terms_accepted: false,
-  });
-
-  const { data: profile } =
+     const { error: upsertError } =
   await supabase
     .from("profiles")
-    .select("terms_accepted")
-    .eq("id", user.id)
-    .single();
+    .upsert({
+      id: user.id,
+      display_name:
+        user.user_metadata?.full_name ??
+        user.email,
+      avatar_url:
+        user.user_metadata?.avatar_url ?? "",
+      terms_accepted: false,
+    });
 
-    console.log("PROFILE =", profile);
 console.log(
-  "terms_accepted =",
-  profile?.terms_accepted
+  "UPSERT ERROR =",
+  upsertError
 );
 
+  const { data: profile } = await supabase
+  .from("profiles")
+  .select("terms_accepted")
+  .eq("id", user.id)
+  .maybeSingle();
+
 if (!profile) {
-  setShowTerms(true);
-} else if (profile.terms_accepted === true) {
-  setIsLoggedIn(true);
-} else {
+  await supabase
+    .from("profiles")
+    .insert({
+      id: user.id,
+      display_name:
+        user.user_metadata?.full_name ??
+        user.email,
+      avatar_url:
+        user.user_metadata?.avatar_url ?? "",
+      terms_accepted: false,
+    });
+
   setShowTerms(true);
 }
-
-
+else if (!profile.terms_accepted) {
+  setShowTerms(true);
+}
+else {
+  setIsLoggedIn(true);
+}
 
 
 
