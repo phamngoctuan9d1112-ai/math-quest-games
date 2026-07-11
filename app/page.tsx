@@ -587,46 +587,38 @@ useEffect(() => {
 
 
 useEffect(() => {
-
   if (!currentUserId) return;
 
-  localStorage.setItem(
-    `game_state_${currentUserId}`,
-    JSON.stringify({
-      selectedWorld,
-      selectedSubMap,
-      currentSubNode,
-
-      current,
-
-      xp,
-      coins,
-      hearts,
-
-      unlockedWorlds,
-
-      subNodeProgress,
-    })
+  const saved = localStorage.getItem(
+    `game_state_${currentUserId}`
   );
 
-}, [
-  selectedWorld,
-  selectedSubMap,
-  currentSubNode,
+  if (!saved) return;
 
-  current,
+  try {
+    const state = JSON.parse(saved);
 
-  xp,
-  coins,
-  hearts,
+    setSelectedWorld(
+      state.selectedWorld
+    );
 
-  unlockedWorlds,
+    setSelectedSubMap(
+      state.selectedSubMap
+    );
 
-  subNodeProgress,
+    setCurrentSubNode(
+      state.currentSubNode
+    );
 
-  currentUserId
-]);
+    setCurrent(
+      state.current || 0
+    );
 
+  } catch (err) {
+    console.error(err);
+  }
+
+}, [currentUserId]);
 const prevLevel = useRef(level);
 
 useEffect(() => {
