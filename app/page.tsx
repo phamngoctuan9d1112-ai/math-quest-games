@@ -361,39 +361,86 @@ const [currentUserId, setCurrentUserId] =
 
 
   async function syncData() {
- console.log("SYNC DATA START");
 
-    try {
+  console.log("========== SYNC DATA START ==========");
 
-    const {
-      data: { session }
-    } = await supabase.auth.getSession();
+  try {
+
+    const sessionResult =
+      await supabase.auth.getSession();
+
+    console.log(
+      "SESSION RESULT =",
+      sessionResult
+    );
+
+    const session =
+      sessionResult.data.session;
+
+    console.log(
+      "SESSION =",
+      session
+    );
 
     const user = session?.user;
 
-    if (!user) return;
+    console.log(
+      "USER IN SYNC =",
+      user
+    );
+
+    if (!user) {
+      console.log(
+        "NO USER -> RETURN"
+      );
+      return;
+    }
+
+    console.log(
+      "CURRENT USER ID =",
+      user.id
+    );
 
     console.log("BEFORE QUERY");
 
-    const { data, error } =
+    const result =
       await supabase
         .from("profiles")
         .select("*")
         .eq("id", user.id)
         .single();
 
-        console.log("AFTER QUERY");
+    console.log("AFTER QUERY");
 
+    console.log(
+      "QUERY RESULT =",
+      result
+    );
 
-
-        
+    const {
+      data,
+      error
+    } = result;
 
     if (error) {
-      console.error(error);
+      console.error(
+        "QUERY ERROR =",
+        error
+      );
       return;
     }
 
-    if (!data) return;
+    if (!data) {
+      console.log(
+        "NO PROFILE DATA"
+      );
+      return;
+    }
+
+    console.log(
+      "PROFILE DATA =",
+      data
+    );
 
     setXp(data.xp || 0);
 
@@ -425,8 +472,18 @@ const [currentUserId, setCurrentUserId] =
     initializedRef.current = true;
 
   } catch(err) {
-    console.error(err);
+
+    console.error(
+      "SYNC DATA CRASH =",
+      err
+    );
+
   } finally {
+
+    console.log(
+      "SYNC DATA FINALLY"
+    );
+
     setDataLoaded(true);
   }
 }
@@ -762,18 +819,10 @@ useEffect(() => {
 }, [selectedWorld]);
 
   useEffect(() => {
-    console.log(
-    "CURRENT USER ID EFFECT =",
-    currentUserId
-  );
-
-  if (!currentUserId) return;
-
-   console.log("CALLING SYNC DATA");
-
+  if (!isLoggedIn) return;
 
   syncData();
-}, [currentUserId]);
+}, [isLoggedIn]);
 
   useEffect(() => {
   const checkUser = async () => {
