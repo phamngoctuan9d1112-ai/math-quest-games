@@ -361,7 +361,9 @@ const [currentUserId, setCurrentUserId] =
 
 
   async function syncData() {
-  try {
+ console.log("SYNC DATA START");
+
+    try {
 
     const {
       data: { session }
