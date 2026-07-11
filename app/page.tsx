@@ -796,7 +796,7 @@ console.log("========================");
         "Người chơi"
       );
 
-     const result = await supabase
+     await supabase
   .from("profiles")
   .upsert({
     id: user.id,
@@ -805,21 +805,27 @@ console.log("========================");
       user.email,
     avatar_url:
       user.user_metadata?.avatar_url ?? "",
+    terms_accepted: false,
   });
 
-console.log("UPSERT RESULT =", result);
+  const { data: profile } =
+  await supabase
+    .from("profiles")
+    .select("terms_accepted")
+    .eq("id", user.id)
+    .single();
+
+if (!profile?.terms_accepted) {
+  setShowTerms(true);
+} else {
+  setIsLoggedIn(true);
+}
 
 
 
-      const accepted =
-  localStorage.getItem(
-    `accepted_terms_${user.id}`
-  );
-      if (!accepted) {
-        setShowTerms(true);
-      } else {
-        setIsLoggedIn(true);
-      }
+
+
+     
       setDataLoaded(true);
     }
      
@@ -1539,22 +1545,23 @@ console.log({
 if (showTerms) {
   return (
     <TermsModal
-      onAccept={() => {
+      onAccept={async () => {
 
-  if (!currentUserId) return;
+        if (!currentUserId) return;
 
-  localStorage.setItem(
-    `accepted_terms_${currentUserId}`,
-    "true"
-  );
+        await supabase
+          .from("profiles")
+          .update({
+            terms_accepted: true,
+          })
+          .eq("id", currentUserId);
 
-  setShowTerms(false);
-  setIsLoggedIn(true);
-}}
+        setShowTerms(false);
+        setIsLoggedIn(true);
+      }}
     />
   );
 }
-
 
 
 
