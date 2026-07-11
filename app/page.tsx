@@ -360,90 +360,42 @@ const [currentUserId, setCurrentUserId] =
 })();
 
 
-  async function syncData() {
+  async function syncData(userId: string) {
 
-  console.log("========== SYNC DATA START ==========");
+  console.log("SYNC DATA START");
 
   try {
 
-    const sessionResult =
-      await supabase.auth.getSession();
-
     console.log(
-      "SESSION RESULT =",
-      sessionResult
+      "LOADING PROFILE FOR",
+      userId
     );
 
-    const session =
-      sessionResult.data.session;
-
-    console.log(
-      "SESSION =",
-      session
-    );
-
-    const user = session?.user;
-
-    console.log(
-      "USER IN SYNC =",
-      user
-    );
-
-    if (!user) {
-      console.log(
-        "NO USER -> RETURN"
-      );
-      return;
-    }
-
-    console.log(
-      "CURRENT USER ID =",
-      user.id
-    );
-
-    console.log("BEFORE QUERY");
-
-    const result =
+    const { data, error } =
       await supabase
         .from("profiles")
         .select("*")
-        .eq("id", user.id)
+        .eq("id", userId)
         .single();
-
-    console.log("AFTER QUERY");
-
-    console.log(
-      "QUERY RESULT =",
-      result
-    );
-
-    const {
-      data,
-      error
-    } = result;
-
-    if (error) {
-      console.error(
-        "QUERY ERROR =",
-        error
-      );
-      return;
-    }
-
-    if (!data) {
-      console.log(
-        "NO PROFILE DATA"
-      );
-      return;
-    }
 
     console.log(
       "PROFILE DATA =",
       data
     );
 
-    setXp(data.xp || 0);
+    console.log(
+      "PROFILE ERROR =",
+      error
+    );
 
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    if (!data) return;
+
+    setXp(data.xp || 0);
     setCoins(data.coins || 0);
 
     setUnlockedWorlds(
@@ -473,21 +425,14 @@ const [currentUserId, setCurrentUserId] =
 
   } catch(err) {
 
-    console.error(
-      "SYNC DATA CRASH =",
-      err
-    );
+    console.error(err);
 
   } finally {
 
-    console.log(
-      "SYNC DATA FINALLY"
-    );
-
     setDataLoaded(true);
+
   }
 }
-  
 
   async function updateXP(newXP: number) {
   const {
@@ -819,10 +764,12 @@ useEffect(() => {
 }, [selectedWorld]);
 
   useEffect(() => {
-  if (!isLoggedIn) return;
 
-  syncData();
-}, [isLoggedIn]);
+  if (!currentUserId) return;
+
+  syncData(currentUserId);
+
+}, [currentUserId]);
 
   useEffect(() => {
   const checkUser = async () => {
