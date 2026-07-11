@@ -373,7 +373,7 @@ const [currentUserId, setCurrentUserId] =
 
     if (!user) return;
 
-    console.log("CURRENT USER ID =", user?.id)
+    console.log("BEFORE QUERY");
 
     const { data, error } =
       await supabase
@@ -382,8 +382,9 @@ const [currentUserId, setCurrentUserId] =
         .eq("id", user.id)
         .single();
 
-        console.log("USER:", user)
-console.log("PROFILE:", data)
+        console.log("AFTER QUERY");
+
+
 
         
 
@@ -627,8 +628,10 @@ useEffect(() => {
 const prevLevel = useRef(level);
 
 useEffect(() => {
-  loadAchievements();
-}, []);
+  if (currentUserId) {
+    loadAchievements();
+  }
+}, [currentUserId]);
 
 useEffect(() => {
   if (level > prevLevel.current) {
@@ -805,7 +808,7 @@ console.log("========================");
         "Người chơi"
       );
 
-      const { error } = await supabase
+     const result = await supabase
   .from("profiles")
   .upsert({
     id: user.id,
@@ -816,7 +819,9 @@ console.log("========================");
       user.user_metadata?.avatar_url ?? "",
   });
 
-console.log("UPSERT ERROR =", error);
+console.log("UPSERT RESULT =", result);
+
+
 
       const accepted =
   localStorage.getItem(
