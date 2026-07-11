@@ -805,7 +805,6 @@ console.log("========================");
       user.email,
     avatar_url:
       user.user_metadata?.avatar_url ?? "",
-    terms_accepted: false,
   });
 
   const { data: profile } =
