@@ -848,11 +848,6 @@ console.log("UPSERT RESULT =", result);
    event === "INITIAL_SESSION")
   && session?.user
 ) {
-  console.log(
-    "SIGNED IN EMAIL =",
-    session.user.email
-  );
-
   setCurrentUserId(
     session.user.id
   );
@@ -860,10 +855,6 @@ console.log("UPSERT RESULT =", result);
   setUserEmail(
     session.user.email || ""
   );
-
-  setIsLoggedIn(true);
-
-  setDataLoaded(true);
 }
 
     if (event === "SIGNED_OUT") {
@@ -1549,12 +1540,13 @@ if (showTerms) {
   return (
     <TermsModal
       onAccept={() => {
+
+  if (!currentUserId) return;
+
   localStorage.setItem(
     `accepted_terms_${currentUserId}`,
     "true"
   );
-
-  startBackgroundMusic();
 
   setShowTerms(false);
   setIsLoggedIn(true);
