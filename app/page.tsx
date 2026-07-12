@@ -928,19 +928,25 @@ if (!finalProfile) {
   const {
   data: { subscription },
 } = 
-  supabase.auth.onAuthStateChange(async(event,session)=>{
+supabase.auth.onAuthStateChange(async (event, session) => {
 
-    console.log(event);
+    console.log("AUTH EVENT =", event);
 
-    if(session?.user){
+    if (session?.user) {
 
-        
-         setCurrentUserId(session.user.id);
+        console.log("SIGNED USER =", session.user.id);
+
+        console.log("BEFORE CREATE PROFILE");
+
+        await createProfileIfNeeded(session.user);
+
+        console.log("AFTER CREATE PROFILE");
+
+        setCurrentUserId(session.user.id);
 
         setUserEmail(session.user.email ?? "");
 
         setIsLoggedIn(true);
-
     }
 
     if(event==="SIGNED_OUT"){
