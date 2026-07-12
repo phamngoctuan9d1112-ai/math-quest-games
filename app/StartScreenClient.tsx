@@ -1,12 +1,8 @@
+
+
 'use client'
 
-import { createClient } from '@supabase/supabase-js' // Hoặc từ file utils/supabase/client của bạn nếu có
-
-// Khởi tạo nhanh client ở phía trình duyệt để gọi hàm đăng nhập
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
+import { supabase } from '@/app/lib/supabase'
 
 interface StartScreenProps {
   isLoggedIn: boolean
