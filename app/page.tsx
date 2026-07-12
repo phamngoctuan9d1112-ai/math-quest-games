@@ -827,6 +827,8 @@ useEffect(() => {
   useEffect(() => {
   const checkUser = async () => {
 
+    console.log("========== CHECK USER START ==========");
+
   const {
   data: { session },
 } = await supabase.auth.getSession();
