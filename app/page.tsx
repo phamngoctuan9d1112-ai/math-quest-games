@@ -908,27 +908,17 @@ if (!profile) {
 }
 
 if (!profile) {
-  await supabase
-    .from("profiles")
-    .insert({
-      id: user.id,
-      display_name:
-        user.user_metadata?.full_name ??
-        user.email,
-      avatar_url:
-        user.user_metadata?.avatar_url ?? "",
-      terms_accepted: false,
-    });
-
-  setShowTerms(true);
-}
-else if (!profile.terms_accepted) {
-  setShowTerms(true);
+  console.log("Profile chưa tồn tại");
 }
 else {
+  console.log("terms =", profile.terms_accepted);
 
-   await createProfileIfNeeded(user);
-  setIsLoggedIn(true);
+  if (profile.terms_accepted) {
+    setShowTerms(false);
+    setIsLoggedIn(true);
+  } else {
+    setShowTerms(true);
+  }
 }
 
 
@@ -1629,15 +1619,25 @@ if (showTerms) {
 
         if (!currentUserId) return;
 
-        await supabase
-          .from("profiles")
-          .update({
-            terms_accepted: true,
-          })
-          .eq("id", currentUserId);
+        const { error } = await supabase
+.from("profiles")
+.update({
+    terms_accepted: true,
+})
+.eq("id", currentUserId);
 
-        setShowTerms(false);
-        setIsLoggedIn(true);
+console.log(error);
+
+const { data } = await supabase
+.from("profiles")
+.select("terms_accepted")
+.eq("id", currentUserId)
+.single();
+
+console.log(data);
+
+setShowTerms(false);
+setIsLoggedIn(true);
       }}
     />
   );
