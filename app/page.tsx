@@ -840,6 +840,40 @@ console.log("ERROR =", error);
   .eq("id", user.id)
   .maybeSingle();
 
+  
+
+console.log(profile)
+console.log(error)
+
+let finalProfile = profile;
+
+if (!profile) {
+  console.log("CREATE PROFILE");
+
+  const { data: newProfile, error: insertError } =
+    await supabase
+      .from("profiles")
+      .insert({
+        id: user.id,
+        email: user.email,
+        display_name:
+          user.user_metadata?.full_name ??
+          user.user_metadata?.name ??
+          "",
+        avatar_url:
+          user.user_metadata?.avatar_url ??
+          "",
+        accepted_terms: false,
+      })
+      .select()
+      .single();
+
+  console.log(newProfile);
+  console.log(insertError);
+
+  finalProfile = newProfile;
+}
+
 if (!profile) {
   await supabase
     .from("profiles")
