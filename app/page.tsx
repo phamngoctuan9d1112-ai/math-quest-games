@@ -432,7 +432,83 @@ const [currentUserId, setCurrentUserId] =
   }
 }
 
+async function createProfileIfNeeded(user:any){
 
+    const { data: profile } =
+    await supabase
+    .from("profiles")
+    .select("*")
+    .eq("id",user.id)
+    .maybeSingle();
+
+    if(profile?.terms_accepted){
+
+    setShowTerms(false);
+
+    setIsLoggedIn(true);
+
+}else{
+
+    setShowTerms(true);
+
+}
+
+    if(profile){
+
+        if(!profile.terms_accepted){
+
+            setShowTerms(true);
+
+        }
+
+        return;
+
+    }
+
+    const { error } =
+    await supabase
+    .from("profiles")
+    .insert({
+
+        id:user.id,
+
+        display_name:
+            user.user_metadata?.full_name ??
+            user.email,
+
+        avatar_url:
+            user.user_metadata?.avatar_url ??
+            "",
+
+        xp:0,
+
+        coins:0,
+
+        hearts:3,
+
+        streak:1,
+
+        best_streak:1,
+
+        formula_shards:0,
+
+        unlocked_worlds:[1,27,62],
+
+        sub_node_progress:{
+            1:1,
+            27:1,
+            62:1
+        },
+
+        terms_accepted:false
+
+    });
+
+    console.log(error);
+
+    setShowTerms(true);
+
+}
 
   async function updateXP(newXP: number) {
   const {
@@ -499,7 +575,7 @@ console.log("SAVE AVATAR =", avatar);
     weapon,
     pet,
     hearts,
-    terms_accepted: true,
+    
   })
   
   .eq("id", user.id);
@@ -756,6 +832,13 @@ console.log("========================");
   console.log("USER =", user);
 
   if (user) {
+    await createProfileIfNeeded(user);
+    const { data: profile } =
+await supabase
+.from("profiles")
+.select("terms_accepted")
+.eq("id",user.id)
+.single();
     setUserEmail(user.email || "");
     setCurrentUserId(user.id);
       console.log("USER FOUND", user);
@@ -769,57 +852,18 @@ console.log("========================");
         "Người chơi"
       );
 
-      const {
-  data: { session },
-} = await supabase.auth.getSession();
-
-console.log(session);
-
-     const { data, error } = await supabase
-  .from("profiles")
-  .upsert(
-    {
-      id: user.id,
-      display_name:
-        user.user_metadata?.full_name ??
-        user.email,
-      avatar_url:
-        user.user_metadata?.avatar_url ??
-        "",
-      terms_accepted: false,
-      xp: 0,
-      coins: 0,
-      hearts: 3,
-      unlocked_worlds: [1,27,62],
-      streak: 1,
-      best_streak: 1,
-      formula_shards: 0,
-      sub_node_progress: {
-        1:1,
-        27:1,
-        62:1
-      }
-    },
-    {
-      onConflict: "id"
-    }
-  )
-  .select();
-
-console.log("UPSERT =", data);
-console.log("ERROR =", error);
+     
 
 
-
-  const { data: finalProfile } =
-await supabase
-.from("profiles")
-.select("terms_accepted")
-.eq("id",user.id)
-.single();
 
   
 
+  
+
+console.log(profile)
+
+
+let finalProfile = profile;
 
 
 
@@ -870,9 +914,8 @@ if (!finalProfile) {
 
     if(session?.user){
 
-        // await createProfileIfNeeded(session.user);
-
-        setCurrentUserId(session.user.id);
+        
+         setCurrentUserId(session.user.id);
 
         setUserEmail(session.user.email ?? "");
 
