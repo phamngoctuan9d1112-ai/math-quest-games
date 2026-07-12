@@ -432,6 +432,70 @@ const [currentUserId, setCurrentUserId] =
   }
 }
 
+async function createProfileIfNeeded(user:any){
+
+    const { data:profile } =
+        await supabase
+        .from("profiles")
+        .select("id,terms_accepted")
+        .eq("id",user.id)
+        .maybeSingle();
+
+    if(profile){
+
+        if(!profile.terms_accepted){
+            setShowTerms(true);
+        }
+
+        return;
+    }
+
+    const { error } =
+        await supabase
+        .from("profiles")
+        .insert({
+
+            id:user.id,
+
+            email:user.email,
+
+            display_name:
+                user.user_metadata?.full_name ??
+                user.email,
+
+            avatar_url:
+                user.user_metadata?.avatar_url ??
+                "",
+
+            xp:0,
+
+            coins:0,
+
+            hearts:3,
+
+            streak:1,
+
+            best_streak:1,
+
+            formula_shards:0,
+
+            unlocked_worlds:[1,27,62],
+
+            sub_node_progress:{
+                1:1,
+                27:1,
+                62:1
+            },
+
+            terms_accepted:false
+
+        });
+
+    console.log("CREATE PROFILE ERROR",error);
+
+    setShowTerms(true);
+}
+
   async function updateXP(newXP: number) {
   const {
     data: { user },
@@ -569,21 +633,7 @@ console.log(
 
 
   
-useEffect(() => {
-  const checkSession = async () => {
-    const { data } =
-      await supabase.auth.getSession();
-      console.log(data.session)
 
-    setIsLoggedIn(!!data.session);
-
-    setCurrentUserId(
-      data.session?.user.id ?? null
-    );
-  };
-
-  checkSession();
-}, []);
 
 
 useEffect(() => {
@@ -697,22 +747,7 @@ useEffect(() => {
   currentSubNode
 ]);
 
-useEffect(() => {
-  const {
-    data: { subscription },
-  } = supabase.auth.onAuthStateChange(
-    (_event, session) => {
 
-      setIsLoggedIn(!!session);
-
-      setCurrentUserId(
-        session?.user.id ?? null
-      );
-    }
-  );
-
-  return () => subscription.unsubscribe();
-}, []);
 
 useEffect(() => {
   bgmRef.current = new Audio("/sounds/bgm.mp3");
@@ -891,6 +926,8 @@ else if (!profile.terms_accepted) {
   setShowTerms(true);
 }
 else {
+
+   await createProfileIfNeeded(user);
   setIsLoggedIn(true);
 }
 
@@ -911,61 +948,33 @@ else {
 
   const {
   data: { subscription },
-} = supabase.auth.onAuthStateChange(
-  (event, session) => {
+} = 
+  supabase.auth.onAuthStateChange(async(event,session)=>{
 
-    console.log(
-      "AUTH EVENT",
-      event,
-      session?.user?.email
-    );
+    console.log(event);
 
-   if (
-  (event === "SIGNED_IN" ||
-   event === "INITIAL_SESSION")
-  && session?.user
-) {
-  setCurrentUserId(
-    session.user.id
-  );
+    if(session?.user){
 
-  setUserEmail(
-    session.user.email || ""
-  );
-}
+        await createProfileIfNeeded(session.user);
 
-    if (event === "SIGNED_OUT") {
-      setIsLoggedIn(false);
+        setCurrentUserId(session.user.id);
 
-        
+        setUserEmail(session.user.email ?? "");
 
-setSelectedWorld(null);
+        setIsLoggedIn(true);
 
-setCurrentSubNode(null);
-
-setCurrent(0);
-
-  
-
-  setXp(0);
-  setCoins(0);
-
-  setUnlockedWorlds([1, 27, 62]);
-
-  setAvatar("🧑");
-  setWeapon("🪵");
-  setPet("🥚");
-
-  setHearts(3);
-
-  setDataLoaded(false);
-
-  setCurrentUserId(null);
-}
-
-       setDataLoaded(true);
     }
-  );
+
+    if(event==="SIGNED_OUT"){
+
+        setCurrentUserId(null);
+
+        setIsLoggedIn(false);
+
+    }
+
+});
+  
 
   return () => subscription.unsubscribe();
 }, []);
