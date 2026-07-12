@@ -25,6 +25,7 @@ import { BlockMath } from "react-katex";
 import Inventory from "./components/Inventory";
 import SubMap from "./components/SubMap"; 
 import { createBrowserClient } from '@supabase/ssr';
+import { error } from "console";
 
 const supabase = createBrowserClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -409,6 +410,8 @@ async function createProfileIfNeeded(user:any){
     .eq("id",user.id)
     .maybeSingle();
 
+    console.log("PROFILE =", profile);
+
     if(profile?.terms_accepted){
 
     setShowTerms(false);
@@ -472,7 +475,12 @@ async function createProfileIfNeeded(user:any){
 
     });
 
-    console.log(error);
+   
+
+
+console.log(error);
+
+    
 
     setShowTerms(true);
 
@@ -850,12 +858,15 @@ console.log("========================");
 
   if (user) {
     await createProfileIfNeeded(user);
+    console.log("createProfileIfNeeded DONE");
     const { data: profile } =
 await supabase
 .from("profiles")
 .select("terms_accepted")
 .eq("id",user.id)
 .single();
+console.log(profile);
+console.log(error);
     setUserEmail(user.email || "");
     setCurrentUserId(user.id);
       console.log("USER FOUND", user);
@@ -1596,6 +1607,10 @@ console.log({
 
   // ĐÃ CẬP NHẬT ĐIỀU KIỆN: Nếu chưa bấm Start và CHƯA đăng nhập thì mới giữ chân ở StartScreen
 
+  console.log("showTerms =", showTerms);
+console.log("isLoggedIn =", isLoggedIn);
+console.log("loadingAuth =", loadingAuth);
+console.log("dataLoaded =", dataLoaded);
 
 if (showTerms) {
   return (
