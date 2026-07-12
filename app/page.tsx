@@ -432,69 +432,7 @@ const [currentUserId, setCurrentUserId] =
   }
 }
 
-async function createProfileIfNeeded(user:any){
 
-    const { data:profile } =
-        await supabase
-        .from("profiles")
-        .select("id,terms_accepted")
-        .eq("id",user.id)
-        .maybeSingle();
-
-    if(profile){
-
-        if(!profile.terms_accepted){
-            setShowTerms(true);
-        }
-
-        return;
-    }
-
-    const { error } =
-        await supabase
-        .from("profiles")
-        .insert({
-
-            id:user.id,
-
-            
-
-            display_name:
-                user.user_metadata?.full_name ??
-                user.email,
-
-            avatar_url:
-                user.user_metadata?.avatar_url ??
-                "",
-
-            xp:0,
-
-            coins:0,
-
-            hearts:3,
-
-            streak:1,
-
-            best_streak:1,
-
-            formula_shards:0,
-
-            unlocked_worlds:[1,27,62],
-
-            sub_node_progress:{
-                1:1,
-                27:1,
-                62:1
-            },
-
-            terms_accepted:false
-
-        });
-
-    console.log("CREATE PROFILE ERROR",error);
-
-    setShowTerms(true);
-}
 
   async function updateXP(newXP: number) {
   const {
@@ -831,6 +769,12 @@ console.log("========================");
         "Người chơi"
       );
 
+      const {
+  data: { session },
+} = await supabase.auth.getSession();
+
+console.log(session);
+
      const { data, error } = await supabase
   .from("profiles")
   .upsert(
@@ -867,47 +811,17 @@ console.log("ERROR =", error);
 
 
 
-  const { data: profile } = await supabase
-  .from("profiles")
-  .select("terms_accepted")
-  .eq("id", user.id)
-  .maybeSingle();
+  const { data: finalProfile } =
+await supabase
+.from("profiles")
+.select("terms_accepted")
+.eq("id",user.id)
+.single();
 
   
 
-console.log(profile)
-console.log(error)
 
-let finalProfile = profile;
 
-if (!profile) {
-
-    console.log("CREATE PROFILE");
-
-    const {
-        data: newProfile,
-        error: insertError
-    } = await supabase
-        .from("profiles")
-        .insert({
-            id: user.id,
-            display_name:
-                user.user_metadata?.full_name ??
-                user.user_metadata?.name ??
-                "",
-            avatar_url:
-                user.user_metadata?.avatar_url ??
-                "",
-            terms_accepted: false,
-        })
-        .select()
-        .single();
-
-    console.log(newProfile);
-    console.log(insertError);
-
-    finalProfile = newProfile;
-}
 
 if (!finalProfile) {
 
@@ -956,7 +870,7 @@ if (!finalProfile) {
 
     if(session?.user){
 
-        await createProfileIfNeeded(session.user);
+        // await createProfileIfNeeded(session.user);
 
         setCurrentUserId(session.user.id);
 
