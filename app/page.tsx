@@ -837,7 +837,7 @@ console.log("SESSION =", session);
 
 const user = session?.user;
 
-
+console.log("USER =", user);
 
   console.log("===== CURRENT USER =====");
 console.log(user);
