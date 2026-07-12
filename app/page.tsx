@@ -371,22 +371,20 @@ const [currentUserId, setCurrentUserId] =
       userId
     );
 
-    const { data, error } =
-      await supabase
-        .from("profiles")
-        .select("*")
-        .eq("id", userId)
-        .single();
+    const { data, error } = await supabase
+  .from("profiles")
+  .select("*")
+  .eq("id", userId)
+  .maybeSingle();
 
     console.log(
       "PROFILE DATA =",
       data
     );
 
-    console.log(
-      "PROFILE ERROR =",
-      error
-    );
+    console.log("PROFILE ERROR =", JSON.stringify(error, null, 2))
+
+    
 
     if (error) {
       console.error(error);
