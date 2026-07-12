@@ -16,10 +16,7 @@ import AchievementList from "./components/AchievementList";
 import TermsModal from "./components/TermsModal";
 import { achievements } from "./data/achievements";
 import { getWorlds } from "./data/worlds";
-import { propositionQuestions }
-from "./data/questions";
-console.log(propositionQuestions);
-console.log(Object.keys(propositionQuestions));
+import { loadWorld } from "./data/questions/loader";
 import Shop from "./components/Shop";
 import StartScreen from "./components/StartScreen";
 import Confetti from "react-confetti";
@@ -222,6 +219,7 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [shopMessage, setShopMessage] = useState("");
   const [current, setCurrent] = useState(0);
+  const [worldData, setWorldData] = useState<any>(null);
   const [showAuthModal,
 setShowAuthModal] =
 useState(false);
@@ -327,37 +325,7 @@ const [currentUserId, setCurrentUserId] =
 
   
 
-  const questions = (() => {
-
-    
-
-  if (
-    selectedWorld === null ||
-    currentSubNode === null
-  ) {
-    return [];
-  }
-
-  const worldData =
-    propositionQuestions[
-      selectedWorld as keyof typeof propositionQuestions
-    ] as any;
-
-  if (!worldData) return [];
-
-  if (currentSubNode === 1)
-    return worldData.stage1 || [];
-
-  if (currentSubNode === 2)
-    return worldData.stage2 || [];
-
-  if (currentSubNode === 3)
-    return worldData.stage3 || [];
-
-  return [];
-
-
-})();
+  
 
 
   async function syncData(userId: string) {
@@ -628,6 +596,30 @@ async function checkAchievements(
   }
 }
 
+const questions = (() => {
+
+    if (
+        !worldData ||
+        currentSubNode === null
+    ) {
+
+        return [];
+
+    }
+
+    if (currentSubNode === 1)
+        return worldData.stage1 || [];
+
+    if (currentSubNode === 2)
+        return worldData.stage2 || [];
+
+    if (currentSubNode === 3)
+        return worldData.stage3 || [];
+
+    return [];
+
+})();
+
 
 
   const question = (current < questions.length ? questions[current] : null) as any;
@@ -646,7 +638,32 @@ console.log(
   // ==========================================
 
 
-  
+  useEffect(() => {
+
+    if (selectedWorld === null) {
+        setWorldData(null);
+        return;
+    }
+
+    const world = selectedWorld;
+
+    async function load() {
+        try {
+
+            const data = await loadWorld(world);
+
+            setWorldData(data);
+
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    load();
+
+}, [selectedWorld]);
+
+
 
 
 
