@@ -174,7 +174,7 @@
 "question": "Tập xác định của hàm số bậc hai là",
 "options": [
 "R",
-"R\{0}",
+"R\\{0}",
 "[0;+∞)",
 "(−∞;0)"
 ],
