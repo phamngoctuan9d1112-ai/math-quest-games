@@ -25,7 +25,7 @@ import { BlockMath } from "react-katex";
 import Inventory from "./components/Inventory";
 import SubMap from "./components/SubMap"; 
 import { createBrowserClient } from '@supabase/ssr';
-import { error } from "console";
+
 
 const supabase = createBrowserClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -866,7 +866,7 @@ await supabase
 .eq("id",user.id)
 .single();
 console.log(profile);
-console.log(error);
+
     setUserEmail(user.email || "");
     setCurrentUserId(user.id);
       console.log("USER FOUND", user);
