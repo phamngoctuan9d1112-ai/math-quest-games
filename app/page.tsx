@@ -457,7 +457,7 @@ async function createProfileIfNeeded(user:any){
 
             id:user.id,
 
-            email:user.email,
+            
 
             display_name:
                 user.user_metadata?.full_name ??
@@ -881,44 +881,55 @@ console.log(error)
 let finalProfile = profile;
 
 if (!profile) {
-  console.log("CREATE PROFILE");
 
-  const { data: newProfile, error: insertError } =
-    await supabase
-      .from("profiles")
-      .insert({
-        id: user.id,
-        email: user.email,
-        display_name:
-          user.user_metadata?.full_name ??
-          user.user_metadata?.name ??
-          "",
-        avatar_url:
-          user.user_metadata?.avatar_url ??
-          "",
-        accepted_terms: false,
-      })
-      .select()
-      .single();
+    console.log("CREATE PROFILE");
 
-  console.log(newProfile);
-  console.log(insertError);
+    const {
+        data: newProfile,
+        error: insertError
+    } = await supabase
+        .from("profiles")
+        .insert({
+            id: user.id,
+            display_name:
+                user.user_metadata?.full_name ??
+                user.user_metadata?.name ??
+                "",
+            avatar_url:
+                user.user_metadata?.avatar_url ??
+                "",
+            terms_accepted: false,
+        })
+        .select()
+        .single();
 
-  finalProfile = newProfile;
+    console.log(newProfile);
+    console.log(insertError);
+
+    finalProfile = newProfile;
 }
 
-if (!profile) {
-  console.log("Profile chưa tồn tại");
-}
-else {
-  console.log("terms =", profile.terms_accepted);
+if (!finalProfile) {
 
-  if (profile.terms_accepted) {
-    setShowTerms(false);
-    setIsLoggedIn(true);
-  } else {
-    setShowTerms(true);
-  }
+    console.log("Profile chưa tồn tại");
+
+} else {
+
+    console.log(
+        "terms =",
+        finalProfile.terms_accepted
+    );
+
+    if (finalProfile.terms_accepted) {
+
+        setShowTerms(false);
+        setIsLoggedIn(true);
+
+    } else {
+
+        setShowTerms(true);
+
+    }
 }
 
 
