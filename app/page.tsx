@@ -798,23 +798,41 @@ console.log("========================");
         "Người chơi"
       );
 
-     const { error: upsertError } =
-  await supabase
-    .from("profiles")
-    .upsert({
+     const { data, error } = await supabase
+  .from("profiles")
+  .upsert(
+    {
       id: user.id,
       display_name:
         user.user_metadata?.full_name ??
         user.email,
       avatar_url:
-        user.user_metadata?.avatar_url ?? "",
+        user.user_metadata?.avatar_url ??
+        "",
       terms_accepted: false,
-    });
+      xp: 0,
+      coins: 0,
+      hearts: 3,
+      unlocked_worlds: [1,27,62],
+      streak: 1,
+      best_streak: 1,
+      formula_shards: 0,
+      sub_node_progress: {
+        1:1,
+        27:1,
+        62:1
+      }
+    },
+    {
+      onConflict: "id"
+    }
+  )
+  .select();
 
-console.log(
-  "UPSERT ERROR =",
-  upsertError
-);
+console.log("UPSERT =", data);
+console.log("ERROR =", error);
+
+
 
   const { data: profile } = await supabase
   .from("profiles")
