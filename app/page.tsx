@@ -408,14 +408,14 @@ async function createProfileIfNeeded(user:any){
     console.log(user);
 
 
-    const { data: profile } =
-    await supabase
-    .from("profiles")
-    .select("*")
-    .eq("id",user.id)
-    .maybeSingle();
+    const { data: profile } = await supabase
+  .from("profiles")
+  .select("*")
+  .eq("id", user.id)
+  .maybeSingle();
 
-    console.log("PROFILE =", profile);
+console.log("PROFILE =", profile);
+
 
     if(profile?.terms_accepted){
 
@@ -833,11 +833,14 @@ useEffect(() => {
   data: { session },
 } = await supabase.auth.getSession();
 
+
+
 console.log("SESSION =", session);
-
+console.log("ACCESS TOKEN =", session?.access_token);
+console.log("USER FROM SESSION =", session?.user?.id);
 const user = session?.user;
+console.log("GET USER =", user);
 
-console.log("USER =", user);
 
   console.log("===== CURRENT USER =====");
 console.log(user);
