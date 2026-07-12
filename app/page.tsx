@@ -403,6 +403,11 @@ const [currentUserId, setCurrentUserId] =
 
 async function createProfileIfNeeded(user:any){
 
+  console.log("===== CREATE PROFILE START =====");
+
+    console.log(user);
+
+
     const { data: profile } =
     await supabase
     .from("profiles")
@@ -436,53 +441,35 @@ async function createProfileIfNeeded(user:any){
 
     }
 
-    const { error } =
-    await supabase
-    .from("profiles")
-    .insert({
+    const { data, error } = await supabase
+  .from("profiles")
+  .insert({
+    id: user.id,
+    display_name: user.user_metadata?.full_name ?? user.email,
+    avatar_url: user.user_metadata?.avatar_url ?? "",
+    xp: 0,
+    coins: 0,
+    hearts: 3,
+    streak: 1,
+    best_streak: 1,
+    formula_shards: 0,
+    unlocked_worlds: [1,27,62],
+    sub_node_progress: {
+      1:1,
+      27:1,
+      62:1
+    },
+    terms_accepted: false
+  })
+  .select();
 
-        id:user.id,
-
-        display_name:
-            user.user_metadata?.full_name ??
-            user.email,
-
-        avatar_url:
-            user.user_metadata?.avatar_url ??
-            "",
-
-        xp:0,
-
-        coins:0,
-
-        hearts:3,
-
-        streak:1,
-
-        best_streak:1,
-
-        formula_shards:0,
-
-        unlocked_worlds:[1,27,62],
-
-        sub_node_progress:{
-            1:1,
-            27:1,
-            62:1
-        },
-
-        terms_accepted:false
-
-    });
-
-   
-
-
-console.log(error);
-
+console.log("INSERT DATA =", data);
+console.log("INSERT ERROR =", error);
     
 
     setShowTerms(true);
+
+    console.log("SET SHOW TERMS TRUE");
 
 }
 
@@ -858,7 +845,8 @@ console.log("========================");
 
   if (user) {
     await createProfileIfNeeded(user);
-    console.log("createProfileIfNeeded DONE");
+
+    console.log("CREATE PROFILE FINISHED");
     const { data: profile } =
 await supabase
 .from("profiles")
