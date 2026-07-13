@@ -37,21 +37,19 @@ body {
   translate: no;
 }
 .stars{
-
 position:absolute;
 inset:0;
+overflow:hidden;
 
 background-image:
-radial-gradient(white 1px,transparent 1px);
+radial-gradient(white 1px, transparent 1px);
 
 background-size:60px 60px;
 
-opacity:.25;
+opacity:.6;
 
 animation:moveStars 80s linear infinite;
-
 }
-
 @keyframes moveStars{
 
 from{
@@ -142,11 +140,7 @@ translateX(-30px);
 /* STAR BACKGROUND */
 /* ============================= */
 
-.stars{
-position:absolute;
-inset:0;
-overflow:hidden;
-}
+
 
 .stars::before{
 content:"";

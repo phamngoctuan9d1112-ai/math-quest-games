@@ -360,31 +360,21 @@ shadow-[0_0_60px_rgba(255,255,255,.15)]
 
           {/* CENTER */}
           <div className="text-center">
-            <h1
-              className="
-                text-3xl
-                sm:text-4xl
-                md:text-6xl
-                font-black
-                text-white
-              "
-            >
-              <h1
-className="
-text-6xl
-font-black
-bg-gradient-to-r
-from-yellow-300
-via-white
-to-cyan-300
-bg-clip-text
-text-transparent
-animate-pulse
-"
+           <h1
+  className="
+    text-6xl
+    font-black
+    bg-gradient-to-r
+    from-yellow-300
+    via-white
+    to-cyan-300
+    bg-clip-text
+    text-transparent
+    animate-pulse
+  "
 >
-Math Quest
+  Math Quest
 </h1>
-            </h1>
 
             <p className="text-white/90 text-lg mt-3">
               Toán THPT qua trò chơi
