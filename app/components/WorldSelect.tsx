@@ -361,7 +361,7 @@ shadow-[0_0_60px_rgba(255,255,255,.15)]
             <button
     onClick={onChest}
     className="
-    bg-yellow-500
+    bg-blue-500
     hover:bg-yellow-600
     text-white
     px-4
