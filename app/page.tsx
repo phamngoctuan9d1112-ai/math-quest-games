@@ -406,18 +406,7 @@ async function createProfileIfNeeded(user:any){
   
     console.log("===== CREATE PROFILE START =====");
 
-const {
-  data: { session },
-} = await supabase.auth.getSession();
 
-console.log("SESSION =", session);
-console.log("ACCESS TOKEN =", session?.access_token);
-
-const {
-  data: { user: currentUser },
-} = await supabase.auth.getUser();
-
-console.log("GET USER =", currentUser);
 
 
 
@@ -964,7 +953,7 @@ supabase.auth.onAuthStateChange(async (event, session) => {
 
         console.log("BEFORE CREATE PROFILE");
 
-        await createProfileIfNeeded(session.user);
+        createProfileIfNeeded(session.user);
 
         console.log("AFTER CREATE PROFILE");
 
