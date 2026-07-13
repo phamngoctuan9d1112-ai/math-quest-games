@@ -26,7 +26,7 @@ import { BlockMath } from "react-katex";
 import Inventory from "./components/Inventory";
 import SubMap from "./components/SubMap"; 
 import { createBrowserClient } from '@supabase/ssr';
-
+import ChestRoom from "./components/ChestRoom";
 
 const supabase = createBrowserClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -230,6 +230,11 @@ export default function Home() {
   const [selectedWorld, setSelectedWorld] = useState<number | null>(null);
   const [showTFAnswer, setShowTFAnswer] = useState(false);
   const [weapon, setWeapon] = useState("🪵");
+  const [showChestRoom, setShowChestRoom] =
+useState(false);
+
+const [chests, setChests] =
+useState<any[]>([]);
   const [attacking, setAttacking] = useState(false);
   const initializedRef = useRef(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
@@ -561,6 +566,25 @@ async function updateCoins(newCoins: number) {
       coins: newCoins,
     })
     .eq("id", user.id);
+}
+
+async function loadChests() {
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) return;
+
+  const { data } = await supabase
+    .from("chests")
+    .select("*")
+    .eq("user_id", user.id)
+    .order("created_at", {
+      ascending: false,
+    });
+
+  setChests(data || []);
 }
 
 async function saveProgress() {
@@ -1738,6 +1762,22 @@ if (showChestInventory) {
     />
   );
 }
+
+if (showChestRoom) {
+
+  return (
+
+    <ChestRoom
+      chests={chests}
+      onOpen={(id) => {
+        console.log("Open chest", id);
+      }}
+      onClose={() => setShowChestRoom(false)}
+    />
+
+  );
+
+}
   
 
   if (showInventory) {
@@ -2113,6 +2153,13 @@ text-yellow-400
     setShowChestInventory(true)
 }
             rank={rank}
+            onChest={() => {
+
+    loadChests();
+
+    setShowChestRoom(true);
+
+}}
             streak={streak}
             coins={coins}
             email={userEmail}

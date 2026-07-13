@@ -28,7 +28,7 @@ type Props = {
   email: string;
   onShop: () => void;
   onAchievements: () => void;
-  
+  onChest: () => void;
   onInventory: () => void;
   
 };
@@ -39,6 +39,7 @@ export default function WorldSelect({
   level,
   streak,
   rank,
+  onChest,
   userName,
   onChestInventory,
   formulaShards,
@@ -357,6 +358,32 @@ shadow-[0_0_60px_rgba(255,255,255,.15)]
             >
               🏆 Thành tích
             </button>
+            <button
+    onClick={onChest}
+    className="
+    bg-yellow-500
+    hover:bg-yellow-600
+    text-white
+    px-4
+    py-2
+    rounded-xl
+    "
+>
+    🎁 
+</button>
+<button
+  onClick={onChestInventory}
+  className="
+  bg-yellow-500
+  text-white
+  px-4
+  py-2
+  rounded-xl
+  "
+>
+  🎒 
+</button>
+
           </div>
 
           {/* CENTER */}
@@ -402,19 +429,7 @@ shadow-[0_0_60px_rgba(255,255,255,.15)]
           {/* RIGHT */}
           <div className="hidden md:flex justify-end gap-3">
             
-            <button
-  onClick={onChestInventory}
-  className="
-  bg-yellow-500
-  text-white
-  px-4
-  py-2
-  rounded-xl
-  "
->
-  🎒 
-</button>
-
+            
             <button
               onClick={onLeaderboard}
               className="
