@@ -36,6 +36,7 @@ const supabase = createBrowserClient(
 
 function VictoryModal({
   reward,
+  chest,
   onClose,
 }: {
   reward: {
@@ -43,6 +44,7 @@ function VictoryModal({
     coins: number;
     shards: number;
   };
+  chest: string | null;
   onClose: () => void;
 }) {
   return (
@@ -173,6 +175,22 @@ function VictoryModal({
 </motion.div>
         </div>
 
+        {chest && (
+  <motion.div
+    initial={{ scale: 0 }}
+    animate={{ scale: 1 }}
+    transition={{ delay: 1.8 }}
+    className="
+      mt-6
+      text-3xl
+      font-black
+      text-amber-500
+    "
+  >
+    🎁 Nhận được {chest} Chest!
+  </motion.div>
+)}
+
         <button
           onClick={onClose}
           className="
@@ -230,6 +248,8 @@ useState(false);
   const [formulaShards, setFormulaShards] = useState(0);
   const [showVictory, setShowVictory] =
   useState(false);
+
+  const [newChest, setNewChest] = useState<string | null>(null);
 
   const [mascotState, setMascotState] =
 useState<
@@ -502,6 +522,24 @@ console.log("INSERT ERROR =", error);
   if (error) {
     console.error("Lỗi cập nhật XP:", error);
   }
+}
+
+async function createChest(type: string) {
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) return;
+
+  await supabase
+    .from("chests")
+    .insert({
+      user_id: user.id,
+      type,
+      opened: false,
+    });
+
 }
 
 async function updateCoins(newCoins: number) {
@@ -1427,6 +1465,16 @@ await checkAchievements(
 
 setShowVictory(true);
 
+const random = Math.random();
+
+if (random < 0.25) {
+
+    await createChest("bronze");
+
+    setNewChest("Bronze");
+
+}
+
 
       console.log("selectedWorld =", selectedWorld);
 console.log("selectedSubMap =", selectedSubMap);
@@ -1730,9 +1778,11 @@ transition
   if (showVictory) {
   return (
     <VictoryModal
+      chest={newChest}
       reward={victoryReward}
       onClose={() => {
         setShowVictory(false);
+        setNewChest(null);
 
         setSelectedWorld(null);
         setSelectedSubMap(null);
