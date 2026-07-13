@@ -267,19 +267,37 @@ async function handleChangePassword() {
 }
 
   return (
-  <main
-  className="
-    min-h-screen
+  <main className="relative min-h-screen overflow-hidden">
+    {/* Background */}
+
+<div className="absolute inset-0">
+
+  {/* gradient */}
+
+  <div
+    className="
+    absolute
+    inset-0
     bg-gradient-to-br
-    from-blue-600
-    via-purple-600
-    to-pink-600
-    px-4
-    py-8
-    pb-28
-    md:pb-8
-  "
->
+    from-sky-500
+    via-indigo-700
+    to-purple-900
+    "
+  />
+
+  {/* stars */}
+
+  <div className="stars"></div>
+
+  {/* glow */}
+
+  <div className="glow1"></div>
+
+  <div className="glow2"></div>
+
+</div>
+
+<div className="relative z-10">
     <div className="max-w-7xl mx-auto">
 
       {/* HEADER */}
@@ -1105,8 +1123,11 @@ async function handleChangePassword() {
   </div>
 )}
 
+</div>
+
 
 
 </main>
+
 );
 }

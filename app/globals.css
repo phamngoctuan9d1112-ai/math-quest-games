@@ -36,3 +36,105 @@ body {
 .notranslate {
   translate: no;
 }
+.stars{
+
+position:absolute;
+inset:0;
+
+background-image:
+radial-gradient(white 1px,transparent 1px);
+
+background-size:60px 60px;
+
+opacity:.25;
+
+animation:moveStars 80s linear infinite;
+
+}
+
+@keyframes moveStars{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(-500px);
+
+}
+
+}
+
+.glow1{
+
+position:absolute;
+
+width:500px;
+height:500px;
+
+background:#38bdf8;
+
+border-radius:50%;
+
+filter:blur(180px);
+
+left:-100px;
+
+top:-100px;
+
+opacity:.25;
+
+animation:floatGlow 10s ease-in-out infinite;
+
+}
+
+.glow2{
+
+position:absolute;
+
+width:600px;
+
+height:600px;
+
+background:#a855f7;
+
+border-radius:50%;
+
+filter:blur(200px);
+
+right:-150px;
+
+bottom:-150px;
+
+opacity:.2;
+
+animation:floatGlow2 14s ease-in-out infinite;
+
+}
+
+@keyframes floatGlow{
+
+50%{
+
+transform:
+translateY(40px)
+translateX(50px);
+
+}
+
+}
+
+@keyframes floatGlow2{
+
+50%{
+
+transform:
+translateY(-50px)
+translateX(-30px);
+
+}
+
+}
