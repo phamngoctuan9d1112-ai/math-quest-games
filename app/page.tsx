@@ -7,6 +7,7 @@ import { trackEvent } from "./lib/analytics";
 import XPBar from "./components/XPBar";
 import { playSound } from "./lib/sound";
 import LoadingScreen from "./components/LoadingScreen";
+import ChestInventory from "./components/ChestInventory";
 import StatusBar from "./components/StatusBar";
 import { motion } from "framer-motion";
 import WorldSelect from "./components/WorldSelect";
@@ -238,6 +239,11 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [shopMessage, setShopMessage] = useState("");
   const [current, setCurrent] = useState(0);
+  const [showChestInventory, setShowChestInventory] =
+useState(false);
+
+const [chestItems, setChestItems] =
+useState<string[]>([]);
   const [worldData, setWorldData] = useState<any>(null);
   const [showAuthModal,
 setShowAuthModal] =
@@ -1723,6 +1729,15 @@ setIsLoggedIn(true);
     </>
   );
 }
+
+if (showChestInventory) {
+  return (
+    <ChestInventory
+      items={chestItems}
+      onClose={() => setShowChestInventory(false)}
+    />
+  );
+}
   
 
   if (showInventory) {
@@ -2094,6 +2109,9 @@ text-yellow-400
             onSelect={(worldId) => { setSelectedSubMap(worldId); }}
             level={level}
             formulaShards={formulaShards}
+            onChestInventory={() =>
+    setShowChestInventory(true)
+}
             rank={rank}
             streak={streak}
             coins={coins}

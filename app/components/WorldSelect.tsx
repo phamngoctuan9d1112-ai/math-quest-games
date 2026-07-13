@@ -19,6 +19,7 @@ type Props = {
   streak: number;
   level: number;
   rank: string;
+  onChestInventory: () => void;
   coins: number;
   userName: string;
   formulaShards: number;
@@ -39,7 +40,7 @@ export default function WorldSelect({
   streak,
   rank,
   userName,
-  
+  onChestInventory,
   formulaShards,
   coins,
   onLogout,
@@ -401,6 +402,19 @@ shadow-[0_0_60px_rgba(255,255,255,.15)]
           {/* RIGHT */}
           <div className="hidden md:flex justify-end gap-3">
             
+            <button
+  onClick={onChestInventory}
+  className="
+  bg-yellow-500
+  text-white
+  px-4
+  py-2
+  rounded-xl
+  "
+>
+  🎒 
+</button>
+
             <button
               onClick={onLeaderboard}
               className="
