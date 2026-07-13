@@ -219,7 +219,9 @@ async function handleChangePassword() {
             if (world.unlocked) onSelect(world.id);
           }}
           className={`
-            w-[110px]
+world-card
+
+w-[110px]
             h-[110px]
             md:w-[130px]
             md:h-[130px]
@@ -240,7 +242,10 @@ async function handleChangePassword() {
                 bg-gradient-to-br
                 from-yellow-400
                 to-orange-500
-                hover:scale-105
+                hover:scale-110
+hover:-translate-y-2
+hover:shadow-yellow-400/60
+hover:shadow-2xl
                 `
                 : `
                 bg-gray-500
@@ -303,7 +308,11 @@ async function handleChangePassword() {
       {/* HEADER */}
       <div
         className="
-          bg-black/10
+          bg-white/10
+border
+border-white/20
+backdrop-blur-xl
+shadow-[0_0_60px_rgba(255,255,255,.15)]
           backdrop-blur-sm
           rounded-3xl
           p-5
@@ -360,7 +369,21 @@ async function handleChangePassword() {
                 text-white
               "
             >
-              🌎 Math Quest
+              <h1
+className="
+text-6xl
+font-black
+bg-gradient-to-r
+from-yellow-300
+via-white
+to-cyan-300
+bg-clip-text
+text-transparent
+animate-pulse
+"
+>
+Math Quest
+</h1>
             </h1>
 
             <p className="text-white/90 text-lg mt-3">

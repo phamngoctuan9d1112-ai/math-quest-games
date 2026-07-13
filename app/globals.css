@@ -138,3 +138,214 @@ translateX(-30px);
 }
 
 }
+/* ============================= */
+/* STAR BACKGROUND */
+/* ============================= */
+
+.stars{
+position:absolute;
+inset:0;
+overflow:hidden;
+}
+
+.stars::before{
+content:"";
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+
+box-shadow:
+
+50px 80px white,
+130px 300px white,
+250px 120px white,
+340px 400px white,
+520px 200px white,
+700px 500px white,
+900px 130px white,
+1100px 300px white,
+1500px 100px white,
+1700px 600px white,
+1900px 250px white;
+
+animation:twinkle 4s infinite alternate;
+}
+.stars::after{
+
+content:"";
+
+position:absolute;
+
+width:180px;
+
+height:2px;
+
+background:linear-gradient(
+90deg,
+white,
+transparent
+);
+
+top:0;
+left:-200px;
+
+transform:rotate(-30deg);
+
+animation:shooting 7s infinite;
+
+}
+
+@keyframes shooting{
+
+0%{
+
+left:-300px;
+top:50px;
+opacity:0;
+
+}
+
+10%{
+
+opacity:1;
+
+}
+
+35%{
+
+left:120%;
+
+top:300px;
+
+opacity:0;
+
+}
+
+100%{
+
+opacity:0;
+
+}
+
+}
+
+.glow1{
+
+position:absolute;
+
+width:600px;
+
+height:600px;
+
+background:#38bdf8;
+
+border-radius:999px;
+
+filter:blur(180px);
+
+left:-200px;
+
+top:-150px;
+
+opacity:.25;
+
+animation:float1 10s infinite alternate;
+
+}
+
+.glow2{
+
+position:absolute;
+
+width:700px;
+
+height:700px;
+
+background:#a855f7;
+
+border-radius:999px;
+
+filter:blur(200px);
+
+right:-250px;
+
+bottom:-250px;
+
+opacity:.25;
+
+animation:float2 12s infinite alternate;
+
+}
+
+@keyframes float1{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(80px);
+
+}
+
+}
+
+@keyframes float2{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(-80px);
+
+}
+
+}
+
+.world-card{
+
+animation:floatCard 3s ease-in-out infinite;
+
+}
+
+@keyframes floatCard{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes twinkle{
+
+0%{
+opacity:.2;
+}
+
+100%{
+opacity:1;
+}
+
+}
