@@ -2,7 +2,9 @@
 
 'use client'
 
-import { supabase } from '@/app/lib/supabase'
+import { createClient } from "@/utils/supabase/client";
+
+const supabase = createClient();
 
 interface StartScreenProps {
   isLoggedIn: boolean

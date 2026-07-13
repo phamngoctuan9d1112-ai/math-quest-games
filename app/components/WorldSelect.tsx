@@ -2,7 +2,9 @@ import { useState } from "react";
 import { worldNames } from "../data/worldNames";
 import Footer from "./Footer";
 import { useRouter } from "next/navigation";
-import { supabase } from "../lib/supabase";
+import { createClient } from "@/utils/supabase/client";
+
+const supabase = createClient();
 import { useEffect } from "react";
 
 type World = {
