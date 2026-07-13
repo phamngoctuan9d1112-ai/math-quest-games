@@ -403,9 +403,23 @@ const [currentUserId, setCurrentUserId] =
 
 async function createProfileIfNeeded(user:any){
 
-  console.log("===== CREATE PROFILE START =====");
+  
+    console.log("===== CREATE PROFILE START =====");
 
-    console.log(user);
+const {
+  data: { session },
+} = await supabase.auth.getSession();
+
+console.log("SESSION =", session);
+console.log("ACCESS TOKEN =", session?.access_token);
+
+const {
+  data: { user: currentUser },
+} = await supabase.auth.getUser();
+
+console.log("GET USER =", currentUser);
+
+
 
 
     const { data: profile } = await supabase
@@ -440,6 +454,15 @@ console.log("PROFILE =", profile);
         return;
 
     }
+
+    console.log("===== BEFORE INSERT =====");
+
+const {
+  data: { session: insertSession },
+} = await supabase.auth.getSession();
+
+console.log("INSERT SESSION =", insertSession);
+console.log("INSERT TOKEN =", insertSession?.access_token);
 
     const { data, error } = await supabase
   .from("profiles")
