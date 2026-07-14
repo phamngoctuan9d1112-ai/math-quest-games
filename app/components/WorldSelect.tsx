@@ -329,7 +329,7 @@ mb-8
 shadow-2xl
 "
 >
-        <div className=" flex flex-col items-center md:grid md:grid-cols-3 " >
+        <div className=" flex flex-col items-center md:grid md:grid-cols-[220px_1fr_220px] " >
 
           {/* LEFT */}
           <div className="hidden md:flex gap-3 flex-wrap">
@@ -419,21 +419,23 @@ drop-shadow-[0_0_25px_rgba(255,255,255,.6)]
             </p>
 
             <div
-  className="
-    relative
-    overflow-hidden
-    rounded-3xl
-    bg-gradient-to-r
-    from-slate-900
+className="
+relative
+overflow-hidden
+rounded-[32px]
+bg-gradient-to-br
+from-slate-900
 via-indigo-900
 to-purple-900
 border
 border-cyan-400/20
-    p-6
-    shadow-2xl
-    text-white
-    mb-8
-  "
+p-8
+shadow-[0_0_40px_rgba(99,102,241,.35)]
+text-white
+w-full
+max-w-[500px]
+mx-auto
+"
 >
 
   <div className="absolute right-4 top-4 text-7xl opacity-10">
