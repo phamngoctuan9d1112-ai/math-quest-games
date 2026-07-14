@@ -409,21 +409,106 @@ shadow-[0_0_60px_rgba(255,255,255,.15)]
             </p>
 
             <div
-              className="
-                mt-5
-                flex
-                justify-center
-                flex-wrap
-                gap-6
-                text-sm md:text-lg
-                font-bold
-                text-white
-              "
-            >
-              <span>⭐ Level {level}</span>
-              <span> {rank}</span>
-              <span>🪙 {coins}</span>
-            </div>
+  className="
+    relative
+    overflow-hidden
+    rounded-3xl
+    bg-gradient-to-r
+    from-indigo-600
+    via-purple-600
+    to-pink-500
+    p-6
+    shadow-2xl
+    text-white
+    mb-8
+  "
+>
+
+  <div className="absolute right-4 top-4 text-7xl opacity-10">
+    🎮
+  </div>
+
+  <div className="flex items-center justify-between">
+
+    <div>
+
+      <h1 className="text-3xl font-black">
+        👋 {userName}
+      </h1>
+
+      <p className="text-white/80 mt-1">
+        {email}
+      </p>
+
+    </div>
+
+    <div className="text-right">
+
+      <div className="text-lg font-bold">
+        ⭐ Level {level}
+      </div>
+
+      <div className="text-yellow-300 font-semibold">
+        {rank}
+      </div>
+
+    </div>
+
+  </div>
+
+  <div className="mt-6 grid grid-cols-4 gap-4">
+
+    <div className="bg-white/10 rounded-2xl p-4 text-center">
+
+      <div className="text-3xl">
+        🪙
+      </div>
+
+      <div className="font-bold mt-2">
+        {coins}
+      </div>
+
+    </div>
+
+    <div className="bg-white/10 rounded-2xl p-4 text-center">
+
+      <div className="text-3xl">
+        🧩
+      </div>
+
+      <div className="font-bold mt-2">
+        {formulaShards}
+      </div>
+
+    </div>
+
+    <div className="bg-white/10 rounded-2xl p-4 text-center">
+
+      <div className="text-3xl">
+        🔥
+      </div>
+
+      <div className="font-bold mt-2">
+        {streak}
+      </div>
+
+    </div>
+
+    <div className="bg-white/10 rounded-2xl p-4 text-center">
+
+      <div className="text-3xl">
+        🏆
+      </div>
+
+      <div className="font-bold mt-2">
+        {rank}
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
           </div>
 
           {/* RIGHT */}
