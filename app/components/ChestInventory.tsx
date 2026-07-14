@@ -1,5 +1,7 @@
 "use client";
 
+import { supabase } from "../lib/supabase";
+
 type Props = {
   items: string[];
   onClose: () => void;
@@ -9,6 +11,7 @@ export default function ChestInventory({
   items,
   onClose,
 }: Props) {
+  
   return (
     <div
       className="

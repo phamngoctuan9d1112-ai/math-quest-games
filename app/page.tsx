@@ -643,6 +643,41 @@ async function loadAchievements() {
   );
 }
 
+async function openChest(chest: any) {
+
+  if (chest.opened) return;
+
+  let reward = "";
+
+  const random = Math.random();
+
+  if (random < 0.5) {
+
+    reward = "coin";
+
+  } else if (random < 0.8) {
+
+    reward = "xp";
+
+  } else {
+
+    reward = "heart";
+
+  }
+
+  await supabase
+    .from("chests")
+    .update({
+      opened: true,
+      reward
+    })
+    .eq("id", chest.id);
+
+  alert("🎉 Bạn nhận được: " + reward);
+
+  loadChests();
+}
+
 async function checkAchievements(
   currentXP: number,
   currentWorld: number
@@ -1769,9 +1804,7 @@ if (showChestRoom) {
 
     <ChestRoom
       chests={chests}
-      onOpen={(id) => {
-        console.log("Open chest", id);
-      }}
+     onOpen={openChest}
       onClose={() => setShowChestRoom(false)}
     />
 

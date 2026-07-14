@@ -75,7 +75,7 @@ export default function ChestRoom({
                 {!chest.opened && (
 
                   <button
-                    onClick={() => onOpen(chest.id)}
+                     onClick={() => onOpen(chest.id)}
                     className="
                     bg-yellow-500
                     hover:bg-yellow-600
@@ -88,6 +88,7 @@ export default function ChestRoom({
                   >
                     Mở
                   </button>
+                  
 
                 )}
 
