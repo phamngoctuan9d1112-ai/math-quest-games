@@ -673,9 +673,13 @@ async function openChest(chest: any) {
     })
     .eq("id", chest.id);
 
+    
+
   alert("🎉 Bạn nhận được: " + reward);
 
-  loadChests();
+  await loadChests();
+
+
 }
 
 async function checkAchievements(
