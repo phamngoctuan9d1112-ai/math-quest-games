@@ -222,15 +222,17 @@ async function handleChangePassword() {
           }}
           className={`
 world-card
-
-w-[110px]
-            h-[110px]
-            md:w-[130px]
-            md:h-[130px]
+active:scale-95
+ring-2
+ring-yellow-200/20
+w-[140px]
+h-[170px]
+md:w-[170px]
+md:h-[200px]
             rounded-3xl
             text-white
             font-bold
-            shadow-xl
+            shadow-[0_15px_35px_rgba(0,0,0,.35)]
             transition-all
             duration-300
             flex
@@ -241,40 +243,52 @@ w-[110px]
             ${
               world.unlocked
                 ? `
-                bg-gradient-to-br
-                from-yellow-400
-                to-orange-500
-                hover:scale-110
-hover:-translate-y-2
-hover:shadow-yellow-400/60
-hover:shadow-2xl
+bg-gradient-to-br
+from-yellow-300
+via-yellow-500
+to-orange-600
+border
+border-yellow-200/40
+hover:scale-105
+hover:-translate-y-3
+hover:rotate-1
+hover:shadow-[0_20px_40px_rgba(255,215,0,.55)]
                 `
                 : `
-                bg-gray-500
-                cursor-not-allowed
+                bg-gradient-to-br
+from-gray-700
+to-gray-900
+opacity-70
+grayscale
+cursor-not-allowed
                 `
             }
           `}
         >
           <div className="text-5xl drop-shadow-lg">
-            {world.unlocked ? "🌍" : "🔒"}
-          </div>
+    {world.unlocked ? "🌍" : "🔒"}
+</div>
 
-          <div className="mt-3 text-lg font-black">
-            World {world.id}
-          </div>
+<div className="mt-3 text-lg font-black">
+    LEVEL {world.id}
+</div>
 
-          <div
-className="
-text-[11px]
-opacity-80
-leading-tight
-px-2
-mt-1
-"
+<div
+    className="
+    mt-1
+    text-xs
+    opacity-90
+    text-center
+    px-2
+    leading-tight
+    "
 >
-            {worldNames[world.id]}
-          </div>
+    {worldNames[world.id]}
+</div>
+
+<div className="mt-3 text-yellow-100">
+    ⭐⭐⭐⭐⭐
+</div>
         </button>
       ))}
     </div>
