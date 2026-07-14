@@ -309,18 +309,17 @@ hover:shadow-2xl
 
       {/* HEADER */}
       <div
-        className="
-          bg-white/10
+className="
+bg-white/10
 border
 border-white/20
 backdrop-blur-xl
-shadow-[0_0_60px_rgba(255,255,255,.15)]
-          backdrop-blur-sm
-          rounded-3xl
-          p-5
-          mb-12
-        "
-      >
+rounded-3xl
+px-8
+py-6
+mb-10
+"
+>
         <div className=" flex flex-col items-center md:grid md:grid-cols-3 " >
 
           {/* LEFT */}
@@ -424,90 +423,29 @@ shadow-[0_0_60px_rgba(255,255,255,.15)]
   "
 >
 
-  <div className="absolute right-4 top-4 text-7xl opacity-10">
-    🎮
-  </div>
+  <div className="flex gap-6 mt-6 justify-center">
 
-  <div className="flex items-center justify-between">
+<div className="stat-card">
+🪙
+4260
+</div>
 
-    <div>
+<div className="stat-card">
+🧩
+3
+</div>
 
-      <h1 className="text-3xl font-black">
-        👋 {userName}
-      </h1>
+<div className="stat-card">
+🔥
+2
+</div>
 
-      <p className="text-white/80 mt-1">
-        {email}
-      </p>
+<div className="stat-card">
+🏆
+Legend
+</div>
 
-    </div>
-
-    <div className="text-right">
-
-      <div className="text-lg font-bold">
-        ⭐ Level {level}
-      </div>
-
-      <div className="text-yellow-300 font-semibold">
-        {rank}
-      </div>
-
-    </div>
-
-  </div>
-
-  <div className="mt-6 grid grid-cols-4 gap-4">
-
-    <div className="bg-white/10 rounded-2xl p-4 text-center">
-
-      <div className="text-3xl">
-        🪙
-      </div>
-
-      <div className="font-bold mt-2">
-        {coins}
-      </div>
-
-    </div>
-
-    <div className="bg-white/10 rounded-2xl p-4 text-center">
-
-      <div className="text-3xl">
-        🧩
-      </div>
-
-      <div className="font-bold mt-2">
-        {formulaShards}
-      </div>
-
-    </div>
-
-    <div className="bg-white/10 rounded-2xl p-4 text-center">
-
-      <div className="text-3xl">
-        🔥
-      </div>
-
-      <div className="font-bold mt-2">
-        {streak}
-      </div>
-
-    </div>
-
-    <div className="bg-white/10 rounded-2xl p-4 text-center">
-
-      <div className="text-3xl">
-        🏆
-      </div>
-
-      <div className="font-bold mt-2">
-        {rank}
-      </div>
-
-    </div>
-
-  </div>
-
+</div>
 </div>
           </div>
 
