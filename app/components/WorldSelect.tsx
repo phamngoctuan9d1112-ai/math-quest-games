@@ -256,15 +256,23 @@ hover:shadow-2xl
             }
           `}
         >
-          <div className="text-3xl">
+          <div className="text-5xl drop-shadow-lg">
             {world.unlocked ? "🌍" : "🔒"}
           </div>
 
-          <div className="mt-2 text-sm font-bold">
+          <div className="mt-3 text-lg font-black">
             World {world.id}
           </div>
 
-          <div className="text-xs text-center px-2 leading-tight">
+          <div
+className="
+text-[11px]
+opacity-80
+leading-tight
+px-2
+mt-1
+"
+>
             {worldNames[world.id]}
           </div>
         </button>
@@ -308,7 +316,7 @@ hover:shadow-2xl
     <div className="max-w-7xl mx-auto">
 
       {/* HEADER */}
-      <div
+<div
 className="
 bg-white/10
 border
@@ -316,8 +324,9 @@ border-white/20
 backdrop-blur-xl
 rounded-3xl
 px-8
-py-6
-mb-10
+py-4
+mb-8
+shadow-2xl
 "
 >
         <div className=" flex flex-col items-center md:grid md:grid-cols-3 " >
@@ -388,22 +397,24 @@ mb-10
           {/* CENTER */}
           <div className="text-center">
            <h1
-  className="
-    text-6xl
-    font-black
-    bg-gradient-to-r
-    from-yellow-300
-    via-white
-    to-cyan-300
-    bg-clip-text
-    text-transparent
-    animate-pulse
-  "
+className="
+text-5xl
+md:text-6xl
+font-black
+bg-gradient-to-r
+from-yellow-300
+via-white
+to-cyan-300
+bg-clip-text
+text-transparent
+drop-shadow-[0_0_25px_rgba(255,255,255,.6)]
+"
 >
+
   Math Quest
 </h1>
 
-            <p className="text-white/90 text-lg mt-3">
+            <p className="text-white/80 text-base mt-2">
               Toán THPT qua trò chơi
             </p>
 
@@ -413,9 +424,11 @@ mb-10
     overflow-hidden
     rounded-3xl
     bg-gradient-to-r
-    from-indigo-600
-    via-purple-600
-    to-pink-500
+    from-slate-900
+via-indigo-900
+to-purple-900
+border
+border-cyan-400/20
     p-6
     shadow-2xl
     text-white
@@ -423,29 +436,134 @@ mb-10
   "
 >
 
-  <div className="flex gap-6 mt-6 justify-center">
+  <div className="absolute right-4 top-4 text-7xl opacity-10">
+    🎮
+  </div>
 
-<div className="stat-card">
-🪙
-4260
-</div>
+  <div className="flex items-center justify-between">
 
-<div className="stat-card">
-🧩
-3
-</div>
+    <div>
 
-<div className="stat-card">
-🔥
-2
-</div>
+      <h1 className="text-3xl font-black">
+        👋 {userName}
+      </h1>
 
-<div className="stat-card">
-🏆
-Legend
-</div>
+      <p className="text-white/80 mt-1">
+        {email}
+      </p>
 
-</div>
+    </div>
+
+    <div className="text-right">
+
+      <div className="text-lg font-bold">
+        ⭐ Level {level}
+      </div>
+
+      <div className="text-yellow-300 font-semibold">
+        {rank}
+      </div>
+
+    </div>
+
+  </div>
+
+  <div className="mt-6 grid grid-cols-4 gap-4">
+
+    <div
+className="
+bg-white/10
+backdrop-blur
+rounded-2xl
+p-4
+text-center
+hover:scale-105
+transition
+duration-300
+"
+>
+
+      <div className="text-4xl mb-2">
+        🪙
+      </div>
+
+      <div className="text-xl font-black">
+        {coins}
+      </div>
+
+    </div>
+
+    <div
+className="
+bg-white/10
+backdrop-blur
+rounded-2xl
+p-4
+text-center
+hover:scale-105
+transition
+duration-300
+"
+>
+
+      <div className="text-4xl mb-2">
+        🧩
+      </div>
+
+      <div className="text-xl font-black">
+        {formulaShards}
+      </div>
+
+    </div>
+<div
+className="
+bg-white/10
+backdrop-blur
+rounded-2xl
+p-4
+text-center
+hover:scale-105
+transition
+duration-300
+"
+>
+    
+
+      <div className="text-4xl mb-2">
+        🔥
+      </div>
+
+      <div className="text-xl font-black">
+        {streak}
+      </div>
+
+    </div>
+
+    <div
+className="
+bg-white/10
+backdrop-blur
+rounded-2xl
+p-4
+text-center
+hover:scale-105
+transition
+duration-300
+"
+>
+
+      <div className="text-4xl mb-2">
+        🏆
+      </div>
+
+      <div className="text-xl font-black">
+        {rank}
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
           </div>
 
