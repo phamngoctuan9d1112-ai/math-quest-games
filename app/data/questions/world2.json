@@ -3,31 +3,31 @@
     {
       "id": "s1_1",
       "type": "multiple-choice",
-      "question": "Cho hai tập hợp A và B khác rỗng thỏa mãn A⊂B. Trong các mệnh đề sau mệnh đề nào sai?",
+      "question": "Cho hai tập hợp $A$ và $B$ khác rỗng thỏa mãn $A \\subset B$. Trong các mệnh đề sau mệnh đề nào sai?",
       "options": [
-        "A\\B=∅",
-        "A∩B=A",
-        "B\\A=B",
-        "A∪B=B"
+        "$A \\setminus B = \\varnothing$",
+        "$A \\cap B = A$",
+        "$B \\setminus A = B$",
+        "$A \\cup B = B$"
       ],
-      "answer": "B\\A=B"
+      "answer": "$B \\setminus A = B$"
     },
     {
       "id": "s1_2",
       "type": "multiple-choice",
-      "question": "Cho hai tập hợp X={1;2;3;4}, Y={1;2}. CYX là tập hợp nào sau đây?",
+      "question": "Cho hai tập hợp $X = \\{1; 2; 3; 4\\}$, $Y = \\{1; 2\\}$. $C_X Y$ là tập hợp nào sau đây?",
       "options": [
-        "{1;2}",
-        "{1;2;3;4}",
-        "{3;4}",
-        "∅"
+        "$\\{1; 2\\}$",
+        "$\\{1; 2; 3; 4\\}$",
+        "$\\{3; 4\\}$",
+        "$\\varnothing$"
       ],
-      "answer": "{3;4}"
+      "answer": "$\\{3; 4\\}$"
     },
     {
       "id": "s1_3",
       "type": "multiple-choice",
-      "question": "Cho hai tập hợp A={0;1}, B={0;1;2;3;4}. Số tập hợp X thỏa mãn X⊂CB(A) là",
+      "question": "Cho hai tập hợp $A = \\{0; 1\\}$, $B = \\{0; 1; 2; 3; 4\\}$. Số tập hợp $X$ thỏa mãn $X \\subset C_B A$ là",
       "options": [
         "3",
         "5",
@@ -39,7 +39,7 @@
     {
       "id": "s1_4",
       "type": "multiple-choice",
-      "question": "Cho tập hợp A={1;2;3;4;5}. Tìm số tập hợp X sao cho A\\X={1;3;5} và X\\A={6;7}.",
+      "question": "Cho tập hợp $A = \\{1; 2; 3; 4; 5\\}$. Tìm số tập hợp $X$ sao cho $A \\setminus X = \\{1; 3; 5\\}$ và $X \\setminus A = \\{6; 7\\}$.",
       "options": [
         "1",
         "2",
@@ -51,194 +51,194 @@
     {
       "id": "s1_5",
       "type": "multiple-choice",
-      "question": "Cho các tập hợp A={x∈R|x<3}, B={x∈R|1<x≤5}, C={x∈R|-2≤x≤4}. Khi đó (B∪C)\\(A∩C) bằng",
+      "question": "Cho các tập hợp $A = \\{x \\in \\mathbb{R} \\mid x < 3\\}$, $B = \\{x \\in \\mathbb{R} \\mid 1 < x \\le 5\\}$, $C = \\{x \\in \\mathbb{R} \\mid -2 \\le x \\le 4\\}$. Khi đó $(B \\cup C) \\setminus (A \\cap C)$ bằng",
       "options": [
-        "[-2;3)",
-        "[3;5]",
-        "(-∞;1]",
-        "[-2;5]"
+        "$[-2; 3)$",
+        "$[3; 5]$",
+        "$(-\\infty; 1]$",
+        "$[-2; 5]$"
       ],
-      "answer": "[3;5]"
+      "answer": "$[3; 5]$"
     },
     {
       "id": "s1_6",
       "type": "multiple-choice",
-      "question": "Cho A=(-∞;1], B=[1;+∞), C=(0;1]. Câu nào sau đây sai?",
+      "question": "Cho $A = (-\\infty; 1]$, $B = [1; +\\infty)$, $C = (0; 1]$. Câu nào sau đây sai?",
       "options": [
-        "(A∪B)\\C=(-∞;0]∪(1;+∞)",
-        "A∩B∩C={1}",
-        "A∪B∪C=R",
-        "(A∩B)\\C=∅"
+        "$(A \\cup B) \\setminus C = (-\\infty; 0] \\cup (1; +\\infty)$",
+        "$A \\cap B \\cap C = (0; 1)$",
+        "$A \\cup B \\cup C = \\mathbb{R}$",
+        "$(A \\cap B) \\setminus C = \\varnothing$"
       ],
-      "answer": "A∩B∩C={1}"
+      "answer": "$A \\cap B \\cap C = (0; 1)$"
     },
     {
       "id": "s1_7",
       "type": "multiple-choice",
-      "question": "Cho các tập A={x∈R|x≥-1}, B={x∈R|x<3}. Tập \\(A∩B) là",
+      "question": "Cho các tập $A = \\{x \\in \\mathbb{R} \\mid x \\ge -1\\}$, $B = \\{x \\in \\mathbb{R} \\mid x < 3\\}$. Tập $C_{\\mathbb{R}}(A \\cap B)$ là",
       "options": [
-        "(-∞;-1)∪[3;+∞)",
-        "(-1;3]",
-        "[-1;3)",
-        "(-∞;-1]∪(3;+∞)"
+        "$(-\\infty; -1) \\cup [3; +\\infty)$",
+        "$(-1; 3]$",
+        "$[-1; 3)$",
+        "$(-\\infty; -1] \\cup (3; +\\infty)$"
       ],
-      "answer": "(-∞;-1)∪[3;+∞)"
+      "answer": "$(-\\infty; -1) \\cup [3; +\\infty)$"
     },
     {
       "id": "s1_8",
       "type": "multiple-choice",
-      "question": "Cho A=(2;+∞), B=(-∞;5/2]. Khi đó (A∩B)∪(B\\A) là",
+      "question": "Cho $A = (2; +\\infty)$, $B = (-\\infty; \\frac{5}{2}]$. Khi đó $(A \\cap B) \\cup (B \\setminus A)$ là",
       "options": [
-        "[2;5/2]",
-        "(2;+∞)",
-        "(-∞;5/2]",
-        "(-∞;5/2)"
+        "$[2; \\frac{5}{2}]$",
+        "$(2; +\\infty)$",
+        "$(-\\infty; \\frac{5}{2}]$",
+        "$(-\\infty; \\frac{5}{2})$"
       ],
-      "answer": "(-∞;5/2]"
+      "answer": "$(-\\infty; \\frac{5}{2}]$"
     },
     {
       "id": "s1_9",
       "type": "multiple-choice",
-      "question": "Cho A={0;1;2;3;4}, B={2;3;4;5;6}. Tập (A\\B)∪(B\\A) bằng",
+      "question": "Cho $A = \\{0; 1; 2; 3; 4\\}$, $B = \\{2; 3; 4; 5; 6\\}$. Tập $(A \\setminus B) \\cup (B \\setminus A)$ bằng",
       "options": [
-        "{0;1;5;6}",
-        "{1;2}",
-        "{2;3;4}",
-        "{5;6}"
+        "$\\{0; 1; 5; 6\\}$",
+        "$\\{1; 2\\}$",
+        "$\\{2; 3; 4\\}$",
+        "$\\{5; 6\\}$"
       ],
-      "answer": "{0;1;5;6}"
+      "answer": "$\\{0; 1; 5; 6\\}$"
     },
     {
       "id": "s1_10",
       "type": "multiple-choice",
-      "question": "Cho A={0;1;2;3;4}, B={2;3;4;5;6}. Tập A\\B bằng",
+      "question": "Cho $A = \\{0; 1; 2; 3; 4\\}$, $B = \\{2; 3; 4; 5; 6\\}$. Tập $A \\setminus B$ bằng",
       "options": [
-        "{0}",
-        "{0;1}",
-        "{1;2}",
-        "{1;5}"
+        "$\\{0\\}$",
+        "$\\{0; 1\\}$",
+        "$\\{1; 2\\}$",
+        "$\\{1; 5\\}$"
       ],
-      "answer": "{0;1}"
+      "answer": "$\\{0; 1\\}$"
     },
     {
       "id": "s1_11",
       "type": "multiple-choice",
-      "question": "Cho A={0;1;2;3;4}, B={2;3;4;5;6}. Tập B\\A bằng",
+      "question": "Cho $A = \\{0; 1; 2; 3; 4\\}$, $B = \\{2; 3; 4; 5; 6\\}$. Tập $B \\setminus A$ bằng",
       "options": [
-        "{5}",
-        "{0;1}",
-        "{2;3;4}",
-        "{5;6}"
+        "$\\{5\\}$",
+        "$\\{0; 1\\}$",
+        "$\\{2; 3; 4\\}$",
+        "$\\{5; 6\\}$"
       ],
-      "answer": "{5;6}"
+      "answer": "$\\{5; 6\\}$"
     },
     {
       "id": "s1_12",
       "type": "multiple-choice",
-      "question": "Cho hai tập hợp A=(1;5], B=(2;7]. Tập hợp A\\B là",
+      "question": "Cho hai tập hợp $A = (1; 5]$, $B = (2; 7]$. Tập hợp $A \\setminus B$ là",
       "options": [
-        "(1;2]",
-        "(2;5)",
-        "(-1;7]",
-        "(-1;2)"
+        "$(1; 2]$",
+        "$(2; 5)$",
+        "$(-1; 7]$",
+        "$(-1; 2)$"
       ],
-      "answer": "(1;2]"
+      "answer": "$(1; 2]$"
     },
     {
       "id": "s1_13",
       "type": "multiple-choice",
-      "question": "Cho A=(-1;5], B=(2;7). Tìm A\\B.",
+      "question": "Cho $A = (-1; 5]$, $B = (2; 7)$. Tìm $A \\setminus B$.",
       "options": [
-        "(-1;2]",
-        "(2;5]",
-        "(-1;7)",
-        "(-1;2)"
+        "$(-1; 2]$",
+        "$(2; 5]$",
+        "$(-1; 7)$",
+        "$(-1; 2)$"
       ],
-      "answer": "(-1;2]"
+      "answer": "$(-1; 2]$"
     },
     {
       "id": "s1_14",
       "type": "multiple-choice",
-      "question": "Cho ba tập hợp A=[-2;2], B=[1;5], C=[0;1). Khi đó (A\\B)∩C là",
+      "question": "Cho ba tập hợp $A = [-2; 2]$, $B = [1; 5]$, $C = [0; 1)$. Khi đó $(A \\setminus B) \\cap C$ là",
       "options": [
-        "{0;1}",
-        "[0;1)",
-        "(-2;1)",
-        "[-2;5]"
+        "$\\{0; 1\\}$",
+        "$[0; 1)$",
+        "$(-2; 1)$",
+        "$[-2; 5]$"
       ],
-      "answer": "[0;1)"
+      "answer": "$[0; 1)$"
     },
     {
       "id": "s1_15",
       "type": "multiple-choice",
-      "question": "Cho CA=[-3;8), CB=(-5;2)∪(3;11). Tập C(A∩B) là",
+      "question": "Cho $C_{\\mathbb{R}} A = [-3; 8)$, $C_{\\mathbb{R}} B = (-5; 2) \\cup (3; 11)$. Tập $C_{\\mathbb{R}}(A \\cap B)$ là",
       "options": [
-        "(-3;3)",
-        "∅",
-        "(-5;11)",
-        "(-3;2)∪(3;8)"
+        "$(-3; 3)$",
+        "$\\varnothing$",
+        "$(-5; 11)$",
+        "$(-3; 2) \\cup (3; 8)$"
       ],
-      "answer": "(-3;2)∪(3;8)"
+      "answer": "$(-5; 11)$"
     },
     {
       "id": "s1_16",
       "type": "multiple-choice",
-      "question": "Cho A=[a;a+1). Mệnh đề đúng là",
+      "question": "Cho $A = [a; a+1)$. Mệnh đề đúng là",
       "options": [
-        "CA=(-∞;a]∪[a+1;+∞)",
-        "CA=(-∞;a]∪(a+1;+∞)",
-        "CA=(-∞;a)∪[a+1;+∞)",
-        "CA=(-∞;a)∪(a+1;+∞)"
+        "$C_{\\mathbb{R}} A = (-\\infty; a] \\cup [a+1; +\\infty)$",
+        "$C_{\\mathbb{R}} A = (-\\infty; a] \\cup (a+1; +\\infty)$",
+        "$C_{\\mathbb{R}} A = (-\\infty; a) \\cup [a+1; +\\infty)$",
+        "$C_{\\mathbb{R}} A = (-\\infty; a) \\cup (a+1; +\\infty)$"
       ],
-      "answer": "CA=(-∞;a]∪[a+1;+∞)"
+      "answer": "$C_{\\mathbb{R}} A = (-\\infty; a) \\cup [a+1; +\\infty)$"
     },
     {
       "id": "s1_17",
       "type": "multiple-choice",
-      "question": "Ký hiệu H là tập học sinh lớp 10A, T là tập học sinh nam, G là tập học sinh nữ. Khẳng định nào sai?",
+      "question": "Ký hiệu $H$ là tập học sinh lớp 10A, $T$ là tập học sinh nam, $G$ là tập học sinh nữ. Khẳng định nào sai?",
       "options": [
-        "T∪G=H",
-        "T∩G=∅",
-        "H\\T=G",
-        "G\\T=∅"
+        "$T \\cup G = H$",
+        "$T \\cap G = \\varnothing$",
+        "$H \\setminus T = G$",
+        "$G \\setminus T = \\varnothing$"
       ],
-      "answer": "G\\T=∅"
+      "answer": "$G \\setminus T = \\varnothing$"
     },
     {
       "id": "s1_18",
       "type": "multiple-choice",
-      "question": "Cho A={x∈R:x²−7x+6=0}, B={x∈R:x<4}. Khi đó",
+      "question": "Cho $A = \\{x \\in \\mathbb{R} \\mid x^2 - 7x + 6 = 0\\}$, $B = \\{x \\in \\mathbb{R} \\mid x < 4\\}$. Khi đó",
       "options": [
-        "A∪B=A",
-        "A∩B=A∪B",
-        "A\\B⊂A",
-        "B\\A=∅"
+        "$A \\cup B = A$",
+        "$A \\cap B = A \\cup B$",
+        "$A \\setminus B \\subset A$",
+        "$B \\setminus A = \\varnothing$"
       ],
-      "answer": "A\\B⊂A"
+      "answer": "$A \\setminus B \\subset A$"
     },
     {
       "id": "s1_19",
       "type": "multiple-choice",
-      "question": "Cho A=(-∞;m), B=[2−m;2+2m]. Điều kiện để CA∩B≠∅ là",
+      "question": "Cho $A = (-\\infty; m)$, $B = [2 - m; 2 + 2m]$. Điều kiện để $C_{\\mathbb{R}}A \\cap B \\ne \\varnothing$ là",
       "options": [
-        "m≥2",
-        "m<-2",
-        "m≥-2",
-        "m<2"
+        "$m \\ge 2$",
+        "$m < -2$",
+        "$m \\ge -2$",
+        "$m < 2$"
       ],
-      "answer": "m≥-2"
+      "answer": "$m \\ge -2$"
     },
     {
       "id": "s1_20",
       "type": "multiple-choice",
-      "question": "Cho hai tập hợp P=[3−6m;4), Q=(2;1+m). Điều kiện để P\\Q=∅ là",
+      "question": "Cho hai tập hợp $P = [3 - 6m; 4)$, $Q = (2; 1 + m)$. Điều kiện để $P \\setminus Q = \\varnothing$ là",
       "options": [
-        "10/3≤m<3",
-        "10/3<m<3",
-        "m≥3",
-        "4/3<m≤3"
+        "$\\frac{10}{3} \\le m < 3$",
+        "$\\frac{10}{3} < m < 3$",
+        "$m \\ge 3$",
+        "$\\frac{4}{3} < m \\le 3$"
       ],
-      "answer": "4/3<m≤3"
+      "answer": "$\\frac{4}{3} < m \\le 3$"
     }
   ],
 
@@ -246,26 +246,26 @@
     {
       "id": "s2_1",
       "type": "true-false",
-      "question": "Cho A={0;1;2;3;4;5;6}, B={-3;-1;1;2;3}, C={x∈Z|x<6}.",
+      "question": "Cho $A = \\{0; 1; 2; 3; 4; 5; 6\\}$, $B = \\{-3; -1; 1; 2; 3\\}$, $C = \\{x \\in \\mathbb{Z} \\mid x < 6\\}$.",
       "subQuestions": [
         {
           "label": "a",
-          "text": "B\\C={-3;-1;1}",
+          "text": "$B \\setminus C = \\{-3; -1; 1\\}$",
           "correctAnswer": "Sai"
         },
         {
           "label": "b",
-          "text": "C\\B={0;4;5}",
+          "text": "$C \\setminus B = \\{0; 4; 5\\}$",
           "correctAnswer": "Sai"
         },
         {
           "label": "c",
-          "text": "CA∩B={0;4;5;6}",
+          "text": "$(A \\setminus B) = \\{0; 4; 5; 6\\}$",
           "correctAnswer": "Đúng"
         },
         {
           "label": "d",
-          "text": "B\\A={-3;-1}",
+          "text": "$B \\setminus A = \\{-3; -1\\}$",
           "correctAnswer": "Đúng"
         }
       ]
@@ -273,26 +273,26 @@
     {
       "id": "s2_2",
       "type": "true-false",
-      "question": "Cho A=(-1;+∞), B=(-∞;-1].",
+      "question": "Cho $A = (-1; +\\infty)$, $B = (-\\infty; -1]$.",
       "subQuestions": [
         {
           "label": "a",
-          "text": "A\\B=(-1;+∞)",
+          "text": "$A \\setminus B = (-1; +\\infty)$",
           "correctAnswer": "Đúng"
         },
         {
           "label": "b",
-          "text": "B\\A=(-∞;-1]",
+          "text": "$B \\setminus A = (-\\infty; -1]$",
           "correctAnswer": "Đúng"
         },
         {
           "label": "c",
-          "text": "CA=(-∞;-1)",
+          "text": "$C_{\\mathbb{R}}A = (-\\infty; -1]$",
           "correctAnswer": "Đúng"
         },
         {
           "label": "d",
-          "text": "CB=(-1;+∞)",
+          "text": "$C_{\\mathbb{R}}B = (-1; +\\infty)$",
           "correctAnswer": "Đúng"
         }
       ]
@@ -300,53 +300,53 @@
     {
       "id": "s2_3",
       "type": "true-false",
-      "question": "Cho A={x∈R||x|<3}, B=[-2;2].",
+      "question": "Cho $A = \\{x \\in \\mathbb{R} \\mid |x| < 3\\}$, $B = [-2; 2]$.",
       "subQuestions": [
         {
           "label": "a",
-          "text": "A\\B=∅",
+          "text": "$A \\setminus B = \\varnothing$",
           "correctAnswer": "Sai"
         },
         {
           "label": "b",
-          "text": "B\\A=∅",
+          "text": "$B \\setminus A = \\varnothing$",
           "correctAnswer": "Đúng"
         },
         {
           "label": "c",
-          "text": "CA=(-∞;-3]∪[3;+∞)",
+          "text": "$C_{\\mathbb{R}}A = (-\\infty; -3] \\cup [3; +\\infty)$",
           "correctAnswer": "Đúng"
         },
         {
           "label": "d",
-          "text": "(CB)∩A=(-∞;-2)∪(2;+∞)",
-          "correctAnswer": "Sai"
+          "text": "$(C_{\\mathbb{R}}B) \\cap A = (-3; -2) \\cup (2; 3)$",
+          "correctAnswer": "Đúng"
         }
       ]
     },
     {
       "id": "s2_4",
       "type": "true-false",
-      "question": "Cho A={x∈R|x≤3}, B={x∈R|-3<x<5}, C=[3;+∞).",
+      "question": "Cho $A = \\{x \\in \\mathbb{R} \\mid x \\le 3\\}$, $B = \\{x \\in \\mathbb{R} \\mid -3 < x < 5\\}$, $C = [3; +\\infty)$.",
       "subQuestions": [
         {
           "label": "a",
-          "text": "A∩B=(-3;3]",
+          "text": "$A \\cap B = (-3; 3]$",
           "correctAnswer": "Đúng"
         },
         {
           "label": "b",
-          "text": "A∪B=(-∞;5]",
+          "text": "$A \\cup B = (-\\infty; 5)$",
           "correctAnswer": "Sai"
         },
         {
           "label": "c",
-          "text": "A∩C=∅",
+          "text": "$A \\cap C = \\{3\\}$",
           "correctAnswer": "Sai"
         },
         {
           "label": "d",
-          "text": "B∪C=(-3;+∞)",
+          "text": "$B \\cup C = (-3; +\\infty)$",
           "correctAnswer": "Đúng"
         }
       ]
@@ -354,26 +354,26 @@
     {
       "id": "s2_5",
       "type": "true-false",
-      "question": "Cho A=(-3;5], B=(2;+∞).",
+      "question": "Cho $A = (-3; 5]$, $B = (2; +\\infty)$.",
       "subQuestions": [
         {
           "label": "a",
-          "text": "A∩B=(2;5]",
+          "text": "$A \\cap B = (2; 5]$",
           "correctAnswer": "Đúng"
         },
         {
           "label": "b",
-          "text": "A∪B=(-3;+∞)",
+          "text": "$A \\cup B = (-3; +\\infty)$",
           "correctAnswer": "Đúng"
         },
         {
           "label": "c",
-          "text": "A\\B=(-3;2]",
+          "text": "$A \\setminus B = (-3; 2]$",
           "correctAnswer": "Đúng"
         },
         {
           "label": "d",
-          "text": "CA=(-∞;-3]∪(5;+∞)",
+          "text": "$C_{\\mathbb{R}}A = (-\\infty; -3] \\cup (5; +\\infty)$",
           "correctAnswer": "Đúng"
         }
       ]
@@ -384,72 +384,72 @@
     {
       "id": "s3_1",
       "type": "short-answer",
-      "question": "Cho A là tập nghiệm của phương trình x²−3x+2=0, B là tập các số nguyên có giá trị tuyệt đối nhỏ hơn 4. Tính số phần tử của A\\B.",
+      "question": "Cho $A$ là tập nghiệm của phương trình $x^2 - 3x + 2 = 0$, $B$ là tập các số nguyên có giá trị tuyệt đối nhỏ hơn 4. Tính số phần tử của $A \\setminus B$.",
       "answer": "0",
-      "explanation": "A={1;2}, cả hai phần tử đều thuộc B nên A\\B=∅."
+      "explanation": "$A = \\{1; 2\\}$, cả hai phần tử đều thuộc $B$ nên $A \\setminus B = \\varnothing$."
     },
     {
       "id": "s3_2",
       "type": "short-answer",
-      "question": "Cho A={0;1;2;3;4}, B={2;3;4;5;6}. Tính số phần tử của (A\\B)∪(B\\A).",
+      "question": "Cho $A = \\{0; 1; 2; 3; 4\\}$, $B = \\{2; 3; 4; 5; 6\\}$. Tính số phần tử của $(A \\setminus B) \\cup (B \\setminus A)$.",
       "answer": "4",
-      "explanation": "(A\\B)∪(B\\A)={0;1;5;6} nên có 4 phần tử."
+      "explanation": "$(A \\setminus B) \\cup (B \\setminus A) = \\{0; 1; 5; 6\\}$ nên có 4 phần tử."
     },
     {
       "id": "s3_3",
       "type": "short-answer",
-      "question": "Cho A=(-3;5], B=(2;+∞). Tính số đầu mút của tập A\\B.",
+      "question": "Cho $A = (-3; 5]$, $B = (2; +\\infty)$. Tính số đầu mút của tập $A \\setminus B$.",
       "answer": "2",
-      "explanation": "A\\B=(-3;2], có hai đầu mút là -3 và 2."
+      "explanation": "$A \\setminus B = (-3; 2]$, có hai đầu mút là $-3$ và $2$."
     },
     {
       "id": "s3_4",
       "type": "short-answer",
       "question": "Lớp 10A có 27 học sinh tham gia ít nhất một trong hai câu lạc bộ bóng đá và cờ vua, trong đó có 19 học sinh tham gia bóng đá, 15 học sinh tham gia cờ vua. Có bao nhiêu học sinh tham gia cả hai câu lạc bộ?",
       "answer": "7",
-      "explanation": "n(A∩B)=19+15−27=7."
+      "explanation": "$n(A \\cap B) = 19 + 15 - 27 = 7$."
     },
     {
       "id": "s3_5",
       "type": "short-answer",
       "question": "Biết có 8 học sinh không tham gia câu lạc bộ nào và 27 học sinh tham gia ít nhất một câu lạc bộ. Hỏi lớp có bao nhiêu học sinh?",
       "answer": "35",
-      "explanation": "Tổng số học sinh = 27+8=35."
+      "explanation": "Tổng số học sinh $= 27 + 8 = 35$."
     },
     {
       "id": "s3_6",
       "type": "short-answer",
-      "question": "Cho A={1;2;3;7}, B={2;4;6;7;8}. Tính số phần tử của A\\B.",
+      "question": "Cho $A = \\{1; 2; 3; 7\\}$, $B = \\{2; 4; 6; 7; 8\\}$. Tính số phần tử của $A \\setminus B$.",
       "answer": "2",
-      "explanation": "A\\B={1;3} nên có 2 phần tử."
+      "explanation": "$A \\setminus B = \\{1; 3\\}$ nên có 2 phần tử."
     },
     {
       "id": "s3_7",
       "type": "short-answer",
-      "question": "Cho A={1;2;3;7}, B={2;4;6;7;8}. Tính số phần tử của B\\A.",
+      "question": "Cho $A = \\{1; 2; 3; 7\\}$, $B = \\{2; 4; 6; 7; 8\\}$. Tính số phần tử của $B \\setminus A$.",
       "answer": "3",
-      "explanation": "B\\A={4;6;8} nên có 3 phần tử."
+      "explanation": "$B \\setminus A = \\{4; 6; 8\\}$ nên có 3 phần tử."
     },
     {
       "id": "s3_8",
       "type": "short-answer",
-      "question": "Cho A={1;2;3;7}, B={2;4;6;7;8}. Tính số phần tử của A∪B.",
-      "answer": "6",
-      "explanation": "A∪B={1;2;3;4;6;7;8} có 7 phần tử."
+      "question": "Cho $A = \\{1; 2; 3; 7\\}$, $B = \\{2; 4; 6; 7; 8\\}$. Tính số phần tử của $A \\cup B$.",
+      "answer": "7",
+      "explanation": "$A \\cup B = \\{1; 2; 3; 4; 6; 7; 8\\}$ có 7 phần tử."
     },
     {
       "id": "s3_9",
       "type": "short-answer",
-      "question": "Cho X={-3;-4;5}. Có bao nhiêu tập con của X?",
+      "question": "Cho $X = \\{-3; -4; 5\\}$. Có bao nhiêu tập con của $X$?",
       "answer": "8",
-      "explanation": "Tập có 3 phần tử nên số tập con là 2³=8."
+      "explanation": "Tập có 3 phần tử nên số tập con là $2^3 = 8$."
     },
     {
       "id": "s3_10",
       "type": "short-answer",
-      "question": "Cho A={0;1;2;3;4}, B={2;3;4;5;6}. Tính số phần tử của A∩B.",
+      "question": "Cho $A = \\{0; 1; 2; 3; 4\\}$, $B = \\{2; 3; 4; 5; 6\\}$. Tính số phần tử của $A \\cap B$.",
       "answer": "3",
-      "explanation": "A∩B={2;3;4} nên có 3 phần tử."
+      "explanation": "$A \\cap B = \\{2; 3; 4\\}$ nên có 3 phần tử."
     }
   ]
 }
