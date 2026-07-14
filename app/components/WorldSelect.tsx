@@ -3,6 +3,10 @@ import { worldNames } from "../data/worldNames";
 import Footer from "./Footer";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
+import Logo from "./dashboard/Logo";
+import LeftMenu from "./dashboard/LeftMenu";
+import PlayerCard from "./dashboard/PlayerCard";
+import RightPanel from "./dashboard/RightPanel";
 
 const supabase = createClient();
 import { useEffect } from "react";
@@ -330,20 +334,16 @@ cursor-not-allowed
     <div className="max-w-7xl mx-auto">
 
       {/* HEADER */}
-<div
+<div className="mb-10">
+        <div
 className="
-bg-white/10
-border
-border-white/20
-backdrop-blur-xl
-rounded-3xl
-px-8
-py-4
-mb-8
-shadow-2xl
+grid
+grid-cols-1
+lg:grid-cols-[240px_1fr_220px]
+gap-8
+items-start
 "
 >
-        <div className=" flex flex-col items-center md:grid md:grid-cols-[220px_1fr_220px] " >
 
           {/* LEFT */}
           <div className="hidden md:flex gap-3 flex-wrap">
@@ -409,24 +409,7 @@ shadow-2xl
           </div>
 
           {/* CENTER */}
-          <div className="text-center">
-           <h1
-className="
-text-5xl
-md:text-6xl
-font-black
-bg-gradient-to-r
-from-yellow-300
-via-white
-to-cyan-300
-bg-clip-text
-text-transparent
-drop-shadow-[0_0_25px_rgba(255,255,255,.6)]
-"
->
-
-  Math Quest
-</h1>
+          <Logo />
 
             <p className="text-white/80 text-base mt-2">
               Toán THPT qua trò chơi
@@ -1322,7 +1305,7 @@ duration-300
   </div>
 )}
 
-</div>
+
 
 
 
