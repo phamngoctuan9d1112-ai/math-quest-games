@@ -346,70 +346,15 @@ items-start
 >
 
           {/* LEFT */}
-          <div className="hidden md:flex gap-3 flex-wrap">
-            <button
-              onClick={onShop}
-              className="
-                bg-yellow-500
-                hover:bg-yellow-600
-                text-white
-                px-5
-                py-3
-                rounded-xl
-                font-bold
-                shadow-lg
-                transition
-              "
-            >
-              🛒 Shop
-            </button>
-
-            <button
-              onClick={onAchievements}
-              className="
-                bg-green-500
-                hover:bg-green-600
-                text-white
-                px-5
-                py-3
-                rounded-xl
-                font-bold
-                shadow-lg
-                transition
-              "
-            >
-              🏆 Thành tích
-            </button>
-            <button
-    onClick={onChest}
-    className="
-    bg-orange-500
-    hover:bg-yellow-600
-    text-white
-    px-4
-    py-2
-    rounded-xl
-    "
->
-    🎁 
-</button>
-<button
-  onClick={onChestInventory}
-  className="
-  bg-yellow-500
-  text-white
-  px-4
-  py-2
-  rounded-xl
-  "
->
-  🎒 
-</button>
-
-          </div>
+          <LeftMenu
+    onShop={onShop}
+    onAchievements={onAchievements}
+    onChest={onChest}
+    onChestInventory={onChestInventory}
+/>
 
           {/* CENTER */}
-          <Logo />
+          
 
             <p className="text-white/80 text-base mt-2">
               Toán THPT qua trò chơi
@@ -435,133 +380,20 @@ mx-auto
 "
 >
 
-  <div className="absolute right-4 top-4 text-7xl opacity-10">
-    🎮
-  </div>
+  <Logo />
 
-  <div className="flex items-center justify-between">
+    <PlayerCard
+        userName={userName}
+        email={email}
+        level={level}
+        rank={rank}
+        coins={coins}
+        formulaShards={formulaShards}
+        streak={streak}
+    />
 
-    <div>
+  
 
-      <h1 className="text-3xl font-black">
-        👋 {userName}
-      </h1>
-
-      <p className="text-white/80 mt-1">
-        {email}
-      </p>
-
-    </div>
-
-    <div className="text-right">
-
-      <div className="text-lg font-bold">
-        ⭐ Level {level}
-      </div>
-
-      <div className="text-yellow-300 font-semibold">
-        {rank}
-      </div>
-
-    </div>
-
-  </div>
-
-  <div className="mt-6 grid grid-cols-4 gap-4">
-
-    <div
-className="
-bg-white/10
-backdrop-blur
-rounded-2xl
-p-4
-text-center
-hover:scale-105
-transition
-duration-300
-"
->
-
-      <div className="text-4xl mb-2">
-        🪙
-      </div>
-
-      <div className="text-xl font-black">
-        {coins}
-      </div>
-
-    </div>
-
-    <div
-className="
-bg-white/10
-backdrop-blur
-rounded-2xl
-p-4
-text-center
-hover:scale-105
-transition
-duration-300
-"
->
-
-      <div className="text-4xl mb-2">
-        🧩
-      </div>
-
-      <div className="text-xl font-black">
-        {formulaShards}
-      </div>
-
-    </div>
-<div
-className="
-bg-white/10
-backdrop-blur
-rounded-2xl
-p-4
-text-center
-hover:scale-105
-transition
-duration-300
-"
->
-    
-
-      <div className="text-4xl mb-2">
-        🔥
-      </div>
-
-      <div className="text-xl font-black">
-        {streak}
-      </div>
-
-    </div>
-
-    <div
-className="
-bg-white/10
-backdrop-blur
-rounded-2xl
-p-4
-text-center
-hover:scale-105
-transition
-duration-300
-"
->
-
-      <div className="text-4xl mb-2">
-        🏆
-      </div>
-
-      <div className="text-xl font-black">
-        {rank}
-      </div>
-
-    </div>
-
-  </div>
 
 </div>
           </div>
