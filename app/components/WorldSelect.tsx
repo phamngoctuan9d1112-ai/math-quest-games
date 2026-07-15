@@ -335,11 +335,11 @@ cursor-not-allowed
 
       {/* HEADER */}
 <div className="mb-10">
-        <div
+       <div
 className="
 grid
 grid-cols-1
-lg:grid-cols-[240px_1fr_220px]
+xl:grid-cols-[240px_1fr_260px]
 gap-8
 items-start
 "
@@ -353,47 +353,21 @@ items-start
     onChestInventory={onChestInventory}
 />
 
-          {/* CENTER */}
-          
+<div className="flex flex-col items-center">
 
-            <p className="text-white/80 text-base mt-2">
-              Toán THPT qua trò chơi
-            </p>
+    <Logo />
 
-            <div
-className="
-relative
-overflow-hidden
-rounded-[32px]
-bg-gradient-to-br
-from-slate-900
-via-indigo-900
-to-purple-900
-border
-border-cyan-400/20
-p-8
-shadow-[0_0_40px_rgba(99,102,241,.35)]
-text-white
-w-full
-max-w-[500px]
-mx-auto
-"
->
-
-  <Logo />
-
-    <PlayerCard
-        userName={userName}
-        email={email}
-        level={level}
-        rank={rank}
-        coins={coins}
-        formulaShards={formulaShards}
-        streak={streak}
-    />
-
-  
-
+    <div className="mt-8 w-full">
+        <PlayerCard
+            userName={userName}
+            email={email}
+            level={level}
+            rank={rank}
+            coins={coins}
+            formulaShards={formulaShards}
+            streak={streak}
+        />
+    </div>
 
 </div>
           </div>
@@ -402,24 +376,11 @@ mx-auto
           <div className="hidden md:flex justify-end gap-3">
             
             
-            <button
-              onClick={onLeaderboard}
-              className="
-                bg-red-500
-                hover:bg-red-600
-                text-white
-                w-12
-                h-12
-                rounded-xl
-                flex
-                items-center
-                justify-center
-                text-xl
-                shadow-lg
-              "
-            >
-              🏅
-            </button> 
+            <RightPanel
+    streak={streak}
+    onLeaderboard={onLeaderboard}
+    onLogout={onLogout}
+/>
 
             {email === ADMIN_EMAIL && (
   <button
@@ -437,59 +398,7 @@ mx-auto
   </button>
 )}
 
-            <button
-              onClick={onLogout}
-              className="
-                bg-red-500
-                hover:bg-red-600
-                text-white
-                w-12
-                h-12
-                rounded-xl
-                flex
-                items-center
-                justify-center
-                text-xl
-                shadow-lg
-              "
-            >
-              ↩️
-            </button>
-            <button
-  onClick={() => setShowStreakModal(true)}
-  className={`
-    ${streakStyle.bg}
-    px-4
-    py-2
-    rounded-xl
-    font-bold
-    flex
-    items-center
-    gap-2
-    hover:scale-105
-    transition
-  `}
->
-  <span
-    className={`
-      text-2xl
-      ${streakStyle.color}
-    `}
-  >
-    {streakStyle.icon}
-  </span>
-
-  <span>
-    {streak} ngày
-  </span>
-
-  <span
-    className={streakStyle.color}
-  >
-    {streakStyle.label}
-  </span>
-</button>
-          </div>
+        </div>   
         </div>
       </div>
 

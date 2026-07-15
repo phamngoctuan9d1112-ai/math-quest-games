@@ -1,7 +1,17 @@
-export default function RightPanel() {
+type Props = {
+    streak: number;
+    onLeaderboard: () => void;
+    onLogout: () => void;
+};
+
+export default function RightPanel({
+    streak,
+    onLeaderboard,
+    onLogout,
+}: Props) {
     return (
         <div>
-            Right Panel
+            {/* code */}
         </div>
     );
 }

@@ -22,8 +22,7 @@ export default function PlayerCard({
       className="
       relative
       w-full
-      max-w-5xl
-      mx-auto
+      w-full
 
       rounded-[36px]
       border
@@ -36,11 +35,11 @@ export default function PlayerCard({
 
       shadow-[0_0_60px_rgba(90,70,255,.35)]
 
-      p-8
+      p-10
       text-white
       "
     >
-      <div className="grid grid-cols-[180px_1fr_180px] gap-8 items-center">
+      <div className="grid grid-cols-[220px_1fr_220px] gap-8 items-center">
 
     <div className="flex flex-col items-center">
 
@@ -82,7 +81,7 @@ export default function PlayerCard({
 
     <div
         className="
-        mt-4
+        mt-8
 
         bg-gradient-to-r
         from-purple-700
@@ -169,7 +168,7 @@ export default function PlayerCard({
             Level
         </div>
 
-        <div className="text-5xl font-black">
+        <div className="text-6xl font-black">
             {level}
         </div>
 
