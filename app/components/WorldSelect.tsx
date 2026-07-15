@@ -305,22 +305,7 @@ cursor-not-allowed
             <>
   {/* Badge */}
 
-  <div
-    className="
-    absolute
-    top-3
-    left-3
-    bg-black/30
-    backdrop-blur
-    px-3
-    py-1
-    rounded-full
-    text-xs
-    font-bold
-    "
-  >
-    #{world.id}
-  </div>
+  
 
   {/* Icon */}
 
