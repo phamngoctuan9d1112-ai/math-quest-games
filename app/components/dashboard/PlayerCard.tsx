@@ -91,16 +91,23 @@ export default function PlayerCard({
       </div>
 
       {/* Stats */}
-      <div
-        className="
-        grid
-        grid-cols-2
-        md:grid-cols-3
-        gap-5
-        mt-8
-      "
-      >
-        <div className="rounded-2xl bg-yellow-500/20 p-5 text-center">
+      <div className="grid grid-cols-2 gap-3 md:gap-5 mt-5">
+        <div className="
+bg-white/10
+rounded-xl
+md:rounded-2xl
+
+p-3
+md:p-8
+
+min-h-[90px]
+md:min-h-[170px]
+
+flex
+flex-col
+justify-center
+items-center
+">
           <div className="text-4xl">🪙</div>
 
           <div className="mt-2 text-2xl font-black">
@@ -112,7 +119,22 @@ export default function PlayerCard({
           </div>
         </div>
 
-        <div className="rounded-2xl bg-cyan-500/20 p-5 text-center">
+        <div className="
+bg-white/10
+rounded-xl
+md:rounded-2xl
+
+p-3
+md:p-8
+
+min-h-[90px]
+md:min-h-[170px]
+
+flex
+flex-col
+justify-center
+items-center
+">
           <div className="text-4xl">🧩</div>
 
           <div className="mt-2 text-2xl font-black">
@@ -124,7 +146,25 @@ export default function PlayerCard({
           </div>
         </div>
 
-        <div className="rounded-2xl bg-red-500/20 p-5 text-center col-span-2 md:col-span-1">
+        <div className="
+col-span-2
+
+bg-white/10
+
+rounded-xl
+md:rounded-2xl
+
+p-3
+md:p-8
+
+min-h-[90px]
+md:min-h-[170px]
+
+flex
+flex-col
+justify-center
+items-center
+">
           <div className="text-4xl">🔥</div>
 
           <div className="mt-2 text-2xl font-black">
