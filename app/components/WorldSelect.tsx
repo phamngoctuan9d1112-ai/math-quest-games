@@ -331,7 +331,7 @@ cursor-not-allowed
 </div>
 
 <div className="relative z-10">
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-[1700px] mx-auto px-8">
 
       {/* HEADER */}
 <div className="mb-10">
@@ -339,7 +339,7 @@ cursor-not-allowed
 className="
 grid
 grid-cols-1
-xl:grid-cols-[240px_1fr_260px]
+xl:grid-cols-[220px_minmax(0,1fr)_220px]
 gap-8
 items-start
 "
@@ -353,11 +353,11 @@ items-start
     onChestInventory={onChestInventory}
 />
 
-<div className="flex flex-col items-center">
+<div>
 
     <Logo />
 
-    <div className="mt-8 w-full">
+    <div className="mt-8">
         <PlayerCard
             userName={userName}
             email={email}
@@ -373,16 +373,16 @@ items-start
           </div>
 
           {/* RIGHT */}
-          <div className="hidden md:flex justify-end gap-3">
-            
-            
-            <RightPanel
-    streak={streak}
-    onLeaderboard={onLeaderboard}
-    onLogout={onLogout}
-/>
+          <div className="hidden xl:flex justify-end">
 
-            {email === ADMIN_EMAIL && (
+    <RightPanel
+        streak={streak}
+        onLeaderboard={onLeaderboard}
+        onLogout={onLogout}
+    />
+
+</div>
+         {email === ADMIN_EMAIL && (
   <button
     onClick={() => router.push("/admin")}
     className="
@@ -396,9 +396,7 @@ items-start
   >
     Admin
   </button>
-)}
-
-        </div>   
+)}   
         </div>
       </div>
 
