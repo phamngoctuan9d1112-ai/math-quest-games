@@ -4,7 +4,7 @@ import { worldNames } from "../data/worldNames";
 import Footer from "./Footer";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
-
+import Avatar from "./Avatar";
 import LeftMenu from "./dashboard/LeftMenu";
 import PlayerCard from "./dashboard/PlayerCard";
 import RightPanel from "./dashboard/RightPanel";
@@ -886,9 +886,7 @@ ${streak > 0
               {/* Avatar */}
               <div className="text-center mt-6">
 
-                <div className="text-6xl">
-                  👤
-                </div>
+                <Avatar avatar={avatar} />
 
                 <h3 className="font-bold text-xl mt-2">
                   {userName}
