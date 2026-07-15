@@ -4,7 +4,7 @@ import { worldNames } from "../data/worldNames";
 import Footer from "./Footer";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
-import Logo from "./dashboard/Logo";
+
 import LeftMenu from "./dashboard/LeftMenu";
 import PlayerCard from "./dashboard/PlayerCard";
 import RightPanel from "./dashboard/RightPanel";
@@ -355,8 +355,7 @@ cursor-not-allowed
 
             <section className="min-w-0">
 
-              <Logo />
-
+              
               <div className="mt-8">
 
                 <PlayerCard
