@@ -61,6 +61,21 @@ export default function WorldSelect({
   const world10 = worlds.filter((w) => w.id >= 1 && w.id <= 26);
   const world11 = worlds.filter((w) => w.id >= 27 && w.id <= 61);
   const world12 = worlds.filter((w) => w.id >= 62 && w.id <= 79);
+  const kingdom1 = worlds.filter(
+  (w) => w.id >= 1 && w.id <= 26
+);
+
+const kingdom2 = worlds.filter(
+  (w) => w.id >= 27 && w.id <= 61
+);
+
+const kingdom3 = worlds.filter(
+  (w) => w.id >= 62 && w.id <= 79
+);
+
+const kingdom4 = worlds.filter(
+  (w) => w.id > 79
+);
   const streakStyle =
     getStreakStyle(streak);
   const [showStreakModal, setShowStreakModal] =
@@ -301,6 +316,83 @@ cursor-not-allowed
     );
   }
 
+  function KingdomTitle({
+    icon,
+    title,
+    subtitle,
+}: {
+    icon: string;
+    title: string;
+    subtitle: string;
+}) {
+
+    return (
+
+        <div
+            className="
+            relative
+            overflow-hidden
+            rounded-[35px]
+            mb-12
+            px-10
+            py-14
+
+            bg-gradient-to-r
+            from-indigo-700
+            via-blue-600
+            to-cyan-500
+
+            shadow-[0_20px_60px_rgba(0,0,0,.35)]
+            "
+        >
+
+            <div
+                className="
+                absolute
+                -right-10
+                -top-10
+                text-[180px]
+                opacity-10
+                "
+            >
+                {icon}
+            </div>
+
+            <div className="relative z-10">
+
+                <div className="text-6xl">
+                    {icon}
+                </div>
+
+                <h2
+                    className="
+                    text-5xl
+                    font-black
+                    text-white
+                    mt-3
+                    "
+                >
+                    {title}
+                </h2>
+
+                <p
+                    className="
+                    text-blue-100
+                    text-lg
+                    mt-2
+                    "
+                >
+                    {subtitle}
+                </p>
+
+            </div>
+
+        </div>
+
+    );
+
+}
+
   return (
     <main className="relative min-h-screen overflow-hidden">
 
@@ -430,71 +522,69 @@ items-start
 
           {/* CONTENT */}
 
-          <div className="mt-16">
-            {/* TOÁN 10 */}
+<div className="mt-20 space-y-32">
 
-            <section className="mb-24">
+  {/* KINGDOM 1 */}
 
-              <h2
-                className="
-        text-center
-        text-white
-        text-4xl
-        md:text-5xl
-        font-black
-        mb-10
-        "
-              >
-                📘 Toán 10
-              </h2>
+  <section>
 
-              {renderWorldGroup(world10)}
+    <KingdomTitle
+      icon="🌿"
+      title="Vương Quốc Khởi Nguyên"
+      subtitle="Nơi bắt đầu hành trình chinh phục Toán học"
+    />
 
-            </section>
+    {renderWorldGroup(kingdom1)}
 
-            {/* TOÁN 11 */}
+  </section>
 
-            <section className="mb-24">
+  {/* KINGDOM 2 */}
 
-              <h2
-                className="
-        text-center
-        text-white
-        text-4xl
-        md:text-5xl
-        font-black
-        mb-10
-        "
-              >
-                📗 Toán 11
-              </h2>
+  <section>
 
-              {renderWorldGroup(world11)}
+    <KingdomTitle
+      icon="⚔️"
+      title="Vương Quốc Đại Số"
+      subtitle="Đối đầu những thử thách khó hơn"
+    />
 
-            </section>
+    {renderWorldGroup(kingdom2)}
 
-            {/* TOÁN 12 */}
+  </section>
 
-            <section className="mb-24">
+  {/* KINGDOM 3 */}
 
-              <h2
-                className="
-        text-center
-        text-white
-        text-4xl
-        md:text-5xl
-        font-black
-        mb-10
-        "
-              >
-                📕 Toán 12
-              </h2>
+  <section>
 
-              {renderWorldGroup(world12)}
+    <KingdomTitle
+      icon="🏰"
+      title="Vương Quốc Hình Học"
+      subtitle="Khám phá những bí mật không gian"
+    />
 
-            </section>
+    {renderWorldGroup(kingdom3)}
 
-          </div>
+  </section>
+
+  {/* KINGDOM 4 */}
+
+  {kingdom4.length > 0 && (
+
+    <section>
+
+      <KingdomTitle
+        icon="👑"
+        title="Vương Quốc Huyền Thoại"
+        subtitle="Chỉ dành cho những nhà toán học mạnh nhất"
+      />
+
+      {renderWorldGroup(kingdom4)}
+
+    </section>
+
+  )}
+
+</div>
 
         </div>
 
