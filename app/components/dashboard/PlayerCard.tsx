@@ -1,3 +1,5 @@
+"use client";
+
 type Props = {
   userName: string;
   email: string;
@@ -17,181 +19,134 @@ export default function PlayerCard({
   formulaShards,
   streak,
 }: Props) {
+  const xpPercent = Math.min((level % 10) * 10, 100);
+
   return (
     <div
       className="
-      relative
-      w-full
-      w-full
-
-      rounded-[36px]
+      rounded-3xl
+      bg-white/10
+      backdrop-blur-xl
       border
-      border-indigo-400/40
-
-      bg-gradient-to-br
-      from-[#0d1b5d]
-      via-[#111f6b]
-      to-[#341a88]
-
-      shadow-[0_0_60px_rgba(90,70,255,.35)]
-
+      border-white/20
+      shadow-2xl
       p-8
       text-white
-      "
+    "
     >
-      <div className="grid grid-cols-[220px_1fr_220px] gap-8 items-center">
-
-    <div className="flex flex-col items-center">
-
-    <div
-        className="
-        w-32
-        h-32
-        rounded-full
-
-        bg-gradient-to-br
-        from-yellow-300
-        via-orange-400
-        to-pink-500
-
-        p-1
-        "
-    >
-
+      {/* Header */}
+      <div className="flex flex-col md:flex-row items-center gap-6">
         <div
-            className="
-            w-full
-            h-full
-
-            rounded-full
-
-            bg-slate-900
-
-            flex
-            items-center
-            justify-center
-
-            text-7xl
-            "
+          className="
+          w-28
+          h-28
+          rounded-full
+          bg-gradient-to-br
+          from-yellow-300
+          to-orange-500
+          flex
+          items-center
+          justify-center
+          text-5xl
+          shadow-xl
+        "
         >
-            👦
+          👨‍🎓
         </div>
 
-    </div>
+        <div className="flex-1 text-center md:text-left">
+          <h2 className="text-3xl font-black">
+            {userName}
+          </h2>
 
-    <div
+          <p className="text-slate-300 mt-1">
+            {email}
+          </p>
+
+          <div className="flex flex-wrap gap-3 mt-4 justify-center md:justify-start">
+            <span className="bg-yellow-400 text-black px-4 py-1 rounded-full font-bold">
+              ⭐ Level {level}
+            </span>
+
+            <span className="bg-purple-500 px-4 py-1 rounded-full font-bold">
+              {rank}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* XP */}
+      <div className="mt-8">
+        <div className="flex justify-between mb-2 text-sm">
+          <span>Tiến trình Level</span>
+          <span>{xpPercent}%</span>
+        </div>
+
+        <div className="w-full h-4 rounded-full bg-slate-700 overflow-hidden">
+          <div
+            className="
+            h-full
+            rounded-full
+            bg-gradient-to-r
+            from-cyan-400
+            via-blue-500
+            to-purple-500
+            transition-all
+            duration-700
+          "
+            style={{
+              width: `${xpPercent}%`,
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Stats */}
+      <div
         className="
+        grid
+        grid-cols-2
+        md:grid-cols-3
+        gap-5
         mt-8
+      "
+      >
+        <div className="rounded-2xl bg-yellow-500/20 p-5 text-center">
+          <div className="text-4xl">🪙</div>
 
-        bg-gradient-to-r
-        from-purple-700
-        to-indigo-700
+          <div className="mt-2 text-2xl font-black">
+            {coins}
+          </div>
 
-        px-5
-        py-2
-
-        rounded-2xl
-
-        font-black
-        text-2xl
-        "
-    >
-        {level}
-    </div>
-
-</div>
-
-    <div>
-
-    <h1
-        className="
-        text-4xl
-        font-black
-        "
-    >
-        👋 {userName}
-    </h1>
-
-    <p
-        className="
-        text-white/70
-        mt-3
-        text-xl
-        "
-    >
-        {email}
-    </p>
-
-    <div
-        className="
-        mt-6
-
-        inline-flex
-
-        items-center
-
-        gap-2
-
-        bg-yellow-500/20
-
-        border
-
-        border-yellow-400/30
-
-        rounded-2xl
-
-        px-5
-
-        py-3
-
-        text-yellow-300
-
-        font-bold
-
-        text-2xl
-        "
-    >
-        👑 {rank}
-    </div>
-
-</div>
-
-   <div className="space-y-8">
-
-    <div>
-
-        <div className="text-yellow-300 text-5xl">
-            ⭐
+          <div className="text-sm text-slate-300">
+            Coins
+          </div>
         </div>
 
-        <div className="text-white/70 mt-2">
-            Level
+        <div className="rounded-2xl bg-cyan-500/20 p-5 text-center">
+          <div className="text-4xl">🧩</div>
+
+          <div className="mt-2 text-2xl font-black">
+            {formulaShards}
+          </div>
+
+          <div className="text-sm text-slate-300">
+            Formula Shards
+          </div>
         </div>
 
-        <div className="text-5xl font-black">
-            {level}
+        <div className="rounded-2xl bg-red-500/20 p-5 text-center col-span-2 md:col-span-1">
+          <div className="text-4xl">🔥</div>
+
+          <div className="mt-2 text-2xl font-black">
+            {streak}
+          </div>
+
+          <div className="text-sm text-slate-300">
+            Streak
+          </div>
         </div>
-
-    </div>
-
-    <div>
-
-        <div className="text-pink-400 text-5xl">
-            🛡️
-        </div>
-
-        <div className="text-white/70 mt-2">
-            Rank
-        </div>
-
-        <div className="font-bold text-2xl">
-            {rank}
-        </div>
-
-    </div>
-
-</div>
-</div>
+      </div>
     </div>
   );
 }

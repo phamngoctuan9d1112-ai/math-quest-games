@@ -1,16 +1,10 @@
+"use client";
+
 type Props = {
   streak: number;
   onLeaderboard: () => void;
   onLogout: () => void;
 };
-
-function getStreakText(streak: number) {
-  if (streak >= 30) return "Huyền thoại";
-  if (streak >= 14) return "Bùng cháy";
-  if (streak >= 7) return "Rất tốt";
-  if (streak >= 3) return "Đang duy trì";
-  return "Mới bắt đầu!";
-}
 
 export default function RightPanel({
   streak,
@@ -18,101 +12,85 @@ export default function RightPanel({
   onLogout,
 }: Props) {
   return (
-    <div className="flex flex-col gap-6">
-
-      {/* Hàng nút */}
-      <div className="flex justify-center gap-4">
-
-        <button
-          onClick={onLeaderboard}
-          className="
-            w-20
-            h-20
-            rounded-3xl
-            bg-gradient-to-br
-            from-pink-500
-            to-red-600
-            text-4xl
-            shadow-xl
-            hover:scale-105
-            transition
-          "
-        >
-          🏅
-        </button>
-
-        <button
-          onClick={onLogout}
-          className="
-            w-20
-            h-20
-            rounded-3xl
-            bg-gradient-to-br
-            from-sky-500
-            to-indigo-600
-            text-4xl
-            shadow-xl
-            hover:scale-105
-            transition
-          "
-        >
-          ↩️
-        </button>
-
-      </div>
-
-      {/* Chuỗi đăng nhập */}
-
+    <div className="space-y-6">
+      {/* Daily */}
       <div
         className="
-        rounded-[32px]
-        bg-gradient-to-br
-        from-[#241d48]
-        to-[#121428]
+        rounded-3xl
+        bg-white/10
+        backdrop-blur-xl
         border
-        border-orange-400/20
-        p-8
+        border-white/20
+        p-6
+        text-white
         shadow-xl
-        text-center
-        "
+      "
       >
-        <div className="text-6xl">
+        <h3 className="text-xl font-black mb-4">
+          📅 Hôm nay
+        </h3>
+
+        <div className="text-4xl text-center">
           🔥
         </div>
 
-        <div
-          className="
-          text-yellow-300
-          font-black
-          text-5xl
-          mt-4
-          "
-        >
-          {streak}
+        <div className="text-center mt-3">
+          <div className="text-3xl font-black">
+            {streak}
+          </div>
+
+          <div className="text-sm text-slate-300">
+            ngày liên tiếp
+          </div>
         </div>
 
-        <div
-          className="
-          text-2xl
-          text-white
-          font-bold
-          "
-        >
-          ngày
-        </div>
+        <div className="mt-5">
+          <div className="text-sm text-slate-300">
+            Nhiệm vụ ngày
+          </div>
 
-        <div
-          className="
-          mt-4
-          text-white/70
-          text-lg
-          "
-        >
-          {getStreakText(streak)}
+          <div className="mt-2 rounded-xl bg-white/10 p-3">
+            ⭐ Hoàn thành 3 màn chơi
+          </div>
         </div>
-
       </div>
 
+      {/* Leaderboard */}
+      <button
+        onClick={onLeaderboard}
+        className="
+        w-full
+        rounded-3xl
+        bg-gradient-to-r
+        from-yellow-400
+        to-orange-500
+        py-5
+        text-white
+        font-black
+        shadow-xl
+        hover:scale-105
+        transition
+      "
+      >
+        🏆 Bảng xếp hạng
+      </button>
+
+      {/* Logout */}
+      <button
+        onClick={onLogout}
+        className="
+        w-full
+        rounded-3xl
+        bg-red-500
+        hover:bg-red-600
+        py-4
+        text-white
+        font-bold
+        transition
+      "
+      >
+        🚪 Đăng xuất
+      </button>
     </div>
   );
 }

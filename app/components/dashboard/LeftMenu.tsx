@@ -1,3 +1,5 @@
+"use client";
+
 type Props = {
   onShop: () => void;
   onAchievements: () => void;
@@ -11,69 +13,84 @@ export default function LeftMenu({
   onChest,
   onChestInventory,
 }: Props) {
-    return (
-        <>
-            <div className="hidden md:flex gap-3 flex-wrap">
-                        <button
-                          onClick={onShop}
-                          className="
-                            bg-yellow-500
-                            hover:bg-yellow-600
-                            text-white
-                            px-5
-                            py-3
-                            rounded-xl
-                            font-bold
-                            shadow-lg
-                            transition
-                          "
-                        >
-                          🛒 Shop
-                        </button>
-            
-                        <button
-                          onClick={onAchievements}
-                          className="
-                            bg-green-500
-                            hover:bg-green-600
-                            text-white
-                            px-5
-                            py-3
-                            rounded-xl
-                            font-bold
-                            shadow-lg
-                            transition
-                          "
-                        >
-                          🏆 Thành tích
-                        </button>
-                        <button
-                onClick={onChest}
-                className="
-                bg-orange-500
-                hover:bg-yellow-600
-                text-white
-                px-4
-                py-2
-                rounded-xl
-                "
-            >
-                🎁 
-            </button>
-            <button
-              onClick={onChestInventory}
+  const menus = [
+    {
+      icon: "🛒",
+      title: "Cửa hàng",
+      color: "from-pink-500 to-red-500",
+      onClick: onShop,
+    },
+    {
+      icon: "🏆",
+      title: "Thành tích",
+      color: "from-yellow-400 to-orange-500",
+      onClick: onAchievements,
+    },
+    {
+      icon: "🎁",
+      title: "Rương quà",
+      color: "from-green-500 to-emerald-600",
+      onClick: onChest,
+    },
+    {
+      icon: "🎒",
+      title: "Túi đồ",
+      color: "from-cyan-500 to-blue-600",
+      onClick: onChestInventory,
+    },
+  ];
+
+  return (
+    <div className="space-y-5">
+      {menus.map((item) => (
+        <button
+          key={item.title}
+          onClick={item.onClick}
+          className={`
+            group
+            w-full
+            rounded-3xl
+            bg-gradient-to-r
+            ${item.color}
+            text-white
+            p-5
+            shadow-xl
+            transition-all
+            duration-300
+            hover:scale-105
+            hover:-translate-y-1
+            active:scale-95
+          `}
+        >
+          <div className="flex items-center gap-4">
+            <div
               className="
-              bg-yellow-500
-              text-white
-              px-4
-              py-2
-              rounded-xl
+                w-14
+                h-14
+                rounded-2xl
+                bg-white/20
+                flex
+                items-center
+                justify-center
+                text-3xl
+                backdrop-blur
               "
             >
-              🎒 
-            </button>
-            
-                      </div>
-        </>
-    );
+              {item.icon}
+            </div>
+
+            <div className="text-left">
+              <div className="font-black text-lg">
+                {item.title}
+              </div>
+
+              <div className="text-sm opacity-80">
+                Mở ngay
+              </div>
+            </div>
+          </div>
+        </button>
+      ))}
+    </div>
+  );
 }
