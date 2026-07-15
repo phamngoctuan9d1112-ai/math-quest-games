@@ -223,18 +223,47 @@ const kingdom4 = worlds.filter(
 
   function renderWorldGroup(group: World[]) {
     return (
-      <div
-        className="
-    grid
-    grid-cols-2
-    sm:grid-cols-2
-    md:grid-cols-4
-    lg:grid-cols-5
-    xl:grid-cols-6
-    gap-6
-    justify-items-center
-  "
-      >
+      <div className="relative">
+
+<div
+className="
+absolute
+left-0
+right-0
+top-1/2
+h-2
+
+bg-gradient-to-r
+from-yellow-400
+to-orange-500
+
+rounded-full
+
+opacity-30
+"
+/>
+
+<div
+className="
+relative
+
+grid
+grid-cols-2
+sm:grid-cols-2
+md:grid-cols-4
+lg:grid-cols-5
+xl:grid-cols-6
+
+gap-8
+justify-items-center
+"
+>
+
+...
+
+</div>
+
+
         {group.map((world) => (
           <button
             key={world.id}
@@ -303,6 +332,34 @@ cursor-not-allowed
 `}
           >
             <>
+            {world.unlocked && (
+
+<div
+className="
+absolute
+top-3
+right-3
+
+w-10
+h-10
+
+rounded-full
+
+bg-yellow-300
+
+flex
+items-center
+justify-center
+
+shadow-lg
+"
+>
+
+👑
+
+</div>
+
+)}
   {/* Badge */}
 
   
