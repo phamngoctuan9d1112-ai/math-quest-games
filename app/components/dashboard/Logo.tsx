@@ -64,54 +64,7 @@ export default function Logo() {
           Chinh phục Toán học cùng AI
         </p>
 
-        <div
-          className="
-          mt-6
-          flex
-          flex-wrap
-          justify-center
-          gap-3
-        "
-        >
-          <span
-            className="
-            px-4
-            py-2
-            rounded-full
-            bg-white/10
-            text-white
-            text-sm
-          "
-          >
-            ⭐ Level Up
-          </span>
-
-          <span
-            className="
-            px-4
-            py-2
-            rounded-full
-            bg-white/10
-            text-white
-            text-sm
-          "
-          >
-            🏆 Thành tích
-          </span>
-
-          <span
-            className="
-            px-4
-            py-2
-            rounded-full
-            bg-white/10
-            text-white
-            text-sm
-          "
-          >
-            🌍 79 World
-          </span>
-        </div>
+       
 
       </div>
     </div>
