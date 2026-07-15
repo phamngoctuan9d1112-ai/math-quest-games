@@ -306,19 +306,34 @@ cursor-not-allowed
       <div className="absolute inset-0">
 
         <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-br
-            from-sky-500
-            via-indigo-700
-            to-purple-900
-            "
-        />
-
+className="
+absolute
+inset-0
+bg-[radial-gradient(circle_at_top_left,#35b9ff_0%,#2787ff_25%,#3559d8_55%,#4b2cb7_100%)]
+"
+/>
+        <div className="grid-bg" />
         <div className="stars" />
+        <div className="particles"/>
         <div className="glow1" />
         <div className="glow2" />
+        <div className="vignette"/>
+
+        <svg
+className="network-lines"
+viewBox="0 0 1920 1080"
+preserveAspectRatio="none"
+>
+
+<line x1="150" y1="120" x2="420" y2="250"/>
+
+<line x1="420" y1="250" x2="650" y2="160"/>
+
+<line x1="1200" y1="250" x2="1600" y2="100"/>
+
+<line x1="1600" y1="100" x2="1750" y2="320"/>
+
+</svg>
 
       </div>
 

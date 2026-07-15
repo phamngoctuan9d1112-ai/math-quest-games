@@ -37,55 +37,53 @@ body {
   translate: no;
 }
 .stars{
+
 position:absolute;
 inset:0;
-overflow:hidden;
 
 background-image:
-radial-gradient(white 1px, transparent 1px);
 
-background-size:60px 60px;
+radial-gradient(#fff 1px,transparent 1px),
 
-opacity:.6;
+radial-gradient(#fff 1px,transparent 1px),
 
-animation:moveStars 80s linear infinite;
+radial-gradient(#8be9ff .8px,transparent .8px);
+
+background-size:
+
+140px 140px,
+220px 220px,
+320px 320px;
+
+background-position:
+
+0 0,
+60px 80px,
+120px 40px;
+
+opacity:.45;
+
+animation:moveStars 120s linear infinite;
+
 }
-@keyframes moveStars{
-
-from{
-
-transform:translateY(0);
-
-}
-
-to{
-
-transform:translateY(-500px);
-
-}
-
-}
-
 .glow1{
 
 position:absolute;
 
-width:500px;
-height:500px;
+width:900px;
+height:900px;
 
-background:#38bdf8;
+background:#2fd8ff;
 
-border-radius:50%;
+filter:blur(250px);
 
-filter:blur(180px);
+left:-350px;
 
-left:-100px;
+top:-300px;
 
-top:-100px;
+opacity:.35;
 
-opacity:.25;
-
-animation:floatGlow 10s ease-in-out infinite;
+animation:float1 15s infinite alternate;
 
 }
 
@@ -93,47 +91,20 @@ animation:floatGlow 10s ease-in-out infinite;
 
 position:absolute;
 
-width:600px;
-
-height:600px;
+width:900px;
+height:900px;
 
 background:#a855f7;
 
-border-radius:50%;
+filter:blur(250px);
 
-filter:blur(200px);
+right:-350px;
 
-right:-150px;
+bottom:-300px;
 
-bottom:-150px;
+opacity:.30;
 
-opacity:.2;
-
-animation:floatGlow2 14s ease-in-out infinite;
-
-}
-
-@keyframes floatGlow{
-
-50%{
-
-transform:
-translateY(40px)
-translateX(50px);
-
-}
-
-}
-
-@keyframes floatGlow2{
-
-50%{
-
-transform:
-translateY(-50px)
-translateX(-30px);
-
-}
+animation:float2 18s infinite alternate;
 
 }
 /* ============================= */
@@ -341,5 +312,110 @@ opacity:.2;
 100%{
 opacity:1;
 }
+
+}
+.grid-bg{
+position:absolute;
+inset:0;
+
+background-image:
+
+linear-gradient(
+rgba(255,255,255,.05) 1px,
+transparent 1px),
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.05) 1px,
+transparent 1px);
+
+background-size:90px 90px;
+
+opacity:.4;
+}
+.particles{
+
+position:absolute;
+inset:0;
+
+background-image:
+
+radial-gradient(circle,#fff 2px,transparent 2px);
+
+background-size:180px 180px;
+
+opacity:.35;
+
+animation:particleMove 80s linear infinite;
+
+}
+
+@keyframes particleMove{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(-300px);
+
+}
+
+}
+.network-lines{
+
+position:absolute;
+
+inset:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+}
+
+.network-lines line{
+
+stroke:white;
+
+stroke-width:1;
+
+opacity:.12;
+
+}
+.world-card{
+
+backdrop-filter:blur(20px);
+
+background:
+
+linear-gradient(
+180deg,
+rgba(255,255,255,.18),
+rgba(255,255,255,.08));
+
+border:
+
+1px solid rgba(255,255,255,.18);
+
+}
+.vignette{
+
+position:absolute;
+inset:0;
+
+background:
+
+radial-gradient(
+circle,
+transparent 45%,
+rgba(0,0,0,.28) 100%
+);
+
+pointer-events:none;
 
 }
