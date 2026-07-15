@@ -333,9 +333,9 @@ cursor-not-allowed
 <div className="relative z-10">
     <div className="max-w-[1700px] mx-auto px-8">
 
-      {/* HEADER */}
-<div className="mb-10">
-       <div
+      {/* HEADER */}<div className="mb-10">
+
+<div
 className="
 grid
 grid-cols-1
@@ -345,41 +345,41 @@ items-start
 "
 >
 
-          {/* LEFT */}
-          <LeftMenu
-    onShop={onShop}
-    onAchievements={onAchievements}
-    onChest={onChest}
-    onChestInventory={onChestInventory}
-/>
+    {/* LEFT */}
+    <LeftMenu
+      onShop={onShop}
+      onAchievements={onAchievements}
+      onChest={onChest}
+      onChestInventory={onChestInventory}
+    />
 
-<div>
+    {/* CENTER */}
+    <div>
 
-    <Logo />
+        <Logo />
 
-    <div className="mt-8">
-        <PlayerCard
-            userName={userName}
-            email={email}
-            level={level}
-            rank={rank}
-            coins={coins}
-            formulaShards={formulaShards}
-            streak={streak}
-        />
+        <div className="mt-8 max-w-[900px]">
+            <PlayerCard
+                userName={userName}
+                email={email}
+                level={level}
+                rank={rank}
+                coins={coins}
+                formulaShards={formulaShards}
+                streak={streak}
+            />
+        </div>
+
     </div>
 
-</div>
-          </div>
-
-          {/* RIGHT */}
-          <div className="hidden xl:flex justify-end">
-
+    {/* RIGHT */}
     <RightPanel
         streak={streak}
         onLeaderboard={onLeaderboard}
         onLogout={onLogout}
     />
+
+</div>
 
 </div>
          {email === ADMIN_EMAIL && (
@@ -397,7 +397,6 @@ items-start
     Admin
   </button>
 )}   
-        </div>
       </div>
 
       {/* TOÁN 10 */}

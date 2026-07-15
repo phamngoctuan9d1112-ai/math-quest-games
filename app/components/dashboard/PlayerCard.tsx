@@ -35,7 +35,7 @@ export default function PlayerCard({
 
       shadow-[0_0_60px_rgba(90,70,255,.35)]
 
-      p-10
+      p-8
       text-white
       "
     >
@@ -45,8 +45,8 @@ export default function PlayerCard({
 
     <div
         className="
-        w-40
-        h-40
+        w-32
+        h-32
         rounded-full
 
         bg-gradient-to-br
@@ -105,7 +105,7 @@ export default function PlayerCard({
 
     <h1
         className="
-        text-5xl
+        text-4xl
         font-black
         "
     >
@@ -168,7 +168,7 @@ export default function PlayerCard({
             Level
         </div>
 
-        <div className="text-6xl font-black">
+        <div className="text-5xl font-black">
             {level}
         </div>
 
