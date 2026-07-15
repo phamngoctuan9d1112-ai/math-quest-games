@@ -407,6 +407,7 @@ cursor-not-allowed
             </aside>
 
           </div>
+          </div>
 
           {/* CONTENT */}
 
