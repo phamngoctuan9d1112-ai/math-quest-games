@@ -344,27 +344,29 @@ preserveAspectRatio="none"
           {/* HEADER */}
 
           <div
-            className="
-                grid
-                grid-cols-1
-                xl:grid-cols-[220px_minmax(0,1fr)_220px]
-                gap-8
-                items-start
-                "
-          >
+className="
+grid
+grid-cols-1
+lg:grid-cols-[1fr]
+xl:grid-cols-[220px_minmax(0,1fr)_220px]
+gap-8
+items-start
+"
+>
+           
 
-            {/* LEFT */}
+              {/* LEFT MENU - Desktop only */}
 
-            <aside>
+<aside className="hidden md:block">
+  <LeftMenu
+    onShop={onShop}
+    onAchievements={onAchievements}
+    onChest={onChest}
+    onChestInventory={onChestInventory}
+  />
+</aside>
 
-              <LeftMenu
-                onShop={onShop}
-                onAchievements={onAchievements}
-                onChest={onChest}
-                onChestInventory={onChestInventory}
-              />
-
-            </aside>
+            
 
             {/* CENTER */}
 
