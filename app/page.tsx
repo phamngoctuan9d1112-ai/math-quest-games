@@ -21,6 +21,7 @@ import { loadWorld } from "./data/questions/loader";
 import Shop from "./components/Shop";
 import StartScreen from "./components/StartScreen";
 import Confetti from "react-confetti";
+import Avatar from "./components/Avatar";
 import MathText from "./components/MathText";
 import { BlockMath } from "react-katex";
 import Inventory from "./components/Inventory";
@@ -255,7 +256,8 @@ setShowAuthModal] =
 useState(false);
   const [showAuth,setShowAuth] =
 useState(false);
-  const [avatar, setAvatar] = useState("🧑");
+  const [avatar, setAvatar] =
+useState("default");
   const [formulaShards, setFormulaShards] = useState(0);
   const [showVictory, setShowVictory] =
   useState(false);
@@ -414,7 +416,7 @@ const [currentUserId, setCurrentUserId] =
       data.formula_shards || 0
     );
 
-    setAvatar(data.avatar || "🧑");
+    setAvatar(data.avatar || "default");
     setWeapon(data.weapon || "🪵");
     setPet(data.pet || "🥚");
     setHearts(data.hearts || 3);
@@ -2144,7 +2146,7 @@ text-yellow-400
               onBuyWizard={async () => {
                 if (coins >= 50) {
                   setCoins(prev => prev - 50);
-                  setAvatar("🧙");
+                  setAvatar("wizard");
                   await trackEvent("buy_avatar");
                   showShopMessage("🧙 Đã mua Pháp Sư!");
                 }
@@ -2152,7 +2154,7 @@ text-yellow-400
               onBuyHero={async () => {
                 if (coins >= 100) {
                   setCoins(prev => prev - 100);
-                  setAvatar("🦸");
+                  setAvatar("hero");
                   await trackEvent("buy_avatar");
                   showShopMessage("🦸 Đã mua Siêu Anh Hùng!");
                 }
@@ -2160,7 +2162,7 @@ text-yellow-400
               onBuyDragon={async () => {
                 if (coins >= 200) {
                   setCoins(prev => prev - 200);
-                  setAvatar("🐉");
+                  setAvatar("dragon");
                   await trackEvent("buy_avatar");
                   showShopMessage("🐉 Đã mở khóa Avatar Rồng!");
                 }
@@ -2168,9 +2170,9 @@ text-yellow-400
               onBuyKing={async () => {
                 if (coins >= 500) {
                   setCoins(prev => prev - 500);
-                  setAvatar("👑");
+                  setAvatar("king");
                   await trackEvent("buy_avatar");
-                  showShopMessage("👑 Đã mở khóa Vua Toán!");
+                  showShopMessage("🤴 Đã mở khóa Vua Toán!");
                 }
               }}
               onClose={() => setShowShop(false)}
@@ -2182,6 +2184,7 @@ text-yellow-400
         <main className="w-full min-h-screen">
           <WorldSelect
           key={avatar}
+          avatar={avatar}
             worlds={getWorlds(unlockedWorlds)}
             onSelect={(worldId) => { setSelectedSubMap(worldId); }}
             level={level}

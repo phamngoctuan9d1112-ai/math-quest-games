@@ -1,9 +1,10 @@
 "use client";
-
+import Avatar from "../Avatar";
 type Props = {
   userName: string;
   email: string;
   level: number;
+  avatar: string;
   rank: string;
   coins: number;
   formulaShards: number;
@@ -15,6 +16,7 @@ export default function PlayerCard({
   email,
   level,
   rank,
+   avatar,
   coins,
   formulaShards,
   streak,
@@ -36,23 +38,10 @@ export default function PlayerCard({
     >
       {/* Header */}
       <div className="flex flex-col md:flex-row items-center gap-6">
-        <div
-          className="
-          w-28
-          h-28
-          rounded-full
-          bg-gradient-to-br
-          from-yellow-300
-          to-orange-500
-          flex
-          items-center
-          justify-center
-          text-5xl
-          shadow-xl
-        "
-        >
-          👨‍🎓
-        </div>
+        <Avatar
+    avatar={avatar}
+    size={90}
+/>
 
         <div className="flex-1 text-center md:text-left">
           <h2 className="text-3xl font-black">

@@ -33,6 +33,7 @@ type Props = {
   email: string;
   onShop: () => void;
   onAchievements: () => void;
+  avatar: string;
   onChest: () => void;
   onInventory: () => void;
 
@@ -45,6 +46,7 @@ export default function WorldSelect({
   streak,
   rank,
   onChest,
+  avatar,
   userName,
   onChestInventory,
   formulaShards,
@@ -379,6 +381,7 @@ items-start
                   userName={userName}
                   email={email}
                   level={level}
+                  avatar={avatar}
                   rank={rank}
                   coins={coins}
                   formulaShards={formulaShards}

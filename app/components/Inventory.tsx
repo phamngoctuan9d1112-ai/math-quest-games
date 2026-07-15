@@ -1,3 +1,5 @@
+"use client";
+import Avatar from "./Avatar";
 type Props = {
   inventory: string[];
   weapon: string;
@@ -27,9 +29,10 @@ export default function Inventory({
             👤 Avatar
           </h2>
 
-          <div className="text-6xl mt-3">
-            {avatar}
-          </div>
+          <Avatar
+    avatar={avatar}
+    size={90}
+/>
 
           <h2 className="text-2xl font-bold mt-8">
             ⚔ Vũ khí
