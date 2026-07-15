@@ -886,7 +886,9 @@ ${streak > 0
               {/* Avatar */}
               <div className="text-center mt-6">
 
-                <Avatar avatar={avatar} />
+                <div className="text-6xl">
+                 <Avatar avatar={avatar} />
+                </div>
 
                 <h3 className="font-bold text-xl mt-2">
                   {userName}
