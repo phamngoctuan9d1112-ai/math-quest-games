@@ -24,35 +24,95 @@ export default function StoryModal({
 
     return(
 
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-[9999]">
+        <div className="fixed inset-0 z-[9999]">
 
-            <div className="bg-white rounded-3xl p-8 w-[700px] max-w-[95%]">
+    <img
+        src="/story/background.jpg"
+        className="absolute inset-0 w-full h-full object-cover"
+    />
 
-                <h2 className="text-3xl font-bold">
+    <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+
+    <div className="relative flex items-center justify-center h-full">
+
+            <div
+    className="
+    relative
+    w-[1050px]
+    max-w-[92%]
+    rounded-3xl
+    border-4
+    border-yellow-500
+    bg-[#081B39]
+    shadow-2xl
+    p-10
+    "
+>
+
+                <h2
+    className="
+    text-6xl
+    font-extrabold
+    text-center
+    text-yellow-100
+    tracking-widest
+    mb-10
+    "
+>
 
                     {story.title}
 
                 </h2>
 
-                <img
+                <div className="grid grid-cols-2 gap-10 items-center">
 
-                    src={story.image}
+    <img
+        src={story.image}
+        className="
+        w-full
+        rounded-xl
+        shadow-2xl
+        border-2
+        border-yellow-400
+        "
+    />
 
-                    className="w-full rounded-xl mt-5"
+    <p
+        className="
+        whitespace-pre-line
+        text-2xl
+        leading-10
+        text-gray-100
+        "
+    >
+        {story.text}
+    </p>
 
-                />
-
-                <p className="mt-5 whitespace-pre-line text-lg">
-
-                    {story.text}
-
-                </p>
+</div>
 
                 <button
 
                     onClick={onNext}
 
-                    className="mt-6 w-full bg-blue-600 text-white py-3 rounded-xl"
+                    className="
+mt-10
+mx-auto
+block
+px-16
+py-4
+rounded-xl
+text-2xl
+font-bold
+bg-gradient-to-r
+from-blue-700
+to-blue-500
+hover:scale-105
+transition
+text-white
+border-2
+border-yellow-300
+shadow-xl
+"
 
                 >
 
@@ -62,6 +122,7 @@ export default function StoryModal({
 
             </div>
 
+        </div>
         </div>
 
     );
