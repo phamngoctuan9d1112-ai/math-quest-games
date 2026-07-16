@@ -7,10 +7,21 @@ import MultipleChoice from "./MultipleChoice";
 import QuestionCard from "./QuestionCard";
 import TrueFalseQuestion from "./TrueFalseQuestion";
 import ShortAnswerQuestion from "./ShortAnswerQuestion";
+import DailyQuest from "./DailyQuest";
 
 type BattleScreenProps = {
 
+dailyProgress: number;
 
+dailyRewardClaimed: boolean;
+
+currentUserId: string | null;
+
+setCoins: React.Dispatch<React.SetStateAction<number>>;
+
+setDailyRewardClaimed: React.Dispatch<React.SetStateAction<boolean>>;
+
+setMessage: React.Dispatch<React.SetStateAction<string>>;
 
 shortAnswer: string;
 
@@ -74,6 +85,18 @@ export default function BattleScreen({
 currentSubNode,
 setShortAnswer,
 
+dailyProgress,
+
+dailyRewardClaimed,
+
+currentUserId,
+
+setCoins,
+
+setDailyRewardClaimed,
+
+setMessage,
+
 showExplanation,
 
 checkShortAnswer,
@@ -127,11 +150,23 @@ onAnswer,
             xp={xp}
         />
 
+        
+
         <p className="text-center text-sm text-gray-500">
           {pet === "🐶" && "+1 Coin mỗi câu"}
           {pet === "🐱" && "+2 Coin mỗi câu"}
           {pet === "🐉" && "+5 Coin mỗi câu"}
         </p>
+
+         <DailyQuest
+        dailyProgress={dailyProgress}
+        xp={xp}
+        dailyRewardClaimed={dailyRewardClaimed}
+        currentUserId={currentUserId}
+        setCoins={setCoins}
+        setDailyRewardClaimed={setDailyRewardClaimed}
+        setMessage={setMessage}
+    />
 
 
         <QuestionCard

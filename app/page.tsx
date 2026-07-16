@@ -2336,11 +2336,25 @@ console.log("CURRENT AVATAR =", avatar);
 
  return (
 
+  
+
 <BattleScreen
 
     hearts={hearts}
     coins={coins}
     xp={xp}
+
+    dailyProgress={dailyProgress}
+
+dailyRewardClaimed={dailyRewardClaimed}
+
+currentUserId={currentUserId}
+
+setCoins={setCoins}
+
+setDailyRewardClaimed={setDailyRewardClaimed}
+
+setMessage={setMessage}
 
     musicOn={musicOn}
     setMusicOn={setMusicOn}
@@ -2378,5 +2392,8 @@ checkShortAnswer={checkShortAnswer}
 handleNextShortQuestion={handleNextShortQuestion}
 
 />
+
+
+
 );
 }
