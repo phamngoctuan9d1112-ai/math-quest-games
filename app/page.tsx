@@ -2352,7 +2352,7 @@ setCurrentSubNode={setCurrentSubNode}
 
     message={message}
 
-showCorrectAnswer={showCorrectAnswer}
+showCorrectAnswer={showCorrectAnswer} 
 
     dailyProgress={dailyProgress}
 
