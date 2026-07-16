@@ -170,6 +170,17 @@ onAnswer,
 />
 
 
+    <ShortAnswerQuestion
+        question={question}
+        shortAnswer={shortAnswer}
+        setShortAnswer={setShortAnswer}
+        showExplanation={showExplanation}
+        checkShortAnswer={checkShortAnswer}
+        handleNextShortQuestion={handleNextShortQuestion}
+    />
+
+
+
     </div>
     
 
