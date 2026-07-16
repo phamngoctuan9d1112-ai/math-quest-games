@@ -168,7 +168,7 @@ to-transparent
                 <div className="grid grid-cols-2 gap-10 items-center">
 
     <motion.img
-        src={story.image}
+        
         initial={{
     opacity: 0,
     x: -40,
