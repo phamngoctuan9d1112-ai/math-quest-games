@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
+import Sidebar from "./Sidebar";
 
 interface BattleLayoutProps {
   children: ReactNode;
@@ -61,7 +62,17 @@ export default function BattleLayout({
           overflow-hidden
           "
         >
-          {children}
+          <div className="flex min-h-[900px]">
+
+    <Sidebar/>
+
+    <div className="flex-1">
+
+        {children}
+
+    </div>
+
+</div>
         </div>
       </div>
     </main>
