@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import StoryModal from "./components/StoryModal";
 import confetti from "canvas-confetti";
 import { unlockAchievement } from "./lib/achievement";
 import { trackEvent } from "./lib/analytics";
 import XPBar from "./components/XPBar";
 import { playSound } from "./lib/sound";
+import { stories } from "./data/storyIndex";
 import LoadingScreen from "./components/LoadingScreen";
 import ChestInventory from "./components/ChestInventory";
 import StatusBar from "./components/StatusBar";
@@ -233,6 +235,12 @@ export default function Home() {
   const [weapon, setWeapon] = useState("🪵");
   const [showChestRoom, setShowChestRoom] =
 useState(false);
+
+const [showStory, setShowStory] = useState(false);
+
+const [storyIndex, setStoryIndex] = useState(0);
+
+const [storyData, setStoryData] = useState<any[]>([]);
 
 const [chests, setChests] =
 useState<any[]>([]);
@@ -1817,6 +1825,38 @@ if (showChestRoom) {
   );
 
 }
+
+if (showStory) {
+
+    return (
+
+        <StoryModal
+
+            story={storyData[storyIndex]}
+
+            onNext={() => {
+
+                if (
+                    storyIndex < storyData.length - 1
+                ) {
+
+                    setStoryIndex(
+                        storyIndex + 1
+                    );
+
+                } else {
+
+                    setShowStory(false);
+
+                }
+
+            }}
+
+        />
+
+    );
+
+}
   
 
   if (showInventory) {
@@ -2186,7 +2226,19 @@ text-yellow-400
           key={avatar}
           avatar={avatar}
             worlds={getWorlds(unlockedWorlds)}
-            onSelect={(worldId) => { setSelectedSubMap(worldId); }}
+            onSelect={(worldId) => {
+
+    setStoryData(
+        stories[worldId] || []
+    );
+
+    setStoryIndex(0);
+
+    setSelectedSubMap(worldId);
+
+    setShowStory(true);
+
+}}
             level={level}
             formulaShards={formulaShards}
             onChestInventory={() =>
