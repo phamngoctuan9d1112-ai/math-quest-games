@@ -9,11 +9,15 @@ import TrueFalseQuestion from "./TrueFalseQuestion";
 import ShortAnswerQuestion from "./ShortAnswerQuestion";
 import DailyQuest from "./DailyQuest";
 import WorldInfo from "./WorldInfo";
+import ProgressSection from "./ProgressSection";
+
 type BattleScreenProps = {
 
 selectedWorld: number | null;
 
+message: string;
 
+showCorrectAnswer: boolean;
 
 setSelectedSubMap: React.Dispatch<
     React.SetStateAction<number | null>
@@ -110,6 +114,10 @@ setSelectedSubMap,
 
 setCurrentSubNode,
 
+message,
+
+showCorrectAnswer,
+
 dailyProgress,
 
 dailyRewardClaimed,
@@ -203,6 +211,20 @@ onAnswer,
         setDailyRewardClaimed={setDailyRewardClaimed}
         setMessage={setMessage}
     />
+
+    <ProgressSection
+
+    message={message}
+
+    showCorrectAnswer={showCorrectAnswer}
+
+    question={question}
+
+    current={current}
+
+    questions={questions}
+
+/>
 
 
         <QuestionCard

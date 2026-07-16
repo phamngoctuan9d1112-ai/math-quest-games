@@ -2350,6 +2350,10 @@ setCurrentSubNode={setCurrentSubNode}
     coins={coins}
     xp={xp}
 
+    message={message}
+
+showCorrectAnswer={showCorrectAnswer}
+
     dailyProgress={dailyProgress}
 
 dailyRewardClaimed={dailyRewardClaimed}
