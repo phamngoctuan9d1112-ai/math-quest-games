@@ -1,3 +1,8 @@
+"use client";
+
+import { motion,  } from "framer-motion";
+import { useEffect, useState } from "react";
+
 type Story = {
 
     title: string;
@@ -8,19 +13,53 @@ type Story = {
 
 };
 
-export default function StoryModal({
+export default function StoryModal(
+   
+    {
 
     story,
 
     onNext,
 
-}:{
+}
+:
+
+{
 
     story: Story;
 
     onNext:()=>void;
 
-}){
+    
+
+})
+
+{
+
+     const [displayText, setDisplayText] = useState("");
+
+    useEffect(() => {
+
+        setDisplayText("");
+
+        let i = 0;
+
+        const timer = setInterval(() => {
+
+            i++;
+
+            setDisplayText(story.text.slice(0, i));
+
+            if (i >= story.text.length) {
+                clearInterval(timer);
+            }
+
+        }, 20);
+
+        return () => clearInterval(timer);
+
+    }, [story]);
+
 
     return(
 
@@ -35,7 +74,20 @@ export default function StoryModal({
 
     <div className="relative flex items-center justify-center h-full">
 
-            <div
+            <motion.div
+    initial={{
+        opacity: 0,
+        scale: 0.9,
+        y: 40,
+    }}
+    animate={{
+        opacity: 1,
+        scale: 1,
+        y: 0,
+    }}
+    transition={{
+        duration: 0.5,
+    }}
     className="
     relative
     w-[1050px]
@@ -66,8 +118,21 @@ export default function StoryModal({
 
                 <div className="grid grid-cols-2 gap-10 items-center">
 
-    <img
+    <motion.img
         src={story.image}
+        initial={{
+    opacity: 0,
+    x: -40,
+}}
+
+animate={{
+    opacity: 1,
+    x: 0,
+}}
+
+transition={{
+    duration: 0.6,
+}}
         className="
         w-full
         rounded-xl
@@ -77,7 +142,21 @@ export default function StoryModal({
         "
     />
 
-    <p
+    <motion.p
+    initial={{
+    opacity: 0,
+    x: 40,
+}}
+
+animate={{
+    opacity: 1,
+    x: 0,
+}}
+
+transition={{
+    delay: 0.2,
+    duration: 0.5,
+}}
         className="
         whitespace-pre-line
         text-2xl
@@ -85,13 +164,19 @@ export default function StoryModal({
         text-gray-100
         "
     >
-        {story.text}
-    </p>
+        {displayText}
+    </motion.p>
 
 </div>
 
-                <button
+                <motion.button
+                whileHover={{
+    scale: 1.05,
+}}
 
+whileTap={{
+    scale: 0.95,
+}}
                     onClick={onNext}
 
                     className="
@@ -118,9 +203,9 @@ shadow-xl
 
                     Tiếp tục
 
-                </button>
+                </motion.button>
 
-            </div>
+            </motion.div>
 
         </div>
         </div>
