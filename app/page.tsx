@@ -2338,21 +2338,44 @@ console.log("CURRENT AVATAR =", avatar);
 
 <BattleScreen
 
-hearts={hearts}
+    hearts={hearts}
+    coins={coins}
+    xp={xp}
 
-coins={coins}
+    musicOn={musicOn}
+    setMusicOn={setMusicOn}
 
-xp={xp}
+    question={question}
+    questions={questions}
+    current={current}
 
-musicOn={musicOn}
+    tfAnswers={tfAnswers}
+    setTfAnswers={setTfAnswers}
+    pet={pet}
 
-setMusicOn={setMusicOn}
-
-question={question?.question || ""}
-
-options={question?.options || []}
+options={question?.options ?? []}
 
 onAnswer={checkAnswer}
+    checkTrueFalseAnswer={checkTrueFalseAnswer}
+
+    showTFAnswer={showTFAnswer}
+    setShowTFAnswer={setShowTFAnswer}
+
+    setCurrent={setCurrent}
+
+    moveToNextQuestion={moveToNextQuestion}
+
+  
+
+shortAnswer={shortAnswer}
+
+setShortAnswer={setShortAnswer}
+
+showExplanation={showExplanation}
+
+checkShortAnswer={checkShortAnswer}
+
+handleNextShortQuestion={handleNextShortQuestion}
 
 />
 );
