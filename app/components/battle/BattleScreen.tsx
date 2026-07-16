@@ -25,7 +25,7 @@ handleNextShortQuestion: () => void;
     hearts:number;
     pet: string;
     coins:number;
-
+    currentSubNode: number | null;
     xp:number;
 
     musicOn:boolean;
@@ -71,7 +71,7 @@ export default function BattleScreen({
   hearts,
 
   shortAnswer,
-
+currentSubNode,
 setShortAnswer,
 
 showExplanation,
@@ -138,38 +138,29 @@ onAnswer,
     question={question}
 />
 
-<MultipleChoice
-    options={options}
-    onAnswer={onAnswer}
-/>
+{currentSubNode === 1 && (
+    <MultipleChoice
+        options={options}
+        onAnswer={onAnswer}
+    />
+)}
 
+{currentSubNode === 2 && (
+    <TrueFalseQuestion
+        question={question}
+        tfAnswers={tfAnswers}
+        setTfAnswers={setTfAnswers}
+        checkTrueFalseAnswer={checkTrueFalseAnswer}
+        showTFAnswer={showTFAnswer}
+        setShowTFAnswer={setShowTFAnswer}
+        current={current}
+        questions={questions}
+        setCurrent={setCurrent}
+        moveToNextQuestion={moveToNextQuestion}
+    />
+)}
 
-
-<TrueFalseQuestion
-
-    question={question}
-
-    tfAnswers={tfAnswers}
-
-    setTfAnswers={setTfAnswers}
-
-    checkTrueFalseAnswer={checkTrueFalseAnswer}
-
-    showTFAnswer={showTFAnswer}
-
-    setShowTFAnswer={setShowTFAnswer}
-
-    current={current}
-
-    questions={questions}
-
-    setCurrent={setCurrent}
-
-    moveToNextQuestion={moveToNextQuestion}
-
-/>
-
-
+{currentSubNode === 3 && (
     <ShortAnswerQuestion
         question={question}
         shortAnswer={shortAnswer}
@@ -178,6 +169,7 @@ onAnswer,
         checkShortAnswer={checkShortAnswer}
         handleNextShortQuestion={handleNextShortQuestion}
     />
+)}
 
 
 

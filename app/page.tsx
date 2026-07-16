@@ -2365,7 +2365,7 @@ onAnswer={checkAnswer}
 
     moveToNextQuestion={moveToNextQuestion}
 
-  
+  currentSubNode={currentSubNode}
 
 shortAnswer={shortAnswer}
 
