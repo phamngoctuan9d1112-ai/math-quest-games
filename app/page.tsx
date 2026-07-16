@@ -5,7 +5,9 @@ import StoryModal from "./components/StoryModal";
 import confetti from "canvas-confetti";
 import { unlockAchievement } from "./lib/achievement";
 import { trackEvent } from "./lib/analytics";
+import BattleLayout from "./components/BattleUI/BattleLayout";
 import XPBar from "./components/XPBar";
+import { worldThemes } from "./data/worldThemes";
 import { playSound } from "./lib/sound";
 import { stories } from "./data/storyIndex";
 import LoadingScreen from "./components/LoadingScreen";
@@ -14,6 +16,7 @@ import StatusBar from "./components/StatusBar";
 import { motion } from "framer-motion";
 import WorldSelect from "./components/WorldSelect";
 import Mascot from "./components/Mascot";
+
 import TopBar from "./components/TopBar";
 import AchievementList from "./components/AchievementList";
 import TermsModal from "./components/TermsModal";
@@ -334,6 +337,7 @@ const [showExplanation, setShowExplanation] = useState<boolean>(false);
   const [showTerms, setShowTerms] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [loadingAuth, setLoadingAuth] = useState<boolean>(true);
+  
   const [musicOn, setMusicOn] = useState(true);
   const [selectedSubMap, setSelectedSubMap] = useState<number | null>(null);
   const [currentSubNode, setCurrentSubNode] = useState<number | null>(null);
@@ -352,6 +356,10 @@ const [leaderboard, setLeaderboard] = useState<any[]>([]);
 
 const [currentUserId, setCurrentUserId] =
   useState<string | null>(null);
+  const theme =
+    selectedWorld
+        ? worldThemes[selectedWorld]
+        : worldThemes[1];
   
   // ==========================================
   // 2. BIẾN TÍNH TOÁN (Derived Variables)
@@ -2318,20 +2326,9 @@ text-yellow-400
 console.log("CURRENT AVATAR =", avatar);
 
   return (
-    <main
-  className="
-    min-h-[100dvh]
-    flex
-    items-center
-    justify-center
-    bg-gradient-to-br
-    from-blue-500
-    via-purple-500
-    to-pink-500
-    p-0
-    md:p-6
-  "
->
+    <BattleLayout>
+
+<div>
        <div
   className="
     bg-white
@@ -2744,6 +2741,8 @@ text-center
   message={mascotMessage}
 />
 
-    </main>
+    </div>
+
+</BattleLayout>
   );
 }
