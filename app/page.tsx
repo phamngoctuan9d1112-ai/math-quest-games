@@ -2334,5 +2334,17 @@ text-yellow-400
 
 console.log("CURRENT AVATAR =", avatar);
 
-  return <BattleScreen />;
+ return (
+
+<BattleScreen
+
+    hearts={hearts}
+
+    coins={coins}
+
+    xp={xp}
+
+/>
+
+);
 }

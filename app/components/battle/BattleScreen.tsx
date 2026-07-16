@@ -1,15 +1,27 @@
 "use client";
 
-export default function BattleScreen() {
+type BattleScreenProps = {
+  hearts: number;
+  coins: number;
+  xp: number;
+};
 
-    return (
+export default function BattleScreen({
+  hearts,
+  coins,
+  xp,
+}: BattleScreenProps) {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-slate-900 text-white">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold">Battle Screen</h1>
 
-        <div>
+        <p className="mt-4">❤️ {hearts}</p>
 
-            Battle Screen
+        <p>🪙 {coins}</p>
 
-        </div>
-
-    );
-
+        <p>⭐ {xp}</p>
+      </div>
+    </div>
+  );
 }
