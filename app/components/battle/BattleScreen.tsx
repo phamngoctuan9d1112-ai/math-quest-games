@@ -1,6 +1,7 @@
 "use client";
 import StatusBar from "../StatusBar";
 import BattleHeader from "./BattleHeader";
+import BattleLayout from "./BattleLayout";
 
 type BattleScreenProps = {
 
@@ -29,29 +30,24 @@ export default function BattleScreen({
 }: BattleScreenProps) {
   return (
 
-<div
-className="
-min-h-screen
-bg-slate-900
-p-8
-text-white
-"
->
+<BattleLayout>
 
-<BattleHeader
-    musicOn={musicOn}
-    setMusicOn={setMusicOn}
-/>
+    <BattleHeader
+        musicOn={musicOn}
+        setMusicOn={setMusicOn}
+    />
 
+    <div className="p-8">
 
-<StatusBar
-    hearts={hearts}
-    coins={coins}
-    xp={xp}
-/>
+        <StatusBar
+            hearts={hearts}
+            coins={coins}
+            xp={xp}
+        />
 
+    </div>
 
-</div>
+</BattleLayout>
 
 );
 }
