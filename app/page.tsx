@@ -242,6 +242,7 @@ const [storyIndex, setStoryIndex] = useState(0);
 
 const [storyData, setStoryData] = useState<any[]>([]);
 
+const [storyMode, setStoryMode] = useState<"intro" | "ending">("intro");
 const [chests, setChests] =
 useState<any[]>([]);
   const [attacking, setAttacking] = useState(false);
@@ -1544,6 +1545,14 @@ await checkAchievements(
 
 setShowVictory(true);
 
+setStoryMode("ending");
+
+setStoryData(
+    stories[`end_${selectedWorld}`] || []
+);
+
+setStoryIndex(0);
+
 const random = Math.random();
 
 if (random < 0.25) {
@@ -1836,19 +1845,33 @@ if (showStory) {
 
             onNext={() => {
 
-                if (
-                    storyIndex < storyData.length - 1
-                ) {
+                // còn đoạn truyện tiếp theo
+                if (storyIndex < storyData.length - 1) {
 
-                    setStoryIndex(
-                        storyIndex + 1
-                    );
+                    setStoryIndex(prev => prev + 1);
 
-                } else {
-
-                    setShowStory(false);
+                    return;
 
                 }
+
+                // đóng Story
+                setShowStory(false);
+
+                // Story mở đầu
+                if (storyMode === "intro") {
+
+                    return;
+
+                }
+
+                // Story kết thúc
+                setSelectedWorld(null);
+
+                setSelectedSubMap(null);
+
+                setCurrentSubNode(null);
+
+                setCurrent(0);
 
             }}
 
@@ -1915,14 +1938,26 @@ transition
       chest={newChest}
       reward={victoryReward}
       onClose={() => {
-        setShowVictory(false);
-        setNewChest(null);
+
+    setShowVictory(false);
+
+    if(storyData.length>0){
+
+        setShowStory(true);
+
+    }else{
 
         setSelectedWorld(null);
+
         setSelectedSubMap(null);
+
         setCurrentSubNode(null);
+
         setCurrent(0);
-      }}
+
+    }
+
+}}
     />
   );
 }
@@ -2226,15 +2261,15 @@ text-yellow-400
           key={avatar}
           avatar={avatar}
             worlds={getWorlds(unlockedWorlds)}
-            onSelect={(worldId) => {
+           onSelect={(worldId) => {
+
+    setSelectedSubMap(worldId);
 
     setStoryData(
-        stories[worldId] || []
+        stories[String(worldId)] || []
     );
 
     setStoryIndex(0);
-
-    setSelectedSubMap(worldId);
 
     setShowStory(true);
 

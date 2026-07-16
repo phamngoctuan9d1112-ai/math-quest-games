@@ -1,6 +1,6 @@
-export const stories: Record<number, any[]> = {
+export const stories: Record<string, any[]> = {
 
-  1: [
+  "1": [
 
     {
       title: "Khởi đầu",
@@ -18,15 +18,29 @@ export const stories: Record<number, any[]> = {
 
   ],
 
-  2: [
+  "end_1":[
 
-    {
-      title: "World 2",
-      image: "/story/world2-1.png",
-      text:
-        "Bạn tiến vào Khu Rừng Mệnh Đề."
-    }
+      {
 
-  ]
+          title:"Chiến thắng",
 
-};
+          image:"/story/world1-end.png",
+
+          text:"Bạn đã lấy lại được những công thức đầu tiên."
+
+      },
+
+      {
+
+          title:"Tiếp tục",
+
+          image:"/story/world1-end2.png",
+
+          text:"Nhưng đây mới chỉ là khởi đầu..."
+
+      }
+
+  ],
+
+
+}
