@@ -2348,7 +2348,12 @@ musicOn={musicOn}
 
 setMusicOn={setMusicOn}
 
-/>
+question={question?.question || ""}
 
+options={question?.options || []}
+
+onAnswer={checkAnswer}
+
+/>
 );
 }

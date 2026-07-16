@@ -18,10 +18,22 @@ type BattleScreenProps = {
 
     setMusicOn:React.Dispatch<React.SetStateAction<boolean>>;
 
+    question:string;
+
+    options:(string|number)[];
+
+    onAnswer:(value:string|number)=>void;
+
 }
 
 export default function BattleScreen({
   hearts,
+
+  question,
+
+options,
+
+onAnswer,
 
     coins,
 
@@ -49,21 +61,12 @@ export default function BattleScreen({
         />
 
         <QuestionCard
-
-    question="Cho tập hợp A={1,2,3}. Hỏi số phần tử của A bằng bao nhiêu?"
-
+    question={question}
 />
 
 <MultipleChoice
-
-    options={[1,2,3,4]}
-
-    onAnswer={(value)=>{
-
-        alert(value);
-
-    }}
-
+    options={options}
+    onAnswer={onAnswer}
 />
 
     </div>
