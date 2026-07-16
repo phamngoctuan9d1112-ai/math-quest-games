@@ -1,7 +1,10 @@
 "use client";
 import StatusBar from "../StatusBar";
 import BattleHeader from "./BattleHeader";
+import BattleTopBar from "./BattleTopBar";
 import BattleLayout from "./BattleLayout";
+import MultipleChoice from "./MultipleChoice";
+import QuestionCard from "./QuestionCard";
 
 type BattleScreenProps = {
 
@@ -45,7 +48,26 @@ export default function BattleScreen({
             xp={xp}
         />
 
+        <QuestionCard
+
+    question="Cho tập hợp A={1,2,3}. Hỏi số phần tử của A bằng bao nhiêu?"
+
+/>
+
+<MultipleChoice
+
+    options={[1,2,3,4]}
+
+    onAnswer={(value)=>{
+
+        alert(value);
+
+    }}
+
+/>
+
     </div>
+    
 
 </BattleLayout>
 
