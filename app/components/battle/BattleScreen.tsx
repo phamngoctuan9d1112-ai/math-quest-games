@@ -1,16 +1,31 @@
 "use client";
 import StatusBar from "../StatusBar";
+import BattleHeader from "./BattleHeader";
 
 type BattleScreenProps = {
-  hearts: number;
-  coins: number;
-  xp: number;
-};
+
+    hearts:number;
+
+    coins:number;
+
+    xp:number;
+
+    musicOn:boolean;
+
+    setMusicOn:React.Dispatch<React.SetStateAction<boolean>>;
+
+}
 
 export default function BattleScreen({
   hearts,
-  coins,
-  xp,
+
+    coins,
+
+    xp,
+
+    musicOn,
+
+    setMusicOn,
 }: BattleScreenProps) {
   return (
 
@@ -23,9 +38,10 @@ text-white
 "
 >
 
-<h1 className="text-4xl font-bold mb-6">
-⚔️ Battle
-</h1>
+<BattleHeader
+    musicOn={musicOn}
+    setMusicOn={setMusicOn}
+/>
 
 
 <StatusBar

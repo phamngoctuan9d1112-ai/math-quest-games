@@ -2338,11 +2338,15 @@ console.log("CURRENT AVATAR =", avatar);
 
 <BattleScreen
 
-    hearts={hearts}
+hearts={hearts}
 
-    coins={coins}
+coins={coins}
 
-    xp={xp}
+xp={xp}
+
+musicOn={musicOn}
+
+setMusicOn={setMusicOn}
 
 />
 
