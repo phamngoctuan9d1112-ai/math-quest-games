@@ -1,4 +1,5 @@
 "use client";
+import StatusBar from "../StatusBar";
 
 type BattleScreenProps = {
   hearts: number;
@@ -12,16 +13,29 @@ export default function BattleScreen({
   xp,
 }: BattleScreenProps) {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-900 text-white">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold">Battle Screen</h1>
 
-        <p className="mt-4">❤️ {hearts}</p>
+<div
+className="
+min-h-screen
+bg-slate-900
+p-8
+text-white
+"
+>
 
-        <p>🪙 {coins}</p>
+<h1 className="text-4xl font-bold mb-6">
+⚔️ Battle
+</h1>
 
-        <p>⭐ {xp}</p>
-      </div>
-    </div>
-  );
+
+<StatusBar
+    hearts={hearts}
+    coins={coins}
+    xp={xp}
+/>
+
+
+</div>
+
+);
 }
