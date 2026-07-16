@@ -1553,6 +1553,8 @@ setStoryData(
 
 setStoryIndex(0);
 
+
+
 const random = Math.random();
 
 if (random < 0.25) {
@@ -1859,6 +1861,7 @@ if (showStory) {
 
                 // Story mở đầu
                 if (storyMode === "intro") {
+                  setShowStory(false);
 
                     return;
 
@@ -1935,30 +1938,18 @@ transition
   if (showVictory) {
   return (
     <VictoryModal
-      chest={newChest}
-      reward={victoryReward}
-      onClose={() => {
+    chest={newChest}
+    reward={victoryReward}
+   onClose={() => {
 
     setShowVictory(false);
 
-    if(storyData.length>0){
+    setNewChest(null);
 
-        setShowStory(true);
-
-    }else{
-
-        setSelectedWorld(null);
-
-        setSelectedSubMap(null);
-
-        setCurrentSubNode(null);
-
-        setCurrent(0);
-
-    }
+    setShowStory(true);
 
 }}
-    />
+/>
   );
 }
 
@@ -1989,11 +1980,10 @@ transition
         <button
   onClick={() => {
     setNewWorldUnlocked(null);
-
-    setSelectedWorld(null);
     setSelectedSubMap(null);
-    setCurrentSubNode(null);
-    setCurrent(0);
+   // setSelectedWorld(null);
+   // setCurrentSubNode(null);
+   // setCurrent(0);
   }}
   className="mt-8 bg-yellow-500 px-8 py-4 rounded-xl text-xl font-bold"
 >
@@ -2262,6 +2252,8 @@ text-yellow-400
           avatar={avatar}
             worlds={getWorlds(unlockedWorlds)}
            onSelect={(worldId) => {
+
+            setStoryMode("intro");
 
     setSelectedSubMap(worldId);
 
