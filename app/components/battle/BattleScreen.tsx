@@ -8,8 +8,20 @@ import QuestionCard from "./QuestionCard";
 import TrueFalseQuestion from "./TrueFalseQuestion";
 import ShortAnswerQuestion from "./ShortAnswerQuestion";
 import DailyQuest from "./DailyQuest";
-
+import WorldInfo from "./WorldInfo";
 type BattleScreenProps = {
+
+selectedWorld: number | null;
+
+
+
+setSelectedSubMap: React.Dispatch<
+    React.SetStateAction<number | null>
+>;
+
+setCurrentSubNode: React.Dispatch<
+    React.SetStateAction<number | null>
+>;
 
 dailyProgress: number;
 
@@ -28,6 +40,10 @@ shortAnswer: string;
 setShortAnswer: React.Dispatch<React.SetStateAction<string>>;
 
 showExplanation: boolean;
+
+setShowExplanation: React.Dispatch<
+    React.SetStateAction<boolean>
+>;
 
 checkShortAnswer: () => void;
 
@@ -82,8 +98,17 @@ export default function BattleScreen({
   hearts,
 
   shortAnswer,
-currentSubNode,
+
 setShortAnswer,
+
+selectedWorld,
+
+currentSubNode,
+setShowExplanation,
+
+setSelectedSubMap,
+
+setCurrentSubNode,
 
 dailyProgress,
 
@@ -149,6 +174,17 @@ onAnswer,
             coins={coins}
             xp={xp}
         />
+
+        <WorldInfo
+    selectedWorld={selectedWorld}
+    currentSubNode={currentSubNode}
+    setCurrent={setCurrent}
+    setTfAnswers={setTfAnswers}
+    setShortAnswer={setShortAnswer}
+    setShowExplanation={setShowExplanation}
+    setSelectedSubMap={setSelectedSubMap}
+    setCurrentSubNode={setCurrentSubNode}
+/>
 
         
 

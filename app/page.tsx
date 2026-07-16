@@ -2339,7 +2339,13 @@ console.log("CURRENT AVATAR =", avatar);
   
 
 <BattleScreen
+selectedWorld={selectedWorld}
 
+currentSubNode={currentSubNode}
+
+setSelectedSubMap={setSelectedSubMap}
+
+setCurrentSubNode={setCurrentSubNode}
     hearts={hearts}
     coins={coins}
     xp={xp}
@@ -2349,7 +2355,9 @@ console.log("CURRENT AVATAR =", avatar);
 dailyRewardClaimed={dailyRewardClaimed}
 
 currentUserId={currentUserId}
+showExplanation={showExplanation}
 
+setShowExplanation={setShowExplanation}
 setCoins={setCoins}
 
 setDailyRewardClaimed={setDailyRewardClaimed}
@@ -2379,13 +2387,12 @@ onAnswer={checkAnswer}
 
     moveToNextQuestion={moveToNextQuestion}
 
-  currentSubNode={currentSubNode}
+  
 
 shortAnswer={shortAnswer}
 
 setShortAnswer={setShortAnswer}
 
-showExplanation={showExplanation}
 
 checkShortAnswer={checkShortAnswer}
 
