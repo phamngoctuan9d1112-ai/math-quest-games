@@ -23,15 +23,15 @@ className="
 flex
 justify-between
 items-center
-px-8
-py-6
+px-6
+py-4
 border-b
 border-yellow-700
 bg-[#0d1b2d]
 "
 >
 
-    <h1 className="text-4xl font-bold text-yellow-300">
+    <h1 className="text-3xl font-bold text-yellow-300">
 
         🏰 Math Quest
 
@@ -40,8 +40,8 @@ bg-[#0d1b2d]
     <button
         onClick={() => setMusicOn(!musicOn)}
         className="
-        w-14
-        h-14
+        w-10
+h-10
         rounded-xl
         bg-slate-700
         hover:bg-slate-600
