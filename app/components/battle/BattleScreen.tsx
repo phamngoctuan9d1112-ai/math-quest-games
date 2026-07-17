@@ -188,11 +188,11 @@ onAnswer,
 
     <div
 className="
-max-w-5xl
+max-w-[820px]
 mx-auto
 
-px-6
-py-5
+px-4
+py-4
 
 space-y-5
 "
@@ -289,10 +289,12 @@ space-y-5
 
     </div>
 
+    <div className="fixed bottom-4 right-4 scale-75">
     <Mascot
-    state={mascotState}
-    message={mascotMessage}
-/>
+        state={mascotState}
+        message={mascotMessage}
+    />
+</div>
     
 
 </BattleLayout>

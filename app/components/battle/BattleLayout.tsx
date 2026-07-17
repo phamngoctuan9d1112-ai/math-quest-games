@@ -23,9 +23,9 @@ px-4
 <div
 className="
 w-full
-max-w-5xl
+max-w-[900px]
 
-rounded-[30px]
+rounded-[28px]
 
 border-[3px]
 border-yellow-700
@@ -35,6 +35,9 @@ bg-[#091625]
 shadow-[0_0_60px_rgba(0,0,0,0.8)]
 
 overflow-hidden
+
+origin-top
+scale-90
 "
 >
 
