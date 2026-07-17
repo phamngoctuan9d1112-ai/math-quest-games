@@ -10,18 +10,26 @@ return(
 
 <div
 className="
+relative
+
 min-h-screen
-bg-black
 
 flex
 justify-center
 items-start
 
-pt-6
-pb-10
+py-10
+px-4
 
-overflow-auto
+bg-cover
+bg-center
+bg-no-repeat
 "
+
+style={{
+    backgroundImage:
+        "url('/backgrounds/battle-bg.jpg')",
+}}
 >
 
 <div
