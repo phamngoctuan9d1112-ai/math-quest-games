@@ -24,21 +24,30 @@ export default function DailyQuest({
 
     return (
                   
-  <div
+ <div
 className="
 flex
+
+flex-col
+
+sm:flex-row
+
 justify-between
-items-center
+
+gap-4
 
 rounded-2xl
 
 border-2
-border-yellow-700
+border-yellow-500
 
 bg-[#0d1b2d]
 
-px-6
-py-4
+px-4
+py-3
+
+sm:px-6
+sm:py-4
 "
 >
 
@@ -55,7 +64,17 @@ py-4
     height={28}
 />
 
-            <h2 className="text-xl font-bold text-yellow-300">
+            <h2
+className="
+text-lg
+
+sm:text-xl
+
+font-bold
+
+text-yellow-300
+"
+>
                 Daily Quest
             </h2>
 
@@ -63,21 +82,53 @@ py-4
 
         <div className="mt-2 space-y-1">
 
-            <p className="text-sm text-white">
+            <div
+className="
+flex
+justify-between
+items-center
+"
+>
 
-                {dailyProgress >= 5 ? "✅" : "⬜"}
+<p className="text-sm text-white">
 
-                Trả lời đúng 5 câu ({dailyProgress}/5)
+{dailyProgress >= 5 ? "✅" : "⬜"}
 
-            </p>
+Trả lời đúng 5 câu
 
-            <p className="text-white">
+</p>
 
-                {xp >= 100 ? "✅" : "⬜"}
+<span className="text-yellow-300 text-sm">
 
-                Kiếm 100 XP ({xp}/100)
+{dailyProgress}/5
 
-            </p>
+</span>
+
+</div>
+
+           <div
+className="
+flex
+justify-between
+items-center
+"
+>
+
+<p className="text-sm text-white">
+
+{xp >= 100 ? "✅" : "⬜"}
+
+Kiếm 100 XP
+
+</p>
+
+<span className="text-cyan-300 text-sm">
+
+{xp}/100
+
+</span>
+
+</div>
 
         </div>
 
