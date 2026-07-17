@@ -289,12 +289,12 @@ space-y-5
 
     </div>
 
-    <div className="fixed bottom-4 right-4 scale-75">
+  
     <Mascot
         state={mascotState}
         message={mascotMessage}
     />
-</div>
+
     
 
 </BattleLayout>

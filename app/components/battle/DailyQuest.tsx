@@ -28,15 +28,15 @@ flex
 justify-between
 items-center
 
-rounded-3xl
+rounded-2xl
 
 border-2
 border-yellow-700
 
 bg-[#0d1b2d]
 
-px-8
-py-6
+px-6
+py-4
 "
 >
 
@@ -46,17 +46,17 @@ py-6
 
         <div className="flex items-center gap-3">
 
-            <span className="text-2xl">📜</span>
+            <span className="text-xl">📜</span>
 
-            <h2 className="text-2xl font-bold text-yellow-300">
+            <h2 className="text-xl font-bold text-yellow-300">
                 Daily Quest
             </h2>
 
         </div>
 
-        <div className="mt-4 space-y-2">
+        <div className="mt-2 space-y-1">
 
-            <p className="text-white">
+            <p className="text-sm text-white">
 
                 {dailyProgress >= 5 ? "✅" : "⬜"}
 
@@ -95,7 +95,17 @@ py-6
 
     setMessage("🎁 Nhận 50 Coin!");
   }}
-                className="bg-green-500 text-white px-4 py-2 rounded-xl mt-2 w-full font-bold"
+                className="
+bg-green-500
+text-white
+
+px-4
+py-2
+
+rounded-lg
+
+font-bold
+"
               >
                 Nhận thưởng Nhiệm Vụ
               </button>
