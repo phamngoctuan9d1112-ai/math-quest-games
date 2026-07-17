@@ -111,35 +111,70 @@ animate-pulse
 
       {/* Container */}
       <div
-        className="
-        relative
-        z-10
-        flex
-        justify-center
-        items-center
-        min-h-screen
-        p-8
-        "
-      >
+className="
+relative
+z-10
+
+flex
+justify-center
+
+items-start
+
+min-h-screen
+
+p-2
+
+sm:p-4
+
+lg:p-8
+"
+>
         <div
-          className="
-          w-full
-          max-w-[1450px]
-          min-h-[900px]
+className="
+w-full
 
-          rounded-[30px]
+max-w-sm
 
-          border-[3px]
-          border-[#b78937]
+sm:max-w-xl
 
-          bg-[#08192a]/95
+md:max-w-4xl
 
-          shadow-2xl
+xl:max-w-[1450px]
 
-          overflow-hidden
-          "
-        >
-          <div className="flex min-h-[900px]">
+min-h-screen
+
+xl:min-h-[900px]
+
+rounded-2xl
+
+xl:rounded-[30px]
+
+border-2
+
+xl:border-[3px]
+
+border-[#b78937]
+
+bg-[#08192a]/95
+
+shadow-2xl
+
+overflow-hidden
+"
+>
+          <div
+className="
+flex
+
+flex-col
+
+lg:flex-row
+
+min-h-screen
+
+lg:min-h-[900px]
+"
+>
 
     <Sidebar/>
 
