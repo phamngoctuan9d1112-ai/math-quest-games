@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 type ProgressSectionProps = {
 
     message: string;
@@ -74,9 +76,16 @@ Câu {current + 1} / {questions.length}
 
        <div className="flex items-center gap-4 mt-5">
 
-    <div className="text-4xl">
-        🛡️
-    </div>
+   <div className="flex items-center">
+
+<Image
+    src="/icons/shield.png"
+    alt="Shield"
+    width={42}
+    height={42}
+/>
+
+</div>
 
     <div
         className="
