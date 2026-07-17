@@ -45,32 +45,165 @@ export default function ShortAnswerQuestion({
           type="text"
           value={shortAnswer}
           onChange={(e) => setShortAnswer(e.target.value)}
-          placeholder="Nhập đáp án số hoặc từ ngắn vào đây..."
-          className="w-full border-2 border-slate-300 rounded-xl p-4 text-center text-xl font-bold focus:border-blue-500 outline-none text-black bg-slate-50 shadow-inner"
+          placeholder="✍️ Nhập đáp án..."
+          className="
+w-full
+
+rounded-[24px]
+
+border-2
+border-yellow-600
+
+bg-[#1B2F4B]
+
+text-white
+text-2xl
+font-bold
+
+text-center
+
+py-5
+px-6
+
+placeholder:text-slate-400
+
+focus:outline-none
+focus:border-yellow-300
+focus:ring-4
+focus:ring-yellow-500/20
+
+transition
+"
         />
         <button
           onClick={checkShortAnswer}
           disabled={!shortAnswer.trim()}
-          className="w-full bg-emerald-600 hover:bg-emerald-700 disabled:bg-slate-200 disabled:text-slate-400 text-white py-4 rounded-xl font-bold text-lg shadow-md transition"
-        >
+          className={`
+w-full
+
+mt-6
+
+py-5
+
+rounded-[24px]
+
+text-xl
+font-bold
+
+border-2
+
+transition-all
+duration-300
+
+${
+!shortAnswer.trim()
+
+?
+
+"bg-slate-700 border-slate-600 text-slate-400 cursor-not-allowed"
+
+:
+
+"bg-[#D6A431] border-yellow-200 text-slate-900 hover:bg-yellow-400 hover:scale-[1.02] active:scale-95 shadow-xl"
+}
+`}     >
           Kiểm tra đáp án
         </button>
       </>
     ) : (
       // Khung hiển thị phần Giải thích chi tiết sau khi người chơi bấm nộp bài
-      <div className="bg-amber-50 border-2 border-amber-200 p-5 rounded-2xl space-y-3 animate-fade-in text-left">
-        <h3 className="font-bold text-amber-800 text-lg flex items-center gap-2">
-          💡 Lời giải chi tiết:
-        </h3>
-        <p className="text-slate-700 leading-relaxed whitespace-pre-line font-medium text-base">
-          <MathText
-  text={question?.explanation || ""}
+      <div className="
+mt-6
+
+rounded-[28px]
+
+border-2
+border-yellow-700
+
+bg-[#102033]
+
+shadow-xl
+
+overflow-hidden
+
+animate-fade-in
+">
+       <div
+className="
+bg-[#16283F]
+
+border-b
+border-yellow-700
+
+py-4
+
+text-center
+"
+>
+
+<h3
+className="
+text-yellow-300
+
+text-xl
+
+font-bold
+"
+>
+
+📜 LỜI GIẢI CHI TIẾT
+
+</h3>
+
+</div>
+       <div
+className="
+p-8
+
+text-white
+
+text-lg
+
+leading-8
+"
+>
+
+<MathText
+text={question?.explanation || ""}
 />
-        </p>
+
+</div>
         <button
           onClick={handleNextShortQuestion}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold text-lg transition mt-4 shadow-md"
-        >
+          className="
+w-full
+
+mt-4
+
+py-5
+
+rounded-[24px]
+
+bg-[#D6A431]
+
+border-2
+border-yellow-200
+
+text-slate-900
+
+text-xl
+font-bold
+
+transition-all
+duration-300
+
+hover:bg-yellow-400
+hover:scale-[1.02]
+
+active:scale-95
+
+shadow-xl
+"      >
           Tiếp tục sang câu kế tiếp ➡️
         </button>
       </div>
