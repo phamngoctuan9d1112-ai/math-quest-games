@@ -188,13 +188,13 @@ onAnswer,
 
     <div
 className="
-max-w-full
+max-w-[900px]
 mx-auto
 
-px-4
-py-4
+px-3
+py-3
 
-space-y-5
+space-y-3
 "
 >
 

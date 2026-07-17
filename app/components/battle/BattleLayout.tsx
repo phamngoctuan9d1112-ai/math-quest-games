@@ -46,7 +46,7 @@ relative
 z-10
 
 w-full
-max-w-[900px]
+max-w-[1100px]
 
 rounded-[28px]
 
@@ -61,7 +61,7 @@ shadow-[0_0_80px_rgba(0,0,0,.8)]
 
 overflow-hidden
 
-scale-90
+scale-[0.82]
 origin-top
 "
 >
