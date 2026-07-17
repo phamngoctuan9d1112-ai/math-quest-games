@@ -54,7 +54,7 @@ rounded-[28px]
 py-8
 px-8
 
-text-lg
+text-base
 
 font-bold
 
@@ -92,8 +92,8 @@ justify-center
 
   <div
 className="
-w-14
-h-14
+w-12
+h-12
 
 rounded-xl
 

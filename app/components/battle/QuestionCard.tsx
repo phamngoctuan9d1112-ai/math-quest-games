@@ -59,9 +59,9 @@ tracking-wide
 
 <div
 className="
-p-8
+p-5
 
-min-h-[150px]
+min-h-[110px]
 
 flex
 items-center
@@ -71,7 +71,7 @@ justify-center
 
 <div
 className="
-text-2xl
+text-xl
 font-bold
 text-white
 leading-relaxed

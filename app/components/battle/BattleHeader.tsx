@@ -31,7 +31,7 @@ bg-[#0d1b2d]
 "
 >
 
-    <h1 className="text-5xl font-bold text-yellow-300">
+    <h1 className="text-4xl font-bold text-yellow-300">
 
         🏰 Math Quest
 

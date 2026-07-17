@@ -74,14 +74,14 @@ Câu {current + 1} / {questions.length}
 
        <div className="flex items-center gap-4 mt-5">
 
-    <div className="text-5xl">
+    <div className="text-4xl">
         🛡️
     </div>
 
     <div
         className="
         flex-1
-        h-5
+        h-4
         rounded-full
         border-2
         border-yellow-700

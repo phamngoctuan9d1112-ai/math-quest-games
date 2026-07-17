@@ -186,7 +186,17 @@ onAnswer,
 
     <div className="border-t border-yellow-800" />
 
-    <div className="px-10 py-8 space-y-8">
+    <div
+className="
+max-w-5xl
+mx-auto
+
+px-6
+py-5
+
+space-y-5
+"
+>
 
         <StatusBar
             hearts={hearts}
