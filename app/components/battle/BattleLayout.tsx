@@ -12,18 +12,24 @@ return(
 className="
 min-h-screen
 bg-black
+
 flex
 justify-center
 items-start
-py-10
-px-4
+
+pt-6
+pb-10
+
+overflow-auto
 "
 >
 
 <div
 className="
-w-full
-max-w-[900px]
+w-[980px]
+
+origin-top
+scale-[0.7]
 
 rounded-[28px]
 
@@ -35,9 +41,6 @@ bg-[#091625]
 shadow-[0_0_60px_rgba(0,0,0,0.8)]
 
 overflow-hidden
-
-origin-top
-scale-90
 "
 >
 
@@ -46,7 +49,6 @@ scale-90
 </div>
 
 </div>
-
 );
 
 }

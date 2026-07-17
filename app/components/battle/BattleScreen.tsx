@@ -188,7 +188,7 @@ onAnswer,
 
     <div
 className="
-max-w-[820px]
+max-w-full
 mx-auto
 
 px-4
