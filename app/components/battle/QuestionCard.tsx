@@ -1,6 +1,7 @@
 "use client";
 
 import MathText from "../MathText";
+import Image from "next/image";
 
 type QuestionCardProps = {
     question: string;
@@ -16,10 +17,12 @@ export default function QuestionCard({
 className="
 mt-8
 
-rounded-3xl
+rounded-2xl
 
 border-2
-border-yellow-700
+border-yellow-500
+
+shadow-[0_0_18px_rgba(255,210,70,.25)]
 
 bg-[#102033]
 
@@ -31,27 +34,40 @@ overflow-hidden
 
 <div
 className="
-bg-[#16283F]
+flex
+items-center
+justify-center
+gap-3
+
+bg-gradient-to-r
+from-[#2a3f5f]
+to-[#1c2940]
 
 border-b
-border-yellow-700
+border-yellow-500
 
 py-3
-
-text-center
 "
 >
+
+<Image
+    src="/icons/book.png"
+    alt="Book"
+    width={28}
+    height={28}
+/>
 
 <h2
 className="
 text-yellow-300
-text-xl
+text-lg
 font-bold
-tracking-wide
+tracking-[4px]
+uppercase
 "
 >
 
-📖 CÂU HỎI
+Câu hỏi
 
 </h2>
 

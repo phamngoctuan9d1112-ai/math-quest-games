@@ -88,18 +88,36 @@ Câu {current + 1} / {questions.length}
 </div>
 
     <div
-        className="
-        flex-1
-        h-4
-        rounded-full
-        border-2
-        border-yellow-700
-        bg-slate-900
-        overflow-hidden
-        "
-    >
+className="
+flex-1
+
+h-3
+
+rounded-full
+
+border-2
+border-yellow-500
+
+bg-[#1b2233]
+
+overflow-hidden
+
+shadow-inner
+"
+>
         <div
-            className="h-full bg-green-500 transition-all duration-500"
+className="
+h-full
+
+bg-gradient-to-r
+from-lime-400
+via-green-500
+to-emerald-600
+shadow-[0_0_12px_rgba(34,197,94,.5)]
+
+transition-all
+duration-500
+"
             style={{
                 width: `${
                     questions.length
