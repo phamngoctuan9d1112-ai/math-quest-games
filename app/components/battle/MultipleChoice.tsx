@@ -27,11 +27,20 @@ return(
 className="
 max-w-5xl
 mx-auto
+
 grid
+
 grid-cols-1
+
 md:grid-cols-2
-gap-6
-mt-10
+
+gap-3
+
+md:gap-5
+
+mt-4
+
+md:mt-8
 "
 >
 
@@ -46,31 +55,31 @@ onClick={()=>onAnswer(option)}
 
 className="
 bg-[#1B2F4B]
+
 border-2
 border-[#B8860B]
 
-rounded-[28px]
+rounded-xl
 
-py-8
-px-8
+md:rounded-[28px]
 
-text-base
+px-4
+py-3
+
+md:px-8
+md:py-6
 
 font-bold
 
-shadow-xl
-
-
-
-hover:shadow-2xl
+shadow-lg
 
 hover:bg-[#28486D]
 
-hover:shadow-yellow-500/20
-
 hover:border-yellow-300
 
-transition
+hover:shadow-yellow-500/20
+
+transition-all
 
 duration-200
 
@@ -80,38 +89,53 @@ active:scale-95
 
 flex
 
-items-center
-
-justify-center
-
+items-start
 "
 
 >
 
-<div className="flex items-center gap-4 w-full">
-
-  <div
+<div
 className="
-w-12
-h-12
+flex
+items-start
 
-rounded-xl
+gap-3
+
+w-full
+"
+>
+
+<div
+className="
+w-10
+h-10
+
+md:w-12
+md:h-12
+
+rounded-full
 
 border-2
-border-yellow-600
+border-yellow-300
 
-bg-[#163150]
+bg-gradient-to-b
+from-[#F8D56B]
+via-[#D6A22A]
+to-[#8F5A00]
 
-text-yellow-300
+text-[#2b1800]
 
 font-extrabold
-text-xl
+
+text-base
+
+md:text-xl
 
 flex
 items-center
 justify-center
 
-shadow-lg
+shadow-[0_0_12px_rgba(255,215,0,.45)]
 
 shrink-0
 "
@@ -122,10 +146,25 @@ shrink-0
 
 <div
 className="
+flex-1
+
 text-white
-text-xl
+
+text-sm
+
+sm:text-base
+
+md:text-lg
+
 font-semibold
-leading-relaxed
+
+leading-6
+
+md:leading-8
+
+break-words
+
+overflow-hidden
 "
 >
 

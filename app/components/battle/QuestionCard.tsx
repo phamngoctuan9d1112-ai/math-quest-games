@@ -15,18 +15,17 @@ export default function QuestionCard({
 
 <div
 className="
-mt-8
+mt-4 md:mt-8
 
-rounded-2xl
+rounded-xl md:rounded-2xl
 
 border-2
 border-yellow-500
 
-shadow-[0_0_18px_rgba(255,210,70,.25)]
-
 bg-[#102033]
 
-shadow-xl
+shadow-lg
+md:shadow-xl
 
 overflow-hidden
 "
@@ -37,7 +36,7 @@ className="
 flex
 items-center
 justify-center
-gap-3
+gap-2
 
 bg-gradient-to-r
 from-[#2a3f5f]
@@ -46,23 +45,40 @@ to-[#1c2940]
 border-b
 border-yellow-500
 
-py-3
+py-2
+
+md:py-3
 "
 >
 
 <Image
     src="/icons/book.png"
     alt="Book"
-    width={28}
-    height={28}
+    width={24}
+    height={24}
+    className="
+    w-5
+    h-5
+
+    md:w-7
+    md:h-7
+    "
 />
 
 <h2
 className="
 text-yellow-300
-text-lg
+
+text-sm
+
+md:text-lg
+
 font-bold
-tracking-[4px]
+
+tracking-[2px]
+
+md:tracking-[4px]
+
 uppercase
 "
 >
@@ -75,9 +91,15 @@ Câu hỏi
 
 <div
 className="
-p-5
+px-4
+py-4
 
-min-h-[110px]
+md:px-6
+md:py-6
+
+min-h-[80px]
+
+md:min-h-[120px]
 
 flex
 items-center
@@ -87,10 +109,18 @@ justify-center
 
 <div
 className="
-text-xl
+text-base
+
+md:text-xl
+
 font-bold
+
 text-white
-leading-relaxed
+
+leading-7
+
+md:leading-relaxed
+
 text-center
 "
 >

@@ -90,18 +90,32 @@ export default function StoryModal(
         duration: 0.5,
     }}
     className="
-    relative
-    w-[1050px]
-    max-w-[92%]
-    rounded-3xl
-    border-4
-    border-[#d9b96f]
-    shadow-yellow-300/20
-    overflow-hidden
-    bg-[#081B39]
-    shadow-2xl
-    p-10
-    "
+relative
+
+w-full
+
+max-w-[1050px]
+
+mx-4
+
+rounded-2xl
+
+md:rounded-3xl
+
+border-4
+border-[#d9b96f]
+
+bg-[#081B39]
+
+shadow-2xl
+
+overflow-hidden
+
+px-5
+py-6
+
+md:p-10
+"
 >
     <div
 className="
@@ -135,14 +149,20 @@ to-yellow-400
 
                 <h2
     className="
-    text-7xl
+    text-4xl
+
+sm:text-5xl
+
+md:text-7xl
     drop-shadow-[0_0_15px_rgba(255,230,120,0.7)]
     font-serif
     font-extrabold
     text-center
     text-yellow-100
     tracking-widest
-    mb-10
+    mb-5
+
+md:mb-10
     "
 >
 
@@ -165,7 +185,21 @@ to-transparent
 "
 />
 
-                <div className="grid grid-cols-2 gap-10 items-center">
+                <div
+className="
+grid
+
+grid-cols-1
+
+md:grid-cols-2
+
+gap-6
+
+md:gap-10
+
+items-center
+"
+>
 
     <motion.img
         
@@ -213,10 +247,18 @@ transition={{
 }}
         className="
         whitespace-pre-line
-        text-[28px]
+        
         font-light
         tracking-wide
-        leading-10
+        text-base
+
+sm:text-lg
+
+md:text-[28px]
+
+leading-7
+
+md:leading-10
         text-gray-100
         "
     >
