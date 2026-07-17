@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 type BattleHeaderProps = {
 
     musicOn: boolean;
@@ -31,12 +33,27 @@ bg-[#0d1b2d]
 "
 >
 
-    <h1 className="text-3xl font-bold text-yellow-300">
+   <div className="flex items-center gap-4">
 
-        🏰 Math Quest
+    <Image
+        src="/icons/castle.png"
+        alt="Castle"
+        width={60}
+        height={60}
+    />
 
+    <h1
+        className="
+        text-4xl
+        font-extrabold
+        text-yellow-300
+        tracking-wide
+        "
+    >
+        Math Quest
     </h1>
 
+</div>
     <button
         onClick={() => setMusicOn(!musicOn)}
         className="
@@ -46,8 +63,16 @@ h-10
         bg-slate-700
         hover:bg-slate-600
         "
-    >
-        {musicOn ? "🔊" : "🔇"}
+    ><Image
+    src={
+        musicOn
+        ? "/icons/speaker.png"
+        : "/icons/speaker-off.png"
+    }
+    alt="Music"
+    width={24}
+    height={24}
+/>
     </button>
 
 </div>

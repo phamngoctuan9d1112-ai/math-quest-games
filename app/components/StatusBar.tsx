@@ -1,4 +1,3 @@
-import Image from "next/image";
 type Props = {
   hearts: number;
   coins: number;
@@ -13,12 +12,7 @@ export default function StatusBar({
   return (
     <div className="flex gap-6 text-xl">
       <p>❤️ {hearts}</p>
-     <Image
-    src="/icons/coin.png"
-    alt="Coin"
-    width={24}
-    height={24}
-/>
+      <p>🪙 {coins}</p>
       <p>⭐ {xp}</p>
       </div>
   );
