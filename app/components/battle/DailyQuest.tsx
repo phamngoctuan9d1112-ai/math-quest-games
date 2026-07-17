@@ -76,12 +76,7 @@ py-6
 
     </div>
 
-    <div className="text-7xl">
-
-        📦
-
-    </div>
-
+   
 </div>
             {dailyProgress >= 5 && !dailyRewardClaimed && (
               <button

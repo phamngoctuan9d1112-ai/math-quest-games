@@ -18,6 +18,8 @@ export default function MultipleChoice({
 
 }:MultipleChoiceProps){
 
+    const labels = ["A", "B", "C", "D"];
+
 return(
 
 <div
@@ -32,7 +34,7 @@ mt-8
 "
 >
 
-{options.map((option)=>(
+{options.map((option, index) => (
 
 <button
 
@@ -41,9 +43,9 @@ key={String(option)}
 onClick={()=>onAnswer(option)}
 
 className="
-bg-white
+bg-[#16283F]
 border-2
-border-slate-300
+border-yellow-700
 
 rounded-3xl
 
@@ -55,11 +57,15 @@ font-bold
 
 shadow-lg
 
-hover:bg-indigo-50
+hover:bg-[#1F3550]
 
-hover:border-indigo-500
+hover:border-yellow-500
 
 transition
+
+duration-200
+
+hover:scale-[1.02]
 
 flex
 
@@ -71,9 +77,33 @@ justify-center
 
 >
 
-<MathText
-text={String(option)}
-/>
+<div className="flex items-center gap-4 w-full">
+
+  <div
+    className="
+    w-10
+    h-10
+
+    rounded-full
+
+    bg-yellow-500
+
+    flex
+    items-center
+    justify-center
+
+    text-black
+    font-bold
+    "
+  >
+    {labels[index]}
+  </div>
+
+  <div className="flex-1 text-left">
+    <MathText text={String(option)} />
+  </div>
+
+</div>
 
 </button>
 
