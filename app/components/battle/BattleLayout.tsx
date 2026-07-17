@@ -32,23 +32,37 @@ style={{
 }}
 >
 
+    <div
+className="
+absolute
+inset-0
+bg-black/55
+"
+/>
+
 <div
 className="
-w-[980px]
+relative
+z-10
 
-origin-top
-scale-[0.7]
+w-full
+max-w-[900px]
 
 rounded-[28px]
 
 border-[3px]
 border-yellow-700
 
-bg-[#091625]
+bg-[#091625]/90
 
-shadow-[0_0_60px_rgba(0,0,0,0.8)]
+backdrop-blur-md
+
+shadow-[0_0_80px_rgba(0,0,0,.8)]
 
 overflow-hidden
+
+scale-90
+origin-top
 "
 >
 
