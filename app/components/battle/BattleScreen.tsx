@@ -204,6 +204,22 @@ space-y-3
             xp={xp}
         />
 
+        <div
+className="
+flex
+justify-center
+
+my-4
+
+lg:hidden
+"
+>
+    <Mascot
+        state={mascotState}
+        message={mascotMessage}
+    />
+</div>
+
         <WorldInfo
     selectedWorld={selectedWorld}
     currentSubNode={currentSubNode}
@@ -290,11 +306,25 @@ space-y-3
     </div>
 
   
+    <div
+className="
+hidden
+lg:block
+
+fixed
+bottom-4
+right-4
+
+scale-75
+
+z-50
+"
+>
     <Mascot
         state={mascotState}
         message={mascotMessage}
     />
-
+</div>
     
 
 </BattleLayout>
