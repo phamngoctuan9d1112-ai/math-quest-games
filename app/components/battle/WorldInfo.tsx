@@ -50,47 +50,114 @@ export default function WorldInfo({
 
 }: WorldInfoProps) {
 
-    return (
+return (
 
-<>
-    <p className="text-center mt-4 text-sm font-semibold text-indigo-600">
-        🌍 World {selectedWorld} - Chặng {currentSubNode}
-    </p>
+<div
+className="
+mt-3
+
+rounded-2xl
+
+border
+border-yellow-500
+
+bg-[#102033]
+
+shadow-[0_0_15px_rgba(255,210,70,.2)]
+
+p-3
+
+sm:p-4
+"
+>
+
+    {/* World */}
+
+    <div
+    className="
+    flex
+    items-center
+    justify-between
+    "
+    >
+
+        <div>
+
+            <p
+            className="
+            text-yellow-300
+
+            text-sm
+
+            sm:text-base
+
+            font-bold
+            "
+            >
+                🌍 World {selectedWorld}
+            </p>
+
+            <p
+            className="
+            text-gray-300
+
+            text-xs
+
+            sm:text-sm
+            "
+            >
+                Chặng {currentSubNode}
+            </p>
+
+        </div>
+</div>
 
     <div className="flex justify-center mt-2">
-        <button
-            onClick={() => {
+       <button
+    onClick={() => {
 
-                setCurrent(0);
+        setCurrent(0);
 
-                setTfAnswers({});
+        setTfAnswers({});
 
-                setShortAnswer("");
+        setShortAnswer("");
 
-                setShowExplanation(false);
+        setShowExplanation(false);
 
-                setSelectedSubMap(selectedWorld);
+        setSelectedSubMap(selectedWorld);
 
-                setCurrentSubNode(null);
+        setCurrentSubNode(null);
 
-            }}
-            className="
-                bg-slate-600
-                hover:bg-slate-700
-                text-white
-                px-4
-                py-2
-                rounded-xl
-                text-sm
-                font-bold
-                transition
-            "
-        >
-            ⬅️ Quay lại chọn chặng
-        </button>
+    }}
+    className="
+    px-3
+    py-2
+
+    rounded-xl
+
+    bg-[#20344d]
+
+    border
+    border-yellow-500
+
+    text-yellow-300
+
+    text-xs
+
+    sm:text-sm
+
+    font-bold
+
+    hover:bg-[#2a4565]
+
+    transition
+    "
+>
+    ⬅ Quay lại
+</button>
     </div>
-</>
+    
+    </div>
 
 );
-
 }
