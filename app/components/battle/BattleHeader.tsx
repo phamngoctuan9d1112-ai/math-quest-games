@@ -18,52 +18,39 @@ export default function BattleHeader({
 
     return (
 
-        <div className="
+     <div
+className="
 flex
-items-center
 justify-between
-
+items-center
 px-8
 py-6
-
 border-b
 border-yellow-700
-
 bg-[#0d1b2d]
-">
-
-            <div className="flex justify-between items-center">
-
-                <h1 className="text-5xl font-bold text-yellow-200">
-Math Quest
-</h1>
-
-                <button
-
-                    onClick={() => setMusicOn(!musicOn)}
-
-                    className="
-w-14
-h-14
-
-rounded-xl
-
-bg-slate-700
-
-hover:bg-slate-600
-
-transition
 "
+>
 
-                >
+    <h1 className="text-5xl font-bold text-yellow-300">
 
-                    {musicOn ? "🔊" : "🔇"}
+        🏰 Math Quest
 
-                </button>
+    </h1>
 
-            </div>
+    <button
+        onClick={() => setMusicOn(!musicOn)}
+        className="
+        w-14
+        h-14
+        rounded-xl
+        bg-slate-700
+        hover:bg-slate-600
+        "
+    >
+        {musicOn ? "🔊" : "🔇"}
+    </button>
 
-        </div>
+</div>
 
     );
 

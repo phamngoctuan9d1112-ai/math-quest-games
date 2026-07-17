@@ -72,71 +72,39 @@ Câu {current + 1} / {questions.length}
 
 </div>
 
+       <div className="flex items-center gap-4 mt-5">
+
+    <div className="text-5xl">
+        🛡️
+    </div>
+
+    <div
+        className="
+        flex-1
+        h-5
+        rounded-full
+        border-2
+        border-yellow-700
+        bg-slate-900
+        overflow-hidden
+        "
+    >
         <div
-  className="
-    w-full
-    bg-gray-300
-    rounded-full
+            className="h-full bg-green-500 transition-all duration-500"
+            style={{
+                width: `${
+                    questions.length
+                        ? ((current + 1) / questions.length) * 100
+                        : 0
+                }%`,
+            }}
+        />
+    </div>
 
-    h-2
-    md:h-4
+    <div className="text-yellow-400 text-2xl">
+        ◆
+    </div>
 
-    mt-3
-  "
->
-         <div className="flex items-center gap-4">
-
-<div className="text-5xl">
-
-🛡️
-
-</div>
-
-<div
-className="
-flex-1
-
-h-5
-
-rounded-full
-
-border-2
-border-yellow-700
-
-bg-slate-900
-
-overflow-hidden
-"
->
-
-<div
-className="
-h-full
-
-bg-green-500
-
-transition-all
-duration-500
-"
-style={{
-width:`${
-questions.length
-?
-((current+1)/questions.length)*100
-:0
-}%`
-}}
-/>
-
-</div>
-
-<div className="text-yellow-400 text-2xl">
-
-◆
-
-</div>
-
-</div>
 </div>
 
        

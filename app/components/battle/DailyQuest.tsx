@@ -40,38 +40,47 @@ py-6
 "
 >
 
-            <div className="flex items-center gap-3 mb-4">
+           <div className="flex justify-between items-center">
 
-    <span className="text-2xl">
-        📜
-    </span>
+    <div>
 
-    <h2
-        className="
-        text-2xl
-        font-bold
-        text-yellow-300
-        "
-    >
-        Daily Quest
-    </h2>
+        <div className="flex items-center gap-3">
 
-</div>
-           <div className="flex items-center gap-3 mb-4">
+            <span className="text-2xl">📜</span>
 
-    <span className="text-2xl">
-        📜
-    </span>
+            <h2 className="text-2xl font-bold text-yellow-300">
+                Daily Quest
+            </h2>
 
-    <h2
-        className="
-        text-2xl
-        font-bold
-        text-yellow-300
-        "
-    >
-        Daily Quest
-    </h2>
+        </div>
+
+        <div className="mt-4 space-y-2">
+
+            <p className="text-white">
+
+                {dailyProgress >= 5 ? "✅" : "⬜"}
+
+                Trả lời đúng 5 câu ({dailyProgress}/5)
+
+            </p>
+
+            <p className="text-white">
+
+                {xp >= 100 ? "✅" : "⬜"}
+
+                Kiếm 100 XP ({xp}/100)
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div className="text-7xl">
+
+        📦
+
+    </div>
 
 </div>
             {dailyProgress >= 5 && !dailyRewardClaimed && (
