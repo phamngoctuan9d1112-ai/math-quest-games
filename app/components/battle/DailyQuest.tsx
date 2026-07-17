@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 type DailyQuestProps = {
     dailyProgress: number;
     xp: number;
@@ -46,7 +48,12 @@ py-4
 
         <div className="flex items-center gap-3">
 
-            <span className="text-xl">📜</span>
+            <Image
+    src="/icons/scroll.png"
+    alt="Scroll"
+    width={28}
+    height={28}
+/>
 
             <h2 className="text-xl font-bold text-yellow-300">
                 Daily Quest
