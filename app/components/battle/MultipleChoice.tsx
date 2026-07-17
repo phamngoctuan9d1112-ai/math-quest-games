@@ -55,9 +55,13 @@ text-lg
 
 font-bold
 
-shadow-lg
+shadow-xl
+
+hover:shadow-2xl
 
 hover:bg-[#1F3550]
+
+hover:shadow-yellow-500/20
 
 hover:border-yellow-500
 
@@ -66,6 +70,8 @@ transition
 duration-200
 
 hover:scale-[1.02]
+
+active:scale-95
 
 flex
 

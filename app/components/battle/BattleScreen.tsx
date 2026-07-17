@@ -238,8 +238,8 @@ onAnswer,
 />
 
 
-        <QuestionCard
-    question={question}
+       <QuestionCard
+    question={question?.question ?? ""}
 />
 
 {currentSubNode === 1 && (
