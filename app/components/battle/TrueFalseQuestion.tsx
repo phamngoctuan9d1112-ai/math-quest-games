@@ -60,19 +60,95 @@ export default function TrueFalseQuestion({
 
   <div className="mt-6 space-y-4">
     {question?.subQuestions?.map((sub: any) => (
-      <div key={sub.label} className="p-3 bg-slate-50 border border-slate-200 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+      <div key={sub.label} className="
+bg-[#1B2F4B]
+
+border-2
+border-[#B8860B]
+
+rounded-[24px]
+
+p-6
+
+shadow-xl
+
+space-y-4
+">
         <span className="text-slate-700 text-base">
-          <strong className="text-indigo-600 font-bold">{sub.label}</strong> <MathText text={sub.text} />
+          <div className="flex items-center gap-4">
+
+<div
+className="
+w-12
+h-12
+
+rounded-xl
+
+bg-[#163150]
+
+border-2
+border-yellow-500
+
+flex
+items-center
+justify-center
+
+text-yellow-300
+font-bold
+"
+>
+{sub.label}
+</div>
+
+<div className="flex-1 text-white text-lg">
+
+<MathText text={sub.text} />
+
+</div>
+
+</div> <MathText text={sub.text} />
         </span>
         
         {/* Cặp nút Đúng / Sai cho từng ý */}
-        <div className="flex gap-2 w-full sm:w-auto">
+        <div
+className="
+grid
+grid-cols-2
+gap-4
+
+mt-2
+"
+>
           <button
             onClick={() => setTfAnswers((prev: Record<string, string>) => ({
     ...prev,
     [sub.label]: "Đúng"
 }))}
-            className={`flex-1 sm:flex-none px-4 py-2 rounded-lg font-bold border transition text-sm ${tfAnswers[sub.label] === "Đúng" ? "bg-green-500 text-white border-green-600" : "bg-white text-slate-700 border-slate-300 hover:bg-slate-50"}`}
+           className={`
+rounded-2xl
+
+py-4
+
+font-bold
+text-lg
+
+border-2
+
+transition-all
+duration-200
+
+${
+tfAnswers[sub.label] === "Đúng"
+
+?
+
+"bg-green-600 border-green-400 text-white shadow-lg"
+
+:
+
+"bg-[#1B2F4B] border-yellow-600 text-yellow-300 hover:bg-[#28486D]"
+}
+`}
           >
             Đúng
           </button>
@@ -81,7 +157,31 @@ export default function TrueFalseQuestion({
     ...prev,
     [sub.label]: "Sai"
 }))}
-            className={`flex-1 sm:flex-none px-4 py-2 rounded-lg font-bold border transition text-sm ${tfAnswers[sub.label] === "Sai" ? "bg-red-500 text-white border-red-600" : "bg-white text-slate-700 border-slate-300 hover:bg-slate-50"}`}
+           className={`
+rounded-2xl
+
+py-4
+
+font-bold
+text-lg
+
+border-2
+
+transition-all
+duration-200
+
+${
+tfAnswers[sub.label] === "Sai"
+
+?
+
+"bg-red-600 border-red-400 text-white shadow-lg"
+
+:
+
+"bg-[#1B2F4B] border-yellow-600 text-yellow-300 hover:bg-[#28486D]"
+}
+`}
           >
             Sai
           </button>
@@ -94,9 +194,36 @@ export default function TrueFalseQuestion({
     <button
       onClick={checkTrueFalseAnswer}
       disabled={Object.keys(tfAnswers).length < (question?.subQuestions?.length || 4)}
-      className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-not-allowed text-white py-3 rounded-xl font-bold mt-4 shadow-md transition text-lg"
-    >
-      Nộp bài Đúng / Sai
+      className={`
+w-full
+
+mt-8
+
+py-5
+
+rounded-[24px]
+
+text-xl
+font-bold
+
+transition-all
+duration-300
+
+border-2
+
+${
+Object.keys(tfAnswers).length < (question?.subQuestions?.length || 4)
+
+?
+
+"bg-slate-700 border-slate-600 text-slate-400 cursor-not-allowed"
+
+:
+
+"bg-[#D6A431] border-yellow-200 text-slate-900 hover:bg-yellow-400 hover:scale-[1.02] active:scale-95 shadow-xl"
+}
+`}   >
+      ⭐ NỘP BÀI ⭐
     </button>
   </div>
 

@@ -22,17 +22,19 @@ export default function MultipleChoice({
 
 return(
 
+
 <div
 className="
-max-w-4xl
+max-w-5xl
 mx-auto
 grid
 grid-cols-1
 md:grid-cols-2
-gap-4
-mt-8
+gap-6
+mt-10
 "
 >
+
 
 {options.map((option, index) => (
 
@@ -43,13 +45,14 @@ key={String(option)}
 onClick={()=>onAnswer(option)}
 
 className="
-bg-[#16283F]
+bg-[#1B2F4B]
 border-2
-border-yellow-700
+border-[#B8860B]
 
-rounded-3xl
+rounded-[28px]
 
-p-6
+py-8
+px-8
 
 text-lg
 
@@ -57,13 +60,15 @@ font-bold
 
 shadow-xl
 
+
+
 hover:shadow-2xl
 
-hover:bg-[#1F3550]
+hover:bg-[#28486D]
 
 hover:shadow-yellow-500/20
 
-hover:border-yellow-500
+hover:border-yellow-300
 
 transition
 
@@ -86,28 +91,49 @@ justify-center
 <div className="flex items-center gap-4 w-full">
 
   <div
-    className="
-    w-10
-    h-10
+className="
+w-14
+h-14
 
-    rounded-full
+rounded-xl
 
-    bg-yellow-500
+border-2
+border-yellow-600
 
-    flex
-    items-center
-    justify-center
+bg-[#163150]
 
-    text-black
-    font-bold
-    "
-  >
+text-yellow-300
+
+font-extrabold
+text-xl
+
+flex
+items-center
+justify-center
+
+shadow-lg
+
+shrink-0
+"
+>
     {labels[index]}
-  </div>
+</div>
+  <div className="flex-1">
 
-  <div className="flex-1 text-left">
-    <MathText text={String(option)} />
-  </div>
+<div
+className="
+text-white
+text-xl
+font-semibold
+leading-relaxed
+"
+>
+
+<MathText text={String(option)} />
+
+</div>
+
+</div>
 
 </div>
 
