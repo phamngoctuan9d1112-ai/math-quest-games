@@ -184,7 +184,9 @@ onAnswer,
         setMusicOn={setMusicOn}
     />
 
-    <div className="p-8">
+    <div className="border-t border-yellow-800" />
+
+    <div className="px-10 py-8 space-y-8">
 
         <StatusBar
             hearts={hearts}

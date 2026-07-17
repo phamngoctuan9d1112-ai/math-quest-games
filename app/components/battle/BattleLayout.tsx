@@ -1,58 +1,49 @@
 "use client";
 
-import { ReactNode } from "react";
-
-type BattleLayoutProps = {
-    children: ReactNode;
-};
-
 export default function BattleLayout({
-
     children,
+}:{
+    children:React.ReactNode;
+}){
 
-}: BattleLayoutProps) {
+return(
 
-    return (
+<div
+className="
+min-h-screen
+bg-black
+flex
+justify-center
+items-start
+py-10
+px-4
+"
+>
 
-        <main
-            className="
-            min-h-screen
+<div
+className="
+w-full
+max-w-5xl
 
-            bg-[url('/worlds/world4/bg.jpg')]
-            bg-cover
-            bg-center
+rounded-[30px]
 
-            flex
-            justify-center
-            items-center
+border-[3px]
+border-yellow-700
 
-            p-6
-            "
-        >
+bg-[#091625]
 
-            <div
-                className="
-                w-[1100px]
+shadow-[0_0_60px_rgba(0,0,0,0.8)]
 
-                rounded-[30px]
+overflow-hidden
+"
+>
 
-                border-[3px]
-                border-[#B98A43]
+{children}
 
-                bg-[#0D1623]/95
+</div>
 
-                shadow-[0_0_60px_rgba(0,0,0,.7)]
+</div>
 
-                overflow-hidden
-                "
-            >
-
-                {children}
-
-            </div>
-
-        </main>
-
-    );
+);
 
 }

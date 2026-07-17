@@ -62,9 +62,15 @@ export default function ProgressSection({
   </div>
 )}
 
-        <p className="text-center mt-2">
-          Câu {current + 1} / {questions.length}
-        </p>
+       <div className="text-center mb-4">
+
+<p className="text-white text-xl font-semibold">
+
+Câu {current + 1} / {questions.length}
+
+</p>
+
+</div>
 
         <div
   className="
@@ -78,18 +84,60 @@ export default function ProgressSection({
     mt-3
   "
 >
-          <div
-  className="
-    bg-green-500
+         <div className="flex items-center gap-4">
 
-    h-2
-    md:h-4
+<div className="text-5xl">
 
-    rounded-full
-    transition-all
-  "
-          style={{ width: `${questions.length > 0 ? ((current + 1) / questions.length) * 100 : 0}%` }} />
-        </div>
+🛡️
+
+</div>
+
+<div
+className="
+flex-1
+
+h-5
+
+rounded-full
+
+border-2
+border-yellow-700
+
+bg-slate-900
+
+overflow-hidden
+"
+>
+
+<div
+className="
+h-full
+
+bg-green-500
+
+transition-all
+duration-500
+"
+style={{
+width:`${
+questions.length
+?
+((current+1)/questions.length)*100
+:0
+}%`
+}}
+/>
+
+</div>
+
+<div className="text-yellow-400 text-2xl">
+
+◆
+
+</div>
+
+</div>
+</div>
 
        
 

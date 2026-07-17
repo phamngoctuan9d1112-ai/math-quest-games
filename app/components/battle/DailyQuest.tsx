@@ -21,20 +21,59 @@ export default function DailyQuest({
 }: DailyQuestProps) {
 
     return (
-                  <div
-  className="
-    mt-3
-    p-3
-    md:p-4
+                  
+  <div
+className="
+flex
+justify-between
+items-center
 
-    border
-    rounded-xl
-  "
+rounded-3xl
+
+border-2
+border-yellow-700
+
+bg-[#0d1b2d]
+
+px-8
+py-6
+"
 >
-            <h2 className="font-bold">🎯 Daily Quest</h2>
-            <p>{dailyProgress >= 5 ? "✅" : "⬜"} Trả lời đúng 5 câu ({dailyProgress}/5)</p>
-            <p>{xp >= 100 ? "✅" : "⬜"} Kiếm 100 Điểm ({xp}/100)</p>
 
+            <div className="flex items-center gap-3 mb-4">
+
+    <span className="text-2xl">
+        📜
+    </span>
+
+    <h2
+        className="
+        text-2xl
+        font-bold
+        text-yellow-300
+        "
+    >
+        Daily Quest
+    </h2>
+
+</div>
+           <div className="flex items-center gap-3 mb-4">
+
+    <span className="text-2xl">
+        📜
+    </span>
+
+    <h2
+        className="
+        text-2xl
+        font-bold
+        text-yellow-300
+        "
+    >
+        Daily Quest
+    </h2>
+
+</div>
             {dailyProgress >= 5 && !dailyRewardClaimed && (
               <button
   onClick={() => {
