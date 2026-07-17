@@ -10,10 +10,15 @@ import ShortAnswerQuestion from "./ShortAnswerQuestion";
 import DailyQuest from "./DailyQuest";
 import WorldInfo from "./WorldInfo";
 import ProgressSection from "./ProgressSection";
+import Mascot from "../Mascot";
 
 type BattleScreenProps = {
 
 selectedWorld: number | null;
+
+mascotState: any;
+
+mascotMessage: string;
 
 message: string;
 
@@ -102,6 +107,10 @@ export default function BattleScreen({
   hearts,
 
   shortAnswer,
+
+  mascotState,
+
+    mascotMessage,
 
 setShortAnswer,
 
@@ -267,6 +276,11 @@ onAnswer,
 
 
     </div>
+
+    <Mascot
+    state={mascotState}
+    message={mascotMessage}
+/>
     
 
 </BattleLayout>

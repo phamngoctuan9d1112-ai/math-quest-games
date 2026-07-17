@@ -2352,6 +2352,9 @@ setCurrentSubNode={setCurrentSubNode}
 
     message={message}
 
+    mascotState={mascotState}
+mascotMessage={mascotMessage}
+
 showCorrectAnswer={showCorrectAnswer} 
 
     dailyProgress={dailyProgress}
