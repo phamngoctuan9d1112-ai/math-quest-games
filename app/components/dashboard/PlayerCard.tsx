@@ -53,7 +53,7 @@ export default function PlayerCard({
           </p>
 
           <div className="flex flex-wrap gap-3 mt-4 justify-center md:justify-start">
-            <span className="bg-yellow-400 text-black px-4 py-1 rounded-full font-bold">
+            <span className="bg-orange-400 text-black px-4 py-1 rounded-full font-bold">
               ⭐ Level {level}
             </span>
 
