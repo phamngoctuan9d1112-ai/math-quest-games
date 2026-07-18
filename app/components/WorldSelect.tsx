@@ -641,7 +641,7 @@ items-start
 
     <KingdomTitle
       icon="🌿"
-      title="Vương Quốc Khởi Nguyên"
+      title="Toán 10"
       subtitle="Nơi bắt đầu hành trình chinh phục Toán học"
     />
 
@@ -655,7 +655,7 @@ items-start
 
     <KingdomTitle
       icon="⚔️"
-      title="Vương Quốc Đại Số"
+      title="Toán 11"
       subtitle="Đối đầu những thử thách khó hơn"
     />
 
@@ -669,7 +669,7 @@ items-start
 
     <KingdomTitle
       icon="🏰"
-      title="Vương Quốc Hình Học"
+      title="Toán 12"
       subtitle="Khám phá những bí mật không gian"
     />
 
