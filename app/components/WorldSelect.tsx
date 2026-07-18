@@ -690,7 +690,7 @@ setMessage={setMessage}
 className="
 mt-20
 space-y-32
-pb-40
+pb-12
 "
 >
 
