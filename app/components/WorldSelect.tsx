@@ -455,30 +455,46 @@ md:shadow-[0_20px_60px_rgba(0,0,0,.35)]
     blur-3xl
     "
 />
-                <div className="text-6xl">
-                    {icon}
-                </div>
+                <div
+className="
+text-4xl
+md:text-6xl
+"
+>
+    {icon}
+</div>
 
-                <h2
-                    className="
-                    text-5xl
-                    font-black
-                    text-white
-                    mt-3
-                    "
-                >
-                    {title}
-                </h2>
+<h2
+className="
+mt-2
 
-                <p
-                    className="
-                    text-blue-100
-                    text-lg
-                    mt-2
-                    "
-                >
-                    {subtitle}
-                </p>
+text-3xl
+sm:text-4xl
+md:text-5xl
+
+leading-tight
+
+font-black
+
+text-white
+"
+>
+    {title}
+</h2>
+
+<p
+className="
+mt-2
+
+text-xs
+sm:text-sm
+md:text-lg
+
+text-blue-100
+"
+>
+    {subtitle}
+</p>
 
             </div>
 
