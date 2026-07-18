@@ -58,7 +58,14 @@ export default function TrueFalseQuestion({
         
 
 
-  <div className="mt-6 space-y-4">
+  <div
+className="
+mt-5
+
+space-y-3
+md:space-y-4
+"
+>
     {question?.subQuestions?.map((sub: any) => (
       <div key={sub.label} className="
 bg-[#1B2F4B]
@@ -66,21 +73,24 @@ bg-[#1B2F4B]
 border-2
 border-[#B8860B]
 
-rounded-[24px]
+rounded-2xl
 
-p-6
+p-4
+md:p-6
 
 shadow-xl
 
-space-y-4
+space-y-3
 ">
         <span className="text-slate-700 text-base">
           <div className="flex items-center gap-4">
 
 <div
 className="
-w-12
-h-12
+w-9
+h-9
+md:w-12
+md:h-12
 
 rounded-xl
 
@@ -94,19 +104,30 @@ items-center
 justify-center
 
 text-yellow-300
+text-sm
+md:text-base
 font-bold
 "
 >
 {sub.label}
 </div>
 
-<div className="flex-1 text-white text-lg">
+<div className="
+flex-1
+
+text-white
+
+text-sm
+md:text-lg
+
+leading-6
+">
 
 <MathText text={sub.text} />
 
 </div>
 
-</div> <MathText text={sub.text} />
+</div> 
         </span>
         
         {/* Cặp nút Đúng / Sai cho từng ý */}
@@ -127,10 +148,13 @@ mt-2
            className={`
 rounded-2xl
 
-py-4
+py-2.5
+md:py-4
 
 font-bold
-text-lg
+
+text-sm
+md:text-lg
 
 border-2
 
