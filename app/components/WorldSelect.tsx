@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { worldNames } from "../data/worldNames";
-import QuestPanel from "./QuestPanel";
+
 import Footer from "./Footer";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
@@ -609,20 +609,20 @@ items-start
                   coins={coins}
                   formulaShards={formulaShards}
                   streak={streak}
+                  dailyProgress={dailyProgress}
+dailyRewardClaimed={dailyRewardClaimed}
+currentUserId={currentUserId}
+
+xp={xp}
+
+setCoins={setCoins}
+setDailyRewardClaimed={setDailyRewardClaimed}
+setMessage={setMessage}
                 />
 
                 <div className="mt-6">
 
-<QuestPanel
-    dailyProgress={dailyProgress}
-    xp={xp}
-    dailyRewardClaimed={dailyRewardClaimed}
-    currentUserId={currentUserId}
 
-    setCoins={setCoins}
-    setDailyRewardClaimed={setDailyRewardClaimed}
-    setMessage={setMessage}
-/>
 
 </div>
 

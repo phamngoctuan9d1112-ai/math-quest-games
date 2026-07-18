@@ -1,11 +1,22 @@
 "use client";
 import Avatar from "../Avatar";
+import QuestPanel from "../QuestPanel";
 type Props = {
   userName: string;
   email: string;
   level: number;
   avatar: string;
   rank: string;
+  dailyProgress: number;
+dailyRewardClaimed: boolean;
+
+currentUserId: string | null;
+
+xp: number;
+
+setCoins: React.Dispatch<React.SetStateAction<number>>;
+setDailyRewardClaimed: React.Dispatch<React.SetStateAction<boolean>>;
+setMessage: React.Dispatch<React.SetStateAction<string>>;
   coins: number;
   formulaShards: number;
   streak: number;
@@ -15,6 +26,15 @@ export default function PlayerCard({
   userName,
   email,
   level,
+  dailyProgress,
+dailyRewardClaimed,
+currentUserId,
+
+xp,
+
+setCoins,
+setDailyRewardClaimed,
+setMessage,
   rank,
    avatar,
   coins,
@@ -198,6 +218,20 @@ gap-3
         </div>
 
     </div>
+
+</div>
+<div className="mt-6 border-t border-white/10 pt-5">
+
+    <QuestPanel
+        dailyProgress={dailyProgress}
+        xp={xp}
+        dailyRewardClaimed={dailyRewardClaimed}
+        currentUserId={currentUserId}
+
+        setCoins={setCoins}
+        setDailyRewardClaimed={setDailyRewardClaimed}
+        setMessage={setMessage}
+    />
 
 </div>
     </div>
