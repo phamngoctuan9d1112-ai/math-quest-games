@@ -73,7 +73,7 @@ bg-[#1B2F4B]
 border-2
 border-[#B8860B]
 
-rounded-2xl
+rounded-lg
 
 p-4
 md:p-6
@@ -134,7 +134,9 @@ leading-6
         <div
 className="
 grid
-grid-cols-2
+grid-cols-2 gap-2
+max-w-[220px]
+mx-auto
 gap-4
 
 mt-2
@@ -146,7 +148,7 @@ mt-2
     [sub.label]: "Đúng"
 }))}
            className={`
-rounded-2xl
+rounded-lg
 
 py-2.5
 md:py-4
@@ -181,13 +183,16 @@ tfAnswers[sub.label] === "Đúng"
     ...prev,
     [sub.label]: "Sai"
 }))}
-           className={`
-rounded-2xl
+          className={`
+rounded-xl
 
-py-4
+py-2
+md:py-4
 
 font-bold
-text-lg
+
+text-sm
+md:text-lg
 
 border-2
 
@@ -196,13 +201,9 @@ duration-200
 
 ${
 tfAnswers[sub.label] === "Sai"
-
 ?
-
 "bg-red-600 border-red-400 text-white shadow-lg"
-
 :
-
 "bg-[#1B2F4B] border-yellow-600 text-yellow-300 hover:bg-[#28486D]"
 }
 `}
