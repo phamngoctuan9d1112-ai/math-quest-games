@@ -683,7 +683,7 @@ setMessage={setMessage}
             </aside>
 
           </div>
-          </div>
+          
 
           {/* CONTENT */}
 <div
@@ -754,6 +754,7 @@ pb-40
 
   )}
 
+</div>
 </div>
 </div>
 
