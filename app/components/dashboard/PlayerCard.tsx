@@ -26,15 +26,18 @@ export default function PlayerCard({
   return (
     <div
       className="
-      rounded-3xl
-      bg-white/10
-      backdrop-blur-xl
-      border
-      border-white/20
-      shadow-2xl
-      p-8
-      text-white
-    "
+rounded-3xl
+bg-white/10
+backdrop-blur-xl
+border
+border-white/20
+shadow-2xl
+
+p-5
+md:p-8
+
+text-white
+"
     >
       {/* Header */}
       <div className="flex flex-col md:flex-row items-center gap-6">
@@ -91,91 +94,112 @@ export default function PlayerCard({
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 gap-3 md:gap-5 mt-5">
-        <div className="
-bg-white/10
-rounded-xl
-md:rounded-2xl
 
-p-3
-md:p-8
+<div
+className="
+mt-6
 
-min-h-[90px]
-md:min-h-[170px]
+grid
+grid-cols-3
 
-flex
-flex-col
-justify-center
-items-center
-">
-          <div className="text-4xl">🪙</div>
+gap-3
+"
+>
 
-          <div className="mt-2 text-2xl font-black">
+    {/* Coin */}
+
+    <div
+    className="
+    bg-white/10
+
+    rounded-2xl
+
+    py-3
+
+    flex
+    flex-col
+    items-center
+    justify-center
+    "
+    >
+
+        <div className="text-2xl">
+            🪙
+        </div>
+
+        <div className="mt-1 font-black text-lg">
             {coins}
-          </div>
+        </div>
 
-          <div className="text-sm text-slate-300">
+        <div className="text-[11px] text-slate-300">
             Coins
-          </div>
         </div>
 
-        <div className="
-bg-white/10
-rounded-xl
-md:rounded-2xl
+    </div>
 
-p-3
-md:p-8
+    {/* Formula */}
 
-min-h-[90px]
-md:min-h-[170px]
+    <div
+    className="
+    bg-white/10
 
-flex
-flex-col
-justify-center
-items-center
-">
-          <div className="text-4xl">🧩</div>
+    rounded-2xl
 
-          <div className="mt-2 text-2xl font-black">
+    py-3
+
+    flex
+    flex-col
+    items-center
+    justify-center
+    "
+    >
+
+        <div className="text-2xl">
+            🧩
+        </div>
+
+        <div className="mt-1 font-black text-lg">
             {formulaShards}
-          </div>
-
-          <div className="text-sm text-slate-300">
-            Formula Shards
-          </div>
         </div>
 
-        <div className="
-col-span-2
+        <div className="text-[11px] text-slate-300">
+            Shards
+        </div>
 
-bg-white/10
+    </div>
 
-rounded-xl
-md:rounded-2xl
+    {/* Streak */}
 
-p-3
-md:p-8
+    <div
+    className="
+    bg-white/10
 
-min-h-[90px]
-md:min-h-[170px]
+    rounded-2xl
 
-flex
-flex-col
-justify-center
-items-center
-">
-          <div className="text-4xl">🔥</div>
+    py-3
 
-          <div className="mt-2 text-2xl font-black">
+    flex
+    flex-col
+    items-center
+    justify-center
+    "
+    >
+
+        <div className="text-2xl">
+            🔥
+        </div>
+
+        <div className="mt-1 font-black text-lg">
             {streak}
-          </div>
-
-          <div className="text-sm text-slate-300">
-            Streak
-          </div>
         </div>
-      </div>
+
+        <div className="text-[11px] text-slate-300">
+            Streak
+        </div>
+
+    </div>
+
+</div>
     </div>
   );
 }
