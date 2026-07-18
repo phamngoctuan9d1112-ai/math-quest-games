@@ -399,23 +399,32 @@ cursor-not-allowed
 
     return (
 
-        <div
-            className="
-            relative
-            overflow-hidden
-            rounded-[35px]
-            mb-12
-            px-10
-            py-14
+       <div
+className="
+relative
+overflow-hidden
 
-            bg-gradient-to-r
-            from-indigo-700
-            via-blue-600
-            to-cyan-500
+rounded-3xl
+md:rounded-[35px]
 
-            shadow-[0_20px_60px_rgba(0,0,0,.35)]
-            "
-        >
+mb-6
+md:mb-12
+
+px-5
+md:px-10
+
+py-6
+md:py-14
+
+bg-gradient-to-r
+from-indigo-700
+via-blue-600
+to-cyan-500
+
+shadow-[0_10px_30px_rgba(0,0,0,.25)]
+md:shadow-[0_20px_60px_rgba(0,0,0,.35)]
+"
+>
 
             <div
                 className="
