@@ -525,10 +525,24 @@ text-blue-100
 }
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden">
+    <main
+  className="
+  relative
+  min-h-screen
+  flex
+  flex-col
+  overflow-x-hidden
+"
+>
 
       {/* Background */}
-      <div className="absolute inset-0">
+      <div
+  className="
+  absolute
+  inset-0
+  -z-10
+"
+>
 
         <div
 className="
@@ -566,10 +580,9 @@ preserveAspectRatio="none"
 className="
 relative
 z-10
-pb-32
+flex-1
 "
 >
-
         <div className="max-w-[1700px] mx-auto px-6 xl:px-10 py-8">
 
           {/* HEADER */}
@@ -673,12 +686,11 @@ setMessage={setMessage}
           </div>
 
           {/* CONTENT */}
-
 <div
 className="
 mt-20
 space-y-32
-pb-20
+pb-40
 "
 >
 
@@ -743,13 +755,13 @@ pb-20
   )}
 
 </div>
+</div>
 
-        </div>
+<footer className="relative z-10 mt-24">
+    <Footer />
+</footer>
 
-        <Footer />
-
-        {/* ================= MOBILE ================= */}
-
+{/* MOBILE */}
         <div
           className="
 fixed
