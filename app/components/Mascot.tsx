@@ -20,29 +20,41 @@ export default function Mascot({
 }: Props) {
   return (
     <div
-      className="
-      fixed
-      bottom-5
-      right-5
-      z-50
-      "
-    >
+className="
+flex
+flex-col
+items-center
+z-50
+"
+>
       {message && (
-        <div
-          className="
-          bg-white
-          rounded-2xl
-          shadow-xl
-          p-3
-          mb-2
-          max-w-[220px]
-          text-sm
-          font-semibold
-          "
-        >
-          {message}
-        </div>
-      )}
+    <div
+        className="
+        mb-2
+
+        max-w-[220px]
+        md:max-w-[260px]
+
+        rounded-2xl
+
+        bg-white/95
+
+        px-4
+        py-2
+
+        text-center
+
+        text-xs
+        md:text-sm
+
+        font-semibold
+
+        shadow-xl
+        "
+    >
+        {message}
+    </div>
+)}
 
       <motion.div
         animate={{
@@ -54,13 +66,19 @@ export default function Mascot({
         }}
       >
         <Image
-          src={`/mascot/${state}.png`}
-          alt="Mascot"
-          className="
-             w-20
-            md:w-32
-            "
-        />
+    src={`/mascot/${state}.png`}
+    alt="Mascot"
+    width={160}
+    height={160}
+    className="
+    w-16
+    sm:w-20
+    md:w-24
+    lg:w-32
+
+    h-auto
+    "
+/>
       </motion.div>
     </div>
   );
