@@ -525,7 +525,7 @@ text-blue-100
 }
 
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main className="relative min-h-screen overflow-x-hidden">
 
       {/* Background */}
       <div className="absolute inset-0">
@@ -562,7 +562,13 @@ preserveAspectRatio="none"
 
       </div>
 
-      <div className="relative z-10">
+      <div
+className="
+relative
+z-10
+pb-32
+"
+>
 
         <div className="max-w-[1700px] mx-auto px-6 xl:px-10 py-8">
 
@@ -668,7 +674,13 @@ setMessage={setMessage}
 
           {/* CONTENT */}
 
-<div className="mt-20 space-y-32">
+<div
+className="
+mt-20
+space-y-32
+pb-20
+"
+>
 
   {/* KINGDOM 1 */}
 
