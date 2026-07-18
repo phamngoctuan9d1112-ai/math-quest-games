@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { worldNames } from "../data/worldNames";
+import QuestPanel from "./QuestPanel";
 import Footer from "./Footer";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
@@ -23,6 +24,16 @@ type Props = {
   onSelect: (id: number) => void;
   streak: number;
   level: number;
+  dailyProgress: number;
+dailyRewardClaimed: boolean;
+
+currentUserId: string | null;
+
+setCoins: React.Dispatch<React.SetStateAction<number>>;
+setDailyRewardClaimed: React.Dispatch<React.SetStateAction<boolean>>;
+setMessage: React.Dispatch<React.SetStateAction<string>>;
+
+xp:number;
   rank: string;
   onChestInventory: () => void;
   coins: number;
@@ -45,6 +56,15 @@ export default function WorldSelect({
   level,
   streak,
   rank,
+  dailyProgress,
+dailyRewardClaimed,
+currentUserId,
+
+setCoins,
+setDailyRewardClaimed,
+setMessage,
+
+xp,
   onChest,
   avatar,
   userName,
@@ -590,6 +610,21 @@ items-start
                   formulaShards={formulaShards}
                   streak={streak}
                 />
+
+                <div className="mt-6">
+
+<QuestPanel
+    dailyProgress={dailyProgress}
+    xp={xp}
+    dailyRewardClaimed={dailyRewardClaimed}
+    currentUserId={currentUserId}
+
+    setCoins={setCoins}
+    setDailyRewardClaimed={setDailyRewardClaimed}
+    setMessage={setMessage}
+/>
+
+</div>
 
               </div>
 

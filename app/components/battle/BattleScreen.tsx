@@ -7,7 +7,7 @@ import MultipleChoice from "./MultipleChoice";
 import QuestionCard from "./QuestionCard";
 import TrueFalseQuestion from "./TrueFalseQuestion";
 import ShortAnswerQuestion from "./ShortAnswerQuestion";
-import DailyQuest from "./DailyQuest";
+
 import WorldInfo from "./WorldInfo";
 import ProgressSection from "./ProgressSection";
 import Mascot from "../Mascot";
@@ -239,15 +239,7 @@ lg:hidden
           {pet === "🐉" && "+5 Coin mỗi câu"}
         </p>
 
-         <DailyQuest
-        dailyProgress={dailyProgress}
-        xp={xp}
-        dailyRewardClaimed={dailyRewardClaimed}
-        currentUserId={currentUserId}
-        setCoins={setCoins}
-        setDailyRewardClaimed={setDailyRewardClaimed}
-        setMessage={setMessage}
-    />
+         
 
     <ProgressSection
 

@@ -2284,6 +2284,19 @@ text-yellow-400
 
 }}
             level={level}
+             dailyProgress={dailyProgress}
+
+    dailyRewardClaimed={dailyRewardClaimed}
+
+    currentUserId={currentUserId}
+
+    xp={xp}
+
+    setCoins={setCoins}
+
+    setDailyRewardClaimed={setDailyRewardClaimed}
+
+    setMessage={setMessage}
             formulaShards={formulaShards}
             onChestInventory={() =>
     setShowChestInventory(true)
