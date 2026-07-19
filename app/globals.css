@@ -1608,29 +1608,7 @@ cursor:pointer;
 isolation:isolate;
 
 }
-.world-card::before{
-    content:"";
-    position:absolute;
 
-    top:0;
-    left:-120%;
-
-    width:60%;
-    height:100%;
-
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.10),
-        rgba(255,255,255,.25),
-        rgba(255,255,255,.10),
-        transparent
-    );
-
-    transform:skewX(-25deg);
-
-    transition:.8s;
-}
 .world-card::after{
 
 content:"";
