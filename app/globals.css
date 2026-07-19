@@ -1753,43 +1753,7 @@ mix-blend-mode:screen;
 animation:cardGalaxy 10s linear infinite;
 
 }
-.card-border-light{
 
-position:absolute;
-
-inset:0;
-
-border-radius:30px;
-
-padding:2px;
-
-background:
-
-linear-gradient(
-
-130deg,
-
-transparent,
-
-rgba(255,255,255,.8),
-
-transparent
-
-);
-
-mask:
-
-linear-gradient(#fff 0 0) content-box,
-
-linear-gradient(#fff 0 0);
-
-mask-composite:exclude;
-
-animation:borderMove 5s linear infinite;
-
-opacity:.35;
-
-}
 .card-particles{
 
 position:absolute;
