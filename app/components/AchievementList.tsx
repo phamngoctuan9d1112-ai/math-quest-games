@@ -171,6 +171,9 @@ ${
     "
   />
 )}
+{unlocked && (
+  <div className="achievement-shine" />
+)}
               <div
   className="
   flex

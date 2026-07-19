@@ -1609,23 +1609,27 @@ isolation:isolate;
 
 }
 .world-card::before{
+    content:"";
+    position:absolute;
 
-content:"";
+    top:0;
+    left:-120%;
 
-position:absolute;
+    width:60%;
+    height:100%;
 
-inset:0;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.10),
+        rgba(255,255,255,.25),
+        rgba(255,255,255,.10),
+        transparent
+    );
 
-background:
+    transform:skewX(-25deg);
 
-url("/images/card-bg.webp") center/cover,
-
-linear-gradient(180deg,#101633,#090d20);
-
-opacity:.95;
-
-z-index:-3;
-
+    transition:.8s;
 }
 .world-card::after{
 
@@ -1872,6 +1876,52 @@ transform:rotate(0);
 100%{
 
 transform:rotate(360deg);
+
+}
+
+}
+/* ===========================
+   Achievement Shine
+=========================== */
+
+.achievement-shine{
+
+position:absolute;
+
+top:-40%;
+left:-45%;
+
+width:35%;
+height:220%;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.18),
+rgba(255,255,255,.45),
+rgba(255,255,255,.18),
+transparent
+);
+
+transform:rotate(25deg);
+
+animation:achievementShine 5s linear infinite;
+
+pointer-events:none;
+
+}
+
+@keyframes achievementShine{
+
+0%{
+
+left:-50%;
+
+}
+
+100%{
+
+left:150%;
 
 }
 
