@@ -1736,24 +1736,44 @@ box-shadow:
 inset 0 0 25px rgba(255,255,255,.05);
 
 }
-.card-galaxy{
+
+.card-border-light{
 
 position:absolute;
 
 inset:0;
 
+border-radius:30px;
+
+padding:2px;
+
 background:
 
-radial-gradient(circle at top,#4fc3ff33,transparent),
+linear-gradient(
 
-radial-gradient(circle at bottom,#9d4dff44,transparent);
+130deg,
 
-mix-blend-mode:screen;
+transparent,
 
-animation:cardGalaxy 10s linear infinite;
+rgba(255,255,255,.8),
+
+transparent
+
+);
+
+mask:
+
+linear-gradient(#fff 0 0) content-box,
+
+linear-gradient(#fff 0 0);
+
+mask-composite:exclude;
+
+animation:borderMove 5s linear infinite;
+
+opacity:.35;
 
 }
-
 .card-particles{
 
 position:absolute;
