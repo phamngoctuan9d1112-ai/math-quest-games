@@ -541,7 +541,7 @@ text-blue-100
 
     <div className="nebula nebula1" />
     <div className="nebula nebula2" />
-    <div className="nebula nebula3" />
+    <div className="nebula nebula3" /> 
 
     <div className="stars" />
 
