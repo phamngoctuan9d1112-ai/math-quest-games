@@ -52,24 +52,33 @@ export default function AchievementList({
           return (
               <div
   key={a.id}
-  className={`
-    rounded-2xl
-    p-3
-    sm:p-4
-    md:p-6
-    shadow-2xl
-    backdrop-blur-md
-    border
-    transition-all
-    duration-300
-    hover:scale-[1.02]
+ className={`
+rounded-3xl
+p-5
+md:p-7
 
-    ${
-      unlocked
-        ? "bg-gradient-to-r from-yellow-400 to-orange-500 border-yellow-300"
-        : "bg-white/80 border-gray-300"
-    }
-  `}
+border
+
+transition-all
+duration-300
+
+hover:-translate-y-1
+hover:shadow-[0_0_45px_rgba(255,215,120,.18)]
+
+${
+  unlocked
+    ? `
+      bg-[#121a31]
+      border-yellow-400/30
+      shadow-[0_0_30px_rgba(255,215,100,.12)]
+    `
+    : `
+      bg-[#0d1324]
+      border-slate-700
+      opacity-80
+    `
+}
+`}
 >
               <div
   className="
