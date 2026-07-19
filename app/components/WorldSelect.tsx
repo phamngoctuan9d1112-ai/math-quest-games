@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { worldNames } from "../data/worldNames";
-
+import WorldCard from "./WorldCard";
 import Footer from "./Footer";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
@@ -258,184 +258,13 @@ const kingdom4 = worlds.filter(
   "
       >
         {group.map((world) => (
-          <button
-            key={world.id}
-            disabled={!world.unlocked}
-            onClick={() => {
-              if (world.unlocked) onSelect(world.id);
-            }}
-            className={`
-relative
-overflow-hidden
-
-world-card
-
-active:scale-95
-
-ring-2
-ring-yellow-300/30
-
-w-[150px]
-h-[220px]
-
-md:w-[180px]
-md:h-[250px]
-
-rounded-[30px]
-
-text-white
-
-font-bold
-
-transition-all
-duration-300
-
-flex
-flex-col
-items-center
-justify-center
-
-shadow-[0_15px_40px_rgba(0,0,0,.35)]
-
-${
-world.unlocked
-?
-`
-world.unlocked
-
-? world.id % 2 === 0
-
-? "world-card-purple"
-
-: "world-card-blue"
-
-: ""
-hover:-translate-y-4
-hover:scale-105
-
-hover:shadow-[0_25px_60px_rgba(255,180,0,.55)]
-`
-:
-`
-bg-gradient-to-br
-from-gray-700
-to-gray-900
-
-grayscale
-opacity-70
-cursor-not-allowed
-`
-}
-`}
-          >
-            <>
-  {/* Badge */}
-
-  
-
-  <div className="relative">
-
-    {world.unlocked && (
-
-        <div className="castle-glow"/>
-
-    )}
-
-    {!world.unlocked && (
-
-        <div className="lock-ring"/>
-
-    )}
-
-    <div className="text-7xl relative">
-
-        {world.unlocked ? "🏰" : "🔒"}
-
-    </div>
-
-</div>
-
-  {/* World */}
-
-  <div
-    className="
-    mt-3
-    text-2xl
-    font-black
-    tracking-wide
-    "
-  >
-    WORLD {world.id}
-  </div>
-
-  {/* Name */}
-
-  <div
-    className="
-    mt-2
-    h-10
-    flex
-    items-center
-    justify-center
-    text-center
-    text-sm
-    px-3
-    text-yellow-100
-    "
-  >
-    {worldNames[world.id]}
-  </div>
-
-  {/* Button */}
-
-  {world.unlocked ? (
-
-    <div
-      className="
-
-mt-5
-
-px-6
-
-py-3
-
-rounded-full
-
-bg-gradient-to-r
-
-from-blue-600
-
-to-purple-600
-
-shadow-lg
-
-font-bold
-
-backdrop-blur
-
-"
-    >
-      ⚔️ Vào chơi
-    </div>
-
-  ) : (
-
-    <div
-      className="
-      mt-5
-      bg-black/20
-      px-5
-      py-2
-      rounded-full
-      "
-    >
-      Chưa mở
-    </div>
-
-  )}
-
-</>
-          </button>
+          <WorldCard
+    key={world.id}
+    id={world.id}
+    unlocked={world.unlocked}
+    name={worldNames[world.id]}
+    onClick={() => onSelect(world.id)}
+/>
         ))}
       </div>
     );
