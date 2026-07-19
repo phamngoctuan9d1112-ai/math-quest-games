@@ -1908,16 +1908,26 @@ if (showStory) {
     return (
       <main className="min-h-screen flex items-center justify-center">
         <div
-  className="
-  bg-slate-100
-  rounded-3xl
-  shadow-2xl
-  w-[900px]
-  max-w-full
-  max-h-[90vh]
-  overflow-y-auto
-  p-10
-  "
+className="
+relative
+
+w-[980px]
+max-w-[95vw]
+
+max-h-[92vh]
+overflow-y-auto
+
+rounded-[32px]
+
+bg-[#081223]
+
+border
+border-cyan-400/20
+
+shadow-[0_0_60px_rgba(0,180,255,.15)]
+
+p-8
+"
 >
           <TopBar hearts={hearts} coins={coins} xp={xp} level={level} />
           <AchievementList achievements={achievements} xp={xp} />
