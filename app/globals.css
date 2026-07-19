@@ -1,200 +1,450 @@
+/* ===========================================================
+   TAILWIND
+=========================================================== */
+
 @import "tailwindcss";
 
+/* ===========================================================
+   ROOT
+=========================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050816;
+  --foreground: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-}
-#__next,
-body > div:first-child {
-  min-height: 100%;
-}
-html {
-  overflow-x: hidden;
+body{
+    width:100%;
+    min-height:100%;
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
 }
 
-body {
-  overflow-x: hidden;
+body{
+    background:#050816;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
 }
-.notranslate {
-  translate: no;
+
+.notranslate{
+    translate:no;
 }
+
+/* ===========================================================
+   SPACE BACKGROUND
+=========================================================== */
+
+.space-bg{
+
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at top,#1d3d89 0%,#101933 28%,#070b18 58%,#02030b 100%);
+
+}
+
+/* ===========================================================
+   NEBULA
+=========================================================== */
+
+.nebula{
+
+    position:absolute;
+
+    border-radius:9999px;
+
+    filter:blur(170px);
+
+    mix-blend-mode:screen;
+
+    opacity:.35;
+
+}
+
+.nebula1{
+
+    width:700px;
+    height:700px;
+
+    left:-220px;
+    top:-150px;
+
+    background:#38bdf8;
+
+    animation:nebulaFloat1 18s ease-in-out infinite alternate;
+
+}
+
+.nebula2{
+
+    width:850px;
+    height:850px;
+
+    right:-260px;
+    bottom:-260px;
+
+    background:#9333ea;
+
+    animation:nebulaFloat2 22s ease-in-out infinite alternate;
+
+}
+
+/* ===========================================================
+   STARS
+=========================================================== */
+
 .stars{
 
-position:absolute;
-inset:0;
+    position:absolute;
+    inset:0;
 
-background-image:
+    pointer-events:none;
 
-radial-gradient(#fff 1px,transparent 1px),
+}
 
-radial-gradient(#fff 1px,transparent 1px),
+/* ---------- layer 1 ---------- */
 
-radial-gradient(#8be9ff .8px,transparent .8px);
+.stars1{
 
-background-size:
+    background-image:
 
-140px 140px,
-220px 220px,
-320px 320px;
+    radial-gradient(circle,#ffffff 1.4px,transparent 1.4px),
+
+    radial-gradient(circle,#ffffff .8px,transparent .8px),
+
+    radial-gradient(circle,#8be9ff .8px,transparent .8px);
+
+    background-size:
+
+    130px 130px,
+    220px 220px,
+    330px 330px;
+
+    opacity:.85;
+
+    animation:
+
+    starsMoveSlow 180s linear infinite,
+
+    twinkle 6s ease-in-out infinite alternate;
+
+}
+
+/* ---------- layer 2 ---------- */
+
+.stars2{
+
+    background-image:
+
+    radial-gradient(circle,#fff 1px,transparent 1px),
+
+    radial-gradient(circle,#9ad9ff .9px,transparent .9px);
+
+    background-size:
+
+    180px 180px,
+    280px 280px;
+
+    opacity:.55;
+
+    animation:
+
+    starsMoveMedium 130s linear infinite,
+
+    twinkle2 8s ease-in-out infinite alternate;
+
+}
+
+/* ---------- layer 3 ---------- */
+
+.stars3{
+
+    background-image:
+
+    radial-gradient(circle,#ffffff 2px,transparent 2px);
+
+    background-size:420px 420px;
+
+    opacity:.3;
+
+    animation:
+
+    starsMoveFast 90s linear infinite,
+
+    twinkle3 10s ease-in-out infinite alternate;
+
+}
+
+/* ===========================================================
+   SHOOTING STARS
+=========================================================== */
+
+.shooting{
+
+    position:absolute;
+
+    width:220px;
+
+    height:2px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,1),
+        rgba(255,255,255,.5),
+        transparent
+    );
+
+    border-radius:999px;
+
+    transform:rotate(-32deg);
+
+    filter:drop-shadow(0 0 10px white);
+
+    opacity:0;
+
+}
+
+.shooting::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-6px;
+    top:-3px;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+
+    0 0 15px white,
+    0 0 25px #7dd3fc;
+
+}
+
+/* ===== shooting 1 ===== */
+
+.shooting1{
+
+    animation:shoot1 10s linear infinite;
+
+}
+
+/* ===== shooting 2 ===== */
+
+.shooting2{
+
+    animation:shoot2 14s linear infinite;
+
+}
+
+/* ===== shooting 3 ===== */
+
+.shooting3{
+
+    animation:shoot3 18s linear infinite;
+
+}
+
+/* ===== shooting 4 ===== */
+
+.shooting4{
+
+    animation:shoot4 22s linear infinite;
+
+}
+
+/* ===========================================================
+   ANIMATION
+=========================================================== */
+
+@keyframes starsMoveSlow{
+
+from{
 
 background-position:
-
 0 0,
-60px 80px,
-120px 40px;
+0 0,
+0 0;
+
+}
+
+to{
+
+background-position:
+800px 400px,
+600px 250px,
+350px 180px;
+
+}
+
+}
+
+@keyframes starsMoveMedium{
+
+from{
+
+background-position:
+0 0,
+0 0;
+
+}
+
+to{
+
+background-position:
+500px 250px,
+250px 100px;
+
+}
+
+}
+
+@keyframes starsMoveFast{
+
+from{
+
+background-position:0 0;
+
+}
+
+to{
+
+background-position:180px 100px;
+
+}
+
+}
+
+@keyframes twinkle{
+
+from{
+
+opacity:.55;
+
+}
+
+to{
+
+opacity:.95;
+
+}
+
+}
+
+@keyframes twinkle2{
+
+from{
+
+opacity:.25;
+
+}
+
+to{
+
+opacity:.7;
+
+}
+
+}
+
+@keyframes twinkle3{
+
+from{
+
+opacity:.15;
+
+}
+
+to{
 
 opacity:.45;
 
-animation:moveStars 120s linear infinite;
-
 }
-.glow1{
-
-position:absolute;
-
-width:900px;
-height:900px;
-
-background:#2fd8ff;
-
-filter:blur(250px);
-
-left:-350px;
-
-top:-300px;
-
-opacity:.35;
-
-animation:float1 15s infinite alternate;
 
 }
 
-.glow2{
+@keyframes nebulaFloat1{
 
-position:absolute;
+from{
 
-width:900px;
-height:900px;
-
-background:#a855f7;
-
-filter:blur(250px);
-
-right:-350px;
-
-bottom:-300px;
-
-opacity:.30;
-
-animation:float2 18s infinite alternate;
-
-}
-/* ============================= */
-/* STAR BACKGROUND */
-/* ============================= */
-
-
-
-.stars::before{
-content:"";
-position:absolute;
-width:2px;
-height:2px;
-background:white;
-
-box-shadow:
-
-50px 80px white,
-130px 300px white,
-250px 120px white,
-340px 400px white,
-520px 200px white,
-700px 500px white,
-900px 130px white,
-1100px 300px white,
-1500px 100px white,
-1700px 600px white,
-1900px 250px white;
-
-animation:twinkle 4s infinite alternate;
-}
-.stars::after{
-
-content:"";
-
-position:absolute;
-
-width:180px;
-
-height:2px;
-
-background:linear-gradient(
-90deg,
-white,
-transparent
-);
-
-top:0;
-left:-200px;
-
-transform:rotate(-30deg);
-
-animation:shooting 7s infinite;
+transform:
+translate(0,0)
+scale(1);
 
 }
 
-@keyframes shooting{
+to{
 
-0%{
+transform:
+translate(60px,70px)
+scale(1.15);
 
-left:-300px;
-top:50px;
+}
+
+}
+
+@keyframes nebulaFloat2{
+
+from{
+
+transform:
+translate(0,0)
+scale(1);
+
+}
+
+to{
+
+transform:
+translate(-70px,-50px)
+scale(1.12);
+
+}
+
+}
+
+/* ===========================================================
+   SHOOTING STAR ANIMATIONS
+=========================================================== */
+
+@keyframes shoot1{
+
+0%,12%{
+
 opacity:0;
+transform:translate(-300px,-200px) rotate(-32deg);
 
 }
 
-10%{
+15%{
 
 opacity:1;
 
 }
 
-35%{
-
-left:120%;
-
-top:300px;
+25%{
 
 opacity:0;
+transform:translate(1800px,900px) rotate(-32deg);
 
 }
 
@@ -206,93 +456,252 @@ opacity:0;
 
 }
 
-.glow1{
+@keyframes shoot2{
 
-position:absolute;
+0%,28%{
 
-width:600px;
-
-height:600px;
-
-background:#38bdf8;
-
-border-radius:999px;
-
-filter:blur(180px);
-
-left:-200px;
-
-top:-150px;
-
-opacity:.25;
-
-animation:float1 10s infinite alternate;
+opacity:0;
+transform:translate(-400px,-120px) rotate(-32deg);
 
 }
 
-.glow2{
+31%{
 
-position:absolute;
-
-width:700px;
-
-height:700px;
-
-background:#a855f7;
-
-border-radius:999px;
-
-filter:blur(200px);
-
-right:-250px;
-
-bottom:-250px;
-
-opacity:.25;
-
-animation:float2 12s infinite alternate;
+opacity:1;
 
 }
 
-@keyframes float1{
+42%{
 
-from{
-
-transform:translateY(0);
+opacity:0;
+transform:translate(1700px,700px) rotate(-32deg);
 
 }
 
-to{
+100%{
 
-transform:translateY(80px);
+opacity:0;
 
 }
 
 }
 
-@keyframes float2{
+@keyframes shoot3{
 
-from{
+0%,55%{
 
-transform:translateY(0);
-
-}
-
-to{
-
-transform:translateY(-80px);
+opacity:0;
+transform:translate(-300px,-250px) rotate(-32deg);
 
 }
 
+58%{
+
+opacity:1;
+
 }
+
+68%{
+
+opacity:0;
+transform:translate(1800px,800px) rotate(-32deg);
+
+}
+
+100%{
+
+opacity:0;
+
+}
+
+}
+
+@keyframes shoot4{
+
+0%,72%{
+
+opacity:0;
+transform:translate(-500px,-100px) rotate(-32deg);
+
+}
+
+75%{
+
+opacity:1;
+
+}
+
+86%{
+
+opacity:0;
+transform:translate(1800px,900px) rotate(-32deg);
+
+}
+
+100%{
+
+opacity:0;
+
+}
+
+}
+/* ===========================================================
+   WORLD CARD
+=========================================================== */
 
 .world-card{
 
-animation:floatCard 3s ease-in-out infinite;
+    position:relative;
+
+    overflow:hidden;
+
+    isolation:isolate;
+
+    border-radius:30px;
+
+    backdrop-filter:blur(22px);
+
+    background:
+
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,.18),
+        rgba(255,255,255,.08)
+    );
+
+    border:1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,.45),
+
+    inset 0 1px 0 rgba(255,255,255,.15);
+
+    transition:
+
+    transform .35s,
+
+    box-shadow .35s,
+
+    border-color .35s;
+
+    animation:cardFloat 5s ease-in-out infinite;
 
 }
 
-@keyframes floatCard{
+/* ---------- glow ---------- */
+
+.world-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-40%;
+
+    background:
+
+    radial-gradient(
+
+    circle,
+
+    rgba(255,255,255,.22),
+
+    transparent 65%
+
+    );
+
+    opacity:0;
+
+    transition:.4s;
+
+}
+
+/* ---------- shine ---------- */
+
+.world-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-60%;
+
+    left:-150%;
+
+    width:70%;
+
+    height:220%;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.55),
+
+        transparent
+
+    );
+
+    transform:rotate(25deg);
+
+}
+
+/* ---------- hover ---------- */
+
+.world-card:hover{
+
+    transform:
+
+    translateY(-14px)
+
+    scale(1.05)
+
+    rotateX(4deg);
+
+    border-color:
+
+    rgba(255,255,255,.45);
+
+    box-shadow:
+
+    0 30px 80px rgba(0,0,0,.55),
+
+    0 0 45px rgba(255,210,80,.28);
+
+}
+
+.world-card:hover::before{
+
+    opacity:1;
+
+}
+
+.world-card:hover::after{
+
+    animation:cardShine 1.2s ease;
+
+}
+
+/* ---------- locked ---------- */
+
+.world-card:disabled{
+
+    filter:grayscale(100%);
+
+    opacity:.65;
+
+}
+
+/* ===========================================================
+   CARD FLOAT
+=========================================================== */
+
+@keyframes cardFloat{
 
 0%{
 
@@ -314,119 +723,631 @@ transform:translateY(0);
 
 }
 
-@keyframes twinkle{
+/* ===========================================================
+   CARD SHINE
+=========================================================== */
+
+@keyframes cardShine{
 
 0%{
-opacity:.2;
+
+left:-180%;
+
 }
 
 100%{
-opacity:1;
-}
 
-}
-.grid-bg{
-position:absolute;
-inset:0;
-
-background-image:
-
-linear-gradient(
-rgba(255,255,255,.05) 1px,
-transparent 1px),
-
-linear-gradient(
-90deg,
-rgba(255,255,255,.05) 1px,
-transparent 1px);
-
-background-size:90px 90px;
-
-opacity:.4;
-}
-.particles{
-
-position:absolute;
-inset:0;
-
-background-image:
-
-radial-gradient(circle,#fff 2px,transparent 2px);
-
-background-size:180px 180px;
-
-opacity:.35;
-
-animation:particleMove 80s linear infinite;
+left:220%;
 
 }
 
-@keyframes particleMove{
+}
+
+/* ===========================================================
+   BUTTON INSIDE CARD
+=========================================================== */
+
+.world-card div:last-child{
+
+    transition:
+
+    .3s;
+
+}
+
+.world-card:hover div:last-child{
+
+    transform:scale(1.08);
+
+}
+
+/* ===========================================================
+   KINGDOM HEADER
+=========================================================== */
+
+.kingdom-header{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:36px;
+
+    background:
+
+    linear-gradient(
+
+    120deg,
+
+    rgba(59,130,246,.95),
+
+    rgba(37,99,235,.95),
+
+    rgba(99,102,241,.95)
+
+    );
+
+    border:
+
+    1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+
+    0 18px 60px rgba(0,0,0,.45);
+
+}
+
+/* moving light */
+
+.kingdom-header::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120%;
+
+    left:-30%;
+
+    width:60%;
+
+    height:260%;
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    transparent,
+
+    rgba(255,255,255,.18),
+
+    transparent
+
+    );
+
+    transform:rotate(25deg);
+
+    animation:headerLight 10s linear infinite;
+
+}
+
+@keyframes headerLight{
+
+0%{
+
+left:-80%;
+
+}
+
+100%{
+
+left:180%;
+
+}
+
+}
+
+/* ===========================================================
+   PLAYER CARD
+=========================================================== */
+
+.player-glass{
+
+    backdrop-filter:blur(24px);
+
+    background:
+
+    linear-gradient(
+
+    180deg,
+
+    rgba(255,255,255,.18),
+
+    rgba(255,255,255,.08)
+
+    );
+
+    border:
+
+    1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+
+    0 18px 55px rgba(0,0,0,.35);
+
+}
+
+/* ===========================================================
+   LEFT / RIGHT PANEL
+=========================================================== */
+
+.dashboard-panel{
+
+    backdrop-filter:blur(18px);
+
+    background:
+
+    rgba(255,255,255,.08);
+
+    border:
+
+    1px solid rgba(255,255,255,.14);
+
+    box-shadow:
+
+    0 10px 40px rgba(0,0,0,.35);
+
+}
+
+/* ===========================================================
+   FOOTER
+=========================================================== */
+
+footer{
+
+    backdrop-filter:blur(16px);
+
+}
+
+/* ===========================================================
+   SCROLL REVEAL
+=========================================================== */
+
+.fade-up{
+
+    animation:
+
+    fadeUp .8s ease both;
+
+}
+
+@keyframes fadeUp{
 
 from{
 
-transform:translateY(0);
+opacity:0;
+
+transform:
+
+translateY(35px);
 
 }
 
 to{
 
-transform:translateY(-300px);
+opacity:1;
+
+transform:
+
+translateY(0);
 
 }
 
 }
-.network-lines{
 
-position:absolute;
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
 
-inset:0;
+@media (max-width:1200px){
 
-width:100%;
-height:100%;
-
-pointer-events:none;
-
-}
-
-.network-lines line{
-
-stroke:white;
-
-stroke-width:1;
-
-opacity:.12;
-
-}
 .world-card{
 
-backdrop-filter:blur(20px);
+width:170px;
 
-background:
-
-linear-gradient(
-180deg,
-rgba(255,255,255,.18),
-rgba(255,255,255,.08));
-
-border:
-
-1px solid rgba(255,255,255,.18);
+height:235px;
 
 }
+
+}
+
+@media (max-width:768px){
+
+.world-card{
+
+width:150px;
+
+height:215px;
+
+border-radius:24px;
+
+}
+
+}
+
+@media (max-width:480px){
+
+.world-card{
+
+width:140px;
+
+height:205px;
+
+}
+
+}
+/* ===========================================================
+   DEPTH LAYER
+=========================================================== */
+
+.space-bg,
+.nebula,
+.stars,
+.shooting,
+.vignette{
+
+    transform:translateZ(0);
+
+    will-change:transform,opacity;
+
+    backface-visibility:hidden;
+
+}
+
+/* ===========================================================
+   SPACE PARALLAX
+=========================================================== */
+
+.space-bg{
+
+    animation:spaceMove 80s linear infinite;
+
+}
+
+@keyframes spaceMove{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.05);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+/* ===========================================================
+   STAR TWINKLE RANDOM
+=========================================================== */
+
+.stars1{
+
+animation-delay:-1s;
+
+}
+
+.stars2{
+
+animation-delay:-4s;
+
+}
+
+.stars3{
+
+animation-delay:-8s;
+
+}
+
+/* ===========================================================
+   SHOOTING STAR VARIANTS
+=========================================================== */
+
+.shooting1{
+
+animation-duration:12s;
+
+animation-delay:0s;
+
+}
+
+.shooting2{
+
+animation-duration:17s;
+
+animation-delay:5s;
+
+}
+
+.shooting3{
+
+animation-duration:22s;
+
+animation-delay:11s;
+
+}
+
+.shooting4{
+
+animation-duration:27s;
+
+animation-delay:18s;
+
+}
+
+/* ===========================================================
+   VIGNETTE
+=========================================================== */
+
 .vignette{
 
 position:absolute;
+
 inset:0;
+
+pointer-events:none;
 
 background:
 
 radial-gradient(
+
 circle,
+
 transparent 45%,
-rgba(0,0,0,.28) 100%
+
+rgba(0,0,0,.25) 75%,
+
+rgba(0,0,0,.55) 100%
+
 );
 
-pointer-events:none;
+}
+
+/* ===========================================================
+   BUTTON EFFECT
+=========================================================== */
+
+button{
+
+transition:
+
+background .25s,
+
+transform .25s,
+
+box-shadow .25s,
+
+filter .25s;
+
+}
+
+button:hover{
+
+filter:brightness(1.08);
+
+}
+
+button:active{
+
+transform:scale(.96);
+
+}
+
+/* ===========================================================
+   PLAYER PANEL HOVER
+=========================================================== */
+
+.player-glass:hover,
+
+.dashboard-panel:hover{
+
+box-shadow:
+
+0 20px 60px rgba(0,0,0,.45),
+
+0 0 25px rgba(80,170,255,.22);
+
+}
+
+/* ===========================================================
+   WORLD TITLE
+=========================================================== */
+
+.kingdom-header h2{
+
+text-shadow:
+
+0 0 15px rgba(255,255,255,.25),
+
+0 0 30px rgba(80,170,255,.25);
+
+}
+
+.kingdom-header p{
+
+opacity:.92;
+
+}
+
+/* ===========================================================
+   SMOOTH SCROLL
+=========================================================== */
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+/* ===========================================================
+   SCROLLBAR
+=========================================================== */
+
+::-webkit-scrollbar{
+
+width:12px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#040814;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#2563eb,
+
+#4f46e5,
+
+#9333ea
+
+);
+
+border-radius:999px;
+
+border:2px solid #040814;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#3b82f6,
+
+#6366f1,
+
+#a855f7
+
+);
+
+}
+
+/* Firefox */
+
+*{
+
+scrollbar-width:thin;
+
+scrollbar-color:#6366f1 #040814;
+
+}
+
+/* ===========================================================
+   SELECTION
+=========================================================== */
+
+::selection{
+
+background:#60a5fa;
+
+color:white;
+
+}
+
+/* ===========================================================
+   IMAGE OPTIMIZATION
+=========================================================== */
+
+img{
+
+user-select:none;
+
+-webkit-user-drag:none;
+
+}
+
+/* ===========================================================
+   PERFORMANCE
+=========================================================== */
+
+.world-card,
+
+.kingdom-header,
+
+.player-glass,
+
+.dashboard-panel{
+
+transform:translateZ(0);
+
+will-change:transform;
+
+}
+
+/* ===========================================================
+   MOBILE
+=========================================================== */
+
+@media (max-width:768px){
+
+.nebula{
+
+opacity:.22;
+
+filter:blur(120px);
+
+}
+
+.shooting{
+
+width:120px;
+
+}
+
+.world-card{
+
+animation:none;
+
+}
+
+}
+
+/* ===========================================================
+   REDUCE MOTION
+=========================================================== */
+
+@media (prefers-reduced-motion:reduce){
+
+*{
+
+animation:none!important;
+
+transition:none!important;
+
+}
 
 }

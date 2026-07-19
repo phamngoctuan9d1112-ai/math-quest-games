@@ -535,46 +535,29 @@ text-blue-100
 "
 >
 
-      {/* Background */}
-      <div
-  className="
-  absolute
-  inset-0
-  -z-10
-"
->
+    <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
 
-        <div
-className="
-absolute
-inset-0
-bg-[radial-gradient(circle_at_top_left,#35b9ff_0%,#2787ff_25%,#3559d8_55%,#4b2cb7_100%)]
-"
-/>
-        <div className="grid-bg" />
-        <div className="stars" />
-        <div className="particles"/>
-        <div className="glow1" />
-        <div className="glow2" />
-        <div className="vignette"/>
+    <div className="space-bg" />
 
-        <svg
-className="network-lines"
-viewBox="0 0 1920 1080"
-preserveAspectRatio="none"
->
+    <div className="nebula nebula1" />
+    <div className="nebula nebula2" />
+    <div className="nebula nebula3" />
 
-<line x1="150" y1="120" x2="420" y2="250"/>
+    <div className="stars" />
 
-<line x1="420" y1="250" x2="650" y2="160"/>
+   
+    <div className="meteor meteor1" />
+    <div className="meteor meteor2" />
+    <div className="meteor meteor3" />
+    <div className="meteor meteor4" />
 
-<line x1="1200" y1="250" x2="1600" y2="100"/>
+    <div className="vignette" />
 
-<line x1="1600" y1="100" x2="1750" y2="320"/>
+</div>
 
-</svg>
 
-      </div>
+
+      
 
       <div
 className="

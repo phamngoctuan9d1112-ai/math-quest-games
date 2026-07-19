@@ -222,9 +222,7 @@ function VictoryModal({
 
 export default function Home() {
 
-  // ==========================================
-  // 1. KHAI BÁO TẤT CẢ STATE Ở TRÊN CÙNG
-  // ==========================================
+
   const [userName, setUserName] = useState("");
   const [started, setStarted] = useState<boolean>(false);
   const [showInventory, setShowInventory] = useState(false);
