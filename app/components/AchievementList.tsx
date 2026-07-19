@@ -121,6 +121,8 @@ Hoàn thành thử thách để mở khóa các danh hiệu
               <div
   key={a.id}
  className={`
+  relative
+overflow-hidden
 rounded-3xl
 p-5
 md:p-7
@@ -148,6 +150,27 @@ ${
 }
 `}
 >
+  {unlocked && (
+  <div
+    className="
+    absolute
+
+    -top-24
+    -right-24
+
+    w-72
+    h-72
+
+    rounded-full
+
+    bg-yellow-400/10
+
+    blur-3xl
+
+    pointer-events-none
+    "
+  />
+)}
               <div
   className="
   flex
