@@ -9,6 +9,8 @@ import Avatar from "./Avatar";
 import LeftMenu from "./dashboard/LeftMenu";
 import PlayerCard from "./dashboard/PlayerCard";
 import RightPanel from "./dashboard/RightPanel";
+import KingdomHeader from "./KingdomHeader";
+import SpaceBackground from "./SpaceBackground";
 
 const supabase = createClient();
 import { useEffect } from "react";
@@ -299,11 +301,15 @@ ${
 world.unlocked
 ?
 `
-bg-gradient-to-br
-from-yellow-300
-via-orange-500
-to-red-500
+world.unlocked
 
+? world.id % 2 === 0
+
+? "world-card-purple"
+
+: "world-card-blue"
+
+: ""
 hover:-translate-y-4
 hover:scale-105
 
@@ -327,13 +333,27 @@ cursor-not-allowed
 
   
 
-  {/* Icon */}
+  <div className="relative">
 
-  <div className="text-6xl">
+    {world.unlocked && (
 
-    {world.unlocked ? "🏰" : "🔒"}
+        <div className="castle-glow"/>
 
-  </div>
+    )}
+
+    {!world.unlocked && (
+
+        <div className="lock-ring"/>
+
+    )}
+
+    <div className="text-7xl relative">
+
+        {world.unlocked ? "🏰" : "🔒"}
+
+    </div>
+
+</div>
 
   {/* World */}
 
@@ -372,14 +392,28 @@ cursor-not-allowed
 
     <div
       className="
-      mt-5
-      bg-white/20
-      px-5
-      py-2
-      rounded-full
-      font-bold
-      backdrop-blur
-      "
+
+mt-5
+
+px-6
+
+py-3
+
+rounded-full
+
+bg-gradient-to-r
+
+from-blue-600
+
+to-purple-600
+
+shadow-lg
+
+font-bold
+
+backdrop-blur
+
+"
     >
       ⚔️ Vào chơi
     </div>
@@ -407,122 +441,7 @@ cursor-not-allowed
     );
   }
 
-  function KingdomTitle({
-    icon,
-    title,
-    subtitle,
-}: {
-    icon: string;
-    title: string;
-    subtitle: string;
-}) {
-
-    return (
-
-       <div
-className="
-relative
-overflow-hidden
-
-rounded-3xl
-md:rounded-[35px]
-
-mb-6
-md:mb-12
-
-px-5
-md:px-10
-
-py-6
-md:py-14
-
-bg-gradient-to-r
-from-indigo-700
-via-blue-600
-to-cyan-500
-
-shadow-[0_10px_30px_rgba(0,0,0,.25)]
-md:shadow-[0_20px_60px_rgba(0,0,0,.35)]
-"
->
-
-            <div
-                className="
-                absolute
-                -right-10
-                -top-10
-                text-[180px]
-                opacity-10
-                "
-            >
-                {icon}
-            </div>
-
-            <div className="relative z-10">
-
-            <div
-    className="
-    absolute
-    -top-10
-    -right-10
-
-    w-36
-    h-36
-
-    rounded-full
-
-    bg-white/20
-    blur-3xl
-    "
-/>
-                <div
-className="
-text-4xl
-md:text-6xl
-"
->
-    {icon}
-</div>
-
-<h2
-className="
-mt-2
-
-text-3xl
-sm:text-4xl
-md:text-5xl
-
-leading-tight
-
-font-black
-
-text-white
-"
->
-    {title}
-</h2>
-
-<p
-className="
-mt-2
-
-text-xs
-sm:text-sm
-md:text-lg
-
-text-blue-100
-"
->
-    {subtitle}
-</p>
-
-            </div>
-
-        </div>
-
-    );
-
-}
+  
 
   return (
     <main
@@ -535,26 +454,7 @@ text-blue-100
 "
 >
 
-    <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-
-    <div className="space-bg" />
-
-    <div className="nebula nebula1" />
-    <div className="nebula nebula2" /> 
-    <div className="nebula nebula3" /> 
-
-    <div className="stars" />
-
-   
-    <div className="meteor meteor1" />
-    <div className="meteor meteor2" />
-    <div className="meteor meteor3" />
-    <div className="meteor meteor4" />
-
-    <div className="vignette" />
-
-</div>
-
+   <SpaceBackground />
 
 
       
@@ -681,7 +581,7 @@ pb-12
 
   <section>
 
-    <KingdomTitle
+    <KingdomHeader
       icon="🌿"
       title="Toán 10"
       subtitle="Nơi bắt đầu hành trình chinh phục Toán học"
@@ -695,7 +595,7 @@ pb-12
 
   <section>
 
-    <KingdomTitle
+    <KingdomHeader
       icon="⚔️"
       title="Toán 11"
       subtitle="Đối đầu những thử thách khó hơn"
@@ -709,7 +609,7 @@ pb-12
 
   <section>
 
-    <KingdomTitle
+    <KingdomHeader
       icon="🏰"
       title="Toán 12"
       subtitle="Khám phá những bí mật không gian"
@@ -725,7 +625,7 @@ pb-12
 
     <section>
 
-      <KingdomTitle
+      <KingdomHeader
         icon="👑"
         title="Vương Quốc Huyền Thoại"
         subtitle="Chỉ dành cho những nhà toán học mạnh nhất"
