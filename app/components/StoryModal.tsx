@@ -185,86 +185,43 @@ to-transparent
 "
 />
 
-                <div
+             <div
 className="
-grid
-
-grid-cols-1
-
-md:grid-cols-2
-
-gap-6
-
-md:gap-10
-
-items-center
+max-w-4xl
+mx-auto
 "
 >
-
-    <motion.img
-        
-        initial={{
-    opacity: 0,
-    x: -40,
-}}
-
-
-animate={{
-    opacity:1,
-    x:0,
-    scale:[1,1.05,1]
-}}
-
-transition={{
-    duration:8,
-    repeat:Infinity
-}}
-        className="
-        w-full
-        rounded-xl
-        shadow-2xl
-        border-4
-        shadow-yellow-200/20
-        rounded-2xl
-        border-yellow-400
-        "
-    />
-
     <motion.p
-    initial={{
-    opacity: 0,
-    x: 40,
-}}
-
-animate={{
-    opacity: 1,
-    x: 0,
-}}
-
-transition={{
-    delay: 0.2,
-    duration: 0.5,
-}}
+        initial={{
+            opacity: 0,
+            y: 20,
+        }}
+        animate={{
+            opacity: 1,
+            y: 0,
+        }}
+        transition={{
+            delay: 0.2,
+            duration: 0.5,
+        }}
         className="
         whitespace-pre-line
-        
+        text-center
+
         font-light
         tracking-wide
-        text-base
 
-sm:text-lg
+        text-lg
+        md:text-[30px]
 
-md:text-[28px]
+        leading-9
+        md:leading-[52px]
 
-leading-7
-
-md:leading-10
         text-gray-100
         "
     >
         {displayText}
     </motion.p>
-
 </div>
 
                 <motion.button
