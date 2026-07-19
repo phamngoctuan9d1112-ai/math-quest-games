@@ -28,19 +28,87 @@ export default function AchievementList({
   bg-center
   "
 >
-      <h1
-  className="
-  text-2xl
-  sm:text-3xl
-  md:text-4xl
-  font-bold
-  text-center
-  mb-5
-  md:mb-8
-  "
+      <div
+className="
+relative
+
+mb-10
+
+rounded-3xl
+
+overflow-hidden
+
+border
+border-yellow-400/20
+
+bg-gradient-to-r
+from-[#132449]
+via-[#162c56]
+to-[#132449]
+
+p-8
+
+shadow-[0_0_40px_rgba(0,180,255,.12)]
+"
 >
-        🏆 Thành Tích
-      </h1>
+
+<div
+className="
+absolute
+inset-0
+
+bg-[radial-gradient(circle_at_center,rgba(255,255,255,.06),transparent_70%)]
+"
+/>
+
+<div className="relative z-10">
+
+<div
+className="
+text-center
+text-5xl
+mb-3
+"
+>
+🏆
+</div>
+
+<h1
+className="
+text-center
+
+text-4xl
+md:text-5xl
+
+font-black
+
+tracking-wider
+
+text-yellow-100
+"
+>
+
+THÀNH TÍCH
+
+</h1>
+
+<p
+className="
+mt-3
+
+text-center
+
+text-slate-300
+"
+>
+
+Hoàn thành thử thách để mở khóa các danh hiệu
+
+</p>
+
+</div>
+
+</div>
 
       <div className="grid gap-6">
         {achievements.map((a) => {
@@ -128,6 +196,23 @@ mt-1
 >
                       {a.description}
                     </p>
+
+                    <div
+className="
+mx-auto
+
+mt-5
+
+w-44
+h-[2px]
+
+bg-gradient-to-r
+
+from-transparent
+via-yellow-300
+to-transparent
+"
+/>
 
                   </div>
 
