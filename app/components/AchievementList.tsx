@@ -46,7 +46,7 @@ export default function AchievementList({
         {achievements.map((a) => {
           const unlocked =
   a.condition
-    ? false // tạm thời, sẽ truyền currentWorld sau
+    ? false 
     : xp >= a.xpRequired;
 
           return (
@@ -105,23 +105,26 @@ ${
                   <div>
 
                     <h2
-  className="
-  text-base
-  sm:text-lg
-  md:text-2xl
-  font-bold
-  "
+className="
+text-base
+sm:text-lg
+md:text-2xl
+font-extrabold
+text-yellow-100
+tracking-wide
+"
 >
                       {a.name}
                     </h2>
 
                     <p
-  className="
-  text-xs
-  sm:text-sm
-  md:text-base
-  text-gray-700
-  "
+className="
+text-xs
+sm:text-sm
+md:text-base
+text-slate-400
+mt-1
+"
 >
                       {a.description}
                     </p>
@@ -137,26 +140,59 @@ ${
   "
 >
 
-                  <div
-  className="
-  font-bold
-  text-sm
-  sm:text-base
-  md:text-lg
-  "
+                 <div
+className="
+font-bold
+text-lg
+text-amber-300
+"
 >
                     {a.xpRequired} Điểm
                   </div>
 
                   {unlocked ? (
-                    <span className="text-green-700 font-bold">
-                      Đã mở khóa
-                    </span>
-                  ) : (
-                    <span className="text-red-600 font-bold">
-                      Chưa đạt
-                    </span>
-                  )}
+
+<span
+className="
+inline-flex
+items-center
+px-3
+py-1
+mt-2
+rounded-full
+bg-emerald-500/15
+border
+border-emerald-400/20
+text-emerald-300
+text-sm
+font-semibold
+"
+>
+✓ Đã mở khóa
+</span>
+
+) : (
+
+<span
+className="
+inline-flex
+items-center
+px-3
+py-1
+mt-2
+rounded-full
+bg-red-500/10
+border
+border-red-400/20
+text-red-300
+text-sm
+font-semibold
+"
+>
+🔒 Chưa đạt
+</span>
+
+)}
 
                 </div>
 
@@ -166,24 +202,41 @@ ${
 
               <div className="mt-5">
 
-                <div
-  className="
-  w-full
-  bg-white
-  rounded-full
-  h-2
-  md:h-4
-  "
->
+               <div
+className="
+relative
+w-full
+h-3
+md:h-4
 
-                  <div
-  className="
-  bg-green-500
-  h-2
-  md:h-4
-  rounded-full
-  transition-all
-  "
+overflow-hidden
+
+rounded-full
+
+bg-[#1b2947]
+
+border
+border-white/5
+
+shadow-inner
+"
+>
+<div
+className="
+h-full
+
+rounded-full
+
+bg-gradient-to-r
+from-yellow-300
+via-amber-400
+to-orange-400
+
+transition-all
+duration-700
+
+shadow-[0_0_20px_rgba(255,220,120,.45)]
+"
                     style={{
   width: `${Math.min(
     100,
@@ -194,11 +247,30 @@ ${
 
                 </div>
 
-                <p className="text-right mt-2 text-sm">
+               <div
+className="
+mt-3
 
-                  {Math.min(xp, a.xpRequired)} / {a.xpRequired} Điểm
+flex
+justify-between
 
-                </p>
+text-sm
+"
+>
+
+<span className="text-slate-400">
+
+Tiến độ
+
+</span>
+
+<span className="font-bold text-yellow-200">
+
+{Math.min(xp,a.xpRequired)} / {a.xpRequired}
+
+</span>
+
+</div>
 
               </div>
 
