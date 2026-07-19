@@ -155,11 +155,11 @@ sm:text-5xl
 
 md:text-7xl
     drop-shadow-[0_0_15px_rgba(255,230,120,0.7)]
-    font-serif
+    font-sans
     font-extrabold
     text-center
     text-yellow-100
-    tracking-widest
+    tracking-normal
     mb-5
 
 md:mb-10
