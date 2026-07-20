@@ -18,14 +18,28 @@ export default function ShopCard({
   onBuy,
 }: Props) {
 
-  const border =
-    rarity === "Legendary"
-      ? "border-yellow-400 shadow-yellow-400/30"
-      : rarity === "Epic"
-      ? "border-purple-500 shadow-purple-500/30"
-      : rarity === "Rare"
-      ? "border-cyan-400 shadow-cyan-400/30"
-      : "border-slate-600 shadow-slate-700/20";
+ const border =
+  rarity === "Legendary"
+    ? `
+border-yellow-400
+shadow-yellow-400/30
+shop-legendary
+`
+    : rarity === "Epic"
+    ? `
+border-purple-500
+shadow-purple-500/20
+shop-epic
+`
+    : rarity === "Rare"
+    ? `
+border-cyan-400
+shadow-cyan-400/20
+shop-rare
+`
+    : `
+border-slate-600
+`;
 
   const rarityColor =
     rarity === "Legendary"
@@ -70,7 +84,7 @@ hover:scale-[1.03]
 hover:shadow-2xl
 `}
 >
-
+<div className="shop-card-shine" />
 <div className="shop-card-stars"/>
 
 <div className="shop-card-glow"/>

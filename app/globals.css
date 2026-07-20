@@ -1840,3 +1840,156 @@ background-position:180px 100px;
 }
 
 }
+
+.shop-card-shine{
+
+position:absolute;
+
+top:-40%;
+left:-120%;
+
+width:50%;
+height:220%;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.18),
+
+rgba(255,255,255,.55),
+
+rgba(255,255,255,.18),
+
+transparent
+
+);
+
+transform:rotate(25deg);
+
+animation:shopCardShine 5s linear infinite;
+
+pointer-events:none;
+
+z-index:3;
+
+}
+
+@keyframes shopCardShine{
+
+0%{
+
+left:-120%;
+
+}
+
+100%{
+
+left:180%;
+
+}
+
+}
+.shop-legendary{
+
+animation:
+
+legendaryGlow 2s ease-in-out infinite;
+
+}
+
+@keyframes legendaryGlow{
+
+0%{
+
+box-shadow:
+
+0 0 20px rgba(255,220,70,.35);
+
+}
+
+50%{
+
+box-shadow:
+
+0 0 45px rgba(255,220,70,.85),
+
+0 0 90px rgba(255,220,70,.35);
+
+}
+
+100%{
+
+box-shadow:
+
+0 0 20px rgba(255,220,70,.35);
+
+}
+
+}
+.shop-epic{
+
+animation:
+
+epicGlow 2.5s ease-in-out infinite;
+
+}
+
+@keyframes epicGlow{
+
+0%{
+
+box-shadow:0 0 15px rgba(160,70,255,.2);
+
+}
+
+50%{
+
+box-shadow:
+
+0 0 40px rgba(160,70,255,.7);
+
+}
+
+100%{
+
+box-shadow:0 0 15px rgba(160,70,255,.2);
+
+}
+
+}
+.shop-rare{
+
+animation:
+
+rareGlow 2.8s ease-in-out infinite;
+
+}
+
+@keyframes rareGlow{
+
+0%{
+
+box-shadow:0 0 12px rgba(0,220,255,.2);
+
+}
+
+50%{
+
+box-shadow:
+
+0 0 35px rgba(0,220,255,.7);
+
+}
+
+100%{
+
+box-shadow:0 0 12px rgba(0,220,255,.2);
+
+}
+
+}
