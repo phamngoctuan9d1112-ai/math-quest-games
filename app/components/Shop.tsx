@@ -370,6 +370,62 @@ px-12
 pb-12
 "
 >
+  <div className="px-12 pt-8">
+
+    <ShopBanner/>
+
+</div> 
+
+<div
+className="
+flex
+items-center
+justify-between
+
+mt-8
+mb-8
+"
+>
+
+<div
+className="
+flex
+items-center
+gap-3
+"
+>
+
+<span className="text-3xl">
+⭐
+</span>
+
+<h2
+className="
+text-3xl
+font-black
+text-white
+"
+>
+
+Vật phẩm nổi bật
+
+</h2>
+
+</div>
+
+<button
+className="
+text-yellow-300
+font-bold
+hover:text-yellow-200
+"
+>
+
+Xem tất cả →
+
+</button>
+
+</div>
 
 <div
 className="
@@ -489,11 +545,7 @@ gap-6
 </div>  
 
 </div>  
-<div className="px-12 pt-8">
 
-    <ShopBanner/>
-
-</div> 
 
 
 </main>
