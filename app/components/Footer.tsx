@@ -1,181 +1,188 @@
 export default function Footer() {
   return (
-   <footer
-  className="
-    mt-20
+    <footer
+      className="
+        mt-20
+        bg-gradient-to-b
+        from-[#0b1736]
+        to-[#060d20]
 
-    bg-gradient-to-b
-    from-slate-900
-    to-slate-950
+        border-t
+        border-blue-400/20
 
-    text-white
+        rounded-t-[28px]
 
-    py-10
-    px-5
+        shadow-[0_-10px_40px_rgba(0,0,0,.45)]
 
-    rounded-t-[32px]
+        px-6
+        py-10
 
-    border-t
-    border-blue-400/20
-
-    shadow-[0_-10px_40px_rgba(0,0,0,.45)]
-  "
->
+        text-white
+      "
+    >
       <div
-  className="
-    max-w-7xl
-    mx-auto
+        className="
+          max-w-7xl
+          mx-auto
 
-    grid
+          grid
 
-    grid-cols-2
-    md:grid-cols-4
+          grid-cols-1
+          sm:grid-cols-2
+          lg:grid-cols-4
 
-    gap-6
-    md:gap-10
-  "
->
-        {/* Thông tin */}
+          gap-8
+        "
+      >
         <div>
-          <h3 className="
-font-bold
-
-text-base
-md:text-xl
-
-mb-3
-">
+          <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
             📘 Math Quest
           </h3>
 
-        <p
-className="
-text-slate-300
-
-text-sm
-md:text-base
-
-leading-6
-"
->
-            Học Toán THPT thông qua trò chơi,
-            nhiệm vụ và hệ thống thế giới.
+          <p className="text-slate-300 text-sm leading-7">
+            Học Toán THPT thông qua hệ thống thế giới,
+            nhiệm vụ và các trận chiến hấp dẫn.
           </p>
         </div>
 
-        {/* Pháp lý */}
+
         <div>
-          <h3 className="
-font-bold
-
-text-base
-md:text-xl
-
-mb-3
-">
+          <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
             📜 Pháp lý
           </h3>
-<ul
-className="
-space-y-2
 
-text-sm
-md:text-base
-
-text-slate-300
-"
->
+          <ul className="space-y-3 text-sm text-slate-300">
             <li>
               <a
-  href="/terms"
-  className="hover:text-white transition"
->
-  Điều khoản
-</a>
+                href="/terms"
+                className="hover:text-blue-300 transition"
+              >
+                Điều khoản
+              </a>
             </li>
 
             <li>
               <a
-  href="/privacy"
-  className="hover:text-white transition"
->
-  Chính sách bảo mật
-</a>
+                href="/privacy"
+                className="hover:text-blue-300 transition"
+              >
+                Chính sách bảo mật
+              </a>
             </li>
 
             <li>
               <a
-  href="/cookies"
-  className="hover:text-white transition"
->
-  Chính sách Cookie
-</a>
+                href="/cookies"
+                className="hover:text-blue-300 transition"
+              >
+                Chính sách Cookie
+              </a>
             </li>
+
             <li>
               <a
-  href="/report"
-  className="hover:text-white transition"
->
-  Báo cáo lỗi
-</a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Hỗ trợ */}
-        <div>
-          <h3 className="
-font-bold
-
-text-base
-md:text-xl
-
-mb-3
-">
-            🛠 Hỗ trợ
-          </h3>
-
-          <ul className="space-y-2 text-slate-300">
-            <li>Email: mathquest.support@gmail.com</li>
-            <li>SĐT: 0325 819 285 </li>
-
-            <li>
-              <a href="/report">
+                href="/report"
+                className="hover:text-blue-300 transition"
+              >
                 Báo cáo lỗi
               </a>
             </li>
           </ul>
         </div>
 
-        {/* Liên hệ */}
+
         <div>
-          <h3 className="
-font-bold
+          <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+            🛠 Hỗ trợ
+          </h3>
 
-text-base
-md:text-xl
+          <ul className="space-y-3 text-sm text-slate-300 break-all">
+            <li>
+              <span className="text-white font-semibold">
+                Email
+              </span>
 
-mb-3
-">
+              <br />
+
+              mathquest.support@gmail.com
+            </li>
+
+            <li>
+              <span className="text-white font-semibold">
+                Hotline
+              </span>
+
+              <br />
+
+              0325 819 285
+            </li>
+
+            <li>
+              <a
+                href="/report"
+                className="hover:text-blue-300 transition"
+              >
+                Báo cáo lỗi
+              </a>
+            </li>
+          </ul>
+        </div>
+
+
+        <div>
+          <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
             🌐 Liên hệ
           </h3>
 
-          <ul className="space-y-2 text-slate-300">
-            <li>Facebook</li>
-            <li>Youtube</li>
-            <li>TikTok</li>
+          <ul className="space-y-3 text-sm text-slate-300">
+            <li>
+              <a
+                href="#"
+                className="hover:text-blue-300 transition"
+              >
+                Facebook
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#"
+                className="hover:text-blue-300 transition"
+              >
+                YouTube
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#"
+                className="hover:text-blue-300 transition"
+              >
+                TikTok
+              </a>
+            </li>
           </ul>
         </div>
       </div>
 
+     
+
+      <div className="h-px bg-white/10 my-8" />
+
+    
+
       <div
         className="
           text-center
-          mt-10
+
           text-slate-400
+
+          text-xs
+          sm:text-sm
         "
       >
-        © 2026 Math Quest. All rights reserved.
+        © 2026 <span className="font-semibold text-white">Math Quest</span>.
+        All rights reserved.
       </div>
     </footer>
   );
