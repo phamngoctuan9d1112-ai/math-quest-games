@@ -1,30 +1,63 @@
 export default function Footer() {
   return (
-    <footer
-      className="
-        mt-20
-        bg-slate-900
-        text-white
-        py-12
-        px-6
-      "
-    >
+   <footer
+  className="
+    mt-20
+
+    bg-gradient-to-b
+    from-slate-900
+    to-slate-950
+
+    text-white
+
+    py-10
+    px-5
+
+    rounded-t-[32px]
+
+    border-t
+    border-blue-400/20
+
+    shadow-[0_-10px_40px_rgba(0,0,0,.45)]
+  "
+>
       <div
-        className="
-          max-w-7xl
-          mx-auto
-          grid
-          md:grid-cols-4
-          gap-10
-        "
-      >
+  className="
+    max-w-7xl
+    mx-auto
+
+    grid
+
+    grid-cols-2
+    md:grid-cols-4
+
+    gap-6
+    md:gap-10
+  "
+>
         {/* Thông tin */}
         <div>
-          <h3 className="font-bold text-xl mb-4">
+          <h3 className="
+font-bold
+
+text-base
+md:text-xl
+
+mb-3
+">
             📘 Math Quest
           </h3>
 
-          <p className="text-slate-300">
+        <p
+className="
+text-slate-300
+
+text-sm
+md:text-base
+
+leading-6
+"
+>
             Học Toán THPT thông qua trò chơi,
             nhiệm vụ và hệ thống thế giới.
           </p>
@@ -32,11 +65,26 @@ export default function Footer() {
 
         {/* Pháp lý */}
         <div>
-          <h3 className="font-bold text-xl mb-4">
+          <h3 className="
+font-bold
+
+text-base
+md:text-xl
+
+mb-3
+">
             📜 Pháp lý
           </h3>
+<ul
+className="
+space-y-2
 
-          <ul className="space-y-2 text-slate-300">
+text-sm
+md:text-base
+
+text-slate-300
+"
+>
             <li>
               <a
   href="/terms"
@@ -76,7 +124,14 @@ export default function Footer() {
 
         {/* Hỗ trợ */}
         <div>
-          <h3 className="font-bold text-xl mb-4">
+          <h3 className="
+font-bold
+
+text-base
+md:text-xl
+
+mb-3
+">
             🛠 Hỗ trợ
           </h3>
 
@@ -94,7 +149,14 @@ export default function Footer() {
 
         {/* Liên hệ */}
         <div>
-          <h3 className="font-bold text-xl mb-4">
+          <h3 className="
+font-bold
+
+text-base
+md:text-xl
+
+mb-3
+">
             🌐 Liên hệ
           </h3>
 
