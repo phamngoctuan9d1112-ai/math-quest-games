@@ -16,24 +16,39 @@ export default function WorldCard({
       disabled={!unlocked}
       onClick={onClick}
      className={`
-    world-card
+world-card
 
-   w-[118px]
-h-[185px]
+${
+  unlocked
+    ? `
+      w-[118px]
+      h-[185px]
 
-sm:w-[145px]
-sm:h-[220px]
+      sm:w-[145px]
+      sm:h-[220px]
 
-md:w-[170px]
-md:h-[300px]
+      md:w-[170px]
+      md:h-[300px]
+    `
+    : `
+      w-[118px]
+      h-[155px]
 
-    ${
-      unlocked
-        ? id % 2 === 0
-          ? "world-card-purple"
-          : "world-card-blue"
-        : ""
-    }
+      sm:w-[145px]
+      sm:h-[185px]
+
+      md:w-[170px]
+      md:h-[250px]
+    `
+}
+
+${
+  unlocked
+    ? id % 2 === 0
+      ? "world-card-purple"
+      : "world-card-blue"
+    : ""
+}
 `}
     >
       
