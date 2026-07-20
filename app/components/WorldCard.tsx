@@ -18,14 +18,14 @@ export default function WorldCard({
      className={`
     world-card
 
-    w-[145px]
-    h-[220px]
+   w-[118px]
+h-[185px]
 
-    sm:w-[160px]
-    sm:h-[250px]
+sm:w-[145px]
+sm:h-[220px]
 
-    md:w-[170px]
-    md:h-[300px]
+md:w-[170px]
+md:h-[300px]
 
     ${
       unlocked
@@ -53,7 +53,9 @@ export default function WorldCard({
 
             <div
 className="
-text-5xl
+text-4xl
+sm:text-5xl
+md:text-7xl
 
 sm:text-6xl
 
@@ -75,8 +77,10 @@ mb-2
           </>
         )}
 
-        <div className="text-xl
-sm:text-2xl
+        <div className="
+text-lg
+sm:text-xl
+md:text-2xl
 font-black
 tracking-wide font-black">
           WORLD {id}
@@ -96,11 +100,11 @@ text-xs
 
 sm:text-sm
 
-leading-5
+leading-4
 
 line-clamp-3
 
-min-h-[60px]
+min-h-[42px]
 "
 >
           {name}
@@ -113,11 +117,10 @@ card-button
 
 mt-4
 
-px-4
-
-py-2
-
-text-sm
+px-3
+py-1.5
+text-xs
+sm:text-sm
 
 sm:text-base
 "
