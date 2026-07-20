@@ -37,7 +37,7 @@ export default function Shop({
     <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-400 to-orange-500 p-6">
      <div
 className="
-w-[1100px]
+w-[1280px]
 max-w-[95vw]
 max-h-[90vh]
 bg-slate-900
@@ -55,7 +55,8 @@ relative
 overflow-hidden
 
 px-10
-py-8
+py-12
+min-h-[220px]
 
 bg-gradient-to-r
 
@@ -356,7 +357,7 @@ grid-cols-1
 sm:grid-cols-2
 lg:grid-cols-3
 xl:grid-cols-4
-gap-8
+gap-6
 "
 >
 

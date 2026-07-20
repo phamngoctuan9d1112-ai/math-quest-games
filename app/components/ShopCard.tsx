@@ -86,6 +86,7 @@ hover:-translate-y-2
 hover:scale-[1.03]
 
 hover:shadow-2xl
+h-[420px]
 `}
 >
 <div className="shop-card-shine" />
@@ -121,15 +122,14 @@ HOT
 
 </div>
 
-<div className="p-7 relative z-10">
+<div className="p-5 relative z-10">
 
 <div
 className="
 mx-auto
 
-w-24
-
-h-24
+w-20
+h-20
 
 rounded-full
 
@@ -145,7 +145,7 @@ items-center
 
 justify-center
 
-text-6xl
+text-5xl
 
 mb-6
 "
@@ -157,7 +157,7 @@ mb-6
 
 <h2
 className="
-text-3xl
+text-2xl
 
 font-black
 
@@ -201,7 +201,8 @@ mt-5
 
 text-center
 
-text-3xl
+text-xl
+leading-8
 
 font-black
 
@@ -243,7 +244,7 @@ Giá
 
 <div
 className="
-text-4xl
+text-3xl
 
 font-black
 
@@ -274,11 +275,10 @@ w-full
 
 rounded-2xl
 
-py-4
+py-3
 
 font-bold
-
-text-lg
+text-base
 
 text-white
 
