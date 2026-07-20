@@ -190,6 +190,12 @@ text-yellow-300
 
 </div>
 
+</div>
+
+</div>
+
+</div>
+
 <div
 className="
 flex-1
@@ -315,11 +321,7 @@ gap-6
 </button>
 
 </div>  
-</div>
 
-</div>
-
-</div>
 </div>   
 
 
