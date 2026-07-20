@@ -54,60 +54,70 @@ relative
 
 overflow-hidden
 
-px-8
+px-10
 py-8
 
 bg-gradient-to-r
-from-[#13234d]
-via-[#1d3f84]
-to-[#5b2bb5]
+
+from-[#071630]
+via-[#18356d]
+to-[#5a2cb5]
 
 border-b
+
 border-cyan-400/20
 "
 >
 
-  <div className="shop-stars" />
+{/* Background */}
+
+<div className="shop-stars"/>
 
 <div
 className="
 absolute
 
+left-[-120px]
 top-[-120px]
-right-[-120px]
 
-w-[320px]
-h-[320px]
-
-rounded-full
-
-bg-purple-500/30
-
-blur-[100px]
-"
-/>
-
-<div
-className="
-absolute
-
-bottom-[-80px]
-left-[-80px]
-
-w-[250px]
-h-[250px]
+w-[340px]
+h-[340px]
 
 rounded-full
 
 bg-cyan-400/20
 
-blur-[90px]
+blur-[120px]
 "/>
 
 <div
 className="
+absolute
+
+right-[-140px]
+bottom-[-150px]
+
+w-[380px]
+h-[380px]
+
+rounded-full
+
+bg-purple-500/20
+
+blur-[130px]
+"/>
+
+
+
+<div className="shop-header-shine"/>
+
+
+
+<div
+className="
 relative
-z-10
+
+z-20
 
 flex
 
@@ -115,16 +125,54 @@ items-center
 
 justify-between
 
-flex-wrap
+gap-8
 
-gap-6
-">
+flex-wrap
+"
+>
+
+
 
 <div>
+
+<div
+className="
+inline-flex
+
+items-center
+
+gap-2
+
+rounded-full
+
+bg-yellow-500/20
+
+border
+
+border-yellow-400/30
+
+px-4
+
+py-2
+
+text-yellow-300
+
+font-bold
+
+text-sm
+
+mb-5
+"
+>
+
+👑 Royal Shop
+
+</div>
 
 <h1
 className="
 text-5xl
+
 font-black
 
 tracking-wide
@@ -144,43 +192,98 @@ mt-3
 text-cyan-100
 
 text-lg
+
+max-w-xl
 "
 >
 
-Trang bị vật phẩm để chinh phục Vương Quốc Toán Học
+Trang bị Pet, Avatar và các vật phẩm hiếm để tăng sức mạnh trong hành trình chinh phục Vương Quốc Toán Học.
 
 </p>
 
 </div>
 
+
+
 <div
 className="
-rounded-2xl
-
 bg-white/10
 
-backdrop-blur-xl
+backdrop-blur-2xl
+
+rounded-3xl
 
 border
 
 border-white/20
 
-px-6
-py-4
+px-8
+
+py-5
+
+min-w-[260px]
+
+shadow-2xl
 "
 >
 
-  <div className="text-sm text-cyan-100">
+<div
+className="
+text-cyan-100
 
-Số Coin hiện có
+text-sm
+
+uppercase
+
+tracking-widest
+"
+>
+
+Số Coin
 
 </div>
 
 <div
 className="
-mt-2
+mt-3
 
-text-4xl
+flex
+
+items-center
+
+gap-4
+"
+>
+
+<div
+className="
+w-16
+
+h-16
+
+rounded-full
+
+bg-yellow-400/20
+
+flex
+
+items-center
+
+justify-center
+
+text-3xl
+"
+>
+
+💰
+
+</div>
+
+<div>
+
+<div
+className="
+text-5xl
 
 font-black
 
@@ -188,13 +291,53 @@ text-yellow-300
 "
 >
 
-💰 {coins}
+{coins}
+
+</div>
+
+<div
+className="
+text-slate-300
+
+text-sm
+"
+>
+
+Coin khả dụng
 
 </div>
 
 </div>
 
 </div>
+
+</div>
+
+</div>
+
+
+
+<div
+className="
+absolute
+
+bottom-0
+
+left-0
+
+right-0
+
+h-px
+
+bg-gradient-to-r
+
+from-transparent
+
+via-cyan-300/60
+
+to-transparent
+"
+/>
 
 </div>
 
@@ -213,7 +356,7 @@ grid-cols-1
 sm:grid-cols-2
 lg:grid-cols-3
 xl:grid-cols-4
-gap-6
+gap-8
 "
 >
 

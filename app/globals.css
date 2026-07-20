@@ -1727,3 +1727,116 @@ background-position:
 }
 
 }
+.shop-header-shine{
+
+position:absolute;
+
+top:-60%;
+
+left:-120%;
+
+width:60%;
+
+height:220%;
+
+background:
+
+linear-gradient(
+90deg,
+
+transparent,
+
+rgba(255,255,255,.15),
+
+rgba(255,255,255,.45),
+
+rgba(255,255,255,.15),
+
+transparent
+);
+
+transform:rotate(25deg);
+
+animation:shopHeaderShine 7s linear infinite;
+
+pointer-events:none;
+
+}
+
+@keyframes shopHeaderShine{
+
+0%{
+
+left:-120%;
+
+}
+
+100%{
+
+left:180%;
+
+}
+
+}
+.shop-card{
+
+backdrop-filter:blur(18px);
+
+}
+
+.shop-card-stars{
+
+position:absolute;
+inset:0;
+
+background-image:
+
+radial-gradient(circle,#fff 1px,transparent 1px);
+
+background-size:55px 55px;
+
+opacity:.08;
+
+animation:shopStarsMove 30s linear infinite;
+
+}
+
+.shop-card-glow{
+
+position:absolute;
+
+left:50%;
+top:20%;
+
+transform:translateX(-50%);
+
+width:180px;
+height:180px;
+
+background:
+
+radial-gradient(circle,
+rgba(80,180,255,.30),
+transparent 70%);
+
+filter:blur(45px);
+
+pointer-events:none;
+
+}
+
+@keyframes shopStarsMove{
+
+from{
+
+background-position:0 0;
+
+}
+
+to{
+
+background-position:180px 100px;
+
+}
+
+}
