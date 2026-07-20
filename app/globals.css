@@ -1420,7 +1420,7 @@ isolation:isolate;
 .world-card::after{
 
 content:"";
-
+ 
 position:absolute;
 
 left:50%;
