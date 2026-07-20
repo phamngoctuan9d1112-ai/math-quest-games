@@ -56,7 +56,7 @@ export default function ShopCard({
         transition-all
         duration-300
 
-        h-[330px]
+        h-[285px]
       `}
     >
       {/* hiệu ứng nền */}
@@ -95,7 +95,7 @@ export default function ShopCard({
         className="
           relative
 
-          h-[130px]
+          h-[95px]
 
           flex
           items-center
@@ -119,7 +119,7 @@ export default function ShopCard({
 
         <div
           className="
-            text-7xl
+            text-4xl
 
             relative
             z-20
@@ -154,7 +154,7 @@ export default function ShopCard({
         {/* tên */}
         <h2
           className="
-            text-2xl
+           text-xl
             font-black
             text-white
             text-center
@@ -189,7 +189,7 @@ export default function ShopCard({
 
             text-center
 
-            text-lg
+            text-base
             font-bold
 
             text-yellow-300
@@ -210,7 +210,7 @@ export default function ShopCard({
             border
             border-white/10
 
-            py-3
+            py-2
 
             text-center
           "
@@ -223,7 +223,7 @@ export default function ShopCard({
             className="
               mt-1
 
-              text-3xl
+              text-2xl
               font-black
 
               text-yellow-300
@@ -243,9 +243,9 @@ export default function ShopCard({
 
             rounded-xl
 
-            py-2.5
+           py-2
 
-            font-bold
+            text-sm font-semibold
 
             text-white
 
