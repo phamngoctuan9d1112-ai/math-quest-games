@@ -15,7 +15,7 @@ export default function ShopBanner() {
       via-[#2b2b92]
       to-[#4723b6]
 
-      h-[210px]
+      h-[180px]
 
       mb-10
       "

@@ -73,8 +73,8 @@ relative
 overflow-hidden
 
 px-12
-py-10
-min-h-[220px]
+py-8
+min-h-[170px]
 
 bg-gradient-to-r
 
@@ -190,7 +190,7 @@ mb-5
 
 <h1
 className="
-text-5xl
+text-4xl
 
 font-black
 
@@ -210,7 +210,7 @@ mt-3
 
 text-cyan-100
 
-text-lg
+text-base
 
 max-w-xl
 "
@@ -236,9 +236,8 @@ border
 
 border-white/20
 
-px-8
-
-py-5
+px-6
+py-4
 
 min-w-[260px]
 
@@ -276,9 +275,9 @@ gap-4
 
 <div
 className="
-w-16
-
-h-16
+w-12
+h-12
+text-2xl
 
 rounded-full
 
@@ -290,7 +289,7 @@ items-center
 
 justify-center
 
-text-3xl
+
 "
 >
 
@@ -302,7 +301,7 @@ text-3xl
 
 <div
 className="
-text-5xl
+text-4xl
 
 font-black
 
@@ -370,7 +369,7 @@ px-12
 pb-12
 "
 >
-  <div className="px-12 pt-8">
+ <div className="pt-6">
 
     <ShopBanner/>
 
