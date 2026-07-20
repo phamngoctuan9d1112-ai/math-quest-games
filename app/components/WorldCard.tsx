@@ -33,7 +33,7 @@ export default function WorldCard({
       <div className="card-galaxy" />
 
       {/* Border Light */}
-      <div className="card-border-light" />
+      {/* <div className="card-border-light" /> */}
 
       {/* Particle */}
       <div className="card-particles" />
