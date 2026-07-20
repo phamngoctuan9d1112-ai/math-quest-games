@@ -1680,3 +1680,50 @@ transform:rotate(360deg);
 }
 
 }
+
+.shop-stars{
+
+position:absolute;
+inset:0;
+
+pointer-events:none;
+
+opacity:.18;
+
+background-image:
+
+radial-gradient(circle,#fff 1px,transparent 1px),
+radial-gradient(circle,#6ee7ff 1px,transparent 1px),
+radial-gradient(circle,#fff 2px,transparent 2px);
+
+background-size:
+
+90px 90px,
+150px 150px,
+240px 240px;
+
+animation:shopStars 80s linear infinite;
+
+}
+
+@keyframes shopStars{
+
+from{
+
+background-position:
+0 0,
+0 0,
+0 0;
+
+}
+
+to{
+
+background-position:
+600px 300px,
+400px 180px,
+250px 120px;
+
+}
+
+}

@@ -67,6 +67,8 @@ border-cyan-400/20
 "
 >
 
+  <div className="shop-stars" />
+
 <div
 className="
 absolute
