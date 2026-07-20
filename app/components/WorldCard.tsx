@@ -86,20 +86,53 @@ mb-2
           <>
             <div className="lock-ring" />
 
-            <div className="text-7xl mb-3">
-              🔒
-            </div>
+<div
+className="
+relative
+
+text-5xl
+sm:text-6xl
+md:text-7xl
+
+mb-2
+
+drop-shadow-[0_0_12px_rgba(255,255,255,.15)]
+"
+>
+  🔒
+
+  <div
+    className="
+    absolute
+    inset-0
+
+    rounded-full
+
+    bg-white/5
+
+    blur-xl
+
+    -z-10
+    "
+  />
+</div>
           </>
         )}
 
-        <div className="
-text-lg
-sm:text-xl
-md:text-2xl
+        <div
+className={`
 font-black
-tracking-wide font-black">
-          WORLD {id}
-        </div>
+tracking-wide
+
+${
+  unlocked
+    ? "text-lg sm:text-xl md:text-2xl text-white"
+    : "text-base sm:text-lg md:text-2xl text-slate-300"
+}
+`}
+>
+  WORLD {id}
+</div>
 
         <div
 className="
@@ -143,9 +176,22 @@ sm:text-base
             ⚔️ Vào chơi
           </div>
         ) : (
-          <div className="card-button-lock mt-6">
-            Chưa mở
-          </div>
+          <div
+className="
+card-button-lock
+
+mt-4
+
+px-3
+py-1.5
+
+text-xs
+sm:text-sm
+"
+>
+Chưa mở
+</div>
+            
         )}
       </div>
     </button>
