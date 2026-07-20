@@ -15,27 +15,34 @@ export default function WorldCard({
     <button
       disabled={!unlocked}
       onClick={onClick}
-      className={`
-        world-card
-        w-[170px]
-        h-[300px]
+     className={`
+    world-card
 
-        ${
-          unlocked
-            ? id % 2 === 0
-              ? "world-card-purple"
-              : "world-card-blue"
-            : ""
-        }
-      `}
+    w-[145px]
+    h-[220px]
+
+    sm:w-[160px]
+    sm:h-[250px]
+
+    md:w-[170px]
+    md:h-[300px]
+
+    ${
+      unlocked
+        ? id % 2 === 0
+          ? "world-card-purple"
+          : "world-card-blue"
+        : ""
+    }
+`}
     >
-      {/* Galaxy Overlay */}
+      
       <div className="card-galaxy" />
 
-      {/* Border Light */}
+      
       {/* <div className="card-border-light" /> */}
 
-      {/* Particle */}
+    
       <div className="card-particles" />
 
       <div className="flex flex-col items-center justify-center h-full relative z-10">
@@ -44,7 +51,17 @@ export default function WorldCard({
           <>
             <div className="castle-glow" />
 
-            <div className="text-7xl mb-3">
+            <div
+className="
+text-5xl
+
+sm:text-6xl
+
+md:text-7xl
+
+mb-2
+"
+>
               🏰
             </div>
           </>
@@ -58,16 +75,53 @@ export default function WorldCard({
           </>
         )}
 
-        <div className="text-2xl font-black">
+        <div className="text-xl
+sm:text-2xl
+font-black
+tracking-wide font-black">
           WORLD {id}
         </div>
 
-        <div className="mt-2 text-center text-yellow-100 text-sm px-3">
+        <div
+className="
+mt-2
+
+px-3
+
+text-center
+
+text-yellow-100
+
+text-xs
+
+sm:text-sm
+
+leading-5
+
+line-clamp-3
+
+min-h-[60px]
+"
+>
           {name}
         </div>
 
         {unlocked ? (
-          <div className="card-button mt-6">
+          <div
+className="
+card-button
+
+mt-4
+
+px-4
+
+py-2
+
+text-sm
+
+sm:text-base
+"
+>
             ⚔️ Vào chơi
           </div>
         ) : (
