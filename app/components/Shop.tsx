@@ -1,4 +1,7 @@
+"use client";
 import ShopCard from "./ShopCard";
+import ShopSidebar from "./ShopSidebar";
+import ShopBanner from "./ShopBanner";
 
 type ShopProps = {
   coins: number;
@@ -34,18 +37,33 @@ export default function Shop({
   onClose,
 }: ShopProps) {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-400 to-orange-500 p-6">
-     <div
+    <main
 className="
-w-[1280px]
-max-w-[95vw]
-max-h-[90vh]
-bg-slate-900
-rounded-3xl
-shadow-2xl
+fixed
+inset-0
+z-50
+
+bg-gradient-to-br
+from-[#071226]
+via-[#0b1738]
+to-[#101b46]
+
+flex
+
 overflow-hidden
+"
+>
+  <ShopSidebar />
+   <div
+className="
+flex-1
+
 flex
 flex-col
+
+overflow-hidden
+
+bg-[#08152f]
 "
 >
 <div
@@ -54,8 +72,8 @@ relative
 
 overflow-hidden
 
-px-10
-py-12
+px-12
+py-10
 min-h-[220px]
 
 bg-gradient-to-r
@@ -345,8 +363,11 @@ to-transparent
 <div
 className="
 flex-1
+
 overflow-y-auto
-p-6
+
+px-12
+pb-12
 "
 >
 
@@ -354,8 +375,7 @@ p-6
 className="
 grid
 grid-cols-1
-sm:grid-cols-2
-lg:grid-cols-3
+md:grid-cols-2
 xl:grid-cols-4
 gap-6
 "
@@ -468,7 +488,12 @@ gap-6
 
 </div>  
 
-</div>   
+</div>  
+<div className="px-12 pt-8">
+
+    <ShopBanner/>
+
+</div> 
 
 
 </main>
