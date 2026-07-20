@@ -48,27 +48,145 @@ flex
 flex-col
 "
 >
-
-        <div
+<div
 className="
+relative
+
+overflow-hidden
+
+px-8
+py-8
+
 bg-gradient-to-r
-from-yellow-500
-to-orange-500
-text-white
-p-6
+from-[#13234d]
+via-[#1d3f84]
+to-[#5b2bb5]
+
+border-b
+border-cyan-400/20
 "
 >
 
-<h1 className="text-4xl font-bold">
-🛒 Cửa Hàng
+<div
+className="
+absolute
+
+top-[-120px]
+right-[-120px]
+
+w-[320px]
+h-[320px]
+
+rounded-full
+
+bg-purple-500/30
+
+blur-[100px]
+"
+/>
+
+<div
+className="
+absolute
+
+bottom-[-80px]
+left-[-80px]
+
+w-[250px]
+h-[250px]
+
+rounded-full
+
+bg-cyan-400/20
+
+blur-[90px]
+"/>
+
+<div
+className="
+relative
+z-10
+
+flex
+
+items-center
+
+justify-between
+
+flex-wrap
+
+gap-6
+">
+
+<div>
+
+<h1
+className="
+text-5xl
+font-black
+
+tracking-wide
+
+text-white
+"
+>
+
+🏪 Cửa Hàng Hoàng Gia
+
 </h1>
 
-<p className="mt-2 text-xl">
-💰 Coin hiện có:
-<span className="font-bold ml-2">
-{coins}
-</span>
+<p
+className="
+mt-3
+
+text-cyan-100
+
+text-lg
+"
+>
+
+Trang bị vật phẩm để chinh phục Vương Quốc Toán Học
+
 </p>
+
+</div>
+
+<div
+className="
+rounded-2xl
+
+bg-white/10
+
+backdrop-blur-xl
+
+border
+
+border-white/20
+
+px-6
+py-4
+"
+>
+
+  <div className="text-sm text-cyan-100">
+
+Số Coin hiện có
+
+</div>
+
+<div
+className="
+mt-2
+
+text-4xl
+
+font-black
+
+text-yellow-300
+"
+>
+
+💰 {coins}
 
 </div>
 
@@ -196,9 +314,14 @@ gap-6
   ❌ Đóng Shop
 </button>
 
-</div>   {/* đóng div flex-1 overflow-y-auto */}
+</div>  
+</div>
 
-</div>   {/* đóng khung shop */}
+</div>
+
+</div>
+</div>   
+
 
 </main>
   );
