@@ -17,29 +17,14 @@ export default function ShopCard({
   rarity,
   onBuy,
 }: Props) {
-
- const border =
-  rarity === "Legendary"
-    ? `
-border-yellow-400
-shadow-yellow-400/30
-shop-legendary
-`
-    : rarity === "Epic"
-    ? `
-border-purple-500
-shadow-purple-500/20
-shop-epic
-`
-    : rarity === "Rare"
-    ? `
-border-cyan-400
-shadow-cyan-400/20
-shop-rare
-`
-    : `
-border-slate-600
-`;
+  const border =
+    rarity === "Legendary"
+      ? "border-yellow-400 shadow-yellow-400/30 shop-legendary"
+      : rarity === "Epic"
+      ? "border-purple-500 shadow-purple-500/20 shop-epic"
+      : rarity === "Rare"
+      ? "border-cyan-400 shadow-cyan-400/20 shop-rare"
+      : "border-slate-600";
 
   const rarityColor =
     rarity === "Legendary"
@@ -51,273 +36,231 @@ border-slate-600
       : "bg-slate-600 text-white";
 
   return (
-
-<div
-className={`
-
-relative
-overflow-hidden
-group
-shop-card
-
-relative
-
-overflow-hidden
-
-rounded-3xl
-
-border
-
-${border}
-
-bg-gradient-to-b
-
-from-[#17233d]
-to-[#111827]
-
-shadow-xl
-
-transition-all
-
-duration-300
-
-hover:-translate-y-2
-
-hover:scale-[1.03]
-
-hover:shadow-2xl
-h-[340px]
-`}
->
-<div className="shop-card-shine" />
-<div className="shop-card-galaxy" />
-
-<div className="shop-card-stars"/>
-
-<div className="shop-card-glow"/>
-
-<div className="absolute right-4 top-4 z-20">
-
-<span
-className="
-bg-red-500
-
-text-white
-
-text-xs
-
-font-bold
-
-px-3
-
-py-1
-
-rounded-full
-"
->
-
-HOT
-
-</span>
-
-</div>
-
-<div
-className="
-relative
-z-10
-
-p-6
-
-flex
-flex-col
-
-h-full
-"
->
-
-<div
-className="
-mx-auto
-
-w-16
-h-16
-text-4xl
-
-group-hover:rotate-6
-transition-all
-duration-300
-
-rounded-full
-
-bg-white/5
-
-border
-
-border-white/10
-
-flex
-
-items-center
-
-justify-center
-
-
-
-mb-6
-"
->
-
-{icon}
-
-</div>
-
-<h2
-className="
-text-xl
-
-font-black
-
-text-center
-
-text-white
-"
->
-
-{title}
-
-</h2>
-
-<div className="flex justify-center mt-4">
-
-<span
-className={`
-px-4
-
-py-1
-
-rounded-full
-
-text-xs
-
-font-bold
-
-${rarityColor}
-`}
->
-
-{rarity}
-
-</span>
-
-</div>
-
-<p
-className="
-mt-5
-
-text-center
-
-text-lg
-leading-7
-
-font-black
-
-text-yellow-300
-
-drop-shadow-[0_0_12px_rgba(255,220,120,.6)]
-"
->
-{description}
-
-</p>
-<div
-className="
-text-6xl
-
-text-center
-
-relative
-
-z-20
-
-transition-all
-
-duration-500
-
-group-hover:scale-125
-
-group-hover:-translate-y-2
-
-drop-shadow-[0_0_20px_rgba(255,255,255,.35)]
-"
->
-
-<div className="text-sm text-slate-400">
-
-Giá
-
-</div>
-
-<div
-className="
-text-2xl
-
-font-black
-
-text-yellow-300
-
-mt-1
-"
->
-
-{price}
-
-<span className="text-xl ml-2">
-
-🪙
-
-</span>
-
-</div>
-
-</div>
-
-<button
-onClick={onBuy}
-className={`
-mt-8
-
-w-full
-
-rounded-2xl
-
-py-2.5
-
-font-bold
-text-base
-
-text-white
-
-transition-all
-
-duration-300
-
-hover:scale-105
-
-active:scale-95
-
-${color}
-`}
->
-
-🛒 Mua ngay
-
-</button>
-
-</div>
-
-</div>
-
+    <div
+      className={`
+        relative
+        group
+        overflow-hidden
+        rounded-3xl
+        border
+        ${border}
+
+        bg-gradient-to-b
+        from-[#162443]
+        to-[#101828]
+
+        shadow-xl
+        hover:shadow-2xl
+        hover:-translate-y-2
+
+        transition-all
+        duration-300
+
+        h-[330px]
+      `}
+    >
+      {/* hiệu ứng nền */}
+      <div className="shop-card-stars" />
+      <div className="shop-card-glow" />
+      <div className="shop-card-shine" />
+
+      {/* HOT */}
+      <div className="absolute top-4 right-4 z-30">
+        <span
+          className="
+            px-3
+            py-1
+
+            rounded-full
+
+            text-xs
+            font-bold
+
+            text-white
+
+            bg-gradient-to-r
+            from-red-500
+            to-pink-500
+
+            shadow-lg
+            shadow-red-500/40
+          "
+        >
+          🔥 HOT
+        </span>
+      </div>
+
+      {/* ẢNH */}
+      <div
+        className="
+          relative
+
+          h-[130px]
+
+          flex
+          items-center
+          justify-center
+
+          overflow-hidden
+
+          bg-gradient-to-b
+          from-[#163760]
+          to-[#0d1830]
+        "
+      >
+        <div
+          className="
+            absolute
+            inset-0
+
+            bg-[radial-gradient(circle_at_center,rgba(255,255,255,.12),transparent_70%)]
+          "
+        />
+
+        <div
+          className="
+            text-7xl
+
+            relative
+            z-20
+
+            transition-all
+            duration-300
+
+            group-hover:scale-110
+            group-hover:-translate-y-1
+          "
+        >
+          {icon}
+        </div>
+      </div>
+
+      {/* PANEL */}
+      <div
+        className="
+          flex
+          flex-col
+
+          h-[calc(100%-130px)]
+
+          bg-black/15
+
+          backdrop-blur-xl
+
+          px-5
+          py-4
+        "
+      >
+        {/* tên */}
+        <h2
+          className="
+            text-2xl
+            font-black
+            text-white
+            text-center
+          "
+        >
+          {title}
+        </h2>
+
+        {/* rarity */}
+        <div className="flex justify-center mt-2">
+          <span
+            className={`
+              px-3
+              py-1
+
+              rounded-full
+
+              text-xs
+              font-bold
+
+              ${rarityColor}
+            `}
+          >
+            {rarity}
+          </span>
+        </div>
+
+        {/* mô tả */}
+        <p
+          className="
+            mt-3
+
+            text-center
+
+            text-lg
+            font-bold
+
+            text-yellow-300
+          "
+        >
+          {description}
+        </p>
+
+        {/* giá */}
+        <div
+          className="
+            mt-auto
+
+            rounded-xl
+
+            bg-black/30
+
+            border
+            border-white/10
+
+            py-3
+
+            text-center
+          "
+        >
+          <div className="text-xs text-slate-400">
+            Giá
+          </div>
+
+          <div
+            className="
+              mt-1
+
+              text-3xl
+              font-black
+
+              text-yellow-300
+            "
+          >
+            🪙 {price}
+          </div>
+        </div>
+
+        {/* button */}
+        <button
+          onClick={onBuy}
+          className={`
+            mt-4
+
+            w-full
+
+            rounded-xl
+
+            py-2.5
+
+            font-bold
+
+            text-white
+
+            transition-all
+            duration-300
+
+            hover:scale-105
+            active:scale-95
+
+            ${color}
+          `}
+        >
+          Mua ngay
+        </button>
+      </div>
+    </div>
   );
 }
