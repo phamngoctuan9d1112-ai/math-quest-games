@@ -54,6 +54,10 @@ border-slate-600
 
 <div
 className={`
+
+relative
+overflow-hidden
+group
 shop-card
 
 relative
@@ -85,6 +89,8 @@ hover:shadow-2xl
 `}
 >
 <div className="shop-card-shine" />
+<div className="shop-card-galaxy" />
+
 <div className="shop-card-stars"/>
 
 <div className="shop-card-glow"/>
@@ -195,23 +201,37 @@ mt-5
 
 text-center
 
-text-slate-300
+text-3xl
 
-leading-7
+font-black
 
-min-h-[56px]
+text-yellow-300
+
+drop-shadow-[0_0_12px_rgba(255,220,120,.6)]
 "
 >
-
 {description}
 
 </p>
-
 <div
 className="
-mt-6
+text-6xl
 
 text-center
+
+relative
+
+z-20
+
+transition-all
+
+duration-500
+
+group-hover:scale-125
+
+group-hover:-translate-y-2
+
+drop-shadow-[0_0_20px_rgba(255,255,255,.35)]
 "
 >
 
