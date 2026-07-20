@@ -521,37 +521,7 @@ opacity:0;
 
 
 
-.world-card::after{
 
-    content:"";
-
-    position:absolute;
-
-    top:-60%;
-
-    left:-150%;
-
-    width:70%;
-
-    height:220%;
-
-    background:
-
-    linear-gradient(
-
-        90deg,
-
-        transparent,
-
-        rgba(255,255,255,.55),
-
-        transparent
-
-    );
-
-    transform:rotate(25deg);
-
-}
 
 .world-card:hover{
 
@@ -597,27 +567,7 @@ opacity:0;
 }
 
 
-@keyframes cardFloat{
 
-0%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-8px);
-
-}
-
-100%{
-
-transform:translateY(0);
-
-}
-
-}
 
 @keyframes cardShine{
 
@@ -1465,27 +1415,7 @@ isolation:isolate;
 
 }
 .world-card::before{
-    content:"";
-    position:absolute;
-
-    top:0;
-    left:-120%;
-
-    width:60%;
-    height:100%;
-
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.10),
-        rgba(255,255,255,.25),
-        rgba(255,255,255,.10),
-        transparent
-    );
-
-    transform:skewX(-25deg);
-
-    transition:.8s;
+    display:none;
 }
 .world-card::after{
 
