@@ -545,7 +545,7 @@ gap-5
 "
 >
 
-{shopItems.map((item) => (
+{filteredItems.map((item) => (
 
     <ShopCard
         key={item.id}

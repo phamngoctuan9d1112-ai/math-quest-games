@@ -13,12 +13,11 @@ export type ShopItem = {
 
   color: string;
 
-  category:
-    | "Consumable"
-    | "Pet"
-    | "Avatar"
-    | "Weapon";
-
+ category:
+  | "item"
+  | "pet"
+  | "avatar"
+  | "weapon";
   action:
     | "heart"
     | "dog"
@@ -34,6 +33,8 @@ export const shopItems = [
   // Tim
   {
     id: "heart",
+      category: "item",
+  action: "heart",
     icon: "❤️",
     title: "Tim",
     description: "+1 mạng",
@@ -45,6 +46,8 @@ export const shopItems = [
   // PET
   {
     id: "dog",
+      category: "pet",
+  action: "dog",
     icon: "🐶",
     title: "Chó Toán",
     description: "+1 Coin mỗi câu",
@@ -55,6 +58,8 @@ export const shopItems = [
 
   {
     id: "cat",
+      category: "pet",
+  action: "cat",
     icon: "🐱",
     title: "Mèo Toán",
     description: "+2 Coin mỗi câu",
@@ -65,6 +70,8 @@ export const shopItems = [
 
   {
     id: "dragonPet",
+      category: "pet",
+  action: "dragonPet",
     icon: "🐉",
     title: "Rồng Huyền Thoại",
     description: "+5 Coin mỗi câu",
@@ -76,6 +83,8 @@ export const shopItems = [
   // Avatar
   {
     id: "wizard",
+     category: "avatar",
+  action: "wizard",
     icon: "🧙",
     title: "Pháp Sư",
     description: "Avatar",
@@ -86,6 +95,8 @@ export const shopItems = [
 
   {
     id: "hero",
+     category: "avatar",
+  action: "hero",
     icon: "🦸",
     title: "Siêu Anh Hùng",
     description: "Avatar",
@@ -96,6 +107,8 @@ export const shopItems = [
 
   {
     id: "dragonAvatar",
+     category: "avatar",
+  action: "dragonAvatar",
     icon: "🐲",
     title: "Avatar Rồng",
     description: "Avatar",
@@ -106,6 +119,8 @@ export const shopItems = [
 
   {
     id: "king",
+      category: "avatar",
+  action: "king",
     icon: "👑",
     title: "Vua Toán",
     description: "Avatar VIP",
@@ -120,6 +135,8 @@ export const shopItems = [
 
   {
     id: "shield",
+      category: "weapon",
+  action: "shield",
     icon: "🛡️",
     title: "Khiên Ma Thuật",
     description: "Không mất tim 1 lần",
@@ -130,6 +147,8 @@ export const shopItems = [
 
   {
     id: "book",
+      category: "weapon",
+  action: "book",
     icon: "📚",
     title: "Sách Công Thức",
     description: "+10 Formula Shards",
@@ -140,6 +159,8 @@ export const shopItems = [
 
   {
     id: "scroll",
+      category: "weapon",
+  action: "scroll",
     icon: "📜",
     title: "Cuộn Bí Kíp",
     description: "Hiển thị gợi ý",
@@ -150,6 +171,8 @@ export const shopItems = [
 
   {
     id: "magic",
+      category: "weapon",
+  action: "wizard",
     icon: "✨",
     title: "Đá Ma Thuật",
     description: "+100 XP",
@@ -160,6 +183,8 @@ export const shopItems = [
 
   {
     id: "crown",
+      category: "weapon",
+  action: "crown",
     icon: "💎",
     title: "Kim Cương",
     description: "Tiền tệ cao cấp",
@@ -170,6 +195,8 @@ export const shopItems = [
 
   {
     id: "potion",
+      category: "weapon",
+  action: "potion",
     icon: "🧪",
     title: "Bình Hồi Máu",
     description: "+3 Tim",
@@ -180,6 +207,8 @@ export const shopItems = [
 
   {
     id: "phoenix",
+      category: "weapon",
+  action: "phoenix",
     icon: "🦅",
     title: "Phượng Hoàng",
     description: "+10 Coin mỗi câu",
@@ -190,6 +219,8 @@ export const shopItems = [
 
   {
     id: "robot",
+      category: "weapon",
+  action: "robot",
     icon: "🤖",
     title: "Robot AI",
     description: "Tự động gợi ý",
