@@ -8,35 +8,23 @@ import { shopItems } from "../data/shopItems";
 type ShopProps = {
   coins: number;
 
-  onBuyHeart: () => void;
-  inventory:string[];
-  onBuyDog: () => void;
-  onBuyCat: () => void;
-  onBuyDragonPet: () => void;
+  inventory: string[];
 
-  onBuyWizard: () => void;
-  onBuyHero: () => void;
-  onBuyDragon: () => void;
-  onBuyKing: () => void;
+  buyItem: (
+    item: string,
+    price: number
+  ) => void;
 
   onClose: () => void;
 };
 
 export default function Shop({
-  coins,
-  
-  onBuyHeart,
+ coins,
   inventory,
-  onBuyDog,
-  onBuyCat,
-  onBuyDragonPet,
-
-  onBuyWizard,
-  onBuyHero,
-  onBuyDragon,
-  onBuyKing,
-
+  buyItem,
   onClose,
+
+
 }: ShopProps) {
   const [activeTab, setActiveTab] = useState("featured");
 
@@ -44,33 +32,7 @@ const filteredItems =
     activeTab === "featured"
         ? shopItems
         : shopItems.filter(item => item.category === activeTab);
-        const buyActions = {
-  heart: onBuyHeart,
-
-  dog: onBuyDog,
-  cat: onBuyCat,
-  dragonPet: onBuyDragonPet,
-
-  wizard: onBuyWizard,
-  hero: onBuyHero,
-  dragon: onBuyDragon,
-  king: onBuyKing,
-
-  shield: () => alert("Chưa có chức năng"),
-  book: () => alert("Chưa có chức năng"),
-  scroll: () => alert("Chưa có chức năng"),
-  magic: () => alert("Chưa có chức năng"),
-  potion: () => alert("Chưa có chức năng"),
-
-  phoenix: () => alert("Chưa có chức năng"),
-  robot: () => alert("Chưa có chức năng"),
-
-  sword: () => alert("Chưa có chức năng"),
-  axe: () => alert("Chưa có chức năng"),
-  staff: () => alert("Chưa có chức năng"),
-
-  vip: () => alert("Chưa có chức năng"),
-};
+    
   return (
     <main
 className="
@@ -482,18 +444,18 @@ gap-5
 
     return (
 
-        <ShopCard
-            key={item.id}
-            icon={item.icon}
-            title={item.title}
-            description={item.description}
-            price={item.price}
-            rarity={item.rarity}
-            color={item.color}
-            onBuy={buyActions[item.action]}
-            owned={owned}
-            stackable={item.stackable}
-        />
+   <ShopCard
+    key={item.id}
+    icon={item.icon}
+    title={item.title}
+    description={item.description}
+    price={item.price}
+    rarity={item.rarity}
+    color={item.color}
+    owned={inventory.includes(item.id)}
+    stackable={item.stackable}
+    onBuy={() => buyItem(item.id, item.price)}
+/>
 
     );
 

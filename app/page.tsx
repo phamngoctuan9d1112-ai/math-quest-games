@@ -311,6 +311,67 @@ const [victoryReward, setVictoryReward] =
   const [hearts, setHearts] = useState(3);
   const [showShop, setShowShop] = useState(false);
   const [inventory, setInventory] = useState<string[]>([]);
+  const buyItem = (
+    item: string,
+    price: number
+) => {
+
+    if (coins < price) {
+
+        showShopMessage("❌ Không đủ Coin!");
+
+        return;
+    }
+
+    setCoins(prev => prev - price);
+
+    switch (item) {
+
+        case "heart":
+
+            setHearts(prev => prev + 1);
+
+            break;
+
+        case "shield":
+
+            setShield(prev => prev + 1);
+
+            break;
+
+        case "book":
+
+            setBook(prev => prev + 1);
+
+            break;
+
+        case "scroll":
+
+            setScroll(prev => prev + 1);
+
+            break;
+
+        case "magic":
+
+            setMagicStone(prev => prev + 1);
+
+            break;
+
+        case "potion":
+
+            setPotion(prev => prev + 1);
+
+            break;
+
+        default:
+
+            setInventory(prev => [...prev, item]);
+
+    }
+
+    showShopMessage("✅ Mua thành công!");
+
+};
   const [gameCompleted, setGameCompleted] = useState(false);
   const [showAchievements, setShowAchievements] = useState(false);
   const [dailyProgress, setDailyProgress] = useState<number>(0);
@@ -2323,80 +2384,7 @@ text-yellow-400
             <Shop
               coins={coins}
               inventory={inventory}
-              onBuyHeart={async () => {
-    if (coins >= 20) {
-        const newCoins = coins - 20;
-
-        setCoins(newCoins);
-        setHearts(prev => prev + 1);
-
-        await updateCoins(newCoins);
-        await fetchLeaderboard();
-
-        showShopMessage("❤️ Mua tim thành công!");
-    } else {
-        showShopMessage("❌ Không đủ Coin!");
-    }
-}}
-              onBuyDog={async () => {
-                if (coins >= 100) {
-                  setCoins(prev => prev - 100);
-                  setPet("🐶");
-                  setInventory(prev => [...prev, "🐶"]);
-                  await trackEvent("buy_avatar");
-                  showShopMessage("🐶 Đã mua Chó Toán Học!");
-                }
-              }}
-              onBuyCat={async () => {
-                if (coins >= 200) {
-                  setCoins(prev => prev - 200);
-                  setPet("🐱");
-                  setInventory(prev => [...prev, "🐱"]);
-                  await trackEvent("buy_avatar");
-                  showShopMessage("🐱 Đã mua Mèo Toán Học!");
-                }
-              }}
-              onBuyDragonPet={async () => {
-                if (coins >= 500) {
-                  setCoins(prev => prev - 500);
-                  setPet("🐉");
-                  setInventory(prev => [...prev, "🐉"]);
-                  await trackEvent("buy_avatar");
-                  showShopMessage("🐉 Đã mua Rồng Toán Học!");
-                }
-              }}
-              onBuyWizard={async () => {
-                if (coins >= 50) {
-                  setCoins(prev => prev - 50);
-                  setAvatar("wizard");
-                  await trackEvent("buy_avatar");
-                  showShopMessage("🧙 Đã mua Pháp Sư!");
-                }
-              }}
-              onBuyHero={async () => {
-                if (coins >= 100) {
-                  setCoins(prev => prev - 100);
-                  setAvatar("hero");
-                  await trackEvent("buy_avatar");
-                  showShopMessage("🦸 Đã mua Siêu Anh Hùng!");
-                }
-              }}
-              onBuyDragon={async () => {
-                if (coins >= 200) {
-                  setCoins(prev => prev - 200);
-                  setAvatar("dragon");
-                  await trackEvent("buy_avatar");
-                  showShopMessage("🐉 Đã mở khóa Avatar Rồng!");
-                }
-              }}
-              onBuyKing={async () => {
-                if (coins >= 500) {
-                  setCoins(prev => prev - 500);
-                  setAvatar("king");
-                  await trackEvent("buy_avatar");
-                  showShopMessage("🤴 Đã mở khóa Vua Toán!");
-                }
-              }}
+             buyItem={buyItem}
               onClose={() => setShowShop(false)}
             />
           </div>
