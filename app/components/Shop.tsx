@@ -38,6 +38,107 @@ export default function Shop({
   onClose,
 }: ShopProps) {
   const [activeTab, setActiveTab] = useState("featured");
+  const shopItems = [
+  {
+    id: 1,
+    category: "item",
+    icon: "❤️",
+    title: "Tim",
+    description: "+1 mạng",
+    price: 20,
+    rarity: "Common",
+    color: "bg-red-500 hover:bg-red-600",
+    onBuy: onBuyHeart,
+  },
+
+  {
+    id: 2,
+    category: "pet",
+    icon: "🐶",
+    title: "Chó Toán",
+    description: "+1 Coin mỗi câu",
+    price: 100,
+    rarity: "Rare",
+    color: "bg-blue-500 hover:bg-blue-600",
+    onBuy: onBuyDog,
+  },
+
+  {
+    id: 3,
+    category: "pet",
+    icon: "🐱",
+    title: "Mèo Toán",
+    description: "+2 Coin mỗi câu",
+    price: 200,
+    rarity: "Epic",
+    color: "bg-purple-500 hover:bg-purple-600",
+    onBuy: onBuyCat,
+  },
+
+  {
+    id: 4,
+    category: "pet",
+    icon: "🐉",
+    title: "Rồng Huyền Thoại",
+    description: "+5 Coin mỗi câu",
+    price: 500,
+    rarity: "Legendary",
+    color: "bg-yellow-500 hover:bg-yellow-600",
+    onBuy: onBuyDragonPet,
+  },
+
+  {
+    id: 5,
+    category: "avatar",
+    icon: "🧙",
+    title: "Pháp Sư",
+    description: "Avatar",
+    price: 50,
+    rarity: "Common",
+    color: "bg-green-500 hover:bg-green-600",
+    onBuy: onBuyWizard,
+  },
+
+  {
+    id: 6,
+    category: "avatar",
+    icon: "🦸",
+    title: "Siêu Anh Hùng",
+    description: "Avatar",
+    price: 100,
+    rarity: "Rare",
+    color: "bg-cyan-500 hover:bg-cyan-600",
+    onBuy: onBuyHero,
+  },
+
+  {
+    id: 7,
+    category: "avatar",
+    icon: "🐉",
+    title: "Avatar Rồng",
+    description: "Avatar",
+    price: 200,
+    rarity: "Epic",
+    color: "bg-orange-500 hover:bg-orange-600",
+    onBuy: onBuyDragon,
+  },
+
+  {
+    id: 8,
+    category: "avatar",
+    icon: "👑",
+    title: "Vua Toán",
+    description: "Avatar VIP",
+    price: 500,
+    rarity: "Legendary",
+    color: "bg-yellow-600 hover:bg-yellow-700",
+    onBuy: onBuyKing,
+  },
+];
+const filteredItems =
+    activeTab === "featured"
+        ? shopItems
+        : shopItems.filter(item => item.category === activeTab);
   return (
     <main
 className="
@@ -374,9 +475,7 @@ px-12
 pb-12
 "
 >
-  <div className="text-white text-lg mb-4">
-    Menu hiện tại: {activeTab}
-</div>
+  
  <div className="pt-6">
 
     <ShopBanner/>
@@ -445,84 +544,18 @@ gap-5
 "
 >
 
-<ShopCard
-    icon="❤️"
-    title="Tim"
-    description="+1 mạng"
-    price={20}
-    rarity="Common"
-    color="bg-red-500 hover:bg-red-600"
-    onBuy={onBuyHeart}
-/>
-<ShopCard
-    icon="🐶"
-    title="Chó Toán"
-    description="+1 Coin mỗi câu"
-    price={100}
-    rarity="Rare"
-    color="bg-blue-500 hover:bg-blue-600"
-    onBuy={onBuyDog}
-/>
-
-<ShopCard
-    icon="🐱"
-    title="Mèo Toán"
-    description="+2 Coin mỗi câu"
-    price={200}
-    rarity="Epic"
-    color="bg-purple-500 hover:bg-purple-600"
-    onBuy={onBuyCat}
-/>
-
-<ShopCard
-    icon="🐉"
-    title="Rồng Huyền Thoại"
-    description="+5 Coin mỗi câu"
-    price={500}
-    rarity="Legendary"
-    color="bg-yellow-500 hover:bg-yellow-600"
-    onBuy={onBuyDragonPet}
-/>
-
-<ShopCard
-    icon="🧙"
-    title="Pháp Sư"
-    description="Avatar"
-    price={50}
-    rarity="Common"
-    color="bg-green-500 hover:bg-green-600"
-    onBuy={onBuyWizard}
-/>
-
-<ShopCard
-    icon="🦸"
-    title="Siêu Anh Hùng"
-    description="Avatar"
-    price={100}
-    rarity="Rare"
-    color="bg-cyan-500 hover:bg-cyan-600"
-    onBuy={onBuyHero}
-/>
-
-<ShopCard
-    icon="🐉"
-    title="Avatar Rồng"
-    description="Avatar"
-    price={200}
-    rarity="Epic"
-    color="bg-orange-500 hover:bg-orange-600"
-    onBuy={onBuyDragon}
-/>
-
-<ShopCard
-    icon="👑"
-    title="Vua Toán"
-    description="Avatar VIP"
-    price={500}
-    rarity="Legendary"
-    color="bg-yellow-600 hover:bg-yellow-700"
-    onBuy={onBuyKing}
-/>
+{filteredItems.map((item) => (
+    <ShopCard
+        key={item.id}
+        icon={item.icon}
+        title={item.title}
+        description={item.description}
+        price={item.price}
+        rarity={item.rarity}
+        color={item.color}
+        onBuy={item.onBuy}
+    />
+))}
 
 </div>
 
