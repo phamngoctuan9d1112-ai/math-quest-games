@@ -1,22 +1,44 @@
 type Props = {
   icon: string;
+
   title: string;
+
   description: string;
+
   price: number;
+
   color: string;
+
   rarity: string;
+
+  owned: boolean;
+
+  stackable: boolean;
+
   onBuy: () => void;
 };
-
 export default function ShopCard({
-  icon,
+
+ icon,
+
   title,
+
   description,
+
   price,
+
   color,
+
   rarity,
+
+  owned,
+
+  stackable,
+
   onBuy,
-}: Props) {
+
+
+}:Props){
   const border =
     rarity === "Legendary"
       ? "border-yellow-400 shadow-yellow-400/30 shop-legendary"
@@ -242,34 +264,50 @@ export default function ShopCard({
             </div>
           </div>
 
-          {/* BUTTON */}
-          <button
-            onClick={onBuy}
-            className={`
-              mt-3
+  <button
+    onClick={onBuy}
+    disabled={owned && !stackable}
 
-              w-full
+    className={`
 
-              rounded-xl
+        mt-3
 
-              py-2.5
+        w-full
 
-              text-sm
-              font-bold
+        rounded-xl
 
-              text-white
+        py-2.5
 
-              transition-all
-              duration-300
+        text-sm
 
-              hover:scale-[1.03]
-              active:scale-95
+        font-bold
 
-              ${color}
-            `}
-          >
-            🛒 Mua ngay
-          </button>
+        text-white
+
+        transition-all
+
+        duration-300
+
+        ${owned && !stackable
+
+    ? "bg-gray-500 cursor-not-allowed"
+
+    : color
+}
+
+    `}
+>
+
+{
+    owned && !stackable
+
+        ? "✅ Đã sở hữu"
+
+        : "🛒 Mua ngay"
+
+}
+
+</button>
         </div>
       </div>
     </div>

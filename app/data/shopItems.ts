@@ -40,8 +40,9 @@ export type ShopItem = {
   rarity: "Common" | "Rare" | "Epic" | "Legendary";
 
   color: string;
-};
 
+  stackable: boolean;
+};
 export const shopItems: ShopItem[] = [
   //========================
   // ITEM
@@ -57,6 +58,8 @@ export const shopItems: ShopItem[] = [
     price: 20,
     rarity: "Common",
     color: "bg-red-500 hover:bg-red-600",
+    stackable:true,
+
   },
 
   {
@@ -69,6 +72,8 @@ export const shopItems: ShopItem[] = [
     price: 300,
     rarity: "Epic",
     color: "bg-indigo-500 hover:bg-indigo-600",
+    stackable:true,
+
   },
 
   {
@@ -81,6 +86,8 @@ export const shopItems: ShopItem[] = [
     price: 250,
     rarity: "Rare",
     color: "bg-blue-500 hover:bg-blue-600",
+    stackable:true,
+
   },
 
   {
@@ -93,6 +100,8 @@ export const shopItems: ShopItem[] = [
     price: 150,
     rarity: "Rare",
     color: "bg-sky-500 hover:bg-sky-600",
+    stackable:true,
+
   },
 
   {
@@ -105,6 +114,8 @@ export const shopItems: ShopItem[] = [
     price: 180,
     rarity: "Epic",
     color: "bg-pink-500 hover:bg-pink-600",
+    stackable:true,
+
   },
 
   {
@@ -117,6 +128,8 @@ export const shopItems: ShopItem[] = [
     price: 350,
     rarity: "Epic",
     color: "bg-emerald-500 hover:bg-emerald-600",
+    stackable:true,
+
   },
 
   //========================
@@ -133,6 +146,8 @@ export const shopItems: ShopItem[] = [
     price: 100,
     rarity: "Rare",
     color: "bg-blue-500 hover:bg-blue-600",
+    stackable:false
+
   },
 
   {
@@ -145,6 +160,8 @@ export const shopItems: ShopItem[] = [
     price: 200,
     rarity: "Epic",
     color: "bg-purple-500 hover:bg-purple-600",
+   stackable:false
+
   },
 
   {
@@ -157,6 +174,8 @@ export const shopItems: ShopItem[] = [
     price: 500,
     rarity: "Legendary",
     color: "bg-yellow-500 hover:bg-yellow-600",
+    stackable:false
+
   },
 
   {
@@ -169,6 +188,8 @@ export const shopItems: ShopItem[] = [
     price: 1200,
     rarity: "Legendary",
     color: "bg-orange-500 hover:bg-orange-600",
+    stackable:false
+
   },
 
   {
@@ -181,6 +202,8 @@ export const shopItems: ShopItem[] = [
     price: 900,
     rarity: "Legendary",
     color: "bg-slate-500 hover:bg-slate-600",
+    stackable:false
+
   },
 
   //========================
@@ -197,6 +220,8 @@ export const shopItems: ShopItem[] = [
     price: 50,
     rarity: "Common",
     color: "bg-green-500 hover:bg-green-600",
+    stackable:false
+
   },
 
   {
@@ -209,6 +234,8 @@ export const shopItems: ShopItem[] = [
     price: 100,
     rarity: "Rare",
     color: "bg-cyan-500 hover:bg-cyan-600",
+    stackable:false
+
   },
 
   {
@@ -221,6 +248,8 @@ export const shopItems: ShopItem[] = [
     price: 200,
     rarity: "Epic",
     color: "bg-orange-500 hover:bg-orange-600",
+    stackable:false
+
   },
 
   {
@@ -233,6 +262,8 @@ export const shopItems: ShopItem[] = [
     price: 500,
     rarity: "Legendary",
     color: "bg-yellow-600 hover:bg-yellow-700",
+    stackable:false
+
   },
 
   //========================
@@ -249,6 +280,8 @@ export const shopItems: ShopItem[] = [
     price: 400,
     rarity: "Rare",
     color: "bg-gray-500 hover:bg-gray-600",
+    stackable:false
+
   },
 
   {
@@ -261,6 +294,8 @@ export const shopItems: ShopItem[] = [
     price: 700,
     rarity: "Epic",
     color: "bg-orange-600 hover:bg-orange-700",
+    stackable:false
+
   },
 
   {
@@ -273,6 +308,8 @@ export const shopItems: ShopItem[] = [
     price: 950,
     rarity: "Legendary",
     color: "bg-violet-600 hover:bg-violet-700",
+    stackable:false
+
   },
 
   //========================
@@ -289,5 +326,7 @@ export const shopItems: ShopItem[] = [
     price: 2000,
     rarity: "Legendary",
     color: "bg-cyan-600 hover:bg-cyan-700",
+    stackable:false
+
   },
 ];

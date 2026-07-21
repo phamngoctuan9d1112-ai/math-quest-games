@@ -9,7 +9,7 @@ type ShopProps = {
   coins: number;
 
   onBuyHeart: () => void;
-
+  inventory:string[];
   onBuyDog: () => void;
   onBuyCat: () => void;
   onBuyDragonPet: () => void;
@@ -24,9 +24,9 @@ type ShopProps = {
 
 export default function Shop({
   coins,
-
+  
   onBuyHeart,
-
+  inventory,
   onBuyDog,
   onBuyCat,
   onBuyDragonPet,
@@ -476,20 +476,28 @@ gap-5
 "
 >
 
-{filteredItems.map((item) => (
+{filteredItems.map((item) => {
 
-    <ShopCard
-        key={item.id}
-        icon={item.icon}
-        title={item.title}
-        description={item.description}
-        price={item.price}
-        rarity={item.rarity}
-        color={item.color}
-        onBuy={buyActions[item.action]}
-    />
+    const owned = inventory.includes(item.id);
 
-))}
+    return (
+
+        <ShopCard
+            key={item.id}
+            icon={item.icon}
+            title={item.title}
+            description={item.description}
+            price={item.price}
+            rarity={item.rarity}
+            color={item.color}
+            onBuy={buyActions[item.action]}
+            owned={owned}
+            stackable={item.stackable}
+        />
+
+    );
+
+})}
 
 </div>
 
