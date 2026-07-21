@@ -2630,7 +2630,10 @@ text-yellow-400
               inventory={inventory}
              buyItem={buyItem}
               onClose={() => setShowShop(false)}
-               onBuyPremium={() => setShowPremiumModal(true)}
+              onBuyPremium={() => {
+    console.log("OPEN PREMIUM");
+    setShowPremiumModal(true);
+}}
             />
           </div>
         )}
