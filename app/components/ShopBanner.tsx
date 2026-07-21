@@ -95,19 +95,10 @@ export default function ShopBanner({
 chọn khám phá để xem chi tiết gói
           </p>
 <button
-    onClick={onBuy}
-    className="
-    mt-8
-    rounded-2xl
-    px-8
-    py-4
-    bg-yellow-400
-    hover:bg-yellow-300
-    text-black
-    font-black
-    text-xl
-    transition
-    "
+    onClick={() => {
+        console.log("CLICK");
+        onBuy();
+    }}
 >
     Khám phá →
 </button>
