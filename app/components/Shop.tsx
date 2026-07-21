@@ -39,107 +39,38 @@ export default function Shop({
   onClose,
 }: ShopProps) {
   const [activeTab, setActiveTab] = useState("featured");
-  const shopItems = [
-  {
-    id: 1,
-    category: "item",
-    icon: "❤️",
-    title: "Tim",
-    description: "+1 mạng",
-    price: 20,
-    rarity: "Common",
-    color: "bg-red-500 hover:bg-red-600",
-    onBuy: onBuyHeart,
-  },
 
-  {
-    id: 2,
-    category: "pet",
-    icon: "🐶",
-    title: "Chó Toán",
-    description: "+1 Coin mỗi câu",
-    price: 100,
-    rarity: "Rare",
-    color: "bg-blue-500 hover:bg-blue-600",
-    onBuy: onBuyDog,
-  },
-
-  {
-    id: 3,
-    category: "pet",
-    icon: "🐱",
-    title: "Mèo Toán",
-    description: "+2 Coin mỗi câu",
-    price: 200,
-    rarity: "Epic",
-    color: "bg-purple-500 hover:bg-purple-600",
-    onBuy: onBuyCat,
-  },
-
-  {
-    id: 4,
-    category: "pet",
-    icon: "🐉",
-    title: "Rồng Huyền Thoại",
-    description: "+5 Coin mỗi câu",
-    price: 500,
-    rarity: "Legendary",
-    color: "bg-yellow-500 hover:bg-yellow-600",
-    onBuy: onBuyDragonPet,
-  },
-
-  {
-    id: 5,
-    category: "avatar",
-    icon: "🧙",
-    title: "Pháp Sư",
-    description: "Avatar",
-    price: 50,
-    rarity: "Common",
-    color: "bg-green-500 hover:bg-green-600",
-    onBuy: onBuyWizard,
-  },
-
-  {
-    id: 6,
-    category: "avatar",
-    icon: "🦸",
-    title: "Siêu Anh Hùng",
-    description: "Avatar",
-    price: 100,
-    rarity: "Rare",
-    color: "bg-cyan-500 hover:bg-cyan-600",
-    onBuy: onBuyHero,
-  },
-
-  {
-    id: 7,
-    category: "avatar",
-    icon: "🐉",
-    title: "Avatar Rồng",
-    description: "Avatar",
-    price: 200,
-    rarity: "Epic",
-    color: "bg-orange-500 hover:bg-orange-600",
-    onBuy: onBuyDragon,
-  },
-
-  {
-    id: 8,
-    category: "avatar",
-    icon: "👑",
-    title: "Vua Toán",
-    description: "Avatar VIP",
-    price: 500,
-    rarity: "Legendary",
-    color: "bg-yellow-600 hover:bg-yellow-700",
-    onBuy: onBuyKing,
-  },
-];
 const filteredItems =
     activeTab === "featured"
         ? shopItems
         : shopItems.filter(item => item.category === activeTab);
+        const buyActions = {
+  heart: onBuyHeart,
+
+  dog: onBuyDog,
+  cat: onBuyCat,
+  dragonPet: onBuyDragonPet,
+
+  wizard: onBuyWizard,
+  hero: onBuyHero,
+  dragon: onBuyDragon,
+  king: onBuyKing,
+
+  shield: () => alert("Chưa có chức năng"),
+  book: () => alert("Chưa có chức năng"),
+  scroll: () => alert("Chưa có chức năng"),
+  magic: () => alert("Chưa có chức năng"),
+  potion: () => alert("Chưa có chức năng"),
+
+  phoenix: () => alert("Chưa có chức năng"),
+  robot: () => alert("Chưa có chức năng"),
+
+  sword: () => alert("Chưa có chức năng"),
+  axe: () => alert("Chưa có chức năng"),
+  staff: () => alert("Chưa có chức năng"),
+
+  vip: () => alert("Chưa có chức năng"),
+};
   return (
     <main
 className="
@@ -555,7 +486,7 @@ gap-5
         price={item.price}
         rarity={item.rarity}
         color={item.color}
-        onBuy={item.onBuy}
+        onBuy={buyActions[item.action]}
     />
 
 ))}
