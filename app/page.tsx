@@ -2590,7 +2590,13 @@ text-yellow-400
 
   if (selectedWorld === null) {
     return (
-      <>
+    <>
+        <PremiumModal
+            open={showPremiumModal}
+            isPremium={isPremium}
+            onClose={() => setShowPremiumModal(false)}
+            onActivate={activatePremium}
+        />
       <button
   onClick={() => {
     if (!bgmRef.current) return;
@@ -2724,12 +2730,7 @@ console.log("CURRENT AVATAR =", avatar);
 
  return (
 <>
-  <PremiumModal
-    open={showPremiumModal}
-    isPremium={isPremium}
-    onClose={() => setShowPremiumModal(false)}
-    onActivate={activatePremium}
-/>
+
  
 
 <BattleScreen
