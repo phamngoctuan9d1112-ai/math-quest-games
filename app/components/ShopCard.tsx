@@ -135,23 +135,19 @@ export default function ShopCard({
         </div>
       </div>
 
-      {/* PANEL */}
-      <div
-        className="
-          flex
-          flex-col
+   <div
+className="
+flex
+flex-col
+flex-1
 
-          h-[calc(100%-130px)]
+bg-black/15
+backdrop-blur-xl
 
-          bg-black/15
-
-          backdrop-blur-xl
-
-          px-5
-          py-4
-        "
-      >
-        {/* tên */}
+px-4
+py-3
+"
+>
         <h2
           className="
            text-xl
