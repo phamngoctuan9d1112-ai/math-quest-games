@@ -759,65 +759,59 @@ async function activatePremium() {
 }
 
 async function consumeExplanation() {
-  const today =
-new Date().toISOString().split("T")[0];
 
-const {
-    data
-} = await supabase
-.from("profiles")
-.select(
-"last_explanation_date"
-)
-.eq("id", currentUserId)
-.single();
-if (data?.last_explanation_date !== today) {
+    const today =
+        new Date().toISOString().split("T")[0];
 
-    setDailyExplanationUsed(0);
+    const { data } = await supabase
+        .from("profiles")
+        .select("last_explanation_date")
+        .eq("id", currentUserId)
+        .single();
 
-    setRemainingExplanations(10);
+    let usedToday = dailyExplanationUsed;
 
-}
+    if (data?.last_explanation_date !== today) {
 
-    if (isPremium) {
-    setShowPremiumModal(false);
-    return true;
-}
+        usedToday = 0;
 
-    if (remainingExplanations <= 0){
+        setDailyExplanationUsed(0);
+        setRemainingExplanations(10);
 
-        setShowPremiumModal(true);
-
-        return false;
+        await supabase
+            .from("profiles")
+            .update({
+                daily_explanation_used: 0,
+                last_explanation_date: today
+            })
+            .eq("id", currentUserId);
 
     }
 
-    const newUsed =
-        dailyExplanationUsed + 1;
+    if (isPremium) {
+        setShowPremiumModal(false);
+        return true;
+    }
+
+    if (usedToday >= 10) {
+        setShowPremiumModal(true);
+        return false;
+    }
+
+    const newUsed = usedToday + 1;
 
     setDailyExplanationUsed(newUsed);
-
-    setRemainingExplanations(
-        10 - newUsed
-    );
+    setRemainingExplanations(10 - newUsed);
 
     await supabase
         .from("profiles")
         .update({
-
-            daily_explanation_used:
-            newUsed,
-
-            last_explanation_date:
-            new Date()
-            .toISOString()
-            .split("T")[0]
-
+            daily_explanation_used: newUsed,
+            last_explanation_date: today
         })
         .eq("id", currentUserId);
 
     return true;
-
 }
 
 async function saveProgress() {
