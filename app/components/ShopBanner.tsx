@@ -92,13 +92,7 @@ export default function ShopBanner({
             mt-3
             "
           >
- ✔ Giải thích AI không giới hạn
-
-✔ Chỉ miễn phí 10 lần/ngày nếu chưa Premium
-
-✔ Huy hiệu Royal
-
-✔ Ưu tiên tính năng mới
+chọn khám phá để xem chi tiết gói
           </p>
 <button
     onClick={onBuy}
@@ -115,7 +109,7 @@ export default function ShopBanner({
     transition
     "
 >
-    👑 Nâng cấp Premium
+    Khám phá →
 </button>
 
         </div>
