@@ -39,73 +39,77 @@ export default function ShopCard({
     <div
       className={`
         relative
-        group
         overflow-hidden
         rounded-3xl
         border
         ${border}
 
         bg-gradient-to-b
-        from-[#162443]
-        to-[#101828]
+        from-[#1a2d4f]
+        via-[#16233d]
+        to-[#101827]
+
+        h-[310px]
+
+        flex
+        flex-col
 
         shadow-xl
-        hover:shadow-2xl
-        hover:-translate-y-2
 
         transition-all
         duration-300
 
-        h-[285px]
+        hover:-translate-y-2
+        hover:shadow-2xl
+        group
       `}
     >
-      {/* hiệu ứng nền */}
+      {/* EFFECT */}
       <div className="shop-card-stars" />
       <div className="shop-card-glow" />
       <div className="shop-card-shine" />
 
       {/* HOT */}
       <div className="absolute top-4 right-4 z-30">
-        <span
-          className="
+        <span className="
+            flex
+            items-center
+            gap-1
+
             px-3
             py-1
 
             rounded-full
 
-            text-xs
-            font-bold
-
-            text-white
-
             bg-gradient-to-r
             from-red-500
             to-pink-500
 
+            text-white
+            text-[11px]
+            font-bold
+
             shadow-lg
             shadow-red-500/40
-          "
-        >
+        ">
           🔥 HOT
         </span>
       </div>
 
-      {/* ẢNH */}
+      {/* IMAGE */}
       <div
         className="
-          relative
-
-          h-[95px]
+          h-[105px]
 
           flex
           items-center
           justify-center
 
-          overflow-hidden
+          relative
 
           bg-gradient-to-b
-          from-[#163760]
-          to-[#0d1830]
+          from-[#193760]
+          to-[#132544]
         "
       >
         <div
@@ -119,7 +123,7 @@ export default function ShopCard({
 
         <div
           className="
-            text-4xl
+            text-5xl
 
             relative
             z-20
@@ -135,31 +139,35 @@ export default function ShopCard({
         </div>
       </div>
 
-   <div
-className="
-flex
-flex-col
-flex-1
+      {/* CONTENT */}
+      <div
+        className="
+          flex-1
 
-bg-black/15
-backdrop-blur-xl
+          flex
+          flex-col
 
-px-4
-py-3
-"
->
+          px-5
+          py-4
+
+          bg-black/15
+          backdrop-blur-md
+        "
+      >
+        {/* TITLE */}
         <h2
           className="
-           text-xl
+            text-xl
             font-black
             text-white
             text-center
+            leading-tight
           "
         >
           {title}
         </h2>
 
-        {/* rarity */}
+        {/* RARITY */}
         <div className="flex justify-center mt-2">
           <span
             className={`
@@ -168,7 +176,7 @@ py-3
 
               rounded-full
 
-              text-xs
+              text-[11px]
               font-bold
 
               ${rarityColor}
@@ -178,7 +186,7 @@ py-3
           </span>
         </div>
 
-        {/* mô tả */}
+        {/* DESCRIPTION */}
         <p
           className="
             mt-3
@@ -189,73 +197,80 @@ py-3
             font-bold
 
             text-yellow-300
+
+            leading-6
           "
         >
           {description}
         </p>
 
-        {/* giá */}
-        <div
-          className="
-            mt-auto
-
-            rounded-xl
-
-            bg-black/30
-
-            border
-            border-white/10
-
-            py-2
-
-            text-center
-          "
-        >
-          <div className="text-xs text-slate-400">
-            Giá
-          </div>
-
+        {/* FOOTER */}
+        <div className="mt-auto">
+          {/* PRICE */}
           <div
             className="
-              mt-1
+              mt-4
 
-              text-2xl
-              font-black
+              rounded-2xl
 
-              text-yellow-300
+              bg-black/35
+
+              border
+              border-white/10
+
+              py-2
+
+              text-center
             "
           >
-            🪙 {price}
+            <div className="text-[11px] text-slate-400">
+              Giá
+            </div>
+
+            <div
+              className="
+                mt-1
+
+                text-2xl
+
+                font-black
+
+                text-yellow-300
+              "
+            >
+              🪙 {price}
+            </div>
           </div>
+
+          {/* BUTTON */}
+          <button
+            onClick={onBuy}
+            className={`
+              mt-3
+
+              w-full
+
+              rounded-xl
+
+              py-2.5
+
+              text-sm
+              font-bold
+
+              text-white
+
+              transition-all
+              duration-300
+
+              hover:scale-[1.03]
+              active:scale-95
+
+              ${color}
+            `}
+          >
+            🛒 Mua ngay
+          </button>
         </div>
-
-        {/* button */}
-        <button
-          onClick={onBuy}
-          className={`
-            mt-4
-
-            w-full
-
-            rounded-xl
-
-           py-2
-
-            text-sm font-semibold
-
-            text-white
-
-            transition-all
-            duration-300
-
-            hover:scale-105
-            active:scale-95
-
-            ${color}
-          `}
-        >
-          Mua ngay
-        </button>
       </div>
     </div>
   );
