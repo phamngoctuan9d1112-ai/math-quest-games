@@ -8,6 +8,8 @@ type MultipleChoiceProps = {
 
     onAnswer:(value:string|number)=>void;
 
+    hiddenOptions:number[];
+
 };
 
 export default function MultipleChoice({
@@ -15,6 +17,8 @@ export default function MultipleChoice({
     options,
 
     onAnswer,
+
+    hiddenOptions,
 
 }:MultipleChoiceProps){
 
@@ -45,7 +49,15 @@ md:mt-8
 >
 
 
-{options.map((option, index) => (
+{options.map((option, index) => {
+
+    if (hiddenOptions.includes(index)) {
+
+        return null;
+
+    }
+
+    return (
 
 <button
 
@@ -178,7 +190,9 @@ overflow-hidden
 
 </button>
 
-))}
+);
+
+})}
 
 </div>
 

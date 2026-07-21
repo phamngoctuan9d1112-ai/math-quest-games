@@ -19,7 +19,12 @@ scroll:number;
 book:number;
 magicStone:number;
 potion:number;
-
+useShield: () => void;
+useScroll: () => void;
+useBook: () => void;
+useMagicStone: () => void;
+usePotion: () => void;
+hiddenOptions:number[];
 setShield: React.Dispatch<React.SetStateAction<number>>;
 setScroll: React.Dispatch<React.SetStateAction<number>>;
 setBook: React.Dispatch<React.SetStateAction<number>>;
@@ -125,9 +130,13 @@ setHearts,
   shortAnswer,
 
   mascotState,
-
+hiddenOptions,
     mascotMessage,
-
+useShield,
+useScroll,
+useBook,
+useMagicStone,
+usePotion,
 setShortAnswer,
 
 selectedWorld,
@@ -250,48 +259,43 @@ lg:hidden
 </div>
 <div className="flex gap-3 justify-center mb-4">
 
-<button>
+<button
+onClick={() => {
+    useShield();
+}}
+>
 🛡️ {shield}
 </button>
 
 <button
-onClick={()=>{
-
-if(scroll<=0) return;
-
-setScroll(prev=>prev-1);
-
+onClick={() => {
+    useScroll();
 }}
 >
-
 📜 {scroll}
-
 </button>
-
-<button>
+<button
+onClick={()=>{
+    useBook();
+}}
+>
 📖 {book}
 </button>
 
-<button>
+<button
+onClick={()=>{
+    useMagicStone();
+}}
+>
 💎 {magicStone}
 </button>
 
 <button
 onClick={()=>{
-
-if(potion<=0) return;
-
-if(hearts>=3) return;
-
-setPotion(prev=>prev-1);
-
-setHearts(prev=>prev+1);
-
+    usePotion();
 }}
 >
-
 🧪 {potion}
-
 </button>
 </div>
 
@@ -339,6 +343,7 @@ setHearts(prev=>prev+1);
     <MultipleChoice
         options={options}
         onAnswer={onAnswer}
+         hiddenOptions={hiddenOptions}
     />
 )}
 

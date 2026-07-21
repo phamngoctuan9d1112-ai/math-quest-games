@@ -235,6 +235,7 @@ export default function Home() {
   const [selectedWorld, setSelectedWorld] = useState<number | null>(null);
   const [showTFAnswer, setShowTFAnswer] = useState(false);
   const [weapon, setWeapon] = useState("🪵");
+  const [shieldActive, setShieldActive] = useState(false);
   const [showChestRoom, setShowChestRoom] =
 useState(false);
 
@@ -249,7 +250,7 @@ const [magicStone, setMagicStone] = useState(0);
 const [potion, setPotion] = useState(0);
 
 const [showStory, setShowStory] = useState(false);
-
+const [hiddenOptions, setHiddenOptions] = useState<number[]>([]);
 const [storyIndex, setStoryIndex] = useState(0);
 
 const [storyData, setStoryData] = useState<any[]>([]);
@@ -1483,13 +1484,16 @@ useEffect(() => {
 
 function useShield() {
 
-    if (shield <= 0) return false;
+    if (shield <= 0) return;
+
+    if (shieldActive) return;
 
     setShield(prev => prev - 1);
 
-    setMessage("🛡 Khiên đã chặn mất tim!");
+    setShieldActive(true);
 
-    return true;
+    setMessage("🛡️ Khiên đã được kích hoạt!");
+
 }
 
 function usePotion() {
@@ -1507,9 +1511,19 @@ function useScroll() {
 
     if (scroll <= 0) return false;
 
+    if (!question?.options) return false;
+
     setScroll(prev => prev - 1);
 
-    setMessage("📜 Cuộn giấy đã loại bỏ 2 đáp án sai!");
+    const wrongIndexes = question.options
+        .map((_: any, index: number) => index)
+        .filter((index: number) => question.options[index] !== question.answer);
+
+    const shuffled = [...wrongIndexes].sort(() => Math.random() - 0.5);
+
+    setHiddenOptions(shuffled.slice(0, 2));
+
+    setMessage("📜 Đã loại bỏ 2 đáp án sai!");
 
     return true;
 }
@@ -1608,15 +1622,15 @@ await checkAchievements(
   setMascotMessage("");
   }, 2000);
 
-  if(shield>0){
+  if (shieldActive) {
 
-setShield(prev=>prev-1);
+    setShieldActive(false);
 
-setMessage("🛡️ Khiên đã chặn mất tim!");
+    setMessage("🛡️ Khiên đã bảo vệ bạn!");
 
-}else{
+} else {
 
-setHearts(prev=>prev-1);
+    setHearts(prev => Math.max(0, prev - 1));
 
 }
     setMessage("❌ Sai rồi!");
@@ -1662,6 +1676,8 @@ function getNextUnlockWorld(
 async function moveToNextQuestion() {
 
   setMessage("");
+
+  setHiddenOptions([]);
 
   const nextIndex = current + 1;
 
@@ -1863,15 +1879,15 @@ await supabase
 
   } else {
 
-   if(shield>0){
+   if (shieldActive) {
 
-setShield(prev=>prev-1);
+    setShieldActive(false);
 
-setMessage("🛡️ Khiên bảo vệ bạn!");
+    setMessage("🛡️ Khiên bảo vệ bạn!");
 
-}else{
+} else {
 
-setHearts(prev=>Math.max(0,prev-1));
+    setHearts(prev => Math.max(0, prev - 1));
 
 }
     setMessage(
@@ -1899,15 +1915,15 @@ setHearts(prev=>Math.max(0,prev-1));
       setCoins((prev) => prev + reward);
       setMessage("✅ Chính xác! +2 điểm.");
     } else {
-   if(shield>0){
+   if (shieldActive) {
 
-setShield(prev=>prev-1);
+    setShieldActive(false);
 
-setMessage("🛡️ Khiên đã bảo vệ bạn!");
+    setMessage("🛡️ Khiên đã bảo vệ bạn!");
 
-}else{
+} else {
 
-setHearts(prev=>Math.max(0,prev-1));
+    setHearts(prev => Math.max(0, prev - 1));
 
 }
       setMessage("❌ Chưa chính xác!");
@@ -2487,7 +2503,11 @@ scroll={scroll}
 book={book}
 magicStone={magicStone}
 potion={potion}
-
+useShield={useShield}
+useScroll={useScroll}
+useBook={useBook}
+useMagicStone={useMagicStone}
+usePotion={usePotion}
 setShield={setShield}
 setScroll={setScroll}
 setBook={setBook}
@@ -2537,6 +2557,8 @@ setMessage={setMessage}
     pet={pet}
 
 options={question?.options ?? []}
+
+hiddenOptions={hiddenOptions}
 
 onAnswer={checkAnswer}
     checkTrueFalseAnswer={checkTrueFalseAnswer}
