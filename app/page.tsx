@@ -2322,6 +2322,7 @@ text-yellow-400
           <div className="fixed inset-0 bg-black/70 flex items-center justify-center overflow-y-auto z-50">
             <Shop
               coins={coins}
+              inventory={inventory}
               onBuyHeart={async () => {
     if (coins >= 20) {
         const newCoins = coins - 20;
