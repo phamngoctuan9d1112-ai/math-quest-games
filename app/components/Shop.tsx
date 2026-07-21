@@ -3,6 +3,7 @@ import ShopCard from "./ShopCard";
 import ShopSidebar from "./ShopSidebar";
 import ShopBanner from "./ShopBanner";
 import { useState } from "react";
+import { shopItems } from "../data/shopItems";
 
 type ShopProps = {
   coins: number;
@@ -544,7 +545,8 @@ gap-5
 "
 >
 
-{filteredItems.map((item) => (
+{shopItems.map((item) => (
+
     <ShopCard
         key={item.id}
         icon={item.icon}
@@ -555,6 +557,7 @@ gap-5
         color={item.color}
         onBuy={item.onBuy}
     />
+
 ))}
 
 </div>
