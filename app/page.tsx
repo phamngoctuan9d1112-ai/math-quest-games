@@ -17,7 +17,7 @@ import StatusBar from "./components/StatusBar";
 import { motion } from "framer-motion";
 import WorldSelect from "./components/WorldSelect";
 import Mascot from "./components/Mascot";
-
+import { APP_MODE } from "./lib/premium";
 import TopBar from "./components/TopBar";
 import AchievementList from "./components/AchievementList";
 import TermsModal from "./components/TermsModal";
@@ -29,6 +29,7 @@ import StartScreen from "./components/StartScreen";
 import Confetti from "react-confetti";
 import Avatar from "./components/Avatar";
 import MathText from "./components/MathText";
+import PremiumModal from "./components/PremiumModal";
 import { BlockMath } from "react-katex";
 import Inventory from "./components/Inventory";
 import SubMap from "./components/SubMap"; 
@@ -245,15 +246,16 @@ const [shield, setShield] = useState(0);
 const [scroll, setScroll] = useState(0);
 
 const [book, setBook] = useState(0);
-
+const [showPremiumModal, setShowPremiumModal] = useState(false);
 const [magicStone, setMagicStone] = useState(0);
 
 const [potion, setPotion] = useState(0);
-
+const [remainingExplanations, setRemainingExplanations] = useState(10);
 const [showStory, setShowStory] = useState(false);
 const [hiddenOptions, setHiddenOptions] = useState<number[]>([]);
 const [storyIndex, setStoryIndex] = useState(0);
 
+const [dailyExplanationUsed, setDailyExplanationUsed] = useState(0);
 const [storyData, setStoryData] = useState<any[]>([]);
 const [itemUsedThisQuestion, setItemUsedThisQuestion] = useState(false);
 const [storyMode, setStoryMode] = useState<"intro" | "ending">("intro");
@@ -310,6 +312,9 @@ const [victoryReward, setVictoryReward] =
 
   const [xp, setXp] = useState(0);
   const [coins, setCoins] = useState(0);
+ 
+  const [isPremium, setIsPremium] = useState(false);
+const [premiumUntil, setPremiumUntil] = useState<string | null>(null);
   const [hearts, setHearts] = useState(3);
   const MAX_HEARTS = 3;
   const [showShop, setShowShop] = useState(false);
@@ -510,6 +515,56 @@ const [currentUserId, setCurrentUserId] =
     setWeapon(data.weapon || "🪵");
     setPet(data.pet || "🥚");
     setHearts(data.hearts || 3);
+    setShield(data.shield || 0);
+
+setScroll(data.scroll || 0);
+
+setBook(data.book || 0);
+
+setMagicStone(data.magic_stone || 0);
+
+setPotion(data.potion || 0);
+setIsPremium(data.is_premium || false);
+
+setDailyExplanationUsed(
+    data.daily_explanation_used || 0
+);
+const today =
+new Date().toISOString().split("T")[0];
+
+if (
+    data.last_explanation_date !== today
+){
+
+    await supabase
+        .from("profiles")
+        .update({
+
+            daily_explanation_used: 0,
+
+            last_explanation_date: today
+
+        })
+        .eq("id", userId);
+
+    setDailyExplanationUsed(0);
+
+    setRemainingExplanations(10);
+
+}
+else{
+
+    const used =
+        data.daily_explanation_used || 0;
+
+    setDailyExplanationUsed(used);
+
+    setRemainingExplanations(
+        Math.max(0, 10 - used)
+    );
+
+}
+setPremiumUntil(data.premium_until || null);
 
     initializedRef.current = true;
 
@@ -585,6 +640,13 @@ console.log("INSERT TOKEN =", insertSession?.access_token);
     xp: 0,
     coins: 0,
     hearts: 3,
+    shield: 0,
+scroll: 0,
+book: 0,
+magic_stone: 0,
+potion: 0,
+    is_premium: false,
+    premium_until: null,
     streak: 1,
     best_streak: 1,
     formula_shards: 0,
@@ -678,6 +740,85 @@ async function loadChests() {
 
   setChests(data || []);
 }
+async function activatePremium() {
+
+    if (!currentUserId) return;
+
+   await supabase
+.from("profiles")
+.update({
+    is_premium: true,
+    premium_until: null
+})
+.eq("id", currentUserId);
+
+    setIsPremium(true);
+
+    setShowPremiumModal(false);
+
+}
+
+async function consumeExplanation() {
+  const today =
+new Date().toISOString().split("T")[0];
+
+const {
+    data
+} = await supabase
+.from("profiles")
+.select(
+"last_explanation_date"
+)
+.eq("id", currentUserId)
+.single();
+if (data?.last_explanation_date !== today) {
+
+    setDailyExplanationUsed(0);
+
+    setRemainingExplanations(10);
+
+}
+
+    if (isPremium) {
+    setShowPremiumModal(false);
+    return true;
+}
+
+    if (remainingExplanations <= 0){
+
+        setShowPremiumModal(true);
+
+        return false;
+
+    }
+
+    const newUsed =
+        dailyExplanationUsed + 1;
+
+    setDailyExplanationUsed(newUsed);
+
+    setRemainingExplanations(
+        10 - newUsed
+    );
+
+    await supabase
+        .from("profiles")
+        .update({
+
+            daily_explanation_used:
+            newUsed,
+
+            last_explanation_date:
+            new Date()
+            .toISOString()
+            .split("T")[0]
+
+        })
+        .eq("id", currentUserId);
+
+    return true;
+
+}
 
 async function saveProgress() {
 
@@ -710,11 +851,21 @@ console.log("SAVE AVATAR =", avatar);
     weapon,
     pet,
     hearts,
-    
+    shield,
+scroll,
+book,
+magic_stone: magicStone,
+potion,
+    is_premium: isPremium,
+    daily_explanation_used:
+dailyExplanationUsed,
+    premium_until: premiumUntil,
   })
   
   .eq("id", user.id);
 }
+
+
 
 async function loadAchievements() {
   const {
@@ -1458,6 +1609,14 @@ useEffect(() => {
   weapon,
   pet,
   hearts,
+potion,
+scroll,
+book,
+magicStone,
+potion,
+  isPremium,
+  premiumUntil,
+  dailyExplanationUsed
 ]);
 
   // Setup Boss chung
@@ -1969,7 +2128,7 @@ await supabase
     
 
   // HÀM XỬ LÝ NỘP BÀI CHẶNG 3: TỰ LUẬN NGẮN
-  const checkShortAnswer = () => {
+  const checkShortAnswer = async () => {
     const userAns = shortAnswer.trim().toLowerCase();
     const correctAns = String(question?.answer).trim().toLowerCase();
 
@@ -1996,7 +2155,14 @@ await supabase
 }
       setMessage("❌ Chưa chính xác!");
     }
+    const canShow =
+await consumeExplanation();
+
+if(canShow){
+
     setShowExplanation(true);
+
+}
   };
 
   const handleNextShortQuestion = async () => {
@@ -2470,6 +2636,7 @@ text-yellow-400
               inventory={inventory}
              buyItem={buyItem}
               onClose={() => setShowShop(false)}
+               onBuyPremium={() => setShowPremiumModal(true)}
             />
           </div>
         )}
@@ -2555,13 +2722,18 @@ text-yellow-400
     );
   }
 
- 
 
 console.log("CURRENT AVATAR =", avatar);
 
  return (
-
-  
+<>
+  <PremiumModal
+    open={showPremiumModal}
+    isPremium={isPremium}
+    onClose={() => setShowPremiumModal(false)}
+    onActivate={activatePremium}
+/>
+ 
 
 <BattleScreen
 selectedWorld={selectedWorld}
@@ -2651,7 +2823,7 @@ handleNextShortQuestion={handleNextShortQuestion}
 
 />
 
-
+</>
 
 );
 }

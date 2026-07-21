@@ -9,7 +9,7 @@ type ShopProps = {
   coins: number;
 
   inventory: string[];
-
+onBuyPremium: () => void;
   buyItem: (
     item: string,
     price: number
@@ -23,7 +23,7 @@ export default function Shop({
   inventory,
   buyItem,
   onClose,
-
+ onBuyPremium,
 
 }: ShopProps) {
   const [activeTab, setActiveTab] = useState("featured");
@@ -372,7 +372,9 @@ pb-12
   
  <div className="pt-6">
 
-    <ShopBanner/>
+ <ShopBanner
+    onBuy={onBuyPremium}
+/>
 
 </div> 
 

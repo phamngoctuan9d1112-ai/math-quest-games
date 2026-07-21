@@ -1,4 +1,10 @@
-export default function ShopBanner() {
+interface ShopBannerProps {
+    onBuy: () => void;
+}
+
+export default function ShopBanner({
+    onBuy,
+}: ShopBannerProps) {
   return (
     <section
       className="
@@ -20,7 +26,7 @@ export default function ShopBanner() {
       mb-10
       "
     >
-      {/* Glow */}
+    
 
       <div
         className="
@@ -38,7 +44,7 @@ export default function ShopBanner() {
         "
       />
 
-      {/* Coins */}
+    
 
       <div className="shop-banner-coins" />
 
@@ -57,7 +63,7 @@ export default function ShopBanner() {
         px-12
         "
       >
-        {/* Left */}
+      
 
         <div>
 
@@ -86,38 +92,34 @@ export default function ShopBanner() {
             mt-3
             "
           >
-            Nhận ngay 2.000 Coin + Quà tặng đặc biệt
+ ✔ Giải thích AI không giới hạn
+
+✔ Chỉ miễn phí 10 lần/ngày nếu chưa Premium
+
+✔ Huy hiệu Royal
+
+✔ Ưu tiên tính năng mới
           </p>
-
-          <button
-            className="
-            mt-8
-
-            rounded-2xl
-
-            px-8
-
-            py-4
-
-            bg-yellow-400
-
-            hover:bg-yellow-300
-
-            text-black
-
-            font-black
-
-            text-xl
-
-            transition
-            "
-          >
-            Mua ngay
-          </button>
+<button
+    onClick={onBuy}
+    className="
+    mt-8
+    rounded-2xl
+    px-8
+    py-4
+    bg-yellow-400
+    hover:bg-yellow-300
+    text-black
+    font-black
+    text-xl
+    transition
+    "
+>
+    👑 Nâng cấp Premium
+</button>
 
         </div>
 
-        {/* Right */}
 
         <div
           className="
