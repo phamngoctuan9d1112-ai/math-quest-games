@@ -236,6 +236,7 @@ export default function Home() {
   const [showTFAnswer, setShowTFAnswer] = useState(false);
   const [weapon, setWeapon] = useState("🪵");
   const [shieldActive, setShieldActive] = useState(false);
+  const [magicStoneActive, setMagicStoneActive] = useState(false);
   const [showChestRoom, setShowChestRoom] =
 useState(false);
 
@@ -254,7 +255,7 @@ const [hiddenOptions, setHiddenOptions] = useState<number[]>([]);
 const [storyIndex, setStoryIndex] = useState(0);
 
 const [storyData, setStoryData] = useState<any[]>([]);
-
+const [itemUsedThisQuestion, setItemUsedThisQuestion] = useState(false);
 const [storyMode, setStoryMode] = useState<"intro" | "ending">("intro");
 const [chests, setChests] =
 useState<any[]>([]);
@@ -310,6 +311,7 @@ const [victoryReward, setVictoryReward] =
   const [xp, setXp] = useState(0);
   const [coins, setCoins] = useState(0);
   const [hearts, setHearts] = useState(3);
+  const MAX_HEARTS = 3;
   const [showShop, setShowShop] = useState(false);
   const [inventory, setInventory] = useState<string[]>([]);
   const buyItem = (
@@ -1483,14 +1485,24 @@ useEffect(() => {
   }
 
 function useShield() {
+  
 
     if (shield <= 0) return;
+
+    if (itemUsedThisQuestion) {
+
+    setMessage("⚠ Bạn đã dùng vật phẩm ở câu này!");
+
+    return;
+
+}
 
     if (shieldActive) return;
 
     setShield(prev => prev - 1);
 
     setShieldActive(true);
+    setItemUsedThisQuestion(true);
 
     setMessage("🛡️ Khiên đã được kích hoạt!");
 
@@ -1500,16 +1512,43 @@ function usePotion() {
 
     if (potion <= 0) return;
 
+    if (itemUsedThisQuestion) {
+
+    setMessage("⚠ Đã dùng vật phẩm ở câu này!");
+
+    return false;
+
+}
+
+    if (hearts >= MAX_HEARTS) {
+
+
+        setMessage("❤️ Máu đã đầy!");
+
+        return;
+    }
+
     setPotion(prev => prev - 1);
 
-    setHearts(prev => prev + 1);
+    setHearts(MAX_HEARTS);
 
-    setMessage("❤️ Đã hồi 1 tim");
+    setItemUsedThisQuestion(true);
+
+    setMessage("🧪 Hồi đầy máu!");
+
 }
 
 function useScroll() {
 
     if (scroll <= 0) return false;
+
+    if (itemUsedThisQuestion) {
+
+    setMessage("⚠ Đã dùng vật phẩm ở câu này!");
+
+    return false;
+
+}
 
     if (!question?.options) return false;
 
@@ -1522,6 +1561,7 @@ function useScroll() {
     const shuffled = [...wrongIndexes].sort(() => Math.random() - 0.5);
 
     setHiddenOptions(shuffled.slice(0, 2));
+    setItemUsedThisQuestion(true);
 
     setMessage("📜 Đã loại bỏ 2 đáp án sai!");
 
@@ -1543,9 +1583,23 @@ function useMagicStone() {
 
     if (magicStone <= 0) return false;
 
+    if (itemUsedThisQuestion) {
+
+    setMessage("⚠ Đã dùng vật phẩm ở câu này!");
+
+    return false;
+
+}
+
+    if (magicStoneActive) return false;
+
     setMagicStone(prev => prev - 1);
 
-    setMessage("💎 Đá phép bảo vệ câu hỏi!");
+    setMagicStoneActive(true);
+
+    setItemUsedThisQuestion(true);
+
+    setMessage("💎 Đá phép đã kích hoạt!");
 
     return true;
 }
@@ -1622,13 +1676,21 @@ await checkAchievements(
   setMascotMessage("");
   }, 2000);
 
-  if (shieldActive) {
+ if (shieldActive) {
 
     setShieldActive(false);
 
     setMessage("🛡️ Khiên đã bảo vệ bạn!");
 
-} else {
+}
+else if (magicStoneActive) {
+
+    setMagicStoneActive(false);
+
+    setMessage("💎 Đá phép đã bảo vệ bạn!");
+
+}
+else {
 
     setHearts(prev => Math.max(0, prev - 1));
 
@@ -1678,6 +1740,12 @@ async function moveToNextQuestion() {
   setMessage("");
 
   setHiddenOptions([]);
+
+  setItemUsedThisQuestion(false);
+
+setShieldActive(false);
+
+setMagicStoneActive(false);
 
   const nextIndex = current + 1;
 
