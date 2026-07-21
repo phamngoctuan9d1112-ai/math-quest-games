@@ -2,6 +2,7 @@
 import ShopCard from "./ShopCard";
 import ShopSidebar from "./ShopSidebar";
 import ShopBanner from "./ShopBanner";
+import { useState } from "react";
 
 type ShopProps = {
   coins: number;
@@ -36,6 +37,7 @@ export default function Shop({
 
   onClose,
 }: ShopProps) {
+  const [activeTab, setActiveTab] = useState("featured");
   return (
     <main
 className="
@@ -53,7 +55,10 @@ flex
 overflow-hidden
 "
 >
-  <ShopSidebar />
+ <ShopSidebar
+    activeTab={activeTab}
+    onChange={setActiveTab}
+/>
    <div
 className="
 flex-1
@@ -88,7 +93,7 @@ border-cyan-400/20
 "
 >
 
-{/* Background */}
+
 
 <div className="shop-stars"/>
 
@@ -369,6 +374,9 @@ px-12
 pb-12
 "
 >
+  <div className="text-white text-lg mb-4">
+    Menu hiện tại: {activeTab}
+</div>
  <div className="pt-6">
 
     <ShopBanner/>

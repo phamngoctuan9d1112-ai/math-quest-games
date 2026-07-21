@@ -1,4 +1,49 @@
-export default function ShopSidebar() {
+type Props = {
+  activeTab: string;
+  onChange: (tab: string) => void;
+};
+
+export default function ShopSidebar({
+  activeTab,
+  onChange,
+}: Props) {
+  const menus = [
+  {
+    id: "featured",
+    icon: "🔥",
+    title: "Nổi bật",
+  },
+  {
+    id: "pet",
+    icon: "🐶",
+    title: "Pet & Thú cưng",
+  },
+  {
+    id: "avatar",
+    icon: "🧑",
+    title: "Avatar",
+  },
+  {
+    id: "weapon",
+    icon: "⚔️",
+    title: "Vũ khí",
+  },
+  {
+    id: "item",
+    icon: "🧪",
+    title: "Vật phẩm",
+  },
+  {
+    id: "bundle",
+    icon: "💎",
+    title: "Gói đặc biệt",
+  },
+  {
+    id: "achievement",
+    icon: "🏆",
+    title: "Thành tựu",
+  },
+];
   return (
     <aside
       className="
@@ -14,12 +59,12 @@ export default function ShopSidebar() {
       flex-col
       "
     >
-      {/* Logo */}
+    
       <div className="p-8">
 
         <h2
           className="
-          text-4xl
+          text-3xl
           font-black
           text-yellow-400
           "
@@ -38,41 +83,44 @@ export default function ShopSidebar() {
 
       </div>
 
-      {/* Menu */}
+    
 
-      <nav className="px-4 flex-1">
+    <div className="space-y-2 mt-8">
+  {menus.map((menu) => (
+    <button
+      key={menu.id}
+      onClick={() => onChange(menu.id)}
+      className={`
+        w-full
+        flex
+        items-center
+        gap-3
 
-        <button className="shop-menu active">
-          🔥 Nổi bật
-        </button>
+        px-5
+        py-4
 
-        <button className="shop-menu">
-          🐶 Pet & Thú cưng
-        </button>
+        rounded-2xl
 
-        <button className="shop-menu">
-          🧑 Avatar
-        </button>
+        transition-all
+        duration-300
 
-        <button className="shop-menu">
-          ⚔️ Vũ khí
-        </button>
+        ${
+          activeTab === menu.id
+            ? "bg-yellow-500/20 border border-yellow-400 text-yellow-300"
+            : "text-slate-300 hover:bg-white/5"
+        }
+      `}
+    >
+      <span className="text-xl">{menu.icon}</span>
 
-        <button className="shop-menu">
-          🧪 Vật phẩm
-        </button>
+      <span className="font-semibold">
+        {menu.title}
+      </span>
+    </button>
+  ))}
+</div>
 
-        <button className="shop-menu">
-          💎 Gói đặc biệt
-        </button>
-
-        <button className="shop-menu">
-          🏆 Thành tựu
-        </button>
-
-      </nav>
-
-      {/* Card cuối */}
+   
 
       <div className="p-5">
 
