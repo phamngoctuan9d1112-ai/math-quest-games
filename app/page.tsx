@@ -238,6 +238,16 @@ export default function Home() {
   const [showChestRoom, setShowChestRoom] =
 useState(false);
 
+const [shield, setShield] = useState(0);
+
+const [scroll, setScroll] = useState(0);
+
+const [book, setBook] = useState(0);
+
+const [magicStone, setMagicStone] = useState(0);
+
+const [potion, setPotion] = useState(0);
+
 const [showStory, setShowStory] = useState(false);
 
 const [storyIndex, setStoryIndex] = useState(0);
@@ -669,20 +679,61 @@ async function openChest(chest: any) {
 
   const random = Math.random();
 
-  if (random < 0.5) {
+if(random<0.2){
 
-    reward = "coin";
+reward="shield";
 
-  } else if (random < 0.8) {
+}
+else if(random<0.4){
 
-    reward = "xp";
+reward="scroll";
 
-  } else {
+}
+else if(random<0.6){
 
-    reward = "heart";
+reward="book";
 
-  }
+}
+else if(random<0.8){
 
+reward="magicStone";
+
+}
+else{
+
+reward="potion";
+
+}
+
+if(reward==="shield"){
+
+setShield(prev=>prev+1);
+
+}
+
+if(reward==="scroll"){
+
+setScroll(prev=>prev+1);
+
+}
+
+if(reward==="book"){
+
+setBook(prev=>prev+1);
+
+}
+
+if(reward==="magicStone"){
+
+setMagicStone(prev=>prev+1);
+
+}
+
+if(reward==="potion"){
+
+setPotion(prev=>prev+1);
+
+}
   await supabase
     .from("chests")
     .update({
@@ -1369,6 +1420,61 @@ useEffect(() => {
     setTimeout(() => { setShopMessage(""); }, 2000);
   }
 
+function useShield() {
+
+    if (shield <= 0) return false;
+
+    setShield(prev => prev - 1);
+
+    setMessage("🛡 Khiên đã chặn mất tim!");
+
+    return true;
+}
+
+function usePotion() {
+
+    if (potion <= 0) return;
+
+    setPotion(prev => prev - 1);
+
+    setHearts(prev => prev + 1);
+
+    setMessage("❤️ Đã hồi 1 tim");
+}
+
+function useScroll() {
+
+    if (scroll <= 0) return false;
+
+    setScroll(prev => prev - 1);
+
+    setMessage("📜 Cuộn giấy đã loại bỏ 2 đáp án sai!");
+
+    return true;
+}
+
+function useBook() {
+
+    if (book <= 0) return false;
+
+    setBook(prev => prev - 1);
+
+    setMessage("📖 Sách gợi ý đã được sử dụng!");
+
+    return true;
+}
+
+function useMagicStone() {
+
+    if (magicStone <= 0) return false;
+
+    setMagicStone(prev => prev - 1);
+
+    setMessage("💎 Đá phép bảo vệ câu hỏi!");
+
+    return true;
+}
+
   async function checkAnswer(value: number | string) {
 
   const isCorrect = value === question?.answer;
@@ -1441,8 +1547,17 @@ await checkAchievements(
   setMascotMessage("");
   }, 2000);
 
-    setHearts(prev => prev - 1);
+  if(shield>0){
 
+setShield(prev=>prev-1);
+
+setMessage("🛡️ Khiên đã chặn mất tim!");
+
+}else{
+
+setHearts(prev=>prev-1);
+
+}
     setMessage("❌ Sai rồi!");
 
     setShowCorrectAnswer(true);
@@ -1687,11 +1802,17 @@ await supabase
 
   } else {
 
-    // Sai ít nhất 1 ý
-    setHearts(prev =>
-      Math.max(0, prev - 1)
-    );
+   if(shield>0){
 
+setShield(prev=>prev-1);
+
+setMessage("🛡️ Khiên bảo vệ bạn!");
+
+}else{
+
+setHearts(prev=>Math.max(0,prev-1));
+
+}
     setMessage(
       `❌ Sai (${correctCount}/${question.subQuestions.length})`
     );
@@ -1717,7 +1838,17 @@ await supabase
       setCoins((prev) => prev + reward);
       setMessage("✅ Chính xác! +2 điểm.");
     } else {
-      setHearts((prev) => Math.max(0, prev - 1));
+   if(shield>0){
+
+setShield(prev=>prev-1);
+
+setMessage("🛡️ Khiên đã bảo vệ bạn!");
+
+}else{
+
+setHearts(prev=>Math.max(0,prev-1));
+
+}
       setMessage("❌ Chưa chính xác!");
     }
     setShowExplanation(true);
@@ -2362,12 +2493,25 @@ console.log("CURRENT AVATAR =", avatar);
 <BattleScreen
 selectedWorld={selectedWorld}
 
+shield={shield}
+scroll={scroll}
+book={book}
+magicStone={magicStone}
+potion={potion}
+
+setShield={setShield}
+setScroll={setScroll}
+setBook={setBook}
+setMagicStone={setMagicStone}
+setPotion={setPotion}
+
 currentSubNode={currentSubNode}
 
 setSelectedSubMap={setSelectedSubMap}
 
 setCurrentSubNode={setCurrentSubNode}
-    hearts={hearts}
+hearts={hearts}
+setHearts={setHearts}
     coins={coins}
     xp={xp}
 

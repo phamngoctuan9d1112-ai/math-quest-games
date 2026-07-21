@@ -14,6 +14,18 @@ import Mascot from "../Mascot";
 
 type BattleScreenProps = {
 
+    shield:number;
+scroll:number;
+book:number;
+magicStone:number;
+potion:number;
+
+setShield: React.Dispatch<React.SetStateAction<number>>;
+setScroll: React.Dispatch<React.SetStateAction<number>>;
+setBook: React.Dispatch<React.SetStateAction<number>>;
+setMagicStone: React.Dispatch<React.SetStateAction<number>>;
+setPotion: React.Dispatch<React.SetStateAction<number>>;
+
 selectedWorld: number | null;
 
 mascotState: any;
@@ -59,6 +71,10 @@ checkShortAnswer: () => void;
 handleNextShortQuestion: () => void;
 
     hearts:number;
+
+setHearts:React.Dispatch<
+React.SetStateAction<number>
+>;
     pet: string;
     coins:number;
     currentSubNode: number | null;
@@ -105,7 +121,7 @@ handleNextShortQuestion: () => void;
 
 export default function BattleScreen({
   hearts,
-
+setHearts,
   shortAnswer,
 
   mascotState,
@@ -115,6 +131,17 @@ export default function BattleScreen({
 setShortAnswer,
 
 selectedWorld,
+ shield,
+scroll,
+book,
+magicStone,
+potion,
+
+setShield,
+setScroll,
+setBook,
+setMagicStone,
+setPotion,
 
 currentSubNode,
 setShowExplanation,
@@ -125,6 +152,7 @@ setCurrentSubNode,
 
 message,
 
+ 
 showCorrectAnswer,
 
 dailyProgress,
@@ -214,10 +242,57 @@ my-4
 lg:hidden
 "
 >
+
     <Mascot
         state={mascotState}
         message={mascotMessage}
     />
+</div>
+<div className="flex gap-3 justify-center mb-4">
+
+<button>
+🛡️ {shield}
+</button>
+
+<button
+onClick={()=>{
+
+if(scroll<=0) return;
+
+setScroll(prev=>prev-1);
+
+}}
+>
+
+📜 {scroll}
+
+</button>
+
+<button>
+📖 {book}
+</button>
+
+<button>
+💎 {magicStone}
+</button>
+
+<button
+onClick={()=>{
+
+if(potion<=0) return;
+
+if(hearts>=3) return;
+
+setPotion(prev=>prev-1);
+
+setHearts(prev=>prev+1);
+
+}}
+>
+
+🧪 {potion}
+
+</button>
 </div>
 
         <WorldInfo
