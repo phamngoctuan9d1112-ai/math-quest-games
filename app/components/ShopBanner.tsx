@@ -67,13 +67,13 @@ export default function ShopBanner({
 
         <div>
 
-          <div className="text-7xl mb-4">
+          <div className="text-5xl mb-4">
             👑
           </div>
 
           <h2
             className="
-            text-5xl
+            text-4xl
 
             font-black
 
@@ -85,7 +85,7 @@ export default function ShopBanner({
 
           <p
             className="
-            text-2xl
+            text-xl
 
             text-yellow-200
 
