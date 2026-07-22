@@ -286,118 +286,19 @@ const kingdom4 = worlds.filter(
 
    <SpaceBackground />
 
-   {/* MOBILE HEADER */}
-<div
-className="
-md:hidden
-fixed
-top-0
-left-0
-right-0
-z-40
-px-4
-py-4
-"
->
-
-<div
-className="
-rounded-3xl
-bg-[#0f1d3d]
-border
-border-cyan-400/20
-flex
-items-center
-justify-between
-px-5
-py-4
-"
->
-
-<button
-onClick={() => setShowMobileMenu(true)}
-className="text-4xl text-white"
->
-☰
-</button>
-
-<div
-className="
-flex
-items-center
-gap-3
-"
->
-
-<span className="text-3xl">
-👑
-</span>
-
-<div
-className="
-text-yellow-300
-font-black
-text-2xl
-"
->
-Royal Shop
-</div>
-
-</div>
-
-<div
-className="
-bg-purple-700
-rounded-2xl
-px-4
-py-2
-text-center
-"
->
-
-<div
-className="
-text-yellow-300
-font-black
-text-2xl
-"
->
-{coins}
-</div>
-
-<div className="text-white text-sm">
-Coin
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 
       
-<div
+
+      <div
 className="
 relative
 z-10
 flex-1
-pt-28
-md:pt-0
 "
 >
-<div
-className="
-max-w-[1700px]
-mx-auto
+        <div className="max-w-[1700px] mx-auto px-6 xl:px-10 py-8">
 
-px-4
-md:px-6
-xl:px-10
-
-py-8
-"
->
+          {/* HEADER */}
 
           <div
 className="
@@ -429,7 +330,7 @@ items-start
             <section className="min-w-0">
 
               
-              <div className="hidden md:block">
+              <div className="mt-8">
 
                 <PlayerCard
                   userName={userName}
@@ -497,16 +398,12 @@ setMessage={setMessage}
           </div>
           
 
+          {/* CONTENT */}
 <div
 className="
-mt-8
-md:mt-20
-
-space-y-16
-md:space-y-32
-
-pb-28
-md:pb-12
+mt-20
+space-y-32
+pb-12
 "
 >
 
@@ -579,32 +476,28 @@ md:pb-12
 </footer>
 
 
-<div
-className="
+        <div
+          className="
 fixed
 bottom-0
 left-0
 right-0
 md:hidden
-
-bg-[#08152f]
-
+bg-white
 border-t
-border-cyan-500/20
-
+border-gray-200
+shadow-2xl
 z-50
 "
->
+ >
 
-<div
-className="
+          <div
+            className="
 grid
 grid-cols-5
 py-2
 "
->
-
-
+          >
 
             <button
               onClick={onShop}
@@ -677,73 +570,8 @@ ${streak > 0
             </button>
 
           </div>
-</div>
-        {showMobileMenu && (
 
-<div
-className="
-fixed
-inset-0
-z-[999]
-bg-black/60
-md:hidden
-"
-onClick={() => setShowMobileMenu(false)}
->
-
-<div
-onClick={(e)=>e.stopPropagation()}
-
-className="
-absolute
-left-0
-top-0
-bottom-0
-
-w-[82%]
-max-w-[300px]
-
-bg-[#08152f]
-
-translate-x-0
-
-animate-slideIn
-
-overflow-y-auto
-"
->
-
-<div className="text-3xl font-black text-yellow-400">
-👑 Royal Shop
-</div>
-
-<p className="text-slate-400 mt-2">
-Cửa Hàng Hoàng Gia
-</p>
-
-<LeftMenu
-onShop={()=>{
-setShowMobileMenu(false);
-onShop();
-}}
-
-onAchievements={()=>{
-setShowMobileMenu(false);
-onAchievements();
-}}
-
-onChest={onChest}
-
-onChestInventory={onChestInventory}
-/>
-
-</div>
-
-</div>
-
-)}
-
-
+        </div>
 
         {showStreakModal && (
           <div
