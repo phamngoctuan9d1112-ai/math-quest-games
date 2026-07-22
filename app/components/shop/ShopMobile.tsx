@@ -44,47 +44,47 @@ export default function ShopMobile({
   return (
 
 <div
-className="
-h-full
-overflow-y-auto
-bg-gradient-to-b
-from-[#071226]
-via-[#091833]
-to-[#0d2145]
+  className="
+  h-full
+  overflow-y-auto
 
-pb-32
+  bg-gradient-to-b
+  from-[#071226]
+  via-[#091833]
+  to-[#0d2145]
 
-scroll-smooth
-"
+  pb-[180px]
+  "
 >
 
-{/* ===================================================== */}
+{/* ====================================================== */}
 
 {/* HEADER */}
 
-{/* ===================================================== */}
+{/* ====================================================== */}
 
 <div className="px-4 pt-4">
 
 <div
 className="
 relative
+
 overflow-hidden
 
-rounded-3xl
+rounded-[26px]
 
 bg-gradient-to-r
-from-[#183873]
-via-[#25529b]
-to-[#3963c5]
+from-[#19396f]
+via-[#2553a0]
+to-[#3665ca]
 
 border
 border-cyan-300/20
 
-shadow-[0_20px_60px_rgba(0,0,0,.45)]
+shadow-[0_20px_50px_rgba(0,0,0,.35)]
 
 px-4
-py-4
+py-3
 
 flex
 items-center
@@ -95,40 +95,48 @@ justify-between
 <div
 className="
 absolute
-right-[-70px]
-top-[-70px]
+right-[-40px]
+top-[-40px]
 
-w-40
-h-40
+w-28
+h-28
 
 rounded-full
 
 bg-cyan-300/10
 
-blur-[70px]
+blur-[50px]
 "
 />
 
 <button
-onClick={() => setShowMobileMenu(true)}
+
+onClick={()=>setShowMobileMenu(true)}
+
 className="
 relative
+
 z-10
 
-w-12
-h-12
+w-11
+h-11
 
-rounded-2xl
+rounded-xl
 
 bg-white/10
+
+backdrop-blur
+
+text-2xl
+text-white
 
 flex
 items-center
 justify-center
 
-text-white
-text-2xl
+active:scale-95
 "
+
 >
 
 ☰
@@ -138,20 +146,23 @@ text-2xl
 <div
 className="
 relative
+
 z-10
 
 flex
+
 items-center
+
 gap-3
 "
 >
 
 <div
 className="
-w-11
-h-11
+w-10
+h-10
 
-rounded-2xl
+rounded-xl
 
 bg-yellow-400/15
 
@@ -159,7 +170,7 @@ flex
 items-center
 justify-center
 
-text-2xl
+text-xl
 "
 >
 
@@ -172,8 +183,10 @@ text-2xl
 <div
 className="
 text-yellow-300
+
 font-black
-text-lg
+
+text-[15px]
 leading-none
 "
 >
@@ -184,9 +197,11 @@ Royal Shop
 
 <div
 className="
-text-slate-200
-text-xs
 mt-1
+
+text-[10px]
+
+text-slate-100
 "
 >
 
@@ -201,20 +216,21 @@ Cửa Hàng Hoàng Gia
 <div
 className="
 relative
+
 z-10
 
-rounded-2xl
+rounded-xl
 
 bg-white/10
 
-backdrop-blur-xl
+backdrop-blur
 
-px-4
+px-3
 py-2
 
-text-center
+min-w-[76px]
 
-min-w-[90px]
+text-center
 "
 >
 
@@ -224,9 +240,7 @@ text-yellow-300
 
 font-black
 
-text-2xl
-
-leading-none
+text-xl
 "
 >
 
@@ -236,9 +250,9 @@ leading-none
 
 <div
 className="
-text-[11px]
-text-slate-200
-mt-1
+text-[10px]
+
+text-slate-100
 "
 >
 
@@ -252,11 +266,11 @@ Coin
 
 </div>
 
-{/* ===================================================== */}
+{/* ====================================================== */}
 
 {/* HERO */}
 
-{/* ===================================================== */}
+{/* ====================================================== */}
 
 <div className="px-4 pt-4">
 
@@ -266,64 +280,56 @@ relative
 
 overflow-hidden
 
-rounded-[30px]
+rounded-[28px]
 
 bg-gradient-to-br
 
-from-[#164884]
+from-[#184a87]
+via-[#315cbc]
+to-[#6a49df]
 
-via-[#325cb8]
+shadow-[0_20px_50px_rgba(0,0,0,.35)]
 
-to-[#6f37dd]
-
-shadow-[0_25px_60px_rgba(0,0,0,.45)]
-
-p-6
+px-5
+py-5
 "
 >
 
 <div
 className="
 absolute
+right-[-60px]
+top-[-60px]
 
-right-[-90px]
-top-[-90px]
-
-w-56
-h-56
+w-40
+h-40
 
 rounded-full
 
 bg-cyan-300/10
 
-blur-[90px]
+blur-[70px]
 "
 />
 
 <div
 className="
 absolute
+left-[-60px]
+bottom-[-60px]
 
-left-[-100px]
-bottom-[-110px]
-
-w-64
-h-64
+w-44
+h-44
 
 rounded-full
 
 bg-blue-300/10
 
-blur-[120px]
+blur-[90px]
 "
 />
 
-<div
-className="
-relative
-z-10
-"
->
+<div className="relative z-10">
 
 <div
 className="
@@ -339,16 +345,16 @@ bg-yellow-400/10
 
 border
 
-border-yellow-400/40
+border-yellow-400/30
 
-px-4
-py-2
+px-3
+py-1
 
-text-yellow-300
+text-[11px]
 
 font-bold
 
-text-sm
+text-yellow-200
 "
 >
 
@@ -356,45 +362,60 @@ text-sm
 
 </div>
 
-<div className="mt-5 text-5xl">
+<div
+className="
+mt-4
+
+flex
+
+items-start
+
+gap-4
+"
+>
+
+<div className="text-4xl">
 
 🏪
 
 </div>
 
+<div>
+
 <h1
 className="
-mt-4
-
 text-white
 
 font-black
 
-text-3xl
+text-[20px]
 
 leading-tight
 "
 >
 
 Cửa Hàng
-<br />
+<br/>
+
 Hoàng Gia
 
 </h1>
 
 <p
 className="
-mt-4
+mt-2
+
+text-[11px]
+
+leading-5
 
 text-slate-100
 
-text-sm
-
-leading-6
+max-w-[220px]
 "
 >
 
-Mua Pet, Avatar, Vũ khí và những vật phẩm hiếm để tăng sức mạnh cho hành trình chinh phục Vương Quốc Toán Học.
+Mua Pet, Avatar, Vũ khí và vật phẩm hiếm nhằm tăng sức mạnh trong hành trình chinh phục Vương Quốc Toán Học.
 
 </p>
 
@@ -404,9 +425,17 @@ Mua Pet, Avatar, Vũ khí và những vật phẩm hiếm để tăng sức mạ
 
 </div>
 
+</div>
 
+</div>
 
-<div className="px-4 pt-5">
+{/* ====================================================== */}
+
+{/* PREMIUM */}
+
+{/* ====================================================== */}
+
+<div className="px-4 pt-4">
 
 <ShopBanner
 onBuy={onBuyPremium}
