@@ -40,402 +40,585 @@ export default function ShopMobile({
   onBuyPremium,
   onClose,
 }: Props) {
+
   return (
-   <div
+
+<div
 className="
 h-full
 overflow-y-auto
-bg-[#071226]
+bg-gradient-to-b
+from-[#071226]
+via-[#091833]
+to-[#0d2145]
+
+pb-32
+
+scroll-smooth
 "
 >
 
-      {/* HEADER */}
+{/* ===================================================== */}
 
-      <div className="px-4 pt-4">
+{/* HEADER */}
 
-  <div
-  className="
-  relative
-  overflow-hidden
+{/* ===================================================== */}
 
-  rounded-2xl
+<div className="px-4 pt-4">
 
-  bg-gradient-to-r
-  from-[#152d63]
-  via-[#244b92]
-  to-[#30539d]
+<div
+className="
+relative
+overflow-hidden
 
-  border
-  border-cyan-400/20
-
-  px-4
-  py-3
-
-  flex
-  items-center
-  justify-between
-
-  shadow-xl
-"
->
-
-          <button
-            onClick={() =>
-              setShowMobileMenu(true)
-            }
-         className="
-text-white
-text-3xl
-font-bold
-"
-          >
-            ☰
-          </button>
-
-          <div
-            className="
-            flex
-            items-center
-            gap-3
-          "
-          >
-
-            <span className="text-2xl">
-              👑
-            </span>
-
-            <div>
-
-              <div
-                className="
-                text-yellow-300
-                font-black
-                text-xl
-              "
-              >
-                Royal Shop
-              </div>
-
-              <div
-                className="
-                text-slate-200
-                text-[10px]
-              "
-              >
-                Cửa Hàng Hoàng Gia
-              </div>
-
-            </div>
-
-          </div>
-
-          <div
-            className="
-        rounded-2xl
+rounded-3xl
 
 bg-gradient-to-r
-from-[#6d38dd]
-to-[#8b52ff]
+from-[#183873]
+via-[#25529b]
+to-[#3963c5]
 
-px-3
+border
+border-cyan-300/20
+
+shadow-[0_20px_60px_rgba(0,0,0,.45)]
+
+px-4
+py-4
+
+flex
+items-center
+justify-between
+"
+>
+
+<div
+className="
+absolute
+right-[-70px]
+top-[-70px]
+
+w-40
+h-40
+
+rounded-full
+
+bg-cyan-300/10
+
+blur-[70px]
+"
+/>
+
+<button
+onClick={() => setShowMobileMenu(true)}
+className="
+relative
+z-10
+
+w-12
+h-12
+
+rounded-2xl
+
+bg-white/10
+
+flex
+items-center
+justify-center
+
+text-white
+text-2xl
+"
+>
+
+☰
+
+</button>
+
+<div
+className="
+relative
+z-10
+
+flex
+items-center
+gap-3
+"
+>
+
+<div
+className="
+w-11
+h-11
+
+rounded-2xl
+
+bg-yellow-400/15
+
+flex
+items-center
+justify-center
+
+text-2xl
+"
+>
+
+👑
+
+</div>
+
+<div>
+
+<div
+className="
+text-yellow-300
+font-black
+text-lg
+leading-none
+"
+>
+
+Royal Shop
+
+</div>
+
+<div
+className="
+text-slate-200
+text-xs
+mt-1
+"
+>
+
+Cửa Hàng Hoàng Gia
+
+</div>
+
+</div>
+
+</div>
+
+<div
+className="
+relative
+z-10
+
+rounded-2xl
+
+bg-white/10
+
+backdrop-blur-xl
+
+px-4
 py-2
 
 text-center
 
-shadow-md
+min-w-[90px]
+"
+>
 
-min-w-[82px]
-          "
-          >
+<div
+className="
+text-yellow-300
 
-            <div
-              className="
-              text-yellow-300
-              font-black
-              text-2xl
-            "
-            >
-              {coins}
-            </div>
+font-black
 
-            <div
-              className="
-              text-white
-              text-xs
-            "
-            >
-              Coin
-            </div>
+text-2xl
 
-          </div>
+leading-none
+"
+>
 
-        </div>
+{coins}
 
-      </div>
+</div>
 
-      {/* HERO */}
+<div
+className="
+text-[11px]
+text-slate-200
+mt-1
+"
+>
 
-      <div className="px-4 pt-4">
+Coin
 
-        <div
-          className="
-          relative
+</div>
 
-          overflow-hidden
+</div>
 
-          rounded-[26px]
+</div>
 
-          bg-gradient-to-br
-          from-[#143f75]
-          via-[#2d4d9d]
-          to-[#6d35df]
+</div>
 
-          p-5
+{/* ===================================================== */}
 
-          shadow-2xl
-        "
-        >
+{/* HERO */}
 
-          <div
-            className="
-            inline-flex
+{/* ===================================================== */}
 
-            items-center
+<div className="px-4 pt-4">
 
-            gap-2
+<div
+className="
+relative
 
-            rounded-full
+overflow-hidden
 
-            border
+rounded-[30px]
 
-            border-yellow-400
+bg-gradient-to-br
 
-            bg-yellow-500/10
+from-[#164884]
 
-           px-3
-py-1
+via-[#325cb8]
 
-            text-yellow-300
+to-[#6f37dd]
 
-            font-bold
-          "
-          >
+shadow-[0_25px_60px_rgba(0,0,0,.45)]
 
-            👑 Royal Shop
+p-6
+"
+>
 
-          </div>
+<div
+className="
+absolute
 
-          <div className="mt-5 text-5xl">
-            🏪
-          </div>
+right-[-90px]
+top-[-90px]
 
-          <h1
-            className="
-            mt-5
+w-56
+h-56
 
-            text-white
+rounded-full
 
-            text-[30px]
+bg-cyan-300/10
 
-            leading-tight
+blur-[90px]
+"
+/>
 
-            font-black
-          "
-          >
-            Cửa Hàng
-            <br />
-            Hoàng Gia
-          </h1>
+<div
+className="
+absolute
 
-          <p
-            className="
-            mt-5
+left-[-100px]
+bottom-[-110px]
 
-            text-slate-200
+w-64
+h-64
 
-            text-sm
+rounded-full
+
+bg-blue-300/10
+
+blur-[120px]
+"
+/>
+
+<div
+className="
+relative
+z-10
+"
+>
+
+<div
+className="
+inline-flex
+
+items-center
+
+gap-2
+
+rounded-full
+
+bg-yellow-400/10
+
+border
+
+border-yellow-400/40
+
+px-4
+py-2
+
+text-yellow-300
+
+font-bold
+
+text-sm
+"
+>
+
+👑 Royal Shop
+
+</div>
+
+<div className="mt-5 text-5xl">
+
+🏪
+
+</div>
+
+<h1
+className="
+mt-4
+
+text-white
+
+font-black
+
+text-3xl
+
+leading-tight
+"
+>
+
+Cửa Hàng
+<br />
+Hoàng Gia
+
+</h1>
+
+<p
+className="
+mt-4
+
+text-slate-100
+
+text-sm
+
 leading-6
-          "
-          >
-            Trang bị Pet, Avatar,
-            Vũ khí và các vật phẩm
-            hiếm để tăng sức mạnh
-            trong hành trình khám phá
-            Vương Quốc Toán Học.
-          </p>
+"
+>
 
-          <div
-            className="
-            absolute
+Mua Pet, Avatar, Vũ khí và những vật phẩm hiếm để tăng sức mạnh cho hành trình chinh phục Vương Quốc Toán Học.
 
-            right-[-70px]
+</p>
 
-            top-[-70px]
+</div>
 
-            w-[220px]
+</div>
 
-            h-[220px]
+</div>
 
-            rounded-full
 
-            bg-cyan-300/10
 
-            blur-[90px]
-          "
-          />
+<div className="px-4 pt-5">
 
-          <div
-            className="
-            absolute
+<ShopBanner
+onBuy={onBuyPremium}
+/>
 
-            left-[-80px]
+</div>
+{/* ===================================================== */}
 
-            bottom-[-90px]
+{/* TITLE */}
 
-            w-[240px]
+{/* ===================================================== */}
 
-            h-[240px]
+<div
+className="
+px-4
 
-            rounded-full
+pt-6
+pb-4
 
-            bg-blue-300/10
+flex
+items-center
+justify-between
+"
+>
 
-            blur-[120px]
-          "
-          />
+<div
+className="
+flex
+items-center
+gap-2
+"
+>
 
-        </div>
+<div
+className="
+w-10
+h-10
 
-      </div>
+rounded-xl
 
-      {/* PREMIUM */}
+bg-yellow-500/15
 
-      <div className="px-4 pt-5">
+flex
+items-center
+justify-center
 
-        <ShopBanner
-          onBuy={onBuyPremium}
-        />
+text-xl
+"
+>
 
-      </div>
+⭐
 
-      {/* TITLE */}
+</div>
 
-      <div
-        className="
-        px-4
+<div>
 
-        pt-5
+<div
+className="
+text-white
+font-black
+text-xl
+leading-none
+"
+>
 
-        pb-3
+Vật phẩm nổi bật
 
-        flex
+</div>
 
-        items-center
+<div
+className="
+text-slate-400
+text-xs
+mt-1
+"
+>
 
-        justify-between
-      "
-      >
+{filteredItems.length} vật phẩm
 
-        <div
-          className="
-          flex
-          items-center
-          gap-3
-        "
-        >
+</div>
 
-          <span className="text-3xl">
-            ⭐
-          </span>
+</div>
 
-          <h2
-            className="
-            text-white
+</div>
 
-            text-2xl
+<button
+className="
+text-yellow-300
 
-            font-black
-          "
-          >
+text-sm
 
-            Vật phẩm nổi bật
+font-bold
 
-          </h2>
+active:scale-95
 
-        </div>
+transition
+"
+>
 
-        <button
-          className="
-          text-yellow-300
-          font-bold
-        "
-        >
-          Xem tất cả →
-        </button>
+Xem tất cả →
 
-      </div>
+</button>
 
-      {/* ITEMS */}
+</div>
 
-      <div
-        className="
-        flex-1
+{/* ===================================================== */}
 
-        overflow-y-auto
+{/* GRID */}
 
-        px-4
+{/* ===================================================== */}
 
-        pb-36
-      "
-      >
+<div
+className="
+px-4
+pb-32
+"
+>
 
-        <div
-          className="
-          grid
+<div
+className="
+grid
 
-          grid-cols-2
+grid-cols-2
 
-          gap-4
-        "
-        >
-            {filteredItems.map((item) => (
+gap-3
+"
+>
 
-  <div
-    key={item.id}
-    className="
-    relative
+{filteredItems.map((item)=>(
 
-    transition-all
+<div
 
-    duration-300
+key={item.id}
 
-    hover:scale-[1.02]
-    "
-  >
+className="
+group
 
-    <ShopCard
-      icon={item.icon}
-      title={item.title}
-      description={item.description}
-      price={item.price}
-      rarity={item.rarity}
-      color={item.color}
-      owned={inventory.includes(item.id)}
-      stackable={item.stackable}
-      onBuy={() =>
-        buyItem(item.id, item.price)
-      }
-    />
+transition-all
 
-  </div>
+duration-300
+
+active:scale-95
+"
+
+>
+
+<div
+className="
+rounded-3xl
+
+bg-gradient-to-b
+
+from-white/5
+
+to-white/[0.03]
+
+border
+
+border-white/10
+
+backdrop-blur-xl
+
+p-[2px]
+
+shadow-lg
+
+group-hover:border-cyan-400/30
+
+transition
+"
+>
+
+<ShopCard
+
+icon={item.icon}
+
+title={item.title}
+
+description={item.description}
+
+price={item.price}
+
+rarity={item.rarity}
+
+color={item.color}
+
+owned={inventory.includes(item.id)}
+
+stackable={item.stackable}
+
+onBuy={()=>
+
+buyItem(item.id,item.price)
+
+}
+
+/>
+
+</div>
+
+</div>
 
 ))}
 
 </div>
 
 </div>
+{/* ===================================================== */}
 
-{/* ================= MOBILE SIDEBAR ================= */}
+{/* MOBILE SIDEBAR */}
+
+{/* ===================================================== */}
 
 {showMobileMenu && (
 
@@ -448,10 +631,13 @@ onClick={() => setShowMobileMenu(false)}
 className="
 fixed
 inset-0
+
 bg-black/70
-backdrop-blur-sm
+backdrop-blur-md
+
 z-[100]
 "
+
 />
 
 <div
@@ -463,14 +649,14 @@ left-0
 top-0
 bottom-0
 
-w-[300px]
+w-[290px]
 
-bg-[#08152f]
+bg-[#0b1633]
 
 border-r
-border-cyan-400/20
+border-cyan-500/20
 
-shadow-[0_20px_60px_rgba(0,0,0,.45)]
+shadow-[0_30px_80px_rgba(0,0,0,.6)]
 
 z-[101]
 
@@ -485,21 +671,29 @@ p-6
 
 border-b
 
-border-cyan-400/20
+border-white/10
 "
 >
+
+<div className="text-3xl">
+
+👑
+
+</div>
 
 <div
 className="
-text-3xl
+mt-3
+
+text-white
 
 font-black
 
-text-yellow-300
+text-2xl
 "
 >
 
-👑 Royal Shop
+Royal Shop
 
 </div>
 
@@ -507,90 +701,68 @@ text-yellow-300
 className="
 text-slate-400
 
-mt-2
+text-sm
+
+mt-1
 "
 >
 
-Cửa Hàng Hoàng Gia
+Cửa hàng hoàng gia
 
 </div>
 
 </div>
 
-<div className="p-4 space-y-3">
+<div className="p-4 space-y-2">
 
 {[
-{
-icon:"🔥",
-title:"Nổi bật",
-key:"featured",
-},
-
-{
-icon:"🐶",
-title:"Pet",
-key:"pet",
-},
-
-{
-icon:"🧑",
-title:"Avatar",
-key:"avatar",
-},
-
-{
-icon:"⚔️",
-title:"Vũ khí",
-key:"weapon",
-},
-
-{
-icon:"🧪",
-title:"Vật phẩm",
-key:"item",
-},
-
-{
-icon:"💎",
-title:"Đặc biệt",
-key:"premium",
-},
-
-].map((menu)=>(
+["🔥","Nổi bật","featured"],
+["🐶","Pet","pet"],
+["🧑","Avatar","avatar"],
+["⚔️","Vũ khí","weapon"],
+["🧪","Vật phẩm","item"],
+["💎","VIP","premium"],
+].map(([icon,title,key])=>(
 
 <button
 
-key={menu.key}
+key={String(key)}
 
 onClick={()=>{
-setActiveTab(menu.key);
+setActiveTab(String(key));
 setShowMobileMenu(false);
 }}
 
 className={`
+
 w-full
 
 rounded-2xl
 
-px-5
-py-4
-
 flex
+
 items-center
+
 gap-4
+
+px-5
+
+py-4
 
 transition-all
 
+duration-300
+
 ${
-activeTab===menu.key
+activeTab===key
 
 ?
 
-"bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500 text-yellow-300"
+"bg-gradient-to-r from-yellow-500 to-orange-500 text-white shadow-lg scale-[1.02]"
 
 :
 
-"text-slate-300 hover:bg-white/5"
+"bg-white/5 text-slate-300 active:bg-white/10"
 
 }
 
@@ -598,20 +770,15 @@ activeTab===menu.key
 
 >
 
-<div className="text-3xl">
+<div className="text-2xl">
 
-{menu.icon}
+{icon}
 
 </div>
 
-<div
-className="
-font-bold
-text-lg
-"
->
+<div className="font-bold">
 
-{menu.title}
+{title}
 
 </div>
 
@@ -626,181 +793,212 @@ text-lg
 </>
 
 )}
-      {/* ================= BOTTOM NAV ================= */}
 
-      <div
-        className="
-        fixed
-        bottom-0
-        left-0
-        right-0
+{/* ===================================================== */}
 
-        bg-[#18284d]/95
-        backdrop-blur-xl
+{/* FLOATING CLOSE */}
 
-        border-t
-        border-cyan-400/20
+{/* ===================================================== */}
 
-        shadow-[0_-10px_40px_rgba(0,0,0,.45)]
+<button
 
-        z-[90]
-        "
-      >
+onClick={onClose}
 
-        <div
-          className="
-          grid
-          grid-cols-6
+className="
+fixed
 
-          py-3
-          "
-        >
+right-5
+bottom-24
 
-          {[
-            {
-              icon: "🔥",
-              label: "Hot",
-              key: "featured",
-            },
+w-14
+h-14
 
-            {
-              icon: "🐶",
-              label: "Pet",
-              key: "pet",
-            },
+rounded-full
 
-            {
-              icon: "🧑",
-              label: "Avatar",
-              key: "avatar",
-            },
+bg-gradient-to-br
 
-            {
-              icon: "⚔️",
-              label: "Vũ khí",
-              key: "weapon",
-            },
+from-red-500
+to-red-700
 
-            {
-              icon: "🧪",
-              label: "Item",
-              key: "item",
-            },
+shadow-[0_10px_30px_rgba(255,0,0,.4)]
 
-            {
-              icon: "💎",
-              label: "VIP",
-              key: "premium",
-            },
+text-white
 
-          ].map((tab) => (
+text-2xl
 
-            <button
-              key={tab.key}
+active:scale-90
 
-              onClick={() =>
-                setActiveTab(tab.key)
-              }
+transition
 
-              className="
-              flex
-              flex-col
-              items-center
-              justify-center
+z-[95]
+"
 
-              gap-1
+>
 
-              transition-all
-              duration-300
-              "
-            >
+✕
 
-              <div
-                className={`
-                w-12
-                h-12
+</button>
 
-                rounded-2xl
+{/* ===================================================== */}
 
-                flex
-                items-center
-                justify-center
+{/* BOTTOM NAV */}
 
-                text-2xl
+{/* ===================================================== */}
 
-                transition-all
+<div
 
-                ${
-                  activeTab === tab.key
-                    ? "bg-gradient-to-r from-yellow-500 to-orange-500 scale-110 shadow-lg"
-                    : "bg-white/5"
-                }
-                `}
-              >
+className="
+fixed
 
-                {tab.icon}
+bottom-0
+left-0
+right-0
 
-              </div>
+z-[90]
 
-              <div
-                className={`
-                text-[11px]
-                font-semibold
+px-3
+pb-4
+pt-2
 
-                ${
-                  activeTab === tab.key
-                    ? "text-yellow-300"
-                    : "text-slate-400"
-                }
-                `}
-              >
+bg-gradient-to-t
 
-                {tab.label}
+from-[#071226]
+to-[#071226]/90
 
-              </div>
+backdrop-blur-3xl
+"
 
-            </button>
+>
 
-          ))}
+<div
 
-        </div>
+className="
+rounded-3xl
 
-      </div>
+bg-[#17274d]/95
 
-      {/* CLOSE SHOP */}
+border
 
-      <button
-        onClick={onClose}
-        className="
-        fixed
+border-cyan-400/15
 
-        right-5
-        bottom-28
+shadow-[0_10px_40px_rgba(0,0,0,.45)]
 
-        w-14
-        h-14
+grid
 
-        rounded-full
+grid-cols-6
 
-        bg-red-500
+py-2
+"
 
-        text-white
+>
 
-        text-2xl
+{[
+["🔥","featured"],
+["🐶","pet"],
+["🧑","avatar"],
+["⚔️","weapon"],
+["🧪","item"],
+["💎","premium"],
+].map(([icon,key])=>(
 
-        shadow-2xl
+<button
 
-        active:scale-95
+key={String(key)}
 
-        transition
-        "
-      >
+onClick={()=>setActiveTab(String(key))}
 
-        ✕
+className="
+flex
 
-      </button>
+flex-col
 
-    </div>
+items-center
 
-  );
+justify-center
+
+py-2
+
+transition
+"
+
+>
+
+<div
+
+className={`
+w-11
+h-11
+
+rounded-2xl
+
+flex
+
+items-center
+
+justify-center
+
+text-xl
+
+transition-all
+
+${
+activeTab===key
+
+?
+
+"bg-gradient-to-br from-yellow-400 to-orange-500 text-white scale-110 shadow-lg"
+
+:
+
+"bg-white/5 text-slate-400"
+
 }
+
+`}
+
+>
+
+{icon}
+
+</div>
+
+<div
+
+className={`
+mt-1
+
+text-[10px]
+
+font-bold
+
+${
+activeTab===key
+
+?
+
+"text-yellow-300"
+
+:
+
+"text-slate-500"
+
+}
+
+`}
+
+>
+
+{key}
+
+</div>
+
+</button>
+
+))}
+
+</div>
+
+</div>
+
+</div>
+  )}
