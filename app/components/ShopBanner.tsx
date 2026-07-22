@@ -128,23 +128,7 @@ leading-none
             Gói Hoàng Gia
           </h2>
 
-          <p
-            className="
-mt-1
-
-text-[10px]
-
-leading-4
-
-text-slate-100
-
-max-w-[165px]
-"
-          >
-            Mở khóa toàn bộ đặc quyền và
-            nhận thưởng độc quyền.
-          </p>
-
+       
           <button
             onClick={onBuy}
             className="
