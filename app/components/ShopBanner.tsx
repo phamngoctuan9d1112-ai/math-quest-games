@@ -11,19 +11,19 @@ export default function ShopBanner({
 relative
 overflow-hidden
 
-rounded-[28px]
+rounded-[26px]
 
 bg-gradient-to-br
-from-[#36207e]
-via-[#4d37b8]
-to-[#7357ff]
+from-[#33206e]
+via-[#4c39b8]
+to-[#7158ff]
 
 border
 border-yellow-400/20
 
-shadow-[0_15px_40px_rgba(0,0,0,.35)]
+shadow-[0_10px_35px_rgba(0,0,0,.35)]
 
-h-[120px]
+h-[96px]
 "
     >
       {/* Glow */}
@@ -31,36 +31,38 @@ h-[120px]
       <div
         className="
 absolute
-right-[-40px]
-top-[-40px]
+right-[-30px]
+top-[-30px]
 
-w-40
-h-40
+w-28
+h-28
 
 rounded-full
 
 bg-yellow-300/20
 
-blur-[70px]
+blur-[55px]
 "
       />
 
       <div
         className="
 absolute
-left-[-40px]
-bottom-[-40px]
+left-[-20px]
+bottom-[-20px]
 
-w-32
-h-32
+w-24
+h-24
 
 rounded-full
 
 bg-cyan-300/10
 
-blur-[60px]
+blur-[45px]
 "
       />
+
+      {/* Content */}
 
       <div
         className="
@@ -72,14 +74,14 @@ flex
 
 items-center
 
-justify-between
+gap-4
 
-px-5
+px-4
 "
       >
         {/* LEFT */}
 
-        <div className="z-10">
+        <div className="flex-1">
 
           <div
             className="
@@ -87,7 +89,7 @@ inline-flex
 
 items-center
 
-gap-2
+gap-1
 
 rounded-full
 
@@ -95,12 +97,12 @@ bg-yellow-400/15
 
 border
 
-border-yellow-300/40
+border-yellow-300/30
 
-px-3
+px-2.5
 py-1
 
-text-[10px]
+text-[9px]
 
 font-bold
 
@@ -112,13 +114,13 @@ text-yellow-200
 
           <h2
             className="
-mt-2
+mt-1
 
 text-white
 
 font-black
 
-text-2xl
+text-lg
 
 leading-none
 "
@@ -130,23 +132,23 @@ leading-none
             className="
 mt-1
 
-text-[11px]
-
-text-slate-100
+text-[10px]
 
 leading-4
 
-max-w-[160px]
+text-slate-100
+
+max-w-[165px]
 "
           >
             Mở khóa toàn bộ đặc quyền và
-            nhận nhiều phần thưởng độc quyền.
+            nhận thưởng độc quyền.
           </p>
 
           <button
             onClick={onBuy}
             className="
-mt-3
+mt-2
 
 rounded-full
 
@@ -154,10 +156,10 @@ bg-gradient-to-r
 from-yellow-400
 to-orange-500
 
-px-4
-py-2
+px-3
+py-1.5
 
-text-[11px]
+text-[10px]
 
 font-bold
 
@@ -165,16 +167,18 @@ text-black
 
 shadow-lg
 
-active:scale-95
-
 transition-all
+
 duration-300
+
+active:scale-95
 
 hover:brightness-110
 "
           >
             ✨ Khám phá
           </button>
+
         </div>
 
         {/* RIGHT */}
@@ -183,30 +187,30 @@ hover:brightness-110
           className="
 relative
 
+w-16
+h-16
+
+shrink-0
+
 flex
 
 items-center
 
 justify-center
-
-w-24
-h-24
-
-shrink-0
 "
         >
           <div
             className="
 absolute
 
-w-20
-h-20
+w-14
+h-14
 
 rounded-full
 
 bg-yellow-300/20
 
-blur-2xl
+blur-xl
 "
           />
 
@@ -214,43 +218,45 @@ blur-2xl
             className="
 relative
 
-text-[70px]
+text-[50px]
 
-drop-shadow-[0_0_20px_rgba(255,220,0,.45)]
+drop-shadow-[0_0_10px_rgba(255,220,0,.4)]
 "
           >
             💰
           </div>
+
         </div>
+
       </div>
 
-      {/* Decorative coins */}
+      {/* Decorations */}
 
       <div
         className="
 absolute
 
 top-3
-right-20
+right-16
 
-text-sm
+text-[10px]
 
-opacity-60
+opacity-50
 "
       >
-        🪙
+        ⭐
       </div>
 
       <div
         className="
 absolute
 
-bottom-4
-right-28
+bottom-2
+right-24
 
-text-xs
+text-[10px]
 
-opacity-50
+opacity-40
 "
       >
         ✨
@@ -260,16 +266,17 @@ opacity-50
         className="
 absolute
 
-top-8
-right-10
+top-6
+right-8
 
 text-xs
 
-opacity-40
+opacity-50
 "
       >
-        ⭐
+        🪙
       </div>
+
     </section>
   );
 }
