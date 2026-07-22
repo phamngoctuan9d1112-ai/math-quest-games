@@ -55,7 +55,7 @@ export default function Shop({
     >
       
 
-      <div className="md:hidden h-full overflow-y-auto">
+      <div className="md:hidden h-full">
 
         <ShopMobile
           coins={coins}
