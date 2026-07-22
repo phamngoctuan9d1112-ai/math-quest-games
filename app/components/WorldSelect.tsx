@@ -874,19 +874,74 @@ ${streak > 0
 
                 <div className="mt-4 space-y-2">
 
-                  <div className="bg-yellow-100 p-3 rounded-xl">
+                  <div className="
+bg-gradient-to-r
+from-yellow-500/15
+to-yellow-400/5
+
+border
+border-yellow-400/30
+
+rounded-xl
+
+p-3
+
+text-yellow-300
+font-bold
+">
                     ⭐ Level {level}
                   </div>
 
-                  <div className="bg-green-100 p-3 rounded-xl">
+                  <div className="
+bg-gradient-to-r
+from-emerald-500/15
+to-emerald-400/5
+
+border
+border-emerald-400/30
+
+rounded-xl
+
+p-3
+
+text-emerald-300
+font-bold
+">
                     {rank}
                   </div>
 
-                  <div className="bg-orange-100 p-3 rounded-xl">
+<div className="
+bg-gradient-to-r
+from-yellow-500/15
+to-orange-500/5
+
+border
+border-yellow-400/30
+
+rounded-xl
+
+p-3
+
+text-yellow-300
+font-bold
+">
                     🪙 {coins} Coin
                   </div>
+<div className="
+bg-gradient-to-r
+from-red-500/15
+to-orange-500/5
 
-                  <div className="bg-red-100 p-3 rounded-xl">
+border
+border-red-400/30
+
+rounded-xl
+
+p-3
+
+text-red-300
+font-bold
+">
                     🔥 {streak} ngày
                   </div>
 
@@ -894,79 +949,186 @@ ${streak > 0
 
               </div>
 
-              {/* Menu */}
-              <div className="mt-6 space-y-3">
+           <div className="mt-6 space-y-3">
 
-                <button
-                  onClick={() => setShowEmail(!showEmail)}
-                  className="
-    w-full
-    bg-gray-200
-    py-3
-    rounded-xl
-    font-bold
-  "
-                >
-                  📧 Email
-                </button>
+  {/* EMAIL */}
 
-                {showEmail && (
-                  <div className="border rounded-xl p-3">
-                    {email}
-                  </div>
-                )}
+  <button
+    onClick={() => setShowEmail(!showEmail)}
+    className="
+w-full
 
-                {provider !== "google" && (
-                  <button
-                    onClick={() =>
-                      setShowPasswordModal(true)
-                    }
-                    className="
-      w-full
-      bg-gray-200
-      py-3
-      rounded-xl
-      font-bold
-    "
-                  >
-                    🔒 Đổi mật khẩu
-                  </button>
-                )}
+flex
+items-center
+justify-between
 
-                <button
-                  onClick={() => router.push("/privacy")}
-                  className="
-    w-full
-    bg-gray-200
-    py-3
-    rounded-xl
-    font-bold
-  "
-                >
-                  📜 Quyền riêng tư
-                </button>
+rounded-2xl
 
-                <button
-                  onClick={() =>
-                    setDarkMode(!darkMode)
-                  }
-                  className="
-    w-full
-    bg-slate-100
-    p-4
-    rounded-xl
-    flex
-    justify-between
-  "
-                >
-                  <span>🌙 Chế độ tối</span>
+bg-white/10
+hover:bg-white/15
 
-                  <span>
-                    {darkMode ? "Bật" : "Tắt"}
-                  </span>
-                </button>
-              </div>
+border
+border-white/10
 
+px-5
+py-4
+
+text-white
+font-semibold
+
+transition-all
+"
+  >
+    <span>📧 Email</span>
+
+    <span className="text-slate-400">
+      {showEmail ? "Ẩn" : "Xem"}
+    </span>
+  </button>
+
+  {showEmail && (
+
+    <div
+      className="
+rounded-2xl
+
+bg-black/30
+
+border
+border-white/10
+
+px-5
+py-4
+
+text-slate-300
+break-all
+"
+    >
+      {email}
+    </div>
+
+  )}
+
+  {/* PASSWORD */}
+
+  {provider !== "google" && (
+
+    <button
+      onClick={() => setShowPasswordModal(true)}
+      className="
+w-full
+
+flex
+items-center
+justify-between
+
+rounded-2xl
+
+bg-white/10
+hover:bg-white/15
+
+border
+border-white/10
+
+px-5
+py-4
+
+text-white
+font-semibold
+
+transition-all
+"
+    >
+      <span>🔒 Đổi mật khẩu</span>
+
+      <span>›</span>
+    </button>
+
+  )}
+
+  {/* PRIVACY */}
+
+  <button
+    onClick={() => router.push("/privacy")}
+    className="
+w-full
+
+flex
+items-center
+justify-between
+
+rounded-2xl
+
+bg-white/10
+hover:bg-white/15
+
+border
+border-white/10
+
+px-5
+py-4
+
+text-white
+font-semibold
+
+transition-all
+"
+  >
+    <span>📜 Quyền riêng tư</span>
+
+    <span>›</span>
+  </button>
+
+  {/* DARK MODE */}
+
+  <button
+    onClick={() => setDarkMode(!darkMode)}
+    className="
+w-full
+
+flex
+items-center
+justify-between
+
+rounded-2xl
+
+bg-white/10
+hover:bg-white/15
+
+border
+border-white/10
+
+px-5
+py-4
+
+text-white
+font-semibold
+
+transition-all
+"
+  >
+    <span>🌙 Chế độ tối</span>
+
+    <span
+      className={`
+px-3
+py-1
+rounded-full
+text-xs
+font-bold
+
+${
+darkMode
+? "bg-green-500 text-white"
+: "bg-slate-600 text-slate-200"
+}
+`}
+    >
+      {darkMode ? "Bật" : "Tắt"}
+    </span>
+  </button>
+
+</div>
               {/* Logout */}
               <button
                 onClick={onLogout}
