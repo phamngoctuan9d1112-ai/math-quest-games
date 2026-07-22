@@ -483,7 +483,7 @@ bottom-0
 left-0
 right-0
 md:hidden
-bg-white
+bg-black
 border-t
 border-gray-200
 shadow-2xl
@@ -494,7 +494,6 @@ z-50
           <div
             className="
 grid
-black
 grid-cols-5
 py-2
 "
