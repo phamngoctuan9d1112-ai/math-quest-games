@@ -53,9 +53,9 @@ export default function Shop({
       overflow-hidden
     "
     >
-      {/* ================= MOBILE ================= */}
+      
 
-      <div className="md:hidden h-full">
+      <div className="md:hidden h-full overflow-y-auto">
 
         <ShopMobile
           coins={coins}
@@ -72,7 +72,7 @@ export default function Shop({
 
       </div>
 
-      {/* ================= DESKTOP ================= */}
+      
 
       <div className="hidden md:block h-full">
 

@@ -41,13 +41,11 @@ export default function ShopMobile({
   onClose,
 }: Props) {
   return (
-    <div
+   <div
 className="
-h-screen
-flex
-flex-col
+h-full
+overflow-y-auto
 bg-[#071226]
-overflow-hidden
 "
 >
 
