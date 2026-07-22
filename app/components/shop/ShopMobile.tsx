@@ -41,7 +41,15 @@ export default function ShopMobile({
   onClose,
 }: Props) {
   return (
-    <div className="h-full flex flex-col bg-[#071226]">
+    <div
+className="
+h-screen
+flex
+flex-col
+bg-[#071226]
+overflow-hidden
+"
+>
 
       {/* HEADER */}
 
