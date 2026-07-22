@@ -44,17 +44,12 @@ export default function ShopMobile({
   return (
 
 <div
-  className="
-  h-full
-  overflow-y-auto
-
-  bg-gradient-to-b
-  from-[#071226]
-  via-[#091833]
-  to-[#0d2145]
-
-  pb-[180px]
-  "
+className="
+h-full
+overflow-y-scroll
+touch-pan-y
+pb-[180px]
+"
 >
 
 {/* ====================================================== */}
