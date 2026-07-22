@@ -47,41 +47,41 @@ export default function ShopMobile({
 
       <div className="px-4 pt-4">
 
-        <div
-          className="
-          relative
-          overflow-hidden
+  <div
+  className="
+  relative
+  overflow-hidden
 
-          rounded-[32px]
+  rounded-2xl
 
-          bg-gradient-to-r
-          from-[#152d63]
-          via-[#244b92]
-          to-[#30539d]
+  bg-gradient-to-r
+  from-[#152d63]
+  via-[#244b92]
+  to-[#30539d]
 
-          border
-          border-cyan-400/20
+  border
+  border-cyan-400/20
 
-          px-5
-          py-5
+  px-4
+  py-3
 
-          flex
-          items-center
-          justify-between
+  flex
+  items-center
+  justify-between
 
-          shadow-2xl
-        "
-        >
+  shadow-xl
+"
+>
 
           <button
             onClick={() =>
               setShowMobileMenu(true)
             }
-            className="
-            text-white
-            text-4xl
-            font-bold
-          "
+         className="
+text-white
+text-3xl
+font-bold
+"
           >
             ☰
           </button>
@@ -94,7 +94,7 @@ export default function ShopMobile({
           "
           >
 
-            <span className="text-3xl">
+            <span className="text-2xl">
               👑
             </span>
 
@@ -104,7 +104,7 @@ export default function ShopMobile({
                 className="
                 text-yellow-300
                 font-black
-                text-2xl
+                text-xl
               "
               >
                 Royal Shop
@@ -113,7 +113,7 @@ export default function ShopMobile({
               <div
                 className="
                 text-slate-200
-                text-sm
+                text-[10px]
               "
               >
                 Cửa Hàng Hoàng Gia
@@ -125,18 +125,20 @@ export default function ShopMobile({
 
           <div
             className="
-            rounded-3xl
+        rounded-2xl
 
-            bg-gradient-to-r
-            from-[#6d38dd]
-            to-[#8b52ff]
+bg-gradient-to-r
+from-[#6d38dd]
+to-[#8b52ff]
 
-            px-5
-            py-3
+px-3
+py-2
 
-            text-center
+text-center
 
-            shadow-lg
+shadow-md
+
+min-w-[82px]
           "
           >
 
@@ -144,7 +146,7 @@ export default function ShopMobile({
               className="
               text-yellow-300
               font-black
-              text-3xl
+              text-2xl
             "
             >
               {coins}
@@ -175,14 +177,14 @@ export default function ShopMobile({
 
           overflow-hidden
 
-          rounded-[36px]
+          rounded-[26px]
 
           bg-gradient-to-br
           from-[#143f75]
           via-[#2d4d9d]
           to-[#6d35df]
 
-          p-7
+          p-5
 
           shadow-2xl
         "
@@ -204,9 +206,8 @@ export default function ShopMobile({
 
             bg-yellow-500/10
 
-            px-4
-
-            py-2
+           px-3
+py-1
 
             text-yellow-300
 
@@ -218,7 +219,7 @@ export default function ShopMobile({
 
           </div>
 
-          <div className="mt-7 text-6xl">
+          <div className="mt-5 text-5xl">
             🏪
           </div>
 
@@ -228,7 +229,7 @@ export default function ShopMobile({
 
             text-white
 
-            text-[40px]
+            text-[30px]
 
             leading-tight
 
@@ -246,9 +247,8 @@ export default function ShopMobile({
 
             text-slate-200
 
-            text-lg
-
-            leading-8
+            text-sm
+leading-6
           "
           >
             Trang bị Pet, Avatar,
@@ -318,9 +318,9 @@ export default function ShopMobile({
         className="
         px-4
 
-        pt-8
+        pt-5
 
-        pb-5
+        pb-3
 
         flex
 
@@ -346,7 +346,7 @@ export default function ShopMobile({
             className="
             text-white
 
-            text-3xl
+            text-2xl
 
             font-black
           "
