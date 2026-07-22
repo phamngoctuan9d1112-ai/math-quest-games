@@ -1,51 +1,33 @@
 type Props = {
   icon: string;
-
   title: string;
-
   description: string;
-
   price: number;
-
   color: string;
-
   rarity: string;
-
   owned: boolean;
-
   stackable: boolean;
-
   onBuy: () => void;
 };
+
 export default function ShopCard({
-
- icon,
-
+  icon,
   title,
-
   description,
-
   price,
-
   color,
-
   rarity,
-
   owned,
-
   stackable,
-
   onBuy,
-
-
-}:Props){
+}: Props) {
   const border =
     rarity === "Legendary"
-      ? "border-yellow-400 shadow-yellow-400/30 shop-legendary"
+      ? "border-yellow-400 shadow-yellow-500/30"
       : rarity === "Epic"
-      ? "border-purple-500 shadow-purple-500/20 shop-epic"
+      ? "border-purple-500 shadow-purple-500/30"
       : rarity === "Rare"
-      ? "border-cyan-400 shadow-cyan-400/20 shop-rare"
+      ? "border-cyan-400 shadow-cyan-500/30"
       : "border-slate-600";
 
   const rarityColor =
@@ -60,131 +42,113 @@ export default function ShopCard({
   return (
     <div
       className={`
-        relative
-        overflow-hidden
-        rounded-3xl
-        border
-        ${border}
+relative
+overflow-hidden
 
-        bg-gradient-to-b
-        from-[#1a2d4f]
-        via-[#16233d]
-        to-[#101827]
+rounded-3xl
 
-        h-[310px]
+border
+${border}
 
-        flex
-        flex-col
+bg-gradient-to-b
+from-[#203760]
+via-[#172844]
+to-[#101827]
 
-        shadow-xl
+shadow-xl
 
-        transition-all
-        duration-300
+transition-all
+duration-300
 
-        hover:-translate-y-2
-        hover:shadow-2xl
-        group
-      `}
+active:scale-95
+hover:-translate-y-1
+`}
     >
-      {/* EFFECT */}
-      <div className="shop-card-stars" />
-      <div className="shop-card-glow" />
-      <div className="shop-card-shine" />
+      {/* Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,.08),transparent_70%)]" />
 
       {/* HOT */}
-      <div className="absolute top-4 right-4 z-30">
-        <span className="
-            flex
-            items-center
-            gap-1
+      <div className="absolute top-3 right-3 z-30">
+        <div
+          className="
+rounded-full
+bg-gradient-to-r
+from-red-500
+to-pink-500
 
-            px-3
-            py-1
+px-2.5
+py-1
 
-            rounded-full
+text-[10px]
+font-bold
+text-white
 
-            bg-gradient-to-r
-            from-red-500
-            to-pink-500
-
-            text-white
-            text-[11px]
-            font-bold
-
-            shadow-lg
-            shadow-red-500/40
-        ">
+shadow-lg
+"
+        >
           🔥 HOT
-        </span>
+        </div>
       </div>
 
-      {/* IMAGE */}
+      {/* ICON */}
       <div
         className="
-          h-[105px]
+relative
 
-          flex
-          items-center
-          justify-center
+h-[78px]
 
-          relative
-
-          bg-gradient-to-b
-          from-[#193760]
-          to-[#132544]
-        "
+flex
+items-center
+justify-center
+"
       >
         <div
           className="
-            absolute
-            inset-0
+absolute
 
-            bg-[radial-gradient(circle_at_center,rgba(255,255,255,.12),transparent_70%)]
-          "
+w-16
+h-16
+
+rounded-full
+
+bg-white/10
+
+blur-xl
+"
         />
 
         <div
           className="
-            text-5xl
+relative
 
-            relative
-            z-20
+text-[52px]
 
-            transition-all
-            duration-300
+transition-all
 
-            group-hover:scale-110
-            group-hover:-translate-y-1
-          "
+duration-300
+
+group-hover:scale-110
+"
         >
           {icon}
         </div>
       </div>
 
       {/* CONTENT */}
-      <div
-        className="
-          flex-1
-
-          flex
-          flex-col
-
-          px-5
-          py-4
-
-          bg-black/15
-          backdrop-blur-md
-        "
-      >
+      <div className="px-3 pb-3">
         {/* TITLE */}
         <h2
           className="
-            text-xl
-            font-black
-            text-white
-            text-center
-            leading-tight
-          "
+text-white
+
+font-black
+
+text-lg
+
+text-center
+
+leading-tight
+"
         >
           {title}
         </h2>
@@ -193,16 +157,16 @@ export default function ShopCard({
         <div className="flex justify-center mt-2">
           <span
             className={`
-              px-3
-              py-1
+px-3
+py-1
 
-              rounded-full
+rounded-full
 
-              text-[11px]
-              font-bold
+text-[10px]
+font-bold
 
-              ${rarityColor}
-            `}
+${rarityColor}
+`}
           >
             {rarity}
           </span>
@@ -211,104 +175,93 @@ export default function ShopCard({
         {/* DESCRIPTION */}
         <p
           className="
-            mt-3
+mt-3
 
-            text-center
+text-center
 
-            text-base
-            font-bold
+text-yellow-300
 
-            text-yellow-300
+font-bold
 
-            leading-6
-          "
+text-sm
+
+leading-5
+
+min-h-[40px]
+"
         >
           {description}
         </p>
 
-        {/* FOOTER */}
-        <div className="mt-auto">
-          {/* PRICE */}
-          <div
+        {/* PRICE */}
+        <div
+          className="
+mt-3
+
+rounded-xl
+
+bg-black/30
+
+border
+border-white/10
+
+px-3
+py-2
+
+flex
+
+items-center
+
+justify-center
+
+gap-2
+"
+        >
+          <span className="text-lg">🪙</span>
+
+          <span
             className="
-              mt-4
+text-yellow-300
 
-              rounded-2xl
+font-black
 
-              bg-black/35
-
-              border
-              border-white/10
-
-              py-2
-
-              text-center
-            "
+text-xl
+"
           >
-            <div className="text-[11px] text-slate-400">
-              Giá
-            </div>
-
-            <div
-              className="
-                mt-1
-
-                text-2xl
-
-                font-black
-
-                text-yellow-300
-              "
-            >
-              🪙 {price}
-            </div>
-          </div>
-
-  <button
-    onClick={onBuy}
-    disabled={owned && !stackable}
-
-    className={`
-
-        mt-3
-
-        w-full
-
-        rounded-xl
-
-        py-2.5
-
-        text-sm
-
-        font-bold
-
-        text-white
-
-        transition-all
-
-        duration-300
-
-        ${owned && !stackable
-
-    ? "bg-gray-500 cursor-not-allowed"
-
-    : color
-}
-
-    `}
->
-
-{
-    owned && !stackable
-
-        ? "✅ Đã sở hữu"
-
-        : "🛒 Mua ngay"
-
-}
-
-</button>
+            {price}
+          </span>
         </div>
+
+        {/* BUTTON */}
+        <button
+          onClick={onBuy}
+          disabled={owned && !stackable}
+          className={`
+mt-3
+
+w-full
+
+rounded-xl
+
+py-2
+
+font-bold
+
+text-sm
+
+transition-all
+
+duration-300
+
+${
+  owned && !stackable
+    ? "bg-gray-600 text-white cursor-not-allowed"
+    : `${color} hover:brightness-110 active:scale-95`
+}
+`}
+        >
+          {owned && !stackable ? "✅ Đã sở hữu" : "🛒 Mua ngay"}
+        </button>
       </div>
     </div>
   );

@@ -555,27 +555,10 @@ active:scale-95
 
 <div
 className="
-rounded-3xl
-
-bg-gradient-to-b
-
-from-white/5
-
-to-white/[0.03]
-
-border
-
-border-white/10
-
-backdrop-blur-xl
-
-p-[2px]
-
-shadow-lg
-
-group-hover:border-cyan-400/30
-
-transition
+group
+transition-all
+duration-300
+active:scale-95
 "
 >
 
