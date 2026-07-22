@@ -2114,3 +2114,24 @@ border:1px solid rgba(255,215,0,.4);
 
 color:#ffd54d;
 }
+@keyframes slideIn{
+
+from{
+
+transform:translateX(-100%);
+
+}
+
+to{
+
+transform:translateX(0);
+
+}
+
+}
+
+.animate-slideIn{
+
+animation:slideIn .25s ease;
+
+}

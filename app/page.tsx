@@ -318,6 +318,11 @@ const [premiumUntil, setPremiumUntil] = useState<string | null>(null);
   const [hearts, setHearts] = useState(3);
   const MAX_HEARTS = 3;
   const [showShop, setShowShop] = useState(false);
+  const [currentScreen, setCurrentScreen] = useState<
+    "game" |
+    "shop" |
+    "premium"
+>("game");
   const [inventory, setInventory] = useState<string[]>([]);
   const buyItem = (
     item: string,
