@@ -20,7 +20,7 @@ export default function ChestRoom({
   return (
     <main className="fixed inset-0 bg-black/70 flex items-center justify-center z-[9999]">
 
-      <div className="bg-white rounded-3xl w-[700px] max-w-[95%] p-8">
+      <div className="bg-black rounded-3xl w-[700px] max-w-[95%] p-8">
 
         <h1 className="text-4xl font-black text-center mb-8">
           🎁 Phòng Rương

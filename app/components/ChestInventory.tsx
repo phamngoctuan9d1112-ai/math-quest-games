@@ -26,7 +26,7 @@ export default function ChestInventory({
     >
       <div
         className="
-        bg-white
+        bg-black
         rounded-3xl
         p-8
         w-[700px]
