@@ -50,10 +50,12 @@ flex
 overflow-hidden
 "
 >
- <ShopSidebar
-    activeTab={activeTab}
-    onChange={setActiveTab}
-/>
+<div className="hidden md:block">
+    <ShopSidebar
+        activeTab={activeTab}
+        onChange={setActiveTab}
+    />
+</div>
    <div
 className="
 flex-1
@@ -66,10 +68,95 @@ overflow-hidden
 bg-[#08152f]
 "
 >
+  {/* MOBILE HEADER */}
+
 <div
 className="
-relative
+md:hidden
+px-4
+pt-4
+pb-2
+"
+>
 
+<div
+className="
+rounded-3xl
+bg-[#0f1d3d]
+border
+border-cyan-400/20
+flex
+items-center
+justify-between
+px-5
+py-4
+"
+>
+
+<button
+className="text-4xl text-white"
+>
+☰
+</button>
+
+<div
+className="
+flex
+items-center
+gap-3
+"
+>
+
+<span className="text-3xl">
+👑
+</span>
+
+<div
+className="
+text-yellow-300
+font-black
+text-2xl
+"
+>
+Royal Shop
+</div>
+
+</div>
+
+<div
+className="
+bg-purple-700
+rounded-2xl
+px-4
+py-2
+text-center
+"
+>
+
+<div
+className="
+text-yellow-300
+font-black
+text-2xl
+"
+>
+{coins}
+</div>
+
+<div className="text-white text-sm">
+Coin khả dụng
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div
+className="
+hidden
+md:block
+relative
 overflow-hidden
 
 px-12
@@ -88,7 +175,77 @@ border-cyan-400/20
 "
 >
 
+{/* MOBILE BANNER */}
 
+<div
+className="
+md:hidden
+px-4
+pb-4
+"
+>
+
+<div
+className="
+rounded-[34px]
+bg-gradient-to-r
+from-[#133d73]
+to-[#5126b8]
+p-6
+"
+>
+
+<div
+className="
+inline-flex
+items-center
+gap-2
+rounded-full
+border
+border-yellow-500
+px-4
+py-2
+text-yellow-300
+font-bold
+"
+>
+
+👑 Royal Shop
+
+</div>
+
+<div className="mt-6 text-5xl">
+🏪
+</div>
+
+<h2
+className="
+text-white
+font-black
+text-5xl
+leading-tight
+mt-4
+"
+>
+Cửa Hàng Hoàng Gia
+</h2>
+
+<p
+className="
+text-slate-200
+text-xl
+leading-10
+mt-4
+"
+>
+
+Trang bị Pet, Avatar và các vật phẩm hiếm để tăng sức mạnh trong hành trình chinh phục Vương Quốc Toán Học.
+
+</p>
+
+</div>
+
+</div>
 
 <div className="shop-stars"/>
 
@@ -365,8 +522,10 @@ flex-1
 
 overflow-y-auto
 
-px-12
-pb-12
+px-4
+md:px-12
+pb-28
+md:pb-12
 "
 >
   
@@ -384,8 +543,10 @@ flex
 items-center
 justify-between
 
-mt-8
-mb-8
+mt-6
+md:mt-8
+mb-6
+md:mb-8
 "
 >
 
@@ -397,7 +558,8 @@ gap-3
 "
 >
 
-<span className="text-3xl">
+<span className="text-2xl
+md:text-3xl">
 ⭐
 </span>
 
@@ -432,7 +594,7 @@ Xem tất cả →
 <div
 className="
 grid
-grid-cols-1
+grid-cols-2
 md:grid-cols-2
 lg:grid-cols-3
 2xl:grid-cols-4
@@ -493,7 +655,63 @@ gap-5
 
 </div>  
 
+<div
+className="
+md:hidden
+fixed
+bottom-0
+left-0
+right-0
+z-[60]
+bg-[#19254d]
+border-t
+border-cyan-400/20
+"
+>
 
+<div
+className="
+grid
+grid-cols-6
+py-3
+"
+>
+
+{[
+["🔥","Nổi bật"],
+["🐶","Pet"],
+["🧑","Avatar"],
+["⚔️","Vũ khí"],
+["🧪","Vật phẩm"],
+["💎","Đặc biệt"],
+].map(([icon,text])=>(
+
+<button
+key={text}
+className="
+flex
+flex-col
+items-center
+gap-2
+text-slate-300
+"
+>
+
+<span className="text-2xl">
+{icon}
+</span>
+
+<span className="text-xs">
+{text}
+</span>
+
+</button>
+
+))}
+
+</div>
+
+</div>
 
 </main>
   );
