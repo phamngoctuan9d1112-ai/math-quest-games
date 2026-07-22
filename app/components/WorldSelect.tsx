@@ -830,7 +830,7 @@ ${streak > 0
               className="
         w-full
         max-w-md
-        bg-white
+        bg-black
         rounded-3xl
         p-6
         shadow-2xl
