@@ -846,6 +846,7 @@ ${streak > 0
                 <button
                   onClick={() => setShowProfile(false)}
                   className="
+                  bg-gray
             w-8
             h-8
             rounded-full
