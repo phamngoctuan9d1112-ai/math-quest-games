@@ -9,6 +9,8 @@ export default function ShopBanner({
     <section
       className="
 relative
+z-0
+
 overflow-hidden
 
 rounded-[26px]

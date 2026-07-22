@@ -41,6 +41,7 @@ export default function ShopCard({
 
   return (
     <div
+  onClick={() => console.log("CARD CLICK")}
       className={`
 relative
 overflow-hidden
@@ -234,12 +235,7 @@ text-xl
 
         {/* BUTTON */}
         <button
-onClick={(e)=>{
-    e.preventDefault();
-    e.stopPropagation();
-    console.log("CLICK");
-    onBuy();
-}}
+          onClick={onBuy}
           disabled={owned && !stackable}
           className={`
 mt-3
