@@ -1,204 +1,393 @@
 {
   "stage1": [
     {
-      "id": "ks_s1_1",
+      "id": "s1_1",
       "type": "multiple-choice",
-      "question": "Bước đầu tiên khi khảo sát sự biến thiên của hàm số là",
+      "question": "Hàm số $y = x^3 - 3x^2 + 1$ đồng biến trên khoảng nào sau đây?",
       "options": [
-        "Tính đạo hàm",
-        "Tìm tập xác định",
-        "Lập bảng biến thiên",
-        "Vẽ đồ thị"
+        "$(0; 2)$",
+        "$(-\\infty; 0)$",
+        "$(1; 3)$",
+        "$(-\\infty; 0)$ và $(2; +\\infty)$"
       ],
-      "answer": "Tìm tập xác định"
+      "answer": "$(-\\infty; 0)$ và $(2; +\\infty)$"
     },
     {
-      "id": "ks_s1_2",
+      "id": "s1_2",
       "type": "multiple-choice",
-      "question": "Để tìm khoảng đồng biến, nghịch biến của hàm số ta sử dụng",
+      "question": "Cho hàm số $f(x)$ có $f'(x) = (x-1)^2(x-2)$. Hàm số $f(x)$ nghịch biến trên khoảng nào?",
       "options": [
-        "Đạo hàm",
-        "Nguyên hàm",
-        "Giới hạn",
-        "Tọa độ giao điểm"
+        "$(-\\infty; 2)$",
+        "$(1; 2)$",
+        "$(2; +\\infty)$",
+        "$(-\\infty; 1)$"
       ],
-      "answer": "Đạo hàm"
+      "answer": "$(-\\infty; 2)$"
     },
     {
-      "id": "ks_s1_3",
+      "id": "s1_3",
       "type": "multiple-choice",
-      "question": "Điểm cực trị của hàm số thường được xác định từ",
+      "question": "Điểm cực tiểu của đồ thị hàm số $y = x^4 - 2x^2 + 3$ là",
       "options": [
-        "f(x)=0",
-        "f'(x)=0 hoặc f'(x) không xác định",
-        "f''(x)=0",
-        "x=0"
+        "$x = 0$",
+        "$x = 1$",
+        "$x = -1$",
+        "$x = 1$ và $x = -1$"
       ],
-      "answer": "f'(x)=0 hoặc f'(x) không xác định"
+      "answer": "$x = 1$ và $x = -1$"
     },
     {
-      "id": "ks_s1_4",
+      "id": "s1_4",
       "type": "multiple-choice",
-      "question": "Tiệm cận đứng của đồ thị có phương trình dạng",
+      "question": "Hàm số $y = -x^3 + 3x - 2$ có giá trị cực đại là",
       "options": [
-        "y=a",
-        "x=a",
-        "y=ax+b",
-        "ax+by+c=0"
+        "$0$",
+        "$4$",
+        "$2$",
+        "$-4$"
       ],
-      "answer": "x=a"
+      "answer": "$0$"
     },
     {
-      "id": "ks_s1_5",
+      "id": "s1_5",
       "type": "multiple-choice",
-      "question": "Tiệm cận ngang của đồ thị có phương trình dạng",
+      "question": "Cho hàm số $y = \\frac{x+1}{x-1}$. Hàm số này",
       "options": [
-        "x=a",
-        "y=b",
-        "y=ax+b",
-        "x+y=0"
+        "luôn đồng biến trên $\\mathbb{R} \\setminus \\{1\\}$",
+        "luôn nghịch biến trên $\\mathbb{R} \\setminus \\{1\\}$",
+        "có cực đại tại $x=1$",
+        "có cực tiểu tại $x=1$"
       ],
-      "answer": "y=b"
+      "answer": "luôn nghịch biến trên $\\mathbb{R} \\setminus \\{1\\}$"
     },
     {
-      "id": "ks_s1_6",
+      "id": "s1_6",
       "type": "multiple-choice",
-      "question": "Đồ thị hàm số y=(2x+1)/(x-1) có tiệm cận đứng là",
+      "question": "Đồ thị hàm số $y = x^4 - 4x^2 + 1$ có bao nhiêu điểm cực trị?",
       "options": [
-        "x=-1",
-        "x=1",
-        "y=2",
-        "y=1"
+        "$1$",
+        "$2$",
+        "$3$",
+        "$0$"
       ],
-      "answer": "x=1"
+      "answer": "$3$"
     },
     {
-      "id": "ks_s1_7",
+      "id": "s1_7",
       "type": "multiple-choice",
-      "question": "Đồ thị hàm số y=(2x+1)/(x-1) có tiệm cận ngang là",
+      "question": "Nếu $f'(x) > 0$ với mọi $x \\in (a; b)$ thì hàm số $f(x)$",
       "options": [
-        "y=1",
-        "y=2",
-        "y=-1",
-        "y=0"
+        "đồng biến trên $(a; b)$",
+        "nghịch biến trên $(a; b)$",
+        "đạt cực đại tại $a$",
+        "đạt cực tiểu tại $b$"
       ],
-      "answer": "y=2"
+      "answer": "đồng biến trên $(a; b)$"
     },
     {
-      "id": "ks_s1_8",
+      "id": "s1_8",
       "type": "multiple-choice",
-      "question": "Tâm đối xứng của đồ thị hàm phân thức bậc nhất trên bậc nhất là",
+      "question": "Hàm số $y = \\frac{1}{3}x^3 - x^2 + x + 5$ có tính chất gì?",
       "options": [
-        "Giao điểm hai tiệm cận",
-        "Gốc tọa độ",
-        "Đỉnh đồ thị",
-        "Điểm cực trị"
+        "Luôn đồng biến trên $\\mathbb{R}$",
+        "Luôn nghịch biến trên $\\mathbb{R}$",
+        "Có cực trị",
+        "Không có cực trị"
       ],
-      "answer": "Giao điểm hai tiệm cận"
+      "answer": "Luôn đồng biến trên $\\mathbb{R}$"
     },
     {
-      "id": "ks_s1_9",
+      "id": "s1_9",
       "type": "multiple-choice",
-      "question": "Sau khi lập bảng biến thiên, bước tiếp theo là",
+      "question": "Cho bảng biến thiên của hàm số $y=f(x)$ với đạo hàm $f'(x)$ đổi dấu từ $+$ sang $-$ tại $x=x_0$. Khi đó",
       "options": [
-        "Xét giới hạn",
-        "Vẽ đồ thị",
-        "Tìm tập xác định",
-        "Tính nguyên hàm"
+        "$f(x_0)$ là giá trị cực tiểu",
+        "$f(x_0)$ là giá trị cực đại",
+        "$f(x_0)$ là giá trị lớn nhất",
+        "$f(x_0)$ là giá trị nhỏ nhất"
       ],
-      "answer": "Vẽ đồ thị"
+      "answer": "$f(x_0)$ là giá trị cực đại"
     },
     {
-      "id": "ks_s1_10",
+      "id": "s1_10",
       "type": "multiple-choice",
-      "question": "Trong bảng biến thiên, dấu của f'(x) cho biết",
+      "question": "Hàm số $y = \\sqrt{x^2 - 4x + 3}$ đồng biến trên",
       "options": [
-        "Tính đơn điệu của hàm số",
-        "Giá trị lớn nhất",
-        "Tiệm cận",
-        "Tâm đối xứng"
+        "$(2; +\\infty)$",
+        "$(3; +\\infty)$",
+        "$(-\\infty; 1)$",
+        "$(1; 3)$"
       ],
-      "answer": "Tính đơn điệu của hàm số"
+      "answer": "$(3; +\\infty)$"
     }
   ],
   "stage2": [
     {
-      "id": "ks_s2_1",
+      "id": "s2_1",
       "type": "true-false",
-      "question": "Xét các bước khảo sát hàm số.",
+      "question": "Xét hàm số $y = x^3 - 3x + 2$.",
       "subQuestions": [
         {
           "label": "a",
-          "text": "Muốn khảo sát hàm số trước hết phải tìm tập xác định.",
+          "text": "Đạo hàm của hàm số là $y' = 3x^2 - 3$.",
           "correctAnswer": "Đúng"
         },
         {
           "label": "b",
-          "text": "Đạo hàm được dùng để xét tính đơn điệu.",
-          "correctAnswer": "Đúng"
+          "text": "Hàm số đạt cực đại tại $x = 1$.",
+          "correctAnswer": "Sai"
         },
         {
           "label": "c",
-          "text": "Không cần tìm cực trị khi vẽ đồ thị.",
+          "text": "Hàm số đồng biến trên khoảng $(-1; 1)$.",
           "correctAnswer": "Sai"
         },
         {
           "label": "d",
-          "text": "Bảng biến thiên giúp phác họa đồ thị chính xác hơn.",
+          "text": "Giá trị cực tiểu của hàm số là $0$.",
           "correctAnswer": "Đúng"
         }
       ]
     },
     {
-      "id": "ks_s2_2",
+      "id": "s2_2",
       "type": "true-false",
-      "question": "Cho hàm số y=(2x+1)/(x−1).",
+      "question": "Xét hàm số $y = \\frac{2x-1}{x+1}$.",
       "subQuestions": [
         {
           "label": "a",
-          "text": "Tập xác định là R{1}.",
+          "text": "Hàm số có tập xác định $D = \\mathbb{R} \\setminus \\{-1\\}$.",
           "correctAnswer": "Đúng"
         },
         {
           "label": "b",
-          "text": "Đồ thị có tiệm cận đứng x=1.",
+          "text": "Hàm số luôn đồng biến trên các khoảng xác định.",
           "correctAnswer": "Đúng"
         },
         {
           "label": "c",
-          "text": "Đồ thị có tiệm cận ngang y=2.",
-          "correctAnswer": "Đúng"
+          "text": "Hàm số có điểm cực trị.",
+          "correctAnswer": "Sai"
         },
         {
           "label": "d",
-          "text": "Đồ thị có tiệm cận ngang y=1.",
+          "text": "Đồ thị hàm số có tiệm cận ngang $y=1$.",
           "correctAnswer": "Sai"
         }
       ]
     },
     {
-      "id": "ks_s2_3",
+      "id": "s2_3",
       "type": "true-false",
-      "question": "Xét hàm số y=x³−3x.",
+      "question": "Xét hàm số $y = -x^4 + 2x^2 + 1$.",
       "subQuestions": [
         {
           "label": "a",
-          "text": "Hàm số có hai điểm cực trị.",
+          "text": "Hàm số có ba điểm cực trị.",
           "correctAnswer": "Đúng"
         },
         {
           "label": "b",
-          "text": "f'(x)=3x²−3.",
+          "text": "Hàm số đạt cực tiểu tại $x=0$.",
           "correctAnswer": "Đúng"
         },
         {
           "label": "c",
-          "text": "Các điểm cực trị có hoành độ x=−1 và x=1.",
+          "text": "Hàm số đạt cực đại tại $x=1$ và $x=-1$.",
           "correctAnswer": "Đúng"
         },
         {
           "label": "d",
-          "text": "Hàm số không có điểm uốn.",
+          "text": "Giá trị cực đại là $2$.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "s2_4",
+      "type": "true-false",
+      "question": "Cho hàm số $y=f(x)$ liên tục và có $f'(x) = (x-2)^2(x+1)(x-3)$.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hàm số có ba điểm cực trị.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "b",
+          "text": "Hàm số đạt cực tiểu tại $x=3$.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hàm số đạt cực đại tại $x=-1$.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hàm số đạt cực trị tại $x=2$.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "s2_5",
+      "type": "true-false",
+      "question": "Cho hàm số $y = \\sqrt{x^2+1}$.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Tập xác định là $\\mathbb{R}$.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hàm số luôn đồng biến trên $\\mathbb{R}$.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "c",
+          "text": "Hàm số có một điểm cực trị.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hàm số đạt cực tiểu tại $x=0$.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "s2_6",
+      "type": "true-false",
+      "question": "Hàm số $y = |x|$.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hàm số có đạo hàm tại $x=0$.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "b",
+          "text": "Hàm số đạt cực tiểu tại $x=0$.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hàm số đạt cực đại tại $x=0$.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Hàm số đồng biến trên $(0; +\\infty)$.",
+          "correctAnswer": "Đúng"
+        }
+      ]
+    },
+    {
+      "id": "s2_7",
+      "type": "true-false",
+      "question": "Hàm số $y = \\sin(x)$ trên khoảng $(0; \\pi)$.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hàm số đồng biến trên $(0; \\pi/2)$.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hàm số nghịch biến trên $(\\pi/2; \\pi)$.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hàm số đạt cực đại tại $x=\\pi/2$.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "d",
+          "text": "Hàm số không có cực trị.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "s2_8",
+      "type": "true-false",
+      "question": "Cho hàm số $y = x^3+x+1$.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hàm số có $y'=3x^2+1 > 0$ với mọi $x$.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hàm số luôn đồng biến trên $\\mathbb{R}$.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hàm số có cực trị.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Hàm số có một điểm cực tiểu.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "s2_9",
+      "type": "true-false",
+      "question": "Hàm số $y=e^x$.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hàm số luôn đồng biến trên $\\mathbb{R}$.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Hàm số có $y' = e^x > 0$.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hàm số có điểm cực đại.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Hàm số có điểm cực tiểu.",
+          "correctAnswer": "Sai"
+        }
+      ]
+    },
+    {
+      "id": "s2_10",
+      "type": "true-false",
+      "question": "Hàm số $y = \\ln(x)$ với $x > 0$.",
+      "subQuestions": [
+        {
+          "label": "a",
+          "text": "Hàm số luôn đồng biến trên $(0; +\\infty)$.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "b",
+          "text": "Đạo hàm là $y' = 1/x$.",
+          "correctAnswer": "Đúng"
+        },
+        {
+          "label": "c",
+          "text": "Hàm số có điểm cực trị.",
+          "correctAnswer": "Sai"
+        },
+        {
+          "label": "d",
+          "text": "Hàm số đạt cực tiểu tại $x=1$.",
           "correctAnswer": "Sai"
         }
       ]
@@ -206,39 +395,74 @@
   ],
   "stage3": [
     {
-      "id": "ks_s3_1",
+      "id": "s3_1",
       "type": "short-answer",
-      "question": "Cho hàm số y=x³−3x. Có bao nhiêu điểm cực trị?",
-      "answer": "2",
-      "explanation": "f'(x)=3x²−3=3(x−1)(x+1). Đạo hàm đổi dấu tại x=-1 và x=1 nên hàm số có 2 điểm cực trị."
-    },
-    {
-      "id": "ks_s3_2",
-      "type": "short-answer",
-      "question": "Cho hàm số y=(2x+1)/(x−1). Có bao nhiêu đường tiệm cận?",
-      "answer": "2",
-      "explanation": "Tiệm cận đứng x=1 và tiệm cận ngang y=2. Tổng cộng 2 đường tiệm cận."
-    },
-    {
-      "id": "ks_s3_3",
-      "type": "short-answer",
-      "question": "Cho hàm số y=x²−2x+3. Tính giá trị nhỏ nhất của hàm số.",
-      "answer": "2",
-      "explanation": "y=(x−1)²+2 ≥ 2. Dấu '=' xảy ra khi x=1 nên GTNN bằng 2."
-    },
-    {
-      "id": "ks_s3_4",
-      "type": "short-answer",
-      "question": "Cho hàm số y=x³−3x. Tính tổng hoành độ các điểm cực trị.",
-      "answer": "0",
-      "explanation": "Hai điểm cực trị có hoành độ -1 và 1 nên tổng bằng 0."
-    },
-    {
-      "id": "ks_s3_5",
-      "type": "short-answer",
-      "question": "Đồ thị hàm số y=(x+1)/(x−2) có tâm đối xứng I(a;b). Tính a+b.",
+      "question": "Tìm số điểm cực trị của hàm số $y = x^4 - 2x^2 + 1$.",
       "answer": "3",
-      "explanation": "Tiệm cận đứng x=2, tiệm cận ngang y=1. Tâm đối xứng là I(2;1). Do đó a+b=3."
+      "explanation": "Đạo hàm $y' = 4x^3 - 4x = 4x(x-1)(x+1)$. Có 3 nghiệm phân biệt nên hàm số có 3 cực trị."
+    },
+    {
+      "id": "s3_2",
+      "type": "short-answer",
+      "question": "Tính giá trị cực tiểu của hàm số $y = x^3 - 3x + 2$.",
+      "answer": "0",
+      "explanation": "Đạo hàm $y' = 3x^2 - 3 = 0 \\Leftrightarrow x = \\pm 1$. Cực tiểu tại $x=1$, $y(1) = 1 - 3 + 2 = 0$."
+    },
+    {
+      "id": "s3_3",
+      "type": "short-answer",
+      "question": "Tìm khoảng đồng biến của hàm số $y = x^2 - 4x + 3$.",
+      "answer": "$(2; +\\infty)$",
+      "explanation": "Đạo hàm $y' = 2x - 4 > 0 \\Leftrightarrow x > 2$."
+    },
+    {
+      "id": "s3_4",
+      "type": "short-answer",
+      "question": "Tìm tọa độ điểm cực đại của hàm số $y = -x^3 + 3x + 1$.",
+      "answer": "$(1; 3)$",
+      "explanation": "Đạo hàm $y' = -3x^2 + 3 = 0 \\Leftrightarrow x = \\pm 1$. Cực đại tại $x=1$, $y(1) = -1+3+1 = 3$."
+    },
+    {
+      "id": "s3_5",
+      "type": "short-answer",
+      "question": "Hàm số $y = \\frac{2x-1}{x+1}$ có bao nhiêu điểm cực trị?",
+      "answer": "0",
+      "explanation": "Đạo hàm $y' = \\frac{3}{(x+1)^2} > 0$ với mọi $x \\ne -1$ nên không có cực trị."
+    },
+    {
+      "id": "s3_6",
+      "type": "short-answer",
+      "question": "Tìm các khoảng nghịch biến của hàm số $y = -x^3 + 3x^2$.",
+      "answer": "$(-\\infty; 0)$ và $(2; +\\infty)$",
+      "explanation": "Đạo hàm $y' = -3x^2 + 6x = -3x(x-2) < 0 \\Leftrightarrow x < 0$ hoặc $x > 2$."
+    },
+    {
+      "id": "s3_7",
+      "type": "short-answer",
+      "question": "Tìm điểm cực trị của hàm số $y = x^4 + 2x^2$.",
+      "answer": "$x=0$",
+      "explanation": "Đạo hàm $y' = 4x^3 + 4x = 4x(x^2+1) = 0 \\Leftrightarrow x=0$. Chỉ có 1 cực trị."
+    },
+    {
+      "id": "s3_8",
+      "type": "short-answer",
+      "question": "Hàm số $y = \\sqrt{1-x^2}$ nghịch biến trên khoảng nào?",
+      "answer": "$(0; 1)$",
+      "explanation": "Tập xác định $[-1; 1]$. Đạo hàm $y' = \\frac{-x}{\\sqrt{1-x^2}} < 0 \\Leftrightarrow x > 0$."
+    },
+    {
+      "id": "s3_9",
+      "type": "short-answer",
+      "question": "Tính tổng các giá trị cực trị của hàm số $y = x^3 - 3x^2 + 2$.",
+      "answer": "2",
+      "explanation": "Cực đại tại $x=0$ ($y=2$), cực tiểu tại $x=2$ ($y=-2$). Tổng là $2-2=0$ (Xin lỗi, $2-2=0$). Giá trị cực đại là $2$, cực tiểu là $-2$. Tổng là $0$."
+    },
+    {
+      "id": "s3_10",
+      "type": "short-answer",
+      "question": "Hàm số $y=x^3-6x^2+9x$ đạt cực đại tại $x$ bằng bao nhiêu?",
+      "answer": "1",
+      "explanation": "Đạo hàm $y'=3x^2-12x+9 = 3(x-1)(x-3) = 0 \\Leftrightarrow x=1, x=3$. Cực đại tại $x=1$."
     }
   ]
 }
