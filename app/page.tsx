@@ -598,40 +598,27 @@ async function solveByAI(question: any) {
   setAiAnswer("");
 
   const res = await fetch("/api/ai-solve", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    question: question.question,
+    options: question.options ?? [],
+  }),
+});
 
-    method: "POST",
+const data = await res.json();
 
-    headers: {
+console.log("DATA =", data);
 
-      "Content-Type":"application/json"
+setAiLoading(false);
 
-    },
-
-    body: JSON.stringify({
-
-      question: question.question,
-
-      options: question.options ?? []
-
-    })
-
-  });
-
-  const data = await res.json();
-
-console.log("AI Response:", data);
-
-  setAiLoading(false);
-
-  if(data.success){
-
-      setAiAnswer(data.answer);
-
-  }else{
-
-      setAiAnswer("Không thể gọi AI.");
-
-  }
+if (data.success) {
+  setAiAnswer(data.answer);
+} else {
+  setAiAnswer("Không thể gọi AI.");
+}
 
 }
 

@@ -1,5 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
+
 console.log("API KEY =", process.env.GEMINI_API_KEY);
+
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY!,
 });
@@ -15,7 +17,7 @@ Giải bài từng bước.
 
 Đề:
 
-${question} 
+${question}
 
 Đáp án:
 
@@ -30,14 +32,17 @@ Yêu cầu:
 `;
 
     const response = await ai.models.generateContent({
-     model: "models/gemini-flash-latest",
+      model: "models/gemini-flash-latest",
       contents: prompt,
     });
-console.log(response);
+
+    console.log("TEXT =", response.text);
+
     return Response.json({
       success: true,
       answer: response.text,
     });
+
   } catch (err: any) {
     console.error(err);
 
