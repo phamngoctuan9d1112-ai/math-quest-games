@@ -65,10 +65,7 @@ active:scale-95
 hover:-translate-y-1
 `}
     >
-      {/* Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,.08),transparent_70%)]" />
-
-      {/* HOT */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,.08),transparent_70%)]" />      {/* HOT */}
       <div className="absolute top-3 right-3 z-30">
         <div
           className="
