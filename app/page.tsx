@@ -27,6 +27,7 @@ import { loadWorld } from "./data/questions/loader";
 import Shop from "./components/Shop";
 import StartScreen from "./components/StartScreen";
 import Confetti from "react-confetti";
+import AISolution from "./components/AISolution";
 import Avatar from "./components/Avatar";
 import MathText from "./components/MathText";
 import PremiumModal from "./components/PremiumModal";
@@ -242,7 +243,11 @@ export default function Home() {
 useState(false);
 
 const [shield, setShield] = useState(0);
+const [showAI, setShowAI] = useState(false);
 
+const [aiLoading, setAiLoading] = useState(false);
+
+const [aiAnswer, setAiAnswer] = useState("");
 const [scroll, setScroll] = useState(0);
 
 const [book, setBook] = useState(0);
@@ -584,15 +589,54 @@ setPremiumUntil(data.premium_until || null);
   }
 }
 
+async function solveByAI(question: any) {
+
+  setShowAI(true);
+
+  setAiLoading(true);
+
+  setAiAnswer("");
+
+  const res = await fetch("/api/ai-solve", {
+
+    method: "POST",
+
+    headers: {
+
+      "Content-Type":"application/json"
+
+    },
+
+    body: JSON.stringify({
+
+      question: question.question,
+
+      options: question.options ?? []
+
+    })
+
+  });
+
+  const data = await res.json();
+
+  setAiLoading(false);
+
+  if(data.success){
+
+      setAiAnswer(data.answer);
+
+  }else{
+
+      setAiAnswer("Không thể gọi AI.");
+
+  }
+
+}
+
 async function createProfileIfNeeded(user:any){
 
   
     console.log("===== CREATE PROFILE START =====");
-
-
-
-
-
 
     const { data: profile } = await supabase
   .from("profiles")
@@ -2824,6 +2868,13 @@ checkShortAnswer={checkShortAnswer}
 
 handleNextShortQuestion={handleNextShortQuestion}
 
+/>
+
+<AISolution
+    open={showAI}
+    loading={aiLoading}
+    answer={aiAnswer}
+    onClose={() => setShowAI(false)}
 />
 
 </>
