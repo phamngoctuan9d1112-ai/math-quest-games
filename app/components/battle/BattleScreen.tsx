@@ -7,7 +7,7 @@ import MultipleChoice from "./MultipleChoice";
 import QuestionCard from "./QuestionCard";
 import TrueFalseQuestion from "./TrueFalseQuestion";
 import ShortAnswerQuestion from "./ShortAnswerQuestion";
-
+import AISolution from "../AISolution";
 import WorldInfo from "./WorldInfo";
 import ProgressSection from "./ProgressSection";
 import Mascot from "../Mascot";
@@ -32,7 +32,17 @@ setMagicStone: React.Dispatch<React.SetStateAction<number>>;
 setPotion: React.Dispatch<React.SetStateAction<number>>;
 
 selectedWorld: number | null;
+showAI: boolean;
 
+setShowAI: React.Dispatch<
+  React.SetStateAction<boolean>
+>;
+
+aiLoading: boolean;
+
+aiAnswer: string;
+
+handleAskAI: () => void;
 mascotState: any;
 
 mascotMessage: string;
@@ -145,6 +155,11 @@ scroll,
 book,
 magicStone,
 potion,
+showAI,
+setShowAI,
+aiLoading,
+aiAnswer,
+handleAskAI,
 
 setShield,
 setScroll,
@@ -338,7 +353,14 @@ onClick={()=>{
        <QuestionCard
     question={question?.question ?? ""}
 />
-
+<div className="flex justify-end mb-3">
+  <button
+    onClick={handleAskAI}
+    className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl"
+  >
+    🤖 Gia sư AI
+  </button>
+</div>
 {currentSubNode === 1 && (
     <MultipleChoice
         options={options}
@@ -397,8 +419,13 @@ z-50
         message={mascotMessage}
     />
 </div>
-    
-
+  
+<AISolution
+  open={showAI}
+  loading={aiLoading}
+  answer={aiAnswer}
+  onClose={() => setShowAI(false)}
+/>
 </BattleLayout>
 
 );

@@ -633,6 +633,14 @@ async function solveByAI(question: any) {
 
 }
 
+function handleAskAI() {
+
+    if (!question) return;
+
+    solveByAI(question);
+
+}
+
 async function createProfileIfNeeded(user:any){
 
   
@@ -2838,7 +2846,11 @@ setMessage={setMessage}
     question={question}
     questions={questions}
     current={current}
-
+showAI={showAI}
+setShowAI={setShowAI}
+aiLoading={aiLoading}
+aiAnswer={aiAnswer}
+handleAskAI={handleAskAI}
     tfAnswers={tfAnswers}
     setTfAnswers={setTfAnswers}
     pet={pet}
