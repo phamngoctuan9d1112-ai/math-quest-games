@@ -15,7 +15,7 @@ Giải bài từng bước.
 
 Đề:
 
-${question}
+${question} 
 
 Đáp án:
 
