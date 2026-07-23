@@ -617,19 +617,19 @@ async function solveByAI(question: any) {
 
   });
 
-  const data = await res.json();
+ const data = await res.json();
 
-  setAiLoading(false);
+console.log(data);
 
-  if(data.success){
+if (data.success) {
 
-      setAiAnswer(data.answer);
+    setAiAnswer(data.answer);
 
-  }else{
+} else {
 
-      setAiAnswer("Không thể gọi AI.");
+    setAiAnswer(data.error ?? "Không thể gọi AI.");
 
-  }
+}
 
 }
 
