@@ -234,8 +234,12 @@ text-xl
         </div>
 
         {/* BUTTON */}
-        <button
-          onClick={onBuy}
+       <button
+  onClick={(e) => {
+    e.stopPropagation();
+    console.log("BUTTON CLICK");
+    onBuy();
+  }}
           disabled={owned && !stackable}
           className={`
 mt-3
