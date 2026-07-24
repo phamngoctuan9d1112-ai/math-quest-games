@@ -181,14 +181,13 @@ Yêu cầu:
 
 
     await supabase
-      .from("ai_cache")
-      .insert({
-        question_hash: questionHash,
-        question: normalizedQuestion,
-        answer,
-        source: "groq",
-      });
-
+  .from("ai_cache")
+  .insert({
+    question_hash: questionHash,
+    question: normalized,
+    answer,
+    source: "groq",
+  });
     console.log("💾 Saved cache");
 
 
