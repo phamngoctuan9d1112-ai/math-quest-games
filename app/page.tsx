@@ -603,9 +603,11 @@ async function solveByAI(question: any) {
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
+    type: question.type,
     question: question.question,
     options: question.options ?? [],
-  }),
+    subQuestions: question.subQuestions ?? []
+})
 });
 
 const data = await res.json();
