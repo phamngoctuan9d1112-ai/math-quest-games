@@ -1,77 +1,77 @@
 "use client";
 
-import { MessageBubbleProps } from "./types";
+import { motion } from "framer-motion";
 import MarkdownRenderer from "./MarkdownRenderer";
+import { MessageBubbleProps } from "./types";
+
 export default function MessageBubble({
   message,
 }: MessageBubbleProps) {
   const isUser = message.role === "user";
 
   return (
-    <div
-      className={`w-full flex mb-5 ${
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 12,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{
+        duration: 0.25,
+      }}
+      className={`flex w-full mb-5 ${
         isUser ? "justify-end" : "justify-start"
       }`}
     >
-      {!isUser && (
-        <div
-          className="
-          w-10
-          h-10
-          rounded-full
-          bg-blue-600
-          flex
-          items-center
-          justify-center
-          text-lg
-          mr-3
-          shrink-0
-          "
-        >
-          🤖
-        </div>
-      )}
-
       <div
-        className={`
-        max-w-[80%]
-        rounded-2xl
-        px-5
-        py-4
-        whitespace-pre-wrap
-        break-words
-        leading-7
-        shadow-lg
-        ${
-          isUser
-            ? "bg-blue-600 text-white rounded-br-md"
-            : "bg-zinc-800 text-zinc-100 rounded-bl-md"
-        }
-        `}
+        className={`flex items-start gap-3 max-w-[85%] ${
+          isUser ? "flex-row-reverse" : ""
+        }`}
       >
-        <MarkdownRenderer
-    content={message.content}
-/>
-      </div>
+       
 
-      {isUser && (
         <div
           className="
           w-10
           h-10
           rounded-full
-          bg-green-600
           flex
           items-center
           justify-center
-          text-lg
-          ml-3
+          text-xl
           shrink-0
+          bg-zinc-800
+          border
+          border-zinc-700
           "
         >
-          👤
+          {isUser ? "👤" : "🤖"}
         </div>
-      )}
-    </div>
+
+        {/* Bubble */}
+
+        <div
+          className={`
+          rounded-2xl
+          px-5
+          py-4
+          shadow-lg
+          break-words
+          ${
+            isUser
+              ? "bg-blue-600 text-white"
+              : "bg-zinc-800 text-zinc-100 border border-zinc-700"
+          }
+          `}
+        >
+          <MarkdownRenderer
+            content={message.content}
+          />
+        </div>
+      </div>
+    </motion.div>
   );
 }

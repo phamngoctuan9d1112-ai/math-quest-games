@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { Send } from "lucide-react";
 import { ChatInputProps } from "./types";
 
 export default function ChatInput({
@@ -9,98 +10,130 @@ export default function ChatInput({
   onChange,
   onSend,
 }: ChatInputProps) {
+
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  function handleInput(e: React.ChangeEvent<HTMLTextAreaElement>) {
-    onChange(e.target.value);
+  useEffect(() => {
 
-    if (!textareaRef.current) return;
+    const textarea = textareaRef.current;
 
-    textareaRef.current.style.height = "0px";
-    textareaRef.current.style.height =
-      textareaRef.current.scrollHeight + "px";
-  }
+    if (!textarea) return;
 
-  function handleKeyDown(
-    e: React.KeyboardEvent<HTMLTextAreaElement>
-  ) {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
+    textarea.style.height = "0px";
 
-      if (!loading && value.trim()) {
-        onSend();
-      }
-    }
-  }
+    textarea.style.height = textarea.scrollHeight + "px";
+
+  }, [value]);
 
   return (
+
     <div
       className="
       border-t
-      border-zinc-700
+      border-zinc-800
       bg-zinc-900
-      px-5
-      py-4
+      p-4
       "
     >
+
       <div
         className="
         flex
         items-end
         gap-3
+        bg-zinc-800
+        rounded-2xl
+        p-3
         "
       >
+
         <textarea
+
           ref={textareaRef}
-          rows={1}
+
           value={value}
+
           disabled={loading}
-          onChange={handleInput}
-          onKeyDown={handleKeyDown}
-          placeholder="Hỏi Quest AI bất cứ điều gì..."
+
+          rows={1}
+
+          placeholder="Hỏi Quest AI..."
+
+          onChange={(e) => onChange(e.target.value)}
+
+          onKeyDown={(e) => {
+
+            if (
+              e.key === "Enter" &&
+              !e.shiftKey
+            ) {
+
+              e.preventDefault();
+
+              if (!loading) {
+
+                onSend();
+
+              }
+
+            }
+
+          }}
+
           className="
           flex-1
-          resize-none
-          rounded-xl
-          bg-zinc-800
-          px-4
-          py-3
-          text-white
+          bg-transparent
           outline-none
+          resize-none
           max-h-40
-          overflow-y-auto
+          text-white
+          placeholder:text-zinc-400
           "
         />
 
         <button
-          disabled={loading || !value.trim()}
+
           onClick={onSend}
+
+          disabled={loading || !value.trim()}
+
           className="
-          w-12
-          h-12
-          rounded-full
+          w-11
+          h-11
+          rounded-xl
           bg-blue-600
           hover:bg-blue-500
           disabled:bg-zinc-700
           disabled:cursor-not-allowed
-          text-white
-          text-xl
+          flex
+          items-center
+          justify-center
           transition
           "
         >
-          ➤
+
+          <Send
+            size={18}
+            className="text-white"
+          />
+
         </button>
+
       </div>
 
       <div
         className="
-        mt-2
         text-xs
         text-zinc-500
+        mt-2
+        text-center
         "
       >
         Enter để gửi • Shift + Enter xuống dòng
       </div>
+
     </div>
+
   );
+
 }

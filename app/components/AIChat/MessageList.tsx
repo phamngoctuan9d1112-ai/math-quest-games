@@ -7,6 +7,7 @@ import { MessageListProps } from "./types";
 export default function MessageList({
   messages,
 }: MessageListProps) {
+
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
