@@ -33,7 +33,7 @@ useEffect(() => {
 
         const session = await createChatSession();
 
-        if(session){
+        if(session){ 
 
             setSessionId(session.id);
 
