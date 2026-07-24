@@ -1,7 +1,7 @@
 import OpenAI from "openai";
 import { createClient } from "@supabase/supabase-js";
 import crypto from "crypto";
-
+import { normalizeQuestion } from "../../lib/normalizeQuestion";
 const client = new OpenAI({
   apiKey: process.env.GROQ_API_KEY!,
   baseURL: "https://api.groq.com/openai/v1",
@@ -11,6 +11,14 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
+
+
+function createHash(text: string) {
+  return crypto
+    .createHash("sha256")
+    .update(text.trim())
+    .digest("hex");
+}
 
 export async function POST(req: Request) {
   try {
@@ -23,32 +31,44 @@ export async function POST(req: Request) {
       subQuestions = [],
     } = body;
 
+const normalized = JSON.stringify({
+  type,
+  question: normalizeQuestion(question),
+  options,
+  subQuestions,
+});
 
-    const questionHash = crypto
-      .createHash("sha256")
-      .update(JSON.stringify(body))
-      .digest("hex");
+const questionHash = createHash(normalized);
 
+    console.log("Question Hash:", questionHash);
 
-
-
-    const { data: cached } = await supabase
-      .from("ai_answers")
-      .select("answer")
+ 
+    const { data: cache } = await supabase
+      .from("ai_cache")
+      .select("*")
       .eq("question_hash", questionHash)
       .maybeSingle();
 
-    if (cached) {
-      console.log("CACHE HIT");
+    if (cache) {
+      console.log("✅ CACHE HIT");
+
+      await supabase
+        .from("ai_cache")
+        .update({
+          usage_count: cache.usage_count + 1,
+          updated_at: new Date().toISOString(),
+        })
+        .eq("id", cache.id);
 
       return Response.json({
         success: true,
-        answer: cached.answer,
+        answer: cache.answer,
         cached: true,
       });
     }
 
-    console.log("CACHE MISS");
+    console.log("❌ CACHE MISS");
+
 
 
     let prompt = "";
@@ -61,7 +81,7 @@ Bạn là giáo viên Toán THPT Việt Nam.
 
 Hãy giải bài toán sau.
 
-Đề:
+Đề bài:
 
 ${question}
 
@@ -76,49 +96,45 @@ Yêu cầu:
 1. Phân tích đề.
 2. Giải từng bước.
 3. Phân tích từng đáp án.
-4. Chỉ ra đáp án đúng.
+4. Chỉ rõ đáp án đúng.
 5. Giải thích vì sao các đáp án còn lại sai.
 `;
     }
 
 
-
-    else if (type ==="true-false") {
+    else if (type === "true-false") {
       prompt = `
 Bạn là giáo viên Toán THPT Việt Nam.
 
-Đề:
+Đề bài:
 
 ${question}
 
 Các mệnh đề:
 
 ${subQuestions
-  .map(
-    (q: any) =>
-      `${q.label}) ${q.text}`
-  )
+  .map((q: any) => `${q.label}) ${q.text}`)
   .join("\n")}
 
 Yêu cầu:
 
-Với MỖI mệnh đề:
+Giải TẤT CẢ các mệnh đề.
+
+Đối với mỗi mệnh đề:
 
 - Phân tích.
 - Chứng minh.
 - Kết luận Đúng hay Sai.
 
-Không được bỏ qua mệnh đề nào.
+Sau cùng tổng kết theo mẫu:
 
-Cuối cùng tổng kết:
+a) Đúng/Sai
 
-a) ...
+b) Đúng/Sai
 
-b) ...
+c) Đúng/Sai
 
-c) ...
-
-d) ...
+d) Đúng/Sai
 `;
     }
 
@@ -126,22 +142,21 @@ d) ...
 
     else {
       prompt = `
-Bạn là giáo viên Toán THPT.
+Bạn là giáo viên Toán THPT Việt Nam.
 
-Đề:
+Đề bài:
 
 ${question}
 
 Yêu cầu:
 
 - Giải từng bước.
-- Trình bày rõ ràng.
-- Nếu có nhiều cách giải thì chọn cách ngắn nhất.
+- Giải thích rõ ràng.
+- Trình bày đẹp.
+- Nếu có nhiều cách giải hãy chọn cách ngắn gọn nhất.
 - Cuối cùng ghi đáp số.
 `;
     }
-
-   
 
     const completion =
       await client.chat.completions.create({
@@ -151,7 +166,7 @@ Yêu cầu:
           {
             role: "system",
             content:
-              "Bạn là giáo viên Toán THPT Việt Nam. Luôn giải đúng, rõ ràng, từng bước.",
+              "Bạn là giáo viên Toán THPT Việt Nam. Luôn giải đúng, trình bày từng bước rõ ràng.",
           },
           {
             role: "user",
@@ -164,21 +179,25 @@ Yêu cầu:
       completion.choices[0]?.message?.content ??
       "Không có phản hồi.";
 
-    
 
     await supabase
-      .from("ai_answers")
+      .from("ai_cache")
       .insert({
         question_hash: questionHash,
-        question: JSON.stringify(body),
+        question: normalizedQuestion,
         answer,
+        source: "groq",
       });
+
+    console.log("💾 Saved cache");
+
 
     return Response.json({
       success: true,
       answer,
       cached: false,
     });
+
   } catch (err: any) {
     console.error(err);
 

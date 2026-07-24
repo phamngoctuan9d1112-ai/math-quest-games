@@ -11,7 +11,7 @@ import PlayerCard from "./dashboard/PlayerCard";
 import RightPanel from "./dashboard/RightPanel";
 import KingdomHeader from "./KingdomHeader";
 import SpaceBackground from "./SpaceBackground";
-
+import AIChat from "./AIChat/AIChat";
 const supabase = createClient();
 import { useEffect } from "react";
 
@@ -105,11 +105,12 @@ const kingdom4 = worlds.filter(
     useState(false);
   const [darkMode, setDarkMode] =
     useState(false);
-
+const [showAIChat, setShowAIChat] = useState(false);
   const [showPasswordModal, setShowPasswordModal] =
     useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [loadingPassword, setLoadingPassword] = useState(false);
+  const [showAI, setShowAI] = useState(false);
   const [showEmail, setShowEmail] = useState(false);
   const [showProfile, setShowProfile] =
     useState(false);
@@ -322,7 +323,38 @@ items-start
     onChestInventory={onChestInventory}
   />
 </aside>
+<button
+  onClick={() => setShowAI(true)}
+  className="
+  fixed
+  bottom-6
+  right-6
+  px-5
+  py-4
+  rounded-full
+  bg-gradient-to-r
+  from-blue-600
+  to-cyan-500
+  text-white
+  font-semibold
+  shadow-2xl
+  hover:scale-105
+  transition
+  flex
+  items-center
+  gap-2
+  z-50
+  "
+>
+  🤖
+  Gia sư AI
+</button>
 
+{showAI && (
+  <AIChat
+    onClose={() => setShowAI(false)}
+  />
+)}
             
 
             {/* CENTER */}
