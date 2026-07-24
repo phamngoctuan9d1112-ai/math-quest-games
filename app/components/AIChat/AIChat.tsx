@@ -3,11 +3,13 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+
+import { useEffect } from "react";
 import AIHeader from "./AIHeader";
 import MessageList from "./MessageList";
 import ChatInput from "./ChatInput";
 import TypingIndicator from "./TypingIndicator";
-
+import { createChatSession } from "../../lib/chat";
 import { AIChatProps, ChatMessage } from "./types";
 
 export default function AIChat({
@@ -23,9 +25,25 @@ export default function AIChat({
   ]);
 
   const [input, setInput] = useState("");
-
+const [sessionId, setSessionId] = useState<string>();
   const [loading, setLoading] = useState(false);
+useEffect(() => {
 
+    async function init() {
+
+        const session = await createChatSession();
+
+        if(session){
+
+            setSessionId(session.id);
+
+        }
+
+    }
+
+    init();
+
+},[]);
   async function sendMessage() {
     if (!input.trim()) return;
 
