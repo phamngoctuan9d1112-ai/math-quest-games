@@ -1,9 +1,8 @@
-import { GoogleGenAI } from "@google/genai";
+import OpenAI from "openai";
 
-console.log("API KEY =", process.env.GEMINI_API_KEY);
-
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY!,
+const client = new OpenAI({
+  apiKey: process.env.OPENROUTER_API_KEY!,
+  baseURL: "https://openrouter.ai/api/v1",
 });
 
 export async function POST(req: Request) {
@@ -13,14 +12,12 @@ export async function POST(req: Request) {
     const prompt = `
 Bạn là giáo viên Toán THPT Việt Nam.
 
-Giải bài từng bước.
+Hãy giải bài toán từng bước.
 
-Đề:
-
+Đề bài:
 ${question}
 
-Đáp án:
-
+Các đáp án:
 ${JSON.stringify(options)}
 
 Yêu cầu:
@@ -28,21 +25,26 @@ Yêu cầu:
 - Phân tích đề
 - Giải từng bước
 - Nếu là trắc nghiệm thì phân tích từng đáp án
-- Cuối cùng mới kết luận.
+- Cuối cùng kết luận đáp án đúng.
 `;
 
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash-lite",
-      contents: prompt,
+    const completion = await client.chat.completions.create({
+      model: "deepseek/deepseek-r1:free",
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
     });
 
-    console.log("TEXT =", response.text);
+    const answer =
+      completion.choices[0]?.message?.content ?? "Không có phản hồi.";
 
     return Response.json({
       success: true,
-      answer: response.text,
+      answer,
     });
-
   } catch (err: any) {
     console.error(err);
 
