@@ -8,12 +8,21 @@ import {
 import Player from "./Player";
 import NPC from "./NPC";
 import HUD from "./HUD";
-
+import QuestionModal from "./QuestionModal";
 export default function GameScene() {
 
-   
+   const [showQuestion, setShowQuestion] =
+    useState(false);
+const npcX = 700;
+const npcY = 350;
+
 const [playerX, setPlayerX] = useState(500);
 const [playerY, setPlayerY] = useState(400);
+const nearNpc =
+
+Math.abs(playerX - npcX) < 70 &&
+
+Math.abs(playerY - npcY) < 70;
     useEffect(() => {
   function handleKey(e: KeyboardEvent) {
     const speed = 8;
@@ -78,11 +87,40 @@ const [playerY, setPlayerY] = useState(400);
             <HUD world={1} />
 
             <NPC
-                x={450}
-                y={220}
-                name="Giáo sư"
-            />
 
+x={npcX}
+
+y={npcY}
+
+/>
+{nearNpc && (
+
+<div
+
+className="
+absolute
+bottom-10
+left-1/2
+-translate-x-1/2
+
+bg-black/80
+
+text-white
+
+px-5
+
+py-3
+
+rounded-xl
+"
+
+>
+
+Nhấn E để nói chuyện
+
+</div>
+
+)}
           <Player
     x={playerX}
     y={playerY}

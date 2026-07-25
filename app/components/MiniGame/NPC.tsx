@@ -3,36 +3,41 @@
 type Props = {
     x: number;
     y: number;
-    name: string;
 };
 
 export default function NPC({
     x,
     y,
-    name,
 }: Props) {
+
     return (
+
         <div
-            className="absolute"
+            className="
+            absolute
+            w-12
+            h-12
+            z-20
+            "
             style={{
                 left: x,
                 top: y,
+                transform: "translate(-50%,-50%)",
             }}
         >
+
             <img
                 src="/images/npc.png"
-                className="w-10 h-10"
+                alt=""
+                className="
+                w-full
+                h-full
+                object-contain
+                "
             />
 
-            <div
-                className="
-                text-xs
-                text-white
-                text-center
-                "
-            >
-                {name}
-            </div>
         </div>
+
     );
+
 }
