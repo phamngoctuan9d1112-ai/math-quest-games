@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import StoryModal from "./components/StoryModal";
+import MiniGame from "./components/MiniGame/MiniGame";
 import confetti from "canvas-confetti";
 import BattleScreen from "./components/battle/BattleScreen";
 import { unlockAchievement } from "./lib/achievement";
@@ -241,7 +242,7 @@ export default function Home() {
   const [magicStoneActive, setMagicStoneActive] = useState(false);
   const [showChestRoom, setShowChestRoom] =
 useState(false);
-
+const [showMiniGame, setShowMiniGame] = useState(false);
 const [shield, setShield] = useState(0);
 const [showAI, setShowAI] = useState(false);
 
@@ -2747,6 +2748,7 @@ text-yellow-400
             onShop={() => setShowShop(true)}
             onInventory={() => setShowInventory(true)}
             onAchievements={() => setShowAchievements(true)}
+            onOpenMiniGame={() => setShowMiniGame(true)}
             onLeaderboard={() => {
     fetchLeaderboard();
     setShowLeaderboard(true);
@@ -2755,6 +2757,11 @@ text-yellow-400
               
             
           />
+          {showMiniGame && (
+    <MiniGame
+        onClose={() => setShowMiniGame(false)}
+    />
+)}
         </main>
       </>
     );

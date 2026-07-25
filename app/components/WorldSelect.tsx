@@ -34,7 +34,7 @@ currentUserId: string | null;
 setCoins: React.Dispatch<React.SetStateAction<number>>;
 setDailyRewardClaimed: React.Dispatch<React.SetStateAction<boolean>>;
 setMessage: React.Dispatch<React.SetStateAction<string>>;
-
+onOpenMiniGame: () => void;
 xp:number;
   rank: string;
   onChestInventory: () => void;
@@ -65,7 +65,7 @@ currentUserId,
 setCoins,
 setDailyRewardClaimed,
 setMessage,
-
+onOpenMiniGame,
 xp,
   onChest,
   avatar,
@@ -129,6 +129,7 @@ const [showAIChat, setShowAIChat] = useState(false);
     "CN",
   ];
   const today = new Date().getDay();
+  
   const todayIndex =
     today === 0
       ? 6
@@ -322,6 +323,20 @@ items-start
     onChest={onChest}
     onChestInventory={onChestInventory}
   />
+  <button
+    onClick={onOpenMiniGame}
+    className="
+    px-6
+    py-3
+    rounded-xl
+    bg-indigo-600
+    hover:bg-indigo-700
+    text-white
+    font-bold
+    "
+>
+    🎮 Mini Game
+</button>
 </aside>
 <button
   onClick={() => setShowAI(true)}
