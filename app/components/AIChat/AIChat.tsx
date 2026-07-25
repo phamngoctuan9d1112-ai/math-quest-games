@@ -1,17 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import AIHeader from "./AIHeader";
 import MessageList from "./MessageList";
 import ChatInput from "./ChatInput";
 import TypingIndicator from "./TypingIndicator";
-
+import ChatSidebar from "./ChatSidebar";
+import type {
+    ChatSession,
+} from "./ChatSidebar";
 import {
   createChatSession,
   saveMessage,
+  getChatSessions,
+  loadChatMessages,
 } from "../../lib/chat";
-
 import {
   AIChatProps,
   ChatMessage,
@@ -35,20 +39,29 @@ export default function AIChat({
   const [loading, setLoading] =
     useState(false);
 
+
+const [sessions, setSessions] =
+useState<ChatSession[]>([]);
   const [sessionId, setSessionId] =
     useState<string | null>(null);
+    async function loadSessions() {
 
+    const data = await getChatSessions();
+
+    setSessions(data);
+
+}
+useEffect(() => {
+
+    loadSessions();
+
+}, []);
   async function sendMessage() {
 
     if (!input.trim()) return;
 
     let currentSession = sessionId;
 
-    //------------------------------------------------
-
-    // Tạo session nếu chưa có
-
-    //------------------------------------------------
 
     if (!currentSession) {
 
@@ -66,6 +79,7 @@ export default function AIChat({
       currentSession = session.id;
 
       setSessionId(session.id);
+      await loadSessions();
 
     }
 const activeSessionId = currentSession!;
@@ -88,6 +102,7 @@ const activeSessionId = currentSession!;
       userMessage,
 
     ]);
+    
 
     await saveMessage(
 
@@ -116,14 +131,15 @@ const activeSessionId = currentSession!;
           "Content-Type": "application/json",
 
         },
+body: JSON.stringify({
 
-        body: JSON.stringify({
+    sessionId: activeSessionId,
 
-          sessionId: currentSession,
+    message: question,
 
-          message: question,
+}),
 
-        }),
+       
 
       });
 
@@ -147,15 +163,7 @@ const activeSessionId = currentSession!;
 
       ]);
 
-      await saveMessage(
-
-        activeSessionId,
-
-        "assistant",
-
-        aiMessage.content,
-
-      );
+   await loadSessions();
 
     } catch {
 
@@ -181,6 +189,33 @@ const activeSessionId = currentSession!;
     setLoading(false);
 
   }
+  async function openSession(
+
+    id: string,
+
+) {
+
+    const history = await loadChatMessages(id);
+
+    const formatted: ChatMessage[] = history.map(
+
+        (m: any) => ({
+
+            id: crypto.randomUUID(),
+
+            role: m.role,
+
+            content: m.content,
+
+        })
+
+    );
+
+    setMessages(formatted);
+
+    setSessionId(id);
+
+}
   return (
   <div
     className="
@@ -215,20 +250,60 @@ const activeSessionId = currentSession!;
         onClose={onClose}
       />
 
-      <MessageList
-        messages={messages}
-      />
+      
+      <div className="flex flex-1 overflow-hidden">
 
-      {loading && (
-        <TypingIndicator />
-      )}
+    <ChatSidebar
 
-      <ChatInput
-        value={input}
-        loading={loading}
-        onChange={setInput}
-        onSend={sendMessage}
-      />
+        sessions={sessions}
+
+        currentSessionId={sessionId}
+
+        onNewChat={() => {
+
+            setMessages([
+                {
+                    id: "welcome",
+                    role: "assistant",
+                    content:
+                        "Xin chào 👋\n\nMình là Quest AI.",
+                },
+            ]);
+
+            setSessionId(null);
+            loadSessions();
+
+        }}
+
+        onSelect={(id)=>{
+
+    openSession(id)
+
+}}
+
+    />
+
+    <div className="flex flex-col flex-1">
+
+        <MessageList messages={messages} />
+
+        {loading && <TypingIndicator />}
+
+        <ChatInput
+
+            value={input}
+
+            loading={loading}
+
+            onChange={setInput}
+
+            onSend={sendMessage}
+
+        />
+
+    </div>
+
+</div>
 
     </div>
   </div>

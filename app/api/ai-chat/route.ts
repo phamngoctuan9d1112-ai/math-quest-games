@@ -28,9 +28,7 @@ export async function POST(req: Request) {
       );
     }
 
-    //------------------------------------------------
-    // Lấy toàn bộ lịch sử chat
-    //------------------------------------------------
+
 
     const { data: history, error } = await supabase
       .from("chat_messages")
@@ -54,9 +52,6 @@ export async function POST(req: Request) {
       );
     }
 
-    //------------------------------------------------
-    // Prompt hệ thống
-    //------------------------------------------------
 
     const systemPrompt = `
 Bạn là Quest AI.
@@ -86,9 +81,6 @@ Nhiệm vụ:
       })),
     ];
 
-    //------------------------------------------------
-    // Gọi Groq
-    //------------------------------------------------
 
     const completion =
       await client.chat.completions.create({
@@ -101,9 +93,7 @@ Nhiệm vụ:
       completion.choices[0]?.message?.content ??
       "Xin lỗi, mình chưa có câu trả lời.";
 
-    //------------------------------------------------
-    // Lưu AI vào Supabase
-    //------------------------------------------------
+
 
     await supabase
       .from("chat_messages")
@@ -113,9 +103,6 @@ Nhiệm vụ:
         content: aiMessage,
       });
 
-    //------------------------------------------------
-    // Cập nhật thời gian session
-    //------------------------------------------------
 
     await supabase
       .from("chat_sessions")

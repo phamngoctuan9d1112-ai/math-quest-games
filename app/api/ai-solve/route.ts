@@ -96,8 +96,8 @@ Yêu cầu:
 1. Phân tích đề.
 2. Giải từng bước.
 3. Phân tích từng đáp án.
-4. Chỉ rõ đáp án đúng.
-5. Giải thích vì sao các đáp án còn lại sai.
+4. Đưa ra gợi ý chi tiết 
+Lưu ý: không đưa ra đáp án cụ thể chỉ gợi ý
 `;
     }
 
@@ -126,15 +126,7 @@ Giải TẤT CẢ các mệnh đề.
 - Chứng minh.
 - Kết luận Đúng hay Sai.
 
-Sau cùng tổng kết theo mẫu:
-
-a) Đúng/Sai
-
-b) Đúng/Sai
-
-c) Đúng/Sai
-
-d) Đúng/Sai
+Sau cùng tổng kết chỉ đưa ra gợi ý không đưa ra đáp án
 `;
     }
 
@@ -154,7 +146,7 @@ Yêu cầu:
 - Giải thích rõ ràng.
 - Trình bày đẹp.
 - Nếu có nhiều cách giải hãy chọn cách ngắn gọn nhất.
-- Cuối cùng ghi đáp số.
+- Chỉ đưa ra gợi ý không đưa đáp án
 `;
     }
 

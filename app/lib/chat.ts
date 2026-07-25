@@ -30,21 +30,7 @@ export async function createChatSession() {
   return data;
 }
 
-export async function getChatSessions() {
-  const { data, error } = await supabase
-    .from("chat_sessions")
-    .select("*")
-    .order("updated_at", {
-      ascending: false,
-    });
 
-  if (error) {
-    console.error(error);
-    return [];
-  }
-
-  return data;
-}
 
 export async function renameSession(
   sessionId: string,
@@ -111,4 +97,100 @@ export async function getMessages(
   }
 
   return data;
+}
+export async function getChatSessions() {
+
+    const {
+
+        data: {
+
+            user,
+
+        },
+
+    } = await supabase.auth.getUser();
+
+    if (!user) return [];
+
+    const { data } = await supabase
+
+        .from("chat_sessions")
+
+        .select("*")
+
+        .eq("user_id", user.id)
+
+        .order("updated_at", {
+
+            ascending: false,
+
+        });
+
+    return data ?? [];
+
+}
+export async function loadChatMessages(
+    sessionId: string
+) {
+
+    const { data } = await supabase
+
+        .from("chat_messages")
+
+        .select("*")
+
+        .eq("session_id", sessionId)
+
+        .order("created_at", {
+
+            ascending: true,
+
+        });
+
+    return data ?? [];
+
+}
+export async function renameChat(
+
+    sessionId: string,
+
+    title: string,
+
+) {
+
+    await supabase
+
+        .from("chat_sessions")
+
+        .update({
+
+            title,
+
+        })
+
+        .eq("id", sessionId);
+
+}
+export async function deleteChat(
+
+    sessionId: string,
+
+) {
+
+    await supabase
+
+        .from("chat_messages")
+
+        .delete()
+
+        .eq("session_id", sessionId);
+
+    await supabase
+
+        .from("chat_sessions")
+
+        .delete()
+
+        .eq("id", sessionId);
+
 }
