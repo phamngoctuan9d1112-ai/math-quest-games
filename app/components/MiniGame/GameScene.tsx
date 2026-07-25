@@ -13,7 +13,7 @@ export default function GameScene() {
 
    const [showQuestion, setShowQuestion] =
     useState(false);
-const npcX = 700;
+const npcX = 500;
 const npcY = 350;
 
 const [playerX, setPlayerX] = useState(500);
