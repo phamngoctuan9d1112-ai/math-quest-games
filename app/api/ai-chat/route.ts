@@ -3,8 +3,8 @@ import { createClient } from "@supabase/supabase-js";
 
 import { ChatCompletionMessageParam } from "openai/resources/chat/completions";
 const client = new OpenAI({
-  apiKey: process.env.GROQ_API_KEY!,
-  baseURL: "https://api.groq.com/openai/v1",
+  apiKey: process.env.OPENROUTER_API_KEY!,
+  baseURL: "https://openrouter.ai/api/v1",
 });
 
 const supabase = createClient(
@@ -82,13 +82,16 @@ Nhiệm vụ:
     ];
 
 
-    const completion =
-      await client.chat.completions.create({
-        model: "llama-3.3-70b-versatile",
-        temperature: 0.2,
-        messages,
-      });
+ const completion =
+  await client.chat.completions.create({
+    model: "deepseek/deepseek-chat-v3-0324:free",
 
+    temperature: 0.2,
+
+    messages,
+
+   
+  });
     const aiMessage =
       completion.choices[0]?.message?.content ??
       "Xin lỗi, mình chưa có câu trả lời.";
@@ -111,7 +114,7 @@ Nhiệm vụ:
       })
       .eq("id", sessionId);
 
-    //------------------------------------------------
+  
 
     return Response.json({
       success: true,
