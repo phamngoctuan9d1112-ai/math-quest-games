@@ -1,13 +1,11 @@
-export interface MiniGameProps {
-    onClose: () => void;
-}
+export type Position = {
+    x: number;
+    y: number;
+};
 
-export interface HUDProps {
-    hp: number;
-    coins: number;
-}
-
-export interface PauseMenuProps {
-    onResume: () => void;
-    onExit: () => void;
-}
+export type NPCData = {
+    id: string;
+    name: string;
+    x: number;
+    y: number;
+};

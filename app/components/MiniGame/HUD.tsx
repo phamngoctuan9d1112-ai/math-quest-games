@@ -1,36 +1,28 @@
 "use client";
 
-import { HUDProps } from "./types";
+type Props = {
+    world: number;
+};
 
 export default function HUD({
-    hp,
-    coins,
-}: HUDProps) {
+    world,
+}: Props) {
     return (
         <div
             className="
-            h-16
-            bg-zinc-900
-            border-b
-            border-zinc-700
-            flex
-            items-center
-            justify-between
-            px-6
+            absolute
+            top-5
+            left-5
+            bg-black/60
+            rounded-xl
+            px-4
+            py-2
             text-white
+            font-bold
+            z-50
             "
         >
-            <div>
-
-                ❤️ {hp}
-
-            </div>
-
-            <div>
-
-                🪙 {coins}
-
-            </div>
+            🌍 World {world}
         </div>
     );
 }
