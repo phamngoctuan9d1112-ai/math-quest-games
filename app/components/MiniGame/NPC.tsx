@@ -3,11 +3,13 @@
 type Props = {
     x: number;
     y: number;
+    completed?: boolean;
 };
 
 export default function NPC({
     x,
     y,
+    completed = false,
 }: Props) {
 
     return (

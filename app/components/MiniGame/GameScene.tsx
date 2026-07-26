@@ -1,103 +1,165 @@
 "use client";
 
-import {
-    useEffect,
-    useState,
-} from "react";
+import { useEffect, useState } from "react";
 
 import Player from "./Player";
 import NPC from "./NPC";
 import HUD from "./HUD";
 import QuestionModal from "./QuestionModal";
+
+import { npcQuestions } from "./questions";
+
 export default function GameScene() {
 
+    //----------------------------------------
+    // Player
+    //----------------------------------------
 
-const npcX = 470;
-const npcY = 480;
-const [npcCompleted, setNpcCompleted] =
-    useState(false);
-const [playerX, setPlayerX] = useState(500);
-const [playerY, setPlayerY] = useState(400);
-const nearNpc =
+    const [playerX, setPlayerX] = useState(500);
+    const [playerY, setPlayerY] = useState(450);
 
-Math.abs(playerX - npcX) < 70 &&
+    //----------------------------------------
+    // NPC
+    //----------------------------------------
 
-Math.abs(playerY - npcY) < 70;
-const [showQuestion, setShowQuestion] = useState(false);  
-useEffect(() => {
-  function handleKey(e: KeyboardEvent) {
-    const speed = 8;
+    const [currentNpc, setCurrentNpc] =
+        useState<number | null>(null);
 
-    switch (e.key) {
-      case "ArrowUp":
-      case "w":
-      case "W":
-        setPlayerY((y) => y - speed);
-        break;
+    const [showQuestion, setShowQuestion] =
+        useState(false);
 
-      case "ArrowDown":
-      case "s":
-      case "S":
-        setPlayerY((y) => y + speed);
-        break;
+    const [completedNpc, setCompletedNpc] =
+        useState<number[]>([]);
 
-      case "ArrowLeft":
-      case "a":
-      case "A":
-        setPlayerX((x) => x - speed);
-        break;
+    //----------------------------------------
+    // Di chuyển
+    //----------------------------------------
 
-      case "ArrowRight":
-      case "d":
-      case "D":
-        setPlayerX((x) => x + speed);
-        break;
-    }
-  }
+    useEffect(() => {
 
-  window.addEventListener("keydown", handleKey);
+        function handleKey(e: KeyboardEvent) {
 
-  return () =>
-    window.removeEventListener(
-      "keydown",
-      handleKey
-    );
-}, []);
+            const speed = 8;
 
-useEffect(() => {
+            switch (e.key) {
 
-    function handleE(
-        e: KeyboardEvent
-    ){
+                case "ArrowUp":
+                case "w":
+                case "W":
+                    setPlayerY(y => y - speed);
+                    break;
 
-        if(
-            (e.key==="e" || e.key==="E")
-            && nearNpc
-        ){
+                case "ArrowDown":
+                case "s":
+                case "S":
+                    setPlayerY(y => y + speed);
+                    break;
+
+                case "ArrowLeft":
+                case "a":
+                case "A":
+                    setPlayerX(x => x - speed);
+                    break;
+
+                case "ArrowRight":
+                case "d":
+                case "D":
+                    setPlayerX(x => x + speed);
+                    break;
+
+            }
+
+        }
+
+        window.addEventListener(
+            "keydown",
+            handleKey
+        );
+
+        return () =>
+            window.removeEventListener(
+                "keydown",
+                handleKey
+            );
+
+    }, []);
+
+    //----------------------------------------
+    // Nhấn E
+    //----------------------------------------
+
+    useEffect(() => {
+
+        function handleE(e: KeyboardEvent) {
+
+            if (e.key !== "e" && e.key !== "E")
+                return;
+
+            const npc = npcQuestions.find(n => {
+
+                return (
+
+                    Math.abs(playerX - n.x) < 70 &&
+                    Math.abs(playerY - n.y) < 70 &&
+                    !completedNpc.includes(n.id)
+
+                );
+
+            });
+
+            if (!npc) return;
+
+            setCurrentNpc(npc.id);
 
             setShowQuestion(true);
 
         }
 
-    }
-
-    window.addEventListener(
-        "keydown",
-        handleE
-    );
-
-    return ()=>{
-
-        window.removeEventListener(
+        window.addEventListener(
             "keydown",
             handleE
         );
 
-    };
+        return () =>
+            window.removeEventListener(
+                "keydown",
+                handleE
+            );
 
-}, [nearNpc]);
+    }, [playerX, playerY, completedNpc]);
+
+    //----------------------------------------
+    // NPC hiện tại
+    //----------------------------------------
+
+    const npc =
+        npcQuestions.find(
+            n => n.id === currentNpc
+        );
+
+    //----------------------------------------
+    // NPC gần nhất
+    //----------------------------------------
+
+    const nearNpc =
+        npcQuestions.find(n => {
+
+            return (
+
+                Math.abs(playerX - n.x) < 70 &&
+                Math.abs(playerY - n.y) < 70 &&
+                !completedNpc.includes(n.id)
+
+            );
+
+        });
+
+    //----------------------------------------
+    // Render
+    //----------------------------------------
 
     return (
+
         <div
             className="
             relative
@@ -120,71 +182,96 @@ useEffect(() => {
 
             <HUD world={1} />
 
-           {!npcCompleted && (
+            {/* NPC */}
 
-<NPC
-    x={npcX}
-    y={npcY}
-/>
+            {npcQuestions.map(n => (
 
-)}
-{nearNpc && !npcCompleted && (
+                <NPC
+                    key={n.id}
+                    x={n.x}
+                    y={n.y}
+                    completed={
+                        completedNpc.includes(n.id)
+                    }
+                />
 
-<div
+            ))}
 
-className="
-absolute
-bottom-10
-left-1/2
--translate-x-1/2
+            {/* Player */}
 
-bg-black/80
+            <Player
+                x={playerX}
+                y={playerY}
+            />
 
-text-white
+            {/* Gợi ý */}
 
-px-5
+            {nearNpc && (
 
-py-3
+                <div
+                    className="
+                    absolute
+                    bottom-10
+                    left-1/2
+                    -translate-x-1/2
 
-rounded-xl
-"
+                    bg-black/80
 
->
+                    text-white
 
-Nhấn E để nói chuyện
+                    px-5
+                    py-3
 
-</div>
+                    rounded-xl
+                    "
+                >
 
-)}
-          <Player
-    x={playerX}
-    y={playerY}
-/>
+                    Nhấn E để nói chuyện
 
-<QuestionModal
-    open={showQuestion}
+                </div>
 
-    question="2 + 2 bằng bao nhiêu?"
+            )}
 
-    options={[
-        "3",
-        "4",
-        "5",
-        "6",
-    ]}
+            {/* Modal */}
 
-    answer={1}
+            {npc && (
 
-    onClose={()=>{
-        setShowQuestion(false);
-    }}
+                <QuestionModal
 
-    onCorrect={()=>{
-        setNpcCompleted(true);
-        setShowQuestion(false);
-    }}
-/>
+                    open={showQuestion}
+
+                    question={npc.question}
+
+                    options={npc.options}
+
+                    answer={npc.answer}
+
+                    onClose={() => {
+
+                        setShowQuestion(false);
+
+                    }}
+
+                    onCorrect={() => {
+
+                        setCompletedNpc(prev => [
+
+                            ...prev,
+
+                            npc.id,
+
+                        ]);
+
+                        setShowQuestion(false);
+
+                    }}
+
+                />
+
+            )}
 
         </div>
+
     );
+
 }
