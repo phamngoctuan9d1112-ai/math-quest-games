@@ -1,50 +1,51 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import Player from "./Player";
 import NPC from "./NPC";
 import HUD from "./HUD";
 import QuestionModal from "./QuestionModal";
-
 import { npcQuestions } from "./questions";
 
-export default function GameScene() {
-
-const [completedCount, setCompletedCount] =
-useState(0);
-
-    const [playerX, setPlayerX] = useState(500);
-    const [playerY, setPlayerY] = useState(450);
-
-
-    const [currentNpc, setCurrentNpc] =
-        useState<number | null>(null);
-
-    const [showQuestion, setShowQuestion] =
-        useState(false);
 const VIEW_WIDTH = 1366;
 const VIEW_HEIGHT = 768;
 
 const MAP_WIDTH = 3000;
 const MAP_HEIGHT = 2000;
 
-const cameraX = Math.min(
-    Math.max(playerX - VIEW_WIDTH / 2, 0),
-    MAP_WIDTH - VIEW_WIDTH
-);
+export default function GameScene() {
 
-const cameraY = Math.min(
-    Math.max(playerY - VIEW_HEIGHT / 2, 0),
-    MAP_HEIGHT - VIEW_HEIGHT
-);
+
+
+    const [playerX, setPlayerX] = useState(500);
+    const [playerY, setPlayerY] = useState(500);
+
+
     const [completedNpc, setCompletedNpc] =
         useState<number[]>([]);
+
+    const [currentNpc, setCurrentNpc] =
+        useState<number | null>(null);
+
+    const [showQuestion, setShowQuestion] =
+        useState(false);
+
+
+    const cameraX = Math.min(
+        Math.max(playerX - VIEW_WIDTH / 2, 0),
+        MAP_WIDTH - VIEW_WIDTH
+    );
+
+    const cameraY = Math.min(
+        Math.max(playerY - VIEW_HEIGHT / 2, 0),
+        MAP_HEIGHT - VIEW_HEIGHT
+    );
 
 
     useEffect(() => {
 
-        function handleKey(e: KeyboardEvent) {
+        function key(e: KeyboardEvent) {
 
             const speed = 8;
 
@@ -53,77 +54,85 @@ const cameraY = Math.min(
                 case "ArrowUp":
                 case "w":
                 case "W":
-                    setPlayerY(y => y - speed);
+
+                    setPlayerY(y =>
+                        Math.max(0, y - speed)
+                    );
+
                     break;
 
                 case "ArrowDown":
                 case "s":
                 case "S":
-                    setPlayerY(y => y + speed);
+
+                    setPlayerY(y =>
+                        Math.min(MAP_HEIGHT, y + speed)
+                    );
+
                     break;
 
                 case "ArrowLeft":
                 case "a":
                 case "A":
-                    setPlayerX(x => x - speed);
+
+                    setPlayerX(x =>
+                        Math.max(0, x - speed)
+                    );
+
                     break;
 
                 case "ArrowRight":
                 case "d":
                 case "D":
-                    setPlayerX(x => x + speed);
-                    break;
 
+                    setPlayerX(x =>
+                        Math.min(MAP_WIDTH, x + speed)
+                    );
+
+                    break;
             }
 
         }
 
-        window.addEventListener(
-            "keydown",
-            handleKey
-        );
+        window.addEventListener("keydown", key);
 
         return () =>
-            window.removeEventListener(
-                "keydown",
-                handleKey
-            );
+            window.removeEventListener("keydown", key);
 
     }, []);
 
+
+
+    const nearNpc = useMemo(() => {
+
+        return npcQuestions.find(n =>
+
+            Math.abs(playerX - n.x) < 70 &&
+            Math.abs(playerY - n.y) < 70 &&
+            !completedNpc.includes(n.id)
+
+        );
+
+    }, [playerX, playerY, completedNpc]);
 
 
     useEffect(() => {
 
         function handleE(e: KeyboardEvent) {
 
-            if (e.key !== "e" && e.key !== "E")
-                return;
+            if (!nearNpc) return;
 
-            const npc = npcQuestions.find(n => {
+            if (e.key === "e" || e.key === "E") {
 
-                return (
+                setCurrentNpc(nearNpc.id);
 
-                    Math.abs(playerX - n.x) < 70 &&
-                    Math.abs(playerY - n.y) < 70 &&
-                    !completedNpc.includes(n.id)
+                setShowQuestion(true);
 
-                );
-
-            });
-
-            if (!npc) return;
-
-            setCurrentNpc(npc.id);
-
-            setShowQuestion(true);
+            }
 
         }
 
-        window.addEventListener(
-            "keydown",
-            handleE
-        );
+        window.addEventListener("keydown", handleE);
 
         return () =>
             window.removeEventListener(
@@ -131,30 +140,16 @@ const cameraY = Math.min(
                 handleE
             );
 
-    }, [playerX, playerY, completedNpc]);
+    }, [nearNpc]);
 
+ 
 
     const npc =
         npcQuestions.find(
             n => n.id === currentNpc
         );
 
-
-
-    const nearNpc =
-        npcQuestions.find(n => {
-
-            return (
-
-                Math.abs(playerX - n.x) < 70 &&
-                Math.abs(playerY - n.y) < 70 &&
-                !completedNpc.includes(n.id)
-
-            );
-
-        });
-
-
+ 
 
     return (
 
@@ -164,77 +159,104 @@ const cameraY = Math.min(
             w-full
             h-full
             overflow-hidden
+            bg-black
             "
         >
-<div
-    className="
-    absolute
-    "
-    style={{
-        left: -cameraX,
-        top: -cameraY,
-    }}
->
 
-    <img
-        src="/images/minimap.png"
-    />
+            
 
-</div>
+            <div
+                className="absolute"
+                style={{
+
+                    width: MAP_WIDTH,
+
+                    height: MAP_HEIGHT,
+
+                    transform:
+                        `translate(${-cameraX}px,${-cameraY}px)`
+
+                }}
+            >
+
+                
+                <img
+
+                    src="/images/minimap.png"
+
+                    className="
+                    absolute
+                    left-0
+                    top-0
+                    w-full
+                    h-full
+                    select-none
+                    pointer-events-none
+                    "
+
+                />
+
+                
+
+                {npcQuestions.map(n => (
+
+                    <NPC
+
+                        key={n.id}
+
+                        x={n.x}
+
+                        y={n.y}
+
+                        completed={
+                            completedNpc.includes(n.id)
+                        }
+
+                    />
+
+                ))}
+
+              
+
+                <Player
+
+                    x={playerX}
+
+                    y={playerY}
+
+                />
+
+            </div>
+
+            
 
             <HUD world={1} />
 
             
 
-            {npcQuestions.map(n => (
-
-                <NPC
-                    key={n.id}
-                    x={n.x}
-                    y={n.y}
-                    completed={
-                        completedNpc.includes(n.id)
-                    }
-                />
-
-            ))}
-
-            {/* Player */}
-
-            <Player
-
-x={VIEW_WIDTH/2}
-
-y={VIEW_HEIGHT/2}
-
-/>
-
-            {/* Gợi ý */}
-
             {nearNpc && (
 
                 <div
+
                     className="
                     absolute
+                    left-1/2
                     bottom-10
-                    style={{
-
-left:VIEW_WIDTH/2,
-
-top:VIEW_HEIGHT/2+80
-
-}}
                     -translate-x-1/2
 
-                    bg-black/80
+                    bg-black/70
 
-                    text-white
+                    px-6
 
-                    px-5
                     py-3
 
                     rounded-xl
+
+                    text-white
+
+                    font-bold
                     "
+
                 >
 
                     Nhấn E để nói chuyện
@@ -257,27 +279,23 @@ top:VIEW_HEIGHT/2+80
 
                     answer={npc.answer}
 
-                    onClose={() => {
+                    onClose={() =>
+                        setShowQuestion(false)
+                    }
+
+                    onCorrect={() => {
+
+                        setCompletedNpc(prev => [
+
+                            ...prev,
+
+                            npc.id
+
+                        ]);
 
                         setShowQuestion(false);
 
                     }}
-
-                    onCorrect={() => {
-
-    setCompletedNpc(prev=>[
-
-        ...prev,
-
-        npc.id
-
-    ]);
-
-    setCompletedCount(c=>c+1);
-
-    setShowQuestion(false);
-
-}}
 
                 />
 
