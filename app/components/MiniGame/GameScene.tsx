@@ -19,7 +19,7 @@ export default function GameScene() {
 
 
 
-    const [playerX, setPlayerX] = useState(700);
+    const [playerX, setPlayerX] = useState(800);
     const [playerY, setPlayerY] = useState(470);
 const [collisionCtx, setCollisionCtx] =
 useState<CanvasRenderingContext2D | null>(null);
