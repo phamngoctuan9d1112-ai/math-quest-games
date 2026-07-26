@@ -13,8 +13,8 @@ export default function Player({
     <div
       className="
       absolute
-      w-10
-      h-10
+      w-12
+      h-12
       z-50
       pointer-events-none
       "

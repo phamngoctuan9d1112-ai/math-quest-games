@@ -11,16 +11,12 @@ import { npcQuestions } from "./questions";
 
 export default function GameScene() {
 
-    //----------------------------------------
-    // Player
-    //----------------------------------------
+const [completedCount, setCompletedCount] =
+useState(0);
 
     const [playerX, setPlayerX] = useState(500);
     const [playerY, setPlayerY] = useState(450);
 
-    //----------------------------------------
-    // NPC
-    //----------------------------------------
 
     const [currentNpc, setCurrentNpc] =
         useState<number | null>(null);
@@ -31,9 +27,6 @@ export default function GameScene() {
     const [completedNpc, setCompletedNpc] =
         useState<number[]>([]);
 
-    //----------------------------------------
-    // Di chuyển
-    //----------------------------------------
 
     useEffect(() => {
 
@@ -84,9 +77,7 @@ export default function GameScene() {
 
     }, []);
 
-    //----------------------------------------
-    // Nhấn E
-    //----------------------------------------
+
 
     useEffect(() => {
 
@@ -128,18 +119,13 @@ export default function GameScene() {
 
     }, [playerX, playerY, completedNpc]);
 
-    //----------------------------------------
-    // NPC hiện tại
-    //----------------------------------------
 
     const npc =
         npcQuestions.find(
             n => n.id === currentNpc
         );
 
-    //----------------------------------------
-    // NPC gần nhất
-    //----------------------------------------
+
 
     const nearNpc =
         npcQuestions.find(n => {
@@ -154,9 +140,7 @@ export default function GameScene() {
 
         });
 
-    //----------------------------------------
-    // Render
-    //----------------------------------------
+
 
     return (
 
@@ -254,17 +238,19 @@ export default function GameScene() {
 
                     onCorrect={() => {
 
-                        setCompletedNpc(prev => [
+    setCompletedNpc(prev=>[
 
-                            ...prev,
+        ...prev,
 
-                            npc.id,
+        npc.id
 
-                        ]);
+    ]);
 
-                        setShowQuestion(false);
+    setCompletedCount(c=>c+1);
 
-                    }}
+    setShowQuestion(false);
+
+}}
 
                 />
 
