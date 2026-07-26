@@ -12,8 +12,8 @@ import QuestionModal from "./QuestionModal";
 export default function GameScene() {
 
 
-const npcX = 490;
-const npcY = 500;
+const npcX = 470;
+const npcY = 480;
 const [npcCompleted, setNpcCompleted] =
     useState(false);
 const [playerX, setPlayerX] = useState(500);
