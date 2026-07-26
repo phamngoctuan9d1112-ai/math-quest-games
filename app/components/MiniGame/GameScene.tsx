@@ -33,7 +33,7 @@ export default function GameScene() {
     // PLAYER
     //---------------------------------------------------
 
-    const [playerX, setPlayerX] = useState(670);
+    const [playerX, setPlayerX] = useState(660);
     const [playerY, setPlayerY] = useState(470);
 
     //---------------------------------------------------
