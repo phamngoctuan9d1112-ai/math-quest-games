@@ -6,202 +6,127 @@ import Player from "./Player";
 import NPC from "./NPC";
 import HUD from "./HUD";
 import QuestionModal from "./QuestionModal";
+
 import { npcQuestions } from "./questions";
-import { walls } from "./collision";
-import { loadCollision } from "./CollisionLoader";
+
 const VIEW_WIDTH = 1366;
 const VIEW_HEIGHT = 768;
 
-const MAP_WIDTH = 3000;
-const MAP_HEIGHT = 2000;
+const MAP_WIDTH = 1632;
+const MAP_HEIGHT = 918;
+
+const PLAYER_SPEED = 6;
 
 export default function GameScene() {
 
+    //---------------------------------------------------
+    // PLAYER
+    //---------------------------------------------------
 
+    const [playerX, setPlayerX] = useState(820);
+    const [playerY, setPlayerY] = useState(500);
 
-    const [playerX, setPlayerX] = useState(800);
-    const [playerY, setPlayerY] = useState(520);
-const [collisionCtx, setCollisionCtx] =
-useState<CanvasRenderingContext2D | null>(null);
+    //---------------------------------------------------
+    // NPC
+    //---------------------------------------------------
 
-    const [completedNpc, setCompletedNpc] =
-        useState<number[]>([]);
+    const [completedNpc, setCompletedNpc] = useState<number[]>([]);
 
-    const [currentNpc, setCurrentNpc] =
-        useState<number | null>(null);
+    const [currentNpc, setCurrentNpc] = useState<number | null>(null);
 
-    const [showQuestion, setShowQuestion] =
-        useState(false);
+    const [showQuestion, setShowQuestion] = useState(false);
 
+    //---------------------------------------------------
+    // CAMERA
+    //---------------------------------------------------
 
     const cameraX = Math.min(
         Math.max(playerX - VIEW_WIDTH / 2, 0),
-        MAP_WIDTH - VIEW_WIDTH
+        Math.max(MAP_WIDTH - VIEW_WIDTH, 0)
     );
 
     const cameraY = Math.min(
         Math.max(playerY - VIEW_HEIGHT / 2, 0),
-        MAP_HEIGHT - VIEW_HEIGHT
+        Math.max(MAP_HEIGHT - VIEW_HEIGHT, 0)
     );
 
-function isBlocked(
-    nextX:number,
-    nextY:number
-){
+    //---------------------------------------------------
+    // MOVE
+    //---------------------------------------------------
 
-    const playerSize=50;
+    useEffect(() => {
 
-    return walls.some(w=>{
+        function move(e: KeyboardEvent) {
 
-        return (
+            switch (e.key) {
 
-            nextX+playerSize>w.x &&
+                case "ArrowUp":
+                case "w":
+                case "W":
 
-            nextX<w.x+w.width &&
+                    setPlayerY(y => Math.max(0, y - PLAYER_SPEED));
 
-            nextY+playerSize>w.y &&
+                    break;
 
-            nextY<w.y+w.height
+                case "ArrowDown":
+                case "s":
+                case "S":
 
-        );
+                    setPlayerY(y => Math.min(MAP_HEIGHT, y + PLAYER_SPEED));
 
-    });
+                    break;
 
-}
-useEffect(() => {
+                case "ArrowLeft":
+                case "a":
+                case "A":
 
-    loadCollision().then(setCollisionCtx);
+                    setPlayerX(x => Math.max(0, x - PLAYER_SPEED));
 
-}, []);
-function canMove(x: number, y: number) {
+                    break;
 
-    if (!collisionCtx)
-    return true;
+                case "ArrowRight":
+                case "d":
+                case "D":
 
-    const pixel =
-        collisionCtx
-        .getImageData(
-            Math.floor(x),
-            Math.floor(y),
-            1,
-            1
-        ).data;
+                    setPlayerX(x => Math.min(MAP_WIDTH, x + PLAYER_SPEED));
 
-    // pixel trắng
-    return (
-        pixel[0] > 200 &&
-        pixel[1] > 200 &&
-        pixel[2] > 200
-    );
-
-}
-  
-
-        function handleKey(e: KeyboardEvent) {
-
-    const speed = 8;
-
-    switch (e.key) {
-
-        case "ArrowUp":
-        case "w":
-        case "W": {
-
-            const nextY = playerY - speed;
-
-            if (canMove(playerX, nextY)) {
-
-                setPlayerY(nextY);
+                    break;
 
             }
 
-            break;
         }
 
-        case "ArrowDown":
-        case "s":
-        case "S": {
+        window.addEventListener("keydown", move);
 
-            const nextY = playerY + speed;
+        return () => window.removeEventListener("keydown", move);
 
-            if (canMove(playerX, nextY)) {
+    }, []);
 
-                setPlayerY(nextY);
-
-            }
-
-            break;
-        }
-
-        case "ArrowLeft":
-        case "a":
-        case "A": {
-
-            const nextX = playerX - speed;
-
-            if (canMove(nextX, playerY)) {
-
-                setPlayerX(nextX);
-
-            }
-
-            break;
-        }
-
-        case "ArrowRight":
-        case "d":
-        case "D": {
-
-            const nextX = playerX + speed;
-
-            if (canMove(nextX, playerY)) {
-
-                setPlayerX(nextX);
-
-            }
-
-            break;
-        }
-
-    }
-}
-useEffect(() => {
-
-    window.addEventListener(
-        "keydown",
-        handleKey
-    );
-
-    return () => {
-
-        window.removeEventListener(
-            "keydown",
-            handleKey
-        );
-
-    };
-
-}, [playerX, playerY, collisionCtx]);
-       
-
-
+    //---------------------------------------------------
+    // NPC gần người chơi
+    //---------------------------------------------------
 
     const nearNpc = useMemo(() => {
 
         return npcQuestions.find(n =>
 
-            Math.abs(playerX - n.x) < 70 &&
-            Math.abs(playerY - n.y) < 70 &&
-            !completedNpc.includes(n.id)
+            !completedNpc.includes(n.id) &&
+
+            Math.abs(playerX - n.x) < 60 &&
+
+            Math.abs(playerY - n.y) < 60
 
         );
 
     }, [playerX, playerY, completedNpc]);
 
+    //---------------------------------------------------
+    // E TALK
+    //---------------------------------------------------
 
     useEffect(() => {
 
-        function handleE(e: KeyboardEvent) {
+        function talk(e: KeyboardEvent) {
 
             if (!nearNpc) return;
 
@@ -215,24 +140,21 @@ useEffect(() => {
 
         }
 
-        window.addEventListener("keydown", handleE);
+        window.addEventListener("keydown", talk);
 
-        return () =>
-            window.removeEventListener(
-                "keydown",
-                handleE
-            );
+        return () => window.removeEventListener("keydown", talk);
 
     }, [nearNpc]);
 
- 
+    //---------------------------------------------------
+    // CURRENT NPC
+    //---------------------------------------------------
 
-    const npc =
-        npcQuestions.find(
-            n => n.id === currentNpc
-        );
+    const npc = npcQuestions.find(n => n.id === currentNpc);
 
- 
+    //---------------------------------------------------
+    // RENDER
+    //---------------------------------------------------
 
     return (
 
@@ -246,40 +168,31 @@ useEffect(() => {
             "
         >
 
-            
-
             <div
+
                 className="absolute"
+
                 style={{
 
                     width: MAP_WIDTH,
 
                     height: MAP_HEIGHT,
 
-                    transform:
-                        `translate(${-cameraX}px,${-cameraY}px)`
+                    transform: `translate(${-cameraX}px,-${cameraY}px)`
 
                 }}
+
             >
 
-                
                 <img
 
                     src="/images/minimap.png"
 
-                    className="
-                    absolute
-                    left-0
-                    top-0
-                    w-full
-                    h-full
-                    select-none
-                    pointer-events-none
-                    "
+                    className="absolute left-0 top-0"
+
+                    draggable={false}
 
                 />
-
-                
 
                 {npcQuestions.map(n => (
 
@@ -291,15 +204,11 @@ useEffect(() => {
 
                         y={n.y}
 
-                        completed={
-                            completedNpc.includes(n.id)
-                        }
+                        completed={completedNpc.includes(n.id)}
 
                     />
 
                 ))}
-
-              
 
                 <Player
 
@@ -311,11 +220,7 @@ useEffect(() => {
 
             </div>
 
-            
-
             <HUD world={1} />
-
-            
 
             {nearNpc && (
 
@@ -326,17 +231,11 @@ useEffect(() => {
                     left-1/2
                     bottom-10
                     -translate-x-1/2
-
                     bg-black/70
-
                     px-6
-
                     py-3
-
                     rounded-xl
-
                     text-white
-
                     font-bold
                     "
 
@@ -347,8 +246,6 @@ useEffect(() => {
                 </div>
 
             )}
-
-            {/* Modal */}
 
             {npc && (
 
@@ -362,19 +259,11 @@ useEffect(() => {
 
                     answer={npc.answer}
 
-                    onClose={() =>
-                        setShowQuestion(false)
-                    }
+                    onClose={() => setShowQuestion(false)}
 
                     onCorrect={() => {
 
-                        setCompletedNpc(prev => [
-
-                            ...prev,
-
-                            npc.id
-
-                        ]);
+                        setCompletedNpc(prev => [...prev, npc.id]);
 
                         setShowQuestion(false);
 
