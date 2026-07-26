@@ -6,14 +6,24 @@ import Player from "./Player";
 import NPC from "./NPC";
 import HUD from "./HUD";
 import QuestionModal from "./QuestionModal";
+import {
 
+    loadCollisionMap,
+
+    canMove,
+
+} from "./collision";
 import { npcQuestions } from "./questions";
 
 const VIEW_WIDTH = 1366;
 const VIEW_HEIGHT = 768;
+import {
 
-const MAP_WIDTH = 1632;
-const MAP_HEIGHT = 918;
+MAP_WIDTH,
+
+MAP_HEIGHT,
+
+} from "./collision";
 
 const PLAYER_SPEED = 6;
 
@@ -53,54 +63,97 @@ export default function GameScene() {
     //---------------------------------------------------
     // MOVE
     //---------------------------------------------------
+useEffect(()=>{
 
-    useEffect(() => {
+    loadCollisionMap();
 
-        function move(e: KeyboardEvent) {
+},[]);
+   useEffect(() => {
 
-            switch (e.key) {
+    function move(e: KeyboardEvent) {
 
-                case "ArrowUp":
-                case "w":
-                case "W":
+        let nextX = playerX;
 
-                    setPlayerY(y => Math.max(0, y - PLAYER_SPEED));
+        let nextY = playerY;
 
-                    break;
+        switch (e.key) {
 
-                case "ArrowDown":
-                case "s":
-                case "S":
+            case "ArrowUp":
+            case "w":
+            case "W":
 
-                    setPlayerY(y => Math.min(MAP_HEIGHT, y + PLAYER_SPEED));
+                nextY -= PLAYER_SPEED;
 
-                    break;
+                break;
 
-                case "ArrowLeft":
-                case "a":
-                case "A":
+            case "ArrowDown":
+            case "s":
+            case "S":
 
-                    setPlayerX(x => Math.max(0, x - PLAYER_SPEED));
+                nextY += PLAYER_SPEED;
 
-                    break;
+                break;
 
-                case "ArrowRight":
-                case "d":
-                case "D":
+            case "ArrowLeft":
+            case "a":
+            case "A":
 
-                    setPlayerX(x => Math.min(MAP_WIDTH, x + PLAYER_SPEED));
+                nextX -= PLAYER_SPEED;
 
-                    break;
+                break;
 
-            }
+            case "ArrowRight":
+            case "d":
+            case "D":
+
+                nextX += PLAYER_SPEED;
+
+                break;
+
+            default:
+                return;
 
         }
 
-        window.addEventListener("keydown", move);
+        //----------------------------------
+        // kiểm tra collision
+        //----------------------------------
 
-        return () => window.removeEventListener("keydown", move);
+        const left = nextX + 12;
 
-    }, []);
+        const right = nextX + 38;
+
+        const top = nextY + 12;
+
+        const bottom = nextY + 48;
+
+        if (
+
+            canMove(left, top) &&
+
+            canMove(right, top) &&
+
+            canMove(left, bottom) &&
+
+            canMove(right, bottom)
+
+        ) {
+
+            setPlayerX(nextX);
+
+            setPlayerY(nextY);
+
+        }
+
+    }
+
+    window.addEventListener("keydown", move);
+
+    return () =>
+
+        window.removeEventListener("keydown", move);
+
+}, [playerX, playerY]);
 
     //---------------------------------------------------
     // NPC gần người chơi
