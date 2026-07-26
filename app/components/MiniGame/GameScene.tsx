@@ -11,10 +11,9 @@ import HUD from "./HUD";
 import QuestionModal from "./QuestionModal";
 export default function GameScene() {
 
-   const [showQuestion, setShowQuestion] =
-    useState(false);
-const npcX = 500;
-const npcY = 350;
+
+const npcX = 490;
+const npcY = 250;
 
 const [playerX, setPlayerX] = useState(500);
 const [playerY, setPlayerY] = useState(400);
@@ -23,7 +22,8 @@ const nearNpc =
 Math.abs(playerX - npcX) < 70 &&
 
 Math.abs(playerY - npcY) < 70;
-    useEffect(() => {
+const [showQuestion, setShowQuestion] = useState(false);  
+useEffect(() => {
   function handleKey(e: KeyboardEvent) {
     const speed = 8;
 
@@ -62,6 +62,39 @@ Math.abs(playerY - npcY) < 70;
       handleKey
     );
 }, []);
+
+useEffect(() => {
+
+    function handleE(
+        e: KeyboardEvent
+    ){
+
+        if(
+            (e.key==="e" || e.key==="E")
+            && nearNpc
+        ){
+
+            setShowQuestion(true);
+
+        }
+
+    }
+
+    window.addEventListener(
+        "keydown",
+        handleE
+    );
+
+    return ()=>{
+
+        window.removeEventListener(
+            "keydown",
+            handleE
+        );
+
+    };
+
+}, [nearNpc]);
 
     return (
         <div
@@ -124,6 +157,18 @@ Nhấn E để nói chuyện
           <Player
     x={playerX}
     y={playerY}
+/>
+
+<QuestionModal
+
+    open={showQuestion}
+
+    onClose={() =>
+
+        setShowQuestion(false)
+
+    }
+
 />
 
         </div>
