@@ -34,7 +34,7 @@ export default function GameScene() {
     //---------------------------------------------------
 
     const [playerX, setPlayerX] = useState(820);
-    const [playerY, setPlayerY] = useState(500);
+    const [playerY, setPlayerY] = useState(470);
 
     //---------------------------------------------------
     // NPC
