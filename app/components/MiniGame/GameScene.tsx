@@ -23,7 +23,21 @@ useState(0);
 
     const [showQuestion, setShowQuestion] =
         useState(false);
+const VIEW_WIDTH = 1366;
+const VIEW_HEIGHT = 768;
 
+const MAP_WIDTH = 3000;
+const MAP_HEIGHT = 2000;
+
+const cameraX = Math.min(
+    Math.max(playerX - VIEW_WIDTH / 2, 0),
+    MAP_WIDTH - VIEW_WIDTH
+);
+
+const cameraY = Math.min(
+    Math.max(playerY - VIEW_HEIGHT / 2, 0),
+    MAP_HEIGHT - VIEW_HEIGHT
+);
     const [completedNpc, setCompletedNpc] =
         useState<number[]>([]);
 
@@ -152,21 +166,25 @@ useState(0);
             overflow-hidden
             "
         >
+<div
+    className="
+    absolute
+    "
+    style={{
+        left: -cameraX,
+        top: -cameraY,
+    }}
+>
 
-            <img
-                src="/images/minimap.png"
-                className="
-                absolute
-                inset-0
-                w-full
-                h-full
-                object-cover
-                "
-            />
+    <img
+        src="/images/minimap.png"
+    />
+
+</div>
 
             <HUD world={1} />
 
-            {/* NPC */}
+            
 
             {npcQuestions.map(n => (
 
@@ -184,9 +202,12 @@ useState(0);
             {/* Player */}
 
             <Player
-                x={playerX}
-                y={playerY}
-            />
+
+x={VIEW_WIDTH/2}
+
+y={VIEW_HEIGHT/2}
+
+/>
 
             {/* Gợi ý */}
 
@@ -196,7 +217,13 @@ useState(0);
                     className="
                     absolute
                     bottom-10
-                    left-1/2
+                    style={{
+
+left:VIEW_WIDTH/2,
+
+top:VIEW_HEIGHT/2+80
+
+}}
                     -translate-x-1/2
 
                     bg-black/80
