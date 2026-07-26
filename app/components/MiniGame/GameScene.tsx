@@ -19,7 +19,7 @@ export default function GameScene() {
 
 
 
-    const [playerX, setPlayerX] = useState(900);
+    const [playerX, setPlayerX] = useState(800);
     const [playerY, setPlayerY] = useState(520);
 const [collisionCtx, setCollisionCtx] =
 useState<CanvasRenderingContext2D | null>(null);
@@ -75,7 +75,8 @@ useEffect(() => {
 }, []);
 function canMove(x: number, y: number) {
 
-    if (!collisionCtx) return false;
+    if (!collisionCtx)
+    return true;
 
     const pixel =
         collisionCtx
@@ -164,6 +165,23 @@ function canMove(x: number, y: number) {
 
     }
 }
+useEffect(() => {
+
+    window.addEventListener(
+        "keydown",
+        handleKey
+    );
+
+    return () => {
+
+        window.removeEventListener(
+            "keydown",
+            handleKey
+        );
+
+    };
+
+}, [playerX, playerY, collisionCtx]);
        
 
 
