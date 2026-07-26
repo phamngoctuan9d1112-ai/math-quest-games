@@ -13,7 +13,7 @@ export default function GameScene() {
 
 
 const npcX = 490;
-const npcY = -250;
+const npcY = 1;
 
 const [playerX, setPlayerX] = useState(500);
 const [playerY, setPlayerY] = useState(400);
