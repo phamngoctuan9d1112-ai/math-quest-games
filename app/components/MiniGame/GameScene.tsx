@@ -19,8 +19,8 @@ export default function GameScene() {
 
 
 
-    const [playerX, setPlayerX] = useState(500);
-    const [playerY, setPlayerY] = useState(500);
+    const [playerX, setPlayerX] = useState(700);
+    const [playerY, setPlayerY] = useState(470);
 const [collisionCtx, setCollisionCtx] =
 useState<CanvasRenderingContext2D | null>(null);
 
@@ -49,7 +49,7 @@ function isBlocked(
     nextY:number
 ){
 
-    const playerSize=40;
+    const playerSize=50;
 
     return walls.some(w=>{
 
