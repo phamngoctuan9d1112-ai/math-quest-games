@@ -7,7 +7,8 @@ import NPC from "./NPC";
 import HUD from "./HUD";
 import QuestionModal from "./QuestionModal";
 import { npcQuestions } from "./questions";
-
+import { walls } from "./collision";
+import { loadCollision } from "./CollisionLoader";
 const VIEW_WIDTH = 1366;
 const VIEW_HEIGHT = 768;
 
@@ -20,7 +21,8 @@ export default function GameScene() {
 
     const [playerX, setPlayerX] = useState(500);
     const [playerY, setPlayerY] = useState(500);
-
+const [collisionCtx, setCollisionCtx] =
+useState<CanvasRenderingContext2D | null>(null);
 
     const [completedNpc, setCompletedNpc] =
         useState<number[]>([]);
@@ -42,64 +44,127 @@ export default function GameScene() {
         MAP_HEIGHT - VIEW_HEIGHT
     );
 
+function isBlocked(
+    nextX:number,
+    nextY:number
+){
 
-    useEffect(() => {
+    const playerSize=40;
 
-        function key(e: KeyboardEvent) {
+    return walls.some(w=>{
 
-            const speed = 8;
+        return (
 
-            switch (e.key) {
+            nextX+playerSize>w.x &&
 
-                case "ArrowUp":
-                case "w":
-                case "W":
+            nextX<w.x+w.width &&
 
-                    setPlayerY(y =>
-                        Math.max(0, y - speed)
-                    );
+            nextY+playerSize>w.y &&
 
-                    break;
+            nextY<w.y+w.height
 
-                case "ArrowDown":
-                case "s":
-                case "S":
+        );
 
-                    setPlayerY(y =>
-                        Math.min(MAP_HEIGHT, y + speed)
-                    );
+    });
 
-                    break;
+}
+useEffect(() => {
 
-                case "ArrowLeft":
-                case "a":
-                case "A":
+    loadCollision().then(setCollisionCtx);
 
-                    setPlayerX(x =>
-                        Math.max(0, x - speed)
-                    );
+}, []);
+function canMove(x: number, y: number) {
 
-                    break;
+    if (!collisionCtx) return false;
 
-                case "ArrowRight":
-                case "d":
-                case "D":
+    const pixel =
+        collisionCtx
+        .getImageData(
+            Math.floor(x),
+            Math.floor(y),
+            1,
+            1
+        ).data;
 
-                    setPlayerX(x =>
-                        Math.min(MAP_WIDTH, x + speed)
-                    );
+    // pixel trắng
+    return (
+        pixel[0] > 200 &&
+        pixel[1] > 200 &&
+        pixel[2] > 200
+    );
 
-                    break;
+}
+  
+
+        function handleKey(e: KeyboardEvent) {
+
+    const speed = 8;
+
+    switch (e.key) {
+
+        case "ArrowUp":
+        case "w":
+        case "W": {
+
+            const nextY = playerY - speed;
+
+            if (canMove(playerX, nextY)) {
+
+                setPlayerY(nextY);
+
             }
 
+            break;
         }
 
-        window.addEventListener("keydown", key);
+        case "ArrowDown":
+        case "s":
+        case "S": {
 
-        return () =>
-            window.removeEventListener("keydown", key);
+            const nextY = playerY + speed;
 
-    }, []);
+            if (canMove(playerX, nextY)) {
+
+                setPlayerY(nextY);
+
+            }
+
+            break;
+        }
+
+        case "ArrowLeft":
+        case "a":
+        case "A": {
+
+            const nextX = playerX - speed;
+
+            if (canMove(nextX, playerY)) {
+
+                setPlayerX(nextX);
+
+            }
+
+            break;
+        }
+
+        case "ArrowRight":
+        case "d":
+        case "D": {
+
+            const nextX = playerX + speed;
+
+            if (canMove(nextX, playerY)) {
+
+                setPlayerX(nextX);
+
+            }
+
+            break;
+        }
+
+    }
+}
+       
 
 
 
