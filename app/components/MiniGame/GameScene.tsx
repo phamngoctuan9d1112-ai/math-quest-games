@@ -13,8 +13,9 @@ export default function GameScene() {
 
 
 const npcX = 490;
-const npcY = 1;
-
+const npcY = 500;
+const [npcCompleted, setNpcCompleted] =
+    useState(false);
 const [playerX, setPlayerX] = useState(500);
 const [playerY, setPlayerY] = useState(400);
 const nearNpc =
@@ -119,14 +120,15 @@ useEffect(() => {
 
             <HUD world={1} />
 
-            <NPC
+           {!npcCompleted && (
 
-x={npcX}
-
-y={npcY}
-
+<NPC
+    x={npcX}
+    y={npcY}
 />
-{nearNpc && (
+
+)}
+{nearNpc && !npcCompleted && (
 
 <div
 
@@ -160,15 +162,27 @@ Nhấn E để nói chuyện
 />
 
 <QuestionModal
-
     open={showQuestion}
 
-    onClose={() =>
+    question="2 + 2 bằng bao nhiêu?"
 
-        setShowQuestion(false)
+    options={[
+        "3",
+        "4",
+        "5",
+        "6",
+    ]}
 
-    }
+    answer={1}
 
+    onClose={()=>{
+        setShowQuestion(false);
+    }}
+
+    onCorrect={()=>{
+        setNpcCompleted(true);
+        setShowQuestion(false);
+    }}
 />
 
         </div>

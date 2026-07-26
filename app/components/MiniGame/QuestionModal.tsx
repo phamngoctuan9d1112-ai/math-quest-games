@@ -1,188 +1,111 @@
 "use client";
 
 type Props = {
-
-    open:boolean;
-
-    onClose:()=>void;
-
+    open: boolean;
+    question: string;
+    options: string[];
+    answer: number;
+     onCorrect: () => void;
+    onClose: () => void;
 };
 
 export default function QuestionModal({
-
     open,
-
+    question,
+    options,
+    answer,
     onClose,
+    onCorrect,
+}: Props) {
 
-}:Props){
+    if (!open) return null;
 
-    if(!open) return null;
+  function choose(index: number) {
 
-    return(
+    if (index === answer) {
 
-<div
+        alert("🎉 Chính xác!");
 
-className="
-fixed
-inset-0
+        onClose();
 
-bg-black/70
+        onCorrect();
 
-flex
+    } else {
 
-items-center
+        alert("❌ Sai rồi!");
 
-justify-center
+        onClose();
 
-z-50
-"
+    }
 
->
 
-<div
+    }
 
-className="
-bg-zinc-900
+    return (
 
-rounded-2xl
+        <div
+            className="
+            absolute
+            inset-0
+            bg-black/70
+            flex
+            items-center
+            justify-center
+            z-50
+            "
+        >
 
-p-8
+            <div
+                className="
+                bg-zinc-900
+                rounded-2xl
+                p-8
+                w-[600px]
+                "
+            >
 
-w-[500px]
-"
+                <h2 className="text-2xl font-bold text-white mb-6">
 
->
+                    📖 Câu hỏi
 
-<h2
+                </h2>
 
-className="
-text-2xl
+                <div className="text-white mb-6">
 
-font-bold
+                    {question}
 
-text-white
+                </div>
 
-mb-5
-"
+                <div className="space-y-3">
 
->
+                   {options.map((item, index) => (
 
-Câu hỏi
+    <button
+        key={item}
+                            onClick={() => choose(index)}
 
-</h2>
+                            className="
+                            w-full
+                            bg-zinc-700
+                            hover:bg-blue-600
+                            py-3
+                            rounded-xl
+                            text-white
+                            "
+                        >
 
-<div
+                            {item}
 
-className="
-text-white
+                        </button>
 
-mb-6
-"
+                    ))}
 
->
+                </div>
 
-2 + 2 bằng bao nhiêu?
+            </div>
 
-</div>
+        </div>
 
-<div
-
-className="
-space-y-3
-"
-
->
-
-<button
-
-className="
-w-full
-
-py-3
-
-rounded-xl
-
-bg-blue-600
-
-text-white
-"
-
->
-
-3
-
-</button>
-
-<button
-
-className="
-w-full
-
-py-3
-
-rounded-xl
-
-bg-blue-600
-
-text-white
-"
-
->
-
-4
-
-</button>
-
-<button
-
-className="
-w-full
-
-py-3
-
-rounded-xl
-
-bg-blue-600
-
-text-white
-"
-
->
-
-5
-
-</button>
-
-</div>
-
-<button
-
-onClick={onClose}
-
-className="
-mt-5
-
-w-full
-
-bg-red-500
-
-py-3
-
-rounded-xl
-
-text-white
-"
-
->
-
-Đóng
-
-</button>
-
-</div>
-
-</div>
-
-);
+    );
 
 }
