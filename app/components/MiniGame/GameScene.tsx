@@ -30,9 +30,8 @@ const PLAYER_SPEED = 6;
 export default function GameScene() {
 
 
-
-    const [playerX, setPlayerX] = useState(630);
-    const [playerY, setPlayerY] = useState(470);
+const [playerX, setPlayerX] = useState(900);
+const [playerY, setPlayerY] = useState(120);
 const [collisionReady, setCollisionReady] = useState(false);
 
 const PLAYER_WIDTH = 40;
