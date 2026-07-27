@@ -60,6 +60,12 @@ const cameraY = Math.max(
     )
 );
 
+console.log(
+    playerX,
+    playerY,
+    canMove(playerX, playerY, PLAYER_WIDTH, PLAYER_HEIGHT)
+);
+
     function tryMove(dx: number, dy: number) {
 
     if (!collisionReady) return;
@@ -68,6 +74,8 @@ const cameraY = Math.max(
     const nextY = playerY + dy;
 
     if (
+
+        
 
         canMove(
             nextX,
@@ -146,6 +154,8 @@ useEffect(() => {
     async function init() {
 
         await loadCollisionMap();
+
+        console.log("Collision loaded");
 
         setCollisionReady(true);
 
