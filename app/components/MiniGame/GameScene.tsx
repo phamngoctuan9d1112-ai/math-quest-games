@@ -8,22 +8,18 @@ import HUD from "./HUD";
 import QuestionModal from "./QuestionModal";
 import {
 
-    loadCollisionMap,
-
-    canMove,
-
-} from "./collision";
-import { npcQuestions } from "./questions";
-
-const VIEW_WIDTH = 1366;
-const VIEW_HEIGHT = 768;
-import {
+canMove,
 
 MAP_WIDTH,
 
 MAP_HEIGHT,
 
 } from "./collision";
+import { npcQuestions } from "./questions";
+
+const VIEW_WIDTH = 1366;
+const VIEW_HEIGHT = 768;
+
 
 const PLAYER_SPEED = 6;
 
@@ -32,7 +28,7 @@ export default function GameScene() {
 
 const [playerX, setPlayerX] = useState(900);
 const [playerY, setPlayerY] = useState(120);
-const [collisionReady, setCollisionReady] = useState(false);
+
 
 const PLAYER_WIDTH = 40;
 const PLAYER_HEIGHT = 52;
@@ -59,33 +55,28 @@ const cameraY = Math.max(
     )
 );
 
-console.log(
-    playerX,
-    playerY,
-    canMove(playerX, playerY, PLAYER_WIDTH, PLAYER_HEIGHT)
-);
+useEffect(()=>{
 
-    function tryMove(dx: number, dy: number) {
+    console.log(playerX,playerY);
 
-    if (!collisionReady) return;
+},[playerX,playerY]);
+
+    function tryMove(dx:number,dy:number){
 
     const nextX = playerX + dx;
+
     const nextY = playerY + dy;
 
-    if (
-
-        
-
-        canMove(
-            nextX,
-            nextY,
-            PLAYER_WIDTH,
-            PLAYER_HEIGHT
-        )
-
-    ) {
+   if (
+    canMove(
+        nextX,
+        nextY,
+        PLAYER_WIDTH
+    )
+) {
 
         setPlayerX(nextX);
+
         setPlayerY(nextY);
 
     }
@@ -146,23 +137,9 @@ useEffect(() => {
             keyDown
         );
 
-}, [playerX, playerY, collisionReady]);
+}, [playerX, playerY]);
 
-useEffect(() => {
 
-    async function init() {
-
-        await loadCollisionMap();
-
-        console.log("Collision loaded");
-
-        setCollisionReady(true);
-
-    }
-
-    init();
-
-}, []);
    
 
     const nearNpc = useMemo(() => {
