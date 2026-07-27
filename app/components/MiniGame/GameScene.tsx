@@ -29,16 +29,14 @@ const PLAYER_SPEED = 6;
 
 export default function GameScene() {
 
-    //---------------------------------------------------
-    // PLAYER
-    //---------------------------------------------------
+
 
     const [playerX, setPlayerX] = useState(630);
     const [playerY, setPlayerY] = useState(470);
+const [collisionReady, setCollisionReady] = useState(false);
 
-    //---------------------------------------------------
-    // NPC
-    //---------------------------------------------------
+const PLAYER_WIDTH = 40;
+const PLAYER_HEIGHT = 52;
 
     const [completedNpc, setCompletedNpc] = useState<number[]>([]);
 
@@ -46,118 +44,117 @@ export default function GameScene() {
 
     const [showQuestion, setShowQuestion] = useState(false);
 
-    //---------------------------------------------------
-    // CAMERA
-    //---------------------------------------------------
+const cameraX = Math.max(
+    0,
+    Math.min(
+        playerX - VIEW_WIDTH / 2,
+        MAP_WIDTH - VIEW_WIDTH
+    )
+);
 
-    const cameraX = Math.min(
-        Math.max(playerX - VIEW_WIDTH / 2, 0),
-        Math.max(MAP_WIDTH - VIEW_WIDTH, 0)
-    );
+const cameraY = Math.max(
+    0,
+    Math.min(
+        playerY - VIEW_HEIGHT / 2,
+        MAP_HEIGHT - VIEW_HEIGHT
+    )
+);
 
-    const cameraY = Math.min(
-        Math.max(playerY - VIEW_HEIGHT / 2, 0),
-        Math.max(MAP_HEIGHT - VIEW_HEIGHT, 0)
-    );
+    function tryMove(dx: number, dy: number) {
 
-    //---------------------------------------------------
-    // MOVE
-    //---------------------------------------------------
-useEffect(()=>{
+    if (!collisionReady) return;
 
-    loadCollisionMap();
+    const nextX = playerX + dx;
+    const nextY = playerY + dy;
 
-},[]);
-   useEffect(() => {
+    if (
 
-    function move(e: KeyboardEvent) {
+        canMove(
+            nextX,
+            nextY,
+            PLAYER_WIDTH,
+            PLAYER_HEIGHT
+        )
 
-        let nextX = playerX;
+    ) {
 
-        let nextY = playerY;
+        setPlayerX(nextX);
+        setPlayerY(nextY);
+
+    }
+
+}
+
+useEffect(() => {
+
+    function keyDown(e: KeyboardEvent) {
 
         switch (e.key) {
 
-            case "ArrowUp":
             case "w":
             case "W":
+            case "ArrowUp":
 
-                nextY -= PLAYER_SPEED;
+                tryMove(0, -PLAYER_SPEED);
 
                 break;
 
-            case "ArrowDown":
             case "s":
             case "S":
+            case "ArrowDown":
 
-                nextY += PLAYER_SPEED;
+                tryMove(0, PLAYER_SPEED);
 
                 break;
 
-            case "ArrowLeft":
             case "a":
             case "A":
+            case "ArrowLeft":
 
-                nextX -= PLAYER_SPEED;
+                tryMove(-PLAYER_SPEED, 0);
 
                 break;
 
-            case "ArrowRight":
             case "d":
             case "D":
+            case "ArrowRight":
 
-                nextX += PLAYER_SPEED;
+                tryMove(PLAYER_SPEED, 0);
 
                 break;
-
-            default:
-                return;
-
-        }
-
-        //----------------------------------
-        // kiểm tra collision
-        //----------------------------------
-
-        const left = nextX + 12;
-
-        const right = nextX + 38;
-
-        const top = nextY + 12;
-
-        const bottom = nextY + 48;
-
-        if (
-
-            canMove(left, top) &&
-
-            canMove(right, top) &&
-
-            canMove(left, bottom) &&
-
-            canMove(right, bottom)
-
-        ) {
-
-            setPlayerX(nextX);
-
-            setPlayerY(nextY);
 
         }
 
     }
 
-    window.addEventListener("keydown", move);
+    window.addEventListener(
+        "keydown",
+        keyDown
+    );
 
     return () =>
 
-        window.removeEventListener("keydown", move);
+        window.removeEventListener(
+            "keydown",
+            keyDown
+        );
 
-}, [playerX, playerY]);
+}, [playerX, playerY, collisionReady]);
 
-    //---------------------------------------------------
-    // NPC gần người chơi
-    //---------------------------------------------------
+useEffect(() => {
+
+    async function init() {
+
+        await loadCollisionMap();
+
+        setCollisionReady(true);
+
+    }
+
+    init();
+
+}, []);
+   
 
     const nearNpc = useMemo(() => {
 
@@ -173,9 +170,7 @@ useEffect(()=>{
 
     }, [playerX, playerY, completedNpc]);
 
-    //---------------------------------------------------
-    // E TALK
-    //---------------------------------------------------
+
 
     useEffect(() => {
 
@@ -199,15 +194,10 @@ useEffect(()=>{
 
     }, [nearNpc]);
 
-    //---------------------------------------------------
-    // CURRENT NPC
-    //---------------------------------------------------
 
     const npc = npcQuestions.find(n => n.id === currentNpc);
 
-    //---------------------------------------------------
-    // RENDER
-    //---------------------------------------------------
+
 
     return (
 

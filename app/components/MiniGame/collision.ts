@@ -1,9 +1,13 @@
-export const MAP_WIDTH = 1632;
-export const MAP_HEIGHT = 918;
-
-let collisionCanvas: HTMLCanvasElement | null = null;
-
 let collisionCtx: CanvasRenderingContext2D | null = null;
+
+export let MAP_WIDTH = 0;
+export let MAP_HEIGHT = 0;
+
+/*
+==================================
+LOAD COLLISION MAP
+==================================
+*/
 
 export async function loadCollisionMap() {
 
@@ -15,15 +19,29 @@ export async function loadCollisionMap() {
 
         img.onload = () => {
 
-            collisionCanvas = document.createElement("canvas");
+            MAP_WIDTH = img.width;
+            MAP_HEIGHT = img.height;
 
-            collisionCanvas.width = img.width;
+            const canvas =
+                document.createElement("canvas");
 
-            collisionCanvas.height = img.height;
+            canvas.width = img.width;
+            canvas.height = img.height;
 
-            collisionCtx = collisionCanvas.getContext("2d");
+            collisionCtx =
+                canvas.getContext("2d");
 
-            collisionCtx!.drawImage(img, 0, 0);
+            collisionCtx!.drawImage(
+                img,
+                0,
+                0
+            );
+
+            console.log(
+                "Collision Loaded:",
+                img.width,
+                img.height
+            );
 
             resolve();
 
@@ -33,30 +51,99 @@ export async function loadCollisionMap() {
 
 }
 
-export function canMove(x:number,y:number){
+/*
+==================================
+PIXEL CHECK
+==================================
+*/
 
-    if(!collisionCtx) return true;
-
-    const pixel = collisionCtx.getImageData(
-
-        Math.floor(x),
-
-        Math.floor(y),
-
-        1,
-
-        1
-
-    ).data;
+function isWhite(
+    r: number,
+    g: number,
+    b: number
+) {
 
     return (
-
-        pixel[0] > 200 &&
-
-        pixel[1] > 200 &&
-
-        pixel[2] > 200
-
+        r > 200 &&
+        g > 200 &&
+        b > 200
     );
+
+}
+
+/*
+==================================
+PLAYER COLLISION
+==================================
+*/
+
+export function canMove(
+    x: number,
+    y: number,
+    width = 40,
+    height = 52
+) {
+
+    if (!collisionCtx)
+        return false;
+
+    const margin = 4;
+
+    const points = [
+
+        [x + margin, y + margin],
+
+        [x + width - margin, y + margin],
+
+        [x + margin, y + height - margin],
+
+        [x + width - margin, y + height - margin],
+
+        [x + width / 2, y + margin],
+
+        [x + width / 2, y + height - margin],
+
+        [x + margin, y + height / 2],
+
+        [x + width - margin, y + height / 2],
+
+    ];
+
+    for (const [px, py] of points) {
+
+        if (
+            px < 0 ||
+            py < 0 ||
+            px >= MAP_WIDTH ||
+            py >= MAP_HEIGHT
+        ) {
+
+            return false;
+
+        }
+
+        const pixel =
+            collisionCtx.getImageData(
+                Math.floor(px),
+                Math.floor(py),
+                1,
+                1
+            ).data;
+
+        if (
+            !isWhite(
+                pixel[0],
+                pixel[1],
+                pixel[2]
+            )
+        ) {
+
+            return false;
+
+        }
+
+    }
+
+    return true;
 
 }
