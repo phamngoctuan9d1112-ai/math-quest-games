@@ -96,7 +96,7 @@ export const collisions = [
         "width": 181,
         "height": 206
     },
-    {
+    {   
         "x": 374,
         "y": 413,
         "width": 38,
