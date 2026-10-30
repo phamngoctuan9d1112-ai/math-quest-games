@@ -1,42 +1,36 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import StoryModal from "./components/StoryModal";
-import MiniGame from "./components/MiniGame/MiniGame";
-import confetti from "canvas-confetti";
-import BattleScreen from "./components/battle/BattleScreen";
+import dynamic from "next/dynamic";
 import { unlockAchievement } from "./lib/achievement";
 import { trackEvent } from "./lib/analytics";
-import BattleLayout from "./components/BattleUI/BattleLayout";
-import XPBar from "./components/XPBar";
 import { worldThemes } from "./data/worldThemes";
 import { playSound } from "./lib/sound";
 import { stories } from "./data/storyIndex";
 import LoadingScreen from "./components/LoadingScreen";
-import ChestInventory from "./components/ChestInventory";
-import StatusBar from "./components/StatusBar";
 import { motion } from "framer-motion";
 import WorldSelect from "./components/WorldSelect";
-import Mascot from "./components/Mascot";
-import { APP_MODE } from "./lib/premium";
 import TopBar from "./components/TopBar";
 import AchievementList from "./components/AchievementList";
-import TermsModal from "./components/TermsModal";
 import { achievements } from "./data/achievements";
 import { getWorlds } from "./data/worlds";
 import { loadWorld } from "./data/questions/loader";
-import Shop from "./components/Shop";
 import StartScreen from "./components/StartScreen";
 import Confetti from "react-confetti";
-import AISolution from "./components/AISolution";
-import Avatar from "./components/Avatar";
-import MathText from "./components/MathText";
-import PremiumModal from "./components/PremiumModal";
-import { BlockMath } from "react-katex";
-import Inventory from "./components/Inventory";
 import SubMap from "./components/SubMap"; 
 import { createBrowserClient } from '@supabase/ssr';
-import ChestRoom from "./components/ChestRoom";
+
+// Các màn hình/modal nặng chỉ tải khi cần dùng -> giảm JS lúc mở trang
+const StoryModal = dynamic(() => import("./components/StoryModal"));
+const MiniGame = dynamic(() => import("./components/MiniGame/MiniGame"));
+const BattleScreen = dynamic(() => import("./components/battle/BattleScreen"));
+const ChestInventory = dynamic(() => import("./components/ChestInventory"));
+const Shop = dynamic(() => import("./components/Shop"));
+const AISolution = dynamic(() => import("./components/AISolution"));
+const PremiumModal = dynamic(() => import("./components/PremiumModal"));
+const Inventory = dynamic(() => import("./components/Inventory"));
+const ChestRoom = dynamic(() => import("./components/ChestRoom"));
+const TermsModal = dynamic(() => import("./components/TermsModal"));
 
 const supabase = createBrowserClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -470,14 +464,11 @@ const [currentUserId, setCurrentUserId] =
 
   async function syncData(userId: string) {
 
-  console.log("SYNC DATA START");
+  
 
   try {
 
-    console.log(
-      "LOADING PROFILE FOR",
-      userId
-    );
+    
 
     const { data, error } = await supabase
   .from("profiles")
@@ -485,12 +476,9 @@ const [currentUserId, setCurrentUserId] =
   .eq("id", userId)
   .maybeSingle();
 
-    console.log(
-      "PROFILE DATA =",
-      data
-    );
+    
 
-    console.log("PROFILE ERROR =", JSON.stringify(error, null, 2))
+    
 
     
 
@@ -613,7 +601,7 @@ async function solveByAI(question: any) {
 
 const data = await res.json();
 
-console.log("DATA =", data);
+
 
 setAiLoading(false);
 
@@ -636,7 +624,7 @@ function handleAskAI() {
 async function createProfileIfNeeded(user:any){
 
   
-    console.log("===== CREATE PROFILE START =====");
+    
 
     const { data: profile } = await supabase
   .from("profiles")
@@ -644,7 +632,7 @@ async function createProfileIfNeeded(user:any){
   .eq("id", user.id)
   .maybeSingle();
 
-console.log("PROFILE =", profile);
+
 
 
     if(profile?.terms_accepted){
@@ -671,14 +659,14 @@ console.log("PROFILE =", profile);
 
     }
 
-    console.log("===== BEFORE INSERT =====");
+    
 
 const {
   data: { session: insertSession },
 } = await supabase.auth.getSession();
 
-console.log("INSERT SESSION =", insertSession);
-console.log("INSERT TOKEN =", insertSession?.access_token);
+
+
 
     const { data, error } = await supabase
   .from("profiles")
@@ -709,20 +697,21 @@ potion: 0,
   })
   .select();
 
-console.log("INSERT DATA =", data);
-console.log("INSERT ERROR =", error);
+
+
     
 
     setShowTerms(true);
 
-    console.log("SET SHOW TERMS TRUE");
+    
 
 }
 
   async function updateXP(newXP: number) {
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: { session },
+  } = await supabase.auth.getSession();
+  const user = session?.user;
 
   if (!user) return;
 
@@ -741,8 +730,9 @@ console.log("INSERT ERROR =", error);
 async function createChest(type: string) {
 
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: { session },
+  } = await supabase.auth.getSession();
+  const user = session?.user;
 
   if (!user) return;
 
@@ -758,8 +748,9 @@ async function createChest(type: string) {
 
 async function updateCoins(newCoins: number) {
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: { session },
+  } = await supabase.auth.getSession();
+  const user = session?.user;
 
   if (!user) return;
 
@@ -774,8 +765,9 @@ async function updateCoins(newCoins: number) {
 async function loadChests() {
 
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: { session },
+  } = await supabase.auth.getSession();
+  const user = session?.user;
 
   if (!user) return;
 
@@ -865,20 +857,16 @@ async function consumeExplanation() {
 
 async function saveProgress() {
 
-  console.log("SAVE PROGRESS");
+  
 
-console.log({
-  currentUserId,
-  xp,
-  coins,
-  unlockedWorlds,
-});
 
-console.log("SAVE AVATAR =", avatar);
+
+
 
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: { session },
+  } = await supabase.auth.getSession();
+  const user = session?.user;
   
 
   if (!user) return;
@@ -912,8 +900,9 @@ dailyExplanationUsed,
 
 async function loadAchievements() {
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: { session },
+  } = await supabase.auth.getSession();
+  const user = session?.user;
 
   if (!user) return;
 
@@ -1065,14 +1054,11 @@ const questions = (() => {
 
   const question = (current < questions.length ? questions[current] : null) as any;
 
-  console.log("questions.length =", questions.length);
-console.log("current =", current);
-console.log("selectedWorld =", selectedWorld);
-console.log("currentSubNode =", currentSubNode);
-console.log(
-  "selectedSubMap =",
-  selectedSubMap
-);
+  
+
+
+
+
 
   // ==========================================
   // 3. TẤT CẢ USE EFFECT (Không được đặt dưới if return)
@@ -1207,22 +1193,12 @@ useEffect(() => {
   }
 }, [started]);
 
-useEffect(() => {
-  if (
-    selectedWorld === null &&
-    currentSubNode === null
-  ) {
-    
-  }
-}, [
-  selectedWorld,
-  currentSubNode
-]);
 
 
 
 useEffect(() => {
   bgmRef.current = new Audio("/sounds/bgm.mp3");
+  bgmRef.current.preload = "none";
   bgmRef.current.loop = true;
   bgmRef.current.volume = 0.2;
 }, []);
@@ -1237,19 +1213,6 @@ useEffect(() => {
   }
 }, [isLoggedIn, selectedWorld]);
 
-useEffect(() => {
-  console.log({
-    loadingAuth,
-    dataLoaded,
-    isLoggedIn,
-    currentUserId
-  });
-}, [
-  loadingAuth,
-  dataLoaded,
-  isLoggedIn,
-  currentUserId
-]);
 
 useEffect(() => {
   if (!bgmRef.current) return;
@@ -1273,7 +1236,7 @@ useEffect(() => {
   useEffect(() => {
   const checkUser = async () => {
 
-    console.log("========== CHECK USER START ==========");
+    
 
   const {
   data: { session },
@@ -1281,39 +1244,39 @@ useEffect(() => {
 
 
 
-console.log("SESSION =", session);
-console.log("ACCESS TOKEN =", session?.access_token);
-console.log("USER FROM SESSION =", session?.user?.id);
+
+
+
 const user = session?.user;
-console.log("GET USER =", user);
 
 
-  console.log("===== CURRENT USER =====");
-console.log(user);
-console.log("EMAIL =", user?.email);
-console.log("ID =", user?.id);
-console.log("========================");
+
   
-  console.log("USER =", user);
+
+
+
+
+  
+  
 
   if (user) {
     await createProfileIfNeeded(user);
 
-    console.log("CREATE PROFILE FINISHED");
+    
     const { data: profile } =
 await supabase
 .from("profiles")
 .select("terms_accepted")
 .eq("id",user.id)
 .single();
-console.log(profile);
+
 
     setUserEmail(user.email || "");
     setCurrentUserId(user.id);
-      console.log("USER FOUND", user);
+      
       setCurrentUserId(user.id);
-      console.log("SET CURRENT USER ID", user.id);
-      await updateStreak(user.id);
+      
+      void updateStreak(user.id);
 
       setUserName(
         user.user_metadata?.full_name ||
@@ -1329,7 +1292,7 @@ console.log(profile);
 
   
 
-console.log(profile)
+
 
 
 let finalProfile = profile;
@@ -1338,14 +1301,11 @@ let finalProfile = profile;
 
 if (!finalProfile) {
 
-    console.log("Profile chưa tồn tại");
+    
 
 } else {
 
-    console.log(
-        "terms =",
-        finalProfile.terms_accepted
-    );
+    
 
     if (finalProfile.terms_accepted) {
 
@@ -1372,24 +1332,24 @@ if (!finalProfile) {
 
   checkUser();
 
-  console.log("CHECK USER START");
+  
 
   const {
   data: { subscription },
 } = 
 supabase.auth.onAuthStateChange(async (event, session) => {
 
-    console.log("AUTH EVENT =", event);
+    
 
     if (session?.user) {
 
-        console.log("SIGNED USER =", session.user.id);
+        
 
-        console.log("BEFORE CREATE PROFILE");
+        
 
-        createProfileIfNeeded(session.user);
+        if (event !== "INITIAL_SESSION") createProfileIfNeeded(session.user);
 
-        console.log("AFTER CREATE PROFILE");
+        
 
         setCurrentUserId(session.user.id);
 
@@ -1413,25 +1373,22 @@ supabase.auth.onAuthStateChange(async (event, session) => {
 }, []);
 
 async function fetchLeaderboard() {
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  // Chỉ lấy top 10 từ server (trước đây tải TOÀN BỘ bảng profiles)
   const { data } = await supabase
     .from("profiles")
     .select("id, display_name, avatar_url, xp")
-    .order("xp", { ascending: false });
+    .order("xp", { ascending: false })
+    .limit(10);
 
-  if (!data) return;
+  if (data) setLeaderboard(data);
 
-  setLeaderboard(data.slice(0, 10));
-
-  if (user) {
-    const rank = data.findIndex((u) => u.id === user.id);
-
-    if (rank !== -1) {
-      setMyRank(rank + 1);
-    }
+  // Hạng của mình = số người có XP cao hơn + 1 (chỉ đếm, không tải dữ liệu)
+  if (currentUserId) {
+    const { count } = await supabase
+      .from("profiles")
+      .select("id", { count: "exact", head: true })
+      .gt("xp", xp);
+    setMyRank((count ?? 0) + 1);
   }
 }
 
@@ -1639,11 +1596,12 @@ useEffect(() => {
 
 useEffect(() => {
 
-  if (!initializedRef.current)
-    return;
-
-  saveProgress();
-
+  if (!initializedRef.current) return;
+  // Gom nhiều thay đổi liên tiếp thành 1 lần ghi lên Supabase
+  const t = setTimeout(() => {
+    saveProgress();
+  }, 1500);
+  return () => clearTimeout(t);
 }, [
   xp,
   coins,
@@ -1811,11 +1769,11 @@ function useMagicStone() {
   const isCorrect = value === question?.answer;
 
   if (isCorrect) {
-    await trackEvent(
+    void trackEvent(
   "question_correct",
   selectedWorld || undefined
 );
-    console.log("PLAY CORRECT");
+    
     playSound("/sounds/correct.mp3");
 
     setMascotState("happy");
@@ -1837,7 +1795,7 @@ setTimeout(() => {
 
 setXp(newXP);
 
-await checkAchievements(
+void checkAchievements(
   newXP,
   selectedWorld || 0
 );
@@ -1852,7 +1810,6 @@ await checkAchievements(
 
     setCoins(newCoins);
 
-    await fetchLeaderboard();
 
     setMessage("✅ Chính xác!");
 
@@ -1861,7 +1818,7 @@ await checkAchievements(
     }, 800);
 
   } else {
-    await trackEvent(
+    void trackEvent(
   "question_wrong",
   selectedWorld || undefined
 );
@@ -2035,9 +1992,9 @@ if (random < 0.25) {
 }
 
 
-      console.log("selectedWorld =", selectedWorld);
-console.log("selectedSubMap =", selectedSubMap);
-console.log("currentMapId =", currentMapId);
+      
+
+
 
      const nextWorld =
   getNextUnlockWorld(
@@ -2225,15 +2182,9 @@ if(canShow){
  // ==========================================
   // 5. GIAO DIỆN (Điều kiện hiển thị render)
   // ==========================================
-console.log("loadingAuth =", loadingAuth);
-console.log("dataLoaded =", dataLoaded);
+
   
-console.log({
-  loadingAuth,
-  dataLoaded,
-  currentUserId,
-  isLoggedIn
-});
+
   
   if (
   loadingAuth ||
@@ -2250,10 +2201,9 @@ console.log({
 
   // ĐÃ CẬP NHẬT ĐIỀU KIỆN: Nếu chưa bấm Start và CHƯA đăng nhập thì mới giữ chân ở StartScreen
 
-  console.log("showTerms =", showTerms);
-console.log("isLoggedIn =", isLoggedIn);
-console.log("loadingAuth =", loadingAuth);
-console.log("dataLoaded =", dataLoaded);
+
+
+
 
 if (showTerms) {
   return (
@@ -2269,7 +2219,7 @@ if (showTerms) {
 })
 .eq("id", currentUserId);
 
-console.log(error);
+
 
 const { data } = await supabase
 .from("profiles")
@@ -2277,7 +2227,7 @@ const { data } = await supabase
 .eq("id", currentUserId)
 .single();
 
-console.log(data);
+
 
 setShowTerms(false);
 setIsLoggedIn(true);
@@ -2503,11 +2453,7 @@ transition
     );
   }
 
-  console.log(
-  "SHOW SUBMAP",
-  selectedSubMap,
-  currentSubNode
-);
+  
 
   if (selectedSubMap !== null && currentSubNode === null) {
     const currentWorldProgress = subNodeProgress[selectedSubMap] || 1;
@@ -2686,7 +2632,7 @@ text-yellow-400
              buyItem={buyItem}
               onClose={() => setShowShop(false)}
               onBuyPremium={() => {
-    console.log("OPEN PREMIUM");
+    
     setShowPremiumModal(true);
 }}
             />
@@ -2781,7 +2727,7 @@ text-yellow-400
   }
 
 
-console.log("CURRENT AVATAR =", avatar);
+
 
  return (
 <>
