@@ -1373,19 +1373,22 @@ supabase.auth.onAuthStateChange(async (event, session) => {
 }, []);
 
 async function fetchLeaderboard() {
-  // Chỉ lấy top 10 từ server (trước đây tải TOÀN BỘ bảng profiles)
-  const { data } = await supabase
-    .from("profiles")
+  const { data, error } = await supabase
+    .from("leaderboard")
     .select("id, display_name, avatar_url, xp")
     .order("xp", { ascending: false })
     .limit(10);
 
-  if (data) setLeaderboard(data);
+  if (error) {
+    console.error("LEADERBOARD ERROR", error);
+    return;
+  }
+  setLeaderboard(data || []);
 
-  // Hạng của mình = số người có XP cao hơn + 1 (chỉ đếm, không tải dữ liệu)
+  // Hạng của mình = số người có XP cao hơn + 1
   if (currentUserId) {
     const { count } = await supabase
-      .from("profiles")
+      .from("leaderboard")
       .select("id", { count: "exact", head: true })
       .gt("xp", xp);
     setMyRank((count ?? 0) + 1);
