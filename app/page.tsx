@@ -437,6 +437,11 @@ const [showExplanation, setShowExplanation] = useState<boolean>(false);
   // Thêm State này vào cùng với các State khác trong page.tsx
 const [leaderboard, setLeaderboard] = useState<any[]>([]);
 
+const [nickname, setNickname] = useState("");
+const [nicknameInput, setNicknameInput] = useState("");
+const [nicknameMsg, setNicknameMsg] = useState("");
+const [savingNickname, setSavingNickname] = useState(false);
+
 const [currentUserId, setCurrentUserId] =
   useState<string | null>(null);
   const theme =
@@ -491,6 +496,8 @@ const [currentUserId, setCurrentUserId] =
 
     setXp(data.xp || 0);
     setCoins(data.coins || 0);
+    setNickname(data.nickname || "");
+    setNicknameInput(data.nickname || "");
 
     setUnlockedWorlds(
       data.unlocked_worlds || [1,27,62]
@@ -782,21 +789,11 @@ async function loadChests() {
   setChests(data || []);
 }
 async function activatePremium() {
-
-    if (!currentUserId) return;
-
-   await supabase
-.from("profiles")
-.update({
-    is_premium: true,
-    premium_until: null
-})
-.eq("id", currentUserId);
-
-    setIsPremium(true);
-
-    setShowPremiumModal(false);
-
+  // Client không còn quyền tự ghi is_premium: Premium do admin/server cấp.
+  setShowPremiumModal(false);
+  alert(
+    "Premium hiện được admin kích hoạt thủ công. Vui lòng liên hệ admin để được hỗ trợ."
+  );
 }
 
 async function consumeExplanation() {
@@ -887,10 +884,8 @@ scroll,
 book,
 magic_stone: magicStone,
 potion,
-    is_premium: isPremium,
     daily_explanation_used:
 dailyExplanationUsed,
-    premium_until: premiumUntil,
   })
   
   .eq("id", user.id);
@@ -1373,6 +1368,7 @@ supabase.auth.onAuthStateChange(async (event, session) => {
 }, []);
 
 async function fetchLeaderboard() {
+  // Đọc từ view "leaderboard" (chỉ gồm id, tên hiển thị, xp) để không phụ thuộc RLS của bảng profiles
   const { data, error } = await supabase
     .from("leaderboard")
     .select("id, display_name, avatar_url, xp")
@@ -1393,6 +1389,45 @@ async function fetchLeaderboard() {
       .gt("xp", xp);
     setMyRank((count ?? 0) + 1);
   }
+}
+
+async function saveNickname() {
+  if (!currentUserId || savingNickname) return;
+
+  const value = nicknameInput.trim().replace(/\s+/g, " ");
+  if (value.length < 2 || value.length > 20) {
+    setNicknameMsg("Biệt danh phải từ 2 đến 20 ký tự.");
+    return;
+  }
+  if (value.includes("@")) {
+    setNicknameMsg("Biệt danh không được chứa ký tự @.");
+    return;
+  }
+
+  setSavingNickname(true);
+  setNicknameMsg("");
+
+  const { error } = await supabase
+    .from("profiles")
+    .update({ nickname: value })
+    .eq("id", currentUserId);
+
+  setSavingNickname(false);
+
+  if (error) {
+    if (error.code === "23505") {
+      setNicknameMsg("Biệt danh này đã có người dùng, hãy chọn tên khác.");
+    } else {
+      console.error("NICKNAME ERROR", error);
+      setNicknameMsg("Không lưu được biệt danh, hãy thử lại sau.");
+    }
+    return;
+  }
+
+  setNickname(value);
+  setNicknameInput(value);
+  setNicknameMsg("Đã lưu biệt danh ✅");
+  fetchLeaderboard();
 }
 
 async function updateStreak(userId: string) {
@@ -2552,6 +2587,38 @@ text-yellow-400
     </div>
   </div>
 ))}
+                <div className="mt-6 bg-slate-800 rounded-xl p-4">
+                    <p className="font-semibold mb-2">
+                        {nickname ? "Biệt danh của bạn" : "Đặt biệt danh để hiện trên bảng xếp hạng"}
+                    </p>
+
+                    <div className="flex gap-2">
+                        <input
+                            value={nicknameInput}
+                            onChange={(e) => setNicknameInput(e.target.value)}
+                            maxLength={20}
+                            placeholder="VD: ToanThuMinh"
+                            className="flex-1 rounded-lg bg-slate-700 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-yellow-400"
+                        />
+
+                        <button
+                            onClick={saveNickname}
+                            disabled={savingNickname}
+                            className="px-4 py-2 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-black font-bold disabled:opacity-50 cursor-pointer"
+                        >
+                            Lưu
+                        </button>
+                    </div>
+
+                    {nicknameMsg && (
+                        <p className="text-sm mt-2 text-gray-300">{nicknameMsg}</p>
+                    )}
+
+                    <p className="text-xs text-gray-400 mt-2">
+                        Không dùng tên thật hoặc thông tin cá nhân.
+                    </p>
+                </div>
+
                 <div className="mt-6 text-center">
                     <p className="font-bold">
                         Hạng của bạn: {myRank}
