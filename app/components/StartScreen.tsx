@@ -1,10 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { createClient } from "@/utils/supabase/client";
 
 const supabase = createClient();
-import { useEffect } from "react";
+
+// Đặt true sau khi đã cấu hình xong đăng nhập Microsoft (Azure) trong Supabase
+const ENABLE_MICROSOFT = false;
+
+const MIN_PASSWORD_LENGTH = 6;
+
+type SocialProvider = "google" | "facebook" | "azure"; // azure = Microsoft
+type AuthMode = "login" | "signup";
+type Notice = { type: "error" | "success"; text: string };
+
+// Dịch các lỗi hay gặp của Supabase sang tiếng Việt
+function toVietnamese(message: string): string {
+  const m = message.toLowerCase();
+
+  if (m.includes("invalid login credentials"))
+    return "Email hoặc mật khẩu không đúng.";
+  if (m.includes("email not confirmed"))
+    return "Email chưa được xác nhận. Hãy mở hộp thư (kể cả mục Spam) và bấm vào liên kết xác nhận.";
+  if (m.includes("already registered"))
+    return "Email này đã được đăng ký. Hãy chuyển sang Đăng nhập.";
+  if (m.includes("password should be at least"))
+    return `Mật khẩu cần có ít nhất ${MIN_PASSWORD_LENGTH} ký tự.`;
+  if (m.includes("not authorized"))
+    return "Hệ thống chưa gửi được email xác nhận tới địa chỉ này. Bạn hãy dùng đăng nhập Google/Facebook hoặc báo admin.";
+  if (m.includes("rate limit") || m.includes("too many") || m.includes("security purposes"))
+    return "Bạn thao tác quá nhiều lần, vui lòng thử lại sau ít phút.";
+  if (m.includes("error sending") || m.includes("sending confirmation"))
+    return "Không gửi được email xác nhận. Vui lòng thử lại sau hoặc báo admin.";
+  if (m.includes("invalid email") || m.includes("unable to validate email"))
+    return "Địa chỉ email không hợp lệ.";
+  if (m.includes("provider is not enabled") || m.includes("unsupported provider"))
+    return "Hình thức đăng nhập này chưa được bật. Vui lòng chọn cách khác.";
+
+  return message;
+}
 interface StartScreenProps {
   onStart: () => void;
   onLogin: () => void;
@@ -23,52 +57,123 @@ export default function StartScreen({
   const [showGuide, setShowGuide] = useState(false);
   const [showAuthModal, setShowAuthModal] =
   useState(false);
+  const [mode, setMode] = useState<AuthMode>("login");
   const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState<string | null>(null);
+  const [notice, setNotice] = useState<Notice | null>(null);
 
+  function openAuth() {
+    setMode("login");
+    setNotice(null);
+    setShowAuthModal(true);
+  }
 
-const handleSignUp = async () => {
-    const { error } =
-      await supabase.auth.signUp({
-        email,
-        password,
+  function switchMode(next: AuthMode) {
+    setMode(next);
+    setNotice(null);
+    setPassword("");
+    setConfirmPassword("");
+  }
+
+  const handleSignUp = async () => {
+    if (password.length < MIN_PASSWORD_LENGTH) {
+      setNotice({
+        type: "error",
+        text: `Mật khẩu cần có ít nhất ${MIN_PASSWORD_LENGTH} ký tự.`,
       });
-
-    if (error) {
-      alert(error.message);
+      return;
+    }
+    if (password !== confirmPassword) {
+      setNotice({ type: "error", text: "Hai mật khẩu chưa giống nhau." });
       return;
     }
 
-    alert(
-      "Đăng ký thành công. Kiểm tra email xác thực."
-    );
+    setLoading("submit");
+    setNotice(null);
+
+    const { data, error } = await supabase.auth.signUp({
+      email: email.trim(),
+      password,
+      options: { emailRedirectTo: window.location.origin },
+    });
+
+    setLoading(null);
+
+    if (error) {
+      setNotice({ type: "error", text: toVietnamese(error.message) });
+      return;
+    }
+
+    // Email đã đăng ký từ trước: Supabase không báo lỗi mà trả về user không có identities
+    if (data.user && data.user.identities && data.user.identities.length === 0) {
+      setNotice({
+        type: "error",
+        text: "Email này đã được đăng ký. Hãy chuyển sang Đăng nhập.",
+      });
+      return;
+    }
+
+    // Dự án tắt xác nhận email: đã đăng nhập luôn
+    if (data.session) {
+      window.location.reload();
+      return;
+    }
+
+    setMode("login");
+    setPassword("");
+    setConfirmPassword("");
+    setNotice({
+      type: "success",
+      text: "Đăng ký thành công! Hãy mở email, bấm vào liên kết xác nhận rồi quay lại đăng nhập.",
+    });
   };
 
   const handleLogin = async () => {
+    setLoading("submit");
+    setNotice(null);
 
-  await supabase.auth.signOut();
+    await supabase.auth.signOut();
 
-  const { data, error } =
-    await supabase.auth.signInWithPassword({
-      email,
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email.trim(),
       password,
     });
 
-  if (error) {
-    alert(error.message);
-    return;
-  }
+    if (error) {
+      setLoading(null);
+      setNotice({ type: "error", text: toVietnamese(error.message) });
+      return;
+    }
 
-  window.location.reload();
-};
-
-  const handleGoogleLogin = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: "google",
-    });
+    window.location.reload();
   };
 
-  
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (loading) return;
+    if (mode === "login") handleLogin();
+    else handleSignUp();
+  };
+
+  // Google, Facebook, Microsoft dùng chung một hàm
+  const handleOAuth = async (provider: SocialProvider) => {
+    setLoading(provider);
+    setNotice(null);
+
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider,
+      // Microsoft bắt buộc xin quyền "email" thì mới nhận được địa chỉ email
+      options: provider === "azure" ? { scopes: "email" } : undefined,
+    });
+
+    // Thành công thì trình duyệt tự chuyển sang trang đăng nhập của nhà cung cấp
+    if (error) {
+      setLoading(null);
+      setNotice({ type: "error", text: toVietnamese(error.message) });
+    }
+  };
 
   return (
     <>
@@ -163,7 +268,7 @@ const handleSignUp = async () => {
             Chinh phục toán học, thăng hạng bản thân
           </p>
           <p className="text-slate-400 text-lg">
-          Nhấn đăng nhập bằng Google để Bắt Đầu
+          Đăng nhập hoặc tạo tài khoản để bắt đầu
          </p>
         </div>
         
@@ -270,7 +375,7 @@ const handleSignUp = async () => {
   </button>
 ) : (
   <button
-  onClick={() => setShowAuthModal(true)}
+  onClick={openAuth}
   className="
   flex-1
   py-4
@@ -387,127 +492,174 @@ const handleSignUp = async () => {
       )}
 
       {showAuthModal && (
-  <div
-    className="
-      fixed
-      inset-0
-      bg-black/70
-      flex
-      items-center
-      justify-center
-      z-50
-    "
-  >
-    <div
-      className="
-        bg-white
-        rounded-3xl
-        p-6
-        w-full
-        max-w-md
-      "
-    >
-      <h2
-        className="
-          text-2xl
-          font-bold
-          mb-4
-          text-center
-        "
-      >
-        🚀 Đăng nhập
-      </h2>
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+          <div className="bg-white text-gray-900 rounded-3xl p-6 w-full max-w-md max-h-[95vh] overflow-y-auto">
+            <h2 className="text-2xl font-bold mb-1 text-center">
+              {mode === "login" ? "🚀 Đăng nhập" : "✨ Tạo tài khoản"}
+            </h2>
 
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) =>
-          setEmail(e.target.value)
-        }
-        className="
-          w-full
-          border
-          p-3
-          rounded-xl
-          mb-3
-        "
-      />
+            <p className="text-center text-sm text-gray-500 mb-4">
+              {mode === "login"
+                ? "Chào mừng bạn quay lại Math Quest!"
+                : "Chỉ mất vài giây để bắt đầu."}
+            </p>
 
-      <input
-        type="password"
-        placeholder="Mật khẩu"
-        value={password}
-        onChange={(e) =>
-          setPassword(e.target.value)
-        }
-        className="
-          w-full
-          border
-          p-3
-          rounded-xl
-          mb-4
-        "
-      />
+            {notice && (
+              <div
+                className={`mb-4 rounded-xl p-3 text-sm ${
+                  notice.type === "error"
+                    ? "bg-red-50 text-red-700 border border-red-200"
+                    : "bg-green-50 text-green-700 border border-green-200"
+                }`}
+              >
+                {notice.text}
+              </div>
+            )}
 
-      <button
-        onClick={handleLogin}
-        className="
-          w-full
-          bg-blue-500
-          text-white
-          py-3
-          rounded-xl
-          mb-3
-        "
-      >
-        Đăng nhập
-      </button>
+            {/* Đăng nhập nhanh bằng mạng xã hội */}
+            <div className="space-y-3">
+              <button
+                type="button"
+                onClick={() => handleOAuth("google")}
+                disabled={loading !== null}
+                className="w-full flex items-center justify-center gap-3 border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-60 py-3 rounded-xl font-semibold cursor-pointer"
+              >
+                <svg viewBox="0 0 48 48" className="w-5 h-5">
+                  <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+                  <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+                  <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+                  <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+                </svg>
+                {loading === "google" ? "Đang chuyển hướng..." : "Tiếp tục với Google"}
+              </button>
 
-      <button
-        onClick={handleSignUp}
-        className="
-          w-full
-          bg-green-500
-          text-white
-          py-3
-          rounded-xl
-          mb-3
-        "
-      >
-        Đăng ký
-      </button>
+              <button
+                type="button"
+                onClick={() => handleOAuth("facebook")}
+                disabled={loading !== null}
+                className="w-full flex items-center justify-center gap-3 bg-[#1877F2] hover:bg-[#166fe0] disabled:opacity-60 text-white py-3 rounded-xl font-semibold cursor-pointer"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                  <path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.34l-.53 3.49h-2.8V24C19.62 23.1 24 18.1 24 12.07" />
+                </svg>
+                {loading === "facebook" ? "Đang chuyển hướng..." : "Tiếp tục với Facebook"}
+              </button>
 
-      <button
-        onClick={handleGoogleLogin}
-        className="
-          w-full
-          bg-red-500
-          text-white
-          py-3
-          rounded-xl
-          mb-3
-        "
-      >
-        Google
-      </button>
+              {ENABLE_MICROSOFT && (
+                <button
+                  type="button"
+                  onClick={() => handleOAuth("azure")}
+                  disabled={loading !== null}
+                  className="w-full flex items-center justify-center gap-3 border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-60 py-3 rounded-xl font-semibold cursor-pointer"
+                >
+                  <svg viewBox="0 0 23 23" className="w-5 h-5">
+                    <path fill="#f35325" d="M1 1h10v10H1z" />
+                    <path fill="#81bc06" d="M12 1h10v10H12z" />
+                    <path fill="#05a6f0" d="M1 12h10v10H1z" />
+                    <path fill="#ffba08" d="M12 12h10v10H12z" />
+                  </svg>
+                  {loading === "azure" ? "Đang chuyển hướng..." : "Tiếp tục với Microsoft"}
+                </button>
+              )}
+            </div>
 
-      <button
-        onClick={() =>
-          setShowAuthModal(false)
-        }
-        className="
-          w-full
-          bg-gray-300
-          py-3
-          rounded-xl
-        "
-      >
-        Đóng
-      </button>
-    </div>
-  </div>
-)}
+            <div className="flex items-center gap-3 my-5 text-sm text-gray-400">
+              <div className="flex-1 h-px bg-gray-200" />
+              hoặc dùng email
+              <div className="flex-1 h-px bg-gray-200" />
+            </div>
+
+            {/* Email + mật khẩu */}
+            <form onSubmit={handleSubmit}>
+              <input
+                type="email"
+                placeholder="Email"
+                autoComplete="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full border border-gray-300 bg-white text-gray-900 p-3 rounded-xl mb-3"
+              />
+
+              <input
+                type="password"
+                placeholder={
+                  mode === "signup"
+                    ? `Mật khẩu (tối thiểu ${MIN_PASSWORD_LENGTH} ký tự)`
+                    : "Mật khẩu"
+                }
+                autoComplete={mode === "login" ? "current-password" : "new-password"}
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full border border-gray-300 bg-white text-gray-900 p-3 rounded-xl mb-3"
+              />
+
+              {mode === "signup" && (
+                <input
+                  type="password"
+                  placeholder="Nhập lại mật khẩu"
+                  autoComplete="new-password"
+                  required
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  className="w-full border border-gray-300 bg-white text-gray-900 p-3 rounded-xl mb-3"
+                />
+              )}
+
+              <button
+                type="submit"
+                disabled={loading !== null}
+                className={`w-full ${
+                  mode === "login"
+                    ? "bg-blue-500 hover:bg-blue-600"
+                    : "bg-green-500 hover:bg-green-600"
+                } disabled:opacity-60 text-white py-3 rounded-xl font-semibold cursor-pointer`}
+              >
+                {loading === "submit"
+                  ? "Vui lòng đợi..."
+                  : mode === "login"
+                  ? "Đăng nhập"
+                  : "Tạo tài khoản"}
+              </button>
+            </form>
+
+            <p className="text-center text-sm text-gray-600 mt-4">
+              {mode === "login" ? (
+                <>
+                  Chưa có tài khoản?{" "}
+                  <button
+                    type="button"
+                    onClick={() => switchMode("signup")}
+                    className="text-green-600 font-semibold hover:underline cursor-pointer"
+                  >
+                    Đăng ký
+                  </button>
+                </>
+              ) : (
+                <>
+                  Đã có tài khoản?{" "}
+                  <button
+                    type="button"
+                    onClick={() => switchMode("login")}
+                    className="text-blue-600 font-semibold hover:underline cursor-pointer"
+                  >
+                    Đăng nhập
+                  </button>
+                </>
+              )}
+            </p>
+
+            <button
+              type="button"
+              onClick={() => setShowAuthModal(false)}
+              className="w-full mt-4 bg-gray-200 hover:bg-gray-300 py-3 rounded-xl cursor-pointer"
+            >
+              Đóng
+            </button>
+          </div>
+        </div>
+      )}
 
     </>
   );

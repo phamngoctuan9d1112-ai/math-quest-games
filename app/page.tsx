@@ -1660,13 +1660,26 @@ potion,
   // ==========================================
   // 4. CÁC HÀM XỬ LÝ SỰ KIỆN (Functions)
   // ==========================================
-  const onLogin = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: 'google',
+  // Đăng nhập bằng tài khoản mạng xã hội. Gọi onLogin() không tham số = Google như trước.
+  type SocialProvider = "google" | "facebook" | "azure"; // azure = Microsoft
+  const onLogin = async (provider?: SocialProvider | unknown) => {
+    // Phòng trường hợp component con truyền onLogin thẳng vào onClick (tham số đầu là sự kiện chuột)
+    const p: SocialProvider =
+      provider === "facebook" || provider === "azure" ? provider : "google";
+
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: p,
       options: {
         redirectTo: `${window.location.origin}/auth/callback`,
+        // Microsoft bắt buộc xin quyền "email" thì Supabase mới nhận được địa chỉ email
+        ...(p === "azure" ? { scopes: "email" } : {}),
       },
     });
+
+    if (error) {
+      console.error("OAUTH ERROR", error);
+      alert("Không đăng nhập được, vui lòng thử lại.");
+    }
   };
 
   const onLogout = async () => {
