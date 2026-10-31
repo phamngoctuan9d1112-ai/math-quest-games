@@ -67,7 +67,7 @@ function VictoryModal({
     >
       <Confetti
   recycle={false}
-  numberOfPieces={400}
+  numberOfPieces={400}  
 />
       <motion.div
       
