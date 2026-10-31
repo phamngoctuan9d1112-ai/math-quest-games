@@ -2,10 +2,18 @@
 
 type Props = {
     world: number;
+    title?: string;
+    done?: number;
+    total?: number;
+    debugText?: string;
 };
 
 export default function HUD({
     world,
+    title,
+    done,
+    total,
+    debugText,
 }: Props) {
     return (
         <div
@@ -19,10 +27,21 @@ export default function HUD({
             py-2
             text-white
             font-bold
-            z-50
+            z-40
+            space-y-1
             "
         >
-            🌍 World {world}
+            <div>🌍 World {world}</div>
+
+            {title && total !== undefined && (
+                <div className="text-sm font-semibold text-yellow-300">
+                    📜 {title}: {done ?? 0}/{total}
+                </div>
+            )}
+
+            {debugText && (
+                <div className="text-xs font-mono text-green-300">{debugText}</div>
+            )}
         </div>
     );
 }

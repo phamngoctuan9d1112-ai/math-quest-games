@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import dynamic from "next/dynamic";
+import { REWARD_INFO, rollChestReward } from "./components/rewards";
 import { unlockAchievement } from "./lib/achievement";
 import { trackEvent } from "./lib/analytics";
 import { worldThemes } from "./data/worldThemes";
@@ -913,84 +914,69 @@ async function loadAchievements() {
   );
 }
 
+const openingChestRef = useRef(false);
+
 async function openChest(chest: any) {
+  // Chống bấm nhiều lần / mở lại rương đã mở
+  if (!chest || chest.opened || openingChestRef.current) return;
+  openingChestRef.current = true;
 
-  if (chest.opened) return;
+  try {
+    const reward = rollChestReward(chest.type);
 
-  let reward = "";
+    // Đánh dấu đã mở trên server trước; chỉ thành công nếu rương vẫn chưa mở
+    const { data: updated, error } = await supabase
+      .from("chests")
+      .update({ opened: true, reward })
+      .eq("id", chest.id)
+      .eq("opened", false)
+      .select();
 
-  const random = Math.random();
+    if (error || !updated || updated.length === 0) {
+      console.error("OPEN CHEST ERROR", error);
+      alert("Không mở được rương này (có thể đã mở rồi). Hãy thử lại sau.");
+      await loadChests();
+      return;
+    }
 
-if(random<0.2){
+    if (reward === "shield") setShield(prev => prev + 1);
+    if (reward === "scroll") setScroll(prev => prev + 1);
+    if (reward === "book") setBook(prev => prev + 1);
+    if (reward === "magicStone") setMagicStone(prev => prev + 1);
+    if (reward === "potion") setPotion(prev => prev + 1);
 
-reward="shield";
+    const info = REWARD_INFO[reward];
+    alert(`🎉 Bạn nhận được: ${info.emoji} ${info.name}`);
 
-}
-else if(random<0.4){
-
-reward="scroll";
-
-}
-else if(random<0.6){
-
-reward="book";
-
-}
-else if(random<0.8){
-
-reward="magicStone";
-
-}
-else{
-
-reward="potion";
-
-}
-
-if(reward==="shield"){
-
-setShield(prev=>prev+1);
-
+    await loadChests();
+  } finally {
+    openingChestRef.current = false;
+  }
 }
 
-if(reward==="scroll"){
-
-setScroll(prev=>prev+1);
-
+// ---- Thưởng mini game: mỗi ngày 1 lần ----
+function miniGameRewardKey() {
+  return `mq_minigame_${currentUserId ?? "guest"}`;
 }
 
-if(reward==="book"){
-
-setBook(prev=>prev+1);
-
+function todayKey() {
+  return new Date().toISOString().split("T")[0];
 }
 
-if(reward==="magicStone"){
-
-setMagicStone(prev=>prev+1);
-
+function isMiniGameRewardAvailable() {
+  try {
+    return localStorage.getItem(miniGameRewardKey()) !== todayKey();
+  } catch {
+    return false;
+  }
 }
 
-if(reward==="potion"){
-
-setPotion(prev=>prev+1);
-
-}
-  await supabase
-    .from("chests")
-    .update({
-      opened: true,
-      reward
-    })
-    .eq("id", chest.id);
-
-    
-
-  alert("🎉 Bạn nhận được: " + reward);
-
-  await loadChests();
-
-
+function claimMiniGameReward(reward: { xp: number; coins: number }) {
+  try {
+    localStorage.setItem(miniGameRewardKey(), todayKey());
+  } catch {}
+  setXp(prev => prev + reward.xp);
+  setCoins(prev => prev + reward.coins);
 }
 
 async function checkAchievements(
@@ -2297,7 +2283,7 @@ setIsLoggedIn(true);
 if (showChestInventory) {
   return (
     <ChestInventory
-      items={chestItems}
+      items={chests.filter((c: any) => c.opened && c.reward).map((c: any) => c.reward)}
       onClose={() => setShowChestInventory(false)}
     />
   );
@@ -2369,6 +2355,7 @@ if (showStory) {
   return (
     <Inventory
       inventory={inventory}
+      consumables={{ shield, scroll, book, magicStone, potion }}
       weapon={weapon}
       pet={pet}
       avatar={avatar}
@@ -2776,6 +2763,8 @@ text-yellow-400
           {showMiniGame && (
     <MiniGame
         onClose={() => setShowMiniGame(false)}
+        rewardAvailable={isMiniGameRewardAvailable()}
+        onReward={claimMiniGameReward}
     />
 )}
         </main>
