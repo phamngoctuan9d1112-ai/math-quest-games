@@ -1,12 +1,15 @@
 export type Rect = { x: number; y: number; width: number; height: number };
 export type Point = { x: number; y: number };
 
-// Dữ liệu trong collision.ts được trích từ ảnh gấp đôi bản đồ đang hiển thị (1632×918),
-// nên phải nhân 0.5 mới khớp với toạ độ người chơi / NPC.
-export const COLLISION_SCALE = 0.5;
+// Dữ liệu trong collision.ts được trích từ chính ảnh minimap.png ở kích thước gốc (3063×1750),
+// còn game hiển thị ảnh đó rộng 1632px, nên phải nhân 1632/3063 ≈ 0.533 mới khớp bản đồ.
+export const MAP_IMAGE_WIDTH = 3063;
+export const MAP_IMAGE_HEIGHT = 1750;
+export const COLLISION_SCALE = 1632 / MAP_IMAGE_WIDTH;
 
-// Bỏ các hộp "nhiễu" quá nhỏ (0×0, 1×1...) vì chúng tạo ra vật cản vô hình.
-export const MIN_RECT_SIZE = 8;
+// Bỏ các hộp quá nhỏ (đèn, cọc rào, vết nhiễu 0×0...) để không chặn đường vô hình.
+// Tính theo pixel của ảnh gốc, trước khi nhân tỉ lệ.
+export const MIN_RECT_SIZE = 20;
 
 export function scaleRects(
   rects: Rect[],

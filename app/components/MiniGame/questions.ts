@@ -16,8 +16,8 @@ export const npcQuestions: NPCQuestion[] = [
     {
         id: 1,
 
-        x: 470,
-        y: 460,
+        x: 556,
+        y: 492,
 
         question: "2 + 2 bằng bao nhiêu?",
 
@@ -34,8 +34,8 @@ export const npcQuestions: NPCQuestion[] = [
     {
         id: 2,
 
-        x: 820,
-        y: 350,
+        x: 888,
+        y: 348,
 
         question: "5 × 5 bằng bao nhiêu?",
 
@@ -52,8 +52,8 @@ export const npcQuestions: NPCQuestion[] = [
     {
         id: 3,
 
-        x: 1200,
-        y: 500,
+        x: 1212,
+        y: 568,
 
         question: "10 − 4 bằng bao nhiêu?",
 
@@ -70,8 +70,8 @@ export const npcQuestions: NPCQuestion[] = [
     {
         id: 4,
 
-        x: 1500,
-        y: 750,
+        x: 1332,
+        y: 696,
 
         question: "√16 bằng?",
 

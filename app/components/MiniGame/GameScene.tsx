@@ -10,12 +10,13 @@ import PauseMenu from "./PauseMenu";
 import {
     collisions,
     MAP_WIDTH,
-    MAP_HEIGHT,
 } from "./collision";
 import { npcQuestions } from "./questions";
 import { quest } from "./quests";
 import {
     COLLISION_SCALE,
+    MAP_IMAGE_WIDTH,
+    MAP_IMAGE_HEIGHT,
     scaleRects,
     hitsWall,
     checkReachable,
@@ -24,10 +25,11 @@ import {
 // ---- Cấu hình (chỉnh ở đây) ----
 const SPAWN = { x: 900, y: 120 };
 const PLAYER_SPEED = 360;   // px / giây (≈ 6px × 60fps như bản cũ)
-const HITBOX = 10;          // cạnh hộp va chạm của nhân vật (nhỏ để lọt các lối đi hẹp)
+const HITBOX = 16;          // cạnh hộp va chạm của nhân vật
 const SPRITE_HALF = 24;     // nửa kích thước ảnh nhân vật (w-12 = 48px)
 const TALK_DISTANCE = 70;   // khoảng cách tối đa để nói chuyện với NPC
-const MAP = { w: MAP_WIDTH, h: MAP_HEIGHT };
+// Giữ đúng tỉ lệ ảnh minimap.png (3063×1750) → cao ≈ 932px, không phải 918
+const MAP = { w: MAP_WIDTH, h: Math.round((MAP_WIDTH * MAP_IMAGE_HEIGHT) / MAP_IMAGE_WIDTH) };
 
 type Props = {
     onComplete: () => void;
