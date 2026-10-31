@@ -67,7 +67,7 @@ function VictoryModal({
     >
       <Confetti
   recycle={false}
-  numberOfPieces={400}  
+  numberOfPieces={400}
 />
       <motion.div
       
@@ -735,23 +735,34 @@ potion: 0,
   }
 }
 
-async function createChest(type: string) {
+// Loại rương nhận được khi hoàn thành world (chỉnh ở đây nếu muốn world cao nhận rương xịn hơn)
+function chestTypeForWorld(worldId: number): "bronze" | "silver" | "gold" {
+  // Ví dụ: if (worldId >= 7) return "gold"; if (worldId >= 4) return "silver";
+  return "bronze";
+}
 
+// Trả về true nếu thật sự tạo được rương mới.
+// Với rương theo world (có worldId), DB chỉ cho phép 1 rương / người / world.
+async function createChest(type: string, worldId?: number): Promise<boolean> {
   const {
     data: { session },
   } = await supabase.auth.getSession();
   const user = session?.user;
+  if (!user) return false;
 
-  if (!user) return;
+  const { error } = await supabase.from("chests").insert({
+    user_id: user.id,
+    type,
+    opened: false,
+    ...(worldId ? { world_id: worldId } : {}),
+  });
 
-  await supabase
-    .from("chests")
-    .insert({
-      user_id: user.id,
-      type,
-      opened: false,
-    });
-
+  if (error) {
+    // 23505 = world này đã tặng rương rồi → không tặng lần 2
+    if (error.code !== "23505") console.error("CREATE CHEST ERROR", error);
+    return false;
+  }
+  return true;
 }
 
 async function updateCoins(newCoins: number) {
@@ -2005,14 +2016,15 @@ setStoryIndex(0);
 
 
 
-const random = Math.random();
+// Hoàn thành world lần đầu: chắc chắn nhận 1 rương (mỗi world 1 rương)
+const chestType = chestTypeForWorld(selectedWorld || 0);
+const gotWorldChest = await createChest(chestType, selectedWorld || undefined);
 
-if (random < 0.25) {
-
-    await createChest("bronze");
-
-    setNewChest("Bronze");
-
+if (gotWorldChest) {
+    setNewChest(chestType.charAt(0).toUpperCase() + chestType.slice(1));
+} else if (Math.random() < 0.25) {
+    // Chơi lại world đã hoàn thành: vẫn còn 25% cơ hội nhận thêm rương đồng như trước
+    if (await createChest("bronze")) setNewChest("Bronze");
 }
 
 
