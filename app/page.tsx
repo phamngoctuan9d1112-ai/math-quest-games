@@ -32,6 +32,7 @@ const PremiumModal = dynamic(() => import("./components/PremiumModal"));
 const Inventory = dynamic(() => import("./components/Inventory"));
 const ChestRoom = dynamic(() => import("./components/ChestRoom"));
 const TermsModal = dynamic(() => import("./components/TermsModal"));
+const AccountModal = dynamic(() => import("./components/AccountModal"));
 
 const supabase = createBrowserClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -238,6 +239,7 @@ export default function Home() {
   const [showChestRoom, setShowChestRoom] =
 useState(false);
 const [showMiniGame, setShowMiniGame] = useState(false);
+const [showAccount, setShowAccount] = useState(false);
 const [shield, setShield] = useState(0);
 const [showAI, setShowAI] = useState(false);
 
@@ -2785,6 +2787,15 @@ text-yellow-400
               
             
           />
+          <button
+            onClick={() => setShowAccount(true)}
+            className="fixed bottom-4 right-4 z-40 bg-slate-800/90 hover:bg-slate-700 text-white text-sm font-semibold px-4 py-2 rounded-full border border-white/20 shadow-lg cursor-pointer"
+          >
+            ⚙️ Tài khoản
+          </button>
+
+          {showAccount && <AccountModal onClose={() => setShowAccount(false)} />}
+
           {showMiniGame && (
     <MiniGame
         onClose={() => setShowMiniGame(false)}
