@@ -86,7 +86,8 @@ function VictoryModal({
         className="
         bg-white
         rounded-3xl
-        p-8
+        p-5
+        sm:p-8
         w-[420px]
         max-w-[95%]
         text-center
@@ -2393,7 +2394,7 @@ if (showStory) {
 
   if (showAchievements) {
     return (
-      <main className="min-h-screen flex items-center justify-center">
+      <main className="min-h-screen flex items-center justify-center p-2 sm:p-4">
         <div
 className="
 relative
@@ -2401,7 +2402,7 @@ relative
 w-[980px]
 max-w-[95vw]
 
-max-h-[92vh]
+max-h-[92dvh]
 overflow-y-auto
 
 rounded-[32px]
@@ -2413,7 +2414,8 @@ border-cyan-400/20
 
 shadow-[0_0_60px_rgba(0,180,255,.15)]
 
-p-8
+p-4
+sm:p-8
 "
 >
           <TopBar hearts={hearts} coins={coins} xp={xp} level={level} />
@@ -2468,12 +2470,12 @@ transition
   }}
 >
   <div className="absolute inset-0 bg-black/45" />
-        <h1 className="text-7xl font-bold">👑 CHÚC MỪNG</h1>
-        <p className="text-4xl">Bạn đã hoàn thành</p>
-        <p className="text-6xl font-bold">MATH QUEST THPT</p>
+        <h1 className="text-4xl sm:text-7xl font-bold text-center px-4">👑 CHÚC MỪNG</h1>
+        <p className="text-2xl sm:text-4xl text-center px-4">Bạn đã hoàn thành</p>
+        <p className="text-3xl sm:text-6xl font-bold text-center px-4">MATH QUEST THPT</p>
         <p className="text-2xl">🌟 79 World đã chinh phục</p>
         <p className="text-2xl">🏆 Danh hiệu:</p>
-        <p className="text-4xl font-bold">Chúa Tể Toán Học 👑</p>
+        <p className="text-2xl sm:text-4xl font-bold text-center px-4">Chúa Tể Toán Học 👑</p>
         <p className="text-xl">XP: {xp}</p>
         <p className="text-xl">Coin: {coins}</p>
         <button onClick={() => { setGameCompleted(false); setSelectedWorld(null); setSelectedSubMap(null); setCurrentSubNode(null); }} className="bg-white text-black px-8 py-4 rounded-xl font-bold text-xl">
@@ -2486,9 +2488,9 @@ transition
   if (newWorldUnlocked) {
     return (
       <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-purple-700 via-blue-600 to-cyan-500 text-white">
-        <div className="text-8xl animate-bounce">🔓</div>
-        <h1 className="text-6xl font-bold mt-4">World Mới!</h1>
-        <p className="text-3xl mt-4">🌍 World {newWorldUnlocked} đã được mở khóa</p>
+        <div className="text-7xl sm:text-8xl animate-bounce">🔓</div>
+        <h1 className="text-4xl sm:text-6xl font-bold mt-4 text-center px-4">World Mới!</h1>
+        <p className="text-xl sm:text-3xl mt-4 text-center px-4">🌍 World {newWorldUnlocked} đã được mở khóa</p>
         <button
   onClick={() => {
     setNewWorldUnlocked(null);
@@ -2533,14 +2535,17 @@ transition
   if (showLeaderboard) {
     const medals = ["🥇", "🥈", "🥉"];
     return (
-        <main className="min-h-screen flex items-center justify-center bg-black/60">
+        <main className="min-h-screen flex items-center justify-center bg-black/60 p-3">
             <div className="
 bg-slate-900
 text-white
 rounded-3xl
-p-8
+p-5
+sm:p-8
 w-[700px]
 max-w-full
+max-h-[92dvh]
+overflow-y-auto
 shadow-2xl
 border
 border-slate-700
@@ -2789,7 +2794,7 @@ text-yellow-400
           />
           <button
             onClick={() => setShowAccount(true)}
-            className="fixed bottom-4 right-4 z-40 bg-slate-800/90 hover:bg-slate-700 text-white text-sm font-semibold px-4 py-2 rounded-full border border-white/20 shadow-lg cursor-pointer"
+            className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-40 bg-slate-800/90 hover:bg-slate-700 text-white text-sm font-semibold px-4 py-2 rounded-full border border-white/20 shadow-lg cursor-pointer"
           >
             ⚙️ Tài khoản
           </button>
@@ -2810,8 +2815,8 @@ text-yellow-400
 
   if (hearts <= 0) {
     return (
-      <main className="min-h-screen flex flex-col items-center justify-center gap-4">
-        <h1 className="text-5xl font-bold">💀 Game Over</h1>
+      <main className="min-h-screen flex flex-col items-center justify-center gap-4 px-4 text-center">
+        <h1 className="text-4xl sm:text-5xl font-bold">💀 Game Over</h1>
         <p>⭐ Điểm : {xp}</p>
         <p>🪙 Coin: {coins}</p>
         <button onClick={() => { setCurrent(0); setHearts(3); setSelectedWorld(null); setSelectedSubMap(null); setCurrentSubNode(null); }} className="bg-red-500 text-white px-6 py-3 rounded-xl">

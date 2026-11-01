@@ -1,12 +1,9 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { createClient } from "@/utils/supabase/client";
 
 const supabase = createClient();
-
-// Đặt true sau khi đã cấu hình xong đăng nhập Microsoft (Azure) trong Supabase
-const ENABLE_MICROSOFT = false;
 
 const MIN_PASSWORD_LENGTH = 6;
 
@@ -63,6 +60,48 @@ export default function StartScreen({
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState<string | null>(null);
   const [notice, setNotice] = useState<Notice | null>(null);
+
+  // Nhà cung cấp nào đã được bật trong Supabase (Google luôn hiện như trước)
+  const [enabledProviders, setEnabledProviders] = useState<
+    Partial<Record<SocialProvider, boolean>>
+  >({ google: true });
+
+  // Khi mở khung đăng nhập, hỏi Supabase xem Facebook / Microsoft đã bật chưa.
+  // Chưa bật thì ẩn nút, tránh người chơi bị đưa tới trang lỗi của Supabase.
+  useEffect(() => {
+    if (!showAuthModal) return;
+
+    let cancelled = false;
+
+    (async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/settings`,
+          {
+            headers: {
+              apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+            },
+          }
+        );
+        if (!res.ok) return;
+
+        const settings = await res.json();
+        if (cancelled) return;
+
+        setEnabledProviders({
+          google: true,
+          facebook: settings?.external?.facebook === true,
+          azure: settings?.external?.azure === true,
+        });
+      } catch {
+        // Không lấy được cấu hình: chỉ giữ nút Google
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [showAuthModal]);
 
   function openAuth() {
     setMode("login");
@@ -264,7 +303,7 @@ export default function StartScreen({
 
 </div>
 
-          <p className="text-slate-400 text-lg">
+          <p className="text-slate-400 text-base sm:text-lg px-2">
             Chinh phục toán học, thăng hạng bản thân
           </p>
           <p className="text-slate-400 text-lg">
@@ -279,8 +318,10 @@ export default function StartScreen({
   grid
   grid-cols-2
   md:flex
-  gap-8
-  mt-10
+  gap-6
+  sm:gap-8
+  mt-8
+  sm:mt-10
 "
 >
   
@@ -398,7 +439,8 @@ export default function StartScreen({
 
           <footer
   className="
-  mt-20
+  mt-12
+  sm:mt-20
   w-full
   border-t
   border-white/10
@@ -449,15 +491,15 @@ export default function StartScreen({
 
       {/* Popup Hướng dẫn */}
       {showGuide && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-3">
 
-          <div className="bg-white text-black rounded-3xl w-[750px] max-w-[95%] p-8 shadow-2xl">
+          <div className="bg-white text-black rounded-3xl w-[750px] max-w-full max-h-[92dvh] overflow-y-auto p-5 sm:p-8 shadow-2xl">
 
-            <h1 className="text-4xl font-bold text-center mb-8">
+            <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8">
               📖 Hướng Dẫn Chơi
             </h1>
 
-            <div className="space-y-5 text-lg">
+            <div className="space-y-4 sm:space-y-5 text-base sm:text-lg">
 
               <div>🎯 Trả lời đúng câu hỏi để nhận <b>XP</b> và <b>Coin</b>.</div>
 
@@ -481,7 +523,7 @@ export default function StartScreen({
 
             <button
               onClick={() => setShowGuide(false)}
-              className="w-full mt-10 bg-red-500 hover:bg-red-600 hover:scale-105 transition-all text-white py-4 rounded-xl font-bold text-xl"
+              className="w-full mt-8 sm:mt-10 bg-red-500 hover:bg-red-600 hover:scale-105 transition-all text-white py-3 sm:py-4 rounded-xl font-bold text-lg sm:text-xl cursor-pointer"
             >
               Đã hiểu
             </button>
@@ -493,7 +535,7 @@ export default function StartScreen({
 
       {showAuthModal && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-          <div className="bg-white text-gray-900 rounded-3xl p-6 w-full max-w-md max-h-[95vh] overflow-y-auto">
+          <div className="bg-white text-gray-900 rounded-3xl p-6 w-full max-w-md max-h-[92dvh] overflow-y-auto">
             <h2 className="text-2xl font-bold mb-1 text-center">
               {mode === "login" ? "🚀 Đăng nhập" : "✨ Tạo tài khoản"}
             </h2>
@@ -533,6 +575,7 @@ export default function StartScreen({
                 {loading === "google" ? "Đang chuyển hướng..." : "Tiếp tục với Google"}
               </button>
 
+              {enabledProviders.facebook && (
               <button
                 type="button"
                 onClick={() => handleOAuth("facebook")}
@@ -544,8 +587,9 @@ export default function StartScreen({
                 </svg>
                 {loading === "facebook" ? "Đang chuyển hướng..." : "Tiếp tục với Facebook"}
               </button>
+              )}
 
-              {ENABLE_MICROSOFT && (
+              {enabledProviders.azure && (
                 <button
                   type="button"
                   onClick={() => handleOAuth("azure")}
