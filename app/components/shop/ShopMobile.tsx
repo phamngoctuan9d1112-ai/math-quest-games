@@ -28,6 +28,15 @@ type Props = {
   onClose: () => void;
 };
 
+const TAB_LABEL: Record<string, string> = {
+  featured: "Nổi bật",
+  pet: "Pet",
+  avatar: "Avatar",
+  weapon: "Vũ khí",
+  item: "Vật phẩm",
+  premium: "VIP",
+};
+
 export default function ShopMobile({
   coins,
   inventory,
@@ -48,7 +57,7 @@ className="
 h-full
 overflow-y-scroll
 touch-pan-y
-pb-[180px]
+pb-4
 "
 >
 
@@ -58,7 +67,7 @@ pb-[180px]
 
 {/* ====================================================== */}
 
-<div className="px-4 pt-4">
+<div className="px-4 pt-[max(1rem,env(safe-area-inset-top))]">
 
 <div
 className="
@@ -815,7 +824,7 @@ className="
 fixed
 
 right-5
-bottom-24
+bottom-[calc(6rem+env(safe-area-inset-bottom))]
 
 w-14
 h-14
@@ -864,7 +873,7 @@ right-0
 z-[90]
 
 px-3
-pb-4
+pb-[max(1rem,env(safe-area-inset-bottom))]
 pt-2
 
 bg-gradient-to-t
@@ -995,7 +1004,7 @@ activeTab===key
 
 >
 
-{key}
+{TAB_LABEL[String(key)] ?? String(key)}
 
 </div>
 
